@@ -5,6 +5,7 @@
 
 # Isolated Minecraft installation and its generated verification fixture.
 /integration/
+/Rejuvenation 14 copy/
 
 # Python caches and local diagnostic logs.
 __pycache__/

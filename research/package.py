@@ -20,14 +20,15 @@ with zipfile.ZipFile(pack) as z:
     assert 'pack.mcmeta' in z.namelist()
     definitions=[n for n in z.namelist() if '/fields/' in n and n.endswith('.json')];assert len(definitions)==57
     for n in definitions:assert read(ROOT/'datapack'/n)==json.loads(z.read(n))
-validation=read(ROOT/'research/test-results/datapack-validation.json');tests=read(ROOT/'research/test-results/simulator.json');comparison=read(ROOT/'research/source-comparison.json')
+validation=read(ROOT/'research/test-results/datapack-validation.json');tests=read(ROOT/'research/test-results/simulator.json');comparison=read(ROOT/'research/source-comparison.json');review=read(ROOT/'research/test-results/semantic-review-validation.json')
 assert not validation['errors'] and not tests['failed'] and not comparison['differences']
-manifest={'version':'0.1.0','releaseStatus':'incomplete-fidelity-preview','minecraft':'1.21.1','loader':'Fabric 0.18.4','cobblemon':'1.7.3+1.21.1',
+manifest={'version':'0.1.0','releaseStatus':'source-audit-complete-preview','minecraft':'1.21.1','loader':'Fabric 0.18.4','cobblemon':'1.7.3+1.21.1',
     'artifacts':[{'path':p.name,'bytes':p.stat().st_size,'sha256':digest(p)} for p in [jar,pack]],
-    'fieldsDiscovered':57,'definitionsLoaded':57,'fullyBehaviorallyVerified':0,'partiallyImplemented':57,
+    'fieldsDiscovered':57,'definitionsLoaded':57,'sourceAuditClosedFields':len(review['completeFields']),'partiallyImplemented':57-len(review['completeFields']),
+    'fullyBehaviorallyVerified':0,'behaviorVerificationScope':'Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification',
     'compiledDefinitionPropertiesCompared':comparison['comparisons'],'compiledDefinitionDifferences':len(comparison['differences']),
     'simulatorTestsPassed':tests['passed'],'candidateBiomes':validation['biomes'],'explicitlyMappedCandidates':validation['explicitBiomes'],'candidateFallbacks':0,
-    'unavailableReferences':validation['unavailableCounts'],'fullCompletionStandardMet':False,
+    'unavailableReferences':validation['unavailableCounts'],'implementationCompletionStandardMet':not review['ordinaryPending'] and len(review['completeFields'])==57,
     'remainingWork':'../docs/REMAINING_WORK.md','protectedFiles':'../research/protected-integrity.json'}
 oracle=ROOT/'research/test-results/runtime-oracle.json'
 if oracle.exists():
@@ -49,4 +50,4 @@ if runtime.exists():
 build=ROOT/'research/test-results/build.log'
 if build.exists():manifest['buildLog']={'successful':'BUILD SUCCESSFUL' in build.read_text(encoding='utf-8',errors='replace'),'sha256':digest(build),'path':'../research/test-results/build.log'}
 (DIST/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
-print('Packaged',jar.name,'and',pack.name,'with SHA-256 receipt; full fidelity remains unfinished')
+print('Packaged',jar.name,'and',pack.name,'with SHA-256 receipt;',len(review['completeFields']),'of 57 fields source-audit closed')

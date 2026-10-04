@@ -1,20 +1,44 @@
-# Remaining ordinary implementation review
+# Remaining and future work
 
-The continuation excludes only custom Rejuvenation moves and Crests, plus unavailable custom Silvally models while retaining ordinary type semantics. Trainer/Run & Bun integration and broad final multiplayer certification are later tasks. No field is currently declared implementation-complete or fully verified.
+## Status (2026-10-04)
 
-The explicit semantic review register currently closes 88 of the current 1,729 nested AST leads: 74 implemented and tested, nine custom-move exclusions, and five Crest exclusions. The other 1,641 leads still require review. These counts include 763 AI leads and overlapping nested branches; they are not unique mechanic counts. The audit now resolves local field-list aliases, including Zen Mode and sound-move boosts. Other indirect/contextual references still require comprehensive review. Generator metadata cannot certify a branch.
+All 57 Rejuvenation 14.0.14 field definitions ship, and the implementation audit is closed for every field. [FIELD_COVERAGE.md](FIELD_COVERAGE.md) records each field's status, evidence and exceptions.
 
-New executable work covers Petrification and its status/client/persistence path; independent real-time-night and underwater capture predicates; many distributed move handlers; ordinary ability amplifications/replacements; New World forms and restoration; Holy/Glitch Silvally types; source entry form checks; and native cure-message suppression. Focused tests and exact review decisions are in the test receipts and semantic register. These are implemented and are no longer implementation placeholders.
+Two things support that claim:
 
-Implementation review still needs to close:
+- **AST leads:** every one of the 1,736 nested AST leads has an explicit decision in `research/semantic-reviews.json`, and zero runtime leads are pending. The 973 runtime leads break down as 905 implemented and tested, 27 presentation-only, 11 custom-move exclusions, 11 Crest exclusions, 10 unreachable in this build, and 9 proven unsupported. A further 763 leads are Battle AI.
+- **Blind-spot scan:** the AST audit cannot see `when` clauses inside `case true`. `research/blindspot_scan.py` lists those references, and `research/audit-worklist.md` triages every one.
+- **Definitions:** the compiled-definition comparison covers 4,494 properties with zero differences.
 
-- Every remaining distributed ordinary move branch, including target/escape/protection/failure checks, hazards, room interactions, sleep-dependent effects, stat transfer and multi-stage handlers. Several recently added recipes still need source-specific compound guards and flavor ordering review.
-- Every remaining damage/stat/status/ability branch, including global/partner suppression, absorption/redirection, changed stat callbacks and mixed Crest/ordinary conditions. Only the Crest clause may be excluded.
-- Field-state paths through progression, destruction, counters, memory, temporary hard fields and overlays; failed moves, simultaneous clocks, expiry and chained replacements need exact call-site review.
-- Exact flavor sequencing for all handlers. Magic Powder, Shattered Psyche, repeated Castling, success-only Recycle feedback and Download pre-boost flavor now have focused ordering tests. Remaining handlers still require their own review.
-- Field-dependent money handlers for Pay Day/Make It Rain and related item interactions, including investigating the installed currency API before classifying any incompatibility.
-- AI leads that reveal mechanics and each field's cross-handler completeness. Each pending branch needs an explicit semantic decision with regression evidence; no complete field can be inferred from compiled data alone.
+Scope exclusions are unchanged: custom Rejuvenation moves, Crests, and unavailable custom Silvally models (their ordinary type semantics are kept). Trainer, Gym, Elite Four, League and story files are untouched. Custom-move and Crest exclusions are recorded individually and never close the surrounding ordinary behavior.
 
-The focused live persistent-status and message checks passed two owned battles: Petrification/residuals/Purify and Haunted Magic Powder/silent cure. Their receipt fingerprints the tested jar; later builds are not automatically live-certified. Exhaustive live/multiplayer behavior remains a later task. The bounded Ruby oracle covers only `fieldDefenseBoost` and `calculateFieldMultiplier`, not every caller or field. Custom-move/Crest exclusions are retained individually in the review register and must never close surrounding ordinary behavior.
+## Deliberate deviations
 
-Recent implementation fixes: exact ordinary Glitch Metronome source pool (265 moves), Punk Rock Big Top/Cave replacement callback, source Parting Shot user-stage gate and unconditional successful-use switch, independent temporary clocks, New World Gravity/Starlight restoration and permanence, Frozen Dimension overlay pause, hard-before-overlay expiry ordering, bound-clock cleanup and shared sequential roll preservation. The mixed Punk Rock/Jungle Beat source lead remains pending until its custom-ability clause is handled.
+- **Salt Cure on Holy Field and Deux Finalis** deals 1/6 per turn (1/3 to Water/Steel). The shipped Champions build deals 1/8 (1/4). This port uses the source's pre-Champions Holy divisor by project decision. Off these fields, Cobblemon's native 1/8 (1/4) applies.
+
+## Future work
+
+1. **New live Minecraft checks** (`research/live_check.py`, `LiveBattleFixture.java`). The `--battle` suite passed on the current jar: seven battles, 23 checks. These checks still need fixture phases:
+   - BoostMessageMixin
+   - AbilityRegistryMixin
+   - timed strong-winds text
+   - a field entry hazard
+   - Revival Blessing on Holy Field
+   - Ion Deluge/Stoked Sparksurfer terrain in a live Z-move battle
+
+   Also rerun `--abilities` and `--status` on the current jar.
+2. **Two-client multiplayer and disconnect verification.** This has never been run. Simulator doubles and single-client checks don't replace it.
+3. **Run & Bun AI adapter.** The 763 Battle AI leads are deferred to it, and it isn't started. See [TRAINER_INTEGRATION.md](TRAINER_INTEGRATION.md).
+4. **Forms absent from the pack.** Coal Furnace, World of Nightmares, Mega Sol and 26 other abilities belong to such forms and are recorded unsupported/unreachable. Revisit only if those forms are added.
+5. **Outside-battle mechanics,** recorded unsupported: post-battle Ball Fetch Snowballs on Snowy Mountain, Honey Gather on Forest, and Pay Day/Make It Rain/Gimmighoul Coin prize money. Revisit only if Cobblemon gains matching items or a payout hook.
+6. **Broader oracle coverage.** The executed Ruby oracle covers only `fieldDefenseBoost` and `calculateFieldMultiplier`; other methods rely on named simulator tests.
+7. **Maintenance.** After any change to the source copy or rules, rerun the pipeline: `build.ps1`, plus `review_registry.py` and `blindspot_scan.py`. Triage new blind-spot references in `audit-worklist.md`.
+
+## Recently completed
+
+- Battle.rb, Battler.rb, Battle_Move.rb, Battle_MoveEffects.rb, Battle_Effects.rb, Battle_Field.rb and the smaller files are fully reviewed.
+- The blind-spot scan was triaged:
+  - Ion Deluge, Plasma Fists, Stoked Sparksurfer and Genesis Supernova terrain creation is implemented.
+  - Terrain moves no longer fail for an Everstone holder; the source checks Everstone only for Mist, Ion Deluge, Plasma Fists and Conversion/Conversion 2.
+- The definition comparison was extended to Mimicry, Burmy cloak, seeds, status highlights and field-change targets.
+- The one-off `research/update_*_schema.py` scripts were removed; their edits are already in the three validators.

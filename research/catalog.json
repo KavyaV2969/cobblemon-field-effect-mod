@@ -922,6 +922,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "conversion"
           },
           "actions": [
@@ -4058,6 +4166,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -6900,6 +7116,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -10076,6 +10400,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "spotlight"
           },
           "actions": [
@@ -12982,6 +13414,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -16217,6 +16757,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "allyswitch"
           },
           "actions": [
@@ -18993,6 +19641,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -22159,6 +22915,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -25480,6 +26344,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -28934,6 +29906,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "partingshot"
           },
           "actions": [
@@ -32248,6 +33328,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "partingshot"
           },
           "actions": [
@@ -35235,6 +36423,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "naturalgift"
           },
           "actions": [
@@ -38158,6 +39454,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -41351,6 +42755,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "corrosivegas"
           },
           "actions": [
@@ -44261,6 +45773,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -47208,6 +48828,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -49978,6 +51706,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -52978,6 +54814,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -56015,6 +57959,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -59289,6 +61341,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "purify"
           },
           "actions": [
@@ -60921,7 +63081,7 @@
           "actions": [
             {
               "op": "setHPFraction",
-              "fraction": 0.25
+              "fraction": 0.16666666666666666
             }
           ],
           "source": "Battle.rb:6607-6609"
@@ -60956,7 +63116,7 @@
           "actions": [
             {
               "op": "setHPFraction",
-              "fraction": 0.5
+              "fraction": 0.3333333333333333
             }
           ],
           "source": "Battle.rb:6607-6609"
@@ -62865,6 +65025,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -66775,6 +69043,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "scaleshot"
           },
           "actions": [
@@ -69725,6 +72101,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -72916,6 +75400,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -75975,6 +78567,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "forestscurse"
           },
           "actions": [
@@ -78719,6 +81419,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "rototiller"
           },
           "actions": [
@@ -81417,6 +84225,114 @@
             }
           ],
           "source": "Battle_MoveEffects.rb:964"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -84442,6 +87358,114 @@
             }
           ],
           "source": "Battle_MoveEffects.rb:1546-1553"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -87539,6 +90563,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "rototiller"
           },
           "actions": [
@@ -90564,6 +93696,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "rototiller"
           },
           "actions": [
@@ -93540,6 +96780,114 @@
             }
           ],
           "source": "Battle_MoveEffects.rb:5167"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -96972,6 +100320,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "rage"
           },
           "actions": [
@@ -100130,6 +103586,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "metronome"
           },
           "actions": [
@@ -102983,6 +106547,114 @@
             }
           ],
           "source": "Battle_MoveEffects.rb:5237"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -105997,6 +109669,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -108991,6 +112771,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "lifedew"
           },
           "actions": [
@@ -110194,7 +114082,7 @@
           "actions": [
             {
               "op": "setHPFraction",
-              "fraction": 0.25
+              "fraction": 0.16666666666666666
             }
           ],
           "source": "Battle.rb:6607-6609"
@@ -110229,7 +114117,7 @@
           "actions": [
             {
               "op": "setHPFraction",
-              "fraction": 0.5
+              "fraction": 0.3333333333333333
             }
           ],
           "source": "Battle.rb:6607-6609"
@@ -112070,6 +115958,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -114649,6 +118645,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -117953,6 +122057,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -121273,6 +125485,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -124019,6 +128339,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -126842,6 +131270,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -129937,6 +134473,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -133205,6 +137849,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "chargeMove",
           "condition": {
             "move": "meteorbeam"
@@ -136133,6 +140885,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -139088,6 +143948,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "lifedew"
           },
           "actions": [
@@ -141705,6 +146673,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -144834,6 +149910,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -147739,6 +152923,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -150823,6 +156115,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -153634,6 +159034,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "chargeMove",
@@ -156531,6 +162039,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "tryMove",
@@ -159756,6 +165372,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",
@@ -163198,6 +168922,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "formChange",
@@ -166781,6 +172613,114 @@
           "source": "Battle_ZMove.rb:269"
         },
         {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
           "event": "formChange",
           "condition": {
             "all": [
@@ -170050,6 +175990,114 @@
         {
           "event": "modifyMove",
           "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
             "move": "swallow"
           },
           "actions": [
@@ -173294,6 +179342,114 @@
             }
           ],
           "source": "Battle_ZMove.rb:269"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "stokedsparksurfer"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:290-301"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "genesissupernova"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "secondaries.0.self",
+              "value": null
+            },
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:psychic_terrain",
+                  "duration": 5,
+                  "extendedBy": 0,
+                  "blockEverstone": false,
+                  "message": "Psychic energy spread across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_ZMove.rb:322-332"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "move": "plasmafists"
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:8306-8320"
+        },
+        {
+          "event": "modifyMove",
+          "condition": {
+            "all": [
+              {
+                "move": "iondeluge"
+              },
+              {
+                "not": {
+                  "pseudoWeather": {
+                    "id": "iondeluge",
+                    "value": true
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveBehavior",
+              "recipe": "appendHitActions",
+              "callback": "onHitField",
+              "actions": [
+                {
+                  "op": "createField",
+                  "field": "rejuvenation:electric_terrain",
+                  "duration": 3,
+                  "extendedBy": 3,
+                  "message": "An electric current ran across the battlefield!"
+                }
+              ]
+            }
+          ],
+          "source": "Battle_MoveEffects.rb:7500-7519"
         },
         {
           "event": "modifyMove",

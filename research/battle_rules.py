@@ -91,12 +91,13 @@ def end_of_round(fields,rule,action,both):
     nightmare('BEWITCHED',"{1}'s dream is corrupted by the evil in the woods!")
     nightmare('CORROSIVE','{1} is seared by the corrosion!',1/16,grounded,neg(typed('Steel')),neg(typed('Poison')),neg(ability('poisonheal','toxicboost','wonderguard','immunity','pastelveil')))
     rule('RAINBOW','residual',both(asleep,{'field':fid('RAINBOW')}),[action('heal',fraction=1/16,message='{1} recovered health in its peaceful sleep!')],'Battle.rb:6577-6580')
-    # Curse, Salt Cure and Heal Block
+    # Curse, Salt Cure and Heal Block. Salt Cure uses the source's pre-Champions
+    # Holy divisor (6, halved to 3 for Water/Steel) by project decision.
     rule('HOLY','receivedDamage',{'damageSource':['curse']},[action('reject')],'Battle.rb:6589-6591')
     rule('HOLY','residual',vol('curse'),[action('removeVolatile',id='curse',message="{1}'s curse was lifted!")],'Battle.rb:6589-6591')
     brine={'any':[{'type':{'who':'target','value':'Steel'}},{'type':{'who':'target','value':'Water'}}]}
-    rule('HOLY DEUXFINALIS','receivedDamage',both({'damageSource':['saltcure']},neg(brine)),[action('setHPFraction',fraction=1/4)],'Battle.rb:6607-6609')
-    rule('HOLY DEUXFINALIS','receivedDamage',both({'damageSource':['saltcure']},brine),[action('setHPFraction',fraction=1/2)],'Battle.rb:6607-6609')
+    rule('HOLY DEUXFINALIS','receivedDamage',both({'damageSource':['saltcure']},neg(brine)),[action('setHPFraction',fraction=1/6)],'Battle.rb:6607-6609')
+    rule('HOLY DEUXFINALIS','receivedDamage',both({'damageSource':['saltcure']},brine),[action('setHPFraction',fraction=1/3)],'Battle.rb:6607-6609')
     rule('DIMENSIONAL FROZENDIMENSION INFERNAL','residual',both(vol('healblock'),guarded),[action('damage',fraction=1/16,message="{1}'s Heal Block is draining its health!")],'Battle.rb:6613-6627')
     # Room clocks stand still in the Frozen Dimension.
     fields['FROZENDIMENSION']['clockPolicy']['pausedConditions']=['trickroom','gravity','wonderroom','magicroom']

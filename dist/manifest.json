@@ -1,37 +1,39 @@
 {
   "version": "0.1.0",
-  "releaseStatus": "incomplete-fidelity-preview",
+  "releaseStatus": "source-audit-complete-preview",
   "minecraft": "1.21.1",
   "loader": "Fabric 0.18.4",
   "cobblemon": "1.7.3+1.21.1",
   "artifacts": [
     {
       "path": "rejuvenation-fields-0.1.0.jar",
-      "bytes": 66963,
-      "sha256": "9ce27e6d86d1891e733f305a1636f9ecfea8f62c22472ee06bac4a7d92cdff96"
+      "bytes": 117872,
+      "sha256": "24e9ba4ac665a7266e7740d7a842bb48c035ec3b0cd87f696360b4707e3ce7a0"
     },
     {
       "path": "rejuvenation-fields-datapack-0.1.0.zip",
-      "bytes": 196205,
-      "sha256": "267ee095b2eeaba7f2167744d0748dc96fa166ce0cc3039933978f59a794c648"
+      "bytes": 477158,
+      "sha256": "f0438e7801b241d17f51cc886d4da30d24ea3e21abeb03066cadff41c3018e23"
     }
   ],
   "fieldsDiscovered": 57,
   "definitionsLoaded": 57,
+  "sourceAuditClosedFields": 57,
+  "partiallyImplemented": 0,
   "fullyBehaviorallyVerified": 0,
-  "partiallyImplemented": 57,
-  "compiledDefinitionPropertiesCompared": 3963,
+  "behaviorVerificationScope": "Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification",
+  "compiledDefinitionPropertiesCompared": 4494,
   "compiledDefinitionDifferences": 0,
-  "simulatorTestsPassed": 153,
+  "simulatorTestsPassed": 504,
   "candidateBiomes": 165,
   "explicitlyMappedCandidates": 165,
   "candidateFallbacks": 0,
   "unavailableReferences": {
     "moves": 27,
-    "abilities": 5,
+    "abilities": 0,
     "items": 0
   },
-  "fullCompletionStandardMet": false,
+  "implementationCompletionStandardMet": true,
   "remainingWork": "../docs/REMAINING_WORK.md",
   "protectedFiles": "../research/protected-integrity.json",
   "sourceMethodOracle": {
@@ -48,7 +50,7 @@
   "liveVerification": {
     "artifactMatches": true,
     "success": true,
-    "battles": 5,
+    "battles": 7,
     "registeredBiomes": 70,
     "receipt": "../research/test-results/live-startup.json"
   },
@@ -58,7 +60,7 @@
   },
   "buildLog": {
     "successful": true,
-    "sha256": "0c3ca69a7eac75efc35aaa7719b93d2c95e5028e4e886cfcbf2de0f3b6672a1a",
+    "sha256": "18fbd11bd1f60cff525bb4bc65a96e1e9dda51e96935eeedc45d2112727f6309",
     "path": "../research/test-results/build.log"
   }
 }

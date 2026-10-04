@@ -45,8 +45,11 @@ def reviewed_audit():
     return audit
 if __name__=='__main__':
     rows=reviewed_audit();counts=collections.Counter(r['status'] for r in rows)
+    fields=json.loads((ROOT/'research/field-id-map.json').read_text(encoding='utf-8'))
+    pending={s for r in rows if r['file']!='Battle_AI.rb' and r['status']=='requires_behavioral_comparison' for s in r['fields']}
     result={'sourceLeadCounts':dict(counts),'manuallyReviewed':sum(v for k,v in counts.items() if k!='requires_behavioral_comparison'),
-            'ordinaryPendingNotCertified':True,'completeFields':[],
-            'warning':'Nested AST leads are not unique mechanics. Explicit review evidence only; no whole-field certification.'}
+            'ordinaryPending':sorted(pending),'completeFields':[s for s in fields if s not in pending],
+            'completionMeaning':'Every runtime AST lead naming the field is implemented with a passing named test, or recorded as a custom-move/Crest exclusion, unreachable, unsupported with a concrete cause, or presentation-only. Battle AI leads wait for the AI adapter. Not an exhaustive live or multiplayer certification.',
+            'warning':'Nested AST leads are not unique mechanics. Blind-spot references found by blindspot_scan.py are triaged in audit-worklist.md.'}
     (ROOT/'research/test-results/semantic-review-validation.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
     print('Semantic review evidence validated:',dict(counts))

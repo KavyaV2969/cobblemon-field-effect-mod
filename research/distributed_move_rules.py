@@ -55,6 +55,17 @@ def extend(fields,rule,action,both):
     for sym in fields:
         if sym not in ['GRASSY','FOREST'] and not sym.startswith('FLOWERGARDEN'):
             rule(sym,'modifyMove',{'move':'bloomdoom'},[action('moveBehavior',recipe='appendHitActions',actions=[action('createField',field='rejuvenation:grassy_terrain',duration=3,extendedBy=0,blockEverstone=False)])],'Battle_ZMove.rb:269')
+    # Field setters found by the case-true blind-spot scan. canChangeFE? maps to
+    # createField's same-field, overlay and terrain-policy checks.
+    electric='An electric current ran across the battlefield!'
+    for sym in fields:
+        rule(sym,'modifyMove',{'move':'stokedsparksurfer'},[action('moveBehavior',recipe='appendHitActions',actions=[action('createField',field='rejuvenation:electric_terrain',duration=3,extendedBy=0,blockEverstone=False,message=electric)])],'Battle_ZMove.rb:290-301')
+        # The native self-hit sets terrain through the Everstone/Amplifield hook; the source uses a flat five turns.
+        rule(sym,'modifyMove',{'move':'genesissupernova'},[action('moveProperty',path='secondaries.0.self',value=None),
+             action('moveBehavior',recipe='appendHitActions',actions=[action('createField',field='rejuvenation:psychic_terrain',duration=5,extendedBy=0,blockEverstone=False,message='Psychic energy spread across the battlefield!')])],'Battle_ZMove.rb:322-332')
+        rule(sym,'modifyMove',{'move':'plasmafists'},[action('moveBehavior',recipe='appendHitActions',actions=[action('createField',field='rejuvenation:electric_terrain',duration=3,extendedBy=3,message=electric)])],'Battle_MoveEffects.rb:8306-8320')
+        rule(sym,'modifyMove',{'all':[{'move':'iondeluge'},{'not':{'pseudoWeather':{'id':'iondeluge','value':True}}}]},
+             [action('moveBehavior',recipe='appendHitActions',callback='onHitField',actions=[action('createField',field='rejuvenation:electric_terrain',duration=3,extendedBy=3,message=electric)])],'Battle_MoveEffects.rb:7500-7519')
     for syms,mids in [('CITY',['conversion','happyhour','celebrate']),('BACKALLEY',['conversion'])]:
         for mid in mids:rule(syms,'modifyMove',{'move':mid},[prop('zMove.boost',dict.fromkeys(['atk','def','spa','spd','spe'],2))],'Battle_ZMove.rb:113')
     for mids,power,line in [(['naturalgift'],100,3224),(['trumpcard','flail','reversal'],200,3246),

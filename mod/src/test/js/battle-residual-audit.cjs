@@ -164,9 +164,9 @@ module.exports=({test,battle,pokemon,move,E,fid,assert,catalog,Battle})=>{
    ['infernal',{ability:'Magma Armor'},(b,u)=>{u.volatiles.nightmare={id:'nightmare',target:u};},{hp:[-4]},'awake'],['indoor',{},(b,u)=>{u.volatiles.nightmare={id:'nightmare',target:u};},{hp:[],check:r=>r.u.volatiles.nightmare?'nightmare persists':null},'awake'],
    // Curse is lifted on the Holy Field (6589-6591).
    ['holy',{},(b,u,t)=>u.addVolatile('curse',t),{hp:[],says:"curse was lifted!",check:r=>r.u.volatiles.curse?'still cursed':null}],['indoor',{},(b,u,t)=>u.addVolatile('curse',t),{hp:[-4],check:r=>r.u.volatiles.curse?null:'curse gone'}],
-   // Salt Cure is twice as harsh on the Holy Field and Deux Finalis (6607-6609).
-   ['holy',{},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-4]}],['deux_finalis',{},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-4]}],['indoor',{},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-8]}],
-   ['holy',{species:'Blastoise'},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-2]}],['indoor',{species:'Blastoise'},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-4]}],
+   // Salt Cure deals 1/6 (1/3 to Water/Steel) on the Holy Field and Deux Finalis (6607-6609, pre-Champions divisor).
+   ['holy',{},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-6]}],['deux_finalis',{},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-6]}],['indoor',{},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-8]}],
+   ['holy',{species:'Blastoise'},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-3]}],['deux_finalis',{species:'Steelix'},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-3]}],['indoor',{species:'Blastoise'},(b,u,t)=>u.addVolatile('saltcure',t),{hp:[-4]}],
    // Heal Block drains in the dimensions (6613-6627).
    ['dimensional',{},(b,u,t)=>u.addVolatile('healblock',t),{hp:[-16],says:'Heal Block is draining its health!'}],['frozen_dimension',{},(b,u,t)=>u.addVolatile('healblock',t),{hp:[-16]}],['infernal',{ability:'Magma Armor'},(b,u,t)=>u.addVolatile('healblock',t),{hp:[-16]}],
    ['dimensional',{ability:'Magic Guard'},(b,u,t)=>u.addVolatile('healblock',t),{hp:[]}],['indoor',{},(b,u,t)=>u.addVolatile('healblock',t),{hp:[]}]]);});

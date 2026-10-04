@@ -46,7 +46,8 @@ public final class JavaVerification {
     "{\"event\":\"residual\",\"condition\":{\"always\":true},\"actions\":[{\"op\":\"clearHazards\"}],\"source\":\"test\"}",
     "{\"event\":\"residual\",\"condition\":{\"always\":true},\"actions\":[{\"op\":\"trap\",\"force\":\"yes\"}],\"source\":\"test\"}",
     "{\"event\":\"residual\",\"condition\":{\"startedCondition\":[\"wish\"]},\"actions\":[],\"source\":\"test\"}",
-    "{\"event\":\"residual\",\"condition\":{\"damageSource\":[]},\"actions\":[],\"source\":\"test\"}")){
+    "{\"event\":\"residual\",\"condition\":{\"damageSource\":[]},\"actions\":[],\"source\":\"test\"}",
+    "{\"event\":\"modifyMove\",\"condition\":{\"always\":true},\"actions\":[{\"op\":\"moveProperty\",\"path\":\"secondaries.0.self\",\"value\":{\"boosts\":{\"atk\":6}}}],\"source\":\"test\"}")){
    final var malformed=catalog.deepCopy();malformed.getAsJsonObject("fields").getAsJsonObject("rejuvenation:forest").getAsJsonArray("rules").add(com.google.gson.JsonParser.parseString(text));rejected(()->CatalogValidator.validate(malformed));}
   for(java.util.function.Consumer<JsonObject> change:List.<java.util.function.Consumer<JsonObject>>of(
     c->c.getAsJsonObject("fields").getAsJsonObject("rejuvenation:forest").add("hazardPolicy",com.google.gson.JsonParser.parseString("{\"source\":\"t\",\"stickyweb\":{\"stages\":1}}")),

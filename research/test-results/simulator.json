@@ -1,5 +1,5 @@
 {
-  "passed": 502,
+  "passed": 504,
   "failed": false,
   "passedTests": [
     "all 57 definitions parse and are attachable",
@@ -86,7 +86,7 @@
     "Volcanic Top seed releases Shell Trap after a physical hit",
     "every defined field Seed activates and is consumed",
     "creation policies reject terrain with exact original messages",
-    "Everstone blocks terrain moves and Amplifield Rock extends them",
+    "terrain moves ignore Everstone and Amplifield Rock extends them",
     "Deep Earth levitation exceptions precede gravity but respect roots",
     "Deep Earth Gravity and Magnet Rise use contextual move behavior",
     "fixed-damage field moves retain level scaling and original feedback",
@@ -178,6 +178,8 @@
     "Concert 4 dynamic moves use fixed source powers while retaining native prerequisites",
     "Frozen Dimension Power Trip counts all positive stages once",
     "New World Guardian of Alola uses target maximum HP",
+    "Ion Deluge and Plasma Fists create a three-turn Electric Terrain or six with Amplifield Rock",
+    "Stoked Sparksurfer and Genesis Supernova create fixed-duration terrains ignoring held items",
     "Bloom Doom creates a three-turn field but respects native field restrictions",
     "City and Back Alley status Z moves receive the source omniboost",
     "Dimensional Rage changes immediate power and boost without retaining Rage volatile",
@@ -506,6 +508,6 @@
     "room clocks, Bad Dreams, Harvest and Slow Start follow the field at the end of the round"
   ],
   "failedTests": [],
-  "simulator": "/sessions/rcw-01bxecwtbhbb7q5xkb4zrr6v/mnt/COBBLEVERSE - Pokemon Adventure [Cobblemon]/showdown",
+  "simulator": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\showdown",
   "fieldDefinitions": 57
 }

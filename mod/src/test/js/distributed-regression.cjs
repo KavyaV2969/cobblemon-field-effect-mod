@@ -20,6 +20,21 @@ module.exports=({test,battle,pokemon,move,E,fid,assert})=>{
  });
  test('Frozen Dimension Power Trip counts all positive stages once',()=>{const b=battle('frozen_dimension'),[u,t]=pokemon(b);u.boosts.atk=2;u.boosts.accuracy=1;u.boosts.def=-3;const m=modify(b,'powertrip',u,t);assert.equal(m.basePowerCallback.call(b,u,t),160);b.destroy();});
  test('New World Guardian of Alola uses target maximum HP',()=>{const b=battle('new_world'),[u,t]=pokemon(b);t.hp=Math.floor(t.maxhp/3);const m=modify(b,'guardianofalola',u,t);assert.equal(m.damageCallback.call(b,u,t),Math.floor(t.maxhp*.75));b.destroy();});
+ test('Ion Deluge and Plasma Fists create a three-turn Electric Terrain or six with Amplifield Rock',()=>{
+  for(const mid of ['iondeluge','plasmafists'])for(const [item,duration]of [['',2],['Amplifield Rock',5],['Everstone',null]]){
+   const b=battle('cave',{item,moves:[mid]},{species:'Snorlax',ability:'None'}),[u]=pokemon(b);b.choose('p1','move 1');b.choose('p2','move 1');
+   assert.equal(b.rejuvenation.overlay?.id ?? null,duration===null?null:fid('electric_terrain'),mid+' '+item);assert.equal(b.rejuvenation.overlay?.duration ?? null,duration,mid+' '+item);
+   if(duration!==null)assert(b.log.some(s=>s.includes('An electric current ran across the battlefield!')),mid);b.destroy();
+  }
+  for(const field of ['electric_terrain','new_world','underwater']){const b=battle(field,{moves:['iondeluge']}),[u]=pokemon(b);b.choose('p1','move 1');b.choose('p2','move 1');assert.equal(E.current(b).id,fid(field));assert.equal(b.rejuvenation.overlay,null,field);b.destroy();}
+ });
+ test('Stoked Sparksurfer and Genesis Supernova create fixed-duration terrains ignoring held items',()=>{
+  for(const [mid,terrain,duration]of [['stokedsparksurfer','electric_terrain',3],['genesissupernova','psychic_terrain',5]])for(const item of ['','Amplifield Rock','Everstone']){
+   const b=battle('cave',{item}),[u,t]=pokemon(b),m=modify(b,mid,u,t);if(mid==='genesissupernova')assert.equal(m.secondaries[0].self,null);
+   b.singleEvent('Hit',m,{},t,u,m);assert.equal(b.rejuvenation.overlay.id,fid(terrain),mid+' '+item);assert.equal(b.rejuvenation.overlay.duration,duration,mid+' '+item);b.destroy();
+  }
+  for(const [mid,field]of [['stokedsparksurfer','electric_terrain'],['genesissupernova','psychic_terrain'],['genesissupernova','new_world']]){const b=battle(field),[u,t]=pokemon(b),m=modify(b,mid,u,t);b.singleEvent('Hit',m,{},t,u,m);assert.equal(E.current(b).id,fid(field));assert.equal(b.rejuvenation.overlay,null,mid+' '+field);b.destroy();}
+ });
  test('Bloom Doom creates a three-turn field but respects native field restrictions',()=>{for(const [field,result]of [['cave','cave'],['forest','forest'],['new_world','new_world'],['frozen_dimension','frozen_dimension']]){const b=battle(field),[u,t]=pokemon(b),m=modify(b,'bloomdoom',u,t);b.singleEvent('Hit',m,{},t,u,m);assert.equal(E.current(b).id,fid(result));if(field==='cave')assert.equal(b.rejuvenation.overlay.duration,3);b.destroy();}});
  test('City and Back Alley status Z moves receive the source omniboost',()=>{for(const [field,mid,amount]of [['city','conversion',2],['city','happyhour',2],['city','celebrate',2],['back_alley','conversion',2],['indoor','conversion',1]]){const b=battle(field),[u,t]=pokemon(b),m=modify(b,mid,u,t);b.actions.runZPower(m,u);for(const stat of ['atk','def','spa','spd','spe'])assert.equal(u.boosts[stat],amount,field+' '+mid);b.destroy();}});
  test('Dimensional Rage changes immediate power and boost without retaining Rage volatile',()=>{const b=battle('dimensional'),[u,t]=pokemon(b),m=modify(b,'rage',u,t);assert.equal(m.basePower,60);assert.deepEqual({...m.self.boosts},{atk:1});assert.equal(m.self.volatileStatus,undefined);b.destroy();});

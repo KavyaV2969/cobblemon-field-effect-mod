@@ -18,6 +18,23 @@ for sym,compiled in original.items():
     for k in ['naturePower','secretPower']:compare(sym,k,norm(compiled[k]),f[k])
     compare(sym,'entryMessage',compiled['message'],f['entryMessage'])
     compare(sym,'name',compiled['name'] or 'No Field',f['name'])
+    compare(sym,'mimicry',norm(compiled['mimicry']),norm(f.get('mimicry')))
+    compare(sym,'burmyCloak',compiled['burmyCloak'],f.get('burmyCloak'))
+    # Hard-field status lists are battle-UI highlights; overlay lists are unused by the source scene.
+    for k in ['statusBuffs','statusNerfs']:compare(sym,k,[norm(m) for m in compiled[k] or []],f.get(k))
+    seed=compiled['seeddata'] or {}
+    if not seed.get('seedtype'):compare(sym,'seed',None,f.get('seed'))
+    else:
+        dest=f.get('seed') or {}
+        compare(sym,'seed/item',norm(seed['seedtype']),dest.get('item'))
+        compare(sym,'seed/effect',norm(seed['effect']),dest.get('effect') and norm(dest['effect']))
+        compare(sym,'seed/duration',seed['duration'],dest.get('duration'))
+        compare(sym,'seed/message',seed['message'],dest.get('message'))
+        stats=['','atk','def','spa','spd','spe','accuracy','evasion']
+        compare(sym,'seed/stats',{stats[int(i)]:n for i,n in (seed.get('stats') or {}).items()},dest.get('stats'))
+    # Change conditions are Ruby expressions; check each destination is reachable from the definition.
+    text=json.dumps(f)
+    for target in compiled['fieldchangeconditions'] or {}:compare(sym,'fieldchange/'+target,True,f'"{ids[target]}"' in text)
     for prefix,data in [('',f),('overlay',f.get('overlay',{'moves':{},'types':[]}))]:
         originalmoves=compiled[prefix+'movedata' if prefix else 'fieldmovedata']
         compare(sym,prefix+'moves set',sorted(norm(m) for m in originalmoves),sorted(data['moves']))

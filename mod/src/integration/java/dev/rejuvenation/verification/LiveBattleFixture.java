@@ -47,7 +47,7 @@ public final class LiveBattleFixture implements ModInitializer {
      if(last!=null){if(FieldApi.current(last).isPresent())return;checks.add("Ended battle state removed");last=null;}
      if(phase==(abilityMode?10:7)){finish(null);return;}
      var player=server.method_3760().method_14571().getFirst();var world=player.method_51469();
-     var properties=new PokemonProperties();properties.setSpecies("mew");properties.setLevel(60);properties.setMoves(List.of("growth","electricterrain","psychic"));
+     var properties=new PokemonProperties();properties.setSpecies("mew");properties.setLevel(60);properties.setMoves(List.of("growth","iondeluge","psychic"));
      if(phase==5)properties.setMoves(List.of("bitterblade","purify","splash"));
      if(phase==6)properties.setMoves(List.of("magicpowder","splash"));
      if(phase==1)properties.setHeldItem("cobblemon:everstone");
@@ -155,12 +155,12 @@ public final class LiveBattleFixture implements ModInitializer {
     }
     if(step==1 && battle.getTurn()>=2){
      if(battle.getBattleLog().stream().noneMatch(s->s.contains("|-boost|") && s.contains("|atk|2")))throw new IllegalStateException("Forest Growth +2 absent");
-     if(!choose("electricterrain"))return;
+     if(!choose("iondeluge"))return;
      checks.add("Live Forest Growth boosts Attack by two stages");step=2;delay=60;return;
     }
     if(step==2 && battle.getTurn()>=3){
      if(!snapshot.get().get("overlay").isJsonNull())throw new IllegalStateException("Everstone failed to prevent terrain");
-     checks.add("Existing Minecraft Everstone bridges to simulator and blocks terrain creation");end();
+     checks.add("Existing Minecraft Everstone bridges to simulator and blocks Ion Deluge terrain creation");end();
     }
    }catch(Throwable error){finish(error);}
   });

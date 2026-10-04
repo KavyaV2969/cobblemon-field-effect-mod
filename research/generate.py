@@ -283,7 +283,7 @@ translations.update({'status.rejuvenation.petrified.apply':'%s was petrified!',
     'status.rejuvenation.petrified':'Petrified'})
 # Cobblemon resolves ability names through its own translation-key convention.
 for aid,row in ability_definitions().items():
-    for key in {aid,norm(row['name'])}:translations.update({'cobblemon.ability.'+key:row['name'],'cobblemon.ability.'+key+'.desc':row['description']})
+    for key in dict.fromkeys([aid,norm(row['name'])]):translations.update({'cobblemon.ability.'+key:row['name'],'cobblemon.ability.'+key+'.desc':row['description']})
 translations.update({'cobblemon.type.shadow':'Shadow','cobblemon.battle.weather.shadowsky.start':'A shadowy aura filled the sky!','cobblemon.battle.weather.shadowsky.end':'The shadowy aura faded away!','cobblemon.battle.weather.shadowsky.upkeep':'A shadowy aura fills the sky.'})
 write(OUT/'mod/src/main/resources/rejuvenation-types.json',fields['INDOOR']['typeDefinitions'])
 write(assets/'lang/en_us.json',translations)

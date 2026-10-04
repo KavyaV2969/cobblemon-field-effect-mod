@@ -1,6 +1,6 @@
 # Rejuvenation Fields for this Cobbleverse profile
 
-**Full behavioral fidelity is unfinished.** This is a buildable field engine with all 57 discovered field definitions and substantial executable behavior. It is not yet the complete faithful recreation requested. See [remaining work](docs/REMAINING_WORK.md) and [coverage](docs/FIELD_COVERAGE.md) before installation.
+**All 57 Rejuvenation 14.0.14 fields are implemented and the source audit is closed.** Every ordinary field-dependent battle branch in the local Rejuvenation scripts is implemented with a passing regression test, or recorded per field as a custom-move/Crest exclusion, unreachable, unsupported or presentation-only ([coverage](docs/FIELD_COVERAGE.md)). Battle AI integration and exhaustive live/multiplayer verification are future work ([remaining work](docs/REMAINING_WORK.md)). Use a test profile first.
 
 Outputs:
 
@@ -10,7 +10,7 @@ Outputs:
 - `dist/rejuvenation-fields-datapack-0.1.0.zip`: packaged datapack.
 - `docs/`: architecture, per-field specifications, biome tables, source provenance, compatibility and future trainer integration.
 - `research/`: extracted mechanical specifications, generators, audits and test results.
-- `dist/manifest.json`: hashes and verification scope, explicitly marking incomplete fidelity.
+- `dist/manifest.json`: hashes, per-field audit status and verification scope.
 
 ## Installation
 

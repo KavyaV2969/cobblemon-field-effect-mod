@@ -1,0 +1,2461 @@
+{
+  "schemaVersion": 1,
+  "id": "rejuvenation:deep_earth",
+  "originalId": "DEEPEARTH",
+  "name": "Deep Earth",
+  "entryMessage": "The Core is pulling you in...",
+  "naturePower": "gravity",
+  "secretPower": "heavyslam",
+  "mimicry": "Ground",
+  "burmyCloak": "SANDYCLOAK",
+  "statusBuffs": [
+    "autotomize",
+    "geomancy",
+    "rototiller",
+    "magnetflux",
+    "eerieimpulse",
+    "magnetrise",
+    "gravity",
+    "topsyturvy",
+    "seismictoss",
+    "psywave"
+  ],
+  "statusNerfs": [],
+  "moves": {
+    "landswrath": {
+      "multiplier": 2.0,
+      "message": "The power of the earth is utterly overwhelming!"
+    },
+    "precipiceblades": {
+      "multiplier": 2.0,
+      "message": "The power of the earth is utterly overwhelming!"
+    },
+    "magnetbomb": {
+      "multiplier": 2.0,
+      "message": "The magnetic field is strengthened!"
+    },
+    "tectonicrage": {
+      "multiplier": 2.0,
+      "message": "The power of the earth is utterly overwhelming!"
+    },
+    "crushgrip": {
+      "multiplier": 2.0,
+      "message": "CRUSHED!"
+    },
+    "smackdown": {
+      "multiplier": 2.0,
+      "message": "Slammed into the ground!"
+    },
+    "coreenforcer": {
+      "multiplier": 2.0,
+      "message": "The power of the Core obliterates all!"
+    },
+    "heavyslam": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "heatcrash": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "bodyslam": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "stomp": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "dragonrush": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "steamroller": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "gravapple": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "ancientpower": {
+      "multiplier": 1.5,
+      "message": "The power of ages gone by..."
+    },
+    "fling": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "grassknot": {
+      "multiplier": 1.5,
+      "message": "Enjoy the trip!"
+    },
+    "lowkick": {
+      "multiplier": 1.5,
+      "message": "Enjoy the trip!"
+    },
+    "spacialrend": {
+      "multiplier": 1.5,
+      "message": "The intense gravity is ruptured!"
+    },
+    "stormthrow": {
+      "multiplier": 1.5,
+      "message": "Slammed into the ground!"
+    },
+    "circlethrow": {
+      "multiplier": 1.5,
+      "message": "Slammed into the ground!"
+    },
+    "vitalthrow": {
+      "multiplier": 1.5,
+      "message": "Slammed into the ground!"
+    },
+    "bodypress": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "submission": {
+      "multiplier": 1.5,
+      "message": "Slammed into the ground!"
+    },
+    "icehammer": {
+      "multiplier": 1.5,
+      "message": "{2} threw their whole weight into it!"
+    },
+    "hammerarm": {
+      "multiplier": 1.5,
+      "message": "{2} threw their whole weight into it!"
+    },
+    "crabhammer": {
+      "multiplier": 1.5,
+      "message": "{2} threw their whole weight into it!"
+    },
+    "iciclecrash": {
+      "multiplier": 1.5,
+      "message": "The attack came crashing down!"
+    },
+    "thousandarrows": {
+      "multiplier": 1.5,
+      "message": "The power of the earth is utterly overwhelming!"
+    },
+    "thousandwaves": {
+      "multiplier": 1.5,
+      "message": "The power of the earth is utterly overwhelming!"
+    }
+  },
+  "types": [
+    {
+      "match": {
+        "moveType": "Rock"
+      },
+      "condition": {
+        "always": true
+      },
+      "multiplier": 1.3,
+      "message": "The earth empowered the attack!"
+    },
+    {
+      "match": {
+        "moveType": "Psychic"
+      },
+      "condition": {
+        "always": true
+      },
+      "multiplier": 1.3,
+      "message": "The Core's magical forces are immense!"
+    },
+    {
+      "match": {
+        "moveType": "Ground"
+      },
+      "condition": {
+        "not": {
+          "type": {
+            "who": "target",
+            "value": "Ground"
+          }
+        }
+      },
+      "multiplier": 1.5,
+      "message": "The earth empowered the attack!"
+    }
+  ],
+  "rules": [
+    {
+      "event": "activate",
+      "condition": {
+        "always": true
+      },
+      "actions": [
+        {
+          "op": "pseudoWeather",
+          "id": "gravity",
+          "permanent": true
+        }
+      ],
+      "source": "Battle_Field.rb:419"
+    },
+    {
+      "event": "priority",
+      "condition": {
+        "move": "coreenforcer"
+      },
+      "actions": [
+        {
+          "op": "add",
+          "value": -1
+        }
+      ],
+      "source": "Battle_Move.rb:2309"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "any": [
+          {
+            "move": "topsyturvy"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveType",
+          "type": "Ground"
+        }
+      ],
+      "source": "Battle_Move.rb:257"
+    },
+    {
+      "event": "switchIn",
+      "condition": {
+        "item": {
+          "who": "user",
+          "values": [
+            "ironball"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "spe": -2
+          }
+        }
+      ],
+      "source": "Battler.rb:4361"
+    },
+    {
+      "event": "switchIn",
+      "condition": {
+        "item": {
+          "who": "user",
+          "values": [
+            "magnet"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "spe": -1,
+            "spa": 1
+          }
+        },
+        {
+          "op": "message",
+          "text": "{1}'s Magnet is affected by the magnetic field!"
+        }
+      ],
+      "source": "Battler.rb:4370"
+    },
+    {
+      "event": "weight",
+      "condition": {
+        "always": true
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 2
+        }
+      ],
+      "source": "Battler.rb:472-482"
+    },
+    {
+      "event": "speed",
+      "condition": {
+        "item": {
+          "who": "user",
+          "values": [
+            "floatstone"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 1.2
+        }
+      ],
+      "source": "Battler.rb:1187-1215"
+    },
+    {
+      "event": "speed",
+      "condition": {
+        "item": {
+          "who": "user",
+          "values": [
+            "ironball"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 2
+        }
+      ],
+      "source": "Battler.rb:1187-1215"
+    },
+    {
+      "event": "speed",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "slowstart"
+              ]
+            }
+          },
+          {
+            "volatile": {
+              "who": "user",
+              "id": "slowstart"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 2
+        }
+      ],
+      "source": "Battler.rb:1187-1215"
+    },
+    {
+      "event": "attack",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "slowstart"
+              ]
+            }
+          },
+          {
+            "volatile": {
+              "who": "user",
+              "id": "slowstart"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 2
+        }
+      ],
+      "source": "Battle_Move.rb:physical Slow Start exclusion"
+    },
+    {
+      "event": "basePower",
+      "condition": {
+        "priority": {
+          "op": ">",
+          "value": 0
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.7
+        },
+        {
+          "op": "moveMessage",
+          "text": "The intense pull slowed the attack..."
+        }
+      ],
+      "source": "Battle_Move.rb:1436"
+    },
+    {
+      "event": "basePower",
+      "condition": {
+        "priority": {
+          "op": "<",
+          "value": 0
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 1.3
+        },
+        {
+          "op": "moveMessage",
+          "text": "Slow and heavy!"
+        }
+      ],
+      "source": "Battle_Move.rb:1440"
+    },
+    {
+      "event": "switchIn",
+      "condition": {
+        "ability": {
+          "who": "user",
+          "values": [
+            "lightmetal"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "spe": 1
+          }
+        }
+      ],
+      "source": "Battler.rb:2394"
+    },
+    {
+      "event": "switchIn",
+      "condition": {
+        "ability": {
+          "who": "user",
+          "values": [
+            "heavymetal"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "def": 1,
+            "spe": -1
+          }
+        },
+        {
+          "op": "message",
+          "text": "{1}'s weight makes it harder to be moved!"
+        }
+      ],
+      "source": "Battler.rb:2402"
+    },
+    {
+      "event": "switchIn",
+      "condition": {
+        "ability": {
+          "who": "user",
+          "values": [
+            "slowstart"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "atk": 1,
+            "def": 1,
+            "spd": 1,
+            "spe": -6,
+            "evasion": -6
+          }
+        },
+        {
+          "op": "message",
+          "text": "Slow but powerful!"
+        }
+      ],
+      "source": "Battler.rb:2411"
+    },
+    {
+      "event": "overlayIn",
+      "condition": {
+        "all": [
+          {
+            "overlay": "rejuvenation:psychic_terrain"
+          },
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "anticipation",
+                "forewarn"
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "spa": 1
+          }
+        }
+      ],
+      "source": "Battler.rb:2644-2652"
+    },
+    {
+      "event": "overlayIn",
+      "condition": {
+        "all": [
+          {
+            "overlay": "rejuvenation:misty_terrain"
+          },
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "watercompaction"
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "def": 2
+          }
+        }
+      ],
+      "source": "Battler.rb:2654-2662"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "gravity"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "category",
+          "value": "Physical"
+        },
+        {
+          "op": "moveProperty",
+          "path": "target",
+          "value": "allAdjacentFoes"
+        },
+        {
+          "op": "moveProperty",
+          "path": "pseudoWeather",
+          "value": null
+        },
+        {
+          "op": "moveBehavior",
+          "recipe": "fixedDamage",
+          "basis": "targetHP",
+          "factor": 0.5
+        },
+        {
+          "op": "moveProperty",
+          "path": "basePower",
+          "value": 1,
+          "removeCallback": "onHit"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6792"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "magnetrise"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "boostOnly",
+          "stats": {
+            "spe": 2
+          },
+          "message": "{1} uses electromagnetism to move faster!"
+        },
+        {
+          "op": "moveProperty",
+          "path": "flags.gravity",
+          "value": 0
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6834"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "topsyturvy"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "category",
+          "value": "Physical"
+        },
+        {
+          "op": "moveProperty",
+          "path": "target",
+          "value": "allAdjacent"
+        },
+        {
+          "op": "moveProperty",
+          "path": "basePower",
+          "value": 20
+        },
+        {
+          "op": "moveBehavior",
+          "recipe": "targetWeightPower"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:7354"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "seismictoss"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "fixedDamage",
+          "basis": "level",
+          "factor": 1.5,
+          "message": "Slammed into the ground!"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:2461"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "psywave"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "fixedDamage",
+          "basis": "level",
+          "factor": 1,
+          "randomRange": {
+            "minimum": 100,
+            "maximum": 200
+          },
+          "message": "The Core's magical forces are immense!"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:2506"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "firepledge"
+      },
+      "actions": [
+        {
+          "op": "removeCallbacks",
+          "callbacks": [
+            "onPrepareHit",
+            "onModifyMove",
+            "basePowerCallback"
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6383-6410"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "firepledge"
+          },
+          {
+            "missed": false
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "pledge",
+          "token": "firepledge",
+          "pairs": [
+            {
+              "with": "grasspledge",
+              "field": "rejuvenation:volcanic",
+              "message": "The pledges combined and set the field ablaze!",
+              "refreshMessage": "The pledges combined and fanned the flames!"
+            },
+            {
+              "with": "waterpledge",
+              "field": "rejuvenation:rainbow",
+              "message": "The pledges combined to form a rainbow!",
+              "refreshMessage": "The pledges combined to refresh the rainbow!"
+            }
+          ],
+          "duration": 4,
+          "extendedBy": 3,
+          "firstMessage": "The Fire Pledge lingers in the air...",
+          "permanentMessage": "The pledges combined!"
+        }
+      ],
+      "source": "Battle_Field.rb:506-540"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "grasspledge"
+      },
+      "actions": [
+        {
+          "op": "removeCallbacks",
+          "callbacks": [
+            "onPrepareHit",
+            "onModifyMove",
+            "basePowerCallback"
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6383-6410"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "grasspledge"
+          },
+          {
+            "missed": false
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "pledge",
+          "token": "grasspledge",
+          "pairs": [
+            {
+              "with": "firepledge",
+              "field": "rejuvenation:volcanic",
+              "message": "The pledges combined and set the field ablaze!",
+              "refreshMessage": "The pledges combined and fanned the flames!"
+            },
+            {
+              "with": "waterpledge",
+              "field": "rejuvenation:swamp",
+              "message": "The pledges combined and formed a swamp!",
+              "refreshMessage": "The pledges combined and reinforced the swamp!"
+            }
+          ],
+          "duration": 4,
+          "extendedBy": 3,
+          "firstMessage": "The Grass Pledge lingers in the air...",
+          "permanentMessage": "The pledges combined!"
+        }
+      ],
+      "source": "Battle_Field.rb:506-540"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "waterpledge"
+      },
+      "actions": [
+        {
+          "op": "removeCallbacks",
+          "callbacks": [
+            "onPrepareHit",
+            "onModifyMove",
+            "basePowerCallback"
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6383-6410"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "waterpledge"
+          },
+          {
+            "missed": false
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "pledge",
+          "token": "waterpledge",
+          "pairs": [
+            {
+              "with": "firepledge",
+              "field": "rejuvenation:rainbow",
+              "message": "The pledges combined to form a rainbow!",
+              "refreshMessage": "The pledges combined to refresh the rainbow!"
+            },
+            {
+              "with": "grasspledge",
+              "field": "rejuvenation:swamp",
+              "message": "The pledges combined and formed a swamp!",
+              "refreshMessage": "The pledges combined and reinforced the swamp!"
+            }
+          ],
+          "duration": 4,
+          "extendedBy": 3,
+          "firstMessage": "The Water Pledge lingers in the air...",
+          "permanentMessage": "The pledges combined!"
+        }
+      ],
+      "source": "Battle_Field.rb:506-540"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "conversion"
+          },
+          {
+            "missed": false
+          },
+          {
+            "not": {
+              "item": {
+                "who": "user",
+                "values": [
+                  "everstone"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "conversion",
+          "token": "conversion",
+          "pairs": [
+            {
+              "with": "conversion2",
+              "field": "rejuvenation:glitch",
+              "message": "TH~ R0GUE DAa/ta cor$upt?@####",
+              "refreshMessage": "TH~ R0GUE DAa/ta cor$upt?@####"
+            }
+          ],
+          "duration": 5,
+          "extendedBy": 3,
+          "firstMessage": "Some rogue data remains...",
+          "permanentMessage": "TH~ R0GUE DAa/ta cor$upt?@####",
+          "disallowPermanentField": "rejuvenation:glitch"
+        }
+      ],
+      "source": "Battle_Field.rb:544-562; Battle_MoveEffects.rb:2061-2107"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "conversion2"
+          },
+          {
+            "missed": false
+          },
+          {
+            "not": {
+              "item": {
+                "who": "user",
+                "values": [
+                  "everstone"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "conversion",
+          "token": "conversion2",
+          "pairs": [
+            {
+              "with": "conversion",
+              "field": "rejuvenation:glitch",
+              "message": "TH~ R0GUE DAa/ta cor$upt?@####",
+              "refreshMessage": "TH~ R0GUE DAa/ta cor$upt?@####"
+            }
+          ],
+          "duration": 5,
+          "extendedBy": 3,
+          "firstMessage": "Some rogue data remains...",
+          "permanentMessage": "TH~ R0GUE DAa/ta cor$upt?@####",
+          "disallowPermanentField": "rejuvenation:glitch"
+        }
+      ],
+      "source": "Battle_Field.rb:544-562; Battle_MoveEffects.rb:2061-2107"
+    },
+    {
+      "event": "chargeMove",
+      "condition": {
+        "all": [
+          {
+            "move": "razorwind"
+          },
+          {
+            "overlay": "rejuvenation:grassy_terrain"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "reject"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:4430"
+    },
+    {
+      "event": "chargeMove",
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "move": "solarbeam"
+              },
+              {
+                "move": "solarblade"
+              }
+            ]
+          },
+          {
+            "overlay": "rejuvenation:rainbow"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "reject"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:4472"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "all": [
+          {
+            "move": "mist"
+          },
+          {
+            "not": {
+              "sideCondition": "mist"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "appendHitActions",
+          "callback": "onHitSide",
+          "actions": [
+            {
+              "op": "createField",
+              "field": "rejuvenation:misty_terrain",
+              "duration": 3,
+              "extendedBy": 3,
+              "message": "Mist swirled around the battlefield!"
+            }
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:1817"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "autotomize"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "boosts",
+          "value": {
+            "spe": 3
+          }
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:1114"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "wringout"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "basePower",
+          "value": 120,
+          "removeCallback": "basePowerCallback"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:3000"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "crushgrip"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "basePower",
+          "value": 120,
+          "removeCallback": "basePowerCallback"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:3000"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "hardpress"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "basePower",
+          "value": 100,
+          "removeCallback": "basePowerCallback"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:3000"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "gyroball"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "basePower",
+          "value": 150,
+          "removeCallback": "basePowerCallback"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:3012"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "bloomdoom"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "appendHitActions",
+          "actions": [
+            {
+              "op": "createField",
+              "field": "rejuvenation:grassy_terrain",
+              "duration": 3,
+              "extendedBy": 0,
+              "blockEverstone": false
+            }
+          ]
+        }
+      ],
+      "source": "Battle_ZMove.rb:269"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "heavyslam"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "weightRatioPower",
+          "multiplier": 2
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:3313"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "heatcrash"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "weightRatioPower",
+          "multiplier": 2
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:3313"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "eerieimpulse"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "boosts",
+          "value": {
+            "spa": -3
+          }
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:7222"
+    },
+    {
+      "event": "chargeMove",
+      "condition": {
+        "move": "geomancy"
+      },
+      "actions": [
+        {
+          "op": "reject"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:7276"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "rototiller"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "allActiveHitActions",
+          "condition": {
+            "any": [
+              {
+                "all": [
+                  {
+                    "type": {
+                      "who": "target",
+                      "value": "Grass"
+                    }
+                  },
+                  {
+                    "grounded": {
+                      "who": "target",
+                      "value": true
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "boost",
+              "who": "target",
+              "stats": {
+                "atk": 2,
+                "spa": 2
+              }
+            }
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:7585-7593"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "magneticflux"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "alliesHitActions",
+          "condition": {
+            "ability": {
+              "who": "target",
+              "values": [
+                "plus",
+                "minus"
+              ]
+            }
+          },
+          "actions": [
+            {
+              "op": "conditional",
+              "condition": {
+                "always": true
+              },
+              "actions": [
+                {
+                  "op": "boost",
+                  "who": "target",
+                  "stats": {
+                    "def": 2,
+                    "spd": 2
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:7475"
+    },
+    {
+      "event": "formChange",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "zerotohero"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "palafin"
+            }
+          },
+          {
+            "formName": {
+              "who": "user",
+              "value": "Hero"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "setPokemonFlag",
+          "id": "hero_pending",
+          "value": true
+        }
+      ],
+      "source": "Battler.rb:1929-1940 (native Hero transformation); 3269-3279"
+    },
+    {
+      "event": "pokemonEntry",
+      "condition": {
+        "pokemonFlag": {
+          "who": "user",
+          "id": "hero_pending",
+          "value": true
+        }
+      },
+      "actions": [
+        {
+          "op": "setPokemonFlag",
+          "id": "hero_pending",
+          "value": false
+        }
+      ],
+      "source": "Battler.rb:3269-3279 (consume transformation marker only on first send-out)"
+    },
+    {
+      "event": "formChange",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "powerconstruct"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "zygarde"
+            }
+          },
+          {
+            "formName": {
+              "who": "user",
+              "value": "Complete"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "message",
+          "text": "The Core's energy empowered {1}!"
+        },
+        {
+          "op": "boost",
+          "stats": {
+            "atk": 1,
+            "def": 1,
+            "spa": 1,
+            "spd": 1,
+            "spe": 1
+          }
+        }
+      ],
+      "source": "Battler.rb:1834-1837"
+    },
+    {
+      "event": "pokemonEntry",
+      "condition": {
+        "all": [
+          {
+            "all": [
+              {
+                "ability": {
+                  "who": "user",
+                  "values": [
+                    "multitype"
+                  ]
+                }
+              },
+              {
+                "species": {
+                  "who": "user",
+                  "value": "arceus"
+                }
+              }
+            ]
+          },
+          {
+            "not": {
+              "type": {
+                "who": "user",
+                "value": "???"
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "itemForm",
+          "defaultSpecies": "arceus",
+          "defaultType": "Normal",
+          "variants": [
+            {
+              "items": [
+                "fistplate",
+                "fightiniumz"
+              ],
+              "species": "arceusfighting",
+              "type": "Fighting"
+            },
+            {
+              "items": [
+                "skyplate",
+                "flyiniumz"
+              ],
+              "species": "arceusflying",
+              "type": "Flying"
+            },
+            {
+              "items": [
+                "toxicplate",
+                "poisoniumz"
+              ],
+              "species": "arceuspoison",
+              "type": "Poison"
+            },
+            {
+              "items": [
+                "earthplate",
+                "groundiumz"
+              ],
+              "species": "arceusground",
+              "type": "Ground"
+            },
+            {
+              "items": [
+                "stoneplate",
+                "rockiumz"
+              ],
+              "species": "arceusrock",
+              "type": "Rock"
+            },
+            {
+              "items": [
+                "insectplate",
+                "buginiumz"
+              ],
+              "species": "arceusbug",
+              "type": "Bug"
+            },
+            {
+              "items": [
+                "spookyplate",
+                "ghostiumz"
+              ],
+              "species": "arceusghost",
+              "type": "Ghost"
+            },
+            {
+              "items": [
+                "ironplate",
+                "steeliumz"
+              ],
+              "species": "arceussteel",
+              "type": "Steel"
+            },
+            {
+              "items": [
+                "flameplate",
+                "firiumz"
+              ],
+              "species": "arceusfire",
+              "type": "Fire"
+            },
+            {
+              "items": [
+                "splashplate",
+                "wateriumz"
+              ],
+              "species": "arceuswater",
+              "type": "Water"
+            },
+            {
+              "items": [
+                "meadowplate",
+                "grassiumz"
+              ],
+              "species": "arceusgrass",
+              "type": "Grass"
+            },
+            {
+              "items": [
+                "zapplate",
+                "electriumz"
+              ],
+              "species": "arceuselectric",
+              "type": "Electric"
+            },
+            {
+              "items": [
+                "mindplate",
+                "psychiumz"
+              ],
+              "species": "arceuspsychic",
+              "type": "Psychic"
+            },
+            {
+              "items": [
+                "icicleplate",
+                "iciumz"
+              ],
+              "species": "arceusice",
+              "type": "Ice"
+            },
+            {
+              "items": [
+                "dracoplate",
+                "dragoniumz"
+              ],
+              "species": "arceusdragon",
+              "type": "Dragon"
+            },
+            {
+              "items": [
+                "dreadplate",
+                "darkiniumz"
+              ],
+              "species": "arceusdark",
+              "type": "Dark"
+            },
+            {
+              "items": [
+                "pixieplate",
+                "fairiumz"
+              ],
+              "species": "arceusfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} reverted to the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1842-1880; 2746 (ordinary ability clauses; Crest/Pulse exceptions excluded)"
+    },
+    {
+      "event": "residual",
+      "condition": {
+        "all": [
+          {
+            "all": [
+              {
+                "ability": {
+                  "who": "user",
+                  "values": [
+                    "multitype"
+                  ]
+                }
+              },
+              {
+                "species": {
+                  "who": "user",
+                  "value": "arceus"
+                }
+              }
+            ]
+          },
+          {
+            "not": {
+              "type": {
+                "who": "user",
+                "value": "???"
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "itemForm",
+          "defaultSpecies": "arceus",
+          "defaultType": "Normal",
+          "variants": [
+            {
+              "items": [
+                "fistplate",
+                "fightiniumz"
+              ],
+              "species": "arceusfighting",
+              "type": "Fighting"
+            },
+            {
+              "items": [
+                "skyplate",
+                "flyiniumz"
+              ],
+              "species": "arceusflying",
+              "type": "Flying"
+            },
+            {
+              "items": [
+                "toxicplate",
+                "poisoniumz"
+              ],
+              "species": "arceuspoison",
+              "type": "Poison"
+            },
+            {
+              "items": [
+                "earthplate",
+                "groundiumz"
+              ],
+              "species": "arceusground",
+              "type": "Ground"
+            },
+            {
+              "items": [
+                "stoneplate",
+                "rockiumz"
+              ],
+              "species": "arceusrock",
+              "type": "Rock"
+            },
+            {
+              "items": [
+                "insectplate",
+                "buginiumz"
+              ],
+              "species": "arceusbug",
+              "type": "Bug"
+            },
+            {
+              "items": [
+                "spookyplate",
+                "ghostiumz"
+              ],
+              "species": "arceusghost",
+              "type": "Ghost"
+            },
+            {
+              "items": [
+                "ironplate",
+                "steeliumz"
+              ],
+              "species": "arceussteel",
+              "type": "Steel"
+            },
+            {
+              "items": [
+                "flameplate",
+                "firiumz"
+              ],
+              "species": "arceusfire",
+              "type": "Fire"
+            },
+            {
+              "items": [
+                "splashplate",
+                "wateriumz"
+              ],
+              "species": "arceuswater",
+              "type": "Water"
+            },
+            {
+              "items": [
+                "meadowplate",
+                "grassiumz"
+              ],
+              "species": "arceusgrass",
+              "type": "Grass"
+            },
+            {
+              "items": [
+                "zapplate",
+                "electriumz"
+              ],
+              "species": "arceuselectric",
+              "type": "Electric"
+            },
+            {
+              "items": [
+                "mindplate",
+                "psychiumz"
+              ],
+              "species": "arceuspsychic",
+              "type": "Psychic"
+            },
+            {
+              "items": [
+                "icicleplate",
+                "iciumz"
+              ],
+              "species": "arceusice",
+              "type": "Ice"
+            },
+            {
+              "items": [
+                "dracoplate",
+                "dragoniumz"
+              ],
+              "species": "arceusdragon",
+              "type": "Dragon"
+            },
+            {
+              "items": [
+                "dreadplate",
+                "darkiniumz"
+              ],
+              "species": "arceusdark",
+              "type": "Dark"
+            },
+            {
+              "items": [
+                "pixieplate",
+                "fairiumz"
+              ],
+              "species": "arceusfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} reverted to the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1842-1880; 2746 (ordinary ability clauses; Crest/Pulse exceptions excluded)"
+    },
+    {
+      "event": "pokemonEntry",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "rkssystem"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "silvally"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "itemForm",
+          "defaultSpecies": "silvally",
+          "defaultType": "Normal",
+          "variants": [
+            {
+              "items": [
+                "fightingmemory"
+              ],
+              "species": "silvallyfighting",
+              "type": "Fighting"
+            },
+            {
+              "items": [
+                "flyingmemory"
+              ],
+              "species": "silvallyflying",
+              "type": "Flying"
+            },
+            {
+              "items": [
+                "poisonmemory"
+              ],
+              "species": "silvallypoison",
+              "type": "Poison"
+            },
+            {
+              "items": [
+                "groundmemory"
+              ],
+              "species": "silvallyground",
+              "type": "Ground"
+            },
+            {
+              "items": [
+                "rockmemory"
+              ],
+              "species": "silvallyrock",
+              "type": "Rock"
+            },
+            {
+              "items": [
+                "bugmemory"
+              ],
+              "species": "silvallybug",
+              "type": "Bug"
+            },
+            {
+              "items": [
+                "ghostmemory"
+              ],
+              "species": "silvallyghost",
+              "type": "Ghost"
+            },
+            {
+              "items": [
+                "steelmemory"
+              ],
+              "species": "silvallysteel",
+              "type": "Steel"
+            },
+            {
+              "items": [
+                "firememory"
+              ],
+              "species": "silvallyfire",
+              "type": "Fire"
+            },
+            {
+              "items": [
+                "watermemory"
+              ],
+              "species": "silvallywater",
+              "type": "Water"
+            },
+            {
+              "items": [
+                "grassmemory"
+              ],
+              "species": "silvallygrass",
+              "type": "Grass"
+            },
+            {
+              "items": [
+                "electricmemory"
+              ],
+              "species": "silvallyelectric",
+              "type": "Electric"
+            },
+            {
+              "items": [
+                "psychicmemory"
+              ],
+              "species": "silvallypsychic",
+              "type": "Psychic"
+            },
+            {
+              "items": [
+                "icememory"
+              ],
+              "species": "silvallyice",
+              "type": "Ice"
+            },
+            {
+              "items": [
+                "dragonmemory"
+              ],
+              "species": "silvallydragon",
+              "type": "Dragon"
+            },
+            {
+              "items": [
+                "darkmemory"
+              ],
+              "species": "silvallydark",
+              "type": "Dark"
+            },
+            {
+              "items": [
+                "fairymemory"
+              ],
+              "species": "silvallyfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} reverted to the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1842-1880; 2746 (ordinary ability clauses; Crest/Pulse exceptions excluded)"
+    },
+    {
+      "event": "residual",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "rkssystem"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "silvally"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "itemForm",
+          "defaultSpecies": "silvally",
+          "defaultType": "Normal",
+          "variants": [
+            {
+              "items": [
+                "fightingmemory"
+              ],
+              "species": "silvallyfighting",
+              "type": "Fighting"
+            },
+            {
+              "items": [
+                "flyingmemory"
+              ],
+              "species": "silvallyflying",
+              "type": "Flying"
+            },
+            {
+              "items": [
+                "poisonmemory"
+              ],
+              "species": "silvallypoison",
+              "type": "Poison"
+            },
+            {
+              "items": [
+                "groundmemory"
+              ],
+              "species": "silvallyground",
+              "type": "Ground"
+            },
+            {
+              "items": [
+                "rockmemory"
+              ],
+              "species": "silvallyrock",
+              "type": "Rock"
+            },
+            {
+              "items": [
+                "bugmemory"
+              ],
+              "species": "silvallybug",
+              "type": "Bug"
+            },
+            {
+              "items": [
+                "ghostmemory"
+              ],
+              "species": "silvallyghost",
+              "type": "Ghost"
+            },
+            {
+              "items": [
+                "steelmemory"
+              ],
+              "species": "silvallysteel",
+              "type": "Steel"
+            },
+            {
+              "items": [
+                "firememory"
+              ],
+              "species": "silvallyfire",
+              "type": "Fire"
+            },
+            {
+              "items": [
+                "watermemory"
+              ],
+              "species": "silvallywater",
+              "type": "Water"
+            },
+            {
+              "items": [
+                "grassmemory"
+              ],
+              "species": "silvallygrass",
+              "type": "Grass"
+            },
+            {
+              "items": [
+                "electricmemory"
+              ],
+              "species": "silvallyelectric",
+              "type": "Electric"
+            },
+            {
+              "items": [
+                "psychicmemory"
+              ],
+              "species": "silvallypsychic",
+              "type": "Psychic"
+            },
+            {
+              "items": [
+                "icememory"
+              ],
+              "species": "silvallyice",
+              "type": "Ice"
+            },
+            {
+              "items": [
+                "dragonmemory"
+              ],
+              "species": "silvallydragon",
+              "type": "Dragon"
+            },
+            {
+              "items": [
+                "darkmemory"
+              ],
+              "species": "silvallydark",
+              "type": "Dark"
+            },
+            {
+              "items": [
+                "fairymemory"
+              ],
+              "species": "silvallyfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} reverted to the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1842-1880; 2746 (ordinary ability clauses; Crest/Pulse exceptions excluded)"
+    }
+  ],
+  "seed": {
+    "item": "telluricseed",
+    "effect": null,
+    "duration": null,
+    "message": "{1}'s weight increased!",
+    "stats": {
+      "def": 1
+    }
+  },
+  "seedActions": [
+    {
+      "op": "weightDelta",
+      "baseMultiplier": 1
+    }
+  ],
+  "secretPowerEffects": [
+    {
+      "volatileStatus": "flinch"
+    }
+  ],
+  "typeChart": [
+    {
+      "attackType": "Ground",
+      "defenseType": "Ground",
+      "value": -1,
+      "condition": {
+        "always": true
+      },
+      "source": "Battle_Move.rb:437-504"
+    }
+  ],
+  "healing": {
+    "rootFactor": 1.2998046875,
+    "agentMultipliers": {},
+    "overlayAgents": [],
+    "moveMultipliers": {},
+    "harmfulAgents": {},
+    "liquidOozeFactor": 1,
+    "drainStatLoss": false
+  },
+  "grounding": {
+    "airborneAbilities": [
+      "magnetpull",
+      "contrary",
+      "unaware",
+      "oblivious",
+      "gravitycontrol"
+    ],
+    "forceGroundingItems": [],
+    "source": "Battler.rb:1104-1112"
+  },
+  "gravityUsableMoves": [
+    "magnetrise"
+  ],
+  "expirationReturnMessage": "The terrain returned to normal.",
+  "multiplierPolicy": {
+    "defaultDifficultyMode": 0,
+    "defaultFieldFrenzy": false,
+    "casualMode": 1,
+    "casualFactor": 0.5,
+    "frenzyBoostFactor": 2,
+    "frenzyReductionFactor": 0.5,
+    "combinedMinimum": 1.5,
+    "source": "Battle_Field.rb:1001-1012; Battle_Move.rb:1355-1363"
+  },
+  "trapping": {
+    "divisors": [
+      8,
+      6,
+      4,
+      3,
+      2
+    ],
+    "moveIncrements": {},
+    "statLoss": {},
+    "immuneAbilities": [
+      "magicguard"
+    ],
+    "source": "Battle.rb:6634-6705; Battle_MoveEffects.rb:4975-5011"
+  },
+  "conditionDurations": {
+    "gravity": {
+      "duration": 5,
+      "sourceMoves": [
+        "gravity"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6820"
+    },
+    "trickroom": {
+      "duration": 5,
+      "sourceMoves": [
+        "trickroom"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6959"
+    },
+    "wonderroom": {
+      "duration": 5,
+      "sourceMoves": [
+        "wonderroom"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:7029"
+    },
+    "magicroom": {
+      "duration": 5,
+      "sourceMoves": [
+        "magicroom"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6137"
+    },
+    "magnetrise": {
+      "duration": 5,
+      "sourceMoves": [
+        "magnetrise"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "overlay": "rejuvenation:electric_terrain"
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6847"
+    }
+  },
+  "captureEnvironmentModifiers": [
+    {
+      "ball": "cobblemon:dive_ball",
+      "predicate": "underwater",
+      "multiplier": 3.5,
+      "source": "Balls.rb:143"
+    },
+    {
+      "ball": "cobblemon:dusk_ball",
+      "predicate": "night",
+      "multiplier": 3.5,
+      "source": "Balls.rb:166; Time.rb:269"
+    }
+  ],
+  "volatilePolicies": {
+    "nightmare": {
+      "allowAwake": false,
+      "suppressResidual": false,
+      "fraction": 0.25,
+      "message": "{1} is locked in a nightmare!",
+      "source": "Battle.rb:6541-6551; Battle_MoveEffects.rb:6568"
+    }
+  },
+  "statusMoveBehaviorCoverage": {
+    "explicitRuleMoves": [
+      "autotomize",
+      "gravity",
+      "magnetrise",
+      "psywave",
+      "seismictoss",
+      "topsyturvy"
+    ],
+    "unreviewedHighlightedMoves": [
+      "eerieimpulse",
+      "geomancy",
+      "magnetflux",
+      "rototiller"
+    ]
+  },
+  "persistentStatusPolicies": {
+    "ptr": {
+      "name": "Petrification",
+      "immuneTypes": [
+        "Rock"
+      ],
+      "immuneAbilities": [
+        "fairyaura",
+        "darkaura",
+        "aurabreak",
+        "roughskin"
+      ],
+      "sideProtectionAbility": "fairyaura",
+      "drainAbility": "darkaura",
+      "invertAbility": "aurabreak",
+      "fraction": 0.125,
+      "blocksHealing": true,
+      "blockedHealingAbilities": [
+        "regenerator"
+      ],
+      "drainMessage": "{1}'s health is sapped by the {2}'s dark aura!",
+      "healingFailureMessage": "{1} is prevented from healing, so it can't use {2}!",
+      "source": "Battle_Effects.rb:377-410; Battler.rb:880,1137; Battle.rb:1347,6423-6459"
+    }
+  },
+  "abilityContactPolicies": {
+    "perishbody": {
+      "disabled": false,
+      "duration": 3,
+      "trapDefender": false,
+      "forceAttackerStatus": "",
+      "message": "Both Pokémon will faint in three turns!",
+      "source": "Battler.rb:3683-3705"
+    }
+  },
+  "abilityHandlers": {
+    "schooling": {
+      "onStart": {
+        "mode": "replace",
+        "condition": {
+          "all": [
+            {
+              "species": {
+                "who": "user",
+                "value": "wishiwashi"
+              }
+            },
+            {
+              "not": {
+                "transformed": true
+              }
+            }
+          ]
+        },
+        "actions": [
+          {
+            "op": "conditional",
+            "condition": {
+              "any": [
+                {
+                  "always": false
+                },
+                {
+                  "all": [
+                    {
+                      "level": {
+                        "who": "user",
+                        "op": ">=",
+                        "value": 20
+                      }
+                    },
+                    {
+                      "hp": {
+                        "who": "user",
+                        "op": ">",
+                        "fraction": 0.25
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashischool",
+                "message": "{1} formed a school!"
+              }
+            ]
+          },
+          {
+            "op": "conditional",
+            "condition": {
+              "not": {
+                "any": [
+                  {
+                    "always": false
+                  },
+                  {
+                    "all": [
+                      {
+                        "level": {
+                          "who": "user",
+                          "op": ">=",
+                          "value": 20
+                        }
+                      },
+                      {
+                        "hp": {
+                          "who": "user",
+                          "op": ">",
+                          "fraction": 0.25
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashi",
+                "message": "{1} stopped schooling!"
+              }
+            ]
+          }
+        ],
+        "source": "Battler.rb:1739"
+      },
+      "onResidual": {
+        "mode": "replace",
+        "condition": {
+          "all": [
+            {
+              "species": {
+                "who": "user",
+                "value": "wishiwashi"
+              }
+            },
+            {
+              "not": {
+                "transformed": true
+              }
+            }
+          ]
+        },
+        "actions": [
+          {
+            "op": "conditional",
+            "condition": {
+              "any": [
+                {
+                  "always": false
+                },
+                {
+                  "all": [
+                    {
+                      "level": {
+                        "who": "user",
+                        "op": ">=",
+                        "value": 20
+                      }
+                    },
+                    {
+                      "hp": {
+                        "who": "user",
+                        "op": ">",
+                        "fraction": 0.25
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashischool",
+                "message": "{1} formed a school!"
+              }
+            ]
+          },
+          {
+            "op": "conditional",
+            "condition": {
+              "not": {
+                "any": [
+                  {
+                    "always": false
+                  },
+                  {
+                    "all": [
+                      {
+                        "level": {
+                          "who": "user",
+                          "op": ">=",
+                          "value": 20
+                        }
+                      },
+                      {
+                        "hp": {
+                          "who": "user",
+                          "op": ">",
+                          "fraction": 0.25
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashi",
+                "message": "{1} stopped schooling!"
+              }
+            ]
+          }
+        ],
+        "source": "Battler.rb:1739"
+      }
+    },
+    "seedsower": {
+      "onDamagingHit": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "createField",
+            "field": "rejuvenation:grassy_terrain",
+            "duration": 5,
+            "extendedBy": 3,
+            "blockEverstone": false
+          }
+        ],
+        "source": "Battler.rb:3926"
+      }
+    }
+  },
+  "nativeFormTyping": [
+    "arceus",
+    "silvally"
+  ]
+}

@@ -1,0 +1,51 @@
+plugins { id 'java' }
+group = 'dev.rejuvenation'
+version = '0.1.0'
+java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+// This profile ships intermediary jars. Compile against that exact ABI directly;
+// no remapping of Cobblemon or replacement of the installed simulator is needed.
+dependencies {
+    compileOnly fileTree('build/deps') { include '*.jar' }
+    testImplementation fileTree('build/deps') { include '*.jar' }
+}
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.compilerArgs += ['-proc:none'] }
+tasks.register('simulatorTest', Exec) {
+    workingDir projectDir
+    commandLine 'node', 'src/test/js/engine.test.cjs'
+}
+tasks.register('validateDatapack', Exec) {
+    workingDir projectDir.parentFile.parentFile
+    commandLine 'python', 'rejuvenation/research/validate.py'
+}
+check.dependsOn simulatorTest, validateDatapack
+tasks.register('graalTest', JavaExec) {
+    dependsOn testClasses, validateDatapack
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.rejuvenation.GraalVerification'
+    workingDir projectDir.parentFile.parentFile
+    args workingDir.toString()
+}
+check.dependsOn graalTest
+tasks.register('javaVerification', JavaExec) {
+    dependsOn testClasses, validateDatapack
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass = 'dev.rejuvenation.JavaVerification'
+    args file('../research/catalog.json').absolutePath
+}
+check.dependsOn javaVerification
+tasks.register('sourceOracleTest', Exec) {
+    workingDir projectDir.parentFile.parentFile
+    commandLine 'python', 'rejuvenation/research/runtime_oracle.py'
+}
+// Developer source certification requires the original local Ruby installation.
+// Keep it explicit so users can build a distributed project without the game.
+jar { archiveBaseName = 'rejuvenation-fields'; destinationDirectory = file('../dist') }
+sourceSets {
+    integration { compileClasspath += sourceSets.main.output + sourceSets.test.compileClasspath }
+}
+tasks.register('integrationFixtureJar', Jar) {
+    dependsOn integrationClasses
+    from sourceSets.integration.output
+    archiveBaseName = 'rejuvenation-verification-fixture'
+    destinationDirectory = file('../integration')
+}

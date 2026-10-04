@@ -1,0 +1,1518 @@
+[
+  {
+    "path": "datapacks\\COBBLEVERSE - No Ender Dragon.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eNo Ender Dragon §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 10
+  },
+  {
+    "path": "datapacks\\COBBLEVERSE - No Hunger.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eNo Hunger §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 10
+  },
+  {
+    "path": "datapacks\\COBBLEVERSE-DP-v31.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eMain Datapack §av31 §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 2761
+  },
+  {
+    "path": "datapacks\\COBBLEVERSE-Loot-DP-v11.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eLoot §av11 §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 248
+  },
+  {
+    "path": "datapacks\\COBBLEVERSE-RCT-DP-v20.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eTrainers §av20 §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 706
+  },
+  {
+    "path": "datapacks\\PokeCenterPCs-DP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "description": "Cobblemon Addon that puts the PC block in every village PokeCenter"
+      }
+    },
+    "entries": 44
+  },
+  {
+    "path": "mods\\BadOptimizations-2.4.1-1.21.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "BadOptimizations",
+        "pack_format": 18,
+        "forge:server_data_pack_format": 12
+      }
+    },
+    "entries": 91
+  },
+  {
+    "path": "mods\\balm-fabric-1.21.1-21.0.63.jar!META-INF/jars/kuma-api-fabric-21.0.8+1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "KumaAPI",
+        "pack_format": 18
+      }
+    },
+    "entries": 47
+  },
+  {
+    "path": "mods\\balm-fabric-1.21.1-21.0.63.jar",
+    "metadata": {
+      "pack": {
+        "description": "Balm",
+        "pack_format": 18
+      }
+    },
+    "entries": 825
+  },
+  {
+    "path": "mods\\Carved Wood-fabric-1.21.1-1.9.7-B.jar",
+    "metadata": {
+      "pack": {
+        "description": "Carved Wood",
+        "pack_format": 8
+      }
+    },
+    "entries": 3809
+  },
+  {
+    "path": "mods\\catchindicator-fabric-1.7.0.jar",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "supported_formats": [
+          0,
+          99
+        ],
+        "description": "Loading mod CI"
+      }
+    },
+    "entries": 85
+  },
+  {
+    "path": "mods\\comforts-fabric-9.0.5+1.21.1.jar!META-INF/jars/spectrelib-fabric-0.17.2+1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "SpectreLib resources",
+        "pack_format": 9
+      }
+    },
+    "entries": 88
+  },
+  {
+    "path": "mods\\comforts-fabric-9.0.5+1.21.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "Comforts resources",
+        "pack_format": 10
+      }
+    },
+    "entries": 478
+  },
+  {
+    "path": "mods\\configurable-3.5.2+1.21.1-fabric.jar",
+    "metadata": {
+      "pack": {
+        "description": "Config library that allows decentralised settings in a mod",
+        "pack_format": 48
+      }
+    },
+    "entries": 112
+  },
+  {
+    "path": "mods\\Controlling-fabric-1.21.1-19.0.5.jar",
+    "metadata": {
+      "pack": {
+        "description": "Controlling",
+        "pack_format": 6
+      }
+    },
+    "entries": 96
+  },
+  {
+    "path": "mods\\defaultoptions-fabric-1.21.1-21.1.7.jar",
+    "metadata": {
+      "pack": {
+        "description": "Default Options",
+        "pack_format": 18
+      }
+    },
+    "entries": 70
+  },
+  {
+    "path": "mods\\entityculling-fabric-1.10.5-mc1.21.1.jar!META-INF/jars/TRansition-1.0.21-1.21.1-fabric-SNAPSHOT.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for transition",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 812
+  },
+  {
+    "path": "mods\\entityculling-fabric-1.10.5-mc1.21.1.jar!META-INF/jars/TRender-1.0.15-1.21.1-fabric-SNAPSHOT.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for trender",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 254
+  },
+  {
+    "path": "mods\\entityculling-fabric-1.10.5-mc1.21.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for entityculling",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 84
+  },
+  {
+    "path": "mods\\entity_model_features-3.2.4-1.21-fabric.jar",
+    "metadata": {
+      "pack": {
+        "description": "Example Mod",
+        "pack_format": 9
+      }
+    },
+    "entries": 291
+  },
+  {
+    "path": "mods\\entity_texture_features_1.21-fabric-7.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "Example Mod",
+        "pack_format": 9
+      }
+    },
+    "entries": 315
+  },
+  {
+    "path": "mods\\fancymenu_fabric_3.9.8_MC_1.21.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "FancyMenu",
+        "pack_format": 8
+      }
+    },
+    "entries": 2678
+  },
+  {
+    "path": "mods\\ForgeConfigAPIPort-v21.1.6-1.21.1-Fabric.jar",
+    "metadata": {
+      "pack": {
+        "description": "Provides NeoForge's & Forge's config systems to other modding ecosystems. Designed for a multi-loader architecture.",
+        "pack_format": 34
+      }
+    },
+    "entries": 187
+  },
+  {
+    "path": "mods\\forgivingvoid-fabric-1.21.1-21.1.7.jar",
+    "metadata": {
+      "pack": {
+        "description": "Forgiving Void",
+        "pack_format": 18
+      }
+    },
+    "entries": 34
+  },
+  {
+    "path": "mods\\fusion-1.2.12-fabric-mc1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "Fusion's resources",
+        "pack_format": 34
+      }
+    },
+    "entries": 317
+  },
+  {
+    "path": "mods\\globalpacks-fabric-1.21.1-21.0.6.jar",
+    "metadata": {
+      "pack": {
+        "description": "Global Packs",
+        "pack_format": 48
+      }
+    },
+    "entries": 36
+  },
+  {
+    "path": "mods\\konkrete_fabric_1.9.9_MC_1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "Konkrete",
+        "pack_format": 8
+      }
+    },
+    "entries": 499
+  },
+  {
+    "path": "mods\\LegendaryMonuments-Cobbleverse.jar",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "supported_formats": [
+          34,
+          999
+        ],
+        "description": "Adds a new structure that has 2 different versions for both Zacian and Zamazenta"
+      }
+    },
+    "entries": 882
+  },
+  {
+    "path": "mods\\melody_fabric_1.0.10_MC_1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "Melody",
+        "pack_format": 8
+      }
+    },
+    "entries": 47
+  },
+  {
+    "path": "mods\\modernfix-fabric-5.25.1+mc1.21.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "modernfix resources",
+        "pack_format": 6,
+        "_comment": "A pack_format of 6 requires json lang files and some texture changes from 1.16.2. Note: we require v6 pack meta for all mods."
+      }
+    },
+    "entries": 363
+  },
+  {
+    "path": "mods\\MouseTweaks-fabric-mc1.21-2.26.jar",
+    "metadata": {
+      "pack": {
+        "description": "Mouse Tweaks Resources",
+        "pack_format": 32
+      }
+    },
+    "entries": 38
+  },
+  {
+    "path": "mods\\neruina-3.3.3+1.21.1-fabric.jar",
+    "metadata": {
+      "pack": {
+        "description": "This is a mod that prevents ticking entity and ticking block entity / tile entity crashes from bricking worlds.",
+        "pack_format": 48
+      }
+    },
+    "entries": 137
+  },
+  {
+    "path": "mods\\netherportalfix-fabric-1.21.1-21.1.3.jar",
+    "metadata": {
+      "pack": {
+        "description": "NetherPortalFix",
+        "pack_format": 18
+      }
+    },
+    "entries": 25
+  },
+  {
+    "path": "mods\\notenoughanimations-fabric-1.12.4-mc1.21.1.jar!META-INF/jars/TRansition-1.0.21-1.21.1-fabric-SNAPSHOT.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for transition",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 812
+  },
+  {
+    "path": "mods\\notenoughanimations-fabric-1.12.4-mc1.21.1.jar!META-INF/jars/TRender-1.0.15-1.21.1-fabric-SNAPSHOT.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for trender",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 254
+  },
+  {
+    "path": "mods\\notenoughanimations-fabric-1.12.4-mc1.21.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for notenoughanimations",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 121
+  },
+  {
+    "path": "mods\\Only Bottle Caps-1.3.0.jar!META-INF/jars/supermartijn642s-config-lib-1.1.8-fabric-mc1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "SuperMartijn642's Config Lib's resources",
+        "pack_format": 34
+      }
+    },
+    "entries": 56
+  },
+  {
+    "path": "mods\\ore-vein-miner-7.01R.jar",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "description": "OreVeinMiner Legacy 7.0.1 - Java 1.21-1.21.1"
+      }
+    },
+    "entries": 123
+  },
+  {
+    "path": "mods\\packetfixer-3.3.1-1.20.5-1.21.X-merged.jar",
+    "metadata": {
+      "pack": {
+        "description": "PacketFixer resources",
+        "pack_format": 9
+      }
+    },
+    "entries": 59
+  },
+  {
+    "path": "mods\\particlerain-4.0.0-beta.10+1.21.1-fabric.jar",
+    "metadata": {
+      "pack": {
+        "description": "lol. lmao, even.",
+        "pack_format": 1
+      }
+    },
+    "entries": 179
+  },
+  {
+    "path": "mods\\particular-1.21.1-Fabric-1.5.5.jar",
+    "metadata": {
+      "pack": {
+        "description": "Particular Reforged",
+        "pack_format": 8
+      }
+    },
+    "entries": 335
+  },
+  {
+    "path": "mods\\rechiseled-1.2.4-fabric-mc1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "Rechiseled's resources",
+        "pack_format": 34
+      }
+    },
+    "entries": 22901
+  },
+  {
+    "path": "mods\\ResourcePackOverrides-v21.1.0-1.21.1-Fabric.jar",
+    "metadata": {
+      "pack": {
+        "description": "Ensures important resource packs stay always active and helps clean up the pack selection screen.",
+        "pack_format": 34
+      }
+    },
+    "entries": 56
+  },
+  {
+    "path": "mods\\Searchables-fabric-1.21.1-1.0.2.jar",
+    "metadata": {
+      "pack": {
+        "description": "Searchables",
+        "pack_format": 6
+      }
+    },
+    "entries": 90
+  },
+  {
+    "path": "mods\\sophisticatedbackpacks-1.21.1-3.23.4.3.106.jar",
+    "metadata": {
+      "pack": {
+        "pack_format": 6,
+        "description": "Resources used in SophisticatedBackpacks"
+      }
+    },
+    "entries": 831
+  },
+  {
+    "path": "mods\\sophisticatedcore-1.21.1-1.2.9.21.168.jar",
+    "metadata": {
+      "pack": {
+        "pack_format": 6,
+        "description": "Resources used in SophisticatedCore"
+      }
+    },
+    "entries": 900
+  },
+  {
+    "path": "mods\\sophisticatedstorage-1.21.1-1.3.7.9.139.jar",
+    "metadata": {
+      "pack": {
+        "pack_format": 6,
+        "description": "Resources used in SophisticatedStorage"
+      }
+    },
+    "entries": 1725
+  },
+  {
+    "path": "mods\\supermartijn642configlib-1.1.8-fabric-mc1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "SuperMartijn642's Config Lib's resources",
+        "pack_format": 34
+      }
+    },
+    "entries": 56
+  },
+  {
+    "path": "mods\\supermartijn642corelib-1.1.21-fabric-mc1.21.jar",
+    "metadata": {
+      "pack": {
+        "description": "SuperMartijn642's Core Lib's resources",
+        "pack_format": 34
+      }
+    },
+    "entries": 272
+  },
+  {
+    "path": "mods\\toms_storage_fabric-1.21-2.3.0.jar",
+    "metadata": {
+      "pack": {
+        "description": "Tom's Simple Storage resources",
+        "pack_format": 48
+      }
+    },
+    "entries": 544
+  },
+  {
+    "path": "mods\\tree-vein-miner-7.01R2.jar",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "description": "TreeVeinMiner Legacy 7.1.1 - Java 1.21-1.21.1"
+      }
+    },
+    "entries": 128
+  },
+  {
+    "path": "mods\\waystones-fabric-1.21.1-21.1.37.jar",
+    "metadata": {
+      "pack": {
+        "description": "Waystones",
+        "pack_format": 18
+      }
+    },
+    "entries": 1005
+  },
+  {
+    "path": "mods\\xaerominimap-fabric-1.21.1-26.4.2.jar!META-INF/jars/xaerolib-fabric-1.21.1-1.7.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "XaeroLib",
+        "pack_format": 8
+      }
+    },
+    "entries": 539
+  },
+  {
+    "path": "mods\\xaerominimap-fabric-1.21.1-26.4.2.jar",
+    "metadata": {
+      "pack": {
+        "description": "xaerohud",
+        "pack_format": 8
+      }
+    },
+    "entries": 1049
+  },
+  {
+    "path": "mods\\xaeroworldmap-fabric-1.21.1-1.44.2.jar!META-INF/jars/xaerolib-fabric-1.21.1-1.7.1.jar",
+    "metadata": {
+      "pack": {
+        "description": "XaeroLib",
+        "pack_format": 8
+      }
+    },
+    "entries": 539
+  },
+  {
+    "path": "mods\\xaeroworldmap-fabric-1.21.1-1.44.2.jar",
+    "metadata": {
+      "pack": {
+        "description": "Xaero's World Map",
+        "pack_format": 8
+      }
+    },
+    "entries": 521
+  },
+  {
+    "path": "mods\\yet_another_config_lib_v3-3.8.2+1.21.1-fabric.jar",
+    "metadata": {
+      "pack": {
+        "description": "${name}",
+        "pack_format": 14
+      }
+    },
+    "entries": 444
+  },
+  {
+    "path": "resourcepacks\\ATMxMSD RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "supported_formats": {
+          "min_inclusive": 34,
+          "max_inclusive": 48
+        },
+        "description": "§2ATM x MSD Version 3.6.1\n§8§oby _Lvnatic and many others!"
+      }
+    },
+    "entries": 1692
+  },
+  {
+    "path": "resourcepacks\\Canon PC Wallpapers.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Reimagining the official PC Wallpapers from the games!"
+      }
+    },
+    "entries": 435
+  },
+  {
+    "path": "resourcepacks\\CavsCobbleMons RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "supported_formats": [
+          15,
+          99
+        ],
+        "description": "Xcavalier made this :P"
+      }
+    },
+    "entries": 111
+  },
+  {
+    "path": "resourcepacks\\Classic Grass.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Cobblemon Classic Grass Pack v2.0 MC1.21.1"
+      }
+    },
+    "entries": 9
+  },
+  {
+    "path": "resourcepacks\\Cobblemon Interface Modded.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "§dMod Supported GUI\n§fBy: §eVinnyStalck"
+      }
+    },
+    "entries": 852
+  },
+  {
+    "path": "resourcepacks\\Cobblemon Interface.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "§cCobblemon inspired GUI\n§fBy: §eVinnyStalck"
+      }
+    },
+    "entries": 515
+  },
+  {
+    "path": "resourcepacks\\CobbleMotion RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "(1.7.x) CobbleMotion v1.4.1 Animations by §bLenka§"
+      }
+    },
+    "entries": 535
+  },
+  {
+    "path": "resourcepacks\\COBBLEVERSE RCTmod RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 46,
+        "supported_formats": [
+          0,
+          99
+        ],
+        "description": "§aAnimated Skins §7for §6RCTmod\n§7by §c§lLUMY§9§lVERSE §f[v14]"
+      }
+    },
+    "entries": 2024
+  },
+  {
+    "path": "resourcepacks\\COBBLEVERSE RP.zip",
+    "metadata": {
+      "pack": {
+        "description": "§aMade for §b§lCOBBLE§e§lVERSE\n§7by §c§lLUMY§9§lVERSE §f[v24]",
+        "pack_format": 46,
+        "supported_formats": [
+          0,
+          99
+        ]
+      }
+    },
+    "entries": 635
+  },
+  {
+    "path": "resourcepacks\\COBBLEVERSE Soundtrack.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 46,
+        "supported_formats": [
+          0,
+          99
+        ],
+        "description": "§aMade for §b§lCOBBLE§e§lVERSE\n§7by §c§lLUMY§9§lVERSE §f"
+      }
+    },
+    "entries": 113
+  },
+  {
+    "path": "resourcepacks\\Comforts Modernized.zip",
+    "metadata": {
+      "pack": {
+        "description": "§eA modern Minecraft look for the Comforts mod. Pack by §1pedro9006.",
+        "pack_format": 10
+      }
+    },
+    "entries": 133
+  },
+  {
+    "path": "resourcepacks\\Dramatic Skys Demo 1.5.3.36.6.zip",
+    "metadata": {
+      "pack": {
+        "description": "Dramatic Skys Demo/Alpha 1.5.3.36.6 by thebaum64",
+        "pack_format": 15,
+        "min_format": [
+          15,
+          0
+        ],
+        "max_format": [
+          1000,
+          0
+        ],
+        "supported_formats": [
+          15,
+          1000
+        ]
+      }
+    },
+    "entries": 102
+  },
+  {
+    "path": "resourcepacks\\E19 Cobblemon Minimap Icons.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "1.21.1-1.4.4"
+      }
+    },
+    "entries": 8123
+  },
+  {
+    "path": "resourcepacks\\EeveelutionsReimagined RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": [
+          {
+            "text": "Eevvelutions Reimaged\n",
+            "color": "#E54040",
+            "bold": true
+          },
+          {
+            "text": "Created by ",
+            "color": "gray"
+          },
+          {
+            "text": "SK4N",
+            "color": "#4068E5",
+            "bold": true
+          }
+        ]
+      }
+    },
+    "entries": 77
+  },
+  {
+    "path": "resourcepacks\\Emissive Cobblemon Ores.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Makes Cobblemon ores emissive!"
+      }
+    },
+    "entries": 33
+  },
+  {
+    "path": "resourcepacks\\EvenBetterEnchants_v2_r1.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 100,
+        "supported_formats": {
+          "min_inclusive": 15,
+          "max_inclusive": 100
+        },
+        "description": "§dby §6Mythitorium\n§7v2 §8- §71.21+"
+      }
+    },
+    "entries": 351
+  },
+  {
+    "path": "resourcepacks\\Fresh Animations.zip",
+    "metadata": {
+      "pack": {
+        "description": "§4■ 1.10.4 BETA§8\n■ By FreshLX",
+        "pack_format": 15,
+        "supported_formats": {
+          "min_inclusive": 15,
+          "max_inclusive": 999
+        },
+        "min_format": 15,
+        "max_format": 999
+      },
+      "overlays": {
+        "entries": [
+          {
+            "directory": "20-3",
+            "formats": {
+              "min_inclusive": 22,
+              "max_inclusive": 999
+            },
+            "min_format": 22,
+            "max_format": 999
+          },
+          {
+            "directory": "21-2",
+            "formats": {
+              "min_inclusive": 42,
+              "max_inclusive": 999
+            },
+            "min_format": 42,
+            "max_format": 999
+          },
+          {
+            "directory": "21-5",
+            "formats": {
+              "min_inclusive": 55,
+              "max_inclusive": 999
+            },
+            "min_format": 55,
+            "max_format": 999
+          },
+          {
+            "directory": "21-11",
+            "formats": {
+              "min_inclusive": 75,
+              "max_inclusive": 999
+            },
+            "min_format": 75,
+            "max_format": 999
+          }
+        ]
+      }
+    },
+    "entries": 574
+  },
+  {
+    "path": "resourcepacks\\Fresh Icons.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "min_format": 1,
+        "max_format": 75,
+        "supported_formats": {
+          "min_inclusive": 1,
+          "max_inclusive": 69
+        },
+        "description": "§6Kyo98(godkyo98) - §7Adds icons Minecraft combined with Fresh Animations Xaero's Minimap and WorldMap"
+      }
+    },
+    "entries": 471
+  },
+  {
+    "path": "resourcepacks\\Fresh Moves.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "supported_formats": [
+          0,
+          99
+        ],
+        "description": "§a☑ With Animated Eyes §b\n❖ For 1.21.2 and below"
+      }
+    },
+    "entries": 35
+  },
+  {
+    "path": "resourcepacks\\FullyHisuianStarters RP.zip",
+    "metadata": {
+      "pack": {
+        "description": "Makes the Hisuian Starters resemble their Final Forms More",
+        "pack_format": 34
+      }
+    },
+    "entries": 53
+  },
+  {
+    "path": "resourcepacks\\GlitchDex RP.zip",
+    "metadata": {
+      "pack": {
+        "description": "Adding Unimplemented Pokemon! By §6§lGlitch Ratt §r& §9§lOzzy!",
+        "pack_format": 15
+      }
+    },
+    "entries": 31
+  },
+  {
+    "path": "resourcepacks\\HydroReanimodel RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Reanimated Pack"
+      }
+    },
+    "entries": 254
+  },
+  {
+    "path": "resourcepacks\\Invisible Armor Model - 34.zip",
+    "metadata": {
+      "pack": {
+        "description": "All Rights Reserved\nCopyright (c) 2024 fixyldev",
+        "pack_format": 34,
+        "supported_formats": 34
+      }
+    },
+    "entries": 61
+  },
+  {
+    "path": "resourcepacks\\JigglyRadio.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Soundpack by Swordsman69x Version 1.4"
+      }
+    },
+    "entries": 100
+  },
+  {
+    "path": "resourcepacks\\LackingMons RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "description": "LackingMons developed by Beezy & IZetyXX"
+      }
+    },
+    "entries": 37
+  },
+  {
+    "path": "resourcepacks\\Low Fire.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "supported_formats": {
+          "min_inclusive": 15,
+          "max_inclusive": 255
+        },
+        "min_format": 15,
+        "max_format": 255,
+        "description": "§6• Version 1.3.0\n§c• by Oculie"
+      }
+    },
+    "entries": 24
+  },
+  {
+    "path": "resourcepacks\\MDH.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "supported_formats": [
+          48,
+          107.1
+        ],
+        "description": "§7▪§f by zed1ker §7[1.2] \n▪§8§l update"
+      }
+    },
+    "entries": 6
+  },
+  {
+    "path": "resourcepacks\\MissingMons RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "supported_formats": {
+          "min_inclusive": 34,
+          "max_inclusive": 48
+        },
+        "description": "§4Version 3.6.1 §cby RedRibbon §eSupport me on Ko-fi §6ko-fi.com/redvampiregurl"
+      }
+    },
+    "entries": 207
+  },
+  {
+    "path": "resourcepacks\\MundialMons RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Galarmons,Kalorsmons by §bAlexiocraft"
+      }
+    },
+    "entries": 253
+  },
+  {
+    "path": "resourcepacks\\MysticMons RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Pokemon added by iMystxc"
+      }
+    },
+    "entries": 37
+  },
+  {
+    "path": "resourcepacks\\OJsAnimations RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "We give pokemon some life with movement!"
+      }
+    },
+    "entries": 29
+  },
+  {
+    "path": "resourcepacks\\Original Pokemon Battle Music.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "description": "Original Pokemon Battle Music, In Cobblemon! By §a@realDunkin"
+      }
+    },
+    "entries": 169
+  },
+  {
+    "path": "resourcepacks\\PlanetaCobblemon RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "description": "Planeta Cobblemon free pack"
+      }
+    },
+    "entries": 51
+  },
+  {
+    "path": "resourcepacks\\PokeDiscs.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "supported_formats": [
+          15,
+          18,
+          22
+        ],
+        "description": "§eAdds§c Poké§fmon §emusic to§e Minecraft discs! §6§l§oby SOSA"
+      }
+    },
+    "entries": 64
+  },
+  {
+    "path": "resourcepacks\\Pokemans RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "kyogre is a dog"
+      }
+    },
+    "entries": 85
+  },
+  {
+    "path": "resourcepacks\\PokeRods3D.zip",
+    "metadata": {
+      "pack": {
+        "description": "Model: §9CanineGray§r \nTextures: §2Akera099",
+        "pack_format": 9,
+        "name": "Cobblemon 3D Poke Rods 1.0",
+        "supported_formats": {
+          "min_inclusive": 9,
+          "max_inclusive": 34
+        }
+      }
+    },
+    "entries": 215
+  },
+  {
+    "path": "resourcepacks\\Powder Snow Alerts.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 4,
+        "supported_formats": [
+          4,
+          99999999
+        ],
+        "description": "Adds an exclamation mark to powdered snow."
+      }
+    },
+    "entries": 3
+  },
+  {
+    "path": "resourcepacks\\Redstone Tweaks 2.4.5.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "supported_formats": [
+          34,
+          34
+        ],
+        "description": "§7v2.4.5 §8• §7made by §cRexxStone\n§7with RPO settings by §bKikuGie"
+      }
+    },
+    "entries": 2454
+  },
+  {
+    "path": "resourcepacks\\TDmon RP.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "supported_formats": [
+          7,
+          61
+        ],
+        "description": "made by DiEn"
+      }
+    },
+    "entries": 128
+  },
+  {
+    "path": "resourcepacks\\UD Refined - Lite - 1.20.2-26.x.zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 18,
+        "supported_formats": [
+          18,
+          999
+        ],
+        "min_format": 18,
+        "max_format": 999,
+        "description": "§6Unique Dark Refined - Lite\n§eby amongstreality"
+      },
+      "overlays": {
+        "entries": [
+          {
+            "directory": "format_42-999",
+            "formats": [
+              42,
+              99
+            ],
+            "min_format": 42,
+            "max_format": 999
+          },
+          {
+            "directory": "format_46-999",
+            "formats": [
+              46,
+              999
+            ],
+            "min_format": 46,
+            "max_format": 999
+          },
+          {
+            "directory": "format_63-999",
+            "formats": [
+              63,
+              999
+            ],
+            "min_format": 63,
+            "max_format": 999
+          },
+          {
+            "directory": "format_76-999",
+            "formats": [
+              76,
+              999
+            ],
+            "min_format": 76,
+            "max_format": 999
+          },
+          {
+            "directory": "format_85-999",
+            "formats": [
+              85,
+              999
+            ],
+            "min_format": 85,
+            "max_format": 999
+          },
+          {
+            "directory": "format_97-999",
+            "formats": [
+              97,
+              999
+            ],
+            "min_format": 97,
+            "max_format": 999
+          }
+        ]
+      }
+    },
+    "entries": 906
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [ATM x MSD - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "supported_formats": {
+          "min_inclusive": 34,
+          "max_inclusive": 48
+        },
+        "description": "§2ATM x MSD Version 3.6.1\n§8§oby _Lvnatic and many others!"
+      }
+    },
+    "entries": 2512
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [CavsCobbleMons - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "supported_formats": [
+          15,
+          99
+        ],
+        "description": "Xcavalier made this :P"
+      }
+    },
+    "entries": 240
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [CobbleMotion - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "(1.7.x) CobbleMotion v1.5 Animations by §bLenka§"
+      }
+    },
+    "entries": 595
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [E19 Minimap Icons - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "1.21.1-1.4.4"
+      }
+    },
+    "entries": 9947
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [GlitchDex - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "description": "Adding Unimplemented Pokemon! By §6§lGlitch Ratt §r& §9§lOzzy!",
+        "pack_format": 15
+      }
+    },
+    "entries": 91
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [Hydro Reanimodel - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Reanimated Pack"
+      }
+    },
+    "entries": 844
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [LackingMons - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "description": ""
+      }
+    },
+    "entries": 860
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [MissingMons - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 48,
+        "supported_formats": {
+          "min_inclusive": 34,
+          "max_inclusive": 48
+        },
+        "description": "§4Version 3.6.1 §cby RedRibbon §eSupport me on Ko-fi §6ko-fi.com/redvampiregurl"
+      }
+    },
+    "entries": 759
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [MundialMons - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "preview of the paldeaMons by §bAlexiocraft"
+      }
+    },
+    "entries": 532
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [MysticMons - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "Pokemon added by iMystxc"
+      }
+    },
+    "entries": 546
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [PlanetaCobblemon - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "description": "Planeta Cobblemon free pack"
+      }
+    },
+    "entries": 170
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [Pokemans - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 34,
+        "description": "kyogre is a dog"
+      }
+    },
+    "entries": 755
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [TDmon - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "pack_format": 15,
+        "supported_formats": [
+          7,
+          61
+        ],
+        "description": "made by DiEn"
+      }
+    },
+    "entries": 227
+  },
+  {
+    "path": "resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "metadata": {
+      "pack": {
+        "id": "terralith",
+        "supported_formats": [
+          48,
+          61
+        ],
+        "pack_format": 48,
+        "description": [
+          {
+            "text": "Terralith",
+            "color": "#1eb2bc"
+          },
+          {
+            "text": " - Overworld Evolved\nCreated by ",
+            "color": "gray"
+          },
+          {
+            "text": "Stardust Labs",
+            "color": "#683edd"
+          }
+        ]
+      },
+      "overlays": {
+        "entries": [
+          {
+            "formats": [
+              57,
+              61
+            ],
+            "directory": "1-21-2-overlay"
+          },
+          {
+            "formats": 61,
+            "directory": "1-21-4-overlay"
+          }
+        ]
+      }
+    },
+    "entries": 2678
+  },
+  {
+    "path": "datapacks\\extra\\COBBLEVERSE-Hoenn-DP.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eHoenn Datapack §av9 §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 260
+  },
+  {
+    "path": "datapacks\\extra\\COBBLEVERSE-Johto-DP.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eJohto Datapack §av9 §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 131
+  },
+  {
+    "path": "datapacks\\extra\\COBBLEVERSE-Sinnoh-DP.zip",
+    "metadata": {
+      "pack": {
+        "description": "§c§lCOBBLE§b§lVERSE §eSinnoh Datapack §av5 §7| §fby §4§lLUMY§9§lVERSE",
+        "pack_format": 48
+      }
+    },
+    "entries": 221
+  },
+  {
+    "path": "datapacks\\extra\\Terralith-DP.zip",
+    "metadata": {
+      "pack": {
+        "id": "terralith",
+        "supported_formats": [
+          48,
+          61
+        ],
+        "pack_format": 48,
+        "description": [
+          {
+            "text": "Terralith",
+            "color": "#1eb2bc"
+          },
+          {
+            "text": " - Overworld Evolved\nCreated by ",
+            "color": "gray"
+          },
+          {
+            "text": "Stardust Labs",
+            "color": "#683edd"
+          }
+        ]
+      },
+      "overlays": {
+        "entries": [
+          {
+            "formats": [
+              57,
+              61
+            ],
+            "directory": "1-21-2-overlay"
+          },
+          {
+            "formats": 61,
+            "directory": "1-21-4-overlay"
+          }
+        ]
+      }
+    },
+    "entries": 2678
+  },
+  {
+    "path": ".fabric\\processedMods\\kuma_api-21.0.8-58ed57197b8e4402.jar",
+    "metadata": {
+      "pack": {
+        "description": "KumaAPI",
+        "pack_format": 18
+      }
+    },
+    "entries": 47
+  },
+  {
+    "path": ".fabric\\processedMods\\spectrelib-0.17.2+1.21-fc5696963b8d0d7e.jar",
+    "metadata": {
+      "pack": {
+        "description": "SpectreLib resources",
+        "pack_format": 9
+      }
+    },
+    "entries": 88
+  },
+  {
+    "path": ".fabric\\processedMods\\transition-1.0.21-ab3ba40a8e21d344.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for transition",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 812
+  },
+  {
+    "path": ".fabric\\processedMods\\trender-1.0.15-8bab572093dfca6a.jar",
+    "metadata": {
+      "pack": {
+        "description": "Resources for trender",
+        "pack_format": 34,
+        "min_format": 34,
+        "max_format": 34
+      }
+    },
+    "entries": 254
+  },
+  {
+    "path": ".fabric\\processedMods\\xaerolib-1.7.1-3a4e89bd561f0d8b.jar",
+    "metadata": {
+      "pack": {
+        "description": "XaeroLib",
+        "pack_format": 8
+      }
+    },
+    "entries": 539
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": true,
+  "jarSha256": "3e1ad8149e946a18cb900bb48004a67a29809e92eaaa1e4d6eaa3dae66f8a5bb",
+  "processId": 528,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "Natural environment initialized rejuvenation:grassy_terrain with ordered entry chat",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:forest with ordered entry chat",
+      "Live Forest Growth boosts Attack by two stages",
+      "Existing Minecraft Everstone bridges to simulator and blocks terrain creation",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:electric_terrain with ordered entry chat",
+      "Minecraft held Seed activates, consumes and boosts in live simulator",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:water_surface with ordered entry chat",
+      "Live cobblemon:dive_ball capture event applies source 3.5 multiplier once with integer rounding",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:dark_crystal_cavern with ordered entry chat",
+      "Live cobblemon:dusk_ball capture event applies source 3.5 multiplier once with integer rounding",
+      "Ended battle state removed"
+    ],
+    "success": true,
+    "battles": 5
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 181.7,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

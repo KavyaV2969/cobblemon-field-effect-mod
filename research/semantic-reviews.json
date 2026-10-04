@@ -1,0 +1,1286 @@
+[
+  {
+    "file": "Battler.rb",
+    "line": 1721,
+    "endLine": 1729,
+    "bodySha256": "646e93833bc308343b9a4dc9ba2763e89aa9c466cd6659b4481962efd883144c",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Surf/Dive catch form overrides: aquatic fields choose Gulping; electrical/mechanical fields choose Gorging; other fields retain native HP selection.",
+    "tests": [
+      "field Gulp Missile selects its source forme rather than the HP-based native forme"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1723,
+    "endLine": 1729,
+    "bodySha256": "bb7c2ed525ab8264a0537050db0c9ce95e568d5a0b6ceb7b502ff19738c94c60",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Surf/Dive catch form overrides: aquatic fields choose Gulping; electrical/mechanical fields choose Gorging; other fields retain native HP selection.",
+    "tests": [
+      "field Gulp Missile selects its source forme rather than the HP-based native forme"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1739,
+    "endLine": 1756,
+    "bodySha256": "7d1b8355360243f70abaf89a1a585106a8f0e490e7c21d832dd1407a05b6b068",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Schooling permits low level/HP Underwater, or grounded water-surface fields; reverts when neither the environmental nor canonical HP/level condition holds. Form-specific start and stop text emits once.",
+    "tests": [
+      "Schooling ignores low HP and level in aquatic fields but reverts on dry ground"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1809,
+    "endLine": 1816,
+    "bodySha256": "c46af776e6b0cb793035aca666c0bf7fa6d4d0c52feac0500c1948ec9e30449b",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Eiscue base Ice Face melts on entry/end round on Volcanic, Volcanic Top and Infernal; this source predicate does not require the Ice Face ability.",
+    "tests": [
+      "volcanic fields melt Eiscue Ice Face without requiring a physical hit"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1818,
+    "endLine": 1821,
+    "bodySha256": "28dcfee3dd14b4105d3cc9aab78a777e62a04e58daa45b4358bee03b28f6ce4b",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Dimensional Download changes ordinary type on entry and end round, using native type-change eligibility. Its ordinary entry stat boost is retained.",
+    "tests": [
+      "Dimensional Download changes type on entry and each end of turn"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1834,
+    "endLine": 1838,
+    "bodySha256": "95ebc3095f786b7421ce28024749b699364c05277e61ff966226b4ee104a0752",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Deep Earth adds one stage to the five main stats after native Complete-form transformation, with source empowerment text.",
+    "tests": [
+      "Deep Earth Power Construct adds a single omniboost when the complete forme appears"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1846,
+    "endLine": 1849,
+    "bodySha256": "751d0bd8eed01f6fe0dc2c5b9c0d719052493659f2ace7d402a887281e77ce51",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "New World rolls an ordinary Arceus/Silvally type/form excluding its current type on entry/end round; native held-item typing must not overwrite the roll. Leaving the field restores the item form only at the next source form check.",
+    "tests": [
+      "New World form typing survives native held-item callbacks and restores after leaving"
+    ],
+    "exclusions": [
+      "Silvally Crest clause",
+      "Pulse Arceus custom/story forms"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1854,
+    "endLine": 1868,
+    "bodySha256": "85d81703e50fefeec2461b8db5a07a73ce2249714a0a3662451ee9595f67a606",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy forces ordinary Dark Silvally form 17, not Fairy. Glitch forces unknown typing and source corruption text. The custom unknown-type model/animation is absent; ordinary type semantics execute and item restoration resumes elsewhere.",
+    "tests": [
+      "Holy Silvally uses its native Dark form and Glitch retains unknown typing until restored"
+    ],
+    "exclusions": [
+      "Custom Glitch Silvally form model/animation; ordinary unknown-type behavior retained"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1855,
+    "endLine": 1855,
+    "bodySha256": "f9fb4dd6eb5f09d6ea60e4253cbbc647aa3394afa76face159844045c30b1b9b",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy forces ordinary Dark Silvally form 17, not Fairy. Glitch forces unknown typing and source corruption text. The custom unknown-type model/animation is absent; ordinary type semantics execute and item restoration resumes elsewhere.",
+    "tests": [
+      "Holy Silvally uses its native Dark form and Glitch retains unknown typing until restored"
+    ],
+    "exclusions": [
+      "Custom Glitch Silvally form model/animation; ordinary unknown-type behavior retained"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1856,
+    "endLine": 1856,
+    "bodySha256": "db54336c4f3b5050f7b69903341f3c0f99bce3d7a0b362a845451eb0c7860924",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy forces ordinary Dark Silvally form 17, not Fairy. Glitch forces unknown typing and source corruption text. The custom unknown-type model/animation is absent; ordinary type semantics execute and item restoration resumes elsewhere.",
+    "tests": [
+      "Holy Silvally uses its native Dark form and Glitch retains unknown typing until restored"
+    ],
+    "exclusions": [
+      "Custom Glitch Silvally form model/animation; ordinary unknown-type behavior retained"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1863,
+    "endLine": 1863,
+    "bodySha256": "d1366126a375d9924d23157fa444aef1f28cd691fa2c80a72770dc08dee6ebb3",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy forces ordinary Dark Silvally form 17, not Fairy. Glitch forces unknown typing and source corruption text. The custom unknown-type model/animation is absent; ordinary type semantics execute and item restoration resumes elsewhere.",
+    "tests": [
+      "Holy Silvally uses its native Dark form and Glitch retains unknown typing until restored"
+    ],
+    "exclusions": [
+      "Custom Glitch Silvally form model/animation; ordinary unknown-type behavior retained"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1864,
+    "endLine": 1864,
+    "bodySha256": "43dd6b5aeb96cdc85c45c16b2860060df1bdae34781a0a9527b7a034a04f78c7",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy forces ordinary Dark Silvally form 17, not Fairy. Glitch forces unknown typing and source corruption text. The custom unknown-type model/animation is absent; ordinary type semantics execute and item restoration resumes elsewhere.",
+    "tests": [
+      "Holy Silvally uses its native Dark form and Glitch retains unknown typing until restored"
+    ],
+    "exclusions": [
+      "Custom Glitch Silvally form model/animation; ordinary unknown-type behavior retained"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3550,
+    "endLine": 3550,
+    "bodySha256": "ef2d127de37b942baad06145e54b0c619a1f22327b2ebbcfbec78f5564afe39d",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Stench adds 20-percent flinch on Wasteland, Murkwater Surface, Back Alley and City; it does not duplicate an existing flinch secondary.",
+    "tests": [
+      "field Stench increases only its added flinch secondary to 20 percent"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3563,
+    "endLine": 3567,
+    "bodySha256": "a6e6c2ceac52b0ed2f276692062bec222bbc6a249079a65ddd55a09e7b61c838",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Deux Finalis Sword of Ruin tries Petrification after a successful damaging hit, retaining secondary-effect protection and custom-status eligibility.",
+    "tests": [
+      "Sword of Ruin petrifies only on a successful damaging hit in Deux Finalis"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3568,
+    "endLine": 3592,
+    "bodySha256": "4c5f397f544eec9a1967a50c082641d00fcd758e7e9d0259c7ef26472aa1d2a3",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Wasteland Corrosion attempts one randomly selected standard status after damaging hits; Shield Dust and Covert Cloak prevent the effect.",
+    "tests": [
+      "Wasteland Corrosion applies a random status after any damaging hit"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3597,
+    "endLine": 3597,
+    "bodySha256": "77d313a9b76486ee4c6142973682c15ab3057e0cd92e6c07767aa6bc00377698",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Corrupted doubles contact Poison Touch probability to 60 percent, retaining attacker contact/pads and defender secondary guards.",
+    "tests": [
+      "Corrupted Poison Touch uses 60 percent and respects Shield Dust, cloak and pads"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3609,
+    "endLine": 3609,
+    "bodySha256": "d84bdb34d4eeef4034d77e5403f850e35bc4a51b1143e3a83510e1aaad839748",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Corrosive Mist Aftermath uses one-half attacker maximum HP instead of one-quarter, with contact, fainting, Damp and Magic Guard guards.",
+    "tests": [
+      "Corrosive Mist Aftermath loses half the attacker maximum HP"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3635,
+    "endLine": 3635,
+    "bodySha256": "77d313a9b76486ee4c6142973682c15ab3057e0cd92e6c07767aa6bc00377698",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Effect Spore doubles total chance to 60 percent and then selects poison/sleep/paralysis uniformly. Grass, Overcoat, Safety Goggles and noncontact attacks/pads prevent the roll.",
+    "tests": [
+      "amplified Effect Spore uses an equal three-status draw and honors powder immunity"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3651,
+    "endLine": 3655,
+    "bodySha256": "478d3f1fae4e3555166a45f9e73c132e1ec752471c454879f9e49d926be39746",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Frozen Dimension prevents Flame Body burning even when its ordinary contact roll would succeed. Native behavior resumes outside the field.",
+    "tests": [
+      "amplified Poison Point uses 60 percent and Frozen Dimension disables Flame Body"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3657,
+    "endLine": 3657,
+    "bodySha256": "77d313a9b76486ee4c6142973682c15ab3057e0cd92e6c07767aa6bc00377698",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Wasteland/Corrupted contact Poison Point probability becomes 60 percent, subject to ordinary status eligibility.",
+    "tests": [
+      "amplified Poison Point uses 60 percent and Frozen Dimension disables Flame Body"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3669,
+    "endLine": 3669,
+    "bodySha256": "77d313a9b76486ee4c6142973682c15ab3057e0cd92e6c07767aa6bc00377698",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Electric Terrain/Short Circuit contact Static probability becomes 60 percent.",
+    "tests": [
+      "Static doubles its contact paralysis chance on the electric fields"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3682,
+    "endLine": 3705,
+    "bodySha256": "3bb10146fa9ccfcff5df9790c1a5417f20ea3ca5dd9b597e2208c28cb1e0c4b3",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Perish Body requires both source counters to be absent; Holy suppresses it, Infernal sets one-turn counters, Dimensional/Haunted/Infernal trap the defender, and Deux Finalis unconditionally replaces the attacker status with Petrification.",
+    "tests": [
+      "Perish Body source counters, suppression, trapping and forced status replacement"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3684,
+    "endLine": 3696,
+    "bodySha256": "8404309aee703e463f69525658d8118a416da37719bb68497985d94aa19cc987",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Perish Body requires both source counters to be absent; Holy suppresses it, Infernal sets one-turn counters, Dimensional/Haunted/Infernal trap the defender, and Deux Finalis unconditionally replaces the attacker status with Petrification.",
+    "tests": [
+      "Perish Body source counters, suppression, trapping and forced status replacement"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3697,
+    "endLine": 3700,
+    "bodySha256": "ec53e908f323b8c598b23ab3186f18b56bf3339229f4fe2897b04652b5ec1863",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Perish Body requires both source counters to be absent; Holy suppresses it, Infernal sets one-turn counters, Dimensional/Haunted/Infernal trap the defender, and Deux Finalis unconditionally replaces the attacker status with Petrification.",
+    "tests": [
+      "Perish Body source counters, suppression, trapping and forced status replacement"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3701,
+    "endLine": 3703,
+    "bodySha256": "2ad564b231510f662574a5a9213f290dcfadf0f2a1560ac446aed061f73213d1",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Perish Body requires both source counters to be absent; Holy suppresses it, Infernal sets one-turn counters, Dimensional/Haunted/Infernal trap the defender, and Deux Finalis unconditionally replaces the attacker status with Petrification.",
+    "tests": [
+      "Perish Body source counters, suppression, trapping and forced status replacement"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3710,
+    "endLine": 3710,
+    "bodySha256": "e1147160029828abaccc4315924e301a2b3feb0c3d8c1d916a373fabd51c85b9",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Wasteland Gooey adds poison without replacing ordinary contact speed loss.",
+    "tests": [
+      "Wasteland Gooey adds poison to its normal contact speed loss"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3741,
+    "endLine": 3745,
+    "bodySha256": "8bdea7588b4fb4f85cf2d9b3f7b8cc32bf694ce8876ede3f78cc88e266dd9b16",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Glitch removes recharge when the attack user is alive and its target fainted.",
+    "tests": [
+      "Glitch knockout clears recharge before the next action"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3747,
+    "endLine": 3760,
+    "bodySha256": "bab48988b505a738ddc20f40468e9d73a771f7ff2880d4c69b93b50026ee426f",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy disables ordinary Cursed Body. Haunted rolls ordinary 30 percent or guarantees activation when the holder faints, then checks known usable move, attacker survival and existing Disable.",
+    "tests": [
+      "Haunted Cursed Body rejects called or exhausted moves and fainted attackers"
+    ],
+    "exclusions": [
+      "Beheeyem Crest alternative trigger"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3796,
+    "endLine": 3801,
+    "bodySha256": "8b782fa457ea5ea792a70139a1231ffadd1ff1a0ee2d7e1c9978a580827b89fe",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Underwater Gulp Missile reverts form before applying floor(maxHP/4 * raw Water matchup), bypasses Water field chart overrides, respects Magic Guard, and retains the caught-form stat/status effect.",
+    "tests": [
+      "Underwater Gulp Missile uses raw Water matchup and reverts before retaliation damage"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3824,
+    "endLine": 3824,
+    "bodySha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy Justified grants Attack +2 instead of +1 on a Dark hit; the native boost is replaced.",
+    "tests": [
+      "Justified and Water Compaction replace native boosts without stacking"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3858,
+    "endLine": 3870,
+    "bodySha256": "cab179f931e71809dd7e27fdbd8524f6ef2d276eeb63b849cfb0aa7a31b43c2a",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Ashen Beach Water Compaction grants both Defense and Special Defense +2 instead of only Defense +2.",
+    "tests": [
+      "Justified and Water Compaction replace native boosts without stacking"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3878,
+    "endLine": 3878,
+    "bodySha256": "cf3bae39dd692048a8bf961182e6a34dfd323eeb0748e162eaf055107f1cb873",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Cotton Down reduces Speed by two on the listed plant fields for every other active battler, including partners; ordinary stat protections remain native.",
+    "tests": [
+      "Cotton Down doubles its speed loss for all other active Pokemon on plant fields"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3899,
+    "endLine": 3899,
+    "bodySha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Sand Spit lasts eight turns on Desert/Ashen Beach/Sky; Desert/Ashen Beach also reduce attacker accuracy once only if weather was successfully set.",
+    "tests": [
+      "Sand Spit accuracy loss requires successful weather and uses the field eight-turn clock"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3901,
+    "endLine": 3903,
+    "bodySha256": "8b74a7afecd9f11de82645b76fc93c3dea21915faa76912f8db612d6874d1619",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Sand Spit lasts eight turns on Desert/Ashen Beach/Sky; Desert/Ashen Beach also reduce attacker accuracy once only if weather was successfully set.",
+    "tests": [
+      "Sand Spit accuracy loss requires successful weather and uses the field eight-turn clock"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3926,
+    "endLine": 3937,
+    "bodySha256": "7452209acdcf81574157af98fe3a5acdfb416c10d74aec983eba995d1ec3126d",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Seed Sower grows Garden stages 1-4; other permitted fields create Grassy terrain with source duration/Amplifield and Forest/Bewitched extensions. Ability creation ignores the move-only Everstone restriction.",
+    "tests": [
+      "Seed Sower grows each garden stage and creates longer forest terrain without Everstone blocking"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3930,
+    "endLine": 3937,
+    "bodySha256": "2230e1217861c6dd7aa2ba82e10f256dae7baedf50b275e4b08796569cc87a38",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Seed Sower grows Garden stages 1-4; other permitted fields create Grassy terrain with source duration/Amplifield and Forest/Bewitched extensions. Ability creation ignores the move-only Everstone restriction.",
+    "tests": [
+      "Seed Sower grows each garden stage and creates longer forest terrain without Everstone blocking"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3934,
+    "endLine": 3934,
+    "bodySha256": "43448a5c53dbd5c89320cb84d0f29ae047add0758bf35d8bace847afa3e5c35a",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Seed Sower grows Garden stages 1-4; other permitted fields create Grassy terrain with source duration/Amplifield and Forest/Bewitched extensions. Ability creation ignores the move-only Everstone restriction.",
+    "tests": [
+      "Seed Sower grows each garden stage and creates longer forest terrain without Everstone blocking"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1400,
+    "endLine": 1418,
+    "bodySha256": "437c5c36ff55fa2e4ffdac0b1a5e09e6cd75006cbee64cc7e846463f614c0eb3",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Soul-Heart adds Special Defense alongside Special Attack on Misty/Rainbow/Fairy Tale, and Attack alongside Special Attack on Deux Finalis; no double native Special Attack boost.",
+    "tests": [
+      "Soul-Heart gains the source defensive or offensive second stat"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1406,
+    "endLine": 1418,
+    "bodySha256": "bdd2f6e663d587ac05546d2d19e3a03526986a379e8d37e03adf4a8f40cf9ac9",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Soul-Heart adds Special Defense alongside Special Attack on Misty/Rainbow/Fairy Tale, and Attack alongside Special Attack on Deux Finalis; no double native Special Attack boost.",
+    "tests": [
+      "Soul-Heart gains the source defensive or offensive second stat"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3127,
+    "endLine": 3153,
+    "bodySha256": "973fc669a9989c75f9fcbb80b962c58299c0da07daf500ed898ba31f52f5176d",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Glitch/Short Circuit Download grants both offensive boosts; Factory/City/Back Alley grant two stages of the stat chosen from summed opposing stage-adjusted raw defenses.",
+    "tests": [
+      "Download amplification replaces native boosting and compares both opposing defense stats"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3149,
+    "endLine": 3149,
+    "bodySha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Glitch/Short Circuit Download grants both offensive boosts; Factory/City/Back Alley grant two stages of the stat chosen from summed opposing stage-adjusted raw defenses.",
+    "tests": [
+      "Download amplification replaces native boosting and compares both opposing defense stats"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/Battle.rb",
+    "line": 23,
+    "endLine": 23,
+    "bodySha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+    "sourceFileSha256": "9600e231cbb7e8e71358fffbc92ce7296bc96a3311d2f198022b8af9b2875c08",
+    "disposition": "excluded_crest",
+    "semantics": "These field duration clauses are wholly inside pbCrestEffects, guarded by crested and selected by the Castform Crest. Ordinary weather extensions are audited separately.",
+    "tests": [],
+    "exclusions": [
+      "Castform Crest weather selection and clock"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/Battle.rb",
+    "line": 24,
+    "endLine": 24,
+    "bodySha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+    "sourceFileSha256": "9600e231cbb7e8e71358fffbc92ce7296bc96a3311d2f198022b8af9b2875c08",
+    "disposition": "excluded_crest",
+    "semantics": "These field duration clauses are wholly inside pbCrestEffects, guarded by crested and selected by the Castform Crest. Ordinary weather extensions are audited separately.",
+    "tests": [],
+    "exclusions": [
+      "Castform Crest weather selection and clock"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/Battle.rb",
+    "line": 25,
+    "endLine": 25,
+    "bodySha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+    "sourceFileSha256": "9600e231cbb7e8e71358fffbc92ce7296bc96a3311d2f198022b8af9b2875c08",
+    "disposition": "excluded_crest",
+    "semantics": "These field duration clauses are wholly inside pbCrestEffects, guarded by crested and selected by the Castform Crest. Ordinary weather extensions are audited separately.",
+    "tests": [],
+    "exclusions": [
+      "Castform Crest weather selection and clock"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/Battle.rb",
+    "line": 26,
+    "endLine": 26,
+    "bodySha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+    "sourceFileSha256": "9600e231cbb7e8e71358fffbc92ce7296bc96a3311d2f198022b8af9b2875c08",
+    "disposition": "excluded_crest",
+    "semantics": "These field duration clauses are wholly inside pbCrestEffects, guarded by crested and selected by the Castform Crest. Ordinary weather extensions are audited separately.",
+    "tests": [],
+    "exclusions": [
+      "Castform Crest weather selection and clock"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/Battler.rb",
+    "line": 62,
+    "endLine": 65,
+    "bodySha256": "d9124bc7b280ef595b5e9b2a4c7ee268fd34e2b47b17a8bdda60a4ab7bdacdb7",
+    "sourceFileSha256": "01df71c424985e11af8c77564d993d2e426b6005be70fdd5155e37fc6c4b0c64",
+    "disposition": "excluded_crest",
+    "semantics": "This field stat change is inside the explicitly Zoroark-crested illusion stance branch. Ordinary Aegislash Stance Change has separate rules and regression coverage.",
+    "tests": [],
+    "exclusions": [
+      "Zoroark Crest illusion stance"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/MoveEffects.rb",
+    "line": 58,
+    "endLine": 58,
+    "bodySha256": "5f6cc23fa97cf5dc3ae8cdb2cb481390702d5f2d2ad9679b68b37423135fb4a7",
+    "sourceFileSha256": "2b4f95cfd38a187f087dadaed3f068a5149c8616c0c535723e952909a33c3c08",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom move handler changes Vorpal Blade only; it is absent from the installed ordinary move registry.",
+    "tests": [],
+    "exclusions": [
+      "Vorpal Blade"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/MoveEffects.rb",
+    "line": 63,
+    "endLine": 63,
+    "bodySha256": "d2e54258807160cae2cd3e384f807ff7ab8c686f8c79830c0798dd9ba6b1e027",
+    "sourceFileSha256": "2b4f95cfd38a187f087dadaed3f068a5149c8616c0c535723e952909a33c3c08",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom move handler changes Vorpal Blade only; it is absent from the installed ordinary move registry.",
+    "tests": [],
+    "exclusions": [
+      "Vorpal Blade"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/MoveEffects.rb",
+    "line": 106,
+    "endLine": 106,
+    "bodySha256": "8eb24fcce9d5b6c8d89642fc644a6ee476ecd59508a7d3ee184b4222abee8338",
+    "sourceFileSha256": "2b4f95cfd38a187f087dadaed3f068a5149c8616c0c535723e952909a33c3c08",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom move handler changes Fever Pitch only; it is absent from the installed ordinary move registry.",
+    "tests": [],
+    "exclusions": [
+      "Fever Pitch"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/MoveEffects.rb",
+    "line": 107,
+    "endLine": 107,
+    "bodySha256": "d62919e79eadfae16e24a849112258f9fac751f665b0dd6d12669a85cceab061",
+    "sourceFileSha256": "2b4f95cfd38a187f087dadaed3f068a5149c8616c0c535723e952909a33c3c08",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom move handler changes Fever Pitch only; it is absent from the installed ordinary move registry.",
+    "tests": [],
+    "exclusions": [
+      "Fever Pitch"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/MoveEffects.rb",
+    "line": 139,
+    "endLine": 139,
+    "bodySha256": "7e4fe8351c22e2182278317a8998f400007540eea7aa5b52c3e50f9d4b0bb799",
+    "sourceFileSha256": "2b4f95cfd38a187f087dadaed3f068a5149c8616c0c535723e952909a33c3c08",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom move handler changes Arenite Wall only; it is absent from the installed ordinary move registry.",
+    "tests": [],
+    "exclusions": [
+      "Arenite Wall"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/MoveEffects.rb",
+    "line": 156,
+    "endLine": 156,
+    "bodySha256": "9c2cbad0500d5668879744a5512fa7b19269558ebd76f2d9f22b1fbe36bd03eb",
+    "sourceFileSha256": "2b4f95cfd38a187f087dadaed3f068a5149c8616c0c535723e952909a33c3c08",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom move handler changes Arenite Wall only; it is absent from the installed ordinary move registry.",
+    "tests": [],
+    "exclusions": [
+      "Arenite Wall"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Rejuv/Battle/MoveEffects.rb",
+    "line": 231,
+    "endLine": 231,
+    "bodySha256": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+    "sourceFileSha256": "2b4f95cfd38a187f087dadaed3f068a5149c8616c0c535723e952909a33c3c08",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom move handler changes Aquabatics only; it is absent from the installed ordinary move registry.",
+    "tests": [],
+    "exclusions": [
+      "Aquabatics"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_Shadow.rb",
+    "line": 278,
+    "endLine": 278,
+    "bodySha256": "2c624232cdd221771294dfbb310aca000a0df6ac8b66b696d90ef06fdefb64a3",
+    "sourceFileSha256": "775435dc741cd2bb9e6eca0c150ea6b63365af19ce67c467000121efd724a096",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom Shadow Sky handler changes the custom shadow weather clock; ordinary Sky/Dimensional weather clocks are separate.",
+    "tests": [],
+    "exclusions": [
+      "Shadow Sky"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_Shadow.rb",
+    "line": 279,
+    "endLine": 279,
+    "bodySha256": "0663b12f0d3280bf1aa0c477f4b99ed3ec725decebd73de87a90111c925ca2d8",
+    "sourceFileSha256": "775435dc741cd2bb9e6eca0c150ea6b63365af19ce67c467000121efd724a096",
+    "disposition": "excluded_custom_move",
+    "semantics": "The enclosing custom Shadow Sky handler changes the custom shadow weather clock; ordinary Sky/Dimensional weather clocks are separate.",
+    "tests": [],
+    "exclusions": [
+      "Shadow Sky"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 6016,
+    "endLine": 6021,
+    "bodySha256": "0bbc49f234c9f12500bfaa43e1839d627218bbfed59d3e868bc47a13847762ca",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "City Recycle restores the actual consumed item, selects one Omni stat, and emits source flavor only if that stat changes, after its stat message.",
+    "tests": [
+      "City Recycle emits source flavor only after a successful random stat change"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 6172,
+    "endLine": 6181,
+    "bodySha256": "26da5babbf464d65a38c9cdb8ce817b42e6049c9942f7c8aab1bec750bda8178",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Chess Ally Switch swaps natively with silent chat, then grants defensive/offensive partner boosts only once per side. Post-swap source index chooses O-O/O-O-O notation correctly on both sides; later swaps retain ordinary text.",
+    "tests": [
+      "Chess castling uses source side notation, native silent swap and one boost per side"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 8451,
+    "endLine": 8454,
+    "bodySha256": "4ebffc44ceace74b15c771a7e884020404dd94588d4a9f53b404cc5b3d358980",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Magic Powder type-change failure compares both type orders. Fairy Tale can add Fairy to a pure Psychic target, rejects existing Psychic/Fairy, retains native type-change eligibility, and replaces only canonical type text.",
+    "tests": [
+      "Fairy Tale Magic Powder compares both type orders and can add Fairy to Psychic"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 8455,
+    "endLine": 8458,
+    "bodySha256": "4ebffc44ceace74b15c771a7e884020404dd94588d4a9f53b404cc5b3d358980",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Magic Powder type-change failure compares both type orders. Fairy Tale can add Fairy to a pure Psychic target, rejects existing Psychic/Fairy, retains native type-change eligibility, and replaces only canonical type text.",
+    "tests": [
+      "Fairy Tale Magic Powder compares both type orders and can add Fairy to Psychic"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 8463,
+    "endLine": 8469,
+    "bodySha256": "231b29512bb8ea415a2787412097eb1b1aeaccfff0830016e006dd11c4155e17",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Magic Powder type-change failure compares both type orders. Fairy Tale can add Fairy to a pure Psychic target, rejects existing Psychic/Fairy, retains native type-change eligibility, and replaces only canonical type text.",
+    "tests": [
+      "Fairy Tale Magic Powder compares both type orders and can add Fairy to Psychic"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 8470,
+    "endLine": 8472,
+    "bodySha256": "4dc62cecc066488c542756f0efae0d2e9fa5477ef3b89f53163ce0e5eaba40b5",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "After successful Haunted/Bewitched Magic Powder type change, normal sleep eligibility is checked. Native status/persistence output is marked for chat-only suppression; the exact put-to-sleep text follows type and status updates once.",
+    "tests": [
+      "Haunted Magic Powder preserves type then sleep flavor without duplicate status chat"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 8674,
+    "endLine": 8674,
+    "bodySha256": "b332d46a4de99bd78e61958cc9f914de38c1b24dbd1fe817f4a1e7dc79da2e0f",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Holy Life Dew heals both allies by rounded half maximum HP; Rainbow doubles only the user. Native per-target canHeal eligibility precedes effect execution.",
+    "tests": [
+      "Holy Life Dew doubles healing for both actual allied targets",
+      "Rainbow Life Dew doubles the user healing only"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 8677,
+    "endLine": 8681,
+    "bodySha256": "986534e32eaa3587942175c547e9629981db57b85a51daa1ab1b04036a37e24e",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Life Dew extra poison or user Aqua Ring runs only on targets that passed the source canHeal gate. Full HP, Heal Block and unprotected Petrification do not gain a field reaction.",
+    "tests": [
+      "Life Dew field reactions require the source per-target canHeal gate"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 8682,
+    "endLine": 8686,
+    "bodySha256": "be62962895dbd25aacdc43e1a97ca541e502f09fc38e42b85c4545faab29beaf",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Life Dew extra poison or user Aqua Ring runs only on targets that passed the source canHeal gate. Full HP, Heal Block and unprotected Petrification do not gain a field reaction.",
+    "tests": [
+      "Life Dew field reactions require the source per-target canHeal gate"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battle_ZMove.rb",
+    "line": 281,
+    "endLine": 285,
+    "bodySha256": "72bec4a7ac94db6a9773ed6d6272eb0eae490ee2e730264c35a4b529171bf3a9",
+    "sourceFileSha256": "20cd51019ccc50289253fcee446d3efb29e2fc09f025f47a4b5e5dbd5a53d1ab",
+    "disposition": "implemented_and_tested",
+    "semantics": "Psychic Terrain Shattered Psyche inflicts confusion when eligible, preserves its native state/start event with silent generic text, then emits the exact weird-field message.",
+    "tests": [
+      "Shattered Psyche confusion retains the source weird-field message and silent native update"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3219,
+    "endLine": 3233,
+    "bodySha256": "abe54a234e25a17a884f642aa8c176d0333d56232b420e66adbeb6cc5f07eef2",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Dauntless Shield and Intrepid Sword grant paired defensive/offensive stats on Fairy Tale/Colosseum on every source entry activation; the ordinary once-per-battle native boost remains separate outside those fields.",
+    "tests": [
+      "Fairy Tale and Colosseum sword and shield activate paired stats on each entry"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3238,
+    "endLine": 3252,
+    "bodySha256": "97fe98f3b8d50f9e973b1325d3f1ed91f73aee729b2f6a439bf1e3f91afbef89",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Dauntless Shield and Intrepid Sword grant paired defensive/offensive stats on Fairy Tale/Colosseum on every source entry activation; the ordinary once-per-battle native boost remains separate outside those fields.",
+    "tests": [
+      "Fairy Tale and Colosseum sword and shield activate paired stats on each entry"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3272,
+    "endLine": 3276,
+    "bodySha256": "3a628de6abd5ca5bf38ec129660b807fd25428d4090cabf7e6c2f16afda25edf",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "The first send-out after Zero to Hero transformation gains Helping Hand and crowd-cheer text on Big Top. A per-Pokemon battle marker is consumed on first send-out in any field, preventing later entry reactivation and battle-state leakage.",
+    "tests": [
+      "Big Top cheers only on the first send-out after Zero to Hero transformation"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3157,
+    "endLine": 3163,
+    "bodySha256": "c0512432b2d786c73e50488f473753afb35fed3e126d12e0e194836f4225847c",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Glitch Quark Drive gives unknown typing on actual Pokemon entry with source rogue-data message, independently of terrain-driven native Quark Drive stat activation.",
+    "tests": [
+      "Glitch Quark Drive applies ordinary unknown typing on entry"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 3410,
+    "endLine": 3412,
+    "bodySha256": "d05299daad5cd49bdd2917655550b5a81ab31101929afac66e0882ec30e9fcd1",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Big Top Costar first copies partner stat stages and Focus Energy, then adds one to both offensive stats. No partner means no field addition.",
+    "tests": [
+      "Big Top Costar copies partner stages before adding its offensive boost"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards; not whole-field certification."
+  },
+  {
+    "file": "Battler.rb",
+    "line": 1770,
+    "endLine": 1774,
+    "bodySha256": "70cecb225f8954b1fbec5adb69c582000f5e4786331d2813b372037874f06635",
+    "sourceFileSha256": "b08fc8e74fe831219944c36cbe802df059ae856e6dea8c154b135cfb7e241442",
+    "disposition": "implemented_and_tested",
+    "semantics": "Zen Mode uses <= floor(maxHP/2), or full-HP force on Unovan Ashen Beach/Psychic Terrain forms only. Galarian forms retain native HP behavior on these fields. Ordinary ability gates and entry/end-round timing are preserved; the enclosing Crest clause is excluded separately.",
+    "tests": [
+      "Ashen Beach and Psychic Terrain force ordinary Zen Mode at full HP and restore outside",
+      "source forced Zen fields leave Galarian forms and suppressed Zen Mode unchanged",
+      "field form checks run on entry before the first move"
+    ],
+    "exclusions": [
+      "Enclosing Darmanitan Crest clause"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 7244,
+    "endLine": 7244,
+    "bodySha256": "f2598e990004092a6bb9015182192ded2e399a6e2713c29b39d314ac426dd53f",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Parting Shot validity checks the USER offensive stages (plus Speed on Frozen Dimension), honoring Contrary; it then lowers TARGET stats by one on Frozen Dimension or two on Concert/Back Alley. A successful source-valid use can switch even when target stat loss is blocked/capped. Outside these field deviations native behavior is retained.",
+    "tests": [
+      "Parting Shot field stat changes replace native stat callbacks",
+      "Parting Shot source gate checks user stages with Contrary and includes Frozen Speed",
+      "Parting Shot switches after source-valid use even when target stat loss is blocked"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 7256,
+    "endLine": 7256,
+    "bodySha256": "f2598e990004092a6bb9015182192ded2e399a6e2713c29b39d314ac426dd53f",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Parting Shot validity checks the USER offensive stages (plus Speed on Frozen Dimension), honoring Contrary; it then lowers TARGET stats by one on Frozen Dimension or two on Concert/Back Alley. A successful source-valid use can switch even when target stat loss is blocked/capped. Outside these field deviations native behavior is retained.",
+    "tests": [
+      "Parting Shot field stat changes replace native stat callbacks",
+      "Parting Shot source gate checks user stages with Contrary and includes Frozen Speed",
+      "Parting Shot switches after source-valid use even when target stat loss is blocked"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 7258,
+    "endLine": 7258,
+    "bodySha256": "7ce9ee7947952fe66dc75c24764adcf22bdc167dc559bc750cf3e575f5cfbba9",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Parting Shot validity checks the USER offensive stages (plus Speed on Frozen Dimension), honoring Contrary; it then lowers TARGET stats by one on Frozen Dimension or two on Concert/Back Alley. A successful source-valid use can switch even when target stat loss is blocked/capped. Outside these field deviations native behavior is retained.",
+    "tests": [
+      "Parting Shot field stat changes replace native stat callbacks",
+      "Parting Shot source gate checks user stages with Contrary and includes Frozen Speed",
+      "Parting Shot switches after source-valid use even when target stat loss is blocked"
+    ],
+    "exclusions": [],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_MoveEffects.rb",
+    "line": 4049,
+    "endLine": 4049,
+    "bodySha256": "c6c1c9a9c8543f1e4cd980064cf1625eeb61a90703b2464fff039f21682508b3",
+    "sourceFileSha256": "5f07368307a1f85f53fd003b2684fb77c9cc2f05fe044a4c62ffe2db2bc062be",
+    "disposition": "implemented_and_tested",
+    "semantics": "Glitch Metronome samples uniformly from source MOVEHASH order after PBStuff Metronome blacklist, Shadow-type exclusion and source base-power >=70. Only ordinary IDs registered in the installed simulator are callable; canonical Showdown flags are not substituted for the source blacklist.",
+    "tests": [
+      "Glitch Metronome uses the exact ordinary source pool and its blacklist"
+    ],
+    "exclusions": [
+      "Custom moves excluded from callable pool"
+    ],
+    "reviewScope": "The named source branch and enclosing guards; no whole-field certification."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1098,
+    "endLine": 1126,
+    "bodySha256": "3a7fd69cb5bf7877c8acd8772409c705fd80178f874b335c56739821a697cd39",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Misty boosts the actually used special defensive stat by 1.5 for Fairy targets only; the physical defensive path is unchanged.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1100,
+    "endLine": 1126,
+    "bodySha256": "29a6ce3cedcf3b559513ad75da75a4024277e4ea646446acf4ebcbbbfb84b1af",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Dark Crystal Cavern applies 1.5 once to Dark OR Ghost defensive typing, then 1.33 Prism Armor; these independent factors compound.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1103,
+    "endLine": 1126,
+    "bodySha256": "0a4d862003f302d5681e58841c61047f2acc6cb1595e8f390dfa483bc16c7902",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Rainbow and Crystal Cavern grant Prism Armor 1.33 on either defensive stat path.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1105,
+    "endLine": 1126,
+    "bodySha256": "cfa9f16dc8fc988fb1c362a3718f0779e9b676df64a58f906c2335f2800f7708",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Dragon Den grants Dragon-type defenders 1.3 on both defensive paths.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1107,
+    "endLine": 1126,
+    "bodySha256": "85df51e778102ef3698fa2bc004c359624e32c42ee091a6885060882f6ef97df",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "New World airborne defenders use 0.9 on both defensive paths; grounded defenders retain 1.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1109,
+    "endLine": 1126,
+    "bodySha256": "5b821f5f57289d0a536659f64c0c56347341ba28b5c762004861b653f3bdf006",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Snowy Mountain/Icy grant Ice defenders 1.5 only to physical defense under attacker-relative Hail. Mega Sol weather override and ordinary weather suppression are preserved.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1111,
+    "endLine": 1126,
+    "bodySha256": "58e75b181ec9ab9f8d979ad74a8c70232433a039903339e02dfec9b9c8a50e3d",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Desert grants Ground defenders 1.5 only to the special defensive path.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1113,
+    "endLine": 1126,
+    "bodySha256": "42b36fe4c428a8fc5ef174135cff7ee09109ea606658c824c12cc2f6c42a55f0",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Dimensional grants Ghost defenders 1.5 on either defensive stat path.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1115,
+    "endLine": 1126,
+    "bodySha256": "fed048f937208d8367d308bf0a8054fbc758c8505a0015468d5b7c6478e94a61",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Frozen Dimension independently compounds Ghost 1.5, Ice 1.2, Fire 0.8 defensive factors, including dual-type combinations.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle_Field.rb",
+    "line": 1119,
+    "endLine": 1126,
+    "bodySha256": "c1f4a124b847e946123128ef16dc1b7404851dea48c0d583031decfe7c53a4ca",
+    "sourceFileSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
+    "disposition": "implemented_and_tested",
+    "semantics": "Deux Finalis grants 1.3 once for Dragon/Normal/Dark typing OR Purifying Salt/Fairy Aura/Aura Break/Dark Aura, only outside attacker-relative rain and unless the attacker has Beads/Sword of Ruin.",
+    "tests": [
+      "every compiled field defense branch uses the source type, stat and weather gates",
+      "Mega Sol overrides hail for field defense",
+      "Deux Finalis defense uses attacker-relative weather"
+    ],
+    "exclusions": [],
+    "reviewScope": "fieldDefenseBoost branch contract. Bounded Ruby oracle independently checks 171396 inputs; callers and whole-field certification remain separate."
+  },
+  {
+    "file": "Battle.rb",
+    "line": 721,
+    "endLine": 726,
+    "bodySha256": "971117fd4ce04f7fae2b42e32ad145f4ecb938638a23306d8d192a4c9baec86a",
+    "sourceFileSha256": "5b24b34b4ecde282e57d1974c8cace6502d41dc48000d6e79a952e01a5824fd1",
+    "disposition": "implemented_and_tested",
+    "semantics": "Gravity on New World creates a forced Starlight hard field using Gravity's current duration. The field counts down independently, restores when Gravity is removed, and becomes permanent on a subsequent hard-field transformation. Source activation flavor and restoration flavor are dispatched in order.",
+    "tests": [
+      "Gravity reforms New World with its exact clock and restores when gravity is removed",
+      "Gravity temporary field becomes permanent on a subsequent hard transformation"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards only; no whole-field certification."
+  },
+  {
+    "file": "Battle.rb",
+    "line": 5392,
+    "endLine": 5398,
+    "bodySha256": "d181ddc518194645d2d635a3eaee144ba3f3f1081ab352dbdbc828d80dce5f38",
+    "sourceFileSha256": "5b24b34b4ecde282e57d1974c8cace6502d41dc48000d6e79a952e01a5824fd1",
+    "disposition": "implemented_and_tested",
+    "semantics": "Sunny Day turns Dark Crystal Cavern into temporary Crystal Cavern with remaining weather turns +1 before the same-round decrement. Weather loss expires it immediately. A later hard transformation cancels restoration; infinite source weather creates a permanent Crystal Cavern.",
+    "tests": [
+      "weather-bound field decrements, expires on weather loss and preserves infinite weather",
+      "weather temporary restoration and permanence on transformation",
+      "overlay and weather-bound hard field clocks count down independently"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards only; no whole-field certification."
+  },
+  {
+    "file": "Battle.rb",
+    "line": 7000,
+    "endLine": 7004,
+    "bodySha256": "59cdacee6bd41b7dad082e68fc48a0d227d10fdcc08d022b501be5ea329fab16",
+    "sourceFileSha256": "5b24b34b4ecde282e57d1974c8cace6502d41dc48000d6e79a952e01a5824fd1",
+    "disposition": "implemented_and_tested",
+    "semantics": "An existing overlay clock pauses on Frozen Dimension and resumes after leaving. Hard-field clocks resolve before overlay clocks; simultaneous expiries emit hard-field restoration text first. Overlay incompatibility removal remains a separate field-entry policy.",
+    "tests": [
+      "Frozen Dimension pauses existing overlay clock and resumes it after leaving",
+      "hard restoration occurs before overlay expiry flavor on the same turn"
+    ],
+    "exclusions": [],
+    "reviewScope": "Named branch and enclosing guards only; no whole-field certification."
+  }
+]

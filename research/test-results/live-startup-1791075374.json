@@ -1,0 +1,51 @@
+{
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": false,
+  "jarSha256": "89a944d1dba8e5cdbf301f7346e9662ab2b56fbbcc275236d1f9ed361b2135d9",
+  "processId": 10352,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "Explicit initialized rejuvenation:deux_finalis with ordered entry chat"
+    ],
+    "success": false,
+    "battles": 0,
+    "error": "java.lang.IllegalStateException: Invalid fixture move choice MoveActionResponse(moveName=bitterblade, targetPnx=null, gimmickID=null)",
+    "turn": 1,
+    "battleLog": [
+      "",
+      "update\n|t:|1791075159\n|gametype|singles\n|rejuvenationmessage|Purifying mediums line the arena...\n|rejuvenationstate|{\"field\":\"rejuvenation:deux_finalis\",\"counters\":[0,0,0,0,0],\"duration\":0,\"overlay\":null,\"overlayDuration\":0}",
+      "",
+      "",
+      "update\n|player|p1|00000000-0000-0000-0000-000000000003||",
+      "",
+      "",
+      "sideupdate\np1\n|request|{\"active\":[{\"moves\":[{\"move\":\"Metronome\",\"id\":\"metronome\",\"pp\":10,\"maxpp\":10,\"target\":\"self\",\"disabled\":false},{\"move\":\"Splash\",\"id\":\"splash\",\"pp\":40,\"maxpp\":40,\"target\":\"self\",\"disabled\":false},{\"move\":\"Bitter Blade\",\"id\":\"bitterblade\",\"pp\":10,\"maxpp\":10,\"target\":\"normal\",\"disabled\":false},{\"move\":\"Purify\",\"id\":\"purify\",\"pp\":20,\"maxpp\":20,\"target\":\"normal\",\"disabled\":false}],\"canDynamax\":true,\"maxMoves\":{\"maxMoves\":[{\"move\":\"maxguard\",\"target\":\"self\"},{\"move\":\"maxguard\",\"target\":\"self\"},{\"move\":\"maxflare\",\"target\":\"adjacentFoe\"},{\"move\":\"maxguard\",\"target\":\"self\"}]},\"canTerastallize\":\"Psychic\"}],\"side\":{\"name\":\"00000000-0000-0000-0000-000000000003\",\"id\":\"p1\",\"pokemon\":[{\"ident\":\"p1: Mew\",\"details\":\"Mew, 28031ab3-9912-4f4c-83fe-c064cf2ea397, L60\",\"condition\":\"200/200\",\"active\":true,\"stats\":{\"atk\":137,\"def\":140,\"spa\":142,\"spd\":145,\"spe\":126},\"moves\":[\"metronome\",\"splash\",\"bitterblade\",\"purify\"],\"baseAbility\":\"synchronize\",\"item\":\"\",\"pokeball\":\"Poke Ball\",\"baseTypes\":[\"Psychic\"],\"types\":[\"Psychic\"],\"ability\":\"synchronize\",\"commanding\":false,\"reviving\":false,\"teraType\":\"Psychic\",\"terastallized\":\"\"}]},\"noCancel\":true}",
+      "",
+      "Request Instruction",
+      "",
+      "sideupdate\np2\n|request|{\"active\":[{\"moves\":[{\"move\":\"Healing Wish\",\"id\":\"healingwish\",\"pp\":10,\"maxpp\":10,\"target\":\"self\",\"disabled\":false},{\"move\":\"Last Resort\",\"id\":\"lastresort\",\"pp\":5,\"maxpp\":5,\"target\":\"normal\",\"disabled\":false},{\"move\":\"Splash\",\"id\":\"splash\",\"pp\":40,\"maxpp\":40,\"target\":\"self\",\"disabled\":false},{\"move\":\"Double-Edge\",\"id\":\"doubleedge\",\"pp\":15,\"maxpp\":15,\"target\":\"normal\",\"disabled\":false}],\"canDynamax\":true,\"maxMoves\":{\"maxMoves\":[{\"move\":\"maxguard\",\"target\":\"self\"},{\"move\":\"maxstrike\",\"target\":\"adjacentFoe\"},{\"move\":\"maxguard\",\"target\":\"self\"},{\"move\":\"maxstrike\",\"target\":\"adjacentFoe\"}]},\"canTerastallize\":\"Normal\"}],\"side\":{\"name\":\"103acdbc-69e7-4bfd-9efc-a18db19f2e89\",\"id\":\"p2\",\"pokemon\":[{\"ident\":\"p2: Blissey\",\"details\":\"Blissey, 103acdbc-69e7-4bfd-9efc-a18db19f2e89, F\",\"condition\":\"642/642\",\"active\":true,\"stats\":{\"atk\":40,\"def\":39,\"spa\":175,\"spd\":275,\"spe\":145},\"moves\":[\"healingwish\",\"lastresort\",\"splash\",\"doubleedge\"],\"baseAbility\":\"naturalcure\",\"item\":\"\",\"pokeball\":\"Poke Ball\",\"baseTypes\":[\"Normal\"],\"types\":[\"Normal\"],\"ability\":\"naturalcure\",\"commanding\":false,\"reviving\":false,\"teraType\":\"Normal\",\"terastallized\":\"\"}]},\"noCancel\":true}",
+      "",
+      "Request Instruction",
+      "",
+      "update\n|player|p2|103acdbc-69e7-4bfd-9efc-a18db19f2e89||\n|teamsize|p1|1\n|teamsize|p2|1\n|gen|9\n|tier|\n|\n|t:|1791075159\n|start\n|split|p1\n|switch|p1a: 28031ab3-9912-4f4c-83fe-c064cf2ea397|Mew, 28031ab3-9912-4f4c-83fe-c064cf2ea397, L60|200/200\n|switch|p1a: 28031ab3-9912-4f4c-83fe-c064cf2ea397|Mew, 28031ab3-9912-4f4c-83fe-c064cf2ea397, L60|100/100\n|split|p2\n|switch|p2a: 103acdbc-69e7-4bfd-9efc-a18db19f2e89|Blissey, 103acdbc-69e7-4bfd-9efc-a18db19f2e89, F|642/642\n|switch|p2a: 103acdbc-69e7-4bfd-9efc-a18db19f2e89|Blissey, 103acdbc-69e7-4bfd-9efc-a18db19f2e89, F|100/100\n|turn|1\n|pp_update|p1: 28031ab3-9912-4f4c-83fe-c064cf2ea397|metronome: 10, splash: 40, bitterblade: 10, purify: 20\n|pp_update|p2: 103acdbc-69e7-4bfd-9efc-a18db19f2e89|healingwish: 10, lastresort: 5, splash: 40, doubleedge: 15",
+      "",
+      "",
+      "sideupdate\np1\n|error|[Invalid choice] Can't choose for Team Preview: You're not in a Team Preview phase",
+      "",
+      "Error Instruction",
+      "",
+      "sideupdate\np2\n|error|[Invalid choice] Can't choose for Team Preview: You're not in a Team Preview phase",
+      "",
+      "Error Instruction"
+    ]
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 156.5,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

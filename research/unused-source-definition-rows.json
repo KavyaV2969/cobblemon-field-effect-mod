@@ -1,0 +1,66 @@
+[
+  {
+    "field": "BIGTOP",
+    "overlay": false,
+    "move": "chillyreception",
+    "unusedDefinition": {
+      "message": "Boo! Get off the stage!"
+    }
+  },
+  {
+    "field": "WASTELAND",
+    "overlay": false,
+    "move": "aciddownpour",
+    "unusedDefinition": {
+      "message": "The waste joined the attack!"
+    }
+  },
+  {
+    "field": "ASHENBEACH",
+    "overlay": false,
+    "move": "mudbarrage",
+    "unusedDefinition": {
+      "message": "Sand mixed into the attack!"
+    }
+  },
+  {
+    "field": "CONCERT1",
+    "overlay": false,
+    "move": "appleacid",
+    "unusedDefinition": {
+      "message": "Face melting!"
+    }
+  },
+  {
+    "field": "CONCERT2",
+    "overlay": false,
+    "move": "appleacid",
+    "unusedDefinition": {
+      "message": "Face melting!"
+    }
+  },
+  {
+    "field": "CONCERT3",
+    "overlay": false,
+    "move": "appleacid",
+    "unusedDefinition": {
+      "message": "Face melting!"
+    }
+  },
+  {
+    "field": "CONCERT4",
+    "overlay": false,
+    "move": "appleacid",
+    "unusedDefinition": {
+      "message": "Face melting!"
+    }
+  },
+  {
+    "field": "DEUXFINALIS",
+    "overlay": false,
+    "move": "mooblast",
+    "unusedDefinition": {
+      "message": "The purifying mediums merged with the attack!"
+    }
+  }
+]

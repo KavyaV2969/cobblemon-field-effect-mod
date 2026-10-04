@@ -1,0 +1,64 @@
+{
+  "version": "0.1.0",
+  "releaseStatus": "incomplete-fidelity-preview",
+  "minecraft": "1.21.1",
+  "loader": "Fabric 0.18.4",
+  "cobblemon": "1.7.3+1.21.1",
+  "artifacts": [
+    {
+      "path": "rejuvenation-fields-0.1.0.jar",
+      "bytes": 66963,
+      "sha256": "9ce27e6d86d1891e733f305a1636f9ecfea8f62c22472ee06bac4a7d92cdff96"
+    },
+    {
+      "path": "rejuvenation-fields-datapack-0.1.0.zip",
+      "bytes": 196205,
+      "sha256": "267ee095b2eeaba7f2167744d0748dc96fa166ce0cc3039933978f59a794c648"
+    }
+  ],
+  "fieldsDiscovered": 57,
+  "definitionsLoaded": 57,
+  "fullyBehaviorallyVerified": 0,
+  "partiallyImplemented": 57,
+  "compiledDefinitionPropertiesCompared": 3963,
+  "compiledDefinitionDifferences": 0,
+  "simulatorTestsPassed": 153,
+  "candidateBiomes": 165,
+  "explicitlyMappedCandidates": 165,
+  "candidateFallbacks": 0,
+  "unavailableReferences": {
+    "moves": 27,
+    "abilities": 5,
+    "items": 0
+  },
+  "fullCompletionStandardMet": false,
+  "remainingWork": "../docs/REMAINING_WORK.md",
+  "protectedFiles": "../research/protected-integrity.json",
+  "sourceMethodOracle": {
+    "defenseCases": 171396,
+    "multiplierCases": 120,
+    "differences": 0,
+    "methods": [
+      "PokeBattle_Battler.fieldDefenseBoost",
+      "PokeBattle_Move.calculateFieldMultiplier"
+    ],
+    "receipt": "../research/test-results/runtime-oracle.json",
+    "scope": "Two methods only; not full field certification"
+  },
+  "liveVerification": {
+    "artifactMatches": true,
+    "success": true,
+    "battles": 5,
+    "registeredBiomes": 70,
+    "receipt": "../research/test-results/live-startup.json"
+  },
+  "liveBiomeRegistry": {
+    "count": 70,
+    "receipt": "../research/runtime-biomes.json"
+  },
+  "buildLog": {
+    "successful": true,
+    "sha256": "0c3ca69a7eac75efc35aaa7719b93d2c95e5028e4e886cfcbf2de0f3b6672a1a",
+    "path": "../research/test-results/build.log"
+  }
+}

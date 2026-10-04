@@ -1,0 +1,20 @@
+# Gradle caches, generated classes, and copied compile-only dependencies.
+/mod/.gradle/
+/mod/.gradle-home/
+/mod/build/
+
+# Isolated Minecraft installation and its generated verification fixture.
+/integration/
+
+# Python caches and local diagnostic logs.
+__pycache__/
+*.py[cod]
+*.log
+/research/test-results/gradle-thread-diagnostic.txt
+/research/test-results/live-process.json
+
+# Editor and operating-system files.
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db

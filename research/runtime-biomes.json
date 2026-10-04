@@ -1,0 +1,355 @@
+{
+  "biomes": [
+    {
+      "biome": "minecraft:eroded_badlands",
+      "explicit": true,
+      "field": "rejuvenation:desert"
+    },
+    {
+      "biome": "minecraft:old_growth_spruce_taiga",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:windswept_hills",
+      "explicit": true,
+      "field": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:sunflower_plains",
+      "explicit": true,
+      "field": "rejuvenation:flower_garden_2"
+    },
+    {
+      "biome": "minecraft:dripstone_caves",
+      "explicit": true,
+      "field": "rejuvenation:cave"
+    },
+    {
+      "biome": "minecraft:frozen_peaks",
+      "explicit": true,
+      "field": "rejuvenation:snowy_mountain"
+    },
+    {
+      "biome": "minecraft:beach",
+      "explicit": true,
+      "field": "rejuvenation:beach"
+    },
+    {
+      "biome": "minecraft:sulfur_caves",
+      "explicit": true,
+      "field": "rejuvenation:corrosive_mist"
+    },
+    {
+      "biome": "minecraft:old_growth_pine_taiga",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:deep_frozen_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:jagged_peaks",
+      "explicit": true,
+      "field": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:the_void",
+      "explicit": true,
+      "field": "rejuvenation:new_world"
+    },
+    {
+      "biome": "minecraft:sparse_jungle",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:warped_forest",
+      "explicit": true,
+      "field": "rejuvenation:bewitched"
+    },
+    {
+      "biome": "minecraft:river",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:small_end_islands",
+      "explicit": true,
+      "field": "rejuvenation:new_world"
+    },
+    {
+      "biome": "minecraft:snowy_taiga",
+      "explicit": true,
+      "field": "rejuvenation:icy"
+    },
+    {
+      "biome": "minecraft:basalt_deltas",
+      "explicit": true,
+      "field": "rejuvenation:volcanic"
+    },
+    {
+      "biome": "minecraft:deep_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:end_barrens",
+      "explicit": true,
+      "field": "rejuvenation:new_world"
+    },
+    {
+      "biome": "minecraft:cold_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "lumymon:origin_sky",
+      "explicit": true,
+      "field": "rejuvenation:sky"
+    },
+    {
+      "biome": "minecraft:deep_dark",
+      "explicit": true,
+      "field": "rejuvenation:dark_crystal_cavern"
+    },
+    {
+      "biome": "minecraft:crimson_forest",
+      "explicit": true,
+      "field": "rejuvenation:bewitched"
+    },
+    {
+      "biome": "minecraft:savanna",
+      "explicit": true,
+      "field": "rejuvenation:grassy_terrain"
+    },
+    {
+      "biome": "minecraft:pale_garden",
+      "explicit": true,
+      "field": "rejuvenation:bewitched"
+    },
+    {
+      "biome": "minecraft:jungle",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:snowy_beach",
+      "explicit": true,
+      "field": "rejuvenation:icy"
+    },
+    {
+      "biome": "minecraft:deep_lukewarm_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:warm_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:mangrove_swamp",
+      "explicit": true,
+      "field": "rejuvenation:swamp"
+    },
+    {
+      "biome": "minecraft:windswept_gravelly_hills",
+      "explicit": true,
+      "field": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:flower_forest",
+      "explicit": true,
+      "field": "rejuvenation:flower_garden_2"
+    },
+    {
+      "biome": "minecraft:snowy_plains",
+      "explicit": true,
+      "field": "rejuvenation:icy"
+    },
+    {
+      "biome": "minecraft:wooded_badlands",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:stony_peaks",
+      "explicit": true,
+      "field": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:old_growth_birch_forest",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "lumymon:nightmare_void",
+      "explicit": true,
+      "field": "rejuvenation:haunted"
+    },
+    {
+      "biome": "minecraft:savanna_plateau",
+      "explicit": true,
+      "field": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:bamboo_jungle",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:soul_sand_valley",
+      "explicit": true,
+      "field": "rejuvenation:infernal"
+    },
+    {
+      "biome": "minecraft:stony_shore",
+      "explicit": true,
+      "field": "rejuvenation:beach"
+    },
+    {
+      "biome": "minecraft:plains",
+      "explicit": true,
+      "field": "rejuvenation:grassy_terrain"
+    },
+    {
+      "biome": "minecraft:dark_forest",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:lush_caves",
+      "explicit": true,
+      "field": "rejuvenation:cave"
+    },
+    {
+      "biome": "minecraft:birch_forest",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:lukewarm_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:mushroom_fields",
+      "explicit": true,
+      "field": "rejuvenation:corrosive"
+    },
+    {
+      "biome": "minecraft:meadow",
+      "explicit": true,
+      "field": "rejuvenation:grassy_terrain"
+    },
+    {
+      "biome": "minecraft:deep_cold_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:end_midlands",
+      "explicit": true,
+      "field": "rejuvenation:new_world"
+    },
+    {
+      "biome": "minecraft:windswept_savanna",
+      "explicit": true,
+      "field": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:snowy_slopes",
+      "explicit": true,
+      "field": "rejuvenation:snowy_mountain"
+    },
+    {
+      "biome": "minecraft:cherry_grove",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "cobblemonraiddens:raid_den",
+      "explicit": true,
+      "field": "rejuvenation:cave"
+    },
+    {
+      "biome": "minecraft:desert",
+      "explicit": true,
+      "field": "rejuvenation:desert"
+    },
+    {
+      "biome": "minecraft:end_highlands",
+      "explicit": true,
+      "field": "rejuvenation:new_world"
+    },
+    {
+      "biome": "minecraft:frozen_ocean",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:swamp",
+      "explicit": true,
+      "field": "rejuvenation:swamp"
+    },
+    {
+      "biome": "minecraft:ice_spikes",
+      "explicit": true,
+      "field": "rejuvenation:icy"
+    },
+    {
+      "biome": "minecraft:grove",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:nether_wastes",
+      "explicit": true,
+      "field": "rejuvenation:volcanic"
+    },
+    {
+      "biome": "minecraft:forest",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "legendarymonuments:distortion_world_biome",
+      "explicit": true,
+      "field": "rejuvenation:dimensional"
+    },
+    {
+      "biome": "minecraft:taiga",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:the_end",
+      "explicit": true,
+      "field": "rejuvenation:new_world"
+    },
+    {
+      "biome": "minecraft:windswept_forest",
+      "explicit": true,
+      "field": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:frozen_river",
+      "explicit": true,
+      "field": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:badlands",
+      "explicit": true,
+      "field": "rejuvenation:desert"
+    }
+  ],
+  "revision": 1
+}

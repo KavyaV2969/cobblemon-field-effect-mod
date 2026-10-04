@@ -1,0 +1,267 @@
+{
+  "unavailable": {
+    "moves": {
+      "slashandburn": [
+        "rejuvenation:back_alley/slashandburn"
+      ],
+      "hexingslash": [
+        "rejuvenation:back_alley/hexingslash"
+      ],
+      "gildedarrow": [
+        "rejuvenation:back_alley/gildedarrow"
+      ],
+      "gildedhelix": [
+        "rejuvenation:back_alley/gildedhelix"
+      ],
+      "quicksilverspear": [
+        "rejuvenation:back_alley/quicksilverspear"
+      ],
+      "arenitewall": [
+        "rejuvenation:beach/highlight",
+        "rejuvenation:desert/highlight",
+        "rejuvenation:rocky/highlight"
+      ],
+      "mirrorbeam": [
+        "rejuvenation:bewitched/mirrorbeam",
+        "rejuvenation:crystal_cavern/mirrorbeam",
+        "rejuvenation:dark_crystal_cavern/mirrorbeam",
+        "rejuvenation:new_world/mirrorbeam",
+        "rejuvenation:rainbow/mirrorbeam",
+        "rejuvenation:rainbow/mirrorbeam",
+        "rejuvenation:starlight/mirrorbeam"
+      ],
+      "vorpalblade": [
+        "rejuvenation:bewitched/vorpalblade"
+      ],
+      "aquabatics": [
+        "rejuvenation:big_top/highlight",
+        "rejuvenation:concert_1/aquabatics",
+        "rejuvenation:concert_2/aquabatics",
+        "rejuvenation:concert_3/aquabatics"
+      ],
+      "feverpitch": [
+        "rejuvenation:cave/feverpitch",
+        "rejuvenation:concert_1/feverpitch",
+        "rejuvenation:concert_2/feverpitch",
+        "rejuvenation:concert_3/feverpitch",
+        "rejuvenation:volcanic_top/feverpitch"
+      ],
+      "magmadrift": [
+        "rejuvenation:cave/magmadrift",
+        "rejuvenation:dragons_den/magmadrift",
+        "rejuvenation:icy/magmadrift",
+        "rejuvenation:mountain/magmadrift",
+        "rejuvenation:snowy_mountain/magmadrift",
+        "rejuvenation:volcanic_top/magmadrift"
+      ],
+      "shadowpanic": [
+        "rejuvenation:concert_1/shadowpanic",
+        "rejuvenation:concert_2/shadowpanic",
+        "rejuvenation:concert_3/shadowpanic"
+      ],
+      "spectralscream": [
+        "rejuvenation:concert_1/spectralscream",
+        "rejuvenation:concert_2/spectralscream",
+        "rejuvenation:concert_3/spectralscream",
+        "rejuvenation:holy/spectralscream"
+      ],
+      "coldtruth": [
+        "rejuvenation:concert_2/throatchop",
+        "rejuvenation:concert_2/sheercold",
+        "rejuvenation:concert_2/coldtruth",
+        "rejuvenation:concert_2/coldtruth",
+        "rejuvenation:concert_2/embargo",
+        "rejuvenation:concert_2/quash",
+        "rejuvenation:concert_2/slackoff",
+        "rejuvenation:concert_2/yawn",
+        "rejuvenation:concert_2/playnice",
+        "rejuvenation:concert_2/babydolleyes",
+        "rejuvenation:concert_2/tickle",
+        "rejuvenation:concert_3/coldtruth",
+        "rejuvenation:concert_4/coldtruth",
+        "rejuvenation:deux_finalis/coldtruth",
+        "rejuvenation:dimensional/coldtruth"
+      ],
+      "doomdummy": [
+        "rejuvenation:crystal_cavern/doomdummy",
+        "rejuvenation:dark_crystal_cavern/doomdummy",
+        "rejuvenation:holy/doomdummy",
+        "rejuvenation:misty_terrain/doomdummy",
+        "rejuvenation:misty_terrain/doomdummy",
+        "rejuvenation:new_world/doomdummy",
+        "rejuvenation:starlight/doomdummy"
+      ],
+      "magnetflux": [
+        "rejuvenation:deep_earth/highlight"
+      ],
+      "radiantclaw": [
+        "rejuvenation:deux_finalis/radiantclaw"
+      ],
+      "matrixshot": [
+        "rejuvenation:dragons_den/matrixshot"
+      ],
+      "ultramegadeath": [
+        "rejuvenation:factory/ultramegadeath",
+        "rejuvenation:factory/ultramegadeath",
+        "rejuvenation:factory/aurawheel",
+        "rejuvenation:factory/iondeluge",
+        "rejuvenation:factory/gigavolthavoc",
+        "rejuvenation:factory/earthquake",
+        "rejuvenation:factory/bulldoze",
+        "rejuvenation:factory/magnitude",
+        "rejuvenation:factory/fissure",
+        "rejuvenation:factory/tectonicrage",
+        "rejuvenation:factory/selfdestruct",
+        "rejuvenation:factory/explosion",
+        "rejuvenation:factory/lightthatburnsthesky",
+        "rejuvenation:factory/discharge",
+        "rejuvenation:factory/overdrive",
+        "rejuvenation:short_circuit/ultramegadeath",
+        "rejuvenation:short_circuit/ultramegadeath",
+        "rejuvenation:short_circuit/tidyup",
+        "rejuvenation:short_circuit/aurawheel",
+        "rejuvenation:short_circuit/paraboliccharge",
+        "rejuvenation:short_circuit/wildcharge",
+        "rejuvenation:short_circuit/chargebeam",
+        "rejuvenation:short_circuit/iondeluge",
+        "rejuvenation:short_circuit/gigavolthavoc",
+        "rejuvenation:short_circuit/discharge",
+        "rejuvenation:short_circuit/overdrive"
+      ],
+      "powdermove": [
+        "rejuvenation:flower_garden_5/highlight"
+      ],
+      "galestrike": [
+        "rejuvenation:forest/galestrike"
+      ],
+      "multipulse": [
+        "rejuvenation:holy/multipulse"
+      ],
+      "eartpower": [
+        "rejuvenation:infernal/eartpower"
+      ],
+      "mudbarrage": [
+        "rejuvenation:murkwater_surface/mudbarrage",
+        "rejuvenation:murkwater_surface/modifyMove",
+        "rejuvenation:swamp/mudbarrage"
+      ],
+      "shadowsky": [
+        "rejuvenation:new_world/highlight",
+        "rejuvenation:underwater/highlight"
+      ],
+      "futuredummy": [
+        "rejuvenation:new_world/futuredummy"
+      ],
+      "stealtrock": [
+        "rejuvenation:volcanic_top/highlight"
+      ]
+    },
+    "abilities": {
+      "gravitycontrol": [
+        "rejuvenation:back_alley/grounding",
+        "rejuvenation:beach/grounding",
+        "rejuvenation:bewitched/grounding",
+        "rejuvenation:big_top/grounding",
+        "rejuvenation:cave/grounding",
+        "rejuvenation:chess_board/grounding",
+        "rejuvenation:city/grounding",
+        "rejuvenation:colosseum/grounding",
+        "rejuvenation:concert_1/grounding",
+        "rejuvenation:concert_2/grounding",
+        "rejuvenation:concert_3/grounding",
+        "rejuvenation:concert_4/grounding",
+        "rejuvenation:corrosive/grounding",
+        "rejuvenation:corrosive_mist/grounding",
+        "rejuvenation:corrupted/grounding",
+        "rejuvenation:crystal_cavern/grounding",
+        "rejuvenation:dark_crystal_cavern/grounding",
+        "rejuvenation:deep_earth/grounding",
+        "rejuvenation:desert/grounding",
+        "rejuvenation:deux_finalis/grounding",
+        "rejuvenation:dimensional/grounding",
+        "rejuvenation:dragons_den/grounding",
+        "rejuvenation:electric_terrain/grounding",
+        "rejuvenation:factory/grounding",
+        "rejuvenation:fairytale/grounding",
+        "rejuvenation:flower_garden_1/grounding",
+        "rejuvenation:flower_garden_2/grounding",
+        "rejuvenation:flower_garden_3/grounding",
+        "rejuvenation:flower_garden_4/grounding",
+        "rejuvenation:flower_garden_5/grounding",
+        "rejuvenation:forest/grounding",
+        "rejuvenation:frozen_dimension/grounding",
+        "rejuvenation:glitch/grounding",
+        "rejuvenation:grassy_terrain/grounding",
+        "rejuvenation:haunted/grounding",
+        "rejuvenation:holy/grounding",
+        "rejuvenation:icy/grounding",
+        "rejuvenation:indoor/grounding",
+        "rejuvenation:infernal/grounding",
+        "rejuvenation:inverse/grounding",
+        "rejuvenation:misty_terrain/grounding",
+        "rejuvenation:mountain/grounding",
+        "rejuvenation:murkwater_surface/grounding",
+        "rejuvenation:new_world/grounding",
+        "rejuvenation:psychic_terrain/grounding",
+        "rejuvenation:rainbow/grounding",
+        "rejuvenation:rocky/grounding",
+        "rejuvenation:short_circuit/grounding",
+        "rejuvenation:sky/grounding",
+        "rejuvenation:snowy_mountain/grounding",
+        "rejuvenation:starlight/grounding",
+        "rejuvenation:swamp/grounding",
+        "rejuvenation:underwater/grounding",
+        "rejuvenation:volcanic/grounding",
+        "rejuvenation:volcanic_top/grounding",
+        "rejuvenation:wasteland/grounding",
+        "rejuvenation:water_surface/grounding"
+      ],
+      "souleater": [
+        "rejuvenation:deux_finalis/residual",
+        "rejuvenation:dimensional/residual",
+        "rejuvenation:haunted/residual",
+        "rejuvenation:infernal/residual"
+      ],
+      "tempest": [
+        "rejuvenation:dragons_den/activate",
+        "rejuvenation:dragons_den/weatherChange",
+        "rejuvenation:dragons_den/activate",
+        "rejuvenation:dragons_den/weatherChange",
+        "rejuvenation:infernal/activate",
+        "rejuvenation:infernal/weatherChange",
+        "rejuvenation:infernal/activate",
+        "rejuvenation:infernal/weatherChange",
+        "rejuvenation:infernal/activate",
+        "rejuvenation:infernal/weatherChange",
+        "rejuvenation:new_world/activate",
+        "rejuvenation:new_world/weatherChange",
+        "rejuvenation:underwater/activate",
+        "rejuvenation:underwater/weatherChange",
+        "rejuvenation:volcanic/activate",
+        "rejuvenation:volcanic/weatherChange",
+        "rejuvenation:volcanic/activate",
+        "rejuvenation:volcanic/weatherChange",
+        "rejuvenation:volcanic_top/activate",
+        "rejuvenation:volcanic_top/weatherChange",
+        "rejuvenation:volcanic_top/activate",
+        "rejuvenation:volcanic_top/weatherChange"
+      ],
+      "hailwarning": [
+        "rejuvenation:frozen_dimension/conditionDurations",
+        "rejuvenation:icy/conditionDurations",
+        "rejuvenation:sky/conditionDurations",
+        "rejuvenation:snowy_mountain/conditionDurations"
+      ],
+      "eelevate": [
+        "rejuvenation:underwater/speed"
+      ]
+    },
+    "items": {}
+  },
+  "counts": {
+    "moves": 699,
+    "abilities": 175,
+    "items": 72
+  },
+  "reason": "Rejuvenation-specific or misspelled IDs absent from installed Showdown base. These rules cannot trigger until a compatible definition is registered."
+}

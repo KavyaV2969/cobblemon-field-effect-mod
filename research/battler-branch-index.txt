@@ -1,0 +1,184 @@
+478:    w *= 2 if @battle.FE == :DEEPEARTH
+1104:    return false if self.hasWorkingItem(:IRONBALL) && @battle.FE != :DEEPEARTH
+1110:      return true if [:MAGNETPULL, :CONTRARY, :UNAWARE, :OBLIVIOUS].include?(self.ability) && @battle.FE == :DEEPEARTH
+1131:    return true if self.ability == :COMATOSE && @battle.FE != :ELECTERRAIN
+1153:      unusedMove = true unless @movesUsed.include?(i.move) || @battle.FE == :DARKNESS1 || @battle.OV == :DARKNESS2
+1184:    speed *= 0.5 if self.ability == :SLOWSTART && self.effects[:SlowStart] < 5 && @battle.FE != :DEEPEARTH
+1187:    speed *= 1.5 if self.ability == :STEADFAST && (@battle.FE == :ELECTERRAIN || @battle.OV == :ELECTERRAIN)
+1202:      elsif @battle.FE == :DEEPEARTH && self.item == :FLOATSTONE
+1207:        speed *= 0.5 unless @battle.FE == :DEEPEARTH
+1208:      elsif @battle.FE == :CLOUDS && self.item == :SWIFTWING
+1293:    amt = (amt * 0.67).floor if @battle.FE == :BACKALLEY && hpamt != @totalhp
+1370:      if @battle.FE == :HAUNTED
+1392:        @battle.endTempFieldOrOverlay if (@battle.OV == :ELECTERRAIN || @battle.FE == :ELECTERRAIN)
+1698:          if @battle.FE == :FAIRYTALE || (Rejuv && @battle.FE == :CHESS)
+1739:        if (self.hp > schoolHP && self.level > 19) || @battle.FE == :UNDERWATER || ([:WATERSURFACE, :MURKWATERSURFACE].include?(@battle.FE) && !self.isAirborne?)
+1818:    if @battle.FE == :DIMENSIONAL && self.ability == :DOWNLOAD && self.canChangeType?
+1834:      if @battle.FE == :DEEPEARTH
+1846:      if @battle.FE == :NEWWORLD
+1855:        self.form = 9 if @battle.FE == :GLITCH
+1856:        self.form = 17 if @battle.FE == :HOLY
+1859:          @battle.pbCommonAnimation("SilvallyGlitch", self, nil) if @battle.FE == :GLITCH
+1860:          @battle.pbCommonAnimation("SilvallyHoly", self, nil) if @battle.FE == :HOLY
+1863:          @battle.pbDisplay(_INTL("{1} was corrupted by the rogue data!", pbThis)) if @battle.FE == :GLITCH
+1864:          @battle.pbDisplay(_INTL("A false god holds no power here...")) if @battle.FE == :HOLY
+2030:      return if @battle.preSurgeField && @battle.FE == @battle.preSurgeField
+2035:    if @battle.FE == :ELECTERRAIN
+2051:    if Rejuv && @battle.FE == :CHESS
+2068:    if Rejuv && @battle.FE == :SWAMP
+2077:    if Rejuv && @battle.FE == :FACTORY
+2096:    if @battle.FE == :VOLCANIC
+2106:    if @battle.FE == :MIRROR
+2140:    if @battle.FE == :FAIRYTALE
+2172:    if @battle.FE == :DRAGONSDEN
+2191:    if @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 1, 4) && flowergardenabils.include?(ability)
+2197:    if @battle.FE == :STARLIGHT
+2215:    if @battle.FE == :PSYTERRAIN
+2242:    if @battle.FE == :CRYSTALCAVERN
+2304:      if @battle.FE == :FROZENDIMENSION && self.ability == :HUNGERSWITCH && self.species == :MORPEKO && self.form == 0
+2313:    if @battle.FE == :HAUNTED
+2335:    if @battle.FE == :SKY
+2357:    if @battle.FE == :COLOSSEUM
+2380:    if @battle.FE == :INFERNAL
+2389:    if @battle.FE == :DEEPEARTH
+2425:    if @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+2434:      if ([:RUNAWAY, :EMERGENCYEXIT].include?(self.ability) && @battle.FE != :CONCERT1) || (self.ability == :RATTLED && [:CONCERT3, :CONCERT4].include?(@battle.FE))
+2443:      if [:PLUS, :GALVANIZE, :HEAVYMETAL, :SOLIDROCK, :PUNKROCK].include?(self.ability) && @battle.FE != :CONCERT4
+2448:      if [:MINUS, :KLUTZ].include?(self.ability) && @battle.FE != :CONCERT1
+2454:    if @battle.FE == :BACKALLEY
+2488:    if @battle.FE == :CITY
+2518:    if @battle.FE == :CLOUDS
+2585:      if self.ability == :RATTLED || (self.ability == :PICKPOCKET && @battle.FE != :DARKNESS1)
+2588:          increment = self.ability == :PICKPOCKET && @battle.FE == :DARKNESS3 ? 2 : 1
+2595:    if @battle.FE == :DANCEFLOOR
+2627:    if @battle.FE == :CROWD
+2644:    if @battle.OV == :PSYTERRAIN
+2653:    if @battle.OV == :MISTY
+2662:    if @battle.OV == :DARKNESS2
+2765:        if @battle.FE == :DEUXFINALIS
+2787:      if Rejuv && @battle.FE == :DEUXFINALIS && @battle.state.effects[:HeavyRain]
+2804:      if Rejuv && @battle.FE == :GRASSY && @battle.state.effects[:HarshSunlight]
+2822:    if self.ability == :HADRONENGINE && @battle.FE == :NEWWORLD
+2824:    elsif self.ability == :HADRONENGINE && (@battle.FE == :ELECTERRAIN || @battle.OV == :ELECTERRAIN)
+2826:    elsif ([:ELECTRICSURGE, :HADRONENGINE].include?(self.ability) || self.crested == :RAIKOU) && @battle.FE != :ELECTERRAIN && @battle.OV != :ELECTERRAIN
+2841:    if self.ability == :GRASSYSURGE && @battle.FE != :GRASSY && @battle.OV != :GRASSY
+2850:    if self.ability == :MISTYSURGE && @battle.FE != :MISTY && @battle.OV != :MISTY && (!Overlays || @battle.FE != :CORROSIVEMIST)
+2858:    if self.ability == :PSYCHICSURGE && @battle.FE != :PSYTERRAIN && @battle.OV != :PSYTERRAIN
+2868:      if @battle.FE == :DARKNESS3
+2883:      if @battle.FE == :BEWITCHED
+2916:        healing = @battle.FE == :FAIRYTALE ? (pbPartner.totalhp / 3.0).floor : (pbPartner.totalhp / 4.0).floor
+2926:      duration = self.hasWorkingItem(:AMPLIFIELDROCK) || @battle.FE == :PSYTERRAIN ? 8 : 5
+2927:      duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+2941:        duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+2953:        duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+2960:    if self.ability == :ORICHALCUMPULSE && @battle.FE == :NEWWORLD
+2968:        duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+2983:          duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+3014:      when :COMATOSE then @battle.pbAbilityBoxAndDisplay(self, _INTL("{1} is drowsing!", pbThis)) if @battle.FE != :ELECTERRAIN
+3042:    if self.ability == :PASTELVEIL && @battle.FE != :INFERNAL
+3056:        stats = @battle.FE == :CROWD ? PBStats::Physical : [PBStats::ATTACK]
+3157:    if self.ability == :QUARKDRIVE && @battle.FE == :GLITCH
+3202:      if @battle.FE == :MIRROR
+3272:      if @battle.FE == :BIGTOP
+3288:    if self.ability == :SLOWSTART && self.effects[:SlowStart] < 5 && @battle.FE != :DEEPEARTH
+3294:      if @battle.FE == :CITY
+3315:        if @battle.FE == :BACKALLEY
+3410:      if @battle.FE == :BIGTOP
+3419:      if @battle.FE == :ELECTERRAIN || @battle.OV == :ELECTERRAIN
+3471:        @battle.endTempFieldOrOverlay if (@battle.OV == :ELECTERRAIN || @battle.FE == :ELECTERRAIN)
+3545:          sample = (@battle.FE == :RAINBOW || @battle.OV == :RAINBOW || user.ability == :SERENEGRACE) ? 5 : 10
+3563:        if user.ability == :SWORDOFRUIN && @battle.FE == :DEUXFINALIS && target.pbCanPetrify?(user, move)
+3568:        if user.ability == :CORROSION && @battle.FE == :WASTELAND && @battle.pbRandom(10) == 0
+3597:      eschance = 6 if @battle.FE == :CORRUPTED
+3609:          damagedivider = @battle.FE == :CORROSIVEMIST ? 2.0 : 4.0
+3651:        if target.ability == :FLAMEBODY && user.pbCanBurn?(target, nil) && @battle.FE != :FROZENDIMENSION && @battle.pbRandom(10) < 3
+3669:        eschance = 6 if @battle.FE == :SHORTCIRCUIT || (Rejuv && @battle.FE == :ELECTERRAIN)
+3682:        if target.ability == :PERISHBODY && user.effects[:PerishSong] == 0 && target.effects[:PerishSong] == 0 && @battle.FE != :HOLY
+3684:          if @battle.FE == :INFERNAL
+3701:          if @battle.FE == :DEUXFINALIS
+3710:          user.pbPoison(target) if target.ability == :GOOEY && @battle.FE == :WASTELAND && user.pbCanPoison?(target, nil)
+3741:    if @battle.FE == :GLITCH # Glitch Field Hyper Beam Reset
+3747:      if (target.ability == :CURSEDBODY && @battle.FE != :HOLY && (@battle.pbRandom(10) < 3 || (target.isFainted? && @battle.FE == :HAUNTED))) || target.crested == :BEHEEYEM
+3796:            if @battle.FE == :UNDERWATER
+3824:          stat = @battle.FE == :HOLY ? 2 : 1
+3858:        if @battle.FE != :ASHENBEACH
+3926:        if @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 1, 4)
+3930:        elsif @battle.canChangeFE?(:GRASSY) && @battle.OV != :GRASSY && @battle.FE != :FROZENDIMENSION && (Overlays || @battle.FE != :FLOWERGARDEN5)
+4109:    if @battle.FE == :COLOSSEUM
+4296:    if @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 1, 4)
+4299:    if @battle.ProgressiveFieldCheck(PBFields::DARKNESS, 1, 2)
+4300:      message = @battle.FE == :DARKNESS1 ? _INTL("The shadows grow...") : _INTL("The shadows engulf the surroundings!")
+4309:    return if @battle.preSurgeField && @battle.FE == @battle.preSurgeField
+4318:    if Rejuv && @battle.FE == :ELECTERRAIN
+4335:    if @battle.FE == :MIRROR
+4356:    if @battle.FE == :DEEPEARTH
+4446:    if self.item == :LEFTOVERS || (self.item == :BLACKSLUDGE && hasType?(:POISON)) || (@battle.FE == :CLOUDS && self.item == :HEALTHWING)
+4942:      if @battle.FE == :BACKALLEY
+4979:    elsif (@battle.FE == :PSYTERRAIN || @battle.OV == :PSYTERRAIN) && move.move == :EXPANDINGFORCE
+4983:    elsif @battle.FE == :FLOWERGARDEN5 && (move.powderMove? || PBFields::MAXGARDENMOVES.include?(move.move))
+4985:    elsif @battle.FE == :HAUNTED && (move.move == :MEANLOOK || move.move == :FIRESPIN)
+4987:    elsif @battle.FE == :DEEPEARTH && move.move == :TOPSYTURVY
+4989:    elsif @battle.FE == :DEEPEARTH && move.move == :GRAVITY
+5255:      if (@battle.FE == :PSYTERRAIN || @battle.OV == :PSYTERRAIN) && movetoblock.priorityCheck(self) > 0
+5259:          next if @battle.FE == :CHESS && self.piece == :KING && Rejuv # skip the King, otherwise OV would completely negate it
+5265:      if basemove.canProtect? && !basemove.zmove && !basemove.unseenFistCheck(self) && !(Rejuv && basemove.move == :KOWTOWCLEAVE && @battle.FE == :CHESS)# Bypassing protect with decreased damage is handled elsewhere
+5372:        if @battle.FE == :HOLY
+5394:        if @battle.FE == :ROCKY
+5410:      if @battle.FE != :BEWITCHED && !(Rejuv && @battle.FE == :GLITCH) && self.ability == :PRANKSTER && movetoblock.pbIsStatus?
+5435:        if @battle.FE == :MIRROR && (targetchoices == :SingleNonUser || basemove.move == :MIRRORCOAT) &&
+5518:          damagedivider = @battle.FE == :COLOSSEUM ? 4.0 : 8.0
+5558:        if (Rejuv && @battle.FE == :SHORTCIRCUIT) && target.ability == :LIGHTNINGROD
+5559:          damageroll = @battle.field.getRoll(update_roll: true, maximize_roll: @battle.OV == :ELECTERRAIN)
+5572:        statboost = 2 if @battle.FE == :FACTORY
+5573:        if Rejuv && @battle.FE == :SHORTCIRCUIT
+5574:          damageroll = @battle.field.getRoll(update_roll: true, maximize_roll: @battle.OV == :ELECTERRAIN)
+5587:        if (Rejuv && @battle.FE == :SHORTCIRCUIT) && target.ability == :VOLTABSORB
+5588:          damageroll = @battle.field.getRoll(update_roll: true, maximize_roll: @battle.OV == :ELECTERRAIN)
+5649:      if @battle.FE == :ROCKY && user.ability != :ROCKHEAD
+5657:      if @battle.FE == :MIRROR
+5672:    self.pbChangeStats(PBStats::EVASION, 1, self, nil, abilitycheck: :hide) if @battle.FE == :MIRROR && bounceType == :MagicBounce
+5750:    if basemove.function == 0x115 && ((@lastHPLost > 0 && !@damagestate.substitute) || @battle.FE == :ELECTERRAIN) # Focus Punch
+5756:      if @battle.FE == :ROCKY && self.stages[PBStats::DEFENSE] >= 1
+5760:        if @battle.FE == :ROCKY && ![:STEADFAST, :STURDY, :MAGICGUARD].include?(self.ability)
+5790:    if @battle.state.effects[:Gravity] != 0 && basemove.unusableInGravity? && !(basemove.move == :MAGNETRISE && @battle.FE == :DEEPEARTH)
+5939:    if Rejuv && @battle.FE == :CHESS && user.ability == :KLUTZ && PBFields::CHESSMOVES.include?(basemove.move)
+5965:        if noPriority.any? && !(Rejuv && movetoblock.move == :KOWTOWCLEAVE && @battle.FE == :CHESS) # kowtow on chess pierces protection at 0.25x power
+6063:      statmod = @battle.FE == :DIMENSIONAL && self.ability == :BEASTBOOST ? 2 : 1
+6072:    if @battle.FE == :COLOSSEUM
+6087:    if @battle.FE == :BACKALLEY && basemove.move == :PURSUIT
+6121:        statgain = Rejuv && @battle.FE == :DRAGONSDEN ? 2 : 1
+6199:    if self.ability == :DANCER && @battle.FE == :BIGTOP # Big Top
+6800:      if @battle.recorded || @battle.FE == :CROWD
+6816:          if @battle.recorded || @battle.FE == :CROWD
+6974:        if @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+7005:      if @battle.FE == :DIMENSIONAL
+7033:        if [:GEOMANCY, :METEORBEAM].include?(basemove.move) && @battle.FE == :STARLIGHT
+7057:        if @battle.FE == :ICY && !user.isAirborne?
+7074:          mult = @battle.FE == :DEUXFINALIS ? 3.0 : 4.0
+7086:            hpgain = (flags[:totaldamage] / (@battle.FE == :ASHENBEACH ? 4.0 : 8.0)).floor
+7268:    atkmult *= 0.5 if self.ability == :SLOWSTART && self.effects[:SlowStart] < 5 && @battle.FE != :DEEPEARTH
+7273:    atkmult *= PBMults::ParadoxLeads if self.ability == :ORICHALCUMPULSE && (weather == :SUNNYDAY || @battle.FE == :NEWWORLD)
+7275:    ruinmod = 0.667 if @battle.FE == :NEWWORLD
+7276:    ruinmod = 0.875 if @battle.FE == :HOLY
+7277:    atkmult *= ruinmod if @battle.pbCheckGlobalAbility(:TABLETSOFRUIN) && self.ability != :TABLETSOFRUIN && !(@battle.FE == :DEUXFINALIS && @battle.pbCheckSideAbility(:TABLETSOFRUIN, self))
+7280:    atkmult *= 2.0 if self.ability == :PUREPOWER && !(@battle.FE == :PSYTERRAIN || @battle.OV == :PSYTERRAIN)
+7284:    atkmult *= 1.1 if self.hasWorkingItem(:MUSCLEWING) && @battle.FE == :CLOUDS
+7302:      defmult *= 1.5 if self.ability == :GRASSPELT && ([:GRASSY, :FOREST].include?(@battle.FE) || @battle.OV == :GRASSY)
+7310:    ruinmod = 0.667 if @battle.FE == :NEWWORLD
+7311:    ruinmod = 0.875 if @battle.FE == :HOLY
+7312:    defmult *= ruinmod if self.wonderroom && @battle.pbCheckGlobalAbility(:BEADSOFRUIN) && self.ability != :BEADSOFRUIN && !(@battle.FE == :DEUXFINALIS && @battle.pbCheckSideAbility(:BEADSOFRUIN, self))
+7313:    defmult *= ruinmod if !self.wonderroom && @battle.pbCheckGlobalAbility(:SWORDOFRUIN) && self.ability != :SWORDOFRUIN && !(@battle.FE == :DEUXFINALIS && @battle.pbCheckSideAbility(:SWORDOFRUIN, self))
+7317:    defmult *= 1.1 if self.hasWorkingItem(:RESISTWING) && @battle.FE == :CLOUDS
+7330:    ruinmod = 0.667 if @battle.FE == :NEWWORLD
+7331:    ruinmod = 0.875 if @battle.FE == :HOLY
+7337:      spatkmult *= 2.0 if self.ability == :PUREPOWER && (@battle.FE == :PSYTERRAIN || @battle.OV == :PSYTERRAIN)
+7339:        if [:MINUS, :PLUS].include?(self.pbPartner.ability) || @battle.FE == :SHORTCIRCUIT || (Rejuv && @battle.FE == :ELECTERRAIN) || @battle.OV == :ELECTERRAIN
+7344:      spatkmult *= 1.5 if (self.ability == :SOLARPOWER || (self.crested == :CASTFORM && self.form == 1)) && weather == :SUNNYDAY && !(self.hasWorkingItem(:UTILITYUMBRELLA) || @battle.FE == :FROZENDIMENSION)
+7345:      spatkmult *= PBMults::ParadoxLeads if self.ability == :HADRONENGINE && (@battle.FE == :NEWWORLD || @battle.FE == :ELECTERRAIN || @battle.OV == :ELECTERRAIN)
+7352:    spatkmult *= ruinmod if @battle.pbCheckGlobalAbility(:VESSELOFRUIN) && self.ability != :VESSELOFRUIN && !(@battle.FE == :DEUXFINALIS && @battle.pbCheckSideAbility(:VESSELOFRUIN, self))
+7354:    spatkmult *= 1.1 if self.hasWorkingItem(:GENIUSWING) && @battle.FE == :CLOUDS
+7385:    ruinmod = 0.667 if @battle.FE == :NEWWORLD
+7386:    ruinmod = 0.875 if @battle.FE == :HOLY
+7390:    spdefmult *= 1.1 if self.hasWorkingItem(:CLEVERWING) && @battle.FE == :CLOUDS
+7502:    if choice[0] == :switch && @battle.FE == :COLOSSEUM
+7597:    if @battle.FE == :CROWD

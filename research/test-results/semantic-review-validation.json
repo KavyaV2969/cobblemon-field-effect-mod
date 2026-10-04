@@ -1,0 +1,12 @@
+{
+  "sourceLeadCounts": {
+    "requires_behavioral_comparison": 1641,
+    "implemented_and_tested": 74,
+    "excluded_custom_move": 9,
+    "excluded_crest": 5
+  },
+  "manuallyReviewed": 88,
+  "ordinaryPendingNotCertified": true,
+  "completeFields": [],
+  "warning": "Nested AST leads are not unique mechanics. Explicit review evidence only; no whole-field certification."
+}

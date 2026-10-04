@@ -1,0 +1,2172 @@
+{
+  "schemaVersion": 1,
+  "id": "rejuvenation:new_world",
+  "originalId": "NEWWORLD",
+  "name": "New World",
+  "entryMessage": "From darkness, from stardust|,\n\nFrom memories of eons past and visions yet to come...",
+  "naturePower": "spacialrend",
+  "secretPower": "roaroftime",
+  "mimicry": "Dark",
+  "burmyCloak": "TRASHCLOAK",
+  "statusBuffs": [
+    "darkvoid",
+    "heartswap",
+    "trickroom",
+    "magicroom",
+    "wonderroom",
+    "cosmicpower",
+    "flash",
+    "moonlight",
+    "lunardance",
+    "naturesmadness",
+    "lunarblessing",
+    "guardianofalola",
+    "junglehealing",
+    "takeheart",
+    "ruination"
+  ],
+  "statusNerfs": [
+    "sunnyday",
+    "raindance",
+    "sandstorm",
+    "hail",
+    "snowscape",
+    "chillyreception",
+    "shadowsky",
+    "electricterrain",
+    "grassyterrain",
+    "mistyterrain",
+    "psychicterrain"
+  ],
+  "moves": {
+    "aurorabeam": {
+      "multiplier": 1.5,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "signalbeam": {
+      "multiplier": 1.5,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "flashcannon": {
+      "multiplier": 1.5,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "dazzlinggleam": {
+      "multiplier": 1.5,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "mirrorshot": {
+      "multiplier": 1.5,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "mirrorbeam": {
+      "multiplier": 1.5,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "photongeyser": {
+      "multiplier": 1.5,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "psystrike": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "aeroblast": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "sacredfire": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "mistball": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "lusterpurge": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "originpulse": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "precipiceblades": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "dragonascent": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "psychoboost": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "roaroftime": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "magmastorm": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "crushgrip": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "judgment": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "seedflare": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "shadowforce": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "searingshot": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "vcreate": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "secretsword": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "sacredsword": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "relicsong": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "fusionbolt": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "fusionflare": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "glaciate": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "iceburn": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "freezeshock": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "boltstrike": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "blueflare": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "technoblast": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "oblivionwing": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "landswrath": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "thousandarrows": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "thousandwaves": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "diamondstorm": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "steameruption": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "coreenforcer": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "fleurcannon": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "prismaticlaser": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "sunsteelstrike": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "spectralthief": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "moongeistbeam": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "multiattack": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "mindblown": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "plasmafists": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "earthpower": {
+      "multiplier": 1.5,
+      "message": "The germinal matter amassed in the attack!"
+    },
+    "powergem": {
+      "multiplier": 1.5,
+      "message": "The germinal matter amassed in the attack!"
+    },
+    "eruption": {
+      "multiplier": 1.5,
+      "message": "The germinal matter amassed in the attack!"
+    },
+    "continentalcrush": {
+      "multiplier": 1.5,
+      "message": "The germinal matter amassed in the attack!"
+    },
+    "genesissupernova": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "soulstealing7starstrike": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "searingsunrazesmash": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "menacingmoonrazemaelstrom": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "doubleironbash": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "dynamaxcannon": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "behemothblade": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "behemothbash": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "wickedblow": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "surgingstrikes": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "thundercage": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "dragonenergy": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "freezingglare": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "fierywrath": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "thunderouskick": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "glaciallance": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "astralbarrage": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "springtidestorm": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "wildboltstorm": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "bleakwindstorm": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "sandsearstorm": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "mysticalpower": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "luminacrash": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "collisioncourse": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "electrodrift": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "hydrosteam": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "thunderclap": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "psyblade": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "mightycleave": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "ivycudgel": {
+      "multiplier": 1.5,
+      "message": "The ethereal energy strengthened the attack!"
+    },
+    "malignantchain": {
+      "multiplier": 1.5
+    },
+    "vacuumwave": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "dracometeor": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "meteormash": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "moonblast": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "cometpunch": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "swift": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "hyperspacehole": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "spacialrend": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "hyperspacefury": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "ancientpower": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "futuresight": {
+      "multiplier": 2.0
+    },
+    "futuredummy": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "blackholeeclipse": {
+      "multiplier": 2.0,
+      "message": "{1} was swallowed up by the void!"
+    },
+    "lightthatburnsthesky": {
+      "multiplier": 2.0,
+      "message": "The light shone through the infinite darkness!"
+    },
+    "eternabeam": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "meteorbeam": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "bloodmoon": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "terastarstorm": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!",
+      "transition": {
+        "field": "rejuvenation:starlight",
+        "condition": {
+          "always": true
+        },
+        "push": true,
+        "message": "Starlight amassed into a solid surface!"
+      }
+    },
+    "tachyoncutter": {
+      "multiplier": 2.0,
+      "message": "The astral energy boosted the attack!"
+    },
+    "doomdesire": {
+      "multiplier": 4.0
+    },
+    "doomdummy": {
+      "multiplier": 4.0,
+      "additionalType": "FIRE",
+      "message": "A star came crashing down on {1}!"
+    },
+    "earthquake": {
+      "multiplier": 0.25,
+      "message": "The unformed land diffused the attack..."
+    },
+    "magnitude": {
+      "multiplier": 0.25,
+      "message": "The unformed land diffused the attack..."
+    },
+    "bulldoze": {
+      "multiplier": 0.25,
+      "message": "The unformed land diffused the attack..."
+    },
+    "fissure": {
+      "multiplier": 0,
+      "message": "The unformed land diffused the attack..."
+    },
+    "darkvoid": {
+      "accuracy": 100
+    },
+    "geomancy": {
+      "transition": {
+        "field": "rejuvenation:starlight",
+        "condition": {
+          "always": true
+        },
+        "push": false,
+        "message": "The world was regenerated!"
+      }
+    }
+  },
+  "types": [
+    {
+      "match": {
+        "moveType": "Dark"
+      },
+      "condition": {
+        "always": true
+      },
+      "multiplier": 1.5,
+      "message": "Infinity boosted the attack!"
+    }
+  ],
+  "rules": [
+    {
+      "event": "defense",
+      "condition": {
+        "not": {
+          "grounded": {
+            "who": "user",
+            "value": true
+          }
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.9
+        }
+      ],
+      "source": "Battle_Field.rb:1094-1128"
+    },
+    {
+      "event": "specialDefense",
+      "condition": {
+        "not": {
+          "grounded": {
+            "who": "user",
+            "value": true
+          }
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.9
+        }
+      ],
+      "source": "Battle_Field.rb:1094-1128"
+    },
+    {
+      "event": "speed",
+      "condition": {
+        "grounded": {
+          "who": "user",
+          "value": true
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.75
+        }
+      ],
+      "source": "Battler.rb:1187-1215"
+    },
+    {
+      "event": "activate",
+      "condition": {
+        "all": [
+          {
+            "weatherActive": true
+          },
+          {
+            "not": {
+              "globalAbility": [
+                "tempest"
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "clearWeather",
+          "message": "The weather disappeared into space!"
+        }
+      ],
+      "source": "Battle_Field.rb:215-232"
+    },
+    {
+      "event": "weatherChange",
+      "condition": {
+        "all": [
+          {
+            "weatherActive": true
+          },
+          {
+            "not": {
+              "globalAbility": [
+                "tempest"
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "clearWeather",
+          "message": "The weather disappeared into space!"
+        }
+      ],
+      "source": "Battle_Field.rb:215-232"
+    },
+    {
+      "event": "activate",
+      "condition": {
+        "always": true
+      },
+      "actions": [
+        {
+          "op": "clearOverlay"
+        }
+      ],
+      "source": "Battle_Field.rb:250"
+    },
+    {
+      "event": "residual",
+      "condition": {
+        "ability": {
+          "who": "user",
+          "values": [
+            "mimicry"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "mimicry"
+        }
+      ],
+      "source": "Battle.rb:6122; Battle_Field.rb:1181"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "takeheart"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "cureAndBoost",
+          "stats": {
+            "spa": 2,
+            "spd": 2
+          }
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:9231"
+    },
+    {
+      "event": "pseudoWeatherStart",
+      "condition": {
+        "pseudoWeather": {
+          "id": "gravity",
+          "value": true
+        }
+      },
+      "actions": [
+        {
+          "op": "changeField",
+          "field": "rejuvenation:starlight",
+          "durationFromCondition": "gravity",
+          "force": true,
+          "message": "The world's matter reformed!"
+        },
+        {
+          "op": "bindFieldClock",
+          "durationCondition": {
+            "pseudoWeather": {
+              "id": "gravity",
+              "value": true
+            }
+          },
+          "permanentCondition": {
+            "not": {
+              "field": "rejuvenation:starlight"
+            }
+          }
+        }
+      ],
+      "source": "Battle.rb:718-726"
+    },
+    {
+      "event": "setWeather",
+      "condition": {
+        "always": true
+      },
+      "actions": [
+        {
+          "op": "message",
+          "text": "The weather drifted off into space..."
+        },
+        {
+          "op": "reject"
+        }
+      ],
+      "source": "Battle.rb:367-406"
+    },
+    {
+      "event": "overlayIn",
+      "condition": {
+        "all": [
+          {
+            "overlay": "rejuvenation:psychic_terrain"
+          },
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "anticipation",
+                "forewarn"
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "spa": 1
+          }
+        }
+      ],
+      "source": "Battler.rb:2644-2652"
+    },
+    {
+      "event": "overlayIn",
+      "condition": {
+        "all": [
+          {
+            "overlay": "rejuvenation:misty_terrain"
+          },
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "watercompaction"
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "boost",
+          "stats": {
+            "def": 2
+          }
+        }
+      ],
+      "source": "Battler.rb:2654-2662"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "firepledge"
+      },
+      "actions": [
+        {
+          "op": "removeCallbacks",
+          "callbacks": [
+            "onPrepareHit",
+            "onModifyMove",
+            "basePowerCallback"
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6383-6410"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "firepledge"
+          },
+          {
+            "missed": false
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "pledge",
+          "token": "firepledge",
+          "pairs": [
+            {
+              "with": "grasspledge",
+              "field": "rejuvenation:volcanic",
+              "message": "The pledges combined and set the field ablaze!",
+              "refreshMessage": "The pledges combined and fanned the flames!"
+            },
+            {
+              "with": "waterpledge",
+              "field": "rejuvenation:rainbow",
+              "message": "The pledges combined to form a rainbow!",
+              "refreshMessage": "The pledges combined to refresh the rainbow!"
+            }
+          ],
+          "duration": 4,
+          "extendedBy": 3,
+          "firstMessage": "The Fire Pledge lingers in the air...",
+          "permanentMessage": "The pledges combined!"
+        }
+      ],
+      "source": "Battle_Field.rb:506-540"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "grasspledge"
+      },
+      "actions": [
+        {
+          "op": "removeCallbacks",
+          "callbacks": [
+            "onPrepareHit",
+            "onModifyMove",
+            "basePowerCallback"
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6383-6410"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "grasspledge"
+          },
+          {
+            "missed": false
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "pledge",
+          "token": "grasspledge",
+          "pairs": [
+            {
+              "with": "firepledge",
+              "field": "rejuvenation:volcanic",
+              "message": "The pledges combined and set the field ablaze!",
+              "refreshMessage": "The pledges combined and fanned the flames!"
+            },
+            {
+              "with": "waterpledge",
+              "field": "rejuvenation:swamp",
+              "message": "The pledges combined and formed a swamp!",
+              "refreshMessage": "The pledges combined and reinforced the swamp!"
+            }
+          ],
+          "duration": 4,
+          "extendedBy": 3,
+          "firstMessage": "The Grass Pledge lingers in the air...",
+          "permanentMessage": "The pledges combined!"
+        }
+      ],
+      "source": "Battle_Field.rb:506-540"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "waterpledge"
+      },
+      "actions": [
+        {
+          "op": "removeCallbacks",
+          "callbacks": [
+            "onPrepareHit",
+            "onModifyMove",
+            "basePowerCallback"
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6383-6410"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "waterpledge"
+          },
+          {
+            "missed": false
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "pledge",
+          "token": "waterpledge",
+          "pairs": [
+            {
+              "with": "firepledge",
+              "field": "rejuvenation:rainbow",
+              "message": "The pledges combined to form a rainbow!",
+              "refreshMessage": "The pledges combined to refresh the rainbow!"
+            },
+            {
+              "with": "grasspledge",
+              "field": "rejuvenation:swamp",
+              "message": "The pledges combined and formed a swamp!",
+              "refreshMessage": "The pledges combined and reinforced the swamp!"
+            }
+          ],
+          "duration": 4,
+          "extendedBy": 3,
+          "firstMessage": "The Water Pledge lingers in the air...",
+          "permanentMessage": "The pledges combined!"
+        }
+      ],
+      "source": "Battle_Field.rb:506-540"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "conversion"
+          },
+          {
+            "missed": false
+          },
+          {
+            "not": {
+              "item": {
+                "who": "user",
+                "values": [
+                  "everstone"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "conversion",
+          "token": "conversion",
+          "pairs": [
+            {
+              "with": "conversion2",
+              "field": "rejuvenation:glitch",
+              "message": "TH~ R0GUE DAa/ta cor$upt?@####",
+              "refreshMessage": "TH~ R0GUE DAa/ta cor$upt?@####"
+            }
+          ],
+          "duration": 5,
+          "extendedBy": 3,
+          "firstMessage": "Some rogue data remains...",
+          "permanentMessage": "TH~ R0GUE DAa/ta cor$upt?@####",
+          "disallowPermanentField": "rejuvenation:glitch"
+        }
+      ],
+      "source": "Battle_Field.rb:544-562; Battle_MoveEffects.rb:2061-2107"
+    },
+    {
+      "event": "afterMove",
+      "condition": {
+        "all": [
+          {
+            "move": "conversion2"
+          },
+          {
+            "missed": false
+          },
+          {
+            "not": {
+              "item": {
+                "who": "user",
+                "values": [
+                  "everstone"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "pairField",
+          "memory": "conversion",
+          "token": "conversion2",
+          "pairs": [
+            {
+              "with": "conversion",
+              "field": "rejuvenation:glitch",
+              "message": "TH~ R0GUE DAa/ta cor$upt?@####",
+              "refreshMessage": "TH~ R0GUE DAa/ta cor$upt?@####"
+            }
+          ],
+          "duration": 5,
+          "extendedBy": 3,
+          "firstMessage": "Some rogue data remains...",
+          "permanentMessage": "TH~ R0GUE DAa/ta cor$upt?@####",
+          "disallowPermanentField": "rejuvenation:glitch"
+        }
+      ],
+      "source": "Battle_Field.rb:544-562; Battle_MoveEffects.rb:2061-2107"
+    },
+    {
+      "event": "chargeMove",
+      "condition": {
+        "all": [
+          {
+            "move": "razorwind"
+          },
+          {
+            "overlay": "rejuvenation:grassy_terrain"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "reject"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:4430"
+    },
+    {
+      "event": "chargeMove",
+      "condition": {
+        "all": [
+          {
+            "any": [
+              {
+                "move": "solarbeam"
+              },
+              {
+                "move": "solarblade"
+              }
+            ]
+          },
+          {
+            "overlay": "rejuvenation:rainbow"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "reject"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:4472"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "heartswap"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "shareHP",
+          "message": "The battlers shared their pain!"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:1777"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "all": [
+          {
+            "move": "mist"
+          },
+          {
+            "not": {
+              "sideCondition": "mist"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "appendHitActions",
+          "callback": "onHitSide",
+          "actions": [
+            {
+              "op": "createField",
+              "field": "rejuvenation:misty_terrain",
+              "duration": 3,
+              "extendedBy": 3,
+              "message": "Mist swirled around the battlefield!"
+            }
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:1817"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "cosmicpower"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "boosts",
+          "value": {
+            "def": 2,
+            "spd": 2
+          }
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:993"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "flash"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "boosts",
+          "value": {
+            "accuracy": -2
+          }
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:1503"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "moonlight"
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "heal",
+          "value": [
+            0.75,
+            1
+          ],
+          "removeCallback": "onHit"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:5237"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "guardianofalola"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "fixedDamage",
+          "basis": "targetMaxHP",
+          "factor": 0.75
+        }
+      ],
+      "source": "Battle_ZMove.rb:359"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "bloomdoom"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "appendHitActions",
+          "actions": [
+            {
+              "op": "createField",
+              "field": "rejuvenation:grassy_terrain",
+              "duration": 3,
+              "extendedBy": 0,
+              "blockEverstone": false
+            }
+          ]
+        }
+      ],
+      "source": "Battle_ZMove.rb:269"
+    },
+    {
+      "event": "chargeMove",
+      "condition": {
+        "move": "meteorbeam"
+      },
+      "actions": [
+        {
+          "op": "reject"
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:8840"
+    },
+    {
+      "event": "formChange",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "zerotohero"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "palafin"
+            }
+          },
+          {
+            "formName": {
+              "who": "user",
+              "value": "Hero"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "setPokemonFlag",
+          "id": "hero_pending",
+          "value": true
+        }
+      ],
+      "source": "Battler.rb:1929-1940 (native Hero transformation); 3269-3279"
+    },
+    {
+      "event": "pokemonEntry",
+      "condition": {
+        "pokemonFlag": {
+          "who": "user",
+          "id": "hero_pending",
+          "value": true
+        }
+      },
+      "actions": [
+        {
+          "op": "setPokemonFlag",
+          "id": "hero_pending",
+          "value": false
+        }
+      ],
+      "source": "Battler.rb:3269-3279 (consume transformation marker only on first send-out)"
+    },
+    {
+      "event": "pokemonEntry",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "rkssystem"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "silvally"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "randomForm",
+          "variants": [
+            {
+              "species": "silvally",
+              "type": "Normal"
+            },
+            {
+              "species": "silvallyfire",
+              "type": "Fire"
+            },
+            {
+              "species": "silvallywater",
+              "type": "Water"
+            },
+            {
+              "species": "silvallyelectric",
+              "type": "Electric"
+            },
+            {
+              "species": "silvallygrass",
+              "type": "Grass"
+            },
+            {
+              "species": "silvallyice",
+              "type": "Ice"
+            },
+            {
+              "species": "silvallyfighting",
+              "type": "Fighting"
+            },
+            {
+              "species": "silvallypoison",
+              "type": "Poison"
+            },
+            {
+              "species": "silvallyground",
+              "type": "Ground"
+            },
+            {
+              "species": "silvallyflying",
+              "type": "Flying"
+            },
+            {
+              "species": "silvallypsychic",
+              "type": "Psychic"
+            },
+            {
+              "species": "silvallybug",
+              "type": "Bug"
+            },
+            {
+              "species": "silvallyrock",
+              "type": "Rock"
+            },
+            {
+              "species": "silvallyghost",
+              "type": "Ghost"
+            },
+            {
+              "species": "silvallydragon",
+              "type": "Dragon"
+            },
+            {
+              "species": "silvallydark",
+              "type": "Dark"
+            },
+            {
+              "species": "silvallysteel",
+              "type": "Steel"
+            },
+            {
+              "species": "silvallyfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} transformed into the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1846-1848; Battle_Field.rb:1166-1175"
+    },
+    {
+      "event": "pokemonEntry",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "multitype"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "arceus"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "randomForm",
+          "variants": [
+            {
+              "species": "arceus",
+              "type": "Normal"
+            },
+            {
+              "species": "arceusfire",
+              "type": "Fire"
+            },
+            {
+              "species": "arceuswater",
+              "type": "Water"
+            },
+            {
+              "species": "arceuselectric",
+              "type": "Electric"
+            },
+            {
+              "species": "arceusgrass",
+              "type": "Grass"
+            },
+            {
+              "species": "arceusice",
+              "type": "Ice"
+            },
+            {
+              "species": "arceusfighting",
+              "type": "Fighting"
+            },
+            {
+              "species": "arceuspoison",
+              "type": "Poison"
+            },
+            {
+              "species": "arceusground",
+              "type": "Ground"
+            },
+            {
+              "species": "arceusflying",
+              "type": "Flying"
+            },
+            {
+              "species": "arceuspsychic",
+              "type": "Psychic"
+            },
+            {
+              "species": "arceusbug",
+              "type": "Bug"
+            },
+            {
+              "species": "arceusrock",
+              "type": "Rock"
+            },
+            {
+              "species": "arceusghost",
+              "type": "Ghost"
+            },
+            {
+              "species": "arceusdragon",
+              "type": "Dragon"
+            },
+            {
+              "species": "arceusdark",
+              "type": "Dark"
+            },
+            {
+              "species": "arceussteel",
+              "type": "Steel"
+            },
+            {
+              "species": "arceusfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} transformed into the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1846-1848; Battle_Field.rb:1166-1175"
+    },
+    {
+      "event": "residual",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "rkssystem"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "silvally"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "randomForm",
+          "variants": [
+            {
+              "species": "silvally",
+              "type": "Normal"
+            },
+            {
+              "species": "silvallyfire",
+              "type": "Fire"
+            },
+            {
+              "species": "silvallywater",
+              "type": "Water"
+            },
+            {
+              "species": "silvallyelectric",
+              "type": "Electric"
+            },
+            {
+              "species": "silvallygrass",
+              "type": "Grass"
+            },
+            {
+              "species": "silvallyice",
+              "type": "Ice"
+            },
+            {
+              "species": "silvallyfighting",
+              "type": "Fighting"
+            },
+            {
+              "species": "silvallypoison",
+              "type": "Poison"
+            },
+            {
+              "species": "silvallyground",
+              "type": "Ground"
+            },
+            {
+              "species": "silvallyflying",
+              "type": "Flying"
+            },
+            {
+              "species": "silvallypsychic",
+              "type": "Psychic"
+            },
+            {
+              "species": "silvallybug",
+              "type": "Bug"
+            },
+            {
+              "species": "silvallyrock",
+              "type": "Rock"
+            },
+            {
+              "species": "silvallyghost",
+              "type": "Ghost"
+            },
+            {
+              "species": "silvallydragon",
+              "type": "Dragon"
+            },
+            {
+              "species": "silvallydark",
+              "type": "Dark"
+            },
+            {
+              "species": "silvallysteel",
+              "type": "Steel"
+            },
+            {
+              "species": "silvallyfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} transformed into the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1846-1848; Battle_Field.rb:1166-1175"
+    },
+    {
+      "event": "residual",
+      "condition": {
+        "all": [
+          {
+            "ability": {
+              "who": "user",
+              "values": [
+                "multitype"
+              ]
+            }
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "arceus"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "randomForm",
+          "variants": [
+            {
+              "species": "arceus",
+              "type": "Normal"
+            },
+            {
+              "species": "arceusfire",
+              "type": "Fire"
+            },
+            {
+              "species": "arceuswater",
+              "type": "Water"
+            },
+            {
+              "species": "arceuselectric",
+              "type": "Electric"
+            },
+            {
+              "species": "arceusgrass",
+              "type": "Grass"
+            },
+            {
+              "species": "arceusice",
+              "type": "Ice"
+            },
+            {
+              "species": "arceusfighting",
+              "type": "Fighting"
+            },
+            {
+              "species": "arceuspoison",
+              "type": "Poison"
+            },
+            {
+              "species": "arceusground",
+              "type": "Ground"
+            },
+            {
+              "species": "arceusflying",
+              "type": "Flying"
+            },
+            {
+              "species": "arceuspsychic",
+              "type": "Psychic"
+            },
+            {
+              "species": "arceusbug",
+              "type": "Bug"
+            },
+            {
+              "species": "arceusrock",
+              "type": "Rock"
+            },
+            {
+              "species": "arceusghost",
+              "type": "Ghost"
+            },
+            {
+              "species": "arceusdragon",
+              "type": "Dragon"
+            },
+            {
+              "species": "arceusdark",
+              "type": "Dark"
+            },
+            {
+              "species": "arceussteel",
+              "type": "Steel"
+            },
+            {
+              "species": "arceusfairy",
+              "type": "Fairy"
+            }
+          ],
+          "message": "{1} transformed into the {type} type!"
+        }
+      ],
+      "source": "Battler.rb:1846-1848; Battle_Field.rb:1166-1175"
+    }
+  ],
+  "seed": {
+    "item": "magicalseed",
+    "effect": "hyperbeam",
+    "duration": 1,
+    "message": "{1} must recharge!",
+    "stats": {
+      "atk": 1,
+      "def": 1,
+      "spa": 1,
+      "spd": 1,
+      "spe": 1
+    }
+  },
+  "mimicryRoll": {
+    "values": [
+      "Normal",
+      "Fire",
+      "Water",
+      "Electric",
+      "Grass",
+      "Ice",
+      "Fighting",
+      "Poison",
+      "Ground",
+      "Flying",
+      "Psychic",
+      "Bug",
+      "Rock",
+      "Ghost",
+      "Dragon",
+      "Dark",
+      "Steel",
+      "Fairy"
+    ]
+  },
+  "secretPowerEffects": [
+    {
+      "boosts": {
+        "atk": -1,
+        "def": -1,
+        "spa": -1,
+        "spd": -1,
+        "spe": -1
+      }
+    }
+  ],
+  "healing": {
+    "rootFactor": 1.2998046875,
+    "agentMultipliers": {},
+    "overlayAgents": [],
+    "moveMultipliers": {},
+    "harmfulAgents": {},
+    "liquidOozeFactor": 1,
+    "drainStatLoss": false
+  },
+  "grounding": {
+    "airborneAbilities": [
+      "gravitycontrol"
+    ],
+    "forceGroundingItems": [
+      "ironball"
+    ],
+    "source": "Battler.rb:1104-1112"
+  },
+  "terrainPolicy": {
+    "blockedMessage": "The terrain had no solid ground to attach...",
+    "blockedFields": [],
+    "source": "Battle_Field.rb:288-301",
+    "clearOverlayOnEntry": true
+  },
+  "expirationReturnMessage": "The world broke apart again!",
+  "multiplierPolicy": {
+    "defaultDifficultyMode": 0,
+    "defaultFieldFrenzy": false,
+    "casualMode": 1,
+    "casualFactor": 0.5,
+    "frenzyBoostFactor": 2,
+    "frenzyReductionFactor": 0.5,
+    "combinedMinimum": 1.5,
+    "source": "Battle_Field.rb:1001-1012; Battle_Move.rb:1355-1363"
+  },
+  "trapping": {
+    "divisors": [
+      8,
+      6,
+      4,
+      3,
+      2
+    ],
+    "moveIncrements": {},
+    "statLoss": {},
+    "immuneAbilities": [
+      "magicguard"
+    ],
+    "source": "Battle.rb:6634-6705; Battle_MoveEffects.rb:4975-5011"
+  },
+  "conditionDurations": {
+    "gravity": {
+      "duration": 5,
+      "sourceMoves": [
+        "gravity"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6820"
+    },
+    "trickroom": {
+      "duration": 8,
+      "sourceMoves": [
+        "trickroom"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6959"
+    },
+    "wonderroom": {
+      "duration": 8,
+      "sourceMoves": [
+        "wonderroom"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:7029"
+    },
+    "magicroom": {
+      "duration": 8,
+      "sourceMoves": [
+        "magicroom"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "item": {
+              "who": "user",
+              "values": [
+                "amplifieldrock"
+              ]
+            }
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6137"
+    },
+    "magnetrise": {
+      "duration": 5,
+      "sourceMoves": [
+        "magnetrise"
+      ],
+      "choices": [
+        {
+          "condition": {
+            "overlay": "rejuvenation:electric_terrain"
+          },
+          "duration": 8
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:6847"
+    }
+  },
+  "captureEnvironmentModifiers": [
+    {
+      "ball": "cobblemon:dive_ball",
+      "predicate": "underwater",
+      "multiplier": 3.5,
+      "source": "Balls.rb:143"
+    },
+    {
+      "ball": "cobblemon:dusk_ball",
+      "predicate": "night",
+      "multiplier": 3.5,
+      "source": "Balls.rb:166; Time.rb:269"
+    }
+  ],
+  "captureModifiers": {
+    "cobblemon:dusk_ball": 3.5
+  },
+  "volatilePolicies": {
+    "nightmare": {
+      "allowAwake": false,
+      "suppressResidual": false,
+      "fraction": 0.25,
+      "message": "{1} is locked in a nightmare!",
+      "source": "Battle.rb:6541-6551; Battle_MoveEffects.rb:6568"
+    }
+  },
+  "statusMoveBehaviorCoverage": {
+    "explicitRuleMoves": [
+      "cosmicpower",
+      "flash",
+      "heartswap",
+      "moonlight",
+      "takeheart"
+    ],
+    "unreviewedHighlightedMoves": [
+      "chillyreception",
+      "darkvoid",
+      "electricterrain",
+      "grassyterrain",
+      "guardianofalola",
+      "hail",
+      "junglehealing",
+      "lunarblessing",
+      "lunardance",
+      "magicroom",
+      "mistyterrain",
+      "naturesmadness",
+      "psychicterrain",
+      "raindance",
+      "ruination",
+      "sandstorm",
+      "shadowsky",
+      "snowscape",
+      "sunnyday",
+      "trickroom",
+      "wonderroom"
+    ]
+  },
+  "persistentStatusPolicies": {
+    "ptr": {
+      "name": "Petrification",
+      "immuneTypes": [
+        "Rock"
+      ],
+      "immuneAbilities": [
+        "fairyaura",
+        "darkaura",
+        "aurabreak",
+        "roughskin"
+      ],
+      "sideProtectionAbility": "fairyaura",
+      "drainAbility": "darkaura",
+      "invertAbility": "aurabreak",
+      "fraction": 0.125,
+      "blocksHealing": true,
+      "blockedHealingAbilities": [
+        "regenerator"
+      ],
+      "drainMessage": "{1}'s health is sapped by the {2}'s dark aura!",
+      "healingFailureMessage": "{1} is prevented from healing, so it can't use {2}!",
+      "source": "Battle_Effects.rb:377-410; Battler.rb:880,1137; Battle.rb:1347,6423-6459"
+    }
+  },
+  "abilityContactPolicies": {
+    "perishbody": {
+      "disabled": false,
+      "duration": 3,
+      "trapDefender": false,
+      "forceAttackerStatus": "",
+      "message": "Both Pokémon will faint in three turns!",
+      "source": "Battler.rb:3683-3705"
+    }
+  },
+  "abilityHandlers": {
+    "schooling": {
+      "onStart": {
+        "mode": "replace",
+        "condition": {
+          "all": [
+            {
+              "species": {
+                "who": "user",
+                "value": "wishiwashi"
+              }
+            },
+            {
+              "not": {
+                "transformed": true
+              }
+            }
+          ]
+        },
+        "actions": [
+          {
+            "op": "conditional",
+            "condition": {
+              "any": [
+                {
+                  "always": false
+                },
+                {
+                  "all": [
+                    {
+                      "level": {
+                        "who": "user",
+                        "op": ">=",
+                        "value": 20
+                      }
+                    },
+                    {
+                      "hp": {
+                        "who": "user",
+                        "op": ">",
+                        "fraction": 0.25
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashischool",
+                "message": "{1} formed a school!"
+              }
+            ]
+          },
+          {
+            "op": "conditional",
+            "condition": {
+              "not": {
+                "any": [
+                  {
+                    "always": false
+                  },
+                  {
+                    "all": [
+                      {
+                        "level": {
+                          "who": "user",
+                          "op": ">=",
+                          "value": 20
+                        }
+                      },
+                      {
+                        "hp": {
+                          "who": "user",
+                          "op": ">",
+                          "fraction": 0.25
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashi",
+                "message": "{1} stopped schooling!"
+              }
+            ]
+          }
+        ],
+        "source": "Battler.rb:1739"
+      },
+      "onResidual": {
+        "mode": "replace",
+        "condition": {
+          "all": [
+            {
+              "species": {
+                "who": "user",
+                "value": "wishiwashi"
+              }
+            },
+            {
+              "not": {
+                "transformed": true
+              }
+            }
+          ]
+        },
+        "actions": [
+          {
+            "op": "conditional",
+            "condition": {
+              "any": [
+                {
+                  "always": false
+                },
+                {
+                  "all": [
+                    {
+                      "level": {
+                        "who": "user",
+                        "op": ">=",
+                        "value": 20
+                      }
+                    },
+                    {
+                      "hp": {
+                        "who": "user",
+                        "op": ">",
+                        "fraction": 0.25
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashischool",
+                "message": "{1} formed a school!"
+              }
+            ]
+          },
+          {
+            "op": "conditional",
+            "condition": {
+              "not": {
+                "any": [
+                  {
+                    "always": false
+                  },
+                  {
+                    "all": [
+                      {
+                        "level": {
+                          "who": "user",
+                          "op": ">=",
+                          "value": 20
+                        }
+                      },
+                      {
+                        "hp": {
+                          "who": "user",
+                          "op": ">",
+                          "fraction": 0.25
+                        }
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "actions": [
+              {
+                "op": "form",
+                "species": "wishiwashi",
+                "message": "{1} stopped schooling!"
+              }
+            ]
+          }
+        ],
+        "source": "Battler.rb:1739"
+      }
+    },
+    "seedsower": {
+      "onDamagingHit": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "createField",
+            "field": "rejuvenation:grassy_terrain",
+            "duration": 5,
+            "extendedBy": 3,
+            "blockEverstone": false
+          }
+        ],
+        "source": "Battler.rb:3926"
+      }
+    }
+  },
+  "nativeFormTyping": [
+    "arceus",
+    "silvally"
+  ]
+}

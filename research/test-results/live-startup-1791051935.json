@@ -1,0 +1,25 @@
+{
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": false,
+  "jarSha256": "bd88cb5dc6d60b314578df5324295914e6e4d0bcd742d0c1241dece712f17093",
+  "processId": 28556,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "Natural environment initialized rejuvenation:grassy_terrain with ordered entry chat",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:forest with ordered entry chat"
+    ],
+    "success": false,
+    "battles": 1,
+    "error": "java.lang.IllegalStateException: Live battle fixture timeout in phase 1, step 1"
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 267.6,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "items": {
+    "elementalseed": {
+      "name": "Elemental Seed",
+      "isNonstandard": "Custom",
+      "fling": {
+        "basePower": 10
+      }
+    },
+    "magicalseed": {
+      "name": "Magical Seed",
+      "isNonstandard": "Custom",
+      "fling": {
+        "basePower": 10
+      }
+    },
+    "telluricseed": {
+      "name": "Telluric Seed",
+      "isNonstandard": "Custom",
+      "fling": {
+        "basePower": 10
+      }
+    },
+    "syntheticseed": {
+      "name": "Synthetic Seed",
+      "isNonstandard": "Custom",
+      "fling": {
+        "basePower": 10
+      }
+    },
+    "amuletcoin": {
+      "name": "Amulet Coin",
+      "isNonstandard": "Custom",
+      "fling": {
+        "basePower": 10
+      }
+    },
+    "amplifieldrock": {
+      "name": "Amplifield Rock",
+      "isNonstandard": "Custom",
+      "fling": {
+        "basePower": 10
+      }
+    },
+    "everstone": {
+      "name": "Everstone",
+      "isNonstandard": "Custom",
+      "fling": {
+        "basePower": 10
+      },
+      "minecraftItem": "cobblemon:everstone"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "item.rejuvenation.elemental_seed": "Elemental Seed",
+  "item.rejuvenation.magical_seed": "Magical Seed",
+  "item.rejuvenation.telluric_seed": "Telluric Seed",
+  "item.rejuvenation.synthetic_seed": "Synthetic Seed",
+  "item.rejuvenation.amulet_coin": "Amulet Coin",
+  "item.rejuvenation.amplifield_rock": "Amplifield Rock",
+  "status.rejuvenation.petrified.apply": "%s was petrified!",
+  "status.rejuvenation.petrified.remove": "%s was released from the stone.",
+  "status.rejuvenation.petrified": "Petrified"
+}

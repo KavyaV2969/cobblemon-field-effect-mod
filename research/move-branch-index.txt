@@ -1,0 +1,241 @@
+109:    if Rejuv && @battle.FE == :SWAMP && @move == :ATTACKORDER
+113:    if @battle.FE == :CHESS && @move == :FALSESURRENDER
+123:    recoilmult = 0 if @move == :WILDCHARGE && @battle.FE == :ELECTERRAIN
+124:    recoilmult = 0.16 if @move == :BRAVEBIRD && @battle.FE == :CLOUDS
+136:    if @battle.FE == :WATERSURFACE
+239:    if @battle.FE == :WASTELAND && [:GUNKSHOT, :SLUDGEBOMB, :SLUDGEWAVE, :SLUDGE].include?(@move)
+414:    if @battle.FE == :DEUXFINALIS && @move == :FREEZINGGLARE
+559:    if @battle.FE == :FAIRYTALE && @move == :SWEETKISS
+744:    if @battle.FE == :PSYTERRAIN && @move == :MEDITATE
+754:    amount = 2 if (@battle.FE == :COLOSSEUM || @battle.ProgressiveFieldCheck(PBFields::CONCERT)) && @move == :HOWL
+756:    if @battle.FE == :PSYTERRAIN && @move == :MEDITATE
+784:    stats = PBStats::Defensive if @battle.FE == :PSYTERRAIN && @move == :PSYSHIELDBASH
+823:    amount = 2 if @move == :ESPERWING && @battle.FE == :PSYTERRAIN
+845:    amount = 2 if @battle.FE == :PSYTERRAIN && @move == :MYSTICALPOWER
+857:    statchange = @battle.FE == :ELECTERRAIN ? 2 : 1
+871:    statchange = @battle.FE == :MIRROR ? 2 : 1
+888:    attacker.effects[:FocusEnergy] = 3 if @battle.FE == :ASHENBEACH
+902:    statchange = @battle.FE == :CROWD ? 2 : 1
+917:    statchange = 2 if @battle.FE == :GRASSY || (Rejuv && @battle.FE == :DRAGONSDEN)
+947:    statchange = 2 if @battle.ProgressiveFieldCheck(PBFields::CONCERT) || [:CROWD, :CITY].include?(@battle.FE)
+964:    statchange = 2 if [:GRASSY, :FOREST].include?(@battle.FE) || @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 1, 2)
+965:    statchange = 3 if @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 3, 5)
+994:    statchange = 2 if @battle.FE == :FOREST && @move == :DEFENDORDER
+1067:    statchange = 3 if @move == :IRONDEFENSE && @battle.FE == :FACTORY
+1068:    statchange = 3 if @move == :SHELTER && @battle.FE == :SWAMP
+1069:    statchange = 3 if @move == :ACIDARMOR && ([:CORROSIVE, :CORROSIVEMIST, :MURKWATERSURFACE, :FAIRYTALE].include?(@battle.FE) || @battle.ProgressiveFieldCheck(PBFields::CONCERT))
+1087:    if @move == :ROCKPOLISH && @battle.FE == :CRYSTALCAVERN
+1096:    amounts = 3 if @battle.FE == :ROCKY && @move == :ROCKPOLISH
+1097:    if @battle.FE == :CRYSTALCAVERN && @move == :ROCKPOLISH
+1260:    if @battle.FE == :BIGTOP
+1324:    amount = @battle.FE == :COLOSSEUM ? 2 : 1
+1343:    amount = @battle.FE == :COLOSSEUM ? 3 : 2
+1366:    amount = -2 if @battle.ProgressiveFieldCheck(PBFields::CONCERT) && @move == :GROWL
+1372:    stats = PBStats::Offensive if @battle.FE == :HAUNTED && @move == :BITTERMALICE
+1428:    statchange = -2 if Rejuv && @battle.FE == :ELECTERRAIN && @move == :ELECTROWEB
+1429:    statchange = -2 if Rejuv && @battle.FE == :SWAMP && @move == :MUDSHOT
+1440:    if @move == :CONFIDE && @battle.FE == :PSYTERRAIN
+1458:    statchange = -2 if Rejuv && @battle.FE == :SWAMP && @move == :STRUGGLEBUG
+1492:    return opponent.pbCanReduceStatStage?(PBStats::ACCURACY, attacker, self, showMessage: showMessage) || attacker.pbCanIncreaseAnyStat?(PBStats::Offensive, attacker, self, showMessage: showMessage) if @battle.FE == :PSYTERRAIN && @move == :KINESIS
+1493:    return opponent.pbCanReduceAnyStat?([PBStats::ACCURACY, PBStats::SPDEF], attacker, self, showMessage: showMessage) if @battle.FE == :DANCEFLOOR && @move == :KINESIS
+1505:    if @battle.FE == :DANCEFLOOR && @move == :KINESIS
+1508:    abilitycheck = stats == PBStats::ACCURACY && !(@battle.FE == :PSYTERRAIN && @move == :KINESIS) ? :skip : :show
+1510:    if @battle.FE == :PSYTERRAIN && @move == :KINESIS
+1516:    if @battle.FE == :WASTELAND && @move == :OCTAZOOKA
+1539:    return opponent.pbCanReduceAnyStat?([PBStats::EVASION, PBStats::DEFENSE, PBStats::SPDEF], attacker, self, showMessage: showMessage) if @battle.FE == :MISTY || @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 3, 5)
+1546:    if @battle.FE == :MISTY || @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 3, 5)
+1566:    statchange = @battle.FE == :CLOUDS ? -2 : -1
+1600:    return opponent.pbCanReduceAnyStat?(PBStats::Offensive, attacker, self, showMessage: showMessage) if @battle.FE == :DANCEFLOOR && @move == :FEATHERDANCE
+1606:    stats = PBStats::Offensive if @battle.FE == :DANCEFLOOR && @move == :FEATHERDANCE
+1608:    amount = -3 if @battle.FE == :BIGTOP && @move == :FEATHERDANCE
+1623:    amount = @battle.ProgressiveFieldCheck(PBFields::CONCERT) ? -3 : -2
+1637:    if Rejuv && @battle.FE == :SWAMP && @move == :STRINGSHOT
+1646:      amount = -3 if @battle.FE == :HAUNTED && @move == :SCARYFACE
+1647:      amount = -3 if Rejuv && @battle.FE == :GRASSY && @move == :COTTONSPORE
+1688:    amount = -3 if @move == :METALSOUND && ([:FACTORY, :SHORTCIRCUIT].include?(@battle.FE) || @battle.ProgressiveFieldCheck(PBFields::CONCERT))
+1689:    amount = -3 if @move == :FAKETEARS && @battle.FE == :BACKALLEY
+1694:    if @battle.FE == :ROTTING && @move == :SEEDFLARE
+1777:    if @battle.FE == :NEWWORLD && !blockedBySubstitute?(attacker, opponent)
+1799:    if @battle.FE == :ASHENBEACH
+1802:    if @battle.FE == :PSYTERRAIN
+1953:    duration = 8 if @battle.FE == :SKY
+2061:    if !attacker.hasWorkingItem(:EVERSTONE) && @battle.canChangeFE? && !(@battle.FE == :GLITCH && @battle.field.duration <= 0)
+2106:    if !attacker.hasWorkingItem(:EVERSTONE) && @battle.canChangeFE? && !(@battle.FE == :GLITCH && @battle.field.duration <= 0)
+2251:    if Rejuv && @battle.FE == :GRASSY
+2398:    if @battle.FE == :RAINBOW
+2434:    elsif @move == :NATURESMADNESS && @battle.FE == :HOLY
+2436:    elsif [:RUINATION, :NATURESMADNESS].include?(@move) && @battle.FE == :NEWWORLD
+2461:    if (@move == :NIGHTSHADE && [:HAUNTED, :BEWITCHED].include?(@battle.FE)) || (@move == :SEISMICTOSS && @battle.FE == :DEEPEARTH)
+2462:      if @move == :SEISMICTOSS && @battle.FE == :DEEPEARTH
+2465:      if @move == :NIGHTSHADE && @battle.FE == :HAUNTED
+2468:      if @move == :NIGHTSHADE && @battle.FE == :BEWITCHED
+2506:    if @battle.FE == :DEEPEARTH
+2527:    if (@move == :SHEERCOLD && opponent.hasType?(:ICE)) || (@battle.FE == :CHESS && opponent.piece == :PAWN)
+2531:    if (opponent.ability == :STURDY || (@battle.FE == :COLOSSEUM && opponent.ability == :STALWART)) && !opponent.moldbroken
+2612:    if @battle.FE == :MIRROR
+2900:    return basedmg * 2 if @battle.FE == :BIGTOP
+2914:    if @battle.FE == :RAINBOW || [:SANDSTORM, :HAIL, :SNOW].include?(weather) || ([:SUNNYDAY, :RAINDANCE].include?(weather) && !attacker.hasWorkingItem(:UTILITYUMBRELLA)) || (weather == :STRONGWINDS && @battle.FE == :SKY) || (weather == :SHADOWSKY && Rejuv)
+2927:      when :STRONGWINDS then type = :FLYING if @battle.FE == :SKY
+2962:    return 102 if @battle.FE == :CONCERT4
+2974:    return 102 if @battle.FE == :CONCERT4
+2986:    return 150 if @battle.FE == :CONCERT4
+3029:    bp = 40 if @battle.FE == :FROZENDIMENSION && @move == :POWERTRIP
+3177:    magni = magnitudes[0] if @battle.FE == :CONCERT1
+3178:    magni = magnitudes[19] if @battle.FE == :CONCERT4
+3224:    return 100 if @battle.FE == :CONCERT4
+3246:    basedmg = 200 if @battle.FE == :CONCERT4
+3264:    ret = 200 if n < 2 || @battle.FE == :CONCERT4
+3281:    ret = 150 if n >= 4 || @battle.FE == :CONCERT4
+3292:    return 120 if @battle.FE == :CONCERT4
+3310:    return 120 if @battle.FE == :CONCERT4
+3313:    n *= 2 if @battle.FE == :DEEPEARTH # indirectly doubles attacker's weight
+3357:    if Rejuv && @battle.FE == :ELECTERRAIN
+3437:    if @battle.FE == :DEUXFINALIS
+3465:    if @battle.FE == :MIRROR
+3492:    if @battle.FE == :MIRROR
+3536:          break if (@battle.FE == :RAINBOW && rnd != 5) || (@battle.FE == :WASTELAND && rnd < 4) || (@battle.FE == :CRYSTALCAVERN && rnd > 1) || (@battle.FE == :BEWITCHED && (rnd < 2 || rnd == 4))
+3581:        stats = @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 3, 5) ? [PBStats::DEFENSE, PBStats::SPDEF, PBStats::EVASION] : PBStats::EVASION
+3582:        amount = @battle.FE == :FLOWERGARDEN5 ? 2 : 1
+3606:    if @battle.FE == :COLOSSEUM
+3641:    if @battle.FE == :PSYTERRAIN && @move == :MINDREADER
+3816:    if @battle.FE == :MIRROR
+3819:    if @battle.FE == :SKY
+4049:      next if @battle.FE == :GLITCH && move.basedamage < 70
+4080:    if @battle.FE == :ROTTING
+4171:    if @battle.FE == :ROTTING
+4269:    opponent.effects[:Encore] += 3 if @battle.FE == :BIGTOP || @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+4416:    if !(@battle.FE == :STARLIGHT && @move == :METEORASSAULT) && !(attacker.crested == :CLAYDOL && [:HYPERBEAM, :PRISMATICLASER, :ETERNABEAM].include?(@move))
+4430:      @immediate = true if [:CLOUDS, :SKY].include?(@battle.FE) || (Rejuv && (@battle.FE == :GRASSY || @battle.OV == :GRASSY))
+4461:    if @battle.FE == :DARKCRYSTALCAVERN && @battle.pbWeather(attacker) != :SUNNYDAY
+4472:      if @battle.FE == :RAINBOW || @battle.OV == :RAINBOW
+4526:      @immediate = true if @battle.FE == :FROZENDIMENSION
+4565:      @immediate = true if @battle.FE == :FROZENDIMENSION
+4684:      @immediate = true if [:CLOUDS, :CAVE, :SKY].include?(@battle.FE) || (Rejuv && @battle.FE == :DRAGONSDEN)
+4719:      @immediate = true if Rejuv && @battle.FE == :DESERT
+4773:      @battle.field.counter = 3 if Rejuv && @battle.FE == :ICY
+4779:      if Rejuv && @battle.FE == :ICY && [:WATERSURFACE, :MURKWATERSURFACE].include?(@battle.field.backup)
+4808:      @immediate = true if [:CLOUDS, :CAVE, :SKY].include?(@battle.FE) || (Rejuv && @battle.FE == :DRAGONSDEN)
+4850:      @immediate = true if (Rejuv && [:DIMENSIONAL, :FROZENDIMENSION, :HAUNTED, :SHORTCIRCUIT, :DEUXFINALIS].include?(@battle.FE)) || @battle.ProgressiveFieldCheck(PBFields::DARKNESS, 2, 3)
+5013:    if (!Rejuv && @battle.FE == :WATERSURFACE) || @battle.FE == :UNDERWATER
+5167:    hpgain = (attacker.totalhp * 0.66).round if @battle.FE == :FOREST && @move == :HEALORDER
+5168:    hpgain /= 2 if @battle.FE == :ROTTING
+5187:    hpgain /= 2 if @battle.FE == :ROTTING
+5189:    attacker.effects[:Roost] = true unless @battle.FE == :CLOUDS
+5199:    if @battle.FE == :DARKNESS1
+5210:    if @battle.FE == :DARKNESS1
+5237:    if ([:DARKCRYSTALCAVERN, :STARLIGHT, :NEWWORLD, :BEWITCHED].include?(@battle.FE) && @move == :MOONLIGHT) || (Rejuv && @battle.FE == :GRASSY && @move == :SYNTHESIS)
+5239:    elsif @battle.FE == :DARKNESS1 && @move == :MOONLIGHT
+5243:    elsif (@battle.FE == :DARKNESS3 || @battle.OV == :DARKNESS2) && @move != :MOONLIGHT
+5256:    hpgain /= 2 if @battle.FE == :ROTTING
+5266:    if attacker.status == :SLEEP && attacker.sleeptalkUsed && Rejuv && @battle.FE == :GLITCH
+5287:    hp /= 2 if @battle.FE == :ROTTING
+5365:      hpgain = (damage * 0.75).round if Rejuv && @battle.FE == :ELECTERRAIN && @move == :PARABOLICCHARGE
+5366:      hpgain = (damage * 0.75).round if Rejuv && @battle.FE == :GRASSY && [:ABSORB, :MEGADRAIN, :GIGADRAIN, :HORNLEECH].include?(@move)
+5481:      amount = @battle.FE == :ROTTING ? -4 : -2
+5563:    if attacker.lastRegularMoveUsed == :DESTINYBOND && attacker.effects[:DestinyRate] == true && @battle.FE != :HAUNTED
+5639:    if @move == :ROAR && @battle.FE == :SWAMP
+5647:      if @battle.FE == :COLOSSEUM
+5650:      if @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+5659:    if @move == :ROAR && (@battle.FE == :COLOSSEUM || @battle.ProgressiveFieldCheck(PBFields::CONCERT))
+5666:      if @battle.FE == :COLOSSEUM
+5670:      if @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+5698:       @battle.FE != :COLOSSEUM
+5780:    if @move == :BLOCK && @battle.FE == :CROWD
+5785:    if Rejuv && @move == :SPIDERWEB && @battle.FE == :SWAMP
+5786:      opponent.effects[:SwampWeb] = attacker.index
+5826:    return basedmg if @battle.FE != :BACKALLEY
+5912:    if @battle.FE == :BACKALLEY
+6016:    if @battle.FE == :CITY
+6041:    return 130 if @battle.FE == :CONCERT4
+6083:        if @battle.FE == :DRAGONSDEN
+6119:    if @battle.FE == :ROTTING
+6137:      duration = 8 if [:NEWWORLD, :PSYTERRAIN].include?(@battle.FE) || attacker.hasWorkingItem(:AMPLIFIELDROCK) || (Rejuv && @battle.FE == :STARLIGHT)
+6138:      duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+6172:    if @battle.FE == :CHESS && !attacker.pbOwnSide.effects[:Castled]
+6203:    duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+6218:    duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+6233:    duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+6248:    duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+6333:    return true if @battle.FE != :CLOUDS
+6426:    if @battle.FE == :DRAGONSDEN
+6529:    hplost = (attacker.totalhp / 4.0).floor if @battle.FE == :HAUNTED
+6534:    if @battle.FE == :ROTTING
+6557:        drop = 6 if @battle.FE == :HAUNTED
+6572:    if (!opponent.isSleeping? && @battle.FE != :INFERNAL &&
+6681:    return 300 if @battle.FE == :CONCERT4
+6711:        hpgain = (attacker.totalhp * 0.5).round if @battle.FE == :WASTELAND
+6714:        hpgain = attacker.totalhp if @battle.FE == :WASTELAND
+6719:    if @battle.FE == :WASTELAND && attacker.effects[:Stockpile] == 3
+6792:    return @battle.FE == :DEEPEARTH
+6796:    return @battle.FE != :DEEPEARTH
+6800:    return true if @battle.FE == :DEEPEARTH
+6809:    return super unless @battle.FE == :DEEPEARTH
+6817:    return if @battle.FE == :DEEPEARTH
+6820:    duration = 8 if attacker.hasWorkingItem(:AMPLIFIELDROCK) || @battle.FE == :PSYTERRAIN
+6821:    duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+6831:    return @battle.FE != :DEEPEARTH
+6835:    if @battle.FE == :DEEPEARTH
+6846:    if @battle.FE != :DEEPEARTH
+6873:    if @battle.FE == :PSYTERRAIN
+6959:      duration = 8 if [:CHESS, :NEWWORLD, :PSYTERRAIN].include?(@battle.FE) || attacker.hasWorkingItem(:AMPLIFIELDROCK) || (Rejuv && @battle.FE == :STARLIGHT)
+6960:      duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+7029:      duration = 8 if [:NEWWORLD, :PSYTERRAIN].include?(@battle.FE) || attacker.hasWorkingItem(:AMPLIFIELDROCK) || (Rejuv && @battle.FE == :STARLIGHT)
+7030:      duration = 3 + @battle.pbRandom(6) if @battle.FE == :DIMENSIONAL
+7152:    if @battle.FE == :FAIRYTALE && @move == :DRAININGKISS
+7208:    statchange = @battle.FE == :MISTY ? 2 : 1
+7244:    stats += [PBStats::SPEED] if @battle.FE == :FROZENDIMENSION
+7256:    stats += [PBStats::SPEED] if @battle.FE == :FROZENDIMENSION
+7258:    amount = -2 if @battle.ProgressiveFieldCheck(PBFields::CONCERT) || @battle.FE == :BACKALLEY
+7354:    return @battle.FE == :DEEPEARTH
+7358:    return @battle.FE != :DEEPEARTH
+7362:    return @battle.FE == :DEEPEARTH
+7366:    return super unless @battle.FE == :DEEPEARTH
+7475:      ([:PLUS, :MINUS].include?(opponent.ability) || [:PLUSLE, :MINUN].include?(opponent.crested) || (Rejuv && @battle.FE == :ELECTERRAIN)) &&
+7483:    amount = 2 if @battle.FE == :DEEPEARTH || (Rejuv && @battle.FE == :ELECTERRAIN && [:PLUS, :MINUS].include?(opponent.ability))
+7545:    if @battle.FE == :FAIRYTALE
+7560:      next false unless opponent.hasType?(:GRASS) || (opponent == attacker && (@battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 2, 5) || @battle.FE == :FAIRYTALE))
+7561:      if @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 2, 5) || (opponent == attacker && @battle.FE == :FAIRYTALE)
+7572:    stats = PBStats::Defensive if @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 2, 5) || (opponent == attacker && @battle.FE == :FAIRYTALE)
+7573:    amount = @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 3, 5) ? 2 : 1
+7585:      next false unless (opponent.hasType?(:GRASS) && !opponent.isAirborne?) || (opponent == attacker && @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN))
+7593:    amount = 2 if @battle.FE == :DEEPEARTH || @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN)
+7639:    if Rejuv && @battle.FE == :ELECTERRAIN && opponent.canChangeType?
+7741:    attacker.pbOwnSide.effects[:AuroraVeil] = 8 if @battle.FE == :MIRROR
+7747:    if @battle.FE == :MIRROR
+7852:    return false if @battle.FE == :COLOSSEUM
+7891:       @battle.ProgressiveFieldCheck(PBFields::FLOWERGARDEN, 3, 5) # Grassy Terrain, Fairytale Field, Flower Garden Field
+7919:    amount = @battle.FE == :FACTORY ? 2 : 1
+8019:    if @battle.FE == :DEUXFINALIS
+8047:      hpgain /= 2 if @battle.FE == :ROTTING
+8090:    if @battle.FE == :ASHENBEACH
+8092:    elsif @battle.pbWeather(attacker) == :SANDSTORM || @battle.FE == :DESERT
+8097:    hpgain /= 2 if @battle.FE == :ROTTING
+8187:    if @battle.FE == :BIGTOP
+8225:    stats = @battle.FE == :BEWITCHED ? PBStats::Offensive : PBStats::ATTACK
+8255:    opponent.pbPoison(attacker, @battle.FE == :CORRUPTED)
+8267:    recoilmult = 0.25 if @battle.FE == :FACTORY && @move == :STEELBEAM
+8268:    recoilmult = 1.0 if @battle.FE == :SHORTCIRCUIT && @move == :STEELBEAM
+8283:    if @move == :LIGHTTHATBURNSTHESKY && @battle.ProgressiveFieldCheck(PBFields::DARKNESS, 2, 3)
+8396:      amount = @battle.FE == :COLOSSEUM ? 2 : 1
+8451:    if opponent.types(excludeReflector: true) == [:PSYCHIC] && !(@battle.FE == :FAIRYTALE)
+8455:    if opponent.types(excludeReflector: true).sort == [:FAIRY, :PSYCHIC] && @battle.FE == :FAIRYTALE
+8463:    if @battle.FE == :FAIRYTALE
+8574:    clanglife = [(attacker.totalhp / 2.0).floor, 1].max if [:BIGTOP, :DRAGONSDEN].include?(@battle.FE) || @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+8575:    clanglife = [(attacker.totalhp / 4.0).floor, 1].max if @battle.FE == :DEUXFINALIS
+8590:    amount = 2 if [:BIGTOP, :DRAGONSDEN].include?(@battle.FE) || @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+8593:    clanglife = [(attacker.totalhp / 4.0).floor, 1].max if @battle.FE == :DEUXFINALIS
+8594:    clanglife = [(attacker.totalhp / 2.0).floor, 1].max if [:BIGTOP, :DRAGONSDEN].include?(@battle.FE) || @battle.ProgressiveFieldCheck(PBFields::CONCERT)
+8674:      hpgain = (opponent.totalhp * 0.5).round if @battle.FE == :HOLY || (@battle.FE == :RAINBOW && opponent == attacker)
+8682:    if @battle.FE == :WATERSURFACE && opponent == attacker && !opponent.effects[:AquaRing] && @move == :LIFEDEW
+8917:    basedmg *= 2 if (@battle.FE == :ELECTERRAIN || @battle.OV == :ELECTERRAIN) && !opponent.isAirborne?
+8968:      next unless opponent.itemWorks? || (@battle.FE == :CHESS && Rejuv)
+8969:      if (@battle.FE != :CHESS && Rejuv)
+8980:    if (@battle.FE == :CHESS && Rejuv)
+9108:    damagemult *= 1.5 if (@battle.FE == :PSYTERRAIN || @battle.OV == :PSYTERRAIN) && !attacker.isAirborne?
+9493:    if @battle.FE == :DRAGONSDEN
+9783:      @immediate = true if @battle.FE == :ELECTERRAIN
+9852:    ficklechance = @battle.FE == :DRAGONSDEN ? 5 : 7
+9913:      boost = opponent.hasType?(:DRAGON) || @battle.FE == :DRAGONSDEN ? 2 : 1
+9982:    damagemult *= 1.5 if @battle.FE == :ELECTERRAIN || @battle.OV == :ELECTERRAIN
+9997:    recoilmult = 0.25 if @battle.FE == :FOREST && @move == :CHLOROBLAST
+10035:    amount = 2 if @battle.FE == :COLOSSEUM || @battle.ProgressiveFieldCheck(PBFields::CONCERT)

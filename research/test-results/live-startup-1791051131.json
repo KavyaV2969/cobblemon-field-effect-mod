@@ -1,0 +1,13 @@
+{
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": false,
+  "processId": 26596,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "exitCode": 4294967295,
+  "elapsedSeconds": 261.5,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

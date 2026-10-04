@@ -1,0 +1,18 @@
+{
+  "errors": [],
+  "fields": 57,
+  "biomes": 165,
+  "explicitBiomes": 165,
+  "counts": {
+    "conditions": 8508,
+    "actions": 2829,
+    "rules": 1873,
+    "moves": 1647,
+    "transitions": 517
+  },
+  "unavailableCounts": {
+    "moves": 27,
+    "abilities": 5,
+    "items": 0
+  }
+}

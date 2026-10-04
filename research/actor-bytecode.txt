@@ -1,0 +1,915 @@
+Compiled from "BattleActor.java"
+public abstract class com.cobblemon.mod.common.api.battles.model.actor.BattleActor {
+  public java.lang.String showdownId;
+
+  public com.cobblemon.mod.common.api.battles.model.PokemonBattle battle;
+
+  public com.cobblemon.mod.common.api.battles.model.actor.BattleActor(java.util.UUID, java.util.List<com.cobblemon.mod.common.battles.pokemon.BattlePokemon>);
+    Code:
+       0: aload_1
+       1: ldc           #150                // String uuid
+       3: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_2
+       7: ldc           #157                // String pokemonList
+       9: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      12: aload_0
+      13: invokespecial #159                // Method java/lang/Object."<init>":()V
+      16: aload_0
+      17: aload_1
+      18: putfield      #161                // Field uuid:Ljava/util/UUID;
+      21: aload_0
+      22: aload_2
+      23: putfield      #163                // Field pokemonList:Ljava/util/List;
+      26: nop
+      27: aload_0
+      28: getfield      #163                // Field pokemonList:Ljava/util/List;
+      31: checkcast     #165                // class java/lang/Iterable
+      34: astore_3
+      35: iconst_0
+      36: istore        4
+      38: aload_3
+      39: invokeinterface #169,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      44: astore        5
+      46: aload         5
+      48: invokeinterface #178,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      53: ifeq          85
+      56: aload         5
+      58: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      63: astore        6
+      65: aload         6
+      67: checkcast     #184                // class com/cobblemon/mod/common/battles/pokemon/BattlePokemon
+      70: astore        7
+      72: iconst_0
+      73: istore        8
+      75: aload         7
+      77: aload_0
+      78: invokevirtual #188                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.setActor:(Lcom/cobblemon/mod/common/api/battles/model/actor/BattleActor;)V
+      81: nop
+      82: goto          46
+      85: nop
+      86: nop
+      87: aload_0
+      88: getstatic     #194                // Field com/cobblemon/mod/common/api/molang/MoLangFunctions.INSTANCE:Lcom/cobblemon/mod/common/api/molang/MoLangFunctions;
+      91: aload_0
+      92: invokevirtual #198                // Method com/cobblemon/mod/common/api/molang/MoLangFunctions.asMoLangValue:(Lcom/cobblemon/mod/common/api/battles/model/actor/BattleActor;)Lcom/cobblemon/mod/common/api/molang/ObjectValue;
+      95: putfield      #200                // Field struct:Lcom/cobblemon/mod/common/api/molang/ObjectValue;
+      98: aload_0
+      99: new           #202                // class java/util/ArrayList
+     102: dup
+     103: invokespecial #203                // Method java/util/ArrayList."<init>":()V
+     106: checkcast     #173                // class java/util/List
+     109: putfield      #205                // Field activePokemon:Ljava/util/List;
+     112: aload_0
+     113: new           #202                // class java/util/ArrayList
+     116: dup
+     117: invokespecial #203                // Method java/util/ArrayList."<init>":()V
+     120: checkcast     #173                // class java/util/List
+     123: putfield      #207                // Field responses:Ljava/util/List;
+     126: aload_0
+     127: new           #202                // class java/util/ArrayList
+     130: dup
+     131: invokespecial #203                // Method java/util/ArrayList."<init>":()V
+     134: checkcast     #173                // class java/util/List
+     137: putfield      #209                // Field expectingPassActions:Ljava/util/List;
+     140: aload_0
+     141: new           #202                // class java/util/ArrayList
+     144: dup
+     145: invokespecial #203                // Method java/util/ArrayList."<init>":()V
+     148: checkcast     #173                // class java/util/List
+     151: putfield      #211                // Field itemsUsed:Ljava/util/List;
+     154: return
+
+  public final java.util.UUID getUuid();
+    Code:
+       0: aload_0
+       1: getfield      #161                // Field uuid:Ljava/util/UUID;
+       4: areturn
+
+  public final java.util.List<com.cobblemon.mod.common.battles.pokemon.BattlePokemon> getPokemonList();
+    Code:
+       0: aload_0
+       1: getfield      #163                // Field pokemonList:Ljava/util/List;
+       4: areturn
+
+  public final com.cobblemon.mod.common.api.molang.ObjectValue<com.cobblemon.mod.common.api.battles.model.actor.BattleActor> getStruct();
+    Code:
+       0: aload_0
+       1: getfield      #200                // Field struct:Lcom/cobblemon/mod/common/api/molang/ObjectValue;
+       4: areturn
+
+  public final java.lang.String getShowdownId();
+    Code:
+       0: aload_0
+       1: getfield      #223                // Field showdownId:Ljava/lang/String;
+       4: dup
+       5: ifnull        9
+       8: areturn
+       9: pop
+      10: ldc           #226                // String showdownId
+      12: invokestatic  #229                // Method kotlin/jvm/internal/Intrinsics.throwUninitializedPropertyAccessException:(Ljava/lang/String;)V
+      15: aconst_null
+      16: areturn
+
+  public final void setShowdownId(java.lang.String);
+    Code:
+       0: aload_1
+       1: ldc           #231                // String <set-?>
+       3: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: putfield      #223                // Field showdownId:Ljava/lang/String;
+      11: return
+
+  public final com.cobblemon.mod.common.api.battles.model.PokemonBattle getBattle();
+    Code:
+       0: aload_0
+       1: getfield      #233                // Field battle:Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+       4: dup
+       5: ifnull        9
+       8: areturn
+       9: pop
+      10: ldc           #236                // String battle
+      12: invokestatic  #229                // Method kotlin/jvm/internal/Intrinsics.throwUninitializedPropertyAccessException:(Ljava/lang/String;)V
+      15: aconst_null
+      16: areturn
+
+  public final void setBattle(com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: aload_1
+       1: ldc           #231                // String <set-?>
+       3: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: putfield      #233                // Field battle:Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+      11: return
+
+  public final boolean isInitialized();
+    Code:
+       0: aload_0
+       1: getfield      #233                // Field battle:Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+       4: ifnull        18
+       7: aload_0
+       8: getfield      #223                // Field showdownId:Ljava/lang/String;
+      11: ifnull        18
+      14: iconst_1
+      15: goto          19
+      18: iconst_0
+      19: ireturn
+
+  public final java.util.List<com.cobblemon.mod.common.battles.ActiveBattlePokemon> getActivePokemon();
+    Code:
+       0: aload_0
+       1: getfield      #205                // Field activePokemon:Ljava/util/List;
+       4: areturn
+
+  public final boolean getCanDynamax();
+    Code:
+       0: aload_0
+       1: getfield      #239                // Field canDynamax:Z
+       4: ireturn
+
+  public final void setCanDynamax(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #239                // Field canDynamax:Z
+       5: return
+
+  public final com.cobblemon.mod.common.battles.ShowdownActionRequest getRequest();
+    Code:
+       0: aload_0
+       1: getfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+       4: areturn
+
+  public final void setRequest(com.cobblemon.mod.common.battles.ShowdownActionRequest);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+       5: return
+
+  public final java.util.List<com.cobblemon.mod.common.battles.ShowdownActionResponse> getResponses();
+    Code:
+       0: aload_0
+       1: getfield      #207                // Field responses:Ljava/util/List;
+       4: areturn
+
+  public final void setResponses(java.util.List<com.cobblemon.mod.common.battles.ShowdownActionResponse>);
+    Code:
+       0: aload_1
+       1: ldc           #231                // String <set-?>
+       3: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: putfield      #207                // Field responses:Ljava/util/List;
+      11: return
+
+  public final java.util.List<com.cobblemon.mod.common.battles.ShowdownActionResponse> getExpectingPassActions();
+    Code:
+       0: aload_0
+       1: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+       4: areturn
+
+  public final boolean getMustChoose();
+    Code:
+       0: aload_0
+       1: getfield      #245                // Field mustChoose:Z
+       4: ireturn
+
+  public final void setMustChoose(boolean);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #245                // Field mustChoose:Z
+       5: return
+
+  public final java.util.List<com.cobblemon.mod.common.item.battle.BagItem> getItemsUsed();
+    Code:
+       0: aload_0
+       1: getfield      #211                // Field itemsUsed:Ljava/util/List;
+       4: areturn
+
+  public final void setItemsUsed(java.util.List<com.cobblemon.mod.common.item.battle.BagItem>);
+    Code:
+       0: aload_1
+       1: ldc           #231                // String <set-?>
+       3: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: aload_1
+       8: putfield      #211                // Field itemsUsed:Ljava/util/List;
+      11: return
+
+  public final int getStillSendingOutCount();
+    Code:
+       0: aload_0
+       1: getfield      #249                // Field stillSendingOutCount:I
+       4: ireturn
+
+  public final void setStillSendingOutCount(int);
+    Code:
+       0: aload_0
+       1: iload_1
+       2: putfield      #249                // Field stillSendingOutCount:I
+       5: return
+
+  public abstract com.cobblemon.mod.common.api.battles.model.actor.ActorType getType();
+
+  public final boolean canFitForcedAction();
+    Code:
+       0: aload_0
+       1: getfield      #245                // Field mustChoose:Z
+       4: ifeq          190
+       7: aload_0
+       8: getfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+      11: dup
+      12: ifnull        181
+      15: astore_1
+      16: iconst_0
+      17: istore_2
+      18: aload_1
+      19: invokevirtual #254                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.getActive:()Ljava/util/List;
+      22: dup
+      23: ifnull        37
+      26: checkcast     #256                // class java/util/Collection
+      29: invokeinterface #259,  1          // InterfaceMethod java/util/Collection.size:()I
+      34: goto          39
+      37: pop
+      38: iconst_0
+      39: aload_1
+      40: invokevirtual #262                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.getForceSwitch:()Ljava/util/List;
+      43: checkcast     #165                // class java/lang/Iterable
+      46: astore_3
+      47: istore        4
+      49: iconst_0
+      50: istore        5
+      52: aload_3
+      53: instanceof    #256                // class java/util/Collection
+      56: ifeq          75
+      59: aload_3
+      60: checkcast     #256                // class java/util/Collection
+      63: invokeinterface #265,  1          // InterfaceMethod java/util/Collection.isEmpty:()Z
+      68: ifeq          75
+      71: iconst_0
+      72: goto          139
+      75: iconst_0
+      76: istore        6
+      78: aload_3
+      79: invokeinterface #169,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      84: astore        7
+      86: aload         7
+      88: invokeinterface #178,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      93: ifeq          137
+      96: aload         7
+      98: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     103: astore        8
+     105: aload         8
+     107: checkcast     #267                // class java/lang/Boolean
+     110: invokevirtual #270                // Method java/lang/Boolean.booleanValue:()Z
+     113: istore        9
+     115: iconst_0
+     116: istore        10
+     118: iload         9
+     120: ifeq          86
+     123: iinc          6, 1
+     126: iload         6
+     128: ifge          86
+     131: invokestatic  #275                // Method kotlin/collections/CollectionsKt.throwCountOverflow:()V
+     134: goto          86
+     137: iload         6
+     139: istore        11
+     141: iload         4
+     143: iload         11
+     145: isub
+     146: istore        12
+     148: iload         12
+     150: aload_0
+     151: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+     154: invokeinterface #276,  1          // InterfaceMethod java/util/List.size:()I
+     159: if_icmple     176
+     162: aload_0
+     163: invokevirtual #278                // Method getBattle:()Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+     166: invokevirtual #281                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getEnded:()Z
+     169: ifne          176
+     172: iconst_1
+     173: goto          177
+     176: iconst_0
+     177: nop
+     178: goto          183
+     181: pop
+     182: iconst_0
+     183: ifeq          190
+     186: iconst_1
+     187: goto          191
+     190: iconst_0
+     191: ireturn
+
+  public final void forceChoose(com.cobblemon.mod.common.battles.ShowdownActionResponse);
+    Code:
+       0: aload_1
+       1: ldc_w         #288                // String response
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: aload_0
+       8: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+      11: aload_1
+      12: invokeinterface #292,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      17: pop
+      18: aload_0
+      19: new           #294                // class com/cobblemon/mod/common/net/messages/client/battle/BattleApplyPassResponsePacket
+      22: dup
+      23: invokespecial #295                // Method com/cobblemon/mod/common/net/messages/client/battle/BattleApplyPassResponsePacket."<init>":()V
+      26: checkcast     #297                // class com/cobblemon/mod/common/api/net/NetworkPacket
+      29: invokevirtual #299                // Method sendUpdate:(Lcom/cobblemon/mod/common/api/net/NetworkPacket;)V
+      32: return
+
+  public final com.cobblemon.mod.common.battles.BattleSide getSide();
+    Code:
+       0: aload_0
+       1: invokevirtual #278                // Method getBattle:()Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+       4: invokevirtual #302                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getSide1:()Lcom/cobblemon/mod/common/battles/BattleSide;
+       7: invokevirtual #308                // Method com/cobblemon/mod/common/battles/BattleSide.getActors:()[Lcom/cobblemon/mod/common/api/battles/model/actor/BattleActor;
+      10: aload_0
+      11: invokestatic  #314                // Method kotlin/collections/ArraysKt.contains:([Ljava/lang/Object;Ljava/lang/Object;)Z
+      14: ifeq          27
+      17: aload_0
+      18: invokevirtual #278                // Method getBattle:()Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+      21: invokevirtual #302                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getSide1:()Lcom/cobblemon/mod/common/battles/BattleSide;
+      24: goto          34
+      27: aload_0
+      28: invokevirtual #278                // Method getBattle:()Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+      31: invokevirtual #317                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getSide2:()Lcom/cobblemon/mod/common/battles/BattleSide;
+      34: areturn
+
+  public java.lang.Iterable<java.util.UUID> getPlayerUUIDs();
+    Code:
+       0: invokestatic  #321                // Method kotlin/collections/CollectionsKt.emptyList:()Ljava/util/List;
+       3: checkcast     #165                // class java/lang/Iterable
+       6: areturn
+
+  public boolean isForPlayer(net.minecraft.class_3222);
+    Code:
+       0: aload_1
+       1: ldc_w         #322                // String serverPlayerEntity
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: aload_0
+       8: invokevirtual #324                // Method getPlayerUUIDs:()Ljava/lang/Iterable;
+      11: aload_1
+      12: invokevirtual #329                // Method net/minecraft/class_3222.method_5667:()Ljava/util/UUID;
+      15: invokestatic  #332                // Method kotlin/collections/CollectionsKt.contains:(Ljava/lang/Iterable;Ljava/lang/Object;)Z
+      18: ireturn
+
+  public boolean isForPokemon(com.cobblemon.mod.common.entity.pokemon.PokemonEntity);
+    Code:
+       0: aload_1
+       1: ldc_w         #333                // String pokemonEntity
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: aload_0
+       8: getfield      #205                // Field activePokemon:Ljava/util/List;
+      11: checkcast     #165                // class java/lang/Iterable
+      14: astore_2
+      15: iconst_0
+      16: istore_3
+      17: aload_2
+      18: instanceof    #256                // class java/util/Collection
+      21: ifeq          40
+      24: aload_2
+      25: checkcast     #256                // class java/util/Collection
+      28: invokeinterface #265,  1          // InterfaceMethod java/util/Collection.isEmpty:()Z
+      33: ifeq          40
+      36: iconst_0
+      37: goto          113
+      40: aload_2
+      41: invokeinterface #169,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      46: astore        4
+      48: aload         4
+      50: invokeinterface #178,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      55: ifeq          112
+      58: aload         4
+      60: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      65: astore        5
+      67: aload         5
+      69: checkcast     #335                // class com/cobblemon/mod/common/battles/ActiveBattlePokemon
+      72: astore        6
+      74: iconst_0
+      75: istore        7
+      77: aload         6
+      79: invokevirtual #339                // Method com/cobblemon/mod/common/battles/ActiveBattlePokemon.getBattlePokemon:()Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;
+      82: dup
+      83: ifnull        99
+      86: invokevirtual #343                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.getEffectedPokemon:()Lcom/cobblemon/mod/common/pokemon/Pokemon;
+      89: dup
+      90: ifnull        99
+      93: invokevirtual #349                // Method com/cobblemon/mod/common/pokemon/Pokemon.getEntity:()Lcom/cobblemon/mod/common/entity/pokemon/PokemonEntity;
+      96: goto          101
+      99: pop
+     100: aconst_null
+     101: aload_1
+     102: invokestatic  #355                // Method kotlin/jvm/internal/Intrinsics.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z
+     105: ifeq          48
+     108: iconst_1
+     109: goto          113
+     112: iconst_0
+     113: ireturn
+
+  public final void turn();
+    Code:
+       0: aload_0
+       1: getfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+       4: dup
+       5: ifnonnull     10
+       8: pop
+       9: return
+      10: astore_1
+      11: aload_0
+      12: getfield      #207                // Field responses:Ljava/util/List;
+      15: invokeinterface #361,  1          // InterfaceMethod java/util/List.clear:()V
+      20: aload_0
+      21: getfield      #205                // Field activePokemon:Ljava/util/List;
+      24: checkcast     #165                // class java/lang/Iterable
+      27: astore_2
+      28: iconst_0
+      29: istore_3
+      30: aload_2
+      31: instanceof    #256                // class java/util/Collection
+      34: ifeq          53
+      37: aload_2
+      38: checkcast     #256                // class java/util/Collection
+      41: invokeinterface #265,  1          // InterfaceMethod java/util/Collection.isEmpty:()Z
+      46: ifeq          53
+      49: iconst_0
+      50: goto          103
+      53: aload_2
+      54: invokeinterface #169,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      59: astore        4
+      61: aload         4
+      63: invokeinterface #178,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      68: ifeq          102
+      71: aload         4
+      73: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      78: astore        5
+      80: aload         5
+      82: checkcast     #335                // class com/cobblemon/mod/common/battles/ActiveBattlePokemon
+      85: astore        6
+      87: iconst_0
+      88: istore        7
+      90: aload         6
+      92: invokevirtual #364                // Method com/cobblemon/mod/common/battles/ActiveBattlePokemon.isAlive:()Z
+      95: ifeq          61
+      98: iconst_1
+      99: goto          103
+     102: iconst_0
+     103: ifeq          125
+     106: aload_0
+     107: iconst_1
+     108: putfield      #245                // Field mustChoose:Z
+     111: aload_0
+     112: new           #366                // class com/cobblemon/mod/common/net/messages/client/battle/BattleMakeChoicePacket
+     115: dup
+     116: invokespecial #367                // Method com/cobblemon/mod/common/net/messages/client/battle/BattleMakeChoicePacket."<init>":()V
+     119: checkcast     #297                // class com/cobblemon/mod/common/api/net/NetworkPacket
+     122: invokevirtual #299                // Method sendUpdate:(Lcom/cobblemon/mod/common/api/net/NetworkPacket;)V
+     125: aload_1
+     126: invokevirtual #254                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.getActive:()Ljava/util/List;
+     129: astore_2
+     130: aload_2
+     131: ifnull        150
+     134: aload_2
+     135: invokeinterface #368,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+     140: ifne          150
+     143: aload_1
+     144: invokevirtual #371                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.getWait:()Z
+     147: ifeq          165
+     150: aload_0
+     151: aconst_null
+     152: putfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+     155: aload_0
+     156: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+     159: invokeinterface #361,  1          // InterfaceMethod java/util/List.clear:()V
+     164: return
+     165: return
+
+  public final void upkeep();
+    Code:
+       0: aload_0
+       1: getfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+       4: dup
+       5: ifnonnull     10
+       8: pop
+       9: return
+      10: astore_1
+      11: aload_1
+      12: invokevirtual #262                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.getForceSwitch:()Ljava/util/List;
+      15: checkcast     #165                // class java/lang/Iterable
+      18: astore_3
+      19: iconst_0
+      20: istore        4
+      22: aload_3
+      23: astore        5
+      25: new           #202                // class java/util/ArrayList
+      28: dup
+      29: invokespecial #203                // Method java/util/ArrayList."<init>":()V
+      32: checkcast     #256                // class java/util/Collection
+      35: astore        6
+      37: iconst_0
+      38: istore        7
+      40: aload         5
+      42: astore        8
+      44: iconst_0
+      45: istore        9
+      47: iconst_0
+      48: istore        10
+      50: aload         8
+      52: invokeinterface #169,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      57: astore        11
+      59: aload         11
+      61: invokeinterface #178,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      66: ifeq          171
+      69: aload         11
+      71: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      76: astore        12
+      78: iload         10
+      80: iinc          10, 1
+      83: istore        13
+      85: iload         13
+      87: ifge          93
+      90: invokestatic  #376                // Method kotlin/collections/CollectionsKt.throwIndexOverflow:()V
+      93: iload         13
+      95: aload         12
+      97: astore        14
+      99: istore        15
+     101: iconst_0
+     102: istore        16
+     104: iload         15
+     106: aload         14
+     108: checkcast     #267                // class java/lang/Boolean
+     111: invokevirtual #270                // Method java/lang/Boolean.booleanValue:()Z
+     114: istore        17
+     116: istore        18
+     118: iconst_0
+     119: istore        19
+     121: iload         17
+     123: ifeq          143
+     126: aload_0
+     127: getfield      #205                // Field activePokemon:Ljava/util/List;
+     130: iload         18
+     132: invokeinterface #380,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     137: checkcast     #335                // class com/cobblemon/mod/common/battles/ActiveBattlePokemon
+     140: goto          144
+     143: aconst_null
+     144: dup
+     145: ifnull        166
+     148: astore        20
+     150: iconst_0
+     151: istore        21
+     153: aload         6
+     155: aload         20
+     157: invokeinterface #381,  2          // InterfaceMethod java/util/Collection.add:(Ljava/lang/Object;)Z
+     162: pop
+     163: goto          167
+     166: pop
+     167: nop
+     168: goto          59
+     171: nop
+     172: aload         6
+     174: checkcast     #173                // class java/util/List
+     177: nop
+     178: astore_2
+     179: aload_2
+     180: invokeinterface #368,  1          // InterfaceMethod java/util/List.isEmpty:()Z
+     185: ifeq          189
+     188: return
+     189: aload_0
+     190: new           #366                // class com/cobblemon/mod/common/net/messages/client/battle/BattleMakeChoicePacket
+     193: dup
+     194: invokespecial #367                // Method com/cobblemon/mod/common/net/messages/client/battle/BattleMakeChoicePacket."<init>":()V
+     197: checkcast     #297                // class com/cobblemon/mod/common/api/net/NetworkPacket
+     200: invokevirtual #299                // Method sendUpdate:(Lcom/cobblemon/mod/common/api/net/NetworkPacket;)V
+     203: aload_0
+     204: iconst_1
+     205: putfield      #245                // Field mustChoose:Z
+     208: return
+
+  public final void setActionResponses(java.util.List<? extends com.cobblemon.mod.common.battles.ShowdownActionResponse>);
+    Code:
+       0: aload_1
+       1: ldc_w         #402                // String responses
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: aload_0
+       8: getfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+      11: dup
+      12: ifnonnull     17
+      15: pop
+      16: return
+      17: astore_2
+      18: aload_0
+      19: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+      22: checkcast     #165                // class java/lang/Iterable
+      25: invokestatic  #406                // Method kotlin/collections/CollectionsKt.toList:(Ljava/lang/Iterable;)Ljava/util/List;
+      28: astore_3
+      29: aload_1
+      30: checkcast     #165                // class java/lang/Iterable
+      33: astore        4
+      35: iconst_0
+      36: istore        5
+      38: iconst_0
+      39: istore        6
+      41: aload         4
+      43: invokeinterface #169,  1          // InterfaceMethod java/lang/Iterable.iterator:()Ljava/util/Iterator;
+      48: astore        7
+      50: aload         7
+      52: invokeinterface #178,  1          // InterfaceMethod java/util/Iterator.hasNext:()Z
+      57: ifeq          344
+      60: aload         7
+      62: invokeinterface #182,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+      67: astore        8
+      69: iload         6
+      71: iinc          6, 1
+      74: istore        9
+      76: iload         9
+      78: ifge          84
+      81: invokestatic  #376                // Method kotlin/collections/CollectionsKt.throwIndexOverflow:()V
+      84: iload         9
+      86: aload         8
+      88: checkcast     #408                // class com/cobblemon/mod/common/battles/ShowdownActionResponse
+      91: astore        10
+      93: istore        11
+      95: iconst_0
+      96: istore        12
+      98: aload_0
+      99: getfield      #205                // Field activePokemon:Ljava/util/List;
+     102: astore        13
+     104: iconst_0
+     105: istore        14
+     107: aload         13
+     109: invokeinterface #276,  1          // InterfaceMethod java/util/List.size:()I
+     114: iload         11
+     116: if_icmple     134
+     119: aload         13
+     121: iload         11
+     123: invokeinterface #380,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     128: checkcast     #335                // class com/cobblemon/mod/common/battles/ActiveBattlePokemon
+     131: goto          135
+     134: return
+     135: nop
+     136: astore        15
+     138: aload_2
+     139: invokevirtual #254                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.getActive:()Ljava/util/List;
+     142: dup
+     143: ifnull        182
+     146: astore        16
+     148: iconst_0
+     149: istore        17
+     151: aload         16
+     153: invokeinterface #276,  1          // InterfaceMethod java/util/List.size:()I
+     158: iload         11
+     160: if_icmple     178
+     163: aload         16
+     165: iload         11
+     167: invokeinterface #380,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     172: checkcast     #410                // class com/cobblemon/mod/common/battles/ShowdownMoveset
+     175: goto          179
+     178: aconst_null
+     179: goto          184
+     182: pop
+     183: aconst_null
+     184: astore        18
+     186: aload_2
+     187: invokevirtual #262                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.getForceSwitch:()Ljava/util/List;
+     190: astore        16
+     192: iconst_0
+     193: istore        17
+     195: aload         16
+     197: invokeinterface #276,  1          // InterfaceMethod java/util/List.size:()I
+     202: iload         11
+     204: if_icmple     225
+     207: aload         16
+     209: iload         11
+     211: invokeinterface #380,  2          // InterfaceMethod java/util/List.get:(I)Ljava/lang/Object;
+     216: checkcast     #267                // class java/lang/Boolean
+     219: invokevirtual #270                // Method java/lang/Boolean.booleanValue:()Z
+     222: goto          226
+     225: iconst_0
+     226: nop
+     227: istore        13
+     229: aload         10
+     231: aload         15
+     233: aload         18
+     235: iload         13
+     237: invokevirtual #414                // Method com/cobblemon/mod/common/battles/ShowdownActionResponse.isValid:(Lcom/cobblemon/mod/common/battles/ActiveBattlePokemon;Lcom/cobblemon/mod/common/battles/ShowdownMoveset;Z)Z
+     240: ifne          297
+     243: aload_0
+     244: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+     247: invokeinterface #361,  1          // InterfaceMethod java/util/List.clear:()V
+     252: aload_0
+     253: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+     256: aload_3
+     257: checkcast     #256                // class java/util/Collection
+     260: invokeinterface #418,  2          // InterfaceMethod java/util/List.addAll:(Ljava/util/Collection;)Z
+     265: pop
+     266: new           #420                // class com/cobblemon/mod/common/exception/IllegalActionChoiceException
+     269: dup
+     270: aload_0
+     271: aload         15
+     273: invokevirtual #339                // Method com/cobblemon/mod/common/battles/ActiveBattlePokemon.getBattlePokemon:()Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;
+     276: dup
+     277: invokestatic  #424                // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;)V
+     280: invokevirtual #426                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.getName:()Lnet/minecraft/class_5250;
+     283: invokevirtual #431                // Method net/minecraft/class_5250.getString:()Ljava/lang/String;
+     286: aload         10
+     288: invokedynamic #443,  0            // InvokeDynamic #0:makeConcatWithConstants:(Ljava/lang/String;Lcom/cobblemon/mod/common/battles/ShowdownActionResponse;)Ljava/lang/String;
+     293: invokespecial #446                // Method com/cobblemon/mod/common/exception/IllegalActionChoiceException."<init>":(Lcom/cobblemon/mod/common/api/battles/model/actor/BattleActor;Ljava/lang/String;)V
+     296: athrow
+     297: aload         10
+     299: instanceof    #448                // class com/cobblemon/mod/common/battles/ForcePassActionResponse
+     302: ifeq          327
+     305: aload_0
+     306: getfield      #207                // Field responses:Ljava/util/List;
+     309: aload_0
+     310: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+     313: iconst_0
+     314: invokeinterface #451,  2          // InterfaceMethod java/util/List.remove:(I)Ljava/lang/Object;
+     319: invokeinterface #292,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     324: goto          338
+     327: aload_0
+     328: getfield      #207                // Field responses:Ljava/util/List;
+     331: aload         10
+     333: invokeinterface #292,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+     338: pop
+     339: nop
+     340: nop
+     341: goto          50
+     344: nop
+     345: aload_0
+     346: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+     349: invokeinterface #276,  1          // InterfaceMethod java/util/List.size:()I
+     354: ifle          369
+     357: new           #420                // class com/cobblemon/mod/common/exception/IllegalActionChoiceException
+     360: dup
+     361: aload_0
+     362: ldc_w         #453                // String Invalid action choice: a capture was expected. Are you hacking me?
+     365: invokespecial #446                // Method com/cobblemon/mod/common/exception/IllegalActionChoiceException."<init>":(Lcom/cobblemon/mod/common/api/battles/model/actor/BattleActor;Ljava/lang/String;)V
+     368: athrow
+     369: aload_0
+     370: iconst_0
+     371: putfield      #245                // Field mustChoose:Z
+     374: aload_0
+     375: invokevirtual #278                // Method getBattle:()Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+     378: invokevirtual #456                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.checkForInputDispatch:()V
+     381: return
+
+  public final void writeShowdownResponse();
+    Code:
+       0: new           #202                // class java/util/ArrayList
+       3: dup
+       4: invokespecial #203                // Method java/util/ArrayList."<init>":()V
+       7: checkcast     #173                // class java/util/List
+      10: astore_1
+      11: new           #138                // class kotlin/jvm/internal/Ref$IntRef
+      14: dup
+      15: invokespecial #469                // Method kotlin/jvm/internal/Ref$IntRef."<init>":()V
+      18: astore_2
+      19: aload_0
+      20: getfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+      23: dup
+      24: invokestatic  #424                // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;)V
+      27: aload_0
+      28: getfield      #205                // Field activePokemon:Ljava/util/List;
+      31: aload_1
+      32: aload_0
+      33: aload_2
+      34: invokedynamic #489,  0            // InvokeDynamic #1:invoke:(Ljava/util/List;Lcom/cobblemon/mod/common/api/battles/model/actor/BattleActor;Lkotlin/jvm/internal/Ref$IntRef;)Lkotlin/jvm/functions/Function3;
+      39: invokevirtual #493                // Method com/cobblemon/mod/common/battles/ShowdownActionRequest.iterate:(Ljava/util/List;Lkotlin/jvm/functions/Function3;)Ljava/util/List;
+      42: pop
+      43: aload_0
+      44: getfield      #207                // Field responses:Ljava/util/List;
+      47: invokeinterface #361,  1          // InterfaceMethod java/util/List.clear:()V
+      52: aload_0
+      53: aconst_null
+      54: putfield      #241                // Field request:Lcom/cobblemon/mod/common/battles/ShowdownActionRequest;
+      57: aload_0
+      58: getfield      #209                // Field expectingPassActions:Ljava/util/List;
+      61: invokeinterface #361,  1          // InterfaceMethod java/util/List.clear:()V
+      66: aload_0
+      67: invokevirtual #278                // Method getBattle:()Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;
+      70: iconst_1
+      71: anewarray     #225                // class java/lang/String
+      74: astore_3
+      75: aload_3
+      76: iconst_0
+      77: aload_0
+      78: invokevirtual #495                // Method getShowdownId:()Ljava/lang/String;
+      81: aload_1
+      82: checkcast     #165                // class java/lang/Iterable
+      85: aconst_null
+      86: aconst_null
+      87: aconst_null
+      88: iconst_0
+      89: aconst_null
+      90: aconst_null
+      91: bipush        63
+      93: aconst_null
+      94: invokestatic  #499                // Method kotlin/collections/CollectionsKt.joinToString$default:(Ljava/lang/Iterable;Ljava/lang/CharSequence;Ljava/lang/CharSequence;Ljava/lang/CharSequence;ILjava/lang/CharSequence;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Ljava/lang/String;
+      97: invokedynamic #504,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;
+     102: aastore
+     103: aload_3
+     104: invokevirtual #508                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.writeShowdownAction:([Ljava/lang/String;)V
+     107: return
+
+  public abstract net.minecraft.class_5250 getName();
+
+  public abstract net.minecraft.class_5250 nameOwned(java.lang.String);
+
+  public void sendMessage(net.minecraft.class_2561);
+    Code:
+       0: aload_1
+       1: ldc_w         #511                // String component
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: aload_0
+       8: new           #513                // class com/cobblemon/mod/common/net/messages/client/battle/BattleMessagePacket
+      11: dup
+      12: iconst_1
+      13: anewarray     #515                // class net/minecraft/class_2561
+      16: astore_2
+      17: aload_2
+      18: iconst_0
+      19: aload_1
+      20: aastore
+      21: aload_2
+      22: invokespecial #518                // Method com/cobblemon/mod/common/net/messages/client/battle/BattleMessagePacket."<init>":([Lnet/minecraft/class_2561;)V
+      25: checkcast     #297                // class com/cobblemon/mod/common/api/net/NetworkPacket
+      28: invokevirtual #299                // Method sendUpdate:(Lcom/cobblemon/mod/common/api/net/NetworkPacket;)V
+      31: return
+
+  public void awardExperience(com.cobblemon.mod.common.battles.pokemon.BattlePokemon, int);
+    Code:
+       0: aload_1
+       1: ldc_w         #519                // String battlePokemon
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: return
+
+  public void sendUpdate(com.cobblemon.mod.common.api.net.NetworkPacket<?>);
+    Code:
+       0: aload_1
+       1: ldc_w         #521                // String packet
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: return
+
+  public void win(java.util.List<? extends com.cobblemon.mod.common.api.battles.model.actor.BattleActor>, java.util.List<? extends com.cobblemon.mod.common.api.battles.model.actor.BattleActor>);
+    Code:
+       0: aload_1
+       1: ldc_w         #523                // String otherWinners
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: aload_2
+       8: ldc_w         #524                // String losers
+      11: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      14: return
+
+  public void lose(java.util.List<? extends com.cobblemon.mod.common.api.battles.model.actor.BattleActor>, java.util.List<? extends com.cobblemon.mod.common.api.battles.model.actor.BattleActor>);
+    Code:
+       0: aload_1
+       1: ldc_w         #525                // String winners
+       4: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       7: aload_2
+       8: ldc_w         #526                // String otherLosers
+      11: invokestatic  #156                // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+      14: return
+}

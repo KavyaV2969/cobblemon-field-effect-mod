@@ -1,0 +1,29 @@
+{
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": true,
+  "jarSha256": "4edd6e50cb70dfc74f4637515b3611408f91b6ae3c285b22b38ca14097ad3a24",
+  "processId": 9996,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "Explicit initialized rejuvenation:deux_finalis with ordered entry chat",
+      "Live Deux Finalis Bitter Blade applies registered persistent Petrification and residual Speed loss",
+      "Live Purify cures Petrification through canonical Java status removal",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:haunted with ordered entry chat",
+      "Live Haunted Magic Powder keeps native sleep state/packets and emits source-specific text once",
+      "Live silent cure marker preserves native removal and suppresses only canonical chat",
+      "Ended battle state removed"
+    ],
+    "success": true,
+    "battles": 2
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 191.4,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

@@ -1,0 +1,30 @@
+{
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": true,
+  "jarSha256": "04ad04e2b9e929e99ab58f1aa43412da75f3d6a52aae6c90369d727f9614000b",
+  "processId": 16092,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "Natural environment initialized rejuvenation:grassy_terrain with ordered entry chat",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:forest with ordered entry chat",
+      "Live Forest Growth boosts Attack by two stages",
+      "Existing Minecraft Everstone bridges to simulator and blocks terrain creation",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:electric_terrain with ordered entry chat",
+      "Minecraft held Seed activates, consumes and boosts in live simulator",
+      "Ended battle state removed"
+    ],
+    "success": true,
+    "battles": 3
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 136.0,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

@@ -1,0 +1,205 @@
+Compiled from "CureStatusInstruction.java"
+public final class com.cobblemon.mod.common.battles.interpreter.instructions.CureStatusInstruction implements com.cobblemon.mod.common.battles.dispatch.InterpreterInstruction {
+  private final com.cobblemon.mod.common.api.battles.interpreter.BattleMessage message;
+
+  public com.cobblemon.mod.common.battles.interpreter.instructions.CureStatusInstruction(com.cobblemon.mod.common.api.battles.interpreter.BattleMessage);
+    Code:
+       0: aload_1
+       1: ldc           #49                 // String message
+       3: invokestatic  #55                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: invokespecial #58                 // Method java/lang/Object."<init>":()V
+      10: aload_0
+      11: aload_1
+      12: putfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      15: return
+
+  public final com.cobblemon.mod.common.api.battles.interpreter.BattleMessage getMessage();
+    Code:
+       0: aload_0
+       1: getfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+       4: areturn
+
+  public void invoke(com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: aload_1
+       1: ldc           #62                 // String battle
+       3: invokestatic  #55                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: getfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      10: iconst_0
+      11: aload_1
+      12: invokevirtual #68                 // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.actorAndActivePokemon:(ILcom/cobblemon/mod/common/api/battles/model/PokemonBattle;)Lkotlin/Pair;
+      15: dup
+      16: ifnull        35
+      19: invokevirtual #74                 // Method kotlin/Pair.getSecond:()Ljava/lang/Object;
+      22: checkcast     #76                 // class com/cobblemon/mod/common/battles/ActiveBattlePokemon
+      25: dup
+      26: ifnull        35
+      29: invokevirtual #80                 // Method com/cobblemon/mod/common/battles/ActiveBattlePokemon.getBattlePokemon:()Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;
+      32: goto          37
+      35: pop
+      36: aconst_null
+      37: astore_2
+      38: aload_0
+      39: getfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      42: iconst_0
+      43: aload_1
+      44: invokevirtual #86                 // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.battlePokemon:(ILcom/cobblemon/mod/common/api/battles/model/PokemonBattle;)Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;
+      47: astore_3
+      48: aload_2
+      49: dup
+      50: ifnonnull     61
+      53: pop
+      54: aload_3
+      55: dup
+      56: ifnonnull     61
+      59: pop
+      60: return
+      61: astore        4
+      63: aload_0
+      64: getfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      67: iconst_1
+      68: invokevirtual #92                 // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.argumentAt:(I)Ljava/lang/String;
+      71: dup
+      72: ifnull        90
+      75: astore        7
+      77: iconst_0
+      78: istore        8
+      80: aload         7
+      82: invokestatic  #98                 // Method com/cobblemon/mod/common/api/pokemon/status/Statuses.getStatus:(Ljava/lang/String;)Lcom/cobblemon/mod/common/api/pokemon/status/Status;
+      85: nop
+      86: dup
+      87: ifnonnull     92
+      90: pop
+      91: return
+      92: astore        5
+      94: aload_0
+      95: getfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      98: aconst_null
+      99: iconst_1
+     100: aconst_null
+     101: invokestatic  #106                // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.effect$default:(Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;Ljava/lang/String;ILjava/lang/Object;)Lcom/cobblemon/mod/common/api/battles/interpreter/Effect;
+     104: astore        6
+     106: getstatic     #112                // Field com/cobblemon/mod/common/battles/ShowdownInterpreter.INSTANCE:Lcom/cobblemon/mod/common/battles/ShowdownInterpreter;
+     109: aload_1
+     110: aload         6
+     112: aload         4
+     114: invokevirtual #116                // Method com/cobblemon/mod/common/battles/ShowdownInterpreter.broadcastOptionalAbility:(Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;Lcom/cobblemon/mod/common/api/battles/interpreter/Effect;Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;)V
+     117: aload_1
+     118: fconst_0
+     119: aload         4
+     121: aload_2
+     122: aload_0
+     123: aload         6
+     125: aload         5
+     127: aload_1
+     128: invokedynamic #134,  0            // InvokeDynamic #0:invoke:(Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;Lcom/cobblemon/mod/common/battles/interpreter/instructions/CureStatusInstruction;Lcom/cobblemon/mod/common/api/battles/interpreter/Effect;Lcom/cobblemon/mod/common/api/pokemon/status/Status;Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;)Lkotlin/jvm/functions/Function0;
+     133: iconst_1
+     134: aconst_null
+     135: invokestatic  #138                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.dispatchWaiting$default:(Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;FLkotlin/jvm/functions/Function0;ILjava/lang/Object;)V
+     138: return
+
+  private static final kotlin.Unit invoke$lambda$0(com.cobblemon.mod.common.battles.pokemon.BattlePokemon, com.cobblemon.mod.common.battles.pokemon.BattlePokemon, com.cobblemon.mod.common.battles.interpreter.instructions.CureStatusInstruction, com.cobblemon.mod.common.api.battles.interpreter.Effect, com.cobblemon.mod.common.api.pokemon.status.Status, com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: aload_0
+       1: invokevirtual #160                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.getName:()Lnet/minecraft/class_5250;
+       4: astore        6
+       6: aload_0
+       7: invokevirtual #164                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.getEffectedPokemon:()Lcom/cobblemon/mod/common/pokemon/Pokemon;
+      10: aconst_null
+      11: invokevirtual #170                // Method com/cobblemon/mod/common/pokemon/Pokemon.setStatus:(Lcom/cobblemon/mod/common/pokemon/status/PersistentStatusContainer;)V
+      14: aload_0
+      15: invokevirtual #173                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.sendUpdate:()V
+      18: aload_1
+      19: ifnull        69
+      22: aload_2
+      23: getfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      26: iconst_0
+      27: invokevirtual #177                // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.pnxAndUuid:(I)Lkotlin/Pair;
+      30: dup
+      31: ifnull        67
+      34: astore        8
+      36: iconst_0
+      37: istore        9
+      39: aload         5
+      41: new           #179                // class com/cobblemon/mod/common/net/messages/client/battle/BattlePersistentStatusPacket
+      44: dup
+      45: aload         8
+      47: invokevirtual #182                // Method kotlin/Pair.getFirst:()Ljava/lang/Object;
+      50: checkcast     #100                // class java/lang/String
+      53: aconst_null
+      54: invokespecial #185                // Method com/cobblemon/mod/common/net/messages/client/battle/BattlePersistentStatusPacket."<init>":(Ljava/lang/String;Lcom/cobblemon/mod/common/pokemon/status/PersistentStatus;)V
+      57: checkcast     #187                // class com/cobblemon/mod/common/api/net/NetworkPacket
+      60: invokevirtual #190                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.sendUpdate:(Lcom/cobblemon/mod/common/api/net/NetworkPacket;)V
+      63: nop
+      64: goto          69
+      67: pop
+      68: nop
+      69: aload_3
+      70: dup
+      71: ifnull        82
+      74: invokeinterface #196,  1          // InterfaceMethod com/cobblemon/mod/common/api/battles/interpreter/Effect.getType:()Lcom/cobblemon/mod/common/api/battles/interpreter/Effect$Type;
+      79: goto          84
+      82: pop
+      83: aconst_null
+      84: dup
+      85: ifnonnull     93
+      88: pop
+      89: iconst_m1
+      90: goto          101
+      93: getstatic     #200                // Field com/cobblemon/mod/common/battles/interpreter/instructions/CureStatusInstruction$WhenMappings.$EnumSwitchMapping$0:[I
+      96: swap
+      97: invokevirtual #204                // Method com/cobblemon/mod/common/api/battles/interpreter/Effect$Type.ordinal:()I
+     100: iaload
+     101: iconst_1
+     102: if_icmpne     136
+     105: aload_3
+     106: invokeinterface #208,  1          // InterfaceMethod com/cobblemon/mod/common/api/battles/interpreter/Effect.getId:()Ljava/lang/String;
+     111: invokedynamic #220,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+     116: iconst_1
+     117: anewarray     #4                  // class java/lang/Object
+     120: astore        9
+     122: aload         9
+     124: iconst_0
+     125: aload         6
+     127: aastore
+     128: aload         9
+     130: invokestatic  #226                // Method com/cobblemon/mod/common/util/LocalizationUtilsKt.battleLang:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+     133: goto          158
+     136: aload         4
+     138: invokevirtual #229                // Method com/cobblemon/mod/common/api/pokemon/status/Status.getRemoveMessage:()Ljava/lang/String;
+     141: iconst_1
+     142: anewarray     #4                  // class java/lang/Object
+     145: astore        9
+     147: aload         9
+     149: iconst_0
+     150: aload         6
+     152: aastore
+     153: aload         9
+     155: invokestatic  #234                // Method com/cobblemon/mod/common/util/MiscUtilsKt.asTranslated:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+     158: astore        7
+     160: aload         5
+     162: aload         7
+     164: invokestatic  #240                // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;)V
+     167: aload         7
+     169: checkcast     #242                // class net/minecraft/class_2561
+     172: invokevirtual #246                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.broadcastChatMessage:(Lnet/minecraft/class_2561;)V
+     175: aload_0
+     176: invokevirtual #250                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.getContextManager:()Lcom/cobblemon/mod/common/battles/interpreter/ContextManager;
+     179: aload         4
+     181: invokevirtual #253                // Method com/cobblemon/mod/common/api/pokemon/status/Status.getShowdownName:()Ljava/lang/String;
+     184: getstatic     #257                // Field com/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type.STATUS:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;
+     187: invokevirtual #263                // Method com/cobblemon/mod/common/battles/interpreter/ContextManager.remove:(Ljava/lang/String;Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;)V
+     190: aload         5
+     192: invokevirtual #267                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getMinorBattleActions:()Ljava/util/HashMap;
+     195: checkcast     #269                // class java/util/Map
+     198: aload_0
+     199: invokevirtual #273                // Method com/cobblemon/mod/common/battles/pokemon/BattlePokemon.getUuid:()Ljava/util/UUID;
+     202: aload_2
+     203: getfield      #60                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+     206: invokeinterface #277,  3          // InterfaceMethod java/util/Map.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+     211: pop
+     212: getstatic     #282                // Field kotlin/Unit.INSTANCE:Lkotlin/Unit;
+     215: areturn
+}

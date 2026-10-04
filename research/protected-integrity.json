@@ -1,0 +1,19 @@
+{
+  "checked": 1254,
+  "changed": [
+    "config\\iris.properties"
+  ],
+  "added": [],
+  "deleted": [],
+  "timestamp": "2026-10-04T00:35:45.303513+00:00",
+  "authoredOutsideRejuvenation": [],
+  "note": "No original files are restored by this audit. An Iris settings difference is preserved; trainer/content archives and the other protected files are compared byte-for-byte.",
+  "differences": [
+    {
+      "path": "config\\iris.properties",
+      "baselineSha256": "e5ff16f5e702340b80ec398290e15a8f58d2da86b4adae34b953f2257a2ceb10",
+      "currentSha256": "cfa4f5669bf9f070b359cf66828683f9bb29f952086ac70385a7867f4d8b703a",
+      "modifiedUtc": "2026-10-03T17:47:12.723908+00:00"
+    }
+  ]
+}

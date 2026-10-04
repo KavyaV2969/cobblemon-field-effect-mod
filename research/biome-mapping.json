@@ -1,0 +1,1157 @@
+[
+  {
+    "biome": "cobblemonraiddens:raid_den",
+    "source": "datapacks\\COBBLEVERSE-DP-v31.zip; mods\\cobblemonraiddens-fabric-0.11.3+1.21.1.jar",
+    "field": "rejuvenation:cave",
+    "reason": "Underground raid den",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "legendarymonuments:distortion_world_biome",
+    "source": "mods\\LegendaryMonuments-Cobbleverse.jar",
+    "field": "rejuvenation:dimensional",
+    "reason": "Distorted extradimensional environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "lumymon:nightmare_void",
+    "source": "mods\\LumyMon-0.6.6.jar",
+    "field": "rejuvenation:haunted",
+    "reason": "Nightmare dimension",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "lumymon:origin_sky",
+    "source": "mods\\LumyMon-0.6.6.jar",
+    "field": "rejuvenation:sky",
+    "reason": "Open sky dimension",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:badlands",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:bamboo_jungle",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:basalt_deltas",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:volcanic",
+    "reason": "Hot volcanic environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:beach",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:beach",
+    "reason": "Coastal sand/rock",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:birch_forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:cherry_grove",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:cold_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:crimson_forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:bewitched",
+    "reason": "Otherworldly forest",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:dark_forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:deep_cold_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:deep_dark",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:dark_crystal_cavern",
+    "reason": "Dark underground sculk",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:deep_frozen_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:deep_lukewarm_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:deep_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:desert",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:dripstone_caves",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:cave",
+    "reason": "Subterranean environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:end_barrens",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:new_world",
+    "reason": "Fragmented void-world",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:end_highlands",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:new_world",
+    "reason": "Fragmented void-world",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:end_midlands",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:new_world",
+    "reason": "Fragmented void-world",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:eroded_badlands",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:flower_forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:flower_garden_2",
+    "reason": "Flower-rich vegetation",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:frozen_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:frozen_peaks",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:snowy_mountain",
+    "reason": "Snow-covered mountain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:frozen_river",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:grove",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:ice_spikes",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:jagged_peaks",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:jungle",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:lukewarm_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:lush_caves",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:cave",
+    "reason": "Subterranean environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:mangrove_swamp",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:swamp",
+    "reason": "Wet swamp",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:meadow",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:mushroom_fields",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:corrosive",
+    "reason": "Fungal growth",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:nether_wastes",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:volcanic",
+    "reason": "Hot volcanic environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:old_growth_birch_forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:old_growth_pine_taiga",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:old_growth_spruce_taiga",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:pale_garden",
+    "source": "mods\\VanillaBackport-fabric-1.21.1-1.1.7.10.jar",
+    "field": "rejuvenation:bewitched",
+    "reason": "Uncanny pale forest",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:plains",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:river",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:savanna",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:savanna_plateau",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:small_end_islands",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:new_world",
+    "reason": "Fragmented void-world",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:snowy_beach",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:snowy_plains",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:snowy_slopes",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:snowy_mountain",
+    "reason": "Snow-covered mountain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:snowy_taiga",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:soul_sand_valley",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:infernal",
+    "reason": "Tormented soul environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:sparse_jungle",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:stony_peaks",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:stony_shore",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:beach",
+    "reason": "Coastal sand/rock",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:sulfur_caves",
+    "source": "mods\\VanillaBackport-fabric-1.21.1-1.1.7.10.jar",
+    "field": "rejuvenation:corrosive_mist",
+    "reason": "Sulfurous cave gases",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:sunflower_plains",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:flower_garden_2",
+    "reason": "Flower-rich vegetation",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:swamp",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:swamp",
+    "reason": "Wet swamp",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:taiga",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:the_end",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:new_world",
+    "reason": "Fragmented void-world",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:the_void",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:new_world",
+    "reason": "Fragmented void-world",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:warm_ocean",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:warped_forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:bewitched",
+    "reason": "Otherworldly forest",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:windswept_forest",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:windswept_gravelly_hills",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:windswept_hills",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:windswept_savanna",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "minecraft:wooded_badlands",
+    "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:alpha_islands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:alpha_islands_winter",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:alpine_grove",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:alpine_highlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:amethyst_canyon",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:crystal_cavern",
+    "reason": "Amethyst crystal environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:amethyst_rainforest",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:crystal_cavern",
+    "reason": "Amethyst crystal environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:ancient_sands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:arid_highlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:ashen_savanna",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:basalt_cliffs",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:birch_taiga",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:blooming_plateau",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:flower_garden_2",
+    "reason": "Flower-rich vegetation",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:blooming_valley",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:flower_garden_2",
+    "reason": "Flower-rich vegetation",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:brushland",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:bryce_canyon",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:rocky",
+    "reason": "Exposed rock",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:caldera",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:volcanic_top",
+    "reason": "Volcanic caldera",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/andesite_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:cave",
+    "reason": "Subterranean environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/deep_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:deep_earth",
+    "reason": "Deep underground",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/diorite_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:cave",
+    "reason": "Subterranean environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/frostfire_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:frozen_dimension",
+    "reason": "Combined anomalous fire and ice",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/fungal_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:corrosive",
+    "reason": "Fungal cave",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/granite_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:cave",
+    "reason": "Subterranean environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/infested_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:corrupted",
+    "reason": "Infested cave",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/mantle_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:deep_earth",
+    "reason": "Deep mantle",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/thermal_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:volcanic",
+    "reason": "Hot volcanic environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/tuff_caves",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:cave",
+    "reason": "Subterranean environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cave/underground_jungle",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:cave",
+    "reason": "Subterranean environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cloud_forest",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:sky",
+    "reason": "Cloud-level woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:cold_shrubland",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:deep_warm_ocean",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:desert_canyon",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:desert_oasis",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:desert_spires",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:emerald_peaks",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:forested_highlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:fractured_savanna",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:frozen_cliffs",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:snowy_mountain",
+    "reason": "Snow-covered mountain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:glacial_chasm",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:snowy_mountain",
+    "reason": "Snow-covered mountain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:granite_cliffs",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:gravel_beach",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:beach",
+    "reason": "Coastal sand/rock",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:gravel_desert",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:haze_mountain",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:highlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:hot_shrubland",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:ice_marsh",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Frozen marsh",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:jungle_mountains",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:lavender_forest",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:lavender_valley",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:flower_garden_2",
+    "reason": "Flower-rich vegetation",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:lush_desert",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:lush_valley",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:mirage_isles",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:rainbow",
+    "reason": "Mirage island atmosphere",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:moonlight_grove",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:bewitched",
+    "reason": "Glowing enchanted woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:moonlight_valley",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:starlight",
+    "reason": "Moonlit valley",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:orchid_swamp",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:swamp",
+    "reason": "Wet swamp",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:painted_mountains",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:red_oasis",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:rocky_jungle",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:rocky_mountains",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:rocky_shrubland",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:rocky",
+    "reason": "Exposed rock",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:sakura_grove",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:sakura_valley",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:sandstone_valley",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:savanna_badlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:savanna_slopes",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:scarlet_mountains",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:shield",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:shield_clearing",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:shrubland",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:siberian_grove",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:siberian_taiga",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:skylands_autumn",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:sky",
+    "reason": "Floating sky islands",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:skylands_spring",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:sky",
+    "reason": "Floating sky islands",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:skylands_summer",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:sky",
+    "reason": "Floating sky islands",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:skylands_winter",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:sky",
+    "reason": "Floating sky islands",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:snowy_badlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:snowy_cherry_grove",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:snowy_maple_forest",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:snowy_shield",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:steppe",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:stony_spires",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:temperate_highlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:tropical_jungle",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:forest",
+    "reason": "Dense woodland",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:valley_clearing",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:volcanic_crater",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:volcanic_top",
+    "reason": "Volcano summit/crater",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:volcanic_peaks",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:volcanic_top",
+    "reason": "Volcano summit/crater",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:warm_river",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:water_surface",
+    "reason": "Open surface water",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:warped_mesa",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:dimensional",
+    "reason": "Warped fantasy mesa",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:white_cliffs",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:white_mesa",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:desert",
+    "reason": "Arid sand/mesa terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:windswept_spires",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:wintry_forest",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:wintry_lowlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:icy",
+    "reason": "Ice/snow environment",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:yellowstone",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:volcanic",
+    "reason": "Geothermal terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:yosemite_cliffs",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:mountain",
+    "reason": "Elevated mountain terrain",
+    "mechanism": "explicit"
+  },
+  {
+    "biome": "terralith:yosemite_lowlands",
+    "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Open vegetated land",
+    "mechanism": "explicit"
+  }
+]

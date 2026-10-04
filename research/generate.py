@@ -100,8 +100,8 @@ for sym,pairs in SPEC.items():
     if seed.get('seedtype'):
         field['seed']={'item':norm(seed['seedtype']),'effect':norm(seed['effect']) if seed.get('effect') else None,
             'duration':seed.get('duration'),'message':seed.get('message'),'stats':{stats[int(k)]:v for k,v in seed['stats']}}
-    if sym.startswith('FLOWERGARDEN'): field['progression']={'group':'flower_garden','stage':int(sym[-1]),'maximum':5}
-    if sym.startswith('CONCERT'): field['progression']={'group':'concert','stage':int(sym[-1]),'maximum':4}
+    if sym.startswith('FLOWERGARDEN'): field['progression']={'group':'flower_garden','stage':int(sym[-1]),'maximum':5,'statChangeShrinkMessage':'The garden was cut down!'}
+    if sym.startswith('CONCERT'): field['progression']={'group':'concert','stage':int(sym[-1]),'maximum':4,'statChangeShrinkMessage':'The crowd is booing!'}
     fields[sym]=field
 def rule(syms,event,when,actions,source):
     for sym in syms.split(): fields[sym]['rules'].append({'event':event,'condition':when,'actions':actions,'source':source})
@@ -109,9 +109,8 @@ def ability(names,who='user'): return {'ability':{'who':who,'values':[norm(x) fo
 def grounded(who='user'): return {'grounded':{'who':who,'value':True}}
 def both(*cs): return {'all':list(cs)}
 def action(op,**values): return {'op':op,**values}
-def boost(syms,abil,stats,line,message=None):
-    acts=[action('boost',stats=stats)]
-    if message: acts.append(action('message',text=message))
+def boost(syms,abil,stats,line,message=None,flavor=None):
+    acts=[action('boost',stats=stats,message=message,messagePlacement='before')] if message else [action('boost',stats=stats,flavor=flavor)] if flavor else [action('boost',stats=stats)]
     rule(syms,'switchIn',ability(abil),acts,'Battler.rb:'+str(line))
 boost('ELECTERRAIN','LIGHTNINGROD ELECTROMORPHOSIS',{'spa':1},2035)
 boost('CHESS','STALL STANCECHANGE',{'def':1},2051)
@@ -119,10 +118,13 @@ boost('SWAMP HAUNTED DIMENSIONAL FROZENDIMENSION DEUXFINALIS','RATTLED',{'spe':1
 boost('FACTORY','LIGHTMETAL',{'spe':1},2077,"{1}'s light body makes it nimble!")
 boost('FACTORY','HEAVYMETAL',{'def':1,'spe':-1},2086,"{1}'s heavy body is sturdy and unmoving!")
 boost('VOLCANIC','MAGMAARMOR',{'def':1},2096)
-boost('FAIRYTALE','ARMORTAIL BATTLEARMOR SHELLARMOR STANCECHANGE',{'def':1},2140)
-boost('FAIRYTALE','MAGICGUARD MAGICBOUNCE MIRRORARMOR PASTELVEIL',{'spd':1},2149)
-boost('FAIRYTALE','POWEROFALCHEMY',{'def':1,'spd':1},2157)
-boost('FAIRYTALE','MAGICIAN',{'spa':1},2165)
+# getFieldAbilityFlavorString (Battle_Effects.rb:861-888) names the cause in place of the ordinary stat line.
+boost('FAIRYTALE','ARMORTAIL BATTLEARMOR SHELLARMOR',{'def':1},2140,flavor='shining armor')
+boost('FAIRYTALE','STANCECHANGE',{'def':1},2140,flavor='royal shield')
+boost('FAIRYTALE','MAGICGUARD MAGICBOUNCE PASTELVEIL',{'spd':1},2149,flavor='magical power')
+boost('FAIRYTALE','MIRRORARMOR',{'spd':1},2149,flavor='reflective armor')
+boost('FAIRYTALE','POWEROFALCHEMY',{'def':1,'spd':1},2157,flavor='magical power')
+boost('FAIRYTALE','MAGICIAN',{'spa':1},2165,flavor='magical power')
 boost('DRAGONSDEN','MAGMAARMOR',{'def':1,'spd':1},2172)
 boost('DRAGONSDEN','SHELLARMOR',{'def':1},2181)
 boost('STARLIGHT','ILLUMINATE',{'spa':2},2197,'{1} flared up with starlight!')
@@ -130,9 +132,9 @@ boost('PSYTERRAIN','ANTICIPATION FOREWARN',{'spa':2},2215)
 boost('PSYTERRAIN','MINDSEYE',{'spa':1},2225)
 boost('MISTY CORROSIVEMIST','WATERCOMPACTION',{'def':2},2231)
 boost('CRYSTALCAVERN','TERAFORMZERO',{'spa':1},2242)
-boost('DIMENSIONAL FROZENDIMENSION','BERSERK',{'spa':1},2265)
+boost('DIMENSIONAL FROZENDIMENSION','BERSERK',{'spa':1},2265,flavor='anger')
 boost('DIMENSIONAL FROZENDIMENSION','ANGERSHELL',{'atk':1,'spa':1,'spe':1,'def':-1,'spd':-1},2273)
-boost('DIMENSIONAL FROZENDIMENSION','JUSTIFIED ANGERPOINT',{'atk':1},2282)
+boost('DIMENSIONAL FROZENDIMENSION','JUSTIFIED ANGERPOINT',{'atk':1},2282,flavor='anger')
 boost('SKY','BIGPECKS',{'def':1},2335)
 for f in range(1,5): rule(f'FLOWERGARDEN{f}','switchIn',ability('FLOWERGIFT FLOWERVEIL DROUGHT DRIZZLE ORICHALCUMPULSE GRASSYSURGE'),[action('progress',amount=1,message='{1} grew the garden!')],'Battler.rb:2189')
 rule('FROZENDIMENSION','switchIn',both(ability('HUNGERSWITCH'),{'species':{'who':'user','value':'morpeko'}}),[action('form',species='morpekohangry',message='{1} transformed!')],'Battler.rb:2304')
@@ -145,16 +147,15 @@ rule('SWAMP WATERSURFACE MURKWATERSURFACE','residual',both(ability('WATERCOMPACT
 rule('UNDERWATER','residual',ability('WATERCOMPACTION'),[action('boost',stats={'def':2})],'Battle.rb:6165')
 rule('MURKWATERSURFACE','residual',both(ability('DRYSKIN WATERABSORB'),grounded(),{'type':{'who':'user','value':'Poison'}}),[action('heal',fraction=1/8,message='{1} is healed by the poisoned water!')],'Battle.rb:6125')
 rule('BACKALLEY','tryHeal',{'always':True},[action('multiply',value=0.67)],'Battler.rb:1293')
-rule('FAIRYTALE','accuracy',ability('FAIRYAURA'),[action('set',value=True)],'Battle_Move.rb:876')
-rule('DEUXFINALIS','accuracy',ability('DARKAURA'),[action('set',value=True)],'Battle_Move.rb:876')
-rule('UNDERWATER','accuracy',{'moveType':'Electric'},[action('set',value=True)],'Battle_Move.rb:884')
-rule('RAINBOW','accuracy',both(ability('WONDERSKIN','target'),{'category':'Status'}),[action('set',value=0)],'Battle_Move.rb:895')
-rule('PSYTERRAIN','accuracy',both(ability('MAGICIAN','target'),{'category':'Status'}),[action('cap',value=50)],'Battle_Move.rb:894')
+rule('FAIRYTALE','perfectAccuracy',ability('FAIRYAURA'),[action('set',value=True)],'Battle_Move.rb:876')
+rule('DEUXFINALIS','perfectAccuracy',ability('DARKAURA'),[action('set',value=True)],'Battle_Move.rb:876')
+rule('UNDERWATER','baseAccuracy',both({'moveType':'Electric'},{'oneHitKO':False}),[action('set',value=True)],'Battle_Move.rb:884')
+rule('RAINBOW','baseAccuracy',both({'effectiveAbility':{'who':'target','values':['wonderskin']}},{'category':'Status'}),[action('set',value=0)],'Battle_Move.rb:895')
+rule('PSYTERRAIN','baseAccuracy',both({'effectiveAbility':{'who':'target','values':['magician']}},{'category':'Status'}),[action('cap',value=50)],'Battle_Move.rb:894')
 rule('ROCKY','accuracy',ability('LONGREACH'),[action('multiply',value=0.9)],'Battle_Move.rb:918')
-rule('FROZENDIMENSION','damage',both({'item':{'who':'target','values':['nevermeltice']}},{'moveType':'Fire'}),[action('multiply',value=0.66)],'Battle_Move.rb:1569')
 for syms,abil in [('MOUNTAIN SNOWYMOUNTAIN VOLCANICTOP SKY','LONGREACH'),('CORROSIVE CORROSIVEMIST CORRUPTED','CORROSION'),('HOLY','PURIFYINGSALT'),('FAIRYTALE CHESS','QUEENLYMAJESTY')]:
-    rule(syms,'damage',ability(abil),[action('multiply',value=1.5)],'Battle_Move.rb:1611')
-rule('CHESS','damage',ability('GORILLATACTICS RECKLESS'),[action('multiply',value=1.2)],'Battle_Move.rb:1595')
+    for event in ['attack','specialAttack']:rule(syms,event,ability(abil),[action('multiply',value=1.5)],'Battle_Move.rb:1615-1619')
+for event in ['attack','specialAttack']:rule('CHESS',event,ability('GORILLATACTICS RECKLESS'),[action('multiply',value=1.2)],'Battle_Move.rb:1601-1603')
 rule('DEEPEARTH','activate',{'always':True},[action('pseudoWeather',id='gravity',permanent=True)],'Battle_Field.rb:419')
 rule('GLITCH','modifyMove',{'not':{'category':'Status'}},[action('oldCategory')],'Battle_Move.rb:278')
 rule('INVERSE','effectiveness',{'always':True},[action('inverse')],'Battle_Typemod.rb:73')
@@ -170,7 +171,10 @@ for syms,moves,newtype in [('ASHENBEACH','STRENGTH','Fighting'),('WATERSURFACE',
  ('FAIRYTALE','SACREDSWORD CUT SLASH SECRETSWORD','Steel'),('DIMENSIONAL FROZENDIMENSION','RAGE','Dark'),
  ('DRAGONSDEN','ROCKCLIMB STRENGTH','Rock'),('DEEPEARTH','TOPSYTURVY','Ground')]:
     rule(syms,'modifyMove',{'any':[{'move':norm(m)} for m in moves.split()]},[action('moveType',type=newtype)],'Battle_Move.rb:257')
-rule('RAINBOW','modifyMove',{'always':True},[action('secondaryChance',multiplier=2)],'Battle_Move.rb:2331')
+# Serene Grace and the rainbow double once together for flinching moves and twice for the rest (2328-2329).
+rainbow_chance={'not':both(ability('SERENEGRACE'),{'canFlinch':True})}
+rule('RAINBOW','modifyMove',rainbow_chance,[action('secondaryChance',multiplier=2)],'Battle_Move.rb:2328-2329')
+for other in [s for s in fields if s!='RAINBOW']:rule(other,'modifyMove',both({'overlay':fields['RAINBOW']['id']},rainbow_chance),[action('secondaryChance',multiplier=2)],'Battle_Move.rb:2328-2329')
 rule('HAUNTED','modifyMove',{'move':'ominouswind'},[action('secondaryChance',chance=20)],'Battle_Move.rb:2330')
 for sym,move in [('FAIRYTALE','strangesteam'),('HAUNTED','lick'),('WASTELAND','direclaw'),('INFERNAL','infernalparade'),('DEUXFINALIS','freezingglare')]:
     rule(sym,'modifyMove',{'move':move},[action('secondaryChance',chance=100)],'Battle_Move.rb:2336')
@@ -198,7 +202,8 @@ endmessages={'GRASSY':'The grass disappeared from the battlefield.','MISTY':'The
  'RAINBOW':'The rainbow disappeared.'}
 for sym,msg in endmessages.items(): fields[sym]['endMessage']=msg
 from extended_rules import extend
-source=Path(json.loads((OUT/'research/source-location.json').read_text(encoding='utf-8'))['scripts'])
+from source_path import scripts as source_scripts
+source=source_scripts()
 extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source)
 from party_rules import extend as extend_party
 extend_party(fields,rule,action,both,ability)
@@ -237,6 +242,24 @@ from distributed_move_rules import extend as extend_distributed_moves
 extend_distributed_moves(fields,rule,action,both)
 from ability_rules import extend as extend_abilities
 extend_abilities(fields,rule,action,both)
+from battle_move_rules import extend as extend_battle_move
+extend_battle_move(fields,rule,action,both)
+from entry_ability_rules import extend as extend_entry_abilities
+extend_entry_abilities(fields,rule,action,both)
+from battler_move_rules import extend as extend_battler_moves
+extend_battler_moves(fields,rule,action,both)
+from move_effect_rules import extend as extend_move_effects
+extend_move_effects(fields,rule,action,both)
+from registered_abilities import extend as extend_declared_abilities
+extend_declared_abilities(fields)
+from weather_rules import extend as extend_weather
+extend_weather(fields)
+from move_rules import coverage as status_move_coverage
+from battler_source_rules import extend as extend_battler_source
+extend_battler_source(fields,rule,action,both)
+from battle_rules import extend as extend_battle
+extend_battle(fields,rule,action,both)
+status_move_coverage(fields)
 # The shipped game loads fields.dat unless it is missing (Cache.rb:94). The
 # compiler discards message-only move rows. Keep the effective executable rows.
 compiled=json.loads((OUT/'research/compiled-field-specification.json').read_text(encoding='utf-8'))
@@ -258,6 +281,11 @@ translations={'item.rejuvenation.'+s:s.replace('_',' ').title() for s in ['eleme
 translations.update({'status.rejuvenation.petrified.apply':'%s was petrified!',
     'status.rejuvenation.petrified.remove':'%s was released from the stone.',
     'status.rejuvenation.petrified':'Petrified'})
+# Cobblemon resolves ability names through its own translation-key convention.
+for aid,row in ability_definitions().items():
+    for key in {aid,norm(row['name'])}:translations.update({'cobblemon.ability.'+key:row['name'],'cobblemon.ability.'+key+'.desc':row['description']})
+translations.update({'cobblemon.type.shadow':'Shadow','cobblemon.battle.weather.shadowsky.start':'A shadowy aura filled the sky!','cobblemon.battle.weather.shadowsky.end':'The shadowy aura faded away!','cobblemon.battle.weather.shadowsky.upkeep':'A shadowy aura fills the sky.'})
+write(OUT/'mod/src/main/resources/rejuvenation-types.json',fields['INDOOR']['typeDefinitions'])
 write(assets/'lang/en_us.json',translations)
 for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock']:
     write(assets/f'models/item/{s}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'minecraft:item/gold_nugget' if s=='amulet_coin' else 'minecraft:item/cobblestone' if s=='amplifield_rock' else 'minecraft:item/wheat_seeds'}})

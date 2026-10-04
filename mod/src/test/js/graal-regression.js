@@ -45,5 +45,20 @@
   b=battle('holy',{species:'Silvally',ability:'RKS System',item:'Water Memory'});check(b.sides[0].active[0].getTypes()[0]==='Dark','Holy ordinary Dark Silvally type in Graal');b.destroy();
   b=battle('glitch',{ability:'Download'});check(b.sides[0].active[0].boosts.atk===1 && b.sides[0].active[0].boosts.spa===1,'Download ordinary double offensive boost in Graal');b.destroy();
   b=battle('underwater',{species:'Cramorant',ability:'Gulp Missile'},{ability:'None'});const bird=b.sides[0].active[0],enemy=b.sides[1].active[0];bird.formeChange('cramorantgulping');enemy.setType('Fire');const hp=enemy.hp;b.singleEvent('DamagingHit',bird.getAbility(),{...bird.abilityState,target:bird},bird,enemy,b.dex.getActiveMove('tackle'),10);check(bird.species.id==='cramorant' && enemy.hp===hp-Math.floor(enemy.maxhp/2),'Underwater typed Gulp Missile retaliation in Graal');b.destroy();
+  // Declared source abilities resolve through Cobblemon's registry in a real started battle.
+  b=battle('factory',{ability:'Defragment',moves:['sheercold']},{species:'Alakazam',ability:'Inner Focus'});turn(b,1);
+  const defrag=b.sides[0].active[0];check(defrag.ability==='defragment' && defrag.getAbility().exists,'Declared ability survives team unpacking in Graal');
+  check(defrag.boosts.spd===2 && defrag.boosts.def===0,'Factory Defragment in Graal');check(b.runEvent('Accuracy',b.sides[1].active[0],defrag,b.dex.getActiveMove('fissure'),30)===true,'Defragment perfect accuracy in Graal');b.destroy();
+  b=battle('forest',{ability:'Jungle Beat',moves:['energyball']},{ability:'Soundproof'});turn(b,1);
+  check(b.sides[1].active[0].hp===b.sides[1].active[0].maxhp,'Jungle Beat Grass attacks are sound moves in Graal');b.destroy();
+  b=battle('underwater',{ability:'tempest',moves:['weatherball']});const storm=b.sides[0].active[0];
+  check(storm.getAbility().id==='tempest' && storm.getAbility().name==='Storm 9','Canonical custom ability ID and display name in Graal');
+  check(Object.keys(b.rejuvenation.catalog.abilities).every(id=>b.dex.abilities.get(id).exists && b.dex.abilities.get(id).id===id),'Every declared ability resolves by its canonical source ID');
+  b.field.clearWeather();b.sample=rows=>rows.find(r=>r.id==='shadowsky') || rows[0];b.singleEvent('Start',storm.getAbility(),storm.abilityState,storm);
+  check(b.field.weather==='shadowsky' && b.field.weatherState.duration===8,'Forced Shadow Sky ignores restricted field in Graal');
+  check(b.dex.types.get('Shadow').exists,'Registered simulator Shadow type in Graal');
+  check(b.log.some(s=>s.startsWith('|-weather|ShadowSky') && s.includes('[rejuvenationsilent]')),'Custom weather context and flavor suppression marker in Graal');
+  const wb=b.dex.getActiveMove('weatherball');b.runEvent('ModifyMove',storm,b.sides[1].active[0],wb,wb);check(wb.type==='Shadow' && wb.basePower===100 && wb.target==='allAdjacentFoes','Storm Weather Ball behavior in Graal');
+  storm.setAbility('synchronize');check(b.field.weather==='','Weather reconciles on ability loss in Graal');b.destroy();
   return checks;
 })()

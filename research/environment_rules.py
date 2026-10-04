@@ -19,6 +19,19 @@ def extend(fields,rule,action,both,ability):
     fields['NEWWORLD']['expirationReturnMessage']='The world broke apart again!'
     fields['ELECTERRAIN']['expirationReturnMessage']='The field electrified again!'
     fields['FROZENDIMENSION']['weatherConversions']={'snow':'hail'}
+    for sym,f in fields.items():
+        # Rejuvenation's strong winds are ordinary timed weather unless Delta Stream raises them.
+        f['timedWeatherText']={'deltastream':{'startMessage':'Strong winds kicked up around the field!','endMessage':'The strong wind petered out.','source':'Battle.rb:443,505'}}
+        # canChangeFE? refuses the rainbow on the three immovable fields.
+        if sym not in ['NEWWORLD','UNDERWATER','FROZENDIMENSION']:
+            f['weatherRainbow']={'field':'rejuvenation:rainbow','groups':[['sunnyday','desolateland'],['raindance','primordialsea']],
+                'message':'The weather created a rainbow!','refreshMessage':'The weather refreshed the rainbow!',
+                'baseDuration':5,'extendedDuration':8,'extendingItems':{'desolateland':'heatrock','primordialsea':'damprock'},
+                'source':'Battle.rb:462-475; Battler.rb:2782,2798'}
+    # pbSetTailwind: any new Tailwind stirs up timed strong winds on the high fields.
+    calm={'not':{'weather':['deltastream','desolateland','primordialsea']}}
+    rule('MOUNTAIN SNOWYMOUNTAIN VOLCANICTOP','sideConditionStart',both({'startedCondition':['tailwind']},calm),[action('setWeather',id='deltastream',duration=6)],'Battle.rb:746-749')
+    rule('SKY','sideConditionStart',both({'startedCondition':['tailwind']},calm,{'not':{'globalAbility':['cloudnine']}}),[action('setWeather',id='deltastream',duration=8)],'Battle.rb:369,746-749')
     for syms,weather,message in [
         ('NEWWORLD',None,'The weather drifted off into space...'),
         ('UNDERWATER',None,"You're too deep to notice the weather!"),

@@ -1,0 +1,914 @@
+{
+  "schemaVersion": 1,
+  "abilities": {
+    "eelevate": {
+      "name": "Eelevate",
+      "description": "Levitates and raises its highest raw stat after a knockout.",
+      "inherit": "beastboost",
+      "airborne": true,
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {}
+    },
+    "gravitycontrol": {
+      "name": "Gravity Control",
+      "num": 328,
+      "airborneBeforeGravity": true,
+      "description": "Intensifies gravity on entry while remaining airborne.",
+      "airborne": true,
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onStart": {
+          "mode": "replace",
+          "condition": {
+            "pseudoWeather": {
+              "id": "gravity",
+              "value": false
+            }
+          },
+          "actions": [
+            {
+              "op": "pseudoWeather",
+              "id": "gravity"
+            },
+            {
+              "op": "fieldMove",
+              "move": "gravity"
+            }
+          ],
+          "source": "Battler.rb:2923-2932"
+        }
+      }
+    },
+    "souleater": {
+      "name": "Soul Eater",
+      "num": 317,
+      "description": "Restores HP when hit by Ghost attacks.",
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onTryHit": {
+          "mode": "replace",
+          "condition": {
+            "all": [
+              {
+                "samePokemon": false
+              },
+              {
+                "moveType": "Ghost"
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "heal",
+              "who": "target",
+              "fraction": 0.25,
+              "message": "{1} had its HP restored.",
+              "failureMessage": "It doesn't affect\n{1}..."
+            },
+            {
+              "op": "set",
+              "value": null
+            }
+          ],
+          "source": "Battle_Move.rb:644; Battler.rb:5584-5595"
+        }
+      }
+    },
+    "chifocus": {
+      "name": "Chi Focus",
+      "num": 318,
+      "description": "Raises the critical hit rate of the user and allies.",
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onModifyCritRatio": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "add",
+              "value": 2
+            }
+          ],
+          "source": "Battle_Move.rb:992; Rejuv/Definitions/abiltext.rb:2433-2438"
+        },
+        "onAllyModifyCritRatio": {
+          "mode": "replace",
+          "condition": {
+            "not": {
+              "ability": {
+                "who": "user",
+                "values": [
+                  "chifocus"
+                ]
+              }
+            }
+          },
+          "actions": [
+            {
+              "op": "add",
+              "value": 2
+            }
+          ],
+          "source": "Battle_Move.rb:992 (one side activation, never stacked)"
+        }
+      }
+    },
+    "defragment": {
+      "name": "Defragment",
+      "num": 331,
+      "description": "Adjusts defenses according to a foe's offenses; the user's moves never miss.",
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onStart": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "conditional",
+              "condition": {
+                "statSumComparison": {
+                  "left": "spa",
+                  "right": "atk",
+                  "group": "foes",
+                  "op": ">"
+                }
+              },
+              "actions": [
+                {
+                  "op": "boost",
+                  "stats": {
+                    "spd": 1
+                  }
+                }
+              ]
+            },
+            {
+              "op": "conditional",
+              "condition": {
+                "not": {
+                  "statSumComparison": {
+                    "left": "spa",
+                    "right": "atk",
+                    "group": "foes",
+                    "op": ">"
+                  }
+                }
+              },
+              "actions": [
+                {
+                  "op": "boost",
+                  "stats": {
+                    "def": 1
+                  }
+                }
+              ]
+            }
+          ],
+          "source": "Battler.rb:3174-3192 (ordinary baseline)"
+        },
+        "onSourceAccuracy": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "set",
+              "value": true
+            }
+          ],
+          "source": "Battle_Move.rb:876"
+        }
+      }
+    },
+    "junglebeat": {
+      "name": "Jungle Beat",
+      "num": 325,
+      "description": "Powers up sound moves, resists them, and treats Grass attacks as sound moves.",
+      "inherit": "punkrock",
+      "flags": {
+        "breakable": 1
+      },
+      "soundMoveTypes": [
+        "Grass"
+      ],
+      "callbacks": {
+        "onModifyMove": {
+          "mode": "replace",
+          "condition": {
+            "moveType": "Grass"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "flags.sound",
+              "value": 1
+            },
+            {
+              "op": "moveProperty",
+              "path": "flags.bypasssub",
+              "value": 1
+            }
+          ],
+          "source": "Battle_Move.rb:231-236,244-249,678,1743,1827-1828"
+        }
+      }
+    },
+    "hailwarning": {
+      "name": "Hail Warning",
+      "description": "Summons hail on entering battle (legacy pre-Gen-9 Snow Warning).",
+      "flags": {},
+      "callbacks": {
+        "onStart": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "setWeather",
+              "id": "hail"
+            }
+          ],
+          "source": "Load.rb:1225; Battler.rb:2977-2988"
+        }
+      }
+    },
+    "tempest": {
+      "name": "Storm 9",
+      "num": 307,
+      "description": "Changes the weather on entry and before each end of turn; immune to weather damage.",
+      "flags": {},
+      "callbacks": {
+        "onStart": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "randomWeather",
+              "duration": 8,
+              "force": true,
+              "choices": [
+                {
+                  "id": "raindance",
+                  "message": "Storm-9 created a downpour!"
+                },
+                {
+                  "id": "hail",
+                  "message": "Storm-9 brought hailfall!"
+                },
+                {
+                  "id": "sandstorm",
+                  "message": "Storm-9 whipped up a duststorm!"
+                },
+                {
+                  "id": "deltastream",
+                  "message": "Storm-9 whipped up terrible winds!"
+                },
+                {
+                  "id": "shadowsky",
+                  "message": "Storm-9 shrouded the sky in a shadowy aura..."
+                }
+              ]
+            }
+          ],
+          "source": "Battler.rb:2991-3002"
+        },
+        "onBeforeResidual": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "randomWeather",
+              "duration": 8,
+              "force": true,
+              "choices": [
+                {
+                  "id": "raindance",
+                  "message": "Storm-9 created a downpour!"
+                },
+                {
+                  "id": "hail",
+                  "message": "Storm-9 brought hailfall!"
+                },
+                {
+                  "id": "sandstorm",
+                  "message": "Storm-9 whipped up a duststorm!"
+                },
+                {
+                  "id": "deltastream",
+                  "message": "Storm-9 whipped up terrible winds!"
+                },
+                {
+                  "id": "shadowsky",
+                  "message": "Storm-9 shrouded the sky in a shadowy aura..."
+                }
+              ]
+            }
+          ],
+          "source": "Battle.rb:5367-5379"
+        },
+        "onModifyMove": {
+          "mode": "replace",
+          "condition": {
+            "move": "weatherball"
+          },
+          "actions": [
+            {
+              "op": "moveProperty",
+              "path": "target",
+              "value": "allAdjacentFoes"
+            }
+          ],
+          "source": "Battler.rb:4991-4992"
+        },
+        "onImmunity": {
+          "mode": "replace",
+          "condition": {
+            "immunityType": [
+              "hail",
+              "sandstorm",
+              "shadowsky"
+            ]
+          },
+          "actions": [
+            {
+              "op": "set",
+              "value": false
+            }
+          ],
+          "source": "Battle_Effects.rb:1361"
+        }
+      }
+    },
+    "dragonize": {
+      "name": "Dragonize",
+      "description": "Normal moves become Dragon and deal 20% more damage.",
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onModifyType": {
+          "mode": "replace",
+          "condition": {
+            "all": [
+              {
+                "moveType": "Normal"
+              },
+              {
+                "not": {
+                  "zMove": true
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveType",
+              "type": "Dragon"
+            }
+          ],
+          "source": "PBMove.rb:128-137"
+        },
+        "onBasePower": {
+          "mode": "replace",
+          "condition": {
+            "all": [
+              {
+                "baseMoveType": "Normal"
+              },
+              {
+                "moveType": "Dragon"
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.2
+            }
+          ],
+          "source": "Battle_Move.rb:1265-1269"
+        }
+      }
+    },
+    "firemane": {
+      "name": "Fire Mane",
+      "description": "Powers up Fire attacks by 50%.",
+      "flags": {},
+      "callbacks": {
+        "onModifyAtk": {
+          "mode": "replace",
+          "condition": {
+            "moveType": "Fire"
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1534"
+        },
+        "onModifySpA": {
+          "mode": "replace",
+          "condition": {
+            "moveType": "Fire"
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1534"
+        }
+      }
+    },
+    "hotshot": {
+      "name": "Hotshot",
+      "num": 324,
+      "description": "Attacks by and against the holder never miss; ball, shot and kick moves deal 30% more damage.",
+      "inherit": "noguard",
+      "flags": {},
+      "callbacks": {
+        "onBasePower": {
+          "mode": "replace",
+          "condition": {
+            "any": [
+              {
+                "move": "electroball"
+              },
+              {
+                "move": "highjumpkick"
+              },
+              {
+                "move": "jumpkick"
+              },
+              {
+                "move": "rollingkick"
+              },
+              {
+                "move": "doublekick"
+              },
+              {
+                "move": "triplekick"
+              },
+              {
+                "move": "lowkick"
+              },
+              {
+                "move": "blazekick"
+              },
+              {
+                "move": "shadowball"
+              },
+              {
+                "move": "energyball"
+              },
+              {
+                "move": "bulletseed"
+              },
+              {
+                "move": "mudshot"
+              },
+              {
+                "move": "iceball"
+              },
+              {
+                "move": "megakick"
+              },
+              {
+                "move": "weatherball"
+              },
+              {
+                "move": "barrage"
+              },
+              {
+                "move": "gunkshot"
+              },
+              {
+                "move": "mistball"
+              },
+              {
+                "move": "rockblast"
+              },
+              {
+                "move": "mirrorshot"
+              },
+              {
+                "move": "gyroball"
+              },
+              {
+                "move": "anchorshot"
+              },
+              {
+                "move": "pollenpuff"
+              },
+              {
+                "move": "tropkick"
+              },
+              {
+                "move": "snipeshot"
+              },
+              {
+                "move": "tarshot"
+              },
+              {
+                "move": "pyroball"
+              },
+              {
+                "move": "scaleshot"
+              },
+              {
+                "move": "thunderouskick"
+              },
+              {
+                "move": "axekick"
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.3
+            }
+          ],
+          "source": "Battle_Move.rb:168-169,1295"
+        }
+      }
+    },
+    "solaridol": {
+      "name": "Solar Idol",
+      "num": 308,
+      "description": "Levitates; boosts Fire attacks and Attack in sun.",
+      "airborne": true,
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onBasePower": {
+          "mode": "replace",
+          "condition": {
+            "moveType": "Fire"
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1296"
+        },
+        "onModifyAtk": {
+          "mode": "replace",
+          "condition": {
+            "all": [
+              {
+                "weatherFor": {
+                  "who": "user",
+                  "values": [
+                    "sunnyday",
+                    "desolateland"
+                  ]
+                }
+              },
+              {
+                "not": {
+                  "item": {
+                    "who": "user",
+                    "values": [
+                      "utilityumbrella"
+                    ]
+                  }
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1520; Battler.rb:7278"
+        }
+      }
+    },
+    "lunaridol": {
+      "name": "Lunar Idol",
+      "num": 309,
+      "description": "Levitates; boosts Ice attacks and Special Attack in hail or snow; immune to hail.",
+      "airborne": true,
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onBasePower": {
+          "mode": "replace",
+          "condition": {
+            "moveType": "Ice"
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1297"
+        },
+        "onModifySpA": {
+          "mode": "replace",
+          "condition": {
+            "weatherFor": {
+              "who": "user",
+              "values": [
+                "snow",
+                "hail"
+              ]
+            }
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1493; Battler.rb:7343"
+        },
+        "onImmunity": {
+          "mode": "replace",
+          "condition": {
+            "immunityType": [
+              "hail"
+            ]
+          },
+          "actions": [
+            {
+              "op": "set",
+              "value": false
+            }
+          ],
+          "source": "Battle_Effects.rb:1362"
+        }
+      }
+    },
+    "swornduty": {
+      "name": "Sworn Duty",
+      "description": "Restores an ally’s HP upon entering battle.",
+      "flags": {},
+      "callbacks": {
+        "onStart": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "forEach",
+              "group": "allies",
+              "actions": [
+                {
+                  "op": "heal",
+                  "who": "target",
+                  "fraction": 0.25,
+                  "messageFrom": "user",
+                  "message": "{1} shared its mead with {2}!"
+                }
+              ]
+            }
+          ],
+          "source": "Battler.rb:2913-2919"
+        }
+      }
+    },
+    "foamspray": {
+      "name": "Foam Spray",
+      "num": 319,
+      "description": "Lowers adjacent Pokémon’s Defense when hit.",
+      "flags": {},
+      "callbacks": {
+        "onDamagingHit": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "forEach",
+              "group": "others",
+              "actions": [
+                {
+                  "op": "boost",
+                  "who": "target",
+                  "stats": {
+                    "def": -1
+                  }
+                }
+              ],
+              "anchor": "holder"
+            }
+          ],
+          "source": "Battler.rb:3884-3893"
+        }
+      }
+    },
+    "wildfire": {
+      "name": "Wildfire",
+      "num": 315,
+      "description": "Damages non-Fire foes every turn and powers up attacks against burned targets.",
+      "flags": {},
+      "callbacks": {
+        "onResidual": {
+          "mode": "replace",
+          "condition": {
+            "always": true
+          },
+          "actions": [
+            {
+              "op": "forEach",
+              "group": "foes",
+              "actions": [
+                {
+                  "op": "conditional",
+                  "condition": {
+                    "any": [
+                      {
+                        "targetStatus": "brn"
+                      },
+                      {
+                        "volatileSourceMove": {
+                          "who": "user",
+                          "id": "partiallytrapped",
+                          "move": "firespin"
+                        }
+                      }
+                    ]
+                  },
+                  "actions": [
+                    {
+                      "op": "damage",
+                      "who": "target",
+                      "fraction": 0.125
+                    }
+                  ]
+                },
+                {
+                  "op": "conditional",
+                  "condition": {
+                    "not": {
+                      "any": [
+                        {
+                          "targetStatus": "brn"
+                        },
+                        {
+                          "volatileSourceMove": {
+                            "who": "user",
+                            "id": "partiallytrapped",
+                            "move": "firespin"
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  "actions": [
+                    {
+                      "op": "damage",
+                      "who": "target",
+                      "fraction": 0.0625
+                    }
+                  ]
+                }
+              ],
+              "condition": {
+                "all": [
+                  {
+                    "not": {
+                      "type": {
+                        "who": "target",
+                        "value": "Fire"
+                      }
+                    }
+                  },
+                  {
+                    "not": {
+                      "ability": {
+                        "who": "target",
+                        "values": [
+                          "magicguard"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "order": "speed",
+              "message": "The Pokémon were burnt by the wildfire!!"
+            }
+          ],
+          "source": "Battle.rb:7145-7169"
+        },
+        "onModifyAtk": {
+          "mode": "replace",
+          "condition": {
+            "targetStatus": "brn"
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1567"
+        },
+        "onModifySpA": {
+          "mode": "replace",
+          "condition": {
+            "targetStatus": "brn"
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.5
+            }
+          ],
+          "source": "Battle_Move.rb:1567"
+        }
+      }
+    },
+    "duskilate": {
+      "name": "Duskilate",
+      "description": "Normal moves become Dark and deal 20% more damage outside Glitch Field.",
+      "flags": {
+        "breakable": 1
+      },
+      "callbacks": {
+        "onModifyType": {
+          "mode": "replace",
+          "condition": {
+            "all": [
+              {
+                "moveType": "Normal"
+              },
+              {
+                "not": {
+                  "zMove": true
+                }
+              },
+              {
+                "not": {
+                  "field": "rejuvenation:glitch"
+                }
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "moveType",
+              "type": "Dark"
+            }
+          ],
+          "source": "PBMove.rb:138"
+        },
+        "onBasePower": {
+          "mode": "replace",
+          "condition": {
+            "all": [
+              {
+                "baseMoveType": "Normal"
+              },
+              {
+                "moveType": "Dark"
+              }
+            ]
+          },
+          "actions": [
+            {
+              "op": "multiply",
+              "value": 1.2
+            }
+          ],
+          "source": "Battle_Move.rb:1271-1274"
+        }
+      }
+    }
+  }
+}

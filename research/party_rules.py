@@ -21,4 +21,4 @@ def extend(fields,rule,action,both,ability):
         rule('CHESS','switchIn',role(value),actions,'Battle.rb:3083')
     rule('CHESS','receivedDamage',role('pawn','target'),[action('survive',who='target',once=True,message='{1} hung on the edge of the board!')],'Battle_Move.rb:2126; Battle_DamageState.rb:37 (once per battler slot)')
     rule('CHESS','tryHit',both(role('pawn','target'),{'any':[{'move':m} for m in ['fissure','sheercold','horndrill','guillotine']]}),[action('reject')],'Battle_MoveEffects.rb:2527')
-    rule('COLOSSEUM','receivedDamage',ability('STALWART','target'),[action('survive',who='target',message='{1} endured the hit!')],'Battle_Move.rb:2143')
+    rule('COLOSSEUM','receivedDamage',{'effectiveAbility':{'who':'target','values':['stalwart']}},[action('survive',who='target',message='{1} endured the hit!')],'Battle_Move.rb:2143')

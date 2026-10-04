@@ -1,419 +1,419 @@
 [
   {
-    "source": "mods\\Cobblemon-fabric-1.7.3+1.21.1.jar",
+    "source": "mods/Cobblemon-fabric-1.7.3+1.21.1.jar",
     "namespace": "cobblemon",
     "kind": "items",
     "id": "eggantberry",
     "path": "data/cobblemon/held_items/eggantberry.js"
   },
   {
-    "source": "mods\\mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
+    "source": "mods/mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
     "namespace": "mega_showdown",
     "kind": "items",
     "id": "eviolite",
     "path": "data/mega_showdown/mega_showdown/showdown/held_items/eviolite.js"
   },
   {
-    "source": "mods\\mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
+    "source": "mods/mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
     "namespace": "mega_showdown",
     "kind": "items",
     "id": "legendplate",
     "path": "data/mega_showdown/mega_showdown/showdown/held_items/legendplate.js"
   },
   {
-    "source": "mods\\mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
+    "source": "mods/mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
     "namespace": "mega_showdown",
     "kind": "items",
     "id": "pikaniumz",
     "path": "data/mega_showdown/mega_showdown/showdown/held_items/pikaniumz.js"
   },
   {
-    "source": "mods\\mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
+    "source": "mods/mega_showdown-fabric-1.8.4+1.7.3+1.21.1.jar",
     "namespace": "mega_showdown",
     "kind": "items",
     "id": "pikashuniumz",
     "path": "data/mega_showdown/mega_showdown/showdown/held_items/pikashuniumz.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "abilities",
     "id": "dragonize",
     "path": "data/zamega/mega_showdown/showdown/abilities/dragonize.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "abilities",
     "id": "megasol",
     "path": "data/zamega/mega_showdown/showdown/abilities/megasol.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "abilities",
     "id": "piercingdrill",
     "path": "data/zamega/mega_showdown/showdown/abilities/piercingdrill.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "abilities",
     "id": "powerconstruct",
     "path": "data/zamega/mega_showdown/showdown/abilities/powerconstruct.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "abilities",
     "id": "spicyspray",
     "path": "data/zamega/mega_showdown/showdown/abilities/spicyspray.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "absolitez",
     "path": "data/zamega/mega_showdown/showdown/held_items/absolitez.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "ange",
     "path": "data/zamega/mega_showdown/showdown/held_items/ange.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "barbaracite",
     "path": "data/zamega/mega_showdown/showdown/held_items/barbaracite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "baxcalibrite",
     "path": "data/zamega/mega_showdown/showdown/held_items/baxcalibrite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "chandelurite",
     "path": "data/zamega/mega_showdown/showdown/held_items/chandelurite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "chesnaughtite",
     "path": "data/zamega/mega_showdown/showdown/held_items/chesnaughtite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "chimechite",
     "path": "data/zamega/mega_showdown/showdown/held_items/chimechite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "clefablite",
     "path": "data/zamega/mega_showdown/showdown/held_items/clefablite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "crabominite",
     "path": "data/zamega/mega_showdown/showdown/held_items/crabominite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "darkranite",
     "path": "data/zamega/mega_showdown/showdown/held_items/darkranite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "delphoxite",
     "path": "data/zamega/mega_showdown/showdown/held_items/delphoxite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "dragalgite",
     "path": "data/zamega/mega_showdown/showdown/held_items/dragalgite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "dragoninite",
     "path": "data/zamega/mega_showdown/showdown/held_items/dragoninite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "drampanite",
     "path": "data/zamega/mega_showdown/showdown/held_items/drampanite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "eelektrossite",
     "path": "data/zamega/mega_showdown/showdown/held_items/eelektrossite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "emboarite",
     "path": "data/zamega/mega_showdown/showdown/held_items/emboarite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "excadrite",
     "path": "data/zamega/mega_showdown/showdown/held_items/excadrite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "falinksite",
     "path": "data/zamega/mega_showdown/showdown/held_items/falinksite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "feraligite",
     "path": "data/zamega/mega_showdown/showdown/held_items/feraligite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "floettite",
     "path": "data/zamega/mega_showdown/showdown/held_items/floettite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "froslassite",
     "path": "data/zamega/mega_showdown/showdown/held_items/froslassite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "garchompitez",
     "path": "data/zamega/mega_showdown/showdown/held_items/garchompitez.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "glimmoranite",
     "path": "data/zamega/mega_showdown/showdown/held_items/glimmoranite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "golisopite",
     "path": "data/zamega/mega_showdown/showdown/held_items/golisopite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "golurkite",
     "path": "data/zamega/mega_showdown/showdown/held_items/golurkite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "greninjite",
     "path": "data/zamega/mega_showdown/showdown/held_items/greninjite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "hawluchanite",
     "path": "data/zamega/mega_showdown/showdown/held_items/hawluchanite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "heatranite",
     "path": "data/zamega/mega_showdown/showdown/held_items/heatranite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "lucarionitez",
     "path": "data/zamega/mega_showdown/showdown/held_items/lucarionitez.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "magearnite",
     "path": "data/zamega/mega_showdown/showdown/held_items/magearnite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "malamarite",
     "path": "data/zamega/mega_showdown/showdown/held_items/malamarite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "meganiumite",
     "path": "data/zamega/mega_showdown/showdown/held_items/meganiumite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "meowsticite",
     "path": "data/zamega/mega_showdown/showdown/held_items/meowsticite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "pyroarite",
     "path": "data/zamega/mega_showdown/showdown/held_items/pyroarite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "raichunitex",
     "path": "data/zamega/mega_showdown/showdown/held_items/raichunitex.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "raichunitey",
     "path": "data/zamega/mega_showdown/showdown/held_items/raichunitey.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "scolipite",
     "path": "data/zamega/mega_showdown/showdown/held_items/scolipite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "scovillainite",
     "path": "data/zamega/mega_showdown/showdown/held_items/scovillainite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "scraftinite",
     "path": "data/zamega/mega_showdown/showdown/held_items/scraftinite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "skarmorite",
     "path": "data/zamega/mega_showdown/showdown/held_items/skarmorite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "staraptite",
     "path": "data/zamega/mega_showdown/showdown/held_items/staraptite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "starminite",
     "path": "data/zamega/mega_showdown/showdown/held_items/starminite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "tatsugirinite",
     "path": "data/zamega/mega_showdown/showdown/held_items/tatsugirinite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "victreebelite",
     "path": "data/zamega/mega_showdown/showdown/held_items/victreebelite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "zeraorite",
     "path": "data/zamega/mega_showdown/showdown/held_items/zeraorite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "items",
     "id": "zygardite",
     "path": "data/zamega/mega_showdown/showdown/held_items/zygardite.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "moves",
     "id": "darkvoid",
     "path": "data/zamega/mega_showdown/showdown/moves/darkvoid.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "moves",
     "id": "nihillight",
     "path": "data/zamega/mega_showdown/showdown/moves/nihillight.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "moves",
     "id": "orderup",
     "path": "data/zamega/mega_showdown/showdown/moves/orderup.js"
   },
   {
-    "source": "mods\\zamega-fabric-1.7.3.jar",
+    "source": "mods/zamega-fabric-1.7.3.jar",
     "namespace": "zamega",
     "kind": "moves",
     "id": "volttackle",

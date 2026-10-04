@@ -30,6 +30,9 @@ public final class RejuvenationFields implements ModInitializer {
     }
 
     @Override public void onInitialize() {
+        try(var in=Objects.requireNonNull(RejuvenationFields.class.getResourceAsStream("/rejuvenation-types.json"))) {
+            registerTypes(read(in));
+        } catch(IOException error) { throw new IllegalStateException("Missing source type metadata",error); }
         com.cobblemon.mod.common.api.pokemon.status.Statuses.registerStatus(
             new FieldPersistentStatus("petrified","ptr"));
         // Held-item components are Cobblemon's supported bridge to Showdown IDs.
@@ -65,7 +68,7 @@ public final class RejuvenationFields implements ModInitializer {
     }
 
     private static void reload(class_3300 manager) {
-        JsonObject next = new JsonObject(), fields = new JsonObject(), items = new JsonObject();
+        JsonObject next = new JsonObject(), fields = new JsonObject(), items = new JsonObject(), abilities;
         JsonArray mappings = new JsonArray();
         try {
             for (var entry : manager.method_14488("rejuvenation/fields", id -> id.method_12832().endsWith(".json")).entrySet()) {
@@ -84,6 +87,7 @@ public final class RejuvenationFields implements ModInitializer {
                 var value=read(entry.getValue().method_14482()).getAsJsonObject("items");
                 for (var item:value.entrySet()) { if(items.has(item.getKey())) throw new IllegalArgumentException("Duplicate simulator item "+item.getKey()); items.add(item.getKey(),item.getValue()); }
             }
+            abilities = readAbilities(manager);
             for (var entry : fields.entrySet()) {
                 for (var move : entry.getValue().getAsJsonObject().getAsJsonObject("moves").entrySet()) {
                     JsonObject rule = move.getValue().getAsJsonObject();
@@ -93,14 +97,53 @@ public final class RejuvenationFields implements ModInitializer {
             }
             for (JsonElement element : mappings) if (!fields.has(element.getAsJsonObject().get("field").getAsString()))
                 throw new IllegalArgumentException("Mapping references missing field: " + element);
-            next.add("fields", fields); next.add("mappings", mappings); next.add("items", items);
+            next.add("fields", fields); next.add("mappings", mappings); next.add("items", items); next.add("abilities", abilities);
             next.addProperty("default", "rejuvenation:indoor");
             CatalogValidator.validate(next);
             catalog = new Catalog(next, catalog.revision()+1);
+            registerAbilityTemplates(abilities);
+            for(var field:fields.entrySet())if(field.getValue().getAsJsonObject().has("typeDefinitions"))registerTypes(field.getValue().getAsJsonObject().getAsJsonObject("typeDefinitions"));
             LOG.info("Loaded {} fields and {} environment rules (revision {})", fields.size(), mappings.size(), catalog.revision());
         } catch (Exception error) {
             LOG.error("Rejected field reload; previous revision retained", error);
             throw new IllegalArgumentException("Invalid Rejuvenation datapack: " + error.getMessage(), error);
+        }
+    }
+    private static void registerTypes(JsonObject definitions) {
+        for(var entry:definitions.entrySet()) {
+            String id=entry.getKey().toLowerCase(Locale.ROOT);
+            if(com.cobblemon.mod.common.api.types.ElementalTypes.get(id)!=null)continue;
+            var row=entry.getValue().getAsJsonObject();
+            var basis=com.cobblemon.mod.common.api.types.ElementalTypes.getOrException(row.get("textureBasis").getAsString().toLowerCase(Locale.ROOT));
+            com.cobblemon.mod.common.api.types.ElementalTypes.register(new com.cobblemon.mod.common.api.types.ElementalType(
+                id,class_2561.method_43470(row.get("displayName").getAsString()),row.get("hue").getAsInt(),
+                basis.getTextureXMultiplier(),basis.getResourceLocation(),id));
+        }
+    }
+    /** Declared source abilities. Shared with the Cobblemon ability-registry hook, whose reload can precede ours. */
+    public static JsonObject readAbilities(class_3300 manager) throws IOException {
+        JsonObject abilities = new JsonObject();
+        for (var entry : manager.method_14488("rejuvenation/abilities", id -> id.method_12832().endsWith(".json")).entrySet()) {
+            JsonObject document = read(entry.getValue().method_14482());
+            if (!document.has("schemaVersion") || document.get("schemaVersion").getAsInt() != 1) throw new IllegalArgumentException(entry.getKey() + ": unsupported ability schema");
+            for (var ability : document.getAsJsonObject("abilities").entrySet()) {
+                if (abilities.has(ability.getKey())) throw new IllegalArgumentException("Duplicate declared ability " + ability.getKey());
+                abilities.add(ability.getKey(), ability.getValue());
+            }
+        }
+        return abilities;
+    }
+    /**
+     * Cobblemon rebuilds its Java ability registry from the simulator on every data reload and
+     * synchronizes it to clients. The simulator definitions are installed with the field catalog,
+     * so the matching templates are added here; species data and commands can then refer to them.
+     */
+    public static void registerAbilityTemplates(JsonObject abilities) {
+        for (String id : abilities.keySet()) {
+            if (!id.matches("[a-z0-9]+")) throw new IllegalArgumentException("Invalid declared ability ID " + id);
+            // Same defaults Cobblemon gives simulator-provided abilities: stock builder and its translation-key convention.
+            com.cobblemon.mod.common.api.abilities.Abilities.register(new com.cobblemon.mod.common.api.abilities.AbilityTemplate(
+                id, com.cobblemon.mod.common.api.abilities.Abilities.INSTANCE.getDUMMY().getBuilder(), "cobblemon.ability." + id, "cobblemon.ability." + id + ".desc"));
         }
     }
     private static JsonObject read(InputStream in) throws IOException {

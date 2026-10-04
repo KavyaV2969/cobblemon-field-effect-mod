@@ -10,7 +10,7 @@ import json,os,shutil,subprocess,time,sys,hashlib
 OUT=Path(__file__).resolve().parents[1];ROOT=OUT.parent
 META=Path.home()/'AppData/Roaming/ModrinthApp/meta'
 VERSION='1.21.1-0.18.4';GAME=OUT/'integration/game'
-check_battles='--battle' in sys.argv or '--status' in sys.argv
+check_battles='--battle' in sys.argv or '--status' in sys.argv or '--abilities' in sys.argv
 v=json.loads((META/f'versions/{VERSION}/{VERSION}.json').read_text(encoding='utf-8'))
 GAME.mkdir(parents=True,exist_ok=True)
 def allowed(lib):
@@ -50,6 +50,7 @@ args=[str(Path('C:/Program Files/Java/jdk-21/bin/java.exe')),'-Xmx4G','-XX:Activ
     '--gameDir',str(GAME),'--assetsDir',str(META/'assets'),'--assetIndex',v['assetIndex']['id'],
     '--uuid','00000000000000000000000000000003','--accessToken','0','--userType','legacy',
     '--versionType','release','--width','854','--height','480','--quickPlaySingleplayer','RejuvenationVerification']
+if '--abilities' in sys.argv:args.insert(1,'-Drejuvenation.verifyAbilities=true')
 if '--status' in sys.argv:args.insert(1,'-Drejuvenation.verifyStatuses=true')
 log=OUT/'research/test-results/live-startup.log';report={'version':VERSION,'gameDir':str(GAME),'originalWorldCopied':False,'freshChunks':True,'success':False,'jarSha256':hashlib.sha256((OUT/'dist/rejuvenation-fields-0.1.0.jar').read_bytes()).hexdigest()}
 if log.exists():shutil.copy2(log,log.with_name('live-startup-'+str(int(time.time()))+'.log'))

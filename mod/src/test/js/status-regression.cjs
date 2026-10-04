@@ -51,8 +51,8 @@ module.exports=({test,battle,pokemon,move,E,fid,assert,catalog})=>{
  test('Ruin abilities add source Petrification multipliers on the correct stat branch',()=>{
   const b=battle('deux_finalis',{ability:'Beads of Ruin'},{ability:'Tablets of Ruin'}),[u,t]=pokemon(b);t.status='ptr';t.statusState={id:'ptr',target:t};
   const m=move(b,'tackle');assert.equal(b.runEvent('BasePower',u,t,m,100),195);
-  u.status='ptr';u.statusState={id:'ptr',target:u};assert.equal(b.runEvent('ModifyDef',t,u,m,100),130);
-  t.setAbility('vesselofruin');assert.equal(b.runEvent('ModifySpD',t,u,m,100),97);b.destroy();
+  u.status='ptr';u.statusState={id:'ptr',target:u};assert.equal(b.runEvent('ModifySpD',t,u,m,100),97);assert.equal(b.runEvent('ModifyDef',t,u,m,100),100);
+  t.setAbility('vesselofruin');assert.equal(b.runEvent('ModifyDef',t,u,m,100),130);assert.equal(b.runEvent('ModifySpD',t,u,m,100),75);b.destroy();
  });
  test('Perish Body source counters, suppression, trapping and forced status replacement',()=>{
   for(const field of ['deux_finalis','holy','infernal','haunted','indoor']){

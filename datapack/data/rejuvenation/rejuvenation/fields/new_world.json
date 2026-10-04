@@ -513,6 +513,40 @@
   ],
   "rules": [
     {
+      "event": "modifyMove",
+      "condition": {
+        "all": [
+          {
+            "overlay": "rejuvenation:rainbow"
+          },
+          {
+            "not": {
+              "all": [
+                {
+                  "ability": {
+                    "who": "user",
+                    "values": [
+                      "serenegrace"
+                    ]
+                  }
+                },
+                {
+                  "canFlinch": true
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "secondaryChance",
+          "multiplier": 2
+        }
+      ],
+      "source": "Battle_Move.rb:2328-2329"
+    },
+    {
       "event": "defense",
       "condition": {
         "not": {
@@ -563,6 +597,50 @@
         }
       ],
       "source": "Battler.rb:1187-1215"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "all": [
+          {
+            "overlay": "rejuvenation:rainbow"
+          },
+          {
+            "moveType": "Normal"
+          },
+          {
+            "category": "Special"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "extraType",
+          "values": [
+            "Normal",
+            "Fire",
+            "Water",
+            "Electric",
+            "Grass",
+            "Ice",
+            "Fighting",
+            "Poison",
+            "Ground",
+            "Flying",
+            "Psychic",
+            "Bug",
+            "Rock",
+            "Ghost",
+            "Dragon",
+            "Dark",
+            "Steel",
+            "Fairy"
+          ],
+          "excludePrimary": true,
+          "layer": "overlay"
+        }
+      ],
+      "source": "Battle_Move.rb:837-838; Battle_Field.rb:117-136"
     },
     {
       "event": "activate",
@@ -1205,9 +1283,13 @@
       "actions": [
         {
           "op": "reject"
+        },
+        {
+          "op": "message",
+          "text": "{1} absorbed the starlight!"
         }
       ],
-      "source": "Battle_MoveEffects.rb:8840"
+      "source": "Battle_MoveEffects.rb:8840; Battler.rb:7033-7035"
     },
     {
       "event": "formChange",
@@ -1669,6 +1751,705 @@
         }
       ],
       "source": "Battler.rb:1846-1848; Battle_Field.rb:1166-1175"
+    },
+    {
+      "event": "attack",
+      "condition": {
+        "all": [
+          {
+            "globalAbility": [
+              "tabletsofruin"
+            ]
+          },
+          {
+            "not": {
+              "ability": {
+                "who": "user",
+                "values": [
+                  "tabletsofruin"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.8893333333333334
+        }
+      ],
+      "source": "Battle_Move.rb:1471,1686"
+    },
+    {
+      "event": "specialAttack",
+      "condition": {
+        "all": [
+          {
+            "globalAbility": [
+              "vesselofruin"
+            ]
+          },
+          {
+            "not": {
+              "ability": {
+                "who": "user",
+                "values": [
+                  "vesselofruin"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.8893333333333334
+        }
+      ],
+      "source": "Battle_Move.rb:1471,1686"
+    },
+    {
+      "event": "defense",
+      "condition": {
+        "all": [
+          {
+            "globalAbility": [
+              "swordofruin"
+            ]
+          },
+          {
+            "not": {
+              "ability": {
+                "who": "user",
+                "values": [
+                  "swordofruin"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.8893333333333334
+        }
+      ],
+      "source": "Battle_Move.rb:1471,1686"
+    },
+    {
+      "event": "specialDefense",
+      "condition": {
+        "all": [
+          {
+            "globalAbility": [
+              "beadsofruin"
+            ]
+          },
+          {
+            "not": {
+              "ability": {
+                "who": "user",
+                "values": [
+                  "beadsofruin"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.8893333333333334
+        }
+      ],
+      "source": "Battle_Move.rb:1471,1686"
+    },
+    {
+      "event": "attack",
+      "condition": {
+        "sideAbility": {
+          "who": "user",
+          "values": [
+            "victorystar"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 1.5
+        }
+      ],
+      "source": "Battle_Move.rb:1593-1597"
+    },
+    {
+      "event": "specialAttack",
+      "condition": {
+        "sideAbility": {
+          "who": "user",
+          "values": [
+            "victorystar"
+          ]
+        }
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 1.5
+        }
+      ],
+      "source": "Battle_Move.rb:1593-1597"
+    },
+    {
+      "event": "damage",
+      "condition": {
+        "all": [
+          {
+            "all": [
+              {
+                "moveType": "Poison"
+              },
+              {
+                "sideAbility": {
+                  "who": "target",
+                  "values": [
+                    "pastelveil"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "overlay": "rejuvenation:misty_terrain"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.5
+        }
+      ],
+      "source": "Battle_Move.rb:1821"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "any": [
+          {
+            "move": "photongeyser"
+          },
+          {
+            "move": "lightthatburnsthesky"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "smartCategory",
+          "comparison": "offense",
+          "contactByCategory": false,
+          "specialMultipliers": [
+            {
+              "condition": {
+                "allyAbility": {
+                  "who": "user",
+                  "values": [
+                    "battery"
+                  ]
+                }
+              },
+              "factor": 1.3
+            },
+            {
+              "condition": {
+                "all": [
+                  {
+                    "ability": {
+                      "who": "user",
+                      "values": [
+                        "flareboost"
+                      ]
+                    }
+                  },
+                  {
+                    "pokemonStatus": "brn"
+                  }
+                ]
+              },
+              "factor": 1.5
+            }
+          ],
+          "physicalMultipliers": [],
+          "defenseMultipliers": [],
+          "specialDefenseMultipliers": []
+        }
+      ],
+      "source": "Battle_Move.rb:359-390"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "shellsidearm"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "smartCategory",
+          "comparison": "difference",
+          "contactByCategory": true,
+          "specialMultipliers": [
+            {
+              "condition": {
+                "allyAbility": {
+                  "who": "user",
+                  "values": [
+                    "battery"
+                  ]
+                }
+              },
+              "factor": 1.3
+            },
+            {
+              "condition": {
+                "all": [
+                  {
+                    "ability": {
+                      "who": "user",
+                      "values": [
+                        "flareboost"
+                      ]
+                    }
+                  },
+                  {
+                    "pokemonStatus": "brn"
+                  }
+                ]
+              },
+              "factor": 1.5
+            }
+          ],
+          "physicalMultipliers": [
+            {
+              "condition": {
+                "ability": {
+                  "who": "user",
+                  "values": [
+                    "toughclaws"
+                  ]
+                }
+              },
+              "factor": 1.3
+            }
+          ],
+          "defenseMultipliers": [
+            {
+              "condition": {
+                "all": [
+                  {
+                    "effectiveAbility": {
+                      "who": "target",
+                      "values": [
+                        "fluffy"
+                      ]
+                    }
+                  },
+                  {
+                    "not": {
+                      "ability": {
+                        "who": "user",
+                        "values": [
+                          "longreach"
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "factor": 2
+            }
+          ],
+          "specialDefenseMultipliers": [
+            {
+              "condition": {
+                "effectiveAbility": {
+                  "who": "target",
+                  "values": [
+                    "icescales"
+                  ]
+                }
+              },
+              "factor": 2
+            }
+          ]
+        }
+      ],
+      "source": "Battle_Move.rb:359-390"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "all": [
+          {
+            "move": "terastarstorm"
+          },
+          {
+            "species": {
+              "who": "user",
+              "value": "terapagos"
+            }
+          },
+          {
+            "formName": {
+              "who": "user",
+              "value": "Stellar"
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "smartCategory",
+          "comparison": "offense",
+          "contactByCategory": false,
+          "specialMultipliers": [
+            {
+              "condition": {
+                "allyAbility": {
+                  "who": "user",
+                  "values": [
+                    "battery"
+                  ]
+                }
+              },
+              "factor": 1.3
+            },
+            {
+              "condition": {
+                "all": [
+                  {
+                    "ability": {
+                      "who": "user",
+                      "values": [
+                        "flareboost"
+                      ]
+                    }
+                  },
+                  {
+                    "pokemonStatus": "brn"
+                  }
+                ]
+              },
+              "factor": 1.5
+            }
+          ],
+          "physicalMultipliers": [],
+          "defenseMultipliers": [],
+          "specialDefenseMultipliers": []
+        }
+      ],
+      "source": "Battle_Move.rb:359-390; Battle_MoveEffects.rb:9817-9838"
+    },
+    {
+      "event": "attack",
+      "condition": {
+        "all": [
+          {
+            "moveType": "Fire"
+          },
+          {
+            "item": {
+              "who": "target",
+              "values": [
+                "nevermeltice"
+              ]
+            }
+          },
+          {
+            "stateFlag": "neverMeltIce"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.66
+        },
+        {
+          "op": "moveMessage",
+          "text": "The Never-Melt Ice's sheer cold weakened {move}'s power!"
+        }
+      ],
+      "source": "Battle_Move.rb:1570-1573,1939-1944"
+    },
+    {
+      "event": "specialAttack",
+      "condition": {
+        "all": [
+          {
+            "moveType": "Fire"
+          },
+          {
+            "item": {
+              "who": "target",
+              "values": [
+                "nevermeltice"
+              ]
+            }
+          },
+          {
+            "stateFlag": "neverMeltIce"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "multiply",
+          "value": 0.66
+        },
+        {
+          "op": "moveMessage",
+          "text": "The Never-Melt Ice's sheer cold weakened {move}'s power!"
+        }
+      ],
+      "source": "Battle_Move.rb:1570-1573,1939-1944"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "naturesmadness"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "fixedDamage",
+          "basis": "targetMaxHP",
+          "factor": 0.5,
+          "message": null
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:2436-2437"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "ruination"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "fixedDamage",
+          "basis": "targetMaxHP",
+          "factor": 0.5,
+          "message": null
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:2436-2437"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "lunarblessing"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "replaceHitActions",
+          "actions": [
+            {
+              "op": "heal",
+              "who": "target",
+              "fraction": 0.33,
+              "round": true
+            },
+            {
+              "op": "cureStatus",
+              "who": "target"
+            }
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:9064"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "move": "junglehealing"
+      },
+      "actions": [
+        {
+          "op": "moveBehavior",
+          "recipe": "replaceHitActions",
+          "actions": [
+            {
+              "op": "heal",
+              "who": "target",
+              "fraction": 0.33,
+              "round": true
+            },
+            {
+              "op": "cureStatus",
+              "who": "target"
+            }
+          ]
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:9064"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "all": [
+          {
+            "move": "weatherball"
+          },
+          {
+            "weather": "shadowsky"
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveType",
+          "type": "Shadow"
+        },
+        {
+          "op": "moveProperty",
+          "path": "basePower",
+          "value": 100
+        }
+      ],
+      "source": "Battle_MoveEffects.rb:2914,2928"
+    },
+    {
+      "event": "weatherReconcile",
+      "condition": {
+        "all": [
+          {
+            "weatherActive": true
+          },
+          {
+            "not": {
+              "globalAbility": [
+                "tempest"
+              ]
+            }
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "clearWeather",
+          "message": "The weather disappeared into space!"
+        }
+      ],
+      "source": "Battle_Field.rb:215-232"
+    },
+    {
+      "event": "modifyMoveLate",
+      "condition": {
+        "all": [
+          {
+            "item": {
+              "who": "user",
+              "values": [
+                "kingsrock",
+                "razorfang"
+              ]
+            }
+          },
+          {
+            "baseCanFlinch": false
+          },
+          {
+            "any": [
+              {
+                "field": "rejuvenation:rainbow"
+              },
+              {
+                "overlay": "rejuvenation:rainbow"
+              },
+              {
+                "ability": {
+                  "who": "user",
+                  "values": [
+                    "serenegrace"
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "secondaryChance",
+          "chance": 20,
+          "volatileStatus": "flinch"
+        }
+      ],
+      "source": "Battler.rb:3544-3548"
+    },
+    {
+      "event": "modifyMoveLate",
+      "condition": {
+        "all": [
+          {
+            "item": {
+              "who": "user",
+              "values": [
+                "kingsrock",
+                "razorfang"
+              ]
+            }
+          },
+          {
+            "sheerForce": true
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "secondaries",
+          "value": []
+        }
+      ],
+      "source": "Battler.rb:3544 (Sheer Force with a secondary effect suppresses item flinch)"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {
+        "all": [
+          {
+            "move": "expandingforce"
+          },
+          {
+            "any": [
+              {
+                "field": "rejuvenation:psychic_terrain"
+              },
+              {
+                "overlay": "rejuvenation:psychic_terrain"
+              }
+            ]
+          }
+        ]
+      },
+      "actions": [
+        {
+          "op": "moveProperty",
+          "path": "target",
+          "value": "allAdjacentFoes"
+        }
+      ],
+      "source": "Battler.rb:4979-4980 (spread regardless of user grounding)"
     }
   ],
   "seed": {
@@ -1752,6 +2533,13 @@
     "combinedMinimum": 1.5,
     "source": "Battle_Field.rb:1001-1012; Battle_Move.rb:1355-1363"
   },
+  "timedWeatherText": {
+    "deltastream": {
+      "startMessage": "Strong winds kicked up around the field!",
+      "endMessage": "The strong wind petered out.",
+      "source": "Battle.rb:443,505"
+    }
+  },
   "trapping": {
     "divisors": [
       8,
@@ -1786,7 +2574,10 @@
           "duration": 8
         }
       ],
-      "source": "Battle_MoveEffects.rb:6820"
+      "source": "Battle_MoveEffects.rb:6820",
+      "sourceAbilities": [
+        "gravitycontrol"
+      ]
     },
     "trickroom": {
       "duration": 8,
@@ -1889,38 +2680,6 @@
       "message": "{1} is locked in a nightmare!",
       "source": "Battle.rb:6541-6551; Battle_MoveEffects.rb:6568"
     }
-  },
-  "statusMoveBehaviorCoverage": {
-    "explicitRuleMoves": [
-      "cosmicpower",
-      "flash",
-      "heartswap",
-      "moonlight",
-      "takeheart"
-    ],
-    "unreviewedHighlightedMoves": [
-      "chillyreception",
-      "darkvoid",
-      "electricterrain",
-      "grassyterrain",
-      "guardianofalola",
-      "hail",
-      "junglehealing",
-      "lunarblessing",
-      "lunardance",
-      "magicroom",
-      "mistyterrain",
-      "naturesmadness",
-      "psychicterrain",
-      "raindance",
-      "ruination",
-      "sandstorm",
-      "shadowsky",
-      "snowscape",
-      "sunnyday",
-      "trickroom",
-      "wonderroom"
-    ]
   },
   "persistentStatusPolicies": {
     "ptr": {
@@ -2163,10 +2922,315 @@
         ],
         "source": "Battler.rb:3926"
       }
+    },
+    "galvanize": {
+      "onBasePower": {
+        "mode": "replace",
+        "condition": {
+          "all": [
+            {
+              "abilityChangedType": true
+            },
+            {
+              "overlay": "rejuvenation:electric_terrain"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 1.5
+          }
+        ],
+        "source": "Battle_Move.rb:1249"
+      }
+    },
+    "pixilate": {
+      "onBasePower": {
+        "mode": "replace",
+        "condition": {
+          "all": [
+            {
+              "abilityChangedType": true
+            },
+            {
+              "overlay": "rejuvenation:misty_terrain"
+            }
+          ]
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 1.5
+          }
+        ],
+        "source": "Battle_Move.rb:1262"
+      }
+    },
+    "purepower": {
+      "onModifyAtk": {
+        "mode": "replace",
+        "condition": {
+          "overlay": "rejuvenation:psychic_terrain"
+        },
+        "actions": [],
+        "source": "Battle_Move.rb:1517"
+      }
+    },
+    "plus": {
+      "onModifySpA": {
+        "mode": "replace",
+        "condition": {
+          "overlay": "rejuvenation:electric_terrain"
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 1.5
+          }
+        ],
+        "source": "Battle_Move.rb:1495-1499"
+      }
+    },
+    "minus": {
+      "onModifySpA": {
+        "mode": "replace",
+        "condition": {
+          "overlay": "rejuvenation:electric_terrain"
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 1.5
+          }
+        ],
+        "source": "Battle_Move.rb:1495-1499"
+      }
+    },
+    "hadronengine": {
+      "onModifySpA": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 1.333251953125
+          }
+        ],
+        "source": "Battle_Move.rb:1503"
+      },
+      "onStart": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "abilityMessage"
+          },
+          {
+            "op": "message",
+            "text": "{1} used the energy of the New World to energize its futuristic engine!"
+          }
+        ],
+        "source": "Battler.rb:2822-2823"
+      }
+    },
+    "orichalcumpulse": {
+      "onModifyAtk": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 1.333251953125
+          }
+        ],
+        "source": "Battle_Move.rb:1523"
+      },
+      "onStart": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "abilityMessage"
+          },
+          {
+            "op": "message",
+            "text": "The energy of the New World sent {1}'s ancient pulse into a frenzy!"
+          }
+        ],
+        "source": "Battler.rb:2960-2961"
+      }
+    },
+    "marvelscale": {
+      "onModifyDef": {
+        "mode": "replace",
+        "condition": {
+          "overlay": "rejuvenation:misty_terrain"
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 1.5
+          }
+        ],
+        "source": "Battle_Move.rb:1724"
+      }
+    },
+    "shadowshield": {
+      "onSourceModifyDamage": {
+        "mode": "append",
+        "condition": {
+          "hitEffectiveness": {
+            "op": ">",
+            "value": 0
+          }
+        },
+        "actions": [
+          {
+            "op": "multiply",
+            "value": 0.75
+          }
+        ],
+        "source": "Battle_Move.rb:1812"
+      }
+    },
+    "tempest": {
+      "onEnd": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "reconcileWeather"
+          }
+        ],
+        "source": "Battler.rb:3515-3516"
+      }
+    },
+    "comatose": {
+      "onStart": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "abilityMessage"
+          },
+          {
+            "op": "message",
+            "text": "{1} is drowsing!"
+          }
+        ],
+        "source": "Battler.rb:3013-3017 (hard Electric field alone disables Comatose)"
+      }
+    },
+    "slowstart": {
+      "onStart": {
+        "mode": "replace",
+        "condition": {
+          "always": true
+        },
+        "actions": [
+          {
+            "op": "volatile",
+            "id": "slowstart",
+            "silent": true,
+            "message": "{1} is slow to get going!"
+          }
+        ],
+        "source": "Battler.rb:3288-3289 (clock retained even on Deep Earth)"
+      }
     }
   },
   "nativeFormTyping": [
     "arceus",
     "silvally"
-  ]
+  ],
+  "protectionPolicy": {
+    "burningbulwark": {
+      "source": "Battler.rb:5307",
+      "blockStatus": true
+    }
+  },
+  "weatherDefinitions": {
+    "shadowsky": {
+      "name": "ShadowSky",
+      "duration": 5,
+      "damageFraction": 0.0625,
+      "damageMessage": "The Pokémon were struck by bursts of light!",
+      "startMessage": "A shadowy aura filled the sky!",
+      "endMessage": "The shadowy aura faded away!",
+      "excludedAbilities": [
+        "magicguard",
+        "overcoat",
+        "tempest"
+      ],
+      "excludedItems": [
+        "safetygoggles"
+      ],
+      "excludedVolatiles": [
+        "dig",
+        "dive"
+      ],
+      "excludedFlags": [
+        "shadow"
+      ],
+      "source": "Battle.rb:5573-5589; Battle_Effects.rb:1354-1364"
+    }
+  },
+  "entryWishes": {
+    "lunardance": {
+      "boosts": {
+        "atk": 1,
+        "def": 1,
+        "spa": 1,
+        "spd": 1,
+        "spe": 1
+      },
+      "message": "{1} became cloaked in mystical moonlight!",
+      "source": "Battle.rb:8016-8031"
+    }
+  },
+  "statusMoveBehaviorCoverage": {
+    "explicitRuleMoves": [
+      "cosmicpower",
+      "flash",
+      "guardianofalola",
+      "heartswap",
+      "junglehealing",
+      "lunarblessing",
+      "moonlight",
+      "naturesmadness",
+      "ruination",
+      "takeheart"
+    ],
+    "unreviewedHighlightedMoves": [
+      "chillyreception",
+      "darkvoid",
+      "electricterrain",
+      "grassyterrain",
+      "hail",
+      "lunardance",
+      "magicroom",
+      "mistyterrain",
+      "psychicterrain",
+      "raindance",
+      "sandstorm",
+      "shadowsky",
+      "snowscape",
+      "sunnyday",
+      "trickroom",
+      "wonderroom"
+    ]
+  }
 }

@@ -4,15 +4,15 @@
   "biomes": 165,
   "explicitBiomes": 165,
   "counts": {
-    "conditions": 8508,
-    "actions": 2829,
-    "rules": 1873,
+    "conditions": 14313,
+    "actions": 4727,
+    "rules": 2769,
     "moves": 1647,
     "transitions": 517
   },
   "unavailableCounts": {
     "moves": 27,
-    "abilities": 5,
+    "abilities": 0,
     "items": 0
   }
 }

@@ -6,6 +6,7 @@ generator or re-running write_docs cannot close an unreviewed branch.
 """
 from pathlib import Path
 import json,hashlib,collections
+from source_path import scripts as source_scripts
 ROOT=Path(__file__).resolve().parents[1]
 def read(name):return json.loads((ROOT/'research'/name).read_text(encoding='utf-8'))
 def reviewed_audit():
@@ -14,12 +15,15 @@ def reviewed_audit():
     reviews=json.loads(path.read_text(encoding='utf-8')) if path.exists() else []
     by_key={}
     passed=set(read('test-results/simulator.json').get('passedTests',[]))
-    scripts=Path(read('source-location.json')['scripts'])
+    scripts=source_scripts()
     failures=[]
     for r in reviews:
-        key=(r['file'],r['line'])
+        key=(r['file'],r['line'],r['bodySha256'])
         if key in by_key:raise ValueError('Duplicate semantic review '+str(key))
-        if r['disposition'] not in ['implemented_and_tested','excluded_custom_move','excluded_crest','unsupported']:raise ValueError('Unknown review disposition '+str(key))
+        if r['disposition'] not in ['implemented_and_tested','excluded_custom_move','excluded_crest','excluded_ai_adapter','unsupported','presentation_only','unreachable_in_build']:raise ValueError('Unknown review disposition '+str(key))
+        # presentation_only: the branch only draws Rejuvenation's own menus; unreachable_in_build: a constant of this build (Rejuv, Gen, Overlays) disables it.
+        if r['disposition'] in ['presentation_only','unreachable_in_build'] and not r.get('limitation'):failures.append('Scope decision without a stated reason: '+str(key))
+        if r['disposition']=='excluded_ai_adapter' and r['file']!='Battle_AI.rb':raise ValueError('AI exclusion used on a runtime mechanic '+str(key))
         if not r.get('semantics'):raise ValueError('Missing semantic decision '+str(key))
         source=scripts/r['file']
         if hashlib.sha256(source.read_bytes()).hexdigest()!=r['sourceFileSha256']:failures.append('Source changed: '+str(key))
@@ -31,7 +35,7 @@ def reviewed_audit():
         by_key[key]=r
     seen=set()
     for lead in audit:
-        key=(lead['file'],lead['line']);r=by_key.get(key)
+        key=(lead['file'],lead['line'],lead['body_sha256']);r=by_key.get(key)
         if r:
             seen.add(key)
             if r['bodySha256']!=lead['body_sha256']:failures.append('AST body changed: '+str(key))

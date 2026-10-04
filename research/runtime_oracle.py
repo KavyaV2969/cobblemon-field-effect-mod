@@ -7,7 +7,8 @@ from pathlib import Path
 import hashlib, itertools, json, subprocess
 
 ROOT = Path(__file__).resolve().parents[1]
-source = Path(json.loads((ROOT/'research/source-location.json').read_text())['scripts'])
+from source_path import scripts as source_scripts
+source = source_scripts()
 field_ids = json.loads((ROOT/'research/field-id-map.json').read_text())
 types = 'NORMAL FIRE WATER ELECTRIC GRASS ICE FIGHTING POISON GROUND FLYING PSYCHIC BUG ROCK GHOST DRAGON DARK STEEL FAIRY'.split()
 type_sets = [[t] for t in types] + [p.split() for p in ['GHOST ICE', 'GHOST FIRE', 'ICE FIRE', 'DARK GHOST', 'NORMAL DRAGON']]

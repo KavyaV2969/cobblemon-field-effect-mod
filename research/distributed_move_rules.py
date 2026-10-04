@@ -78,14 +78,15 @@ def extend(fields,rule,action,both):
     for syms,stats in [('FROZENDIMENSION',{'atk':-1,'spa':-1,'spe':-1}),('CONCERT1 CONCERT2 CONCERT3 CONCERT4 BACKALLEY',{'atk':-2,'spa':-2})]:
         move(syms,'partingshot',[action('moveBehavior',recipe='gatedStatChanges',stats=stats,gateStats=dict.fromkeys(stats,-1),gateWho='user',selfSwitch=True,failureMessage="{1}'s stats can't be lowered!")],7244)
     for syms,mid,line in [('STARLIGHT DEEPEARTH','geomancy',7276),('STARLIGHT NEWWORLD','meteorbeam',8840),('ELECTERRAIN','electroshot',9783)]:
-        rule(syms,'chargeMove',{'move':mid},[action('reject')],'Battle_MoveEffects.rb:'+str(line))
+        rule(syms,'chargeMove',{'move':mid},[action('reject')]+([action('message',text='{1} absorbed the starlight!')] if mid in ['geomancy','meteorbeam'] else []),'Battle_MoveEffects.rb:'+str(line)+('; Battler.rb:7033-7035' if mid in ['geomancy','meteorbeam'] else ''))
     hit('FOREST FAIRYTALE BEWITCHED','forestscurse',[action('volatile',id='curse',who='target')],7415)
     move('FAIRYTALE','craftyshield',[action('moveBehavior',recipe='appendHitActions',callback='onHitSide',
          actions=[action('boost',stats={'def':1,'spd':1}),action('message',text='{1} boosted its defenses with the shield!')])],7545)
     hit('ELECTERRAIN','electrify',[action('type',type='Electric',who='target')],7639)
     move('DEUXFINALIS','purify',[action('moveBehavior',recipe='purify',stats={'def':1,'spd':1},fraction=.5)],8019)
     hit('BIGTOP','spotlight',[action('boost',stats={'atk':1,'spa':1}),action('boost',stats={'atk':1,'spa':1},who='target')],8187)
-    move('DEUXFINALIS DRAGONSDEN','scaleshot',[prop('self',{'boosts':{'spe':1}})],8824)
+    # The simulator applies Scale Shot's stat changes once, through selfBoost, after the last hit.
+    move('DEUXFINALIS DRAGONSDEN','scaleshot',[prop('selfBoost',{'boosts':{'spe':1}})],8824)
     move('CHESS','poltergeist',[action('removeCallbacks',callbacks=['onTry','onTryHit','onPrepareHit'])],8968)
     hit('BACKALLEY CITY CORROSIVEMIST','corrosivegas',[action('boost',who='target',stats=dict.fromkeys(['atk','def','spa','spd','spe'],-1))],9013)
     move('DRAGONSDEN','ficklebeam',[action('moveBehavior',recipe='randomPowerCallback',numerator=5,denominator=10,base=80,boosted=160,activation='Fickle Beam All Out')],9852)

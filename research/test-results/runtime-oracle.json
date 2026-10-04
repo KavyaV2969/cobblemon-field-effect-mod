@@ -6,7 +6,7 @@
     "PokeBattle_Battler.fieldDefenseBoost",
     "PokeBattle_Move.calculateFieldMultiplier"
   ],
-  "sourceFile": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\Test (1)\\rejuvenation\\Rejuvenation 14 copy\\Scripts\\Battle_Field.rb",
+  "sourceFile": "/sessions/rcw-01bxecwtbhbb7q5xkb4zrr6v/mnt/COBBLEVERSE - Pokemon Adventure [Cobblemon]/Rejuvenation 14 copy/Scripts/Battle_Field.rb",
   "sourceSha256": "026e0b3c12cd1d7cfb84eca8b0779e3a4038a47dfc8ecda9df54a9fbbbdeac62",
   "scope": "Executed Ruby method outputs versus engine conditions/actions and real Showdown power events. Does not certify complete fields."
 }

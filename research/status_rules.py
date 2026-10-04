@@ -27,7 +27,7 @@ def extend(fields,rule,action,both):
     # Defender/user roles on stat hooks follow the existing runtime convention.
     rule('DEUXFINALIS','basePower',both({'ability':{'who':'user','values':['beadsofruin']}},
          {'targetStatus':'ptr'}),[action('multiply',value=1.3)],'Battle_Move.rb:1285')
-    for event,aid,line in [('defense','tabletsofruin',1716),('specialDefense','vesselofruin',1733)]:
+    for event,aid,line in [('specialDefense','tabletsofruin',1716),('defense','vesselofruin',1733)]:
         rule('DEUXFINALIS',event,both({'ability':{'who':'user','values':[aid]}},{'targetStatus':'ptr'}),
              [action('multiply',value=1.3)],'Battle_Move.rb:'+str(line))
     rule('DEUXFINALIS','afterHit',both({'ability':{'who':'user','values':['swordofruin']}},

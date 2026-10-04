@@ -1,6 +1,12 @@
-# Future trainer integration
+# Trainer integration
 
-No Gym, Elite Four, League, Champion, trainer, NPC, progression, quest or trainer-team files were changed. Existing RCT/Run & Bun battles do not automatically opt into fields. The mod provides a battle selection API for a later integration project.
+No Gym, Elite Four, League, Champion, trainer, NPC, progression, quest or trainer-team files were changed.
+
+## Kanto league fields (implemented)
+
+The 13 Kanto series trainers (eight Gym Leaders, the Elite Four and Champion Blue) start their battles on fields assigned by `datapack/data/rejuvenation/rejuvenation/trainers/kanto.json`. `TrainerFieldBridge` reads the original-trainer tag Radical Cobblemon Trainers stamps on each NPC team Pokemon (`<registry>#<trainer id>`, `TrainerNPC.initTeam`) on Cobblemon's battle pre-start event and selects the mapped field at TRAINER priority. There is no compile or runtime dependency on RCT; any datapack file under `rejuvenation/trainers/` can map further trainer IDs, and all three validators check it. [KANTO_LEAGUE_FIELDS.md](KANTO_LEAGUE_FIELDS.md) lists the assignments and how they were computed. Other RCT battles remain unchanged unless mapped.
+
+## Selection API
 
 The intended future trainer configuration value is:
 

@@ -1,0 +1,32 @@
+{
+  "mode": "abilities",
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": true,
+  "jarSha256": "bd51069c844dccb405520ba4d162b6f752de04e15f904a5a1e21614480f72638",
+  "processId": 10764,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "All declared source abilities and Shadow type resolve in the live Java registries",
+      "Explicit initialized rejuvenation:indoor with ordered entry chat",
+      "Live Storm 9 sets and rotates weather with original messages and silent native context updates",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:indoor with ordered entry chat",
+      "Live Defragment entry and accuracy callbacks run through the registered ability",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:indoor with ordered entry chat",
+      "Live Soul Eater absorbs Ghost attacks and dispatches its original full-HP message",
+      "Ended battle state removed"
+    ],
+    "success": true,
+    "battles": 3
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 206.7,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

@@ -50,6 +50,12 @@ public final class RejuvenationFields implements ModInitializer {
             }));
         ShowdownInterpreter.registerUpdateInstructionParser("rejuvenationstate", (battle,set,message,remaining) ->
             b -> b.dispatchGo(() -> { FieldApi.update(b.getBattleId(),message.argumentAt(0));return Unit.INSTANCE; }));
+        // League trainers select their field before the LOWEST environment capture below.
+        com.cobblemon.mod.common.api.events.CobblemonEvents.BATTLE_STARTED_PRE.subscribe(
+            com.cobblemon.mod.common.api.Priority.NORMAL,
+            (java.util.function.Consumer<com.cobblemon.mod.common.api.events.battles.BattleStartedEvent.Pre>) event -> {
+                if (!event.isCanceled()) TrainerFieldBridge.select(event.getBattle());
+            });
         com.cobblemon.mod.common.api.events.CobblemonEvents.BATTLE_STARTED_PRE.subscribe(
             com.cobblemon.mod.common.api.Priority.LOWEST,
             (java.util.function.Consumer<com.cobblemon.mod.common.api.events.battles.BattleStartedEvent.Pre>) event -> {
@@ -88,6 +94,11 @@ public final class RejuvenationFields implements ModInitializer {
                 for (var item:value.entrySet()) { if(items.has(item.getKey())) throw new IllegalArgumentException("Duplicate simulator item "+item.getKey()); items.add(item.getKey(),item.getValue()); }
             }
             abilities = readAbilities(manager);
+            JsonObject trainers = new JsonObject();
+            for (var entry : manager.method_14488("rejuvenation/trainers", id -> id.method_12832().endsWith(".json")).entrySet()) {
+                var value=read(entry.getValue().method_14482()).getAsJsonObject("trainers");
+                for (var trainer:value.entrySet()) { if(trainers.has(trainer.getKey())) throw new IllegalArgumentException("Duplicate trainer field "+trainer.getKey()); trainers.add(trainer.getKey(),trainer.getValue()); }
+            }
             for (var entry : fields.entrySet()) {
                 for (var move : entry.getValue().getAsJsonObject().getAsJsonObject("moves").entrySet()) {
                     JsonObject rule = move.getValue().getAsJsonObject();
@@ -97,7 +108,7 @@ public final class RejuvenationFields implements ModInitializer {
             }
             for (JsonElement element : mappings) if (!fields.has(element.getAsJsonObject().get("field").getAsString()))
                 throw new IllegalArgumentException("Mapping references missing field: " + element);
-            next.add("fields", fields); next.add("mappings", mappings); next.add("items", items); next.add("abilities", abilities);
+            next.add("fields", fields); next.add("mappings", mappings); next.add("items", items); next.add("abilities", abilities); next.add("trainers", trainers);
             next.addProperty("default", "rejuvenation:indoor");
             CatalogValidator.validate(next);
             catalog = new Catalog(next, catalog.revision()+1);

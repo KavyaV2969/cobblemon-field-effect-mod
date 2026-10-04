@@ -10,7 +10,8 @@ import json,os,shutil,subprocess,time,sys,hashlib
 OUT=Path(__file__).resolve().parents[1];ROOT=OUT.parent
 META=Path.home()/'AppData/Roaming/ModrinthApp/meta'
 VERSION='1.21.1-0.18.4';GAME=OUT/'integration/game'
-check_battles='--battle' in sys.argv or '--status' in sys.argv or '--abilities' in sys.argv
+MODES=['battle','status','abilities','extended'];mode=next((m for m in MODES if '--'+m in sys.argv),None)
+check_battles=mode is not None
 v=json.loads((META/f'versions/{VERSION}/{VERSION}.json').read_text(encoding='utf-8'))
 GAME.mkdir(parents=True,exist_ok=True)
 def allowed(lib):
@@ -42,6 +43,9 @@ shutil.copy2(ROOT/'saves/New World/level.dat',world/'level.dat')
 if (ROOT/'saves/New World/datapacks').exists():shutil.copytree(ROOT/'saves/New World/datapacks',world/'datapacks',dirs_exist_ok=True)
 shutil.copytree(OUT/'datapack',world/'datapacks/rejuvenation',dirs_exist_ok=True)
 if (ROOT/'options.txt').exists():shutil.copy2(ROOT/'options.txt',GAME/'options.txt')
+# A paused integrated server stops ticking the fixture; keep it running when the window loses focus (isolated copy only).
+options=GAME/'options.txt'
+if options.exists():options.write_text(options.read_text(encoding='utf-8').replace('pauseOnLostFocus:true','pauseOnLostFocus:false'),encoding='utf-8')
 native=META/f'natives/{VERSION}'
 args=[str(Path('C:/Program Files/Java/jdk-21/bin/java.exe')),'-Xmx4G','-XX:ActiveProcessorCount=4',
     '-Djava.library.path='+str(native),'-Dorg.lwjgl.system.SharedLibraryExtractPath='+str(native),
@@ -52,7 +56,8 @@ args=[str(Path('C:/Program Files/Java/jdk-21/bin/java.exe')),'-Xmx4G','-XX:Activ
     '--versionType','release','--width','854','--height','480','--quickPlaySingleplayer','RejuvenationVerification']
 if '--abilities' in sys.argv:args.insert(1,'-Drejuvenation.verifyAbilities=true')
 if '--status' in sys.argv:args.insert(1,'-Drejuvenation.verifyStatuses=true')
-log=OUT/'research/test-results/live-startup.log';report={'version':VERSION,'gameDir':str(GAME),'originalWorldCopied':False,'freshChunks':True,'success':False,'jarSha256':hashlib.sha256((OUT/'dist/rejuvenation-fields-0.1.0.jar').read_bytes()).hexdigest()}
+if '--extended' in sys.argv:args.insert(1,'-Drejuvenation.verifyExtended=true')
+log=OUT/'research/test-results/live-startup.log';report={'mode':mode or 'startup','version':VERSION,'gameDir':str(GAME),'originalWorldCopied':False,'freshChunks':True,'success':False,'jarSha256':hashlib.sha256((OUT/'dist/rejuvenation-fields-0.1.0.jar').read_bytes()).hexdigest()}
 if log.exists():shutil.copy2(log,log.with_name('live-startup-'+str(int(time.time()))+'.log'))
 previous=log.with_suffix('.json')
 if previous.exists():shutil.copy2(previous,previous.with_name('live-startup-'+str(int(time.time()))+'.json'))
@@ -66,7 +71,7 @@ with log.open('w',encoding='utf-8') as stream:
     report['processId']=proc.pid
     (OUT/'research/test-results/live-process.json').write_text(json.dumps({'pid':proc.pid,'gameDir':str(GAME)}),encoding='utf-8')
     try:
-        while proc.poll() is None and time.monotonic()-start<300:
+        while proc.poll() is None and time.monotonic()-start<(600 if mode=='extended' else 300):
             stream.flush()
             tail=log.read_text(encoding='utf-8',errors='replace')[-12000:]
             if 'Uncaught exception in thread "Cobblemon Showdown"' in tail:
@@ -89,4 +94,6 @@ with log.open('w',encoding='utf-8') as stream:
     report['exitCode']=proc.returncode;report['elapsedSeconds']=round(time.monotonic()-start,1)
     report['terminationReason']='Owned test process terminated after verification/timeout; exit code is not a crash assertion'
     (OUT/'research/test-results/live-startup.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
+    # One receipt per mode, so later runs do not overwrite other evidence.
+    if mode:(OUT/f'research/test-results/live-mode-{mode}.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 print(json.dumps(report,indent=2))

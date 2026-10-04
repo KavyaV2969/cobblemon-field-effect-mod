@@ -1,8 +1,9 @@
 {
-  "passed": 504,
+  "passed": 505,
   "failed": false,
   "passedTests": [
     "all 57 definitions parse and are attachable",
+    "every Kanto league trainer starts on a shipped non-Indoor field chosen by the engine scores",
     "unknown conditions and invalid transitions reject catalog",
     "field initialization and original message",
     "every discovered biome resolves intentionally",

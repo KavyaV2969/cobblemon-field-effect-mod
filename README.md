@@ -16,7 +16,7 @@ Outputs:
 
 Use a separate test profile first. Install the jar in `mods/` on the server and clients, because it registers six held items. Install and enable the datapack in that world's `datapacks/`, or in the modpack's required Global Packs directory. Start/reload the world; look for `Loaded 57 fields` in the log. The jar requires the datapack's `rejuvenation:indoor` definition. No Rejuvenation game installation is needed at runtime.
 
-Natural wild battles select a field from the wild Pokémon's environment. Existing trainer and player battles remain opt-in through `FieldApi`; no trainer definitions have been edited. The Run & Bun implementation is unchanged. Read [trainer integration](docs/TRAINER_INTEGRATION.md) before opting a trainer battle into fields.
+Natural wild battles select a field from the wild Pokémon's environment. The Kanto league (eight Gym Leaders, Elite Four, Champion) battles on fields chosen to favor each trainer's team ([Kanto league fields](docs/KANTO_LEAGUE_FIELDS.md)); other trainer and player battles remain opt-in through `FieldApi`. No trainer definitions, teams or AI settings have been edited. The Run & Bun implementation is unchanged. Read [trainer integration](docs/TRAINER_INTEGRATION.md) before opting a trainer battle into fields.
 
 No original game graphics, animations, audio or complete Ruby scripts are included. Seed items use vanilla wheat-seed visuals; Amulet Coin uses the vanilla gold-nugget visual, and Amplifield Rock uses cobblestone. Existing Cobblemon Everstones are bridged into opted-in battle teams. Original field mechanics and required battle text are stored as data.
 

@@ -58,8 +58,19 @@ public final class JavaVerification {
     c->c.getAsJsonObject("fields").getAsJsonObject("rejuvenation:forest").add("revivalBlessing",com.google.gson.JsonParser.parseString("{\"fraction\":2,\"source\":\"t\"}")),
     c->c.getAsJsonObject("fields").getAsJsonObject("rejuvenation:forest").add("volatileMoveLocks",com.google.gson.JsonParser.parseString("{\"rage\":{\"move\":\"Rage!\",\"source\":\"t\"}}")),
     c->c.getAsJsonObject("fields").getAsJsonObject("rejuvenation:forest").add("silentVolatileEnds",com.google.gson.JsonParser.parseString("[\"rage\"]")),
-    c->c.getAsJsonObject("fields").getAsJsonObject("rejuvenation:forest").add("priorityBlockingAbilities",com.google.gson.JsonParser.parseString("[\"Mirror Armor\"]")))){
+    c->c.getAsJsonObject("fields").getAsJsonObject("rejuvenation:forest").add("priorityBlockingAbilities",com.google.gson.JsonParser.parseString("[\"Mirror Armor\"]")),
+    // League trainer field maps: Indoor, unknown fields, bad IDs, scores and extra keys are rejected.
+    c->c.add("trainers",com.google.gson.JsonParser.parseString("{\"kanto_brock\":{\"field\":\"rejuvenation:indoor\"}}")),
+    c->c.add("trainers",com.google.gson.JsonParser.parseString("{\"kanto_brock\":{\"field\":\"rejuvenation:nowhere\"}}")),
+    c->c.add("trainers",com.google.gson.JsonParser.parseString("{\"Kanto Brock\":{\"field\":\"rejuvenation:cave\"}}")),
+    c->c.add("trainers",com.google.gson.JsonParser.parseString("{\"kanto_brock\":{\"field\":\"rejuvenation:cave\",\"winShare\":2}}")),
+    c->c.add("trainers",com.google.gson.JsonParser.parseString("{\"kanto_brock\":{\"field\":\"rejuvenation:cave\",\"team\":[]}}")))){
    final var malformed=catalog.deepCopy();change.accept(malformed);rejected(()->CatalogValidator.validate(malformed));}
+  // RCT original-trainer tags are "<registry>#<trainer id>"; anything else selects nothing.
+  check("kanto_brock".equals(TrainerFieldBridge.trainerId("rctmod#kanto_brock")),"RCT trainer tag parse");
+  check("kanto_brock".equals(TrainerFieldBridge.trainerId("#kanto_brock")),"Empty-registry RCT tag parse");
+  check(TrainerFieldBridge.trainerId("00000000-0000-0000-0000-000000000001")==null && TrainerFieldBridge.trainerId("rctmod#")==null && TrainerFieldBridge.trainerId(null)==null,"Non-RCT tags select no trainer");
+  check(catalog.getAsJsonObject("trainers").size()==13,"Thirteen Kanto league trainer fields shipped");
   var selections=new EnumMap<FieldApi.Priority,String>(FieldApi.Priority.class);selections.put(FieldApi.Priority.ARENA,"arena");selections.put(FieldApi.Priority.TRAINER,"trainer");selections.put(FieldApi.Priority.EXPLICIT,"explicit");
   check(FieldApi.choose(selections,"biome",true).field().equals("explicit"),"Explicit priority");selections.remove(FieldApi.Priority.EXPLICIT);
   check(FieldApi.choose(selections,"biome",true).field().equals("trainer"),"Trainer priority");selections.remove(FieldApi.Priority.TRAINER);

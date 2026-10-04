@@ -13,7 +13,8 @@ const sandbox={require:requireSimulator,REJUVENATION_SHOWDOWN_ROOT:'./',console}
 vm.createContext(sandbox);vm.runInContext(fs.readFileSync(path.join(root,'mod/src/main/resources/rejuvenation-engine.js'),'utf8'),sandbox);
 const items=JSON.parse(fs.readFileSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/items/seeds.json'))).items;
 const abilities=JSON.parse(fs.readFileSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/abilities/source.json'))).abilities;
-const E=sandbox.RejuvenationEngine;const catalog={fields,mappings,items,abilities,default:'rejuvenation:indoor'};E.load(JSON.stringify(catalog));
+const trainers={};for(const filename of fs.readdirSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/trainers')))Object.assign(trainers,JSON.parse(fs.readFileSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/trainers',filename))).trainers);
+const E=sandbox.RejuvenationEngine;const catalog={fields,mappings,items,abilities,trainers,default:'rejuvenation:indoor'};E.load(JSON.stringify(catalog));
 let count=0;const passedTests=[],failedTests=[];
 function test(name,fn){try{fn();console.log('PASS '+name);passedTests.push(name);count++;}catch(e){failedTests.push(name);console.error('FAIL '+name,e);process.exitCode=1;}}
 const fid=s=>'rejuvenation:'+s;
@@ -29,6 +30,14 @@ function battle(field='forest',a={},t={}){
 function pokemon(b){return [b.sides[0].active[0],b.sides[1].active[0]];}
 function move(b,id){return b.dex.getActiveMove(id);}
 test('all 57 definitions parse and are attachable',()=>{assert.equal(Object.keys(fields).length,57);for(const f of Object.values(fields)){const b=new Battle({formatid:'gen9customgame'});E.attach(b,f.id);assert.equal(E.current(b).id,f.id);b.destroy();}});
+test('every Kanto league trainer starts on a shipped non-Indoor field chosen by the engine scores',()=>{
+ const scores=JSON.parse(fs.readFileSync(path.join(root,'research/trainer-field-scores.json'))).trainers;
+ assert.equal(Object.keys(trainers).length,13);
+ for(const [id,row]of Object.entries(trainers)){assert(fields[row.field] && row.field!=='rejuvenation:indoor',id);assert.equal(row.field,scores[id].best,id);
+  for(const [field,s]of Object.entries(scores[id].scores))if(field!=='rejuvenation:indoor')assert(s.winShare<row.winShare || (s.winShare===row.winShare && s.margin<=scores[id].scores[row.field].margin),id+' '+field);}
+ for(const bad of [{kanto_brock:{field:'rejuvenation:indoor'}},{kanto_brock:{field:'rejuvenation:nowhere'}},{'Kanto Brock':{field:'rejuvenation:cave'}},{kanto_brock:{field:'rejuvenation:cave',winShare:2}},{kanto_brock:{field:'rejuvenation:cave',team:[]}}])
+  assert.throws(()=>E.load(JSON.stringify({...catalog,trainers:bad})),JSON.stringify(bad));
+ E.load(JSON.stringify(catalog));});
 test('unknown conditions and invalid transitions reject catalog',()=>{const c=JSON.parse(JSON.stringify(catalog));c.fields[fid('forest')].rules.push({event:'residual',condition:{nonsense:true},actions:[]});assert.throws(()=>E.load(JSON.stringify(c)));});
 test('field initialization and original message',()=>{const b=battle();assert.equal(E.current(b).id,fid('forest'));assert(b.log.some(s=>s.includes('The field is abound with trees.')));b.destroy();});
 test('every discovered biome resolves intentionally',()=>{const rows=JSON.parse(fs.readFileSync(path.join(root,'research/biome-mapping.json')));for(const row of rows)assert.equal(E.resolve({biome:row.biome,dimension:'minecraft:overworld',tags:[],submerged:false,y:64,skyVisible:true}),row.field);});

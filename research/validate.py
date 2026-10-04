@@ -407,7 +407,18 @@ for r in mapping:ensure(r['field'] in fields,'mapping','unknown field');ensure(s
 explicit={r['biome'] for r in mapping if 'biome' in r};ensure(set(known)<=explicit,'mapping','unmapped detected biomes')
 unavailable={kind:{v:locations for v,locations in values.items() if v not in registry[kind] and not (kind=='items' and v in items)} for kind,values in refs.items()}
 write(ROOT/'research/reference-validation.json',{'unavailable':unavailable,'counts':{kind:len(values) for kind,values in refs.items()},'reason':'Rejuvenation-specific or misspelled IDs absent from installed Showdown base. These rules cannot trigger until a compatible definition is registered.'})
-catalog={'fields':fields,'mappings':mapping,'items':items,'abilities':abilities,'default':'rejuvenation:indoor'}
+import re
+trainers={}
+for p in sorted((DATA/'trainers').glob('*.json')):
+    for tid,row in read(p)['trainers'].items():
+        where='trainers/'+p.name+'/'+tid
+        ensure(tid not in trainers,where,'duplicate trainer field')
+        ensure(re.fullmatch(r'[a-z0-9_.-]+',tid) is not None and isinstance(row,dict) and set(row)<={'field','winShare','indoorWinShare'}
+               and row.get('field') in fields and row.get('field')!='rejuvenation:indoor',where,'invalid trainer field')
+        for k in ['winShare','indoorWinShare']:
+            if k in row:ensure(isinstance(row[k],(int,float)) and not isinstance(row[k],bool) and 0<=row[k]<=1,where,'invalid trainer score')
+        trainers[tid]=row
+catalog={'fields':fields,'mappings':mapping,'items':items,'abilities':abilities,'trainers':trainers,'default':'rejuvenation:indoor'}
 write(ROOT/'research/catalog.json',catalog)
 write(ROOT/'research/test-results/datapack-validation.json',{'errors':errors,'fields':len(fields),'biomes':len(known),'explicitBiomes':len(explicit),'counts':count,'unavailableCounts':{k:len(v) for k,v in unavailable.items()}})
 if errors:

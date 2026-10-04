@@ -118,4 +118,30 @@ for p in read('pack-inventory.json'):inventory.append('| '+' | '.join(cell(v) fo
 inventory+=['','Resource-pack sources include `config/cobbleverse`, resourcepacks archives and mod resources. Global Packs requires `datapacks/` and makes `datapacks/extra` optional. This task did not change those settings or existing pack enablement.',
     '', 'Other battle extensions detected include Cobblemon Battle Extras, battle positions, raid dens, Mega Showdown, ZA Mega, Fight or Flight and custom held-item/move resources. Engine reference validation includes 60 addon registry resources in addition to the shipped simulator dex.']
 write(DOC/'MODPACK_INVENTORY.md','\n'.join(inventory))
+# Kanto league field assignments (research/trainer_fields.py writes the scores and the datapack map).
+scores=read('trainer-field-scores.json');teams=read('kanto-league-teams.json')
+assigned=json.loads((ROOT/'datapack/data/rejuvenation/rejuvenation/trainers/kanto.json').read_text(encoding='utf-8'))['trainers']
+names=collections.Counter(f['name'] for f in fields.values())
+def label(fid):return fields[fid]['name']+(f" {fields[fid]['originalId'][-1]}" if names[fields[fid]['name']]>1 else '')
+league=['# Kanto league fields','',
+    'Every Kanto series trainer of the installed RCT datapack starts its battles on the field below. Trainer teams, AI and series files are read, never edited. '
+    'The mod recognises the trainer from the original-trainer tag RCT stamps on its team (`<registry>#<trainer id>`) and selects the field at TRAINER priority before the battle starts; an EXPLICIT selection still overrides it.',
+    '', '## How the field was chosen','',
+    'Each of the 56 non-Indoor fields was scored with the real engine (`research/trainer_fields.cjs`, about 80,000 simulated battles). For every team member, exactly as RCT defines it (species, level, nature, IVs, ability, item, moves), and each of 18 single-type reference opponents with Mew base stats at the same level, a fresh battle was started on the field and measured:',
+    '', '- the best expected damage per turn the member deals and takes, after every field rule, ability, item, weather and entry effect;',
+    '- end-of-round residual damage or healing for both sides;','- action speed after entry effects.',
+    '', 'The member wins the pairing if it needs fewer turns to knock out (ties go to the faster side). A field\'s score is the share of the 6x18 pairings the team wins; the mean log damage ratio breaks ties. The assigned field has the highest score.',
+    '', 'Assumptions: '+'; '.join(scores['assumptions'])+'.',
+    '', '## Assignments','', '| Trainer | RCT ID | Format | Field | Win share | With no field | Runners-up |','|---|---|---|---|---:|---:|---|']
+for tid,row in scores['trainers'].items():
+    runners=', '.join(f"{label(r['field'])} ({r['winShare']:.0%})" for r in row['ranking'][1:3])
+    league.append('| '+' | '.join(map(cell,[row['name'],tid,teams['trainers'][tid]['battleFormat'],f"[{label(assigned[tid]['field'])}](fields/{assigned[tid]['field'].split(':')[1]}.md)",
+        f"{assigned[tid]['winShare']:.0%}",f"{assigned[tid]['indoorWinShare']:.0%}",runners]))+' |')
+league+=['','## Who benefits','','Per-member win share with no field and on the assigned field.','']
+for tid,row in scores['trainers'].items():
+    best,base=row['scores'][assigned[tid]['field']]['members'],row['baseline']['members']
+    league.append(f"- **{row['name']}** ({label(assigned[tid]['field'])}): "+', '.join(f"{m} {base[m]:.0%}→{best[m]:.0%}" for m in best))
+league+=['','Source snapshot: `'+teams['source']['datapack']+'` SHA-256 `'+teams['source']['sha256']+'`. Re-run `python rejuvenation/research/trainer_fields.py` after the RCT datapack or the field rules change.',
+    '', 'Run & Bun AI does not evaluate field effects (see [TRAINER_INTEGRATION.md](TRAINER_INTEGRATION.md)); the advantage comes from the field rules applying to the trainer\'s team, not from AI awareness.']
+write(DOC/'KANTO_LEAGUE_FIELDS.md','\n'.join(league))
 print('Generated catalogues for',len(fields),'fields and',len(rows),'biomes;',sum(v['implementationComplete'] for v in ledger.values()),'fields source-audit closed')

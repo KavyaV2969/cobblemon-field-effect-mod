@@ -18,15 +18,7 @@ Scope exclusions are unchanged: custom Rejuvenation moves, Crests, and unavailab
 
 ## Future work
 
-1. **New live Minecraft checks** (`research/live_check.py`, `LiveBattleFixture.java`). The `--battle` suite passed on the current jar: seven battles, 23 checks. These checks still need fixture phases:
-   - BoostMessageMixin
-   - AbilityRegistryMixin
-   - timed strong-winds text
-   - a field entry hazard
-   - Revival Blessing on Holy Field
-   - Ion Deluge/Stoked Sparksurfer terrain in a live Z-move battle
-
-   Also rerun `--abilities` and `--status` on the current jar.
+1. **More live coverage.** `--battle`, `--abilities` and `--extended` pass on the current jar; the extended suite covers stat-boost messages, the ability registry across a data reload, timed strong winds, electrified Spikes, Holy Revival Blessing and Genesis Supernova terrain. Further live checks are worthwhile for any new Java mixin or chat path.
 2. **Two-client multiplayer and disconnect verification.** This has never been run. Simulator doubles and single-client checks don't replace it.
 3. **Run & Bun AI adapter.** The 763 Battle AI leads are deferred to it, and it isn't started. See [TRAINER_INTEGRATION.md](TRAINER_INTEGRATION.md).
 4. **Forms absent from the pack.** Coal Furnace, World of Nightmares, Mega Sol and 26 other abilities belong to such forms and are recorded unsupported/unreachable. Revisit only if those forms are added.
@@ -36,9 +28,12 @@ Scope exclusions are unchanged: custom Rejuvenation moves, Crests, and unavailab
 
 ## Recently completed
 
+- Kanto league trainers battle on engine-scored fields (`research/trainer_fields.py`, `TrainerFieldBridge`); re-run the scorer when the RCT datapack or field rules change. Johto/Hoenn/Sinnoh leagues can be added the same way.
+
 - Battle.rb, Battler.rb, Battle_Move.rb, Battle_MoveEffects.rb, Battle_Effects.rb, Battle_Field.rb and the smaller files are fully reviewed.
 - The blind-spot scan was triaged:
   - Ion Deluge, Plasma Fists, Stoked Sparksurfer and Genesis Supernova terrain creation is implemented.
   - Terrain moves no longer fail for an Everstone holder; the source checks Everstone only for Mist, Ion Deluge, Plasma Fists and Conversion/Conversion 2.
 - The definition comparison was extended to Mimicry, Burmy cloak, seeds, status highlights and field-change targets.
 - The one-off `research/update_*_schema.py` scripts were removed; their edits are already in the three validators.
+- Six live checks were added as `live_check.py --extended` (fixture phases 10-15) and pass on the current jar.

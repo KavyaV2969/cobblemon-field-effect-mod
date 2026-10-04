@@ -37,6 +37,17 @@ public final class CatalogValidator {
  }
  public static void validate(JsonObject catalog){
   JsonObject fields=catalog.getAsJsonObject("fields");require(fields!=null && fields.has("rejuvenation:indoor"),"catalog","Missing fallback field");
+  if(catalog.has("trainers")){
+   require(catalog.get("trainers").isJsonObject(),"trainers","Invalid trainer field map");
+   for(var trainer:catalog.getAsJsonObject("trainers").entrySet()){
+    String where="trainer/"+trainer.getKey();require(trainer.getKey().matches("[a-z0-9_.-]+") && trainer.getValue().isJsonObject(),where,"Invalid trainer ID");
+    var row=trainer.getValue().getAsJsonObject();
+    require(words("field winShare indoorWinShare").containsAll(row.keySet()) && row.has("field") && row.get("field").isJsonPrimitive()
+     && fields.has(row.get("field").getAsString()) && !row.get("field").getAsString().equals("rejuvenation:indoor"),where,"Invalid trainer field");
+    for(String key:words("winShare indoorWinShare"))if(row.has(key))require(row.get(key).isJsonPrimitive() && row.get(key).getAsJsonPrimitive().isNumber()
+     && row.get(key).getAsDouble()>=0 && row.get(key).getAsDouble()<=1,where,"Invalid trainer score");
+   }
+  }
   JsonObject declared=catalog.has("abilities")?catalog.getAsJsonObject("abilities"):new JsonObject();
   for(var ability:declared.entrySet()){
    String where="ability/"+ability.getKey();require(ability.getKey().matches("[a-z0-9]+") && ability.getValue().isJsonObject(),where,"Invalid declared ability ID");

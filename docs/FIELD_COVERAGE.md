@@ -2,7 +2,7 @@
 
 **Implementation status: all 57 Rejuvenation field definitions are implemented and their source audit is closed.** Every ordinary field-dependent branch in the local Rejuvenation 14.0.14 battle scripts is either implemented with a passing named regression test, or recorded below as a custom-move/Crest exclusion, unreachable, unsupported with a concrete cause, or presentation-only. Battle AI branches wait for the Run & Bun AI adapter.
 
-**Verification boundary:** behavior is verified by 504 simulator regression checks, the Graal/Java suites, a bounded Ruby method oracle and selected live Minecraft battles. No field is certified through exhaustive live play or two-client multiplayer; see [TESTING.md](TESTING.md) and [REMAINING_WORK.md](REMAINING_WORK.md).
+**Verification boundary:** behavior is verified by 505 simulator regression checks, the Graal/Java suites, a bounded Ruby method oracle and selected live Minecraft battles. No field is certified through exhaustive live play or two-client multiplayer; see [TESTING.md](TESTING.md) and [REMAINING_WORK.md](REMAINING_WORK.md).
 
 ## Evidence
 

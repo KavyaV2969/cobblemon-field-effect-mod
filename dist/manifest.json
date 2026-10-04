@@ -7,13 +7,13 @@
   "artifacts": [
     {
       "path": "rejuvenation-fields-0.1.0.jar",
-      "bytes": 117872,
-      "sha256": "24e9ba4ac665a7266e7740d7a842bb48c035ec3b0cd87f696360b4707e3ce7a0"
+      "bytes": 120304,
+      "sha256": "bd51069c844dccb405520ba4d162b6f752de04e15f904a5a1e21614480f72638"
     },
     {
       "path": "rejuvenation-fields-datapack-0.1.0.zip",
-      "bytes": 477158,
-      "sha256": "f0438e7801b241d17f51cc886d4da30d24ea3e21abeb03066cadff41c3018e23"
+      "bytes": 477875,
+      "sha256": "3783381f641ca02b1ea24d7ed9c500da7353edcf752da82cca0e57333a64dce2"
     }
   ],
   "fieldsDiscovered": 57,
@@ -24,7 +24,7 @@
   "behaviorVerificationScope": "Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification",
   "compiledDefinitionPropertiesCompared": 4494,
   "compiledDefinitionDifferences": 0,
-  "simulatorTestsPassed": 504,
+  "simulatorTestsPassed": 505,
   "candidateBiomes": 165,
   "explicitlyMappedCandidates": 165,
   "candidateFallbacks": 0,
@@ -54,13 +54,36 @@
     "registeredBiomes": 70,
     "receipt": "../research/test-results/live-startup.json"
   },
+  "liveModes": {
+    "abilities": {
+      "artifactMatches": true,
+      "success": true,
+      "battles": 3,
+      "checks": 10,
+      "receipt": "../research/test-results/live-mode-abilities.json"
+    },
+    "battle": {
+      "artifactMatches": true,
+      "success": true,
+      "battles": 7,
+      "checks": 23,
+      "receipt": "../research/test-results/live-mode-battle.json"
+    },
+    "extended": {
+      "artifactMatches": true,
+      "success": true,
+      "battles": 6,
+      "checks": 19,
+      "receipt": "../research/test-results/live-mode-extended.json"
+    }
+  },
   "liveBiomeRegistry": {
     "count": 70,
     "receipt": "../research/runtime-biomes.json"
   },
   "buildLog": {
     "successful": true,
-    "sha256": "18fbd11bd1f60cff525bb4bc65a96e1e9dda51e96935eeedc45d2112727f6309",
+    "sha256": "9313e38437e8aadca4a04c2e6ebbfb227e9b41bd248c720253f4e3efda4c2455",
     "path": "../research/test-results/build.log"
   }
 }

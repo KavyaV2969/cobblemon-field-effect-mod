@@ -43,6 +43,15 @@ if live.exists():
     manifest['liveVerification']={'artifactMatches':result.get('jarSha256')==digest(jar),
         'success':result.get('success',False),'battles':result.get('battleChecks',{}).get('battles',0),
         'registeredBiomes':result.get('liveBiomes'),'receipt':'../research/test-results/live-startup.json'}
+# Per-mode receipts (live_check.py --battle/--status/--abilities/--extended).
+modes={}
+for receipt in sorted((ROOT/'research/test-results').glob('live-mode-*.json')):
+    mode=receipt.stem[len('live-mode-'):]
+    if mode not in ('battle','status','abilities','extended'):continue
+    result=read(receipt);checks=result.get('battleChecks',{})
+    modes[mode]={'artifactMatches':result.get('jarSha256')==digest(jar),'success':result.get('success',False),
+        'battles':checks.get('battles',0),'checks':len(checks.get('checks',[])),'receipt':'../research/test-results/'+receipt.name}
+if modes:manifest['liveModes']=modes
 runtime=ROOT/'research/runtime-biomes.json'
 if runtime.exists():
     registry=read(runtime);manifest['liveBiomeRegistry']={'count':len(registry['biomes']),

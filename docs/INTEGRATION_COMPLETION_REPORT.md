@@ -189,17 +189,17 @@ Mechanics corrected in this continuation:
 The receipt measures complete synchronous decisions in Cobblemon's shaded, interpreter-only Graal runtime: three single-battle states and a production-shaped worst-case doubles lead, with 5 warm repetitions.
 
 - **Cold column:** first decision after the publication warm-up, as in production.
-- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1177 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
+- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1683 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
 - **Pinning:** The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
 
 | Decision | Candidates / screened | Rollouts | Cold ms | Warm median ms | Warm max ms |
 |---|---:|---:|---:|---:|---:|
-| 1 fresh | 8 / 2 | 8 | 591 | 479 | 588 |
-| 6 fresh | 13 / 5 | 10 | 771 | 736 | 872 |
-| 6 turn 1 | 13 / 5 | 10 | 702 | 687 | 868 |
-| 6 turn 2 | 13 / 5 | 10 | 834 | 762 | 987 |
-| 6 turn 3 | 13 / 5 | 10 | 906 | 776 | 823 |
-| 6v6 doubles fresh | 24 / 16 | 17 | 2941 | 2730 | 2841 |
+| 1 fresh | 8 / 2 | 8 | 884 | 566 | 1008 |
+| 6 fresh | 13 / 5 | 10 | 1191 | 792 | 1282 |
+| 6 turn 1 | 13 / 5 | 10 | 1012 | 793 | 1053 |
+| 6 turn 2 | 13 / 5 | 10 | 1093 | 856 | 1144 |
+| 6 turn 3 | 13 / 5 | 10 | 1139 | 924 | 1226 |
+| 6v6 doubles fresh | 24 / 16 | 17 | 4157 | 3370 | 4218 |
 
 The singles optimizations are exact: candidate scores are bit-identical to the engine before them on 315 candidate rows across five fields, including history-reading moves. They include:
 
@@ -218,4 +218,4 @@ Receipts:
 - `research/ai-coverage.json` and `ai-review-decisions.json`;
 - in `test-results/`: `simulator.json`, `ai-prediction-audit.json`, `ai-source-oracle.json`, `java-verification.json`, `mixin-abi.json`, `graal-performance.json`, `strategy-benchmark.json`, `build.log`.
 
-The simulator, Java, Graal and benchmark receipts all fingerprint this engine: `1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b`.
+The simulator, Java, Graal and benchmark receipts all fingerprint this engine: `b2ba5f4db999938f423fecf71a60b9e92559bf010b94ed6811b70c606fbfd968`.

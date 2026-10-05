@@ -60,15 +60,15 @@ Publication now happens while the world loads (once) and after `/reload`. The su
 
 ## Current strategic decision benchmark
 
-The `strategyBenchmark` receipt measures complete strategy decisions, including opponent utility forecasts and a production-shaped worst-case doubles lead. Historical startup measurements above are separate workloads. Cold: first decision after the publication warm-up, as in production; publication warm-up 1177 ms. The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
+The `strategyBenchmark` receipt measures complete strategy decisions, including opponent utility forecasts and a production-shaped worst-case doubles lead. Historical startup measurements above are separate workloads. Cold: first decision after the publication warm-up, as in production; publication warm-up 1683 ms. The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
 
 | Decision | Candidates / screened | Rollouts | Cold ms | Warm median ms | Warm max ms |
 |---|---:|---:|---:|---:|---:|
-| 1 fresh | 8 / 2 | 8 | 591 | 479 | 588 |
-| 6 fresh | 13 / 5 | 10 | 771 | 736 | 872 |
-| 6 turn 1 | 13 / 5 | 10 | 702 | 687 | 868 |
-| 6 turn 2 | 13 / 5 | 10 | 834 | 762 | 987 |
-| 6 turn 3 | 13 / 5 | 10 | 906 | 776 | 823 |
-| 6v6 doubles fresh | 24 / 16 | 17 | 2941 | 2730 | 2841 |
+| 1 fresh | 8 / 2 | 8 | 884 | 566 | 1008 |
+| 6 fresh | 13 / 5 | 10 | 1191 | 792 | 1282 |
+| 6 turn 1 | 13 / 5 | 10 | 1012 | 793 | 1053 |
+| 6 turn 2 | 13 / 5 | 10 | 1093 | 856 | 1144 |
+| 6 turn 3 | 13 / 5 | 10 | 1139 | 924 | 1226 |
+| 6v6 doubles fresh | 24 / 16 | 17 | 4157 | 3370 | 4218 |
 
-5 warm repetitions; real Cobblemon shaded Graal, interpreter only. Receipt: `research/test-results/strategy-benchmark.json`. Engine SHA-256: `1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b`.
+5 warm repetitions; real Cobblemon shaded Graal, interpreter only. Receipt: `research/test-results/strategy-benchmark.json`. Engine SHA-256: `b2ba5f4db999938f423fecf71a60b9e92559bf010b94ed6811b70c606fbfd968`.

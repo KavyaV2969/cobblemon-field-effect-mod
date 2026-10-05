@@ -1787,7 +1787,9 @@
   // One damage roll; `fixed` is the random percentage removed (0 = highest roll, 15 = lowest).
   function rollDamage(b,user,target,move,fixed,crit,ignoreImmunity){
     // A shallow copy equals the former fresh clone overwritten by every property of the prepared move.
-    const m=Object.assign(Object.create(Object.getPrototypeOf(move)),move);if(crit!==undefined)m.willCrit=crit;m.hit=1;if(ignoreImmunity)m.ignoreImmunity=true;
+    // Arrays are copied too: callbacks consume them per roll (Beat Up shifts move.allies).
+    const m=Object.assign(Object.create(Object.getPrototypeOf(move)),move);if(crit!==undefined)m.willCrit=crit;
+    for(const k of Object.keys(m))if(Array.isArray(m[k]))m[k]=m[k].slice();m.hit=1;if(ignoreImmunity)m.ignoreImmunity=true;
     b.randomizer=forcedRoll(b,100-fixed);
     try{const d=b.actions.getDamage(user,target,m,true);return typeof d==='number'?d:d===false?null:0;}finally{delete b.randomizer;}
   }
@@ -1942,14 +1944,17 @@
       const move=args[2];
       return low && move?.multiaccuracy && move.hit>1?0:true;
     };
+    // A hit passes the active move; secondary and self effects re-enter the hit pipeline with their bare effect
+    // objects (no id) and deal no damage, so they are neither hits nor damage calculations.
     const restoreDamage=swap(b.actions,'getDamage',function(u,t,m,...args){
       countingHits=false;
+      const hit=u===user && t===target && !!m && typeof m==='object' && typeof m.id==='string';
       if(m && typeof m==='object'){
         m.willCrit=guaranteedCritical(b,u,t,m);
-        if(u===user && t===target)hits++;
+        if(hit)hits++;
       }
       inDamage++;
-      try{return oldDamage.call(this,u,t,m,...args);}finally{inDamage--;if(u===user && t===target)damageCalls++;}
+      try{return oldDamage.call(this,u,t,m,...args);}finally{inDamage--;if(hit)damageCalls++;}
     });
     try{
       const base=b.dex.getActiveMove(query.move),z=query.gimmick==='zmove'?b.actions.getZMove(base,user):undefined;
@@ -1989,7 +1994,10 @@
   }
   function evaluate(b,queries){
     if(!state(b))return {field:null,overlay:null,turn:b.turn,results:[]};
-    const results=transaction(b,()=>queries.map(q=>evaluateMove(b,q)));
+    // One query's failure reports an error row for it; the others keep their measurements.
+    const results=transaction(b,()=>queries.map(q=>transaction(b,()=>{
+      try{return evaluateMove(b,q);}catch(error){return {query:q,error:'evaluation failed: '+String(error?.message || error)};}
+    })));
     return {field:state(b).id,overlay:state(b).overlay?.id || null,turn:b.turn,results};
   }
   // Strategic scoring contains no field formulas. Consequences are produced by the same actions,

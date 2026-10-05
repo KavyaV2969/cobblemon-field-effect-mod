@@ -145,10 +145,15 @@ module.exports=({test,battle,pokemon,E,fid,assert,Battle})=>{
   }
   const fixed=make({},'seismictoss'),s=one(fixed,'seismictoss').withField;fixed.destroy();
   assert(!s.uncertainDamageRange && s.totalMinDamage===100 && s.totalMaxDamage===100,'deterministic damage keeps its exact value');
-  // Draws that cannot change damage keep the range: Secret Power's field secondary, a single fixed added type.
-  for(const [field,move]of [['forest','secretpower'],['corrosive_mist','hurricane']]){
+  // Draws that cannot change damage keep the range: Secret Power's field secondary, a single fixed added type, and a
+  // 100% secondary (its effect re-enters the hit pipeline without damage: neither a hit nor a damage calculation).
+  for(const [field,move]of [['forest','secretpower'],['corrosive_mist','hurricane'],['grassy_terrain','mysticalfire'],['forest','snarl'],['indoor','icywind']]){
    const b=make({},move,field),r=one(b,move).withField;b.destroy();
-   assert(!r.uncertainDamageRange && r.totalMinDamage>0 && r.totalMaxDamage>=r.totalMinDamage,field+' '+move+' '+JSON.stringify(r));
+   assert(!r.uncertainDamageRange && r.totalMinDamage>0 && r.totalMaxDamage>=r.totalMinDamage && r.minHits===1 && r.maxHits===1,field+' '+move+' '+JSON.stringify(r));
   }
+  // A callback that consumes move state per roll (Beat Up's allies) evaluates every roll, and a failing query never
+  // takes the other queries of its batch down with it.
+  const beat=make({species:'Weavile',ability:'Pressure'},'beatup'),rows=ev(beat,[{user:A,move:'beatup',target:B,range:true,crit:true},{user:A,move:'nonexistentmove',target:B},{user:A,move:'tackle',target:B,range:true}]).results;beat.destroy();
+  assert(!rows[0].error && rows[0].withField.totalMaxDamage>0 && rows[1].error && !rows[2].error && rows[2].withField.totalMaxDamage>0,JSON.stringify(rows));
  });
 };

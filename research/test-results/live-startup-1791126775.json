@@ -1,0 +1,38 @@
+{
+  "mode": "extended",
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": true,
+  "jarSha256": "24e9ba4ac665a7266e7740d7a842bb48c035ec3b0cd87f696360b4707e3ce7a0",
+  "processId": 28048,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "Explicit initialized rejuvenation:colosseum with ordered entry chat",
+      "Live BoostMessageMixin keeps the native Colosseum Magic Guard boost and shows only the original flavor line",
+      "Ended battle state removed",
+      "Declared source abilities and Shadow type survive a live data reload of Cobblemon's ability registry",
+      "Explicit initialized rejuvenation:mountain with ordered entry chat",
+      "Live Mountain Tailwind starts timed strong winds and ends them with the original text and no generic weather chat",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:electric_terrain with ordered entry chat",
+      "Live Electric Terrain entry hazard electrifies Spikes with source damage and text on a real switch",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:holy with ordered entry chat",
+      "Live Holy Field Revival Blessing revives the fainted ally at three-quarter HP",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:cave with ordered entry chat",
+      "Live Mewnium Z Genesis Supernova creates the source five-turn Psychic Terrain on Cave",
+      "Ended battle state removed"
+    ],
+    "success": true,
+    "battles": 5
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 262.8,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

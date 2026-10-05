@@ -11,11 +11,13 @@ def extend(fields,rule,action,both,ability,grounded):
     change('BIGTOP','victorydance',[prop('boosts',{'atk':2,'def':2,'spe':2})],9147)
     for syms,fraction,amount in [('BIGTOP DRAGONSDEN CONCERT1 CONCERT2 CONCERT3 CONCERT4',.5,2),('DEUXFINALIS',.25,1)]:
         change(syms,'clangoroussoul',[prop('boosts',dict.fromkeys(['atk','def','spa','spd','spe'],amount)),action('moveBehavior',recipe='payHP',fraction=fraction,threshold=True)],8590)
-    for syms,move,fraction,line in [('FACTORY','steelbeam',.25,8267),('SHORTCIRCUIT','steelbeam',1,8268),('FOREST','chloroblast',.25,9997)]:
-        change(syms,move,[action('moveBehavior',recipe='payHP',fraction=fraction,callback='onAfterMove',round=True,respectMagicGuard=True)],line)
+    for syms,move,fraction,line in [('FACTORY','steelbeam',.25,8267),('SHORTCIRCUIT','steelbeam',1,8268)]:
+        change(syms,move,[action('moveBehavior',recipe='payHP',fraction=fraction,callback='onAfterMove',round=True,respectMagicGuard=True,requireHit=True)],line)
     for syms,move,callback,line in [('CORROSIVE CORROSIVEMIST WASTELAND MURKWATERSURFACE','barbbarrage','onBasePower',9159),('INFERNAL HAUNTED','infernalparade','basePowerCallback',9201)]:
         change(syms,move,[prop('basePower',120,callback)],line)
-    change('ASHENBEACH','shoreup',[prop('heal',[3,4],'onHit')],8090)
+    # Chloroblast keeps the simulator's recoil path (Rock Head, Magic Guard, only after dealing damage) with the Forest share.
+    change('FOREST','chloroblast',[prop('maxHPRecoil',.25)],9997)
+    change('ASHENBEACH','shoreup',[prop('heal',[1,1],'onHit')],'8090-8091')
     change('DESERT','shoreup',[prop('heal',[2,3],'onHit')],8092)
     change('HOLY','lifedew',[prop('heal',[1,2])],8674)
     change('WATERSURFACE','lifedew',[action('moveBehavior',recipe='appendHitActions',actions=[action('volatile',id='aquaring')])],8682)

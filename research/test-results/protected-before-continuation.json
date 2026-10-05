@@ -1,0 +1,85 @@
+{
+  "checked": 1254,
+  "changed": [
+    "config\\cobblemon-battle-extras.json",
+    "config\\fabric\\indigo-renderer.properties",
+    "config\\iris.properties",
+    "config\\packetfixer.properties",
+    "config\\roughlyenoughitems\\pinyin.properties",
+    "config\\roughlyenoughitems\\pinyin_double.properties",
+    "config\\sodium-options.json",
+    "config\\xaero\\world-map\\client.cfg",
+    "config\\zfastnoise.mixin.properties",
+    "data\\fabricDefaultResourcePacks.dat"
+  ],
+  "added": [
+    "datapacks\\rejuvenation-fields-datapack-0.1.0.zip",
+    "mods\\rejuvenation-fields-0.1.0.jar"
+  ],
+  "deleted": [],
+  "timestamp": "2026-10-05T00:56:56.622259+00:00",
+  "authoredOutsideRejuvenation": [],
+  "note": "No original files are restored by this audit. An Iris settings difference is preserved; trainer/content archives and the other protected files are compared byte-for-byte.",
+  "differences": [
+    {
+      "path": "config\\cobblemon-battle-extras.json",
+      "baselineSha256": "b6f8a88157ec5f11914526687c0734daf9e56d3024198f2eb9af0a05dfe8edf1",
+      "currentSha256": "94f0a138418f73aa217b35cd8061a60802a47dc3ca91e3715d4d5a37d354142e",
+      "modifiedUtc": "2026-10-04T17:06:57.748818+00:00"
+    },
+    {
+      "path": "config\\iris.properties",
+      "baselineSha256": "e5ff16f5e702340b80ec398290e15a8f58d2da86b4adae34b953f2257a2ceb10",
+      "currentSha256": "37874afb9cac870ca5e5cf4eeb8ebf8a0e6c924c1069b7e64e502dce47bf248c",
+      "modifiedUtc": "2026-10-04T22:01:35.090037+00:00"
+    },
+    {
+      "path": "config\\packetfixer.properties",
+      "baselineSha256": "8f750d152252f089bae2f1797c18028666bce31c223a333188c48c70ceabe66c",
+      "currentSha256": "7c2e3954aba6ff085cf594e4879076645ea992bbaaab58513fd6c9487214ecb4",
+      "modifiedUtc": "2026-10-04T22:00:30.589887+00:00"
+    },
+    {
+      "path": "config\\sodium-options.json",
+      "baselineSha256": "65076783919b2d144e1a991b9448e7a79132fc126c950bedb6c6b1a873056540",
+      "currentSha256": "6c39e5cbebf1e47d054ed1e20a30ddc4f915f8ee5ab4cbf18e8184de7b5632db",
+      "modifiedUtc": "2026-10-04T22:01:29.446259+00:00"
+    },
+    {
+      "path": "config\\zfastnoise.mixin.properties",
+      "baselineSha256": "33fd5dba8381601145a59be7fe681be0ce4281976791ffff5aaa8273e208833a",
+      "currentSha256": "3afe4df1e5c458ccda928e95bf3cd2d35878326739643a28554b4253a03376b4",
+      "modifiedUtc": "2026-10-04T22:00:30.726133+00:00"
+    },
+    {
+      "path": "config\\fabric\\indigo-renderer.properties",
+      "baselineSha256": "62f90660ef0be2a6f7c463a53683f3f681850c8e84b44454451d754d64197f98",
+      "currentSha256": "fb86bd44e113384e25767be8a4d07aa3d24da789e5113fa94799bf367d7c27bb",
+      "modifiedUtc": "2026-10-04T22:01:26.989478+00:00"
+    },
+    {
+      "path": "config\\roughlyenoughitems\\pinyin.properties",
+      "baselineSha256": "1760f6120a4759a3952011d594a766129b2f980acf14605b37cf9f9415f004a7",
+      "currentSha256": "b8c62e6a32819f47e2356f0d784bc003034e8c2b8c10a90c0e8fb54f0fac65f5",
+      "modifiedUtc": "2026-10-04T22:02:56.752342+00:00"
+    },
+    {
+      "path": "config\\roughlyenoughitems\\pinyin_double.properties",
+      "baselineSha256": "1c921f9ba0f81d404c564d815004be65f71c509c20c25eae51f9a6f1b90472f0",
+      "currentSha256": "17ea108739d093350fe5a605eef54637381389923ba613624e479a295ab85fa3",
+      "modifiedUtc": "2026-10-04T22:02:56.790950+00:00"
+    },
+    {
+      "path": "config\\xaero\\world-map\\client.cfg",
+      "baselineSha256": "6fae897d3bf309d9142f7f134f7166827cd2997518c53a79ce03068213691979",
+      "currentSha256": "27709472726ad6a5347f98cc4eaf8a247f6e023fdabcbe50cb1660f5257056b8",
+      "modifiedUtc": "2026-10-04T22:32:52.974836+00:00"
+    },
+    {
+      "path": "data\\fabricDefaultResourcePacks.dat",
+      "baselineSha256": "8809f9dfd16a0479b9ec0757dc50b05de809be489018c289e65111f6f4e13a47",
+      "currentSha256": "a48648eca65e3bd7d62e609cb7f71ff7e2dafd0cc86110118d3ae287765c95fe",
+      "modifiedUtc": "2026-10-04T22:01:33.470716+00:00"
+    }
+  ]
+}

@@ -1,6 +1,9 @@
 """Battle-wide Pledge and Conversion sequence memory, independent of sides/turns."""
 def extend(fields,rule,action,both):
-    for sym in ['FOREST','BEWITCHED']:fields[sym].setdefault('terrainPolicy',{})['moveDurations']={'rejuvenation:grassy_terrain':8}
+    # Battle_MoveEffects.rb:7109 and Battler.rb:2842 use the same eight turns for the move and for Grassy Surge.
+    for sym in ['FOREST','BEWITCHED']:
+        fields[sym].setdefault('terrainPolicy',{})['moveDurations']={'rejuvenation:grassy_terrain':8}
+        fields[sym]['terrainPolicy']['abilityDurations']={'rejuvenation:grassy_terrain':8}
     allfields=' '.join(fields)
     pledge={'firepledge':'Fire Pledge','grasspledge':'Grass Pledge','waterpledge':'Water Pledge'}
     outcomes={frozenset(['firepledge','grasspledge']):('rejuvenation:volcanic','set the field ablaze','fanned the flames'),

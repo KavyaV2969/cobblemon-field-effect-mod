@@ -1,0 +1,23 @@
+{
+  "Shadow": {
+    "displayName": "Shadow",
+    "hue": 270,
+    "textureBasis": "Dark",
+    "damageTaken": {
+      "Fairy": 1,
+      "Shadow": 2
+    },
+    "outgoing": {
+      "Fairy": 2
+    },
+    "flagInteraction": {
+      "flag": "shadow",
+      "flagged": -1,
+      "unflagged": 1,
+      "unflaggedExceptions": [
+        "Fairy"
+      ]
+    },
+    "source": "Rejuv/Definitions/typetext.rb:122-135; Battle_Move.rb:555-561"
+  }
+}

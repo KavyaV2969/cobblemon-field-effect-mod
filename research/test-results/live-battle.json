@@ -1,6 +1,21 @@
 {
   "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
   "checks": [
+    "Natural environment initialized rejuvenation:grassy_terrain with ordered entry chat",
+    "Ended battle state removed",
+    "Explicit initialized rejuvenation:forest with ordered entry chat",
+    "Live Forest Growth boosts Attack by two stages",
+    "Existing Minecraft Everstone bridges to simulator and blocks Ion Deluge terrain creation",
+    "Ended battle state removed",
+    "Explicit initialized rejuvenation:electric_terrain with ordered entry chat",
+    "Minecraft held Seed activates, consumes and boosts in live simulator",
+    "Ended battle state removed",
+    "Explicit initialized rejuvenation:water_surface with ordered entry chat",
+    "Live cobblemon:dive_ball capture event applies source 3.5 multiplier once with integer rounding",
+    "Ended battle state removed",
+    "Explicit initialized rejuvenation:dark_crystal_cavern with ordered entry chat",
+    "Live cobblemon:dusk_ball capture event applies source 3.5 multiplier once with integer rounding",
+    "Ended battle state removed",
     "Explicit initialized rejuvenation:deux_finalis with ordered entry chat",
     "Live Deux Finalis Bitter Blade applies registered persistent Petrification and residual Speed loss",
     "Live Purify cures Petrification through canonical Java status removal",
@@ -11,5 +26,5 @@
     "Ended battle state removed"
   ],
   "success": true,
-  "battles": 2
+  "battles": 7
 }

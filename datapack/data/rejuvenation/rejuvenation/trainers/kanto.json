@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "series": "kanto",
+  "source": {
+    "datapack": "COBBLEVERSE-RCT-DP-v20.zip",
+    "sha256": "b61d830c049f68eff42782fb78fbb1250b9bbb39bfcdca06bc5cc11b5704ae79",
+    "series": "kanto",
+    "scores": "research/trainer-field-scores.json"
+  },
+  "trainers": {
+    "kanto_blaine": {
+      "field": "rejuvenation:corrupted",
+      "winShare": 0.8889,
+      "indoorWinShare": 0.7963
+    },
+    "kanto_brock": {
+      "field": "rejuvenation:crystal_cavern",
+      "winShare": 0.4352,
+      "indoorWinShare": 0.2407
+    },
+    "kanto_champion_blue": {
+      "field": "rejuvenation:starlight",
+      "winShare": 0.9815,
+      "indoorWinShare": 0.963
+    },
+    "kanto_erika": {
+      "field": "rejuvenation:big_top",
+      "winShare": 0.7407,
+      "indoorWinShare": 0.6852
+    },
+    "kanto_giovanni": {
+      "field": "rejuvenation:glitch",
+      "winShare": 0.8333,
+      "indoorWinShare": 0.7315
+    },
+    "kanto_koga": {
+      "field": "rejuvenation:dimensional",
+      "winShare": 0.7269,
+      "indoorWinShare": 0.6019
+    },
+    "kanto_league_agatha": {
+      "field": "rejuvenation:volcanic",
+      "winShare": 0.9259,
+      "indoorWinShare": 0.75
+    },
+    "kanto_league_bruno": {
+      "field": "rejuvenation:starlight",
+      "winShare": 0.8241,
+      "indoorWinShare": 0.7315
+    },
+    "kanto_league_lance": {
+      "field": "rejuvenation:dragons_den",
+      "winShare": 0.9352,
+      "indoorWinShare": 0.8519
+    },
+    "kanto_league_lorelei": {
+      "field": "rejuvenation:underwater",
+      "winShare": 0.8981,
+      "indoorWinShare": 0.7222
+    },
+    "kanto_ltsurge": {
+      "field": "rejuvenation:murkwater_surface",
+      "winShare": 0.7407,
+      "indoorWinShare": 0.5093
+    },
+    "kanto_misty": {
+      "field": "rejuvenation:underwater",
+      "winShare": 0.7407,
+      "indoorWinShare": 0.463
+    },
+    "kanto_sabrina": {
+      "field": "rejuvenation:water_surface",
+      "winShare": 0.8889,
+      "indoorWinShare": 0.8519
+    }
+  }
+}

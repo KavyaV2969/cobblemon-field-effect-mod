@@ -43,10 +43,20 @@ def extend(rule,action,both,fields):
     rule('ELECTERRAIN','modifyMove',{'move':'wildcharge'},[action('moveProperty',path='recoil',value=None)],'Battle_MoveEffects.rb:123')
     rule('MISTY RAINBOW HOLY FAIRYTALE STARLIGHT','afterMove',{'move':'wish'},[action('adjustWish',fraction=.75)],'Battle_MoveEffects.rb:5214')
     for sym in ['MISTY','FLOWERGARDEN3','FLOWERGARDEN4','FLOWERGARDEN5']:
-        amount=-2 if sym=='FLOWERGARDEN5' else -1
-        stats(sym,'sweetscent',{'def':amount,'spd':amount,'evasion':amount},1546)
+        amount={'FLOWERGARDEN4':-2,'FLOWERGARDEN5':-3}.get(sym,-1)
+        stats(sym,'sweetscent',{'evasion':-2,'def':amount,'spd':amount},'1546-1553')
+def coverage(fields):
+    """Run after every rule module: a highlighted move counts as covered when any rule condition names it."""
+    def named(c,out):
+        if isinstance(c,dict):
+            for k,v in c.items():
+                if k=='move' and isinstance(v,str):out.add(v)
+                else:named(v,out)
+        elif isinstance(c,list):
+            for v in c:named(v,out)
     for sym,field in fields.items():
         # Mark source UI highlights separately: a highlight is not an executable rule.
-        implemented={r['condition']['move'] for r in field['rules'] if r['event']=='modifyMove' and 'move' in r['condition']}
+        implemented=set()
+        for r in field['rules']:named(r['condition'],implemented)
         field['statusMoveBehaviorCoverage']={'explicitRuleMoves':sorted(implemented & set(field['statusBuffs']+field['statusNerfs'])),
             'unreviewedHighlightedMoves':sorted(set(field['statusBuffs']+field['statusNerfs'])-implemented)}

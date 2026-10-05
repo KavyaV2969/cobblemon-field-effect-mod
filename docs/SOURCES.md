@@ -8,7 +8,7 @@ C:\Users\Lenovo\AppData\Roaming\ModrinthApp\profiles\Test (1)\rejuvenation\Rejuv
 
 `Scripts/Rejuv/Bootstrap.rb` identifies version **14.0.14**. Inspected reference areas include `Rejuv/Definitions/fieldtext.rb`, `Data/fields.dat`, `Cache.rb`, `PBConstants.rb`, `PBStuff.rb`, `Battle.rb`, `Battle_Field.rb`, `Battle_Move.rb`, `Battle_MoveEffects.rb`, `Battle_Effects.rb`, `Battler.rb`, `Battle_DamageState.rb`, `Battle_AI.rb`, other battle handlers, move/ability/item definitions and field-related global references. `Cache.rb:94` loads `fields.dat` when present; compiled effective entries therefore take precedence over orphan definition text.
 
-`source-hashes.json` fingerprints the inspected Ruby files. `source-reference-index.json` lists 2,162 textual references. `interaction-audit.json` records 1,727 AST field-condition blocks and body hashes without copying the game scripts. `compiled-field-specification.json` and `field-specification.json` contain field data needed for the mechanical specification, not unrelated game assets. The extractor uses Rejuv=true, Reborn=false, Gen=9.5 and Champs=9.5 for constant data; distributed handlers still require individual guard review.
+`source-hashes.json` fingerprints the inspected Ruby files. `source-reference-index.json` lists 2,162 textual references. `interaction-audit.json` records 1,736 AST field-condition blocks (1,727 in the first pass) and body hashes without copying the game scripts. `compiled-field-specification.json` and `field-specification.json` contain field data needed for the mechanical specification, not unrelated game assets. The extractor uses Rejuv=true, Reborn=false, Gen=9.5 and Champs=9.5 for constant data; every distributed handler lead now has an individual review in `semantic-reviews.json`, and `blindspot_scan.py` covers references the AST cannot see.
 
 ## Installed technical source
 
@@ -30,7 +30,9 @@ Supporting public technical references consulted include [Fabric resource loadin
 - Run & Bun's jar filename and metadata disagree on version; documentation reports both and relies on the installed class signatures.
 - Terralith is present as an optional datapack and disabled in the inspected existing world. Static discovery of its 95 biomes does not prove they are live registry entries.
 
-The source definition comparison currently checks all 57 entries and 3,963 properties with zero differences. Its report explicitly excludes comprehensive distributed-runtime and AI verification.
+The source definition comparison checks all 57 entries and 4,494 compiled properties with zero differences. Besides moves, types, messages and transitions, it covers Mimicry, Burmy cloaks, seeds, status highlights and field-change targets. Distributed runtime behavior is covered by the semantic review register, not this comparison.
+
+Salt Cure on Holy/Deux Finalis is a deliberate project deviation. The shipped Champions build uses divisor 8 (4 for Water/Steel); this port uses the source's pre-Champions Holy divisor 6 (3 for Water/Steel), so 1/6 and 1/3 per turn.
 
 
 Further source traps preserved during the second pass:
@@ -52,7 +54,7 @@ Further source traps preserved during the second pass:
 
 ## Local file safety evidence
 
-The authored mod, datapack, documentation, tests and isolated game are under `rejuvenation/`. The read-only protected-file audit compares 1,254 original files against the initial hashes. It currently detects one difference in `config/iris.properties`, preserves it, and reports its timestamp and hashes. No original configuration was manually restored or edited by this implementation. The other 1,253 protected files, including trainer/content archives, retain their baseline hashes. This observed settings difference prevents an unqualified claim that every original file is unchanged.
+The authored mod, datapack, documentation, tests and isolated game are under `rejuvenation/`. The read-only protected-file audit compares 1,254 original files against initial hashes. At continuation start it detected ten pre-existing settings/data differences (listed in `research/test-results/protected-before-continuation.json`), which are preserved. Original trainer/content archives retain their baseline hashes. The final audit and authorized installation additions are recorded in `research/protected-integrity.json`; this is not an unqualified claim that every original setting is unchanged.
 
 
 The continuation inspected distributed `Battler.rb` form, entry, contact and stat handlers, `Battle_Effects.rb` status predicates, `Battle_Field.rb` field-change/form helpers, `Balls.rb`, `Time.rb`, and nested `Rejuv/Battle/*` handlers. `research/semantic-reviews.json` fingerprints each reviewed source file and records the exact AST lead and focused regression evidence. The review found that Holy Silvally uses Dark form 17, that Gulp Missile's Underwater damage uses the raw Water matchup, and that source field-change checks differ from actual switch-in form checks. The engine implements these behaviors from the local scripts. No online reference was needed for these decisions.

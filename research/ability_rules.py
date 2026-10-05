@@ -48,7 +48,15 @@ def extend(fields,rule,action,both):
     handler('BIGTOP','costar','onStart',[boost({'atk':1,'spa':1})],3410,mode='append',condition={'hasAlly':True})
     for sym in ['BEWITCHED','GRASSY','FLOWERGARDEN2','FLOWERGARDEN3','FLOWERGARDEN4','FLOWERGARDEN5']:
         handler(sym,'cottondown','onDamagingHit',[action('forEach',group='others',actions=[action('boost',who='target',stats={'spe':-2})])],3875)
-    for callback in ['onStart','onUpdate','onAllySwitchIn','onSetStatus','onAllySetStatus']:
+    # Flower Gift is active on every Flower Garden stage and on Bewitched Woods (Battle_Effects.rb:1394-1401): the side's
+    # physical Attack and Special Defense, and Cherrim's Sunshine form at the two moments the source re-reads the form
+    # (entry and weather changes, pbCheckWeatherForm).
+    garden='FLOWERGARDEN1 FLOWERGARDEN2 FLOWERGARDEN3 FLOWERGARDEN4 FLOWERGARDEN5 BEWITCHED'
+    for callback in ['onAllyModifyAtk','onAllyModifySpD']:handler(garden,'flowergift',callback,[action('multiply',value=1.5)],'1634-1646; Battle_Effects.rb:1394-1401; Battle_Move.rb:1510,1711')
+    cherrim=both({'species':{'who':'user','value':'cherrim'}},{'not':{'transformed':True}})
+    for callback in ['onStart','onWeatherChange']:handler(garden,'flowergift',callback,[action('form',species='cherrimsunshine',message='{1} transformed!')],'1634-1646',condition=cherrim)
+    # pbAbilityCureCheck (Battler.rb:4081) still cures the holder's own poison on Infernal, so onUpdate stays native.
+    for callback in ['onStart','onAllySwitchIn','onSetStatus','onAllySetStatus']:
         handler('INFERNAL','pastelveil',callback,[],3042)
     # Stench is appended after retaining existing move secondaries, avoiding an
     # extra flinch roll on moves that already flinch.

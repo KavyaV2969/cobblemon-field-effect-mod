@@ -35,9 +35,10 @@ def extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source):
     rule('CHESS','basePower',both(chess,anyof(ability('OBLIVIOUS KLUTZ UNAWARE SIMPLE DEFEATIST','target'),{'volatile':{'who':'target','id':'confusion'}})),times(2),'Battle_Move.rb:1395')
     rule('CHESS','basePower',ability('QUEENLYMAJESTY'),times(1.5)+[action('moveMessage',text='The Queen is dominating the board!')],'Battle_Move.rb:1398')
     # Queenly Majesty's Chess boost is a base-power factor, not a second damage factor.
-    fields['CHESS']['rules']=[r for r in fields['CHESS']['rules'] if not (r['event']=='damage' and r['condition']==ability('QUEENLYMAJESTY'))]
-    rule('CHESS','damage',ability('COMPETITIVE'),[action('hpPower',maximum=2,scale=.8)],'Battle_Move.rb:1600')
-    rule('CHESS','damage',ability('ILLUSION'),times(1.2),'Battle_Move.rb:1601')
+    fields['CHESS']['rules']=[r for r in fields['CHESS']['rules'] if not (r['event'] in ['damage','attack','specialAttack'] and r['condition']==ability('QUEENLYMAJESTY'))]
+    for event in ['attack','specialAttack']:
+        rule('CHESS',event,ability('COMPETITIVE'),[action('hpPower',maximum=2,scale=.8)],'Battle_Move.rb:1604-1611')
+        rule('CHESS',event,{'pokemonFlag':{'who':'user','id':'illusion','value':True}},times(1.2),'Battle_Move.rb:1603 (active disguise only)')
     rule('DEEPEARTH','basePower',{'priority':{'op':'>','value':0}},times(.7)+[action('moveMessage',text='The intense pull slowed the attack...')],'Battle_Move.rb:1436')
     rule('DEEPEARTH','basePower',{'priority':{'op':'<','value':0}},times(1.3)+[action('moveMessage',text='Slow and heavy!')],'Battle_Move.rb:1440')
     rule('MOUNTAIN SNOWYMOUNTAIN VOLCANICTOP','basePower',both({'weather':'deltastream'},anyof({'flag':'wind'},both({'moveType':'Flying'},{'category':'Special'}))),times(1.5)+[action('moveMessage',text='The windy weather strengthened the attack!')],'Battle_Move.rb:1420')
@@ -50,6 +51,8 @@ def extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source):
         maximize={'overlay':fid('ELECTERRAIN')},messages=['Bzzt.','Bzzapp!','Bzt...','Bzap!','BZZZAPP!'])],'Battle_Field.rb:85; Battle_Move.rb:1954')
     alltypes=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy']
     rule('RAINBOW','modifyMove',both({'moveType':'Normal'},{'category':'Special'}),[action('extraType',values=alltypes,excludePrimary=True)],'Battle_Move.rb:795')
+    for sym in fields:
+        rule(sym,'modifyMove',both({'overlay':fid('RAINBOW')},{'moveType':'Normal'},{'category':'Special'}),[action('extraType',values=alltypes,excludePrimary=True,layer='overlay')],'Battle_Move.rb:837-838; Battle_Field.rb:117-136')
     rule('CORROSIVEMIST','modifyMove',both({'moveType':'Flying'},{'category':'Special'}),[action('extraType',values=['Poison'])],'Battle_Move.rb:800')
     rule('SHORTCIRCUIT','modifyMove',both({'moveType':'Steel'},ability('STEELWORKER')),[action('extraType',values=['Electric'])],'Battle_Move.rb:804')
     rule('CRYSTALCAVERN','modifyMove',anyof({'moveType':'Rock'},{'any':[{'move':m} for m in ['judgment','rockclimb','strength','multiattack','prismaticlaser','terablast','terastarstorm']]}),[action('extraType',values=['Fire','Water','Grass','Psychic'],cycle=True)],'Battle_Move.rb:807')
@@ -71,7 +74,7 @@ def extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source):
         ('SWAMP','DRYSKIN','{1} was healed a little by the murk!'),('DESERT','EARTHEATER','{1} ate sand to recover!'),
         ('HAUNTED DIMENSIONAL DEUXFINALIS INFERNAL','SOULEATER','{1} devoured spirits to recover!')]:rule(syms,'residual',ability(abil),[action('heal',fraction=1/16,message=msg)],'Battle.rb:5850-6109')
     for r in fields['SNOWYMOUNTAIN']['rules']:
-        if r['event']=='residual' and r['condition']==ability('ICEBODY'):r['actions'][0]['message']='{1} was healed a little by the snow!'
+        if r['event']=='residual' and r['condition']==ability('ICEBODY'):r['actions']=[dict(r['actions'][0],message='{1} was healed a little by the snow!')]
     for r in fields['GRASSY']['rules']:
         if r['event']=='residual' and r['condition']==grounded():r['condition']=both(grounded(),{'semiInvulnerable':{'who':'user','value':False}});r['actions'][0]['groupMessage']='The grass healed the Pokémon on the battlefield.'
     for syms,c,msg in [('DESERT',ability('DRYSKIN'),'{1} was hurt by the desert air!'),('CORROSIVE',ability('GRASSPELT'),"{1}'s pelt is withering!"),
@@ -107,10 +110,10 @@ def extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source):
     rule('MOUNTAIN SNOWYMOUNTAIN','residual',both({'weather':'deltastream'},ability('WINDPOWER')),[action('volatile',id='charge'),action('message',text='The wind charged {1} with power!')],'Battle.rb:6189')
     rule('ELECTERRAIN','residual',both(ability('MOTORDRIVE'),{'turnsActive':{'op':'>','value':0}}),[action('boost',stats={'spe':1})],'Battle.rb:5858')
     rule('VOLCANIC VOLCANICTOP WATERSURFACE UNDERWATER INFERNAL','residual',both(ability('STEAMENGINE'),{'turnsActive':{'op':'>','value':0}}),[action('boost',stats={'spe':1})],'Battle.rb:6251')
-    boost('COLOSSEUM','BATTLEARMOR SHELLARMOR',{'def':1},2359)
+    boost('COLOSSEUM','BATTLEARMOR SHELLARMOR',{'def':1},2359,flavor='shining armor')
     # Source misspells MIRORARMOR; preserve the actual behavior for Magic Guard.
-    boost('COLOSSEUM','MAGICGUARD',{'spd':1},2367)
-    boost('COLOSSEUM','NOGUARD JUSTIFIED',{'atk':1,'spa':1},2375)
+    boost('COLOSSEUM','MAGICGUARD',{'spd':1},2367,flavor='magical power')
+    boost('COLOSSEUM','NOGUARD JUSTIFIED',{'atk':1,'spa':1},2375,flavor='ferocious heart')
     boost('INFERNAL','MAGMAARMOR FLAMEBODY DESOLATELAND',{'def':1,'spd':1},2385)
     boost('DEEPEARTH','LIGHTMETAL',{'spe':1},2394)
     boost('DEEPEARTH','HEAVYMETAL',{'def':1,'spe':-1},2402,"{1}'s weight makes it harder to be moved!")
@@ -130,7 +133,7 @@ def extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source):
     rule('VOLCANICTOP','residual',both(eruption,ability('MAGMAARMOR')),[action('boost',stats={'def':1,'spd':1})],'Battle.rb:6056')
     rule('VOLCANICTOP','residual',both(eruption,ability('FLAREBOOST')),[action('boost',stats={'spa':1})],'Battle.rb:6063')
     rule('VOLCANICTOP','residual',both(eruption,ability('FLASHFIRE')),[action('flashFire',message="The power of {1}'s Fire-type moves rose!")],'Battle.rb:6070')
-    rule('VOLCANICTOP','residual',both(eruption,ability('BLAZE')),[action('volatile',id='rejuvenationblazed'),action('message',text="The power of {1}'s Fire-type moves rose!")],'Battle.rb:6077')
+    rule('VOLCANICTOP','residual',both(eruption,ability('BLAZE')),[action('volatile',id='rejuvenationblazed',message="The power of {1}'s Fire-type moves rose!")],'Battle.rb:6077')
     rule('VOLCANICTOP','residual',both(eruption,{'pokemonStatus':'slp'},neg(ability('SOUNDPROOF'))),[action('cureStatus',message='{1} woke up due to the eruption!')],'Battle.rb:6083')
     rule('VOLCANICTOP','residual',both(eruption,vol('leechseed')),[action('removeVolatile',id='leechseed',message="{1}'s Leech Seed burned away in the eruption!")],'Battle.rb:6087')
     for syms,abil,weather,extra in [('FLOWERGARDEN4 FLOWERGARDEN5','CHLOROPHYLL',['sunnyday','desolateland'],{'always':True}),
@@ -144,7 +147,11 @@ def extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source):
     rule('MOUNTAIN SNOWYMOUNTAIN VOLCANICTOP','priority',both(ability('GALEWINGS'),{'moveType':'Flying'},{'hp':{'who':'user','op':'<','fraction':1}},{'weather':'deltastream'}),[action('add',value=1)],'Battle_Effects.rb:1407')
     for syms,abil,extra in [('UNDERWATER','HYDRATION',{'always':True}),('WATERSURFACE','HYDRATION',grounded()),('WATERSURFACE UNDERWATER','WATERVEIL',{'always':True}),('BEWITCHED','NATURALCURE',{'always':True})]:
         rule(syms,'residual',both(ability(abil),extra),[action('cureStatus')],'Battle_Effects.rb:1372-1380')
-    rule('FOREST GRASSY FLOWERGARDEN2 FLOWERGARDEN3 FLOWERGARDEN4 FLOWERGARDEN5','setStatus',ability('LEAFGUARD','target'),[action('reject')],'Battle_Effects.rb:1383')
+    rule('FOREST GRASSY FLOWERGARDEN2 FLOWERGARDEN3 FLOWERGARDEN4 FLOWERGARDEN5','setStatus',{'effectiveAbility':{'who':'target','values':['leafguard']}},[action('reject')],'Battle_Effects.rb:99,1383-1391')
+    # Quick Feet is active without a status on the hard Electric Terrain (Battle_Effects.rb:1457-1462).
+    rule('ELECTERRAIN','speed',both(ability('QUICKFEET'),{'field':fid('ELECTERRAIN')},{'pokemonStatus':''}),times(1.5),'Battle_Effects.rb:1457-1462; Battler.rb:1179')
+    # Telepathy doubles Speed on the hard Psychic Terrain only; the overlay clause is commented out in the source.
+    rule('PSYTERRAIN','speed',both(ability('TELEPATHY'),{'field':fid('PSYTERRAIN')}),times(2),'Battle_Effects.rb:1450-1455; Battler.rb:1177')
     # Secret Power: animation ID is metadata; effect semantics live in Move_0A4.
     for sym,f in fields.items():
         if sym in 'ELECTERRAIN SHORTCIRCUIT INDOOR'.split():s={'status':'par'}
@@ -169,3 +176,10 @@ def extend(fields,rule,ability,grounded,both,action,boost,norm,fid,source):
             f['secretPowerEffects']=[{'volatileStatus':v} if v=='confusion' else {'status':v} for v in values];continue
         else:raise ValueError('Secret Power missing '+sym)
         f['secretPowerEffects']=[s]
+
+    # Only these dynamic base-power factors call calculateFieldMultiplier in Ruby.
+    for sym in fields:
+        for r in fields[sym]['rules']:
+            if r['event']=='basePower' and r['source'].startswith(('Battle_Move.rb:1436','Battle_Move.rb:1440','Battle_Move.rb:1420','Battle_Field.rb:98','Battle_Field.rb:85')):
+                for a in r['actions']:
+                    if a['op'] in ['multiply','cyclePower','randomPower']:a['scaleField']=True

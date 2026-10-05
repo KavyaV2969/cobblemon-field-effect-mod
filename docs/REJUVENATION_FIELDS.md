@@ -2,9 +2,9 @@
 
 Local reference: Rejuvenation **14.0.14**, 57 entries including `INDOOR` (56 substantive field states).
 
-Each linked specification lists the imported move/type content and the additional executable rules. These describe current implementation data; they are not a claim that all distributed Ruby behavior has been reproduced.
+Each linked specification lists the imported move/type content and the additional executable rules. Every field is implemented and its source audit is closed; exceptions are recorded per field.
 
-[Coverage and source review ledger](FIELD_COVERAGE.md) distinguishes definition comparisons from complete behavioral verification.
+[Coverage and source review ledger](FIELD_COVERAGE.md) records the implementation status of each field, evidence and exceptions.
 
 | Original ID | Display name | Datapack ID | Specification |
 |---|---|---|---|

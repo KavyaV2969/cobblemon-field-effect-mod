@@ -1,0 +1,140 @@
+{
+  "runtime": "Cobblemon 1.7.3 shaded Graal, interpreter only",
+  "engineSha256": "1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b",
+  "fieldsAttached": 57,
+  "runtimeAssertions": 42,
+  "adapterChecks": 42,
+  "firstCatalogPublishMillis": 2900,
+  "warmCatalogPublishMillis": 538,
+  "publicationWarmupMillis": 813,
+  "simulatorDexesLoadedBeforePublish": 0,
+  "simulatorDexesLoadedAfterPublish": 3,
+  "evaluate4QueriesMillis": 50,
+  "strategy": [
+    {
+      "teamSize": 1,
+      "candidates": 8,
+      "millis": 451,
+      "damageCalls": 32,
+      "cacheHits": 17,
+      "damageMillis": 178,
+      "damageMechanicsMillis": 142,
+      "screened": 2,
+      "phases": {
+        "setup": 31,
+        "screening": 15,
+        "rollouts": 346,
+        "matchups": 212,
+        "branches": 94,
+        "resources": 0,
+        "policies": 55,
+        "rollouts_count": 8
+      }
+    },
+    {
+      "teamSize": 6,
+      "candidates": 13,
+      "millis": 850,
+      "damageCalls": 40,
+      "cacheHits": 30,
+      "damageMillis": 304,
+      "damageMechanicsMillis": 249,
+      "screened": 5,
+      "phases": {
+        "setup": 38,
+        "screening": 22,
+        "rollouts": 646,
+        "matchups": 326,
+        "branches": 131,
+        "resources": 71,
+        "policies": 59,
+        "rollouts_count": 10
+      }
+    },
+    {
+      "teamSize": 6,
+      "turn": 1,
+      "candidates": 13,
+      "millis": 791,
+      "damageCalls": 40,
+      "cacheHits": 30,
+      "damageMillis": 273,
+      "damageMechanicsMillis": 223,
+      "screened": 5,
+      "phases": {
+        "setup": 39,
+        "screening": 52,
+        "rollouts": 549,
+        "matchups": 293,
+        "branches": 120,
+        "resources": 55,
+        "policies": 85,
+        "rollouts_count": 10
+      }
+    },
+    {
+      "teamSize": 6,
+      "turn": 2,
+      "candidates": 13,
+      "millis": 778,
+      "damageCalls": 50,
+      "cacheHits": 25,
+      "damageMillis": 326,
+      "damageMechanicsMillis": 268,
+      "screened": 5,
+      "phases": {
+        "setup": 28,
+        "screening": 39,
+        "rollouts": 543,
+        "matchups": 313,
+        "branches": 94,
+        "resources": 42,
+        "policies": 117,
+        "rollouts_count": 10
+      }
+    },
+    {
+      "teamSize": 6,
+      "turn": 3,
+      "candidates": 13,
+      "millis": 726,
+      "damageCalls": 50,
+      "cacheHits": 25,
+      "damageMillis": 288,
+      "damageMechanicsMillis": 236,
+      "screened": 5,
+      "phases": {
+        "setup": 27,
+        "screening": 34,
+        "rollouts": 512,
+        "matchups": 308,
+        "branches": 49,
+        "resources": 48,
+        "policies": 97,
+        "rollouts_count": 10
+      }
+    },
+    {
+      "teamSize": 6,
+      "doubles": true,
+      "candidates": 24,
+      "millis": 2673,
+      "damageCalls": 105,
+      "cacheHits": 77,
+      "damageMillis": 840,
+      "damageMechanicsMillis": 684,
+      "screened": 16,
+      "phases": {
+        "setup": 45,
+        "screening": 175,
+        "rollouts": 2237,
+        "matchups": 555,
+        "branches": 995,
+        "resources": 51,
+        "policies": 154,
+        "rollouts_count": 17
+      }
+    }
+  ],
+  "note": "Catalog publication happens at server start and datapack reload, not at battle start (SimulatorCatalog)."
+}

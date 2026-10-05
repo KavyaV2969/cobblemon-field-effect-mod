@@ -1,0 +1,41 @@
+{
+  "mode": "extended",
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": true,
+  "jarSha256": "bd51069c844dccb405520ba4d162b6f752de04e15f904a5a1e21614480f72638",
+  "processId": 12076,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "isolatedGameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+    "checks": [
+      "Explicit initialized rejuvenation:colosseum with ordered entry chat",
+      "Live BoostMessageMixin keeps the native Colosseum Magic Guard boost and shows only the original flavor line",
+      "Ended battle state removed",
+      "Declared source abilities and Shadow type survive a live data reload of Cobblemon's ability registry",
+      "Explicit initialized rejuvenation:mountain with ordered entry chat",
+      "Live Mountain Tailwind starts timed strong winds and ends them with the original text and no generic weather chat",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:electric_terrain with ordered entry chat",
+      "Live Electric Terrain entry hazard electrifies Spikes with source damage and text on a real switch",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:holy with ordered entry chat",
+      "Live Holy Field Revival Blessing revives the fainted ally at three-quarter HP",
+      "Ended battle state removed",
+      "Explicit initialized rejuvenation:cave with ordered entry chat",
+      "Live Mewnium Z Genesis Supernova creates the source five-turn Psychic Terrain on Cave",
+      "Ended battle state removed",
+      "Trainer-mapped initialized rejuvenation:crystal_cavern with ordered entry chat",
+      "Live RCT Kanto Brock battle (RCTMod.makeBattle) starts on its assigned rejuvenation:crystal_cavern through the trainer bridge alone",
+      "Ended battle state removed"
+    ],
+    "success": true,
+    "battles": 6
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 278.0,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+}

@@ -10,13 +10,13 @@ The profile is Minecraft 1.21.1, Fabric Loader 0.18.4, Fabric API 0.116.14+1.21.
 
 ## Battle lifecycle
 
-1. Fabric registers the resource reload listener, six held items, and two Showdown instruction parsers. Cobblemon's pre-start event captures a wild battle's environment on the server thread. It never reads a Minecraft world from the simulator worker.
+1. Fabric registers the resource reload listener, six held items, two Showdown instruction parsers and two server-to-client payloads. Cobblemon's pre-start event captures a wild battle's environment on the server thread (see [FIELD_SELECTION.md](FIELD_SELECTION.md)).
 2. A mixin at the tail of `GraalShowdownService.boot` evaluates the engine in the existing simulator context. The engine wraps selected simulator methods with guards that require per-battle custom state.
-3. The `startBattle` head injection publishes the latest validated catalog to Graal if its revision changed. It consumes pending field selections and adds a namespaced field to the battle's `>start` JSON. Unselected trainer/PvP battles receive no custom state.
+3. `SimulatorCatalog` publishes the latest validated catalog to Graal on the server thread when the server starts and after every datapack reload. Cobblemon calls `startBattle` on the server thread; its head injection only checks the revision (publishing there is a logged fallback), consumes pending field selections and adds a namespaced field and the battle ID to the battle's `>start` JSON. Unselected trainer/PvP battles receive no custom state. See [PERFORMANCE.md](PERFORMANCE.md).
 4. The BattleStream start wrapper attaches the field before player initialization and initial switch-in effects. Party-role allocation occurs before Showdown's start and is driven by datapack role metadata.
 5. A battle-local pseudo-weather condition supplies simulator hooks. Mutable state belongs to that battle: current field, stack, duration, temporary index, terrain overlay, five counters, cycling rolls, eruption, battle-wide Pledge/Conversion memory and one-shot survival state. Each battle retains its immutable catalog snapshot across reloads.
-6. Changes emit the original flavor text through the ordered `rejuvenationmessage` instruction. Cobblemon dispatches this into `broadcastChatMessage`. `rejuvenationstate` publishes a server-side JSON snapshot for inspection through `FieldApi.current`. No custom client packet or graphics is required for this implementation.
-7. `GraalShowdownService.endBattle` clears pending selections, environment capture and server snapshots. Showdown `Battle.destroy` releases custom simulator state. Both simultaneous battles and cleanup have simulator tests. Late queued state instructions cannot resurrect an ended battle entry.
+6. Changes emit the original flavor text through the ordered `rejuvenationmessage` instruction. Cobblemon dispatches this into `broadcastChatMessage`. `rejuvenationstate` publishes a JSON snapshot for `FieldApi.current`; `FieldStateSync` forwards it to the battle's players and spectators (`rejuvenation:field_state`) for the [field panel](FIELD_PANEL.md).
+7. `GraalShowdownService.endBattle` ends the client panel, drops cached move evaluations and clears pending selections, environment capture and server snapshots. Showdown `Battle.destroy` releases custom simulator state. Both simultaneous battles and cleanup have simulator tests. Late queued state instructions cannot resurrect an ended battle entry.
 
 ## Simulator hooks
 
@@ -34,6 +34,7 @@ The Minecraft pack format is 48. Custom resources are JSON under:
 data/<namespace>/rejuvenation/fields/<field>.json
 data/<namespace>/rejuvenation/mappings/<mapping>.json
 data/<namespace>/rejuvenation/items/<items>.json
+data/<namespace>/rejuvenation/structures/<structures>.json
 ```
 
 The field path and its `id` must agree. `schemaVersion` is 1. Core properties include `originalId`, `name`, `entryMessage`, `naturePower`, `secretPower`, `mimicry`, `moves`, `types`, `rules`, `seed`, `seedActions`, optional `overlay`, `progression`, `partyRoles`, `typeChart`, `suppressedAbilityCallbacks`, `healing`, `grounding`, `terrainPolicy`, `trapping`, `statPools`, `abilityAbsorptions`, `indirectImmunityAbilities`, `conditionDurations`, `volatilePolicies`, `expirationReturnMessage` and `multiplierPolicy`. Original UI status highlights and Burmy-cloak metadata are identified as metadata, not falsely treated as executable behavior.
@@ -55,7 +56,7 @@ Core move entries express a power multiplier, accuracy override, additional atta
 
 `typeChart` entries match an attacking/defending type pair and an optional condition. Results use an effectiveness exponent (-1, 0, 1) or `immune`. Matching overrides are applied in source order; type immunity and Ground airborne abilities are handled separately.
 
-Mappings are ordered predicates over `biome`, `tag`, `dimension`, `submerged`, `maxY`, `skyVisible` and `minDepth`, with a `field` and readable reason. The first matching row wins. Data from multiple distinct mapping files is concatenated in the resource manager's iteration order; to guarantee precedence, override the supplied `modpack.json` or keep related predicates together in one file.
+Mappings are ordered predicates over `biome`, `tag`, `dimension`, `submerged`, `maxY`, `skyVisible` and `minDepth`, with a `field` and readable reason. Rows with `"submerged": true` form the underwater stage, checked before structures; among the other rows the first match wins. Structure rows live under `data/<namespace>/rejuvenation/structures/` and name one structure ID or structure tag each. Data from multiple distinct mapping files is concatenated in the resource manager's iteration order; to guarantee precedence, override the supplied `modpack.json` or keep related predicates together in one file.
 
 ## Reload and validation
 
@@ -63,9 +64,11 @@ The synchronous server-data reload listener builds a complete new catalog, valid
 
 Additional validation is still needed before this engine can be called a comprehensive field port. Passing schema/reference checks proves data validity, not the semantics of every rule. FIELD_COVERAGE.md and the source review ledger explicitly preserve that distinction.
 
-## Resolution and future integrations
+## Resolution and integrations
 
-Selection order is explicit battle override, trainer-defined selection, arena selection, environment-derived wild field, then Indoor. Existing trainer/PvP battles are deliberately opt-in so this task does not change their rules or Run & Bun decisions. Future integrations call `FieldApi.select` before simulator startup; see TRAINER_INTEGRATION.md.
+Selection order is explicit battle override, trainer-defined selection, arena selection, then for wild battles the environment (underwater, configured structure, biome rows) and finally Indoor; see [FIELD_SELECTION.md](FIELD_SELECTION.md). Unconfigured trainer/PvP battles stay opt-in. Integrations call `FieldApi.select` before simulator startup; see TRAINER_INTEGRATION.md.
+
+`RejuvenationEngine.evaluate(battleId, queries)` is a read-only evaluation layer over the live simulator battle: priority, effective type/category, failure, immunity/absorption, accuracy, critical ratio, damage rolls, status application, healing and Speed, each measured with and without the field inside a snapshot/restore transaction. `FieldEvaluator` is its server-side API (batched, cached per turn, server thread only). The Run & Bun AI adapter and the Battle Extras move preview both consume it; see [INTEGRATIONS.md](INTEGRATIONS.md).
 
 Fields are transient battle state. They are not persisted into PokÃƒÂ©mon save data or trainer/world configurations. A battle restart does not restore a mid-battle field stack. Runtime registry discovery writes an audit under `rejuvenation/research` without modifying the registry or pack enablement.
 

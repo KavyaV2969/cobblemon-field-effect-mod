@@ -1,0 +1,2427 @@
+{
+ "source": {
+  "datapack": "COBBLEVERSE-RCT-DP-v20.zip",
+  "sha256": "b61d830c049f68eff42782fb78fbb1250b9bbb39bfcdca06bc5cc11b5704ae79",
+  "series": "kanto"
+ },
+ "trainers": {
+  "kanto_blaine": {
+   "name": "Blaine",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "sandyshocks",
+     "level": 76,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "protosynthesis",
+     "moveset": [
+      "earthpower",
+      "voltswitch",
+      "thunderbolt",
+      "hiddenpowerdark"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "shuca_berry"
+    },
+    {
+     "species": "greattusk",
+     "level": 76,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "protosynthesis",
+     "moveset": [
+      "icespinner",
+      "knockoff",
+      "headlongrush",
+      "closecombat"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "fighting_gem"
+    },
+    {
+     "species": "walkingwake",
+     "level": 76,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "protosynthesis",
+     "moveset": [
+      "dracometeor",
+      "hydrosteam",
+      "flamethrower",
+      "sleeptalk"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "water_gem"
+    },
+    {
+     "species": "venusaur",
+     "level": 76,
+     "gender": "MALE",
+     "nature": "modest",
+     "ability": "chlorophyll",
+     "moveset": [
+      "growth",
+      "solarbeam",
+      "sludgebomb",
+      "weatherball"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "hooh",
+     "level": 76,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "regenerator",
+     "moveset": [
+      "sacredfire",
+      "bravebird",
+      "earthquake",
+      "solarbeam"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "flying_gem"
+    },
+    {
+     "species": "charizard",
+     "level": 76,
+     "gender": "MALE",
+     "nature": "jolly",
+     "ability": "blaze",
+     "moveset": [
+      "dragondance",
+      "flareblitz",
+      "dragonclaw",
+      "earthquake"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "charizardite_x"
+    }
+   ]
+  },
+  "kanto_brock": {
+   "name": "Brock",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "hippopotas",
+     "level": 13,
+     "gender": "MALE",
+     "nature": "careful",
+     "ability": "sandstream",
+     "moveset": [
+      "bulldoze",
+      "rocktomb",
+      "toxic",
+      "slackoff"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 0,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "berry_juice"
+    },
+    {
+     "species": "cacnea",
+     "level": 15,
+     "gender": "MALE",
+     "nature": "bashful",
+     "ability": "sandrush",
+     "moveset": [
+      "poweruppunch",
+      "bulletseed",
+      "thunderpunch",
+      "pinmissile"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "eviolite"
+    },
+    {
+     "species": "lunatone",
+     "level": 14,
+     "gender": "GENDERLESS",
+     "nature": "bashful",
+     "ability": "levitate",
+     "moveset": [
+      "ancientpower",
+      "psybeam",
+      "hiddenpowerground",
+      "icywind"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 30,
+      "spd": 30,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "lum_berry"
+    },
+    {
+     "species": "lileep",
+     "level": 16,
+     "gender": "MALE",
+     "nature": "bold",
+     "ability": "suctioncups",
+     "moveset": [
+      "stockpile",
+      "recover",
+      "hiddenpowerrock",
+      "megadrain"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 30,
+      "spa": 31,
+      "spd": 30,
+      "spe": 30
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "oran_berry"
+    },
+    {
+     "species": "archen",
+     "level": 14,
+     "gender": "MALE",
+     "nature": "bashful",
+     "ability": "defeatist",
+     "moveset": [
+      "wingattack",
+      "rocktomb",
+      "bulldoze",
+      "facade"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "iapapa_berry"
+    },
+    {
+     "species": "varoom",
+     "level": 15,
+     "gender": "MALE",
+     "nature": "careful",
+     "ability": "overcoat",
+     "moveset": [
+      "bulldoze",
+      "gyroball",
+      "toxic",
+      "protect"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 0
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "air_balloon"
+    }
+   ]
+  },
+  "kanto_champion_blue": {
+   "name": "Blue",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "kyogre",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "drizzle",
+     "moveset": [
+      "originpulse",
+      "icebeam",
+      "thunder",
+      "liquidation"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "blue_orb"
+    },
+    {
+     "species": "swampert",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "adamant",
+     "ability": "damp",
+     "moveset": [
+      "waterfall",
+      "earthquake",
+      "icepunch",
+      "stoneedge"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "swampertite"
+    },
+    {
+     "species": "eternatus",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "pressure",
+     "moveset": [
+      "dracometeor",
+      "sludgewave",
+      "thunder",
+      "recover"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "leftovers"
+    },
+    {
+     "species": "necrozma",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "prismarmor",
+     "moveset": [
+      "dragondance",
+      "photongeyser",
+      "earthquake",
+      "stoneedge"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "leftovers"
+    },
+    {
+     "species": "arceus",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "multitype",
+     "moveset": [
+      "swordsdance",
+      "extremespeed",
+      "shadowclaw",
+      "recover"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "normal_gem"
+    },
+    {
+     "species": "walkingwake",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "protosynthesis",
+     "moveset": [
+      "hydropump",
+      "dracometeor",
+      "flamethrower",
+      "hurricane"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "booster_energy"
+    }
+   ]
+  },
+  "kanto_erika": {
+   "name": "Erika",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "ogerpon",
+     "level": 44,
+     "gender": "FEMALE",
+     "nature": "jolly",
+     "ability": "sturdy",
+     "moveset": [
+      "ivycudgel",
+      "uturn",
+      "powerwhip",
+      "knockoff"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "cornerstone_mask"
+    },
+    {
+     "species": "hawlucha",
+     "level": 44,
+     "gender": "MALE",
+     "nature": "adamant",
+     "ability": "unburden",
+     "moveset": [
+      "swordsdance",
+      "acrobatics",
+      "closecombat",
+      "stoneedge"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "grassy_seed"
+    },
+    {
+     "species": "sceptile",
+     "level": 44,
+     "gender": "MALE",
+     "nature": "jolly",
+     "ability": "overgrow",
+     "moveset": [
+      "swordsdance",
+      "bulletseed",
+      "dragondarts",
+      "highhorsepower"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "sceptilite"
+    },
+    {
+     "species": "toxtricity",
+     "level": 44,
+     "gender": "MALE",
+     "nature": "timid",
+     "ability": "punkrock",
+     "moveset": [
+      "boomburst",
+      "voltswitch",
+      "overdrive",
+      "hiddenpowergrass"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 31,
+      "spa": 30,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "life_orb"
+    },
+    {
+     "species": "slowbro",
+     "level": 44,
+     "gender": "MALE",
+     "nature": "bold",
+     "ability": "regenerator",
+     "moveset": [
+      "thunderwave",
+      "sludgebomb",
+      "flamethrower",
+      "teleport"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "black_sludge"
+    },
+    {
+     "species": "kartana",
+     "level": 44,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "beastboost",
+     "moveset": [
+      "swordsdance",
+      "grassyglide",
+      "cut",
+      "sacredsword"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "life_orb"
+    }
+   ]
+  },
+  "kanto_giovanni": {
+   "name": "Giovanni",
+   "battleFormat": "GEN_9_DOUBLES",
+   "team": [
+    {
+     "species": "shuckle",
+     "level": 81,
+     "gender": "MALE",
+     "nature": "impish",
+     "ability": "solidrock",
+     "moveset": [
+      "stealthrock",
+      "stickyweb",
+      "knockoff",
+      "toxic"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "sitrus_berry"
+    },
+    {
+     "species": "roaringmoon",
+     "level": 81,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "protosynthesis",
+     "moveset": [
+      "dragondance",
+      "knockoff",
+      "earthquake",
+      "scaleshot"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "booster_energy"
+    },
+    {
+     "species": "magearna",
+     "level": 81,
+     "gender": "GENDERLESS",
+     "nature": "modest",
+     "ability": "soulheart",
+     "moveset": [
+      "shiftgear",
+      "moonblast",
+      "thunderbolt",
+      "aurasphere"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "weakness_policy"
+    },
+    {
+     "species": "necrozma",
+     "level": 81,
+     "gender": "GENDERLESS",
+     "nature": "adamant",
+     "ability": "prismarmor",
+     "moveset": [
+      "dragondance",
+      "photongeyser",
+      "earthquake",
+      "dragonhammer"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "leftovers"
+    },
+    {
+     "species": "eternatus",
+     "level": 81,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "pressure",
+     "moveset": [
+      "dynamaxcannon",
+      "meteorbeam",
+      "flamethrower",
+      "recover"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "power_herb"
+    },
+    {
+     "species": "archaludon",
+     "level": 81,
+     "gender": "MALE",
+     "nature": "timid",
+     "ability": "stamina",
+     "moveset": [
+      "dracometeor",
+      "steelbeam",
+      "thunderbolt",
+      "bodypress"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "assault_vest"
+    }
+   ]
+  },
+  "kanto_koga": {
+   "name": "Koga",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "tapulele",
+     "level": 68,
+     "gender": "GENDERLESS",
+     "nature": "modest",
+     "ability": "psychicsurge",
+     "moveset": [
+      "psyshock",
+      "moonblast",
+      "focusblast",
+      "hiddenpowerfire"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 31,
+      "spa": 30,
+      "spd": 31,
+      "spe": 30
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "twisted_spoon"
+    },
+    {
+     "species": "hoopa",
+     "level": 68,
+     "gender": "GENDERLESS",
+     "nature": "modest",
+     "ability": "magician",
+     "moveset": [
+      "darkpulse",
+      "expandingforce",
+      "thunderbolt",
+      "focusblast"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "dark_gem"
+    },
+    {
+     "species": "krookodile",
+     "level": 68,
+     "gender": "MALE",
+     "nature": "adamant",
+     "ability": "moxie",
+     "moveset": [
+      "wickedblow",
+      "earthquake",
+      "closecombat",
+      "stoneedge"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "black_glasses"
+    },
+    {
+     "species": "chiyu",
+     "level": 68,
+     "gender": "GENDERLESS",
+     "nature": "modest",
+     "ability": "beadsofruin",
+     "moveset": [
+      "darkpulse",
+      "flamethrower",
+      "psychic",
+      "hiddenpowergrass"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 31,
+      "spa": 30,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "nidoking",
+     "level": 68,
+     "gender": "MALE",
+     "nature": "rash",
+     "ability": "sheerforce",
+     "moveset": [
+      "earthpower",
+      "poisonjab",
+      "icebeam",
+      "thunderbolt"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "life_orb"
+    },
+    {
+     "species": "toxtricity",
+     "level": 68,
+     "gender": "MALE",
+     "nature": "rash",
+     "ability": "punkrock",
+     "moveset": [
+      "boomburst",
+      "overdrive",
+      "drainpunch",
+      "hiddenpowergrass"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 31,
+      "spa": 30,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "throat_spray"
+    }
+   ]
+  },
+  "kanto_league_agatha": {
+   "name": "Agatha",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "krookodile",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "jolly",
+     "ability": "intimidate",
+     "moveset": [
+      "stealthrock",
+      "earthquake",
+      "knockoff",
+      "stoneedge"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "mewtwo",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "naive",
+     "ability": "pressure",
+     "moveset": [
+      "drainpunch",
+      "expandingforce",
+      "stoneedge",
+      "bulkup"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "mewtwonite_x"
+    },
+    {
+     "species": "yveltal",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "darkaura",
+     "moveset": [
+      "oblivionwing",
+      "darkpulse",
+      "heatwave",
+      "uturn"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "assault_vest"
+    },
+    {
+     "species": "fluttermane",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "protosynthesis",
+     "moveset": [
+      "shadowball",
+      "moonblast",
+      "mysticalfire",
+      "psyshock"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "booster_energy"
+    },
+    {
+     "species": "victini",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "hasty",
+     "ability": "victorystar",
+     "moveset": [
+      "celebrate",
+      "expandingforce",
+      "pyroball",
+      "focusblast"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "normal_gem"
+    },
+    {
+     "species": "calyrex",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "asonespectrier",
+     "moveset": [
+      "drainingkiss",
+      "expandingforce",
+      "astralbarrage",
+      "nastyplot"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "colbur_berry"
+    }
+   ]
+  },
+  "kanto_league_bruno": {
+   "name": "Bruno",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "infernape",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "jolly",
+     "ability": "blaze",
+     "moveset": [
+      "stealthrock",
+      "pyroball",
+      "closecombat",
+      "thunderpunch"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "zeraora",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "voltabsorb",
+     "moveset": [
+      "bulkup",
+      "drainpunch",
+      "plasmafists",
+      "knockoff"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "misty_seed"
+    },
+    {
+     "species": "ironvaliant",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "quarkdrive",
+     "moveset": [
+      "calmmind",
+      "moonblast",
+      "psyshock",
+      "shadowball"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "booster_energy"
+    },
+    {
+     "species": "necrozma",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "adamant",
+     "ability": "prismarmor",
+     "moveset": [
+      "dragondance",
+      "sunsteelstrike",
+      "earthquake",
+      "stoneedge"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "weakness_policy"
+    },
+    {
+     "species": "zacian",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "jolly",
+     "ability": "intrepidsword",
+     "moveset": [
+      "swordsdance",
+      "behemothblade",
+      "closecombat",
+      "wildcharge"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "rusted_sword"
+    },
+    {
+     "species": "lucario",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "jolly",
+     "ability": "innerfocus",
+     "moveset": [
+      "swordsdance",
+      "closecombat",
+      "bulletpunch",
+      "meteormash"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "lucarionite"
+    }
+   ]
+  },
+  "kanto_league_lance": {
+   "name": "Lance",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "glimmora",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "timid",
+     "ability": "toxicdebris",
+     "moveset": [
+      "stealthrock",
+      "powergem",
+      "earthpower",
+      "energyball"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "melmetal",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "careful",
+     "ability": "ironfist",
+     "moveset": [
+      "doubleironbash",
+      "icepunch",
+      "earthquake",
+      "thunderpunch"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "assault_vest"
+    },
+    {
+     "species": "arceus",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "multitype",
+     "moveset": [
+      "calmmind",
+      "judgment",
+      "flamethrower",
+      "recover"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "pixie_plate"
+    },
+    {
+     "species": "dragonite",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "adamant",
+     "ability": "multiscale",
+     "moveset": [
+      "dragondance",
+      "dualwingbeat",
+      "earthquake",
+      "extremespeed"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "lum_berry"
+    },
+    {
+     "species": "dialga",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "calm",
+     "ability": "pressure",
+     "moveset": [
+      "roaroftime",
+      "flashcannon",
+      "rest",
+      "sleeptalk"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "adamant_orb"
+    },
+    {
+     "species": "rayquaza",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "naive",
+     "ability": "cloudnine",
+     "moveset": [
+      "extremespeed",
+      "flamethrower",
+      "earthquake",
+      "dragonascent"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "sharp_beak"
+    }
+   ]
+  },
+  "kanto_league_lorelei": {
+   "name": "Lorelei",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "ludicolo",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "modest",
+     "ability": "swiftswim",
+     "moveset": [
+      "fakeout",
+      "hydropump",
+      "energyball",
+      "icebeam"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "ironbundle",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "quarkdrive",
+     "moveset": [
+      "hydropump",
+      "freezedry",
+      "icywind",
+      "sleeptalk"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "booster_energy"
+    },
+    {
+     "species": "genesect",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "hasty",
+     "ability": "download",
+     "moveset": [
+      "uturn",
+      "ironhead",
+      "thunder",
+      "icebeam"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "assault_vest"
+    },
+    {
+     "species": "dragonite",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "mild",
+     "ability": "multiscale",
+     "moveset": [
+      "hurricane",
+      "thunder",
+      "aquatail",
+      "extremespeed"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "flying_gem"
+    },
+    {
+     "species": "palkia",
+     "level": 85,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "pressure",
+     "moveset": [
+      "dracometeor",
+      "hydropump",
+      "thunder",
+      "aurasphere"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "lustrous_orb"
+    },
+    {
+     "species": "swampert",
+     "level": 85,
+     "gender": "MALE",
+     "nature": "adamant",
+     "ability": "damp",
+     "moveset": [
+      "waterfall",
+      "earthquake",
+      "icepunch",
+      "brickbreak"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "swampertite"
+    }
+   ]
+  },
+  "kanto_ltsurge": {
+   "name": "Lt. Surge",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "rotom",
+     "level": 35,
+     "gender": "GENDERLESS",
+     "nature": "timid",
+     "ability": "levitate",
+     "moveset": [
+      "thunderbolt",
+      "blizzard",
+      "freezedry",
+      "nastyplot"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 0,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "ice_gem"
+    },
+    {
+     "species": "electrode",
+     "level": 36,
+     "gender": "GENDERLESS",
+     "nature": "naive",
+     "ability": "reckless",
+     "moveset": [
+      "chloroblast",
+      "voltswitch",
+      "hiddenpowerice",
+      "explosion"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 30,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "life_orb"
+    },
+    {
+     "species": "raichu",
+     "level": 36,
+     "gender": "MALE",
+     "nature": "modest",
+     "ability": "surgesurfer",
+     "moveset": [
+      "risingvoltage",
+      "psyshock",
+      "nastyplot",
+      "surf"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "hitmonlee",
+     "level": 36,
+     "gender": "MALE",
+     "nature": "adamant",
+     "ability": "unburden",
+     "moveset": [
+      "knockoff",
+      "closecombat",
+      "rockslide",
+      "bulkup"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "electric_seed"
+    },
+    {
+     "species": "pawmot",
+     "level": 36,
+     "gender": "MALE",
+     "nature": "jolly",
+     "ability": "ironfist",
+     "moveset": [
+      "plasmafists",
+      "machpunch",
+      "icepunch",
+      "closecombat"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "punching_glove"
+    },
+    {
+     "species": "ampharos",
+     "level": 36,
+     "gender": "MALE",
+     "nature": "modest",
+     "ability": "plus",
+     "moveset": [
+      "voltswitch",
+      "dragonpulse",
+      "focusblast",
+      "hiddenpowergrass"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 31,
+      "spa": 30,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "ampharosite"
+    }
+   ]
+  },
+  "kanto_misty": {
+   "name": "Misty",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "politoed",
+     "level": 27,
+     "gender": "MALE",
+     "nature": "sassy",
+     "ability": "drizzle",
+     "moveset": [
+      "flipturn",
+      "scald",
+      "earthquake",
+      "toxic"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "iapapa_berry"
+    },
+    {
+     "species": "ludicolo",
+     "level": 28,
+     "gender": "MALE",
+     "nature": "mild",
+     "ability": "swiftswim",
+     "moveset": [
+      "gigadrain",
+      "scald",
+      "aurorabeam",
+      "thunderpunch"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "sitrus_berry"
+    },
+    {
+     "species": "mantine",
+     "level": 27,
+     "gender": "MALE",
+     "nature": "modest",
+     "ability": "swiftswim",
+     "moveset": [
+      "scald",
+      "hurricane",
+      "roost",
+      "hiddenpowergrass"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 30,
+      "def": 31,
+      "spa": 30,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "wacan_berry"
+    },
+    {
+     "species": "clodsire",
+     "level": 28,
+     "gender": "MALE",
+     "nature": "careful",
+     "ability": "waterabsorb",
+     "moveset": [
+      "poisonjab",
+      "bulldoze",
+      "recover",
+      "toxic"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "black_sludge"
+    },
+    {
+     "species": "starmie",
+     "level": 28,
+     "gender": "GENDERLESS",
+     "nature": "modest",
+     "ability": "analytic",
+     "moveset": [
+      "scald",
+      "thunderbolt",
+      "psyshock",
+      "aurorabeam"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "mystic_water"
+    },
+    {
+     "species": "toxicroak",
+     "level": 27,
+     "gender": "MALE",
+     "nature": "jolly",
+     "ability": "dryskin",
+     "moveset": [
+      "swordsdance",
+      "drainpunch",
+      "poisonjab",
+      "suckerpunch"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 31
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "life_orb"
+    }
+   ]
+  },
+  "kanto_sabrina": {
+   "name": "Sabrina",
+   "battleFormat": "GEN_9_SINGLES",
+   "team": [
+    {
+     "species": "tapufini",
+     "level": 59,
+     "gender": "GENDERLESS",
+     "nature": "quiet",
+     "ability": "mistysurge",
+     "moveset": [
+      "mistyexplosion",
+      "muddywater",
+      "moonblast",
+      "flipturn"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 0,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 0
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "focus_sash"
+    },
+    {
+     "species": "camerupt",
+     "level": 59,
+     "gender": "MALE",
+     "nature": "quiet",
+     "ability": "solidrock",
+     "moveset": [
+      "flamethrower",
+      "earthpower",
+      "steameruption",
+      "slackoff"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 0,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 0
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "cameruptite"
+    },
+    {
+     "species": "glastrier",
+     "level": 59,
+     "gender": "GENDERLESS",
+     "nature": "brave",
+     "ability": "chillingneigh",
+     "moveset": [
+      "swordsdance",
+      "icehammer",
+      "closecombat",
+      "highhorsepower"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 0
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "iapapa_berry"
+    },
+    {
+     "species": "magearna",
+     "level": 59,
+     "gender": "GENDERLESS",
+     "nature": "quiet",
+     "ability": "soulheart",
+     "moveset": [
+      "moonblast",
+      "flashcannon",
+      "focusblast",
+      "thunderbolt"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 0,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 0
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "fighting_gem"
+    },
+    {
+     "species": "ironhands",
+     "level": 59,
+     "gender": "GENDERLESS",
+     "nature": "brave",
+     "ability": "quarkdrive",
+     "moveset": [
+      "drainpunch",
+      "plasmafists",
+      "knockoff",
+      "icepunch"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 31,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 0
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "booster_energy"
+    },
+    {
+     "species": "jellicent",
+     "level": 59,
+     "gender": "MALE",
+     "nature": "quiet",
+     "ability": "waterbubble",
+     "moveset": [
+      "waterspout",
+      "shadowball",
+      "strengthsap",
+      "hydropump"
+     ],
+     "ivs": {
+      "hp": 31,
+      "atk": 0,
+      "def": 31,
+      "spa": 31,
+      "spd": 31,
+      "spe": 0
+     },
+     "evs": {
+      "hp": 0,
+      "atk": 0,
+      "def": 0,
+      "spa": 0,
+      "spd": 0,
+      "spe": 0
+     },
+     "item": "mystic_water"
+    }
+   ]
+  }
+ }
+}

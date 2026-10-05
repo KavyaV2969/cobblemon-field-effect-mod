@@ -1,0 +1,9899 @@
+{
+ "rows": [
+  {
+   "kind": "moveStages",
+   "line": 1971,
+   "field": "water_surface",
+   "move": "splash",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2107,
+   "field": "rainbow",
+   "move": "meditate",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2107,
+   "field": "beach",
+   "move": "meditate",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2108,
+   "field": "psychic_terrain",
+   "move": "meditate",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2109,
+   "field": "colosseum",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2109,
+   "field": "concert_1",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2109,
+   "field": "concert_2",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2109,
+   "field": "concert_3",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2109,
+   "field": "concert_4",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2113,
+   "field": "psychic_terrain",
+   "move": "psyshieldbash",
+   "who": "self",
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2124,
+   "field": "electric_terrain",
+   "move": "charge",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2138,
+   "field": "grassy_terrain",
+   "move": "coil",
+   "who": "self",
+   "predicted": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2138,
+   "field": "dragons_den",
+   "move": "coil",
+   "who": "self",
+   "predicted": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    2,
+    2,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2142,
+   "field": "big_top",
+   "move": "dragondance",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2142,
+   "field": "dragons_den",
+   "move": "dragondance",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2147,
+   "field": "concert_1",
+   "move": "workup",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2147,
+   "field": "concert_2",
+   "move": "workup",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2147,
+   "field": "concert_3",
+   "move": "workup",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2147,
+   "field": "concert_4",
+   "move": "workup",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2147,
+   "field": "city",
+   "move": "workup",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2152,
+   "field": "grassy_terrain",
+   "move": "growth",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2152,
+   "field": "forest",
+   "move": "growth",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2152,
+   "field": "flower_garden_1",
+   "move": "growth",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2152,
+   "field": "flower_garden_2",
+   "move": "growth",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2153,
+   "field": "flower_garden_3",
+   "move": "growth",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2153,
+   "field": "flower_garden_4",
+   "move": "growth",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2153,
+   "field": "flower_garden_5",
+   "move": "growth",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2160,
+   "field": "misty_terrain",
+   "move": "cosmicpower",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2160,
+   "field": "rainbow",
+   "move": "cosmicpower",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2160,
+   "field": "holy",
+   "move": "cosmicpower",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2160,
+   "field": "starlight",
+   "move": "cosmicpower",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2160,
+   "field": "new_world",
+   "move": "cosmicpower",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2160,
+   "field": "psychic_terrain",
+   "move": "cosmicpower",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2161,
+   "field": "forest",
+   "move": "defendorder",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2165,
+   "field": "big_top",
+   "move": "quiverdance",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    2,
+    2,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    2,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    2,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2170,
+   "field": "chess_board",
+   "move": "calmmind",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2170,
+   "field": "beach",
+   "move": "calmmind",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2170,
+   "field": "psychic_terrain",
+   "move": "calmmind",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2176,
+   "field": "big_top",
+   "move": "swordsdance",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2176,
+   "field": "fairytale",
+   "move": "swordsdance",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2176,
+   "field": "colosseum",
+   "move": "swordsdance",
+   "who": "self",
+   "predicted": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "factory",
+   "move": "irondefense",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "corrosive",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "corrosive_mist",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "murkwater_surface",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "fairytale",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "concert_1",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "concert_2",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "concert_3",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "concert_4",
+   "move": "acidarmor",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2180,
+   "field": "swamp",
+   "move": "shelter",
+   "who": "self",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2188,
+   "field": "rocky",
+   "move": "rockpolish",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2189,
+   "field": "crystal_cavern",
+   "move": "rockpolish",
+   "who": "self",
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2193,
+   "field": "factory",
+   "move": "autotomize",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2193,
+   "field": "city",
+   "move": "autotomize",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2193,
+   "field": "deep_earth",
+   "move": "autotomize",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2200,
+   "field": "chess_board",
+   "move": "nastyplot",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2200,
+   "field": "psychic_terrain",
+   "move": "nastyplot",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2200,
+   "field": "infernal",
+   "move": "nastyplot",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2200,
+   "field": "back_alley",
+   "move": "nastyplot",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2218,
+   "field": "factory",
+   "move": "shiftgear",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2218,
+   "field": "city",
+   "move": "shiftgear",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2236,
+   "field": "big_top",
+   "move": "bellydrum",
+   "who": "self",
+   "predicted": [
+    6,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    6,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    6,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2278,
+   "field": "colosseum",
+   "move": "flatter",
+   "who": "foeRaise",
+   "predicted": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2284,
+   "field": "colosseum",
+   "move": "swagger",
+   "who": "foeRaise",
+   "predicted": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2290,
+   "field": "haunted",
+   "move": "bittermalice",
+   "who": "foe",
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2291,
+   "field": "concert_1",
+   "move": "growl",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2291,
+   "field": "concert_2",
+   "move": "growl",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2291,
+   "field": "concert_3",
+   "move": "growl",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2291,
+   "field": "concert_4",
+   "move": "growl",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2294,
+   "field": "icy",
+   "move": "lunge",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2304,
+   "field": "swamp",
+   "move": "strugglebug",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "unreachable",
+   "note": "Struggle Bug is function 0x45; its Swamp effect is SpAtk -2 (Battle_MoveEffects.rb:1458, lead 2331)"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2304,
+   "field": "electric_terrain",
+   "move": "electroweb",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2331,
+   "field": "frozen_dimension",
+   "move": "snarl",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2331,
+   "field": "back_alley",
+   "move": "snarl",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2331,
+   "field": "swamp",
+   "move": "strugglebug",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2342,
+   "field": "beach",
+   "move": "sandattack",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2342,
+   "field": "desert",
+   "move": "sandattack",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2343,
+   "field": "dark_crystal_cavern",
+   "move": "flash",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2343,
+   "field": "short_circuit",
+   "move": "flash",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2343,
+   "field": "starlight",
+   "move": "flash",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2343,
+   "field": "new_world",
+   "move": "flash",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2344,
+   "field": "corrosive_mist",
+   "move": "smokescreen",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2344,
+   "field": "volcanic",
+   "move": "smokescreen",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2344,
+   "field": "volcanic_top",
+   "move": "smokescreen",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2344,
+   "field": "back_alley",
+   "move": "smokescreen",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2344,
+   "field": "city",
+   "move": "smokescreen",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2345,
+   "field": "psychic_terrain",
+   "move": "kinesis",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2345,
+   "field": "beach",
+   "move": "kinesis",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    2,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2349,
+   "field": "psychic_terrain",
+   "move": "kinesis",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2362,
+   "field": "misty_terrain",
+   "move": "sweetscent",
+   "who": "foe",
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2362,
+   "field": "flower_garden_3",
+   "move": "sweetscent",
+   "who": "foe",
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    2
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2363,
+   "field": "flower_garden_4",
+   "move": "sweetscent",
+   "who": "foe",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    2
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    2
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    2
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2364,
+   "field": "flower_garden_5",
+   "move": "sweetscent",
+   "who": "foe",
+   "predicted": [
+    0,
+    3,
+    0,
+    3,
+    0,
+    0,
+    2
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    3,
+    0,
+    0,
+    2
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    3,
+    0,
+    0,
+    2
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2376,
+   "field": "big_top",
+   "move": "featherdance",
+   "who": "foe",
+   "predicted": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2381,
+   "field": "concert_1",
+   "move": "screech",
+   "who": "foe",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2381,
+   "field": "concert_2",
+   "move": "screech",
+   "who": "foe",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2381,
+   "field": "concert_3",
+   "move": "screech",
+   "who": "foe",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2381,
+   "field": "concert_4",
+   "move": "screech",
+   "who": "foe",
+   "predicted": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2385,
+   "field": "haunted",
+   "move": "scaryface",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    4,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    3,
+    0,
+    0
+   ],
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle_MoveEffects.rb:1646 lowers Speed by 3 on Haunted"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2395,
+   "field": "factory",
+   "move": "metalsound",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2395,
+   "field": "short_circuit",
+   "move": "metalsound",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2395,
+   "field": "concert_1",
+   "move": "metalsound",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2395,
+   "field": "concert_2",
+   "move": "metalsound",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2395,
+   "field": "concert_3",
+   "move": "metalsound",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2395,
+   "field": "concert_4",
+   "move": "metalsound",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2396,
+   "field": "back_alley",
+   "move": "faketears",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2497,
+   "field": "grassy_terrain",
+   "move": "worryseed",
+   "who": "foe",
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2851,
+   "field": "beach",
+   "move": "firespin",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2851,
+   "field": "beach",
+   "move": "sandtomb",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2715,
+   "field": "sky",
+   "move": "mirrormove",
+   "who": "self",
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2899,
+   "field": "icy",
+   "move": "rollout",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 2899,
+   "field": "icy",
+   "move": "iceball",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3282,
+   "field": "fairytale",
+   "move": "nobleroar",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3282,
+   "field": "dragons_den",
+   "move": "nobleroar",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3291,
+   "field": "electric_terrain",
+   "move": "eerieimpulse",
+   "who": "foe",
+   "predicted": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3298,
+   "field": "frozen_dimension",
+   "move": "partingshot",
+   "who": "foe",
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3299,
+   "field": "concert_1",
+   "move": "partingshot",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3299,
+   "field": "concert_2",
+   "move": "partingshot",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3299,
+   "field": "concert_3",
+   "move": "partingshot",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3299,
+   "field": "concert_4",
+   "move": "partingshot",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3299,
+   "field": "back_alley",
+   "move": "partingshot",
+   "who": "foe",
+   "predicted": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3356,
+   "field": "electric_terrain",
+   "move": "magneticflux",
+   "who": "self",
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3363,
+   "field": "electric_terrain",
+   "move": "magneticflux",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3383,
+   "field": "fairytale",
+   "move": "craftyshield",
+   "who": "self",
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3496,
+   "field": "water_surface",
+   "move": "shoreup",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3496,
+   "field": "murkwater_surface",
+   "move": "shoreup",
+   "who": "self",
+   "predicted": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3519,
+   "field": "bewitched",
+   "move": "strengthsap",
+   "who": "foe",
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3556,
+   "field": "chess_board",
+   "move": "noretreat",
+   "who": "self",
+   "predicted": [
+    2,
+    -1,
+    2,
+    -1,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    -1,
+    2,
+    -1,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    -1,
+    2,
+    -1,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3556,
+   "field": "big_top",
+   "move": "noretreat",
+   "who": "self",
+   "predicted": [
+    2,
+    -1,
+    2,
+    -1,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    -1,
+    2,
+    -1,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    -1,
+    2,
+    -1,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3557,
+   "field": "colosseum",
+   "move": "noretreat",
+   "who": "self",
+   "predicted": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    2,
+    2,
+    2,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3644,
+   "field": "colosseum",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3644,
+   "field": "concert_1",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3644,
+   "field": "concert_2",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3644,
+   "field": "concert_3",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3644,
+   "field": "concert_4",
+   "move": "howl",
+   "who": "self",
+   "predicted": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3669,
+   "field": "back_alley",
+   "move": "corrosivegas",
+   "who": "foe",
+   "predicted": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3669,
+   "field": "city",
+   "move": "corrosivegas",
+   "who": "foe",
+   "predicted": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3669,
+   "field": "corrosive_mist",
+   "move": "corrosivegas",
+   "who": "foe",
+   "predicted": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3689,
+   "field": "big_top",
+   "move": "victorydance",
+   "who": "self",
+   "predicted": [
+    2,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    2,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    2,
+    2,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3700,
+   "field": "water_surface",
+   "move": "takeheart",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3700,
+   "field": "underwater",
+   "move": "takeheart",
+   "who": "self",
+   "predicted": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    2,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "moveStages",
+   "line": 3838,
+   "field": "big_top",
+   "move": "aquabatics",
+   "status": "unavailable"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12822,
+   "field": "forest",
+   "setup": {
+    "stickyWeb": true
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12838,
+   "field": "fairytale",
+   "setup": {
+    "replaces": "healingwish"
+   },
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12838,
+   "field": "starlight",
+   "setup": {
+    "replaces": "healingwish"
+   },
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12844,
+   "field": "starlight",
+   "setup": {
+    "replaces": "lunardance"
+   },
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12848,
+   "field": "new_world",
+   "setup": {
+    "replaces": "lunardance"
+   },
+   "predicted": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12848,
+   "field": "big_top",
+   "setup": {
+    "replaces": "lunardance"
+   },
+   "predicted": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12855,
+   "field": "deep_earth",
+   "setup": {
+    "item": "Iron Ball"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    -2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12859,
+   "field": "deep_earth",
+   "setup": {
+    "item": "Magnet"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12874,
+   "field": "electric_terrain",
+   "setup": {
+    "item": "Cell Battery"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12881,
+   "field": "electric_terrain",
+   "setup": {
+    "ability": "Quark Drive"
+   },
+   "predicted": {
+    "volatile": "quarkdrive"
+   },
+   "expected": {
+    "volatile": "quarkdrive"
+   },
+   "actual": [
+    "quarkdrive"
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12881,
+   "field": "new_world",
+   "setup": {
+    "ability": "Quark Drive"
+   },
+   "predicted": {
+    "volatile": "quarkdrive"
+   },
+   "expected": {
+    "absent": "quarkdrive"
+   },
+   "actual": [],
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battler.rb:3417-3428 activates Quark Drive only on Electric Terrain (field or overlay) or with Booster Energy"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12896,
+   "field": "new_world",
+   "setup": {
+    "ability": "Protosynthesis"
+   },
+   "predicted": {
+    "volatile": "protosynthesis"
+   },
+   "expected": {
+    "absent": "protosynthesis"
+   },
+   "actual": [],
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battler.rb:3431-3442 activates Protosynthesis only in sun or with Booster Energy; pbWeather (Battle.rb) does not make these fields sunny"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12896,
+   "field": "desert",
+   "setup": {
+    "ability": "Protosynthesis"
+   },
+   "predicted": {
+    "volatile": "protosynthesis"
+   },
+   "expected": {
+    "absent": "protosynthesis"
+   },
+   "actual": [],
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battler.rb:3431-3442 activates Protosynthesis only in sun or with Booster Energy; pbWeather (Battle.rb) does not make these fields sunny"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12921,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Intrepid Sword"
+   },
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12921,
+   "field": "colosseum",
+   "setup": {
+    "ability": "Intrepid Sword"
+   },
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12926,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Dauntless Shield"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12926,
+   "field": "colosseum",
+   "setup": {
+    "ability": "Dauntless Shield"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12935,
+   "field": "deep_earth",
+   "setup": {
+    "ability": "Light Metal"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12939,
+   "field": "deep_earth",
+   "setup": {
+    "ability": "Heavy Metal"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    -1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    -1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    -1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12944,
+   "field": "electric_terrain",
+   "setup": {
+    "ability": "Lightning Rod"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12948,
+   "field": "volcanic",
+   "setup": {
+    "ability": "Magma Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12950,
+   "field": "dragons_den",
+   "setup": {
+    "ability": "Magma Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12952,
+   "field": "electric_terrain",
+   "setup": {
+    "ability": "Electromorphosis"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12960,
+   "field": "dragons_den",
+   "setup": {
+    "ability": "Shell Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12964,
+   "field": "fairytale",
+   "setup": {
+    "species": "Aegislash",
+    "ability": "Stance Change"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12964,
+   "field": "chess_board",
+   "setup": {
+    "species": "Aegislash",
+    "ability": "Stance Change"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12964,
+   "field": "chess_board",
+   "setup": {
+    "ability": "Stall"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Magic Guard"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Magic Bounce"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Power of Alchemy"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Mirror Armor"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Pastel Veil"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Armor Tail"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Battle Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Shell Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12968,
+   "field": "fairytale",
+   "setup": {
+    "ability": "Magician"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12974,
+   "field": "starlight",
+   "setup": {
+    "ability": "Illuminate"
+   },
+   "predicted": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12978,
+   "field": "misty_terrain",
+   "setup": {
+    "ability": "Water Compaction"
+   },
+   "predicted": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12978,
+   "field": "corrosive_mist",
+   "setup": {
+    "ability": "Water Compaction"
+   },
+   "predicted": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12988,
+   "field": "dimensional",
+   "setup": {
+    "ability": "Rattled"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12988,
+   "field": "frozen_dimension",
+   "setup": {
+    "ability": "Rattled"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12988,
+   "field": "haunted",
+   "setup": {
+    "ability": "Rattled"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12992,
+   "field": "psychic_terrain",
+   "setup": {
+    "ability": "Forewarn"
+   },
+   "predicted": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12992,
+   "field": "psychic_terrain",
+   "setup": {
+    "ability": "Anticipation"
+   },
+   "predicted": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12992,
+   "field": "psychic_terrain",
+   "setup": {
+    "ability": "Mind's Eye"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12996,
+   "field": "forest",
+   "setup": {
+    "ability": "Forewarn",
+    "overlay": "psychic_terrain"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 12996,
+   "field": "forest",
+   "setup": {
+    "ability": "Anticipation",
+    "overlay": "psychic_terrain"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13000,
+   "field": "crystal_cavern",
+   "setup": {
+    "ability": "Tera Form Zero"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "dimensional",
+   "setup": {
+    "ability": "Berserk"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "frozen_dimension",
+   "setup": {
+    "ability": "Berserk"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "dimensional",
+   "setup": {
+    "ability": "Justified"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "frozen_dimension",
+   "setup": {
+    "ability": "Justified"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "dimensional",
+   "setup": {
+    "ability": "Anger Point"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "frozen_dimension",
+   "setup": {
+    "ability": "Anger Point"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "dimensional",
+   "setup": {
+    "ability": "Anger Shell"
+   },
+   "predicted": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13004,
+   "field": "frozen_dimension",
+   "setup": {
+    "ability": "Anger Shell"
+   },
+   "predicted": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    -1,
+    1,
+    -1,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13016,
+   "field": "sky",
+   "setup": {
+    "ability": "Big Pecks"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13016,
+   "field": "sky",
+   "setup": {
+    "ability": "Levitate"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13021,
+   "field": "infernal",
+   "setup": {
+    "ability": "Magma Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13021,
+   "field": "infernal",
+   "setup": {
+    "ability": "Flame Body"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13021,
+   "field": "infernal",
+   "setup": {
+    "ability": "Desolate Land"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13026,
+   "field": "colosseum",
+   "setup": {
+    "ability": "Battle Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13026,
+   "field": "colosseum",
+   "setup": {
+    "ability": "Shell Armor"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13026,
+   "field": "colosseum",
+   "setup": {
+    "ability": "Mirror Armor"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battler.rb:2365 tests :MIRORARMOR (misspelled), so Mirror Armor never gains Sp. Def on Colosseum entry"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13026,
+   "field": "colosseum",
+   "setup": {
+    "ability": "Magic Guard"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13026,
+   "field": "colosseum",
+   "setup": {
+    "ability": "Justified"
+   },
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13026,
+   "field": "colosseum",
+   "setup": {
+    "ability": "No Guard"
+   },
+   "predicted": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_1",
+   "setup": {
+    "ability": "Heavy Metal"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_2",
+   "setup": {
+    "ability": "Heavy Metal"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Heavy Metal"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Heavy Metal"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_1",
+   "setup": {
+    "ability": "Solid Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_2",
+   "setup": {
+    "ability": "Solid Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Solid Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Solid Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_1",
+   "setup": {
+    "ability": "Punk Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_2",
+   "setup": {
+    "ability": "Punk Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Punk Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Punk Rock"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_1",
+   "setup": {
+    "ability": "Soundproof"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_2",
+   "setup": {
+    "ability": "Soundproof"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Soundproof"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Soundproof"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_1",
+   "setup": {
+    "ability": "Rock Head"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_2",
+   "setup": {
+    "ability": "Rock Head"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Rock Head"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13033,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Rock Head"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13035,
+   "field": "concert_2",
+   "setup": {
+    "ability": "Emergency Exit"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13035,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Emergency Exit"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13035,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Emergency Exit"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13035,
+   "field": "concert_2",
+   "setup": {
+    "ability": "Run Away"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13035,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Run Away"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13035,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Run Away"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13037,
+   "field": "concert_3",
+   "setup": {
+    "ability": "Rattled"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13037,
+   "field": "concert_4",
+   "setup": {
+    "ability": "Rattled"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13043,
+   "field": "back_alley",
+   "setup": {
+    "ability": "Anticipation"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13043,
+   "field": "back_alley",
+   "setup": {
+    "ability": "Forewarn"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    1,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13043,
+   "field": "back_alley",
+   "setup": {
+    "ability": "Pickpocket"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13043,
+   "field": "back_alley",
+   "setup": {
+    "ability": "Merciless"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13043,
+   "field": "back_alley",
+   "setup": {
+    "ability": "Magician"
+   },
+   "predicted": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13050,
+   "field": "city",
+   "setup": {
+    "ability": "Big Pecks"
+   },
+   "predicted": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13050,
+   "field": "city",
+   "setup": {
+    "ability": "Early Bird"
+   },
+   "predicted": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "expected": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "actual": [
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13050,
+   "field": "city",
+   "setup": {
+    "ability": "Pickup"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "entryStages",
+   "line": 13050,
+   "field": "city",
+   "setup": {
+    "ability": "Rattled"
+   },
+   "predicted": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "expected": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "actual": [
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0
+   ],
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9186,
+   "field": "volcanic",
+   "subject": {},
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9187,
+   "field": "volcanic",
+   "subject": {
+    "ability": "Leaf Guard"
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24926686217008798,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9186,
+   "field": "volcanic",
+   "subject": {
+    "species": "Venusaur",
+    "ability": "Chlorophyll"
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24916943521594684,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9193,
+   "field": "underwater",
+   "subject": {
+    "species": "Arcanine",
+    "ability": "Justified"
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24922118380062305,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9196,
+   "field": "underwater",
+   "subject": {
+    "species": "Arcanine",
+    "ability": "Flame Body"
+   },
+   "predicted": -0.5,
+   "expected": -0.5,
+   "measured": -0.4984423676012461,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9199,
+   "field": "murkwater_surface",
+   "subject": {},
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9202,
+   "field": "murkwater_surface",
+   "subject": {
+    "ability": "Flame Body"
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24926686217008798,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9206,
+   "field": "corrosive",
+   "subject": {
+    "ability": "Dry Skin"
+   },
+   "predicted": -0.125,
+   "expected": 0,
+   "measured": 0,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:5984-5998 applies Dry Skin poison damage on Corrosive Mist and Corrupted, not Corrosive"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9206,
+   "field": "corrosive",
+   "subject": {
+    "ability": "Grass Pelt"
+   },
+   "predicted": -0.25,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:5968-5974 withers Grass Pelt by 1/8 once; the AI counts it at both 9206 and 9214"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9214,
+   "field": "corrosive",
+   "subject": {
+    "ability": "Leaf Guard"
+   },
+   "predicted": -0.125,
+   "expected": 0,
+   "measured": 0,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:6180-6186 applies foliage damage on Corrupted, not Corrosive"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9214,
+   "field": "corrosive",
+   "subject": {
+    "ability": "Flower Veil"
+   },
+   "predicted": -0.125,
+   "expected": 0,
+   "measured": 0,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:6180-6186 applies foliage damage on Corrupted, not Corrosive"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9214,
+   "field": "corrupted",
+   "subject": {
+    "ability": "Leaf Guard"
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match",
+   "note": "mechanic named by the AI branch, on the field where the source applies it"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9214,
+   "field": "corrupted",
+   "subject": {
+    "ability": "Flower Veil"
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match",
+   "note": "mechanic named by the AI branch, on the field where the source applies it"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9207,
+   "field": "desert",
+   "subject": {
+    "ability": "Dry Skin"
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9208,
+   "field": "corrupted",
+   "subject": {
+    "ability": "Dry Skin"
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9209,
+   "field": "desert",
+   "subject": {
+    "species": "Tangela",
+    "ability": "Leaf Guard",
+    "weather": "sunnyday"
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12177121771217712,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9209,
+   "field": "desert",
+   "subject": {
+    "species": "Tangela",
+    "ability": "Chlorophyll",
+    "weather": "sunnyday"
+   },
+   "predicted": -0.125,
+   "expected": 0,
+   "measured": 0,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:5464 exempts Chlorophyll, Solar Power and Mega Sol from the Desert sunlight damage"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9210,
+   "field": "corrosive_mist",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "aquaring"
+     }
+    ]
+   },
+   "predicted": -0.0625,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9211,
+   "field": "corrosive",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": -0.0625,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9211,
+   "field": "corrupted",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": -0.0625,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9212,
+   "field": "haunted",
+   "subject": {
+    "status": "slp"
+   },
+   "predicted": -0.0625,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9229,
+   "field": "dimensional",
+   "subject": {
+    "status": "slp"
+   },
+   "predicted": -0.125,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:6564-6569 deals 1/16 once; the AI charges it at both 9229 and 9245"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9229,
+   "field": "bewitched",
+   "subject": {
+    "status": "slp"
+   },
+   "predicted": -0.125,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:6564-6569 deals 1/16 once; the AI charges it at both 9229 and 9245"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9229,
+   "field": "swamp",
+   "subject": {
+    "status": "slp"
+   },
+   "predicted": -0.0625,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9213,
+   "field": "dimensional",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "healblock",
+      "source": "foe"
+     }
+    ]
+   },
+   "predicted": -0.0625,
+   "expected": -0.0625,
+   "measured": -0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9215,
+   "field": "infernal",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "torment",
+      "source": "foe"
+     }
+    ]
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9219,
+   "field": "desert",
+   "subject": {
+    "weather": "sandstorm"
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9220,
+   "field": "frozen_dimension",
+   "subject": {
+    "weather": "hail"
+   },
+   "predicted": -0.125,
+   "expected": -0.125,
+   "measured": -0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9226,
+   "field": "icy",
+   "subject": {
+    "status": "brn"
+   },
+   "predicted": -0.03125,
+   "expected": -0.03125,
+   "measured": -0.02932551319648094,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9235,
+   "field": "infernal",
+   "subject": {
+    "status": "slp",
+    "foe": {
+     "ability": "Bad Dreams"
+    }
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24926686217008798,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9234,
+   "field": "rainbow",
+   "subject": {
+    "status": "slp",
+    "foe": {
+     "ability": "Bad Dreams"
+    }
+   },
+   "predicted": 0,
+   "expected": 0,
+   "measured": 0,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9250,
+   "field": "wasteland",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "leechseed",
+      "source": "foe"
+     }
+    ]
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24633431085043989,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9251,
+   "field": "haunted",
+   "subject": {
+    "status": "slp",
+    "volatiles": [
+     {
+      "id": "nightmare"
+     }
+    ]
+   },
+   "predicted": -0.3333333333333333,
+   "expected": -0.3333333333333333,
+   "measured": -0.3313782991202346,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9251,
+   "field": "rainbow",
+   "subject": {
+    "status": "slp",
+    "volatiles": [
+     {
+      "id": "nightmare"
+     }
+    ]
+   },
+   "predicted": 0,
+   "expected": 0,
+   "measured": 0,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9252,
+   "field": "holy",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "curse",
+      "source": "foe"
+     }
+    ]
+   },
+   "predicted": 0,
+   "expected": 0,
+   "measured": 0,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9263,
+   "field": "holy",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "saltcure",
+      "source": "foe"
+     }
+    ]
+   },
+   "predicted": -0.125,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "project decision recorded at research/battle_rules.py:95: the non-Champs Holy divisor (Battle.rb:6607) keeps Cobblemon’s native 1/8 Salt Cure base"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9263,
+   "field": "deux_finalis",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "saltcure",
+      "source": "foe"
+     }
+    ]
+   },
+   "predicted": -0.125,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "project decision recorded at research/battle_rules.py:95: the non-Champs Holy divisor (Battle.rb:6607) keeps Cobblemon’s native 1/8 Salt Cure base"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9263,
+   "field": "holy",
+   "subject": {
+    "species": "Registeel",
+    "ability": "Clear Body",
+    "volatiles": [
+     {
+      "id": "saltcure",
+      "source": "foe"
+     }
+    ]
+   },
+   "predicted": -0.25,
+   "expected": -0.3333333333333333,
+   "measured": -0.33222591362126247,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "project decision recorded at research/battle_rules.py:95 (divisor 3 for Steel/Water)"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9272,
+   "field": "haunted",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "firespin"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9273,
+   "field": "dragons_den",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "magmastorm"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9274,
+   "field": "desert",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "sandtomb"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9275,
+   "field": "water_surface",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "whirlpool"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9275,
+   "field": "underwater",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "whirlpool"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9276,
+   "field": "electric_terrain",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "thundercage"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9278,
+   "field": "forest",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "infestation"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9278,
+   "field": "flower_garden_3",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "infestation"
+     }
+    ]
+   },
+   "predicted": -0.16666666666666666,
+   "expected": -0.16666666666666666,
+   "measured": -0.16422287390029325,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9280,
+   "field": "flower_garden_4",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "infestation"
+     }
+    ]
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24926686217008798,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9282,
+   "field": "flower_garden_5",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "partiallytrapped",
+      "source": "foe",
+      "move": "infestation"
+     }
+    ]
+   },
+   "predicted": -0.3333333333333333,
+   "expected": -0.3333333333333333,
+   "measured": -0.3313782991202346,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9292,
+   "field": "corrupted",
+   "subject": {
+    "item": "Black Sludge"
+   },
+   "predicted": -0.25,
+   "expected": -0.25,
+   "measured": -0.24926686217008798,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9310,
+   "field": "corrosive_mist",
+   "subject": {
+    "species": "Registeel",
+    "ability": "Clear Body",
+    "volatiles": [
+     {
+      "id": "aquaring"
+     }
+    ]
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.059800664451827246,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9313,
+   "field": "misty_terrain",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "aquaring"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9313,
+   "field": "swamp",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "aquaring"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9313,
+   "field": "water_surface",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "aquaring"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9313,
+   "field": "underwater",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "aquaring"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9311,
+   "field": "grassy_terrain",
+   "subject": {
+    "item": "Big Root",
+    "volatiles": [
+     {
+      "id": "aquaring"
+     }
+    ]
+   },
+   "predicted": 0.1,
+   "expected": 0.1,
+   "measured": 0.09970674486803519,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9321,
+   "field": "forest",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9321,
+   "field": "flower_garden_2",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9321,
+   "field": "flower_garden_3",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9321,
+   "field": "grassy_terrain",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9322,
+   "field": "flower_garden_4",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": 0.25,
+   "expected": 0.25,
+   "measured": 0.24633431085043989,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9322,
+   "field": "flower_garden_5",
+   "subject": {
+    "volatiles": [
+     {
+      "id": "ingrain"
+     }
+    ]
+   },
+   "predicted": 0.25,
+   "expected": 0.25,
+   "measured": 0.24633431085043989,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9327,
+   "field": "corrosive",
+   "subject": {
+    "species": "Croagunk",
+    "ability": "Dry Skin"
+   },
+   "predicted": 0.0625,
+   "expected": 0,
+   "measured": 0,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:5984-5998 heals Poison-type Dry Skin on Corrosive Mist and Corrupted only"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9327,
+   "field": "corrupted",
+   "subject": {
+    "species": "Croagunk",
+    "ability": "Dry Skin"
+   },
+   "predicted": 0.0625,
+   "expected": 0.125,
+   "measured": 0.12236286919831224,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:5992-5996 heals 1/8"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9327,
+   "field": "corrosive_mist",
+   "subject": {
+    "species": "Croagunk",
+    "ability": "Dry Skin"
+   },
+   "predicted": 0.0625,
+   "expected": 0.125,
+   "measured": 0.12236286919831224,
+   "status": "ai_prediction_differs_from_source_mechanic",
+   "note": "Battle.rb:5992-5996 heals 1/8"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9327,
+   "field": "misty_terrain",
+   "subject": {
+    "ability": "Dry Skin"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9327,
+   "field": "swamp",
+   "subject": {
+    "ability": "Dry Skin"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9327,
+   "field": "water_surface",
+   "subject": {
+    "ability": "Dry Skin"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9327,
+   "field": "underwater",
+   "subject": {
+    "ability": "Dry Skin"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9330,
+   "field": "corrupted",
+   "subject": {
+    "species": "Muk",
+    "ability": "Stench",
+    "item": "Black Sludge"
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.1225071225071225,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9338,
+   "field": "icy",
+   "subject": {
+    "ability": "Ice Body"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9338,
+   "field": "snowy_mountain",
+   "subject": {
+    "ability": "Ice Body"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9338,
+   "field": "frozen_dimension",
+   "subject": {
+    "ability": "Ice Body"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9349,
+   "field": "corrosive",
+   "subject": {
+    "ability": "Poison Heal"
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9349,
+   "field": "wasteland",
+   "subject": {
+    "ability": "Poison Heal"
+   },
+   "predicted": 0.125,
+   "expected": 0.125,
+   "measured": 0.12316715542521994,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9350,
+   "field": "grassy_terrain",
+   "subject": {
+    "ability": "Sap Sipper"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9351,
+   "field": "grassy_terrain",
+   "subject": {},
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9352,
+   "field": "electric_terrain",
+   "subject": {
+    "ability": "Volt Absorb"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9354,
+   "field": "rainbow",
+   "subject": {
+    "status": "slp"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9355,
+   "field": "forest",
+   "subject": {
+    "ability": "Sap Sipper"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9356,
+   "field": "short_circuit",
+   "subject": {
+    "ability": "Volt Absorb"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9357,
+   "field": "desert",
+   "subject": {
+    "ability": "Earth Eater"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9359,
+   "field": "deux_finalis",
+   "subject": {
+    "ability": "Gluttony"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9359,
+   "field": "deux_finalis",
+   "subject": {
+    "ability": "Purifying Salt"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9360,
+   "field": "water_surface",
+   "subject": {
+    "ability": "Water Absorb"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9360,
+   "field": "underwater",
+   "subject": {
+    "ability": "Water Absorb"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.06158357771260997,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9361,
+   "field": "bewitched",
+   "subject": {
+    "species": "Tangela",
+    "ability": "Chlorophyll"
+   },
+   "predicted": 0.0625,
+   "expected": 0.0625,
+   "measured": 0.05904059040590406,
+   "status": "match"
+  },
+  {
+   "kind": "residualHp",
+   "line": 9362,
+   "field": "back_alley",
+   "subject": {
+    "item": "Leftovers"
+   },
+   "predicted": 0.041875,
+   "expected": 0.041875,
+   "measured": 0.04105571847507331,
+   "status": "match"
+  }
+ ]
+}

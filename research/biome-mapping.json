@@ -261,8 +261,8 @@
   {
     "biome": "minecraft:mushroom_fields",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
-    "field": "rejuvenation:corrosive",
-    "reason": "Fungal growth",
+    "field": "rejuvenation:fairytale",
+    "reason": "Mushroom biome",
     "mechanism": "explicit"
   },
   {
@@ -408,8 +408,8 @@
   {
     "biome": "minecraft:sunflower_plains",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
-    "field": "rejuvenation:flower_garden_2",
-    "reason": "Flower-rich vegetation",
+    "field": "rejuvenation:grassy_terrain",
+    "reason": "Plains biome variant",
     "mechanism": "explicit"
   },
   {

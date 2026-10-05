@@ -1,0 +1,161 @@
+Compiled from "WeatherInstruction.java"
+public final class com.cobblemon.mod.common.battles.interpreter.instructions.WeatherInstruction implements com.cobblemon.mod.common.battles.dispatch.InterpreterInstruction {
+  private final com.cobblemon.mod.common.api.battles.interpreter.BattleMessage message;
+
+  public com.cobblemon.mod.common.battles.interpreter.instructions.WeatherInstruction(com.cobblemon.mod.common.api.battles.interpreter.BattleMessage);
+    Code:
+       0: aload_1
+       1: ldc           #42                 // String message
+       3: invokestatic  #48                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: invokespecial #51                 // Method java/lang/Object."<init>":()V
+      10: aload_0
+      11: aload_1
+      12: putfield      #53                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      15: return
+
+  public final com.cobblemon.mod.common.api.battles.interpreter.BattleMessage getMessage();
+    Code:
+       0: aload_0
+       1: getfield      #53                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+       4: areturn
+
+  public void invoke(com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: aload_1
+       1: ldc           #55                 // String battle
+       3: invokestatic  #48                 // Method kotlin/jvm/internal/Intrinsics.checkNotNullParameter:(Ljava/lang/Object;Ljava/lang/String;)V
+       6: aload_0
+       7: getfield      #53                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      10: iconst_0
+      11: invokevirtual #61                 // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.effectAt:(I)Lcom/cobblemon/mod/common/api/battles/interpreter/Effect;
+      14: dup
+      15: ifnull        27
+      18: invokeinterface #67,  1           // InterfaceMethod com/cobblemon/mod/common/api/battles/interpreter/Effect.getId:()Ljava/lang/String;
+      23: dup
+      24: ifnonnull     29
+      27: pop
+      28: return
+      29: astore_2
+      30: aload_0
+      31: getfield      #53                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      34: aload_1
+      35: aconst_null
+      36: iconst_2
+      37: aconst_null
+      38: invokestatic  #73                 // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.battlePokemonFromOptional$default:(Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;Ljava/lang/String;ILjava/lang/Object;)Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;
+      41: astore_3
+      42: aload_3
+      43: dup
+      44: ifnull        73
+      47: astore        4
+      49: iconst_0
+      50: istore        5
+      52: getstatic     #79                 // Field com/cobblemon/mod/common/battles/ShowdownInterpreter.INSTANCE:Lcom/cobblemon/mod/common/battles/ShowdownInterpreter;
+      55: aload_1
+      56: aload_0
+      57: getfield      #53                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      60: aconst_null
+      61: iconst_1
+      62: aconst_null
+      63: invokestatic  #83                 // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.effect$default:(Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;Ljava/lang/String;ILjava/lang/Object;)Lcom/cobblemon/mod/common/api/battles/interpreter/Effect;
+      66: aload_3
+      67: invokevirtual #87                 // Method com/cobblemon/mod/common/battles/ShowdownInterpreter.broadcastOptionalAbility:(Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;Lcom/cobblemon/mod/common/api/battles/interpreter/Effect;Lcom/cobblemon/mod/common/battles/pokemon/BattlePokemon;)V
+      70: goto          75
+      73: pop
+      74: nop
+      75: aload_1
+      76: ldc           #92                 // float 1.5f
+      78: aload_0
+      79: aload_2
+      80: aload_1
+      81: invokedynamic #111,  0            // InvokeDynamic #0:invoke:(Lcom/cobblemon/mod/common/battles/interpreter/instructions/WeatherInstruction;Ljava/lang/String;Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;)Lkotlin/jvm/functions/Function0;
+      86: invokevirtual #115                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.dispatchWaiting:(FLkotlin/jvm/functions/Function0;)V
+      89: return
+
+  private static final kotlin.Unit invoke$lambda$1(com.cobblemon.mod.common.battles.interpreter.instructions.WeatherInstruction, java.lang.String, com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: nop
+       1: aload_0
+       2: getfield      #53                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+       5: ldc           #127                // String upkeep
+       7: invokevirtual #131                // Method com/cobblemon/mod/common/api/battles/interpreter/BattleMessage.hasOptionalArgument:(Ljava/lang/String;)Z
+      10: ifeq          29
+      13: aload_1
+      14: invokedynamic #143,  0            // InvokeDynamic #1:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      19: iconst_0
+      20: anewarray     #4                  // class java/lang/Object
+      23: invokestatic  #149                // Method com/cobblemon/mod/common/util/LocalizationUtilsKt.battleLang:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+      26: goto          174
+      29: aload_1
+      30: ldc           #151                // String none
+      32: invokestatic  #155                // Method kotlin/jvm/internal/Intrinsics.areEqual:(Ljava/lang/Object;Ljava/lang/Object;)Z
+      35: ifne          87
+      38: aload_2
+      39: invokevirtual #159                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getContextManager:()Lcom/cobblemon/mod/common/battles/interpreter/ContextManager;
+      42: iconst_1
+      43: anewarray     #39                 // class com/cobblemon/mod/common/api/battles/interpreter/BattleContext
+      46: astore        4
+      48: aload         4
+      50: iconst_0
+      51: getstatic     #79                 // Field com/cobblemon/mod/common/battles/ShowdownInterpreter.INSTANCE:Lcom/cobblemon/mod/common/battles/ShowdownInterpreter;
+      54: aload_0
+      55: getfield      #53                 // Field message:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;
+      58: getstatic     #163                // Field com/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type.WEATHER:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;
+      61: aload_2
+      62: invokevirtual #167                // Method com/cobblemon/mod/common/battles/ShowdownInterpreter.getContextFromAction:(Lcom/cobblemon/mod/common/api/battles/interpreter/BattleMessage;Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;)Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext;
+      65: aastore
+      66: aload         4
+      68: invokevirtual #173                // Method com/cobblemon/mod/common/battles/interpreter/ContextManager.add:([Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext;)V
+      71: aload_1
+      72: invokedynamic #176,  0            // InvokeDynamic #2:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+      77: iconst_0
+      78: anewarray     #4                  // class java/lang/Object
+      81: invokestatic  #149                // Method com/cobblemon/mod/common/util/LocalizationUtilsKt.battleLang:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+      84: goto          174
+      87: aload_2
+      88: invokevirtual #159                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getContextManager:()Lcom/cobblemon/mod/common/battles/interpreter/ContextManager;
+      91: getstatic     #163                // Field com/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type.WEATHER:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;
+      94: invokevirtual #180                // Method com/cobblemon/mod/common/battles/interpreter/ContextManager.get:(Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;)Ljava/util/Collection;
+      97: dup
+      98: ifnull        131
+     101: invokeinterface #186,  1          // InterfaceMethod java/util/Collection.iterator:()Ljava/util/Iterator;
+     106: dup
+     107: ifnull        131
+     110: invokeinterface #191,  1          // InterfaceMethod java/util/Iterator.next:()Ljava/lang/Object;
+     115: checkcast     #39                 // class com/cobblemon/mod/common/api/battles/interpreter/BattleContext
+     118: dup
+     119: ifnull        131
+     122: invokeinterface #192,  1          // InterfaceMethod com/cobblemon/mod/common/api/battles/interpreter/BattleContext.getId:()Ljava/lang/String;
+     127: dup
+     128: ifnonnull     136
+     131: pop
+     132: getstatic     #197                // Field kotlin/Unit.INSTANCE:Lkotlin/Unit;
+     135: areturn
+     136: astore        4
+     138: aload_2
+     139: invokevirtual #159                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getContextManager:()Lcom/cobblemon/mod/common/battles/interpreter/ContextManager;
+     142: iconst_1
+     143: anewarray     #37                 // class com/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type
+     146: astore        5
+     148: aload         5
+     150: iconst_0
+     151: getstatic     #163                // Field com/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type.WEATHER:Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;
+     154: aastore
+     155: aload         5
+     157: invokevirtual #201                // Method com/cobblemon/mod/common/battles/interpreter/ContextManager.clear:([Lcom/cobblemon/mod/common/api/battles/interpreter/BattleContext$Type;)V
+     160: aload         4
+     162: invokedynamic #204,  0            // InvokeDynamic #3:makeConcatWithConstants:(Ljava/lang/String;)Ljava/lang/String;
+     167: iconst_0
+     168: anewarray     #4                  // class java/lang/Object
+     171: invokestatic  #149                // Method com/cobblemon/mod/common/util/LocalizationUtilsKt.battleLang:(Ljava/lang/String;[Ljava/lang/Object;)Lnet/minecraft/class_5250;
+     174: astore_3
+     175: aload_2
+     176: aload_3
+     177: invokestatic  #210                // Method kotlin/jvm/internal/Intrinsics.checkNotNull:(Ljava/lang/Object;)V
+     180: aload_3
+     181: checkcast     #212                // class net/minecraft/class_2561
+     184: invokevirtual #216                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.broadcastChatMessage:(Lnet/minecraft/class_2561;)V
+     187: getstatic     #197                // Field kotlin/Unit.INSTANCE:Lkotlin/Unit;
+     190: areturn
+}

@@ -18,7 +18,9 @@ if sys.platform == 'win32':
         capture_output=True, text=True).stdout.strip()
     if running and running != '0': sys.exit('Refusing to deploy while a Minecraft/Fabric JVM is running')
 rows = []
-for artifact in manifest['artifacts']:
+# Optional cosmetic override packs (e.g. the Murkwater Surge gym) are installed with their own hash at copy time.
+extras = [{'path': p.name, 'sha256': sha(p)} for p in sorted((OUT / 'dist').glob('rejuvenation-gym-overrides-*.zip'))]
+for artifact in manifest['artifacts'] + extras:
     source = OUT / 'dist' / artifact['path']
     assert sha(source) == artifact['sha256'], f'{source.name} differs from the packaged manifest'
     target = PROFILE / ('mods' if source.suffix == '.jar' else 'datapacks') / source.name

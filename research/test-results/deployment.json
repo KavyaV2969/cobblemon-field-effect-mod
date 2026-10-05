@@ -1,21 +1,21 @@
 {
-  "timestamp": "2026-10-05T11:55:26.339356+00:00",
-  "engineSha256": "1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b",
+  "timestamp": "2026-10-05T17:02:48.105447+00:00",
+  "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
   "deployed": [
     {
       "artifact": "rejuvenation-fields-0.2.0.jar",
       "installedPath": "mods/rejuvenation-fields-0.2.0.jar",
-      "bytes": 1617239,
-      "sha256": "71cea4cf4280fb01c7c70c1e8a3665c1e762412c50a34ce172b98cc2422b4dc3",
-      "previousSha256": "20209f31ede40e52c0b238bbda7365c6606bd59c534ad653e479d069e09564c6",
+      "bytes": 2549366,
+      "sha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7",
+      "previousSha256": "5249fc8874a842d87e5adef245a8af3a2a3515a950ee632fe88e93d982880940",
       "replaced": true
     },
     {
       "artifact": "rejuvenation-fields-datapack-0.2.0.zip",
       "installedPath": "datapacks/rejuvenation-fields-datapack-0.2.0.zip",
-      "bytes": 478299,
-      "sha256": "395191380447640612f4e18cbfaee31a2666258afa8b2bbf325b01a995a69f30",
-      "previousSha256": "64714698b4e33f39c834c31cdad2e54604cb562f6658e753b947bf7a8c1176d6",
+      "bytes": 588760,
+      "sha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d",
+      "previousSha256": "395191380447640612f4e18cbfaee31a2666258afa8b2bbf325b01a995a69f30",
       "replaced": true
     }
   ],

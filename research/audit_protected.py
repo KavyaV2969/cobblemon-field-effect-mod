@@ -14,8 +14,14 @@ present={str(p.relative_to(ROOT)) for folder in folders for p in (ROOT/folder).r
 report={'checked':len(baseline),'changed':sorted(changed),'added':sorted(present-set(baseline)),
         'deleted':sorted(deleted),'timestamp':datetime.datetime.now(datetime.timezone.utc).isoformat(),
         'authoredOutsideRejuvenation':[],
-        'note':'No original files are restored by this audit. An Iris settings difference is preserved; trainer/content archives and the other protected files are compared byte-for-byte.',
+        'note':'Read-only audit; all observed settings differences are preserved and listed below. Original trainer/content archives are compared byte-for-byte. Authorized field-mod/datapack installs appear as additions.',
         'differences':[{'path':name,'baselineSha256':baseline[name],'currentSha256':sha(ROOT/name),
                         'modifiedUtc':datetime.datetime.fromtimestamp((ROOT/name).stat().st_mtime,datetime.timezone.utc).isoformat()} for name in changed]}
+before=OUT/'research/test-results/protected-before-continuation.json'
+if before.exists():
+    previous=json.loads(before.read_text(encoding='utf-8'))
+    expected=dict(baseline)
+    expected.update({row['path']:row['currentSha256'] for row in previous['differences']})
+    report['continuationChangedOriginalFiles']=sorted(name for name,value in expected.items() if not (ROOT/name).exists() or sha(ROOT/name)!=value)
 (OUT/'research/protected-integrity.json').write_text(json.dumps(report,indent=2)+'\n',encoding='utf-8')
 print(json.dumps({k:report[k] for k in ['checked','changed','added','deleted']},indent=2))

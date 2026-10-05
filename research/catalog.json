@@ -181512,10 +181512,9 @@
   },
   "mappings": [
     {
-      "dimension": "minecraft:overworld",
       "submerged": true,
       "field": "rejuvenation:underwater",
-      "reason": "Battle anchor submerged in water"
+      "reason": "Battle submerged in water"
     },
     {
       "biome": "cobblemonraiddens:raid_den",
@@ -181816,8 +181815,16 @@
     },
     {
       "biome": "minecraft:mushroom_fields",
-      "field": "rejuvenation:corrosive",
-      "reason": "Fungal growth"
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:mushroom_fields",
+      "field": "rejuvenation:fairytale",
+      "reason": "Mushroom biome"
     },
     {
       "biome": "minecraft:nether_wastes",
@@ -182001,8 +182008,8 @@
     },
     {
       "biome": "minecraft:sunflower_plains",
-      "field": "rejuvenation:flower_garden_2",
-      "reason": "Flower-rich vegetation"
+      "field": "rejuvenation:grassy_terrain",
+      "reason": "Plains biome variant"
     },
     {
       "biome": "minecraft:swamp",
@@ -183112,6 +183119,48 @@
       "skyVisible": false,
       "field": "rejuvenation:deep_earth",
       "reason": "Unknown deep underground biome"
+    }
+  ],
+  "structures": [
+    {
+      "structure": "minecraft:mansion",
+      "field": "rejuvenation:back_alley",
+      "reason": "Woodland Mansion"
+    },
+    {
+      "tag": "repurposed_structures:collections/mansions",
+      "field": "rejuvenation:back_alley",
+      "reason": "Woodland Mansion variant"
+    },
+    {
+      "structure": "minecraft:village_plains",
+      "field": "rejuvenation:city",
+      "reason": "Village"
+    },
+    {
+      "structure": "minecraft:village_desert",
+      "field": "rejuvenation:city",
+      "reason": "Village"
+    },
+    {
+      "structure": "minecraft:village_savanna",
+      "field": "rejuvenation:city",
+      "reason": "Village"
+    },
+    {
+      "structure": "minecraft:village_snowy",
+      "field": "rejuvenation:city",
+      "reason": "Village"
+    },
+    {
+      "structure": "minecraft:village_taiga",
+      "field": "rejuvenation:city",
+      "reason": "Village"
+    },
+    {
+      "tag": "minecraft:village",
+      "field": "rejuvenation:city",
+      "reason": "Village"
     }
   ],
   "items": {

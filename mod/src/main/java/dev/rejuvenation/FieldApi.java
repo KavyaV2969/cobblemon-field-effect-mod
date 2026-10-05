@@ -1,9 +1,7 @@
 package dev.rejuvenation;
 
 import com.cobblemon.mod.common.api.battles.model.PokemonBattle;
-import com.cobblemon.mod.common.api.battles.model.actor.EntityBackedBattleActor;
 import com.google.gson.*;
-import net.minecraft.class_1297;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -17,7 +15,7 @@ public final class FieldApi {
         public JsonObject json(){var result=new JsonObject();result.addProperty("difficultyMode",difficultyMode);result.addProperty("fieldFrenzy",fieldFrenzy);return result;}
     }
     private static final Map<UUID, EnumMap<Priority,String>> pending = new ConcurrentHashMap<>();
-    private static final Map<UUID,String> natural = new ConcurrentHashMap<>();
+    private static final Map<UUID,EnvironmentResolver.Result> natural = new ConcurrentHashMap<>();
     private static final Map<UUID,JsonObject> active = new ConcurrentHashMap<>();
     private static final Map<UUID,Map<String,Map<String,Double>>> captureSnapshots = new ConcurrentHashMap<>();
     private static final Map<UUID,RuleOptions> ruleOptions = new ConcurrentHashMap<>();
@@ -37,8 +35,8 @@ public final class FieldApi {
             next.put(priority, field); return next;
         });
     }
-    public static void clear(UUID battle) { pending.remove(battle); natural.remove(battle); active.remove(battle); captureSnapshots.remove(battle); ruleOptions.remove(battle); submerged.remove(battle);captureEnvironmentSnapshots.remove(battle); }
-    public static void clearAll() { pending.clear(); natural.clear(); active.clear(); captureSnapshots.clear(); ruleOptions.clear();submerged.clear();captureEnvironmentSnapshots.clear(); }
+    public static void clear(UUID battle) { InspectorSync.forget(battle); BattleStartTimings.discard(battle); pending.remove(battle); natural.remove(battle); origins.remove(battle); active.remove(battle); captureSnapshots.remove(battle); ruleOptions.remove(battle); submerged.remove(battle);captureEnvironmentSnapshots.remove(battle); }
+    public static void clearAll() { InspectorSync.clear(); pending.clear(); natural.clear(); origins.clear(); active.clear(); captureSnapshots.clear(); ruleOptions.clear();submerged.clear();captureEnvironmentSnapshots.clear(); }
     static void captureEnvironment(UUID battle,boolean underwater){submerged.put(battle,underwater);}
     static void begin(UUID battle,String field,JsonObject catalog){
         var snapshot=new HashMap<String,Map<String,Double>>();
@@ -69,45 +67,42 @@ public final class FieldApi {
             })multiplier=row.get("multiplier").getAsDouble();
         return multiplier==null?OptionalDouble.empty():OptionalDouble.of(multiplier);
     }
+    /** Selection precedence: EXPLICIT > TRAINER > ARENA > environment-derived (wild battles only) > Indoor. */
     public static Resolution choose(Map<Priority,String> selections,String derived,boolean wild) {
         if (selections!=null) for(Priority p:new Priority[]{Priority.EXPLICIT,Priority.TRAINER,Priority.ARENA})
             if(selections.containsKey(p))return new Resolution(selections.get(p),true);
         return new Resolution(wild && derived!=null?derived:"rejuvenation:indoor",wild);
     }
+    /** Why a battle's initial field was chosen: explicit, trainer, arena, underwater, structure, biome or fallback. */
+    public record Origin(String field,String source,String reason) {}
+    private static final Map<UUID,Origin> origins = new ConcurrentHashMap<>();
+    public static Optional<Origin> origin(UUID battle) { return Optional.ofNullable(origins.get(battle)); }
     public static Resolution resolve(PokemonBattle battle, JsonObject catalog) {
         var derived=natural.remove(battle.getBattleId());
         var values = pending.remove(battle.getBattleId());
-        var result=choose(values,derived,battle.isPvW());
-        if(result.enabled())begin(battle.getBattleId(),result.field(),catalog);
+        var result=choose(values,derived==null?null:derived.field(),battle.isPvW());
+        if(result.enabled()){
+            String source=null;
+            if(values!=null)for(Priority p:new Priority[]{Priority.EXPLICIT,Priority.TRAINER,Priority.ARENA})if(source==null && values.containsKey(p))source=p.name().toLowerCase(Locale.ROOT);
+            origins.put(battle.getBattleId(),source!=null?new Origin(result.field(),source,"Selected before battle start")
+                :derived!=null?new Origin(result.field(),derived.source().name().toLowerCase(Locale.ROOT),derived.reason()):new Origin(result.field(),"fallback","No environment captured"));
+            begin(battle.getBattleId(),result.field(),catalog);
+        }
         return result;
     }
     /** Called by the server-thread pre-start event, before simulator work is queued. */
     public static void capture(PokemonBattle battle) {
-        if (battle.isPvW()) natural.put(battle.getBattleId(),environment(battle,RejuvenationFields.catalog.data()));
-    }
-    private static String environment(PokemonBattle battle, JsonObject catalog) {
-        if (!catalog.has("mappings")) return "rejuvenation:indoor";
-        class_1297 location = null;
-        for (var actor : battle.getActors()) if (actor instanceof EntityBackedBattleActor<?> entity && !(entity.getEntity() instanceof net.minecraft.class_1657)) { location=entity.getEntity(); break; }
-        if (location == null && !battle.getPlayers().isEmpty()) location = battle.getPlayers().getFirst();
-        if (location == null) return "rejuvenation:indoor";
-        captureEnvironment(battle.getBattleId(),location.method_5869());
-        var world=location.method_37908(); var pos=location.method_24515(); var biome=world.method_23753(pos);
-        String biomeId=biome.method_40230().map(k -> k.method_29177().toString()).orElse("");
-        String dimension=world.method_27983().method_29177().toString();
-        int depth=world.method_8624(net.minecraft.class_2902.class_2903.field_13203,pos.method_10263(),pos.method_10260())-pos.method_10264();
-        var tags=biome.method_40228().map(t -> t.comp_327().toString()).toList();
-        for (JsonElement element : catalog.getAsJsonArray("mappings")) {
-            JsonObject rule=element.getAsJsonObject();
-            if (rule.has("biome") && !rule.get("biome").getAsString().equals(biomeId)) continue;
-            if (rule.has("tag") && !tags.contains(rule.get("tag").getAsString())) continue;
-            if (rule.has("dimension") && !rule.get("dimension").getAsString().equals(dimension)) continue;
-            if (rule.has("submerged") && rule.get("submerged").getAsBoolean()!=location.method_5869()) continue;
-            if (rule.has("maxY") && pos.method_10264()>rule.get("maxY").getAsInt()) continue;
-            if (rule.has("minDepth") && depth<rule.get("minDepth").getAsInt()) continue;
-            if (rule.has("skyVisible") && rule.get("skyVisible").getAsBoolean()!=world.method_8311(pos)) continue;
-            return rule.get("field").getAsString();
+        if (!battle.isPvW()) return;
+        long start=System.nanoTime();
+        var catalog=RejuvenationFields.catalog;
+        EnvironmentResolver.Result result;
+        if (!catalog.data().has("mappings")) result=new EnvironmentResolver.Result("rejuvenation:indoor",EnvironmentResolver.Source.FALLBACK,"No catalog loaded");
+        else {
+            var captured=EnvironmentProbe.capture(battle,catalog);
+            if(captured==null)result=new EnvironmentResolver.Result("rejuvenation:indoor",EnvironmentResolver.Source.FALLBACK,"No located participant");
+            else{captureEnvironment(battle.getBattleId(),captured.anchorSubmerged());result=EnvironmentResolver.resolve(captured.snapshot(),catalog.environment());}
         }
-        return catalog.get("default").getAsString();
+        natural.put(battle.getBattleId(),result);
+        BattleStartTimings.environment(battle.getBattleId(),System.nanoTime()-start,result);
     }
 }

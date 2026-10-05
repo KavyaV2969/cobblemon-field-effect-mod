@@ -1,0 +1,2603 @@
+{
+  "source": "Rejuvenation 14 copy\\Scripts\\Battle_AI.rb",
+  "rules": [
+    {
+      "line": 11535,
+      "field": ":ELECTERRAIN",
+      "weight": 50,
+      "condition": "i.ability == :SURGESURFER"
+    },
+    {
+      "line": 11536,
+      "field": ":ELECTERRAIN",
+      "weight": 50,
+      "condition": "Rejuv && i.ability == :TERAVOLT"
+    },
+    {
+      "line": 11537,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "i.ability == :GALVANIZE"
+    },
+    {
+      "line": 11538,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "Rejuv && i.ability == :STEADFAST"
+    },
+    {
+      "line": 11539,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "Rejuv && i.ability == :QUICKFEET"
+    },
+    {
+      "line": 11540,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "Rejuv && i.ability == :LIGHTNINGROD"
+    },
+    {
+      "line": 11541,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "Rejuv && i.ability == :BATTERY"
+    },
+    {
+      "line": 11542,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "i.ability == :TRANSISTOR"
+    },
+    {
+      "line": 11543,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "i.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 11544,
+      "field": ":ELECTERRAIN",
+      "weight": 25,
+      "condition": "i.ability == :ELECTROMORPHOSIS"
+    },
+    {
+      "line": 11545,
+      "field": ":ELECTERRAIN",
+      "weight": 20,
+      "condition": "Rejuv && i.ability == :STATIC"
+    },
+    {
+      "line": 11546,
+      "field": ":ELECTERRAIN",
+      "weight": 15,
+      "condition": "Rejuv && i.ability == :VOLTABSORB"
+    },
+    {
+      "line": 11548,
+      "field": ":GRASSY",
+      "weight": 30,
+      "condition": "i.ability == :GRASSPELT"
+    },
+    {
+      "line": 11549,
+      "field": ":GRASSY",
+      "weight": 30,
+      "condition": "i.ability == :COTTONDOWN"
+    },
+    {
+      "line": 11550,
+      "field": ":GRASSY",
+      "weight": 30,
+      "condition": "Rejuv && i.ability == :OVERGROW"
+    },
+    {
+      "line": 11551,
+      "field": ":GRASSY",
+      "weight": 20,
+      "condition": "Rejuv && i.ability == :SAPSIPPER"
+    },
+    {
+      "line": 11552,
+      "field": ":GRASSY",
+      "weight": 25,
+      "condition": "Rejuv && i.ability == :HARVEST"
+    },
+    {
+      "line": 11553,
+      "field": ":GRASSY",
+      "weight": 25,
+      "condition": "i.hasType?(:GRASS) || i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11555,
+      "field": ":MISTY",
+      "weight": 20,
+      "condition": "i.hasType?(:FAIRY)"
+    },
+    {
+      "line": 11556,
+      "field": ":MISTY",
+      "weight": 20,
+      "condition": "i.ability == :MARVELSCALE"
+    },
+    {
+      "line": 11557,
+      "field": ":MISTY",
+      "weight": 20,
+      "condition": "i.ability == :DRYSKIN"
+    },
+    {
+      "line": 11558,
+      "field": ":MISTY",
+      "weight": 20,
+      "condition": "i.ability == :WATERCOMPACTION"
+    },
+    {
+      "line": 11559,
+      "field": ":MISTY",
+      "weight": 25,
+      "condition": "i.ability == :PIXILATE"
+    },
+    {
+      "line": 11560,
+      "field": ":MISTY",
+      "weight": 25,
+      "condition": "i.ability == :SOULHEART"
+    },
+    {
+      "line": 11561,
+      "field": ":MISTY",
+      "weight": 20,
+      "condition": "i.ability == :PASTELVEIL"
+    },
+    {
+      "line": 11563,
+      "field": ":DARKCRYSTALCAVERN",
+      "weight": 30,
+      "condition": "i.ability == :PRISMARMOR"
+    },
+    {
+      "line": 11564,
+      "field": ":DARKCRYSTALCAVERN",
+      "weight": 30,
+      "condition": "i.ability == :SHADOWSHIELD"
+    },
+    {
+      "line": 11566,
+      "field": ":CHESS",
+      "weight": 10,
+      "condition": "i.ability == :ADAPTABILITY"
+    },
+    {
+      "line": 11567,
+      "field": ":CHESS",
+      "weight": 10,
+      "condition": "i.ability == :SYNCHRONIZE"
+    },
+    {
+      "line": 11568,
+      "field": ":CHESS",
+      "weight": 10,
+      "condition": "i.ability == :ANTICIPATION"
+    },
+    {
+      "line": 11569,
+      "field": ":CHESS",
+      "weight": 10,
+      "condition": "i.ability == :TELEPATHY"
+    },
+    {
+      "line": 11570,
+      "field": ":CHESS",
+      "weight": 30,
+      "condition": "Rejuv && i.ability == :STANCECHANGE"
+    },
+    {
+      "line": 11571,
+      "field": ":CHESS",
+      "weight": 25,
+      "condition": "Rejuv && i.ability == :STALL"
+    },
+    {
+      "line": 11573,
+      "field": ":BIGTOP",
+      "weight": 30,
+      "condition": "i.ability == :SHEERFORCE"
+    },
+    {
+      "line": 11574,
+      "field": ":BIGTOP",
+      "weight": 30,
+      "condition": "i.ability == :PUREPOWER"
+    },
+    {
+      "line": 11575,
+      "field": ":BIGTOP",
+      "weight": 30,
+      "condition": "i.ability == :HUGEPOWER"
+    },
+    {
+      "line": 11576,
+      "field": ":BIGTOP",
+      "weight": 30,
+      "condition": "i.ability == :GUTS"
+    },
+    {
+      "line": 11577,
+      "field": ":BIGTOP",
+      "weight": 10,
+      "condition": "i.ability == :DANCER"
+    },
+    {
+      "line": 11578,
+      "field": ":BIGTOP",
+      "weight": 20,
+      "condition": "i.hasType?(:FIGHTING)"
+    },
+    {
+      "line": 11579,
+      "field": ":BIGTOP",
+      "weight": 20,
+      "condition": "i.ability == :PUNKROCK || i.ability == :JUNGLEBEAT"
+    },
+    {
+      "line": 11580,
+      "field": ":BIGTOP",
+      "weight": 10,
+      "condition": "i.ability == :COSTAR && @battle.doublebattle"
+    },
+    {
+      "line": 11582,
+      "field": ":BURNING",
+      "weight": 25,
+      "condition": "i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11583,
+      "field": ":BURNING",
+      "weight": 15,
+      "condition": "i.ability == :WATERVEIL"
+    },
+    {
+      "line": 11584,
+      "field": ":BURNING",
+      "weight": 15,
+      "condition": "i.ability == :HEATPROOF"
+    },
+    {
+      "line": 11585,
+      "field": ":BURNING",
+      "weight": 15,
+      "condition": "i.ability == :WATERBUBBLE"
+    },
+    {
+      "line": 11586,
+      "field": ":BURNING",
+      "weight": 25,
+      "condition": "i.ability == :STEAMENGINE"
+    },
+    {
+      "line": 11587,
+      "field": ":BURNING",
+      "weight": 30,
+      "condition": "i.ability == :FLASHFIRE"
+    },
+    {
+      "line": 11588,
+      "field": ":BURNING",
+      "weight": 30,
+      "condition": "i.ability == :FLAREBOOST"
+    },
+    {
+      "line": 11589,
+      "field": ":BURNING",
+      "weight": 30,
+      "condition": "i.ability == :BLAZE"
+    },
+    {
+      "line": 11590,
+      "field": ":BURNING",
+      "weight": 30,
+      "condition": "i.ability == :WELLBAKEDBODY"
+    },
+    {
+      "line": 11591,
+      "field": ":BURNING",
+      "weight": 15,
+      "condition": "i.ability == :THERMALEXCHANGE"
+    },
+    {
+      "line": 11592,
+      "field": ":BURNING",
+      "weight": -30,
+      "condition": "(i.ability == :ICEBODY)"
+    },
+    {
+      "line": 11593,
+      "field": ":BURNING",
+      "weight": -30,
+      "condition": "i.ability == :LEAFGUARD"
+    },
+    {
+      "line": 11594,
+      "field": ":BURNING",
+      "weight": -30,
+      "condition": "i.ability == :GRASSPELT"
+    },
+    {
+      "line": 11595,
+      "field": ":BURNING",
+      "weight": -30,
+      "condition": "i.ability == :FLUFFY"
+    },
+    {
+      "line": 11596,
+      "field": ":BURNING",
+      "weight": -30,
+      "condition": "i.ability == :ICEFACE"
+    },
+    {
+      "line": 11598,
+      "field": ":VOLCANIC",
+      "weight": 25,
+      "condition": "i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11599,
+      "field": ":VOLCANIC",
+      "weight": 15,
+      "condition": "i.ability == :WATERVEIL"
+    },
+    {
+      "line": 11600,
+      "field": ":VOLCANIC",
+      "weight": 15,
+      "condition": "i.ability == :HEATPROOF"
+    },
+    {
+      "line": 11601,
+      "field": ":VOLCANIC",
+      "weight": 15,
+      "condition": "i.ability == :WATERBUBBLE"
+    },
+    {
+      "line": 11602,
+      "field": ":VOLCANIC",
+      "weight": 20,
+      "condition": "i.ability == :MAGMAARMOR || nonmegaform.ability == :MAGMAARMOR"
+    },
+    {
+      "line": 11603,
+      "field": ":VOLCANIC",
+      "weight": 25,
+      "condition": "i.ability == :STEAMENGINE"
+    },
+    {
+      "line": 11604,
+      "field": ":VOLCANIC",
+      "weight": 30,
+      "condition": "i.ability == :FLASHFIRE"
+    },
+    {
+      "line": 11605,
+      "field": ":VOLCANIC",
+      "weight": 30,
+      "condition": "i.ability == :FLAREBOOST"
+    },
+    {
+      "line": 11606,
+      "field": ":VOLCANIC",
+      "weight": 30,
+      "condition": "i.ability == :BLAZE"
+    },
+    {
+      "line": 11607,
+      "field": ":VOLCANIC",
+      "weight": -30,
+      "condition": "(i.ability == :ICEBODY)"
+    },
+    {
+      "line": 11608,
+      "field": ":VOLCANIC",
+      "weight": -30,
+      "condition": "i.ability == :LEAFGUARD"
+    },
+    {
+      "line": 11609,
+      "field": ":VOLCANIC",
+      "weight": -30,
+      "condition": "i.ability == :GRASSPELT"
+    },
+    {
+      "line": 11610,
+      "field": ":VOLCANIC",
+      "weight": -30,
+      "condition": "i.ability == :FLUFFY"
+    },
+    {
+      "line": 11611,
+      "field": ":VOLCANIC",
+      "weight": -30,
+      "condition": "i.ability == :ICEFACE"
+    },
+    {
+      "line": 11613,
+      "field": ":SWAMP",
+      "weight": 15,
+      "condition": "i.ability == :GOOEY"
+    },
+    {
+      "line": 11614,
+      "field": ":SWAMP",
+      "weight": 20,
+      "condition": "i.ability == :WATERCOMPACTION"
+    },
+    {
+      "line": 11615,
+      "field": ":SWAMP",
+      "weight": 15,
+      "condition": "i.ability == :PROPELLERTAIL"
+    },
+    {
+      "line": 11616,
+      "field": ":SWAMP",
+      "weight": 20,
+      "condition": "i.ability == :DRYSKIN"
+    },
+    {
+      "line": 11617,
+      "field": ":SWAMP",
+      "weight": 10,
+      "condition": "i.ability == :RATTLED || nonmegaform.ability == :RATTLED"
+    },
+    {
+      "line": 11619,
+      "field": ":RAINBOW",
+      "weight": 10,
+      "condition": "i.ability == :WONDERSKIN"
+    },
+    {
+      "line": 11620,
+      "field": ":RAINBOW",
+      "weight": 20,
+      "condition": "i.ability == :MARVELSCALE"
+    },
+    {
+      "line": 11621,
+      "field": ":RAINBOW",
+      "weight": 25,
+      "condition": "i.ability == :SOULHEART"
+    },
+    {
+      "line": 11622,
+      "field": ":RAINBOW",
+      "weight": 30,
+      "condition": "i.ability == :CLOUDNINE"
+    },
+    {
+      "line": 11623,
+      "field": ":RAINBOW",
+      "weight": 30,
+      "condition": "i.ability == :PRISMARMOR"
+    },
+    {
+      "line": 11624,
+      "field": ":RAINBOW",
+      "weight": 20,
+      "condition": "i.ability == :PASTELVEIL"
+    },
+    {
+      "line": 11626,
+      "field": ":CORROSIVE",
+      "weight": 20,
+      "condition": "i.ability == :POISONHEAL"
+    },
+    {
+      "line": 11627,
+      "field": ":CORROSIVE",
+      "weight": 25,
+      "condition": "i.ability == :TOXICBOOST"
+    },
+    {
+      "line": 11628,
+      "field": ":CORROSIVE",
+      "weight": 30,
+      "condition": "i.ability == :MERCILESS"
+    },
+    {
+      "line": 11629,
+      "field": ":CORROSIVE",
+      "weight": 30,
+      "condition": "i.ability == :CORROSION"
+    },
+    {
+      "line": 11630,
+      "field": ":CORROSIVE",
+      "weight": 20,
+      "condition": "i.ability == :TOXICCHAIN"
+    },
+    {
+      "line": 11631,
+      "field": ":CORROSIVE",
+      "weight": 15,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11633,
+      "field": ":CORROSIVEMIST",
+      "weight": 10,
+      "condition": "i.ability == :WATERCOMPACTION"
+    },
+    {
+      "line": 11634,
+      "field": ":CORROSIVEMIST",
+      "weight": 20,
+      "condition": "i.ability == :POISONHEAL"
+    },
+    {
+      "line": 11635,
+      "field": ":CORROSIVEMIST",
+      "weight": 25,
+      "condition": "i.ability == :TOXICBOOST"
+    },
+    {
+      "line": 11636,
+      "field": ":CORROSIVEMIST",
+      "weight": 30,
+      "condition": "i.ability == :MERCILESS"
+    },
+    {
+      "line": 11637,
+      "field": ":CORROSIVEMIST",
+      "weight": 30,
+      "condition": "i.ability == :CORROSION"
+    },
+    {
+      "line": 11638,
+      "field": ":CORROSIVEMIST",
+      "weight": 20,
+      "condition": "i.ability == :TOXICCHAIN"
+    },
+    {
+      "line": 11639,
+      "field": ":CORROSIVEMIST",
+      "weight": 15,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11641,
+      "field": ":DESERT",
+      "weight": 20,
+      "condition": "i.ability == :SANDSTREAM || nonmegaform.ability == :SANDSTREAM || i.ability == :SANDSPIT || nonmegaform.ability == :SANDSPIT"
+    },
+    {
+      "line": 11642,
+      "field": ":DESERT",
+      "weight": 25,
+      "condition": "i.ability == :SANDVEIL"
+    },
+    {
+      "line": 11643,
+      "field": ":DESERT",
+      "weight": 30,
+      "condition": "i.ability == :SANDFORCE"
+    },
+    {
+      "line": 11644,
+      "field": ":DESERT",
+      "weight": 50,
+      "condition": "i.ability == :SANDRUSH"
+    },
+    {
+      "line": 11645,
+      "field": ":DESERT",
+      "weight": 20,
+      "condition": "i.ability == :EARTHEATER"
+    },
+    {
+      "line": 11646,
+      "field": ":DESERT",
+      "weight": 20,
+      "condition": "i.hasType?(:GROUND)"
+    },
+    {
+      "line": 11647,
+      "field": ":DESERT",
+      "weight": -25,
+      "condition": "i.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 11649,
+      "field": ":ICY",
+      "weight": 25,
+      "condition": "i.hasType?(:ICE)"
+    },
+    {
+      "line": 11650,
+      "field": ":ICY",
+      "weight": 25,
+      "condition": "(i.ability == :ICEBODY)"
+    },
+    {
+      "line": 11651,
+      "field": ":ICY",
+      "weight": 25,
+      "condition": "i.ability == :SNOWCLOAK"
+    },
+    {
+      "line": 11652,
+      "field": ":ICY",
+      "weight": 25,
+      "condition": "i.ability == :REFRIGERATE"
+    },
+    {
+      "line": 11653,
+      "field": ":ICY",
+      "weight": 20,
+      "condition": "i.ability == :ICESCALES"
+    },
+    {
+      "line": 11654,
+      "field": ":ICY",
+      "weight": 50,
+      "condition": "i.ability == :SLUSHRUSH || i.crested == :EMPOLEON"
+    },
+    {
+      "line": 11656,
+      "field": ":ROCKY",
+      "weight": -15,
+      "condition": "i.ability == :GORILLATACTICS"
+    },
+    {
+      "line": 11658,
+      "field": ":FOREST",
+      "weight": 20,
+      "condition": "i.ability == :SAPSIPPER"
+    },
+    {
+      "line": 11659,
+      "field": ":FOREST",
+      "weight": 25,
+      "condition": "i.hasType?(:GRASS) || i.hasType?(:BUG)"
+    },
+    {
+      "line": 11660,
+      "field": ":FOREST",
+      "weight": 30,
+      "condition": "i.ability == :GRASSPELT"
+    },
+    {
+      "line": 11661,
+      "field": ":FOREST",
+      "weight": 30,
+      "condition": "i.ability == :OVERGROW"
+    },
+    {
+      "line": 11662,
+      "field": ":FOREST",
+      "weight": 30,
+      "condition": "i.ability == :SWARM"
+    },
+    {
+      "line": 11663,
+      "field": ":FOREST",
+      "weight": 20,
+      "condition": "i.ability == :EFFECTSPORE"
+    },
+    {
+      "line": 11665,
+      "field": ":SUPERHEATED",
+      "weight": 15,
+      "condition": "i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11667,
+      "field": ":VOLCANICTOP",
+      "weight": 15,
+      "condition": "i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11668,
+      "field": ":VOLCANICTOP",
+      "weight": 25,
+      "condition": "i.ability == :STEAMENGINE"
+    },
+    {
+      "line": 11669,
+      "field": ":VOLCANICTOP",
+      "weight": -30,
+      "condition": "i.ability == :ICEFACE"
+    },
+    {
+      "line": 11670,
+      "field": ":VOLCANICTOP",
+      "weight": 30,
+      "condition": "i.ability == :GALEWINGS && @battle.pbWeather(nil) == :STRONGWINDS"
+    },
+    {
+      "line": 11672,
+      "field": ":FACTORY",
+      "weight": 25,
+      "condition": "i.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 11673,
+      "field": ":FACTORY",
+      "weight": 20,
+      "condition": "i.ability == :MOTORDRIVE"
+    },
+    {
+      "line": 11674,
+      "field": ":FACTORY",
+      "weight": 20,
+      "condition": "i.ability == :STEELWORKER"
+    },
+    {
+      "line": 11675,
+      "field": ":FACTORY",
+      "weight": 25,
+      "condition": "i.ability == :DOWNLOAD"
+    },
+    {
+      "line": 11676,
+      "field": ":FACTORY",
+      "weight": 25,
+      "condition": "i.ability == :TECHNICIAN"
+    },
+    {
+      "line": 11677,
+      "field": ":FACTORY",
+      "weight": 25,
+      "condition": "i.ability == :GALVANIZE"
+    },
+    {
+      "line": 11679,
+      "field": ":SHORTCIRCUIT",
+      "weight": 20,
+      "condition": "i.ability == :VOLTABSORB"
+    },
+    {
+      "line": 11680,
+      "field": ":SHORTCIRCUIT",
+      "weight": 20,
+      "condition": "i.ability == :STATIC"
+    },
+    {
+      "line": 11681,
+      "field": ":SHORTCIRCUIT",
+      "weight": 25,
+      "condition": "i.ability == :GALVANIZE"
+    },
+    {
+      "line": 11682,
+      "field": ":SHORTCIRCUIT",
+      "weight": 50,
+      "condition": "i.ability == :SURGESURFER"
+    },
+    {
+      "line": 11683,
+      "field": ":SHORTCIRCUIT",
+      "weight": 20,
+      "condition": "Rejuv && i.ability == :DOWNLOAD"
+    },
+    {
+      "line": 11684,
+      "field": ":SHORTCIRCUIT",
+      "weight": 25,
+      "condition": "i.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 11686,
+      "field": ":WASTELAND",
+      "weight": 10,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11687,
+      "field": ":WASTELAND",
+      "weight": 10,
+      "condition": "i.ability == :CORROSION"
+    },
+    {
+      "line": 11688,
+      "field": ":WASTELAND",
+      "weight": 20,
+      "condition": "i.ability == :POISONHEAL"
+    },
+    {
+      "line": 11689,
+      "field": ":WASTELAND",
+      "weight": 20,
+      "condition": "i.ability == :EFFECTSPORE"
+    },
+    {
+      "line": 11690,
+      "field": ":WASTELAND",
+      "weight": 20,
+      "condition": "i.ability == :POISONPOINT"
+    },
+    {
+      "line": 11691,
+      "field": ":WASTELAND",
+      "weight": 20,
+      "condition": "i.ability == :STENCH"
+    },
+    {
+      "line": 11692,
+      "field": ":WASTELAND",
+      "weight": 20,
+      "condition": "i.ability == :GOOEY"
+    },
+    {
+      "line": 11693,
+      "field": ":WASTELAND",
+      "weight": 25,
+      "condition": "i.ability == :TOXICBOOST"
+    },
+    {
+      "line": 11694,
+      "field": ":WASTELAND",
+      "weight": 30,
+      "condition": "i.ability == :MERCILESS"
+    },
+    {
+      "line": 11696,
+      "field": ":ASHENBEACH",
+      "weight": 10,
+      "condition": "i.hasType?(:FIGHTING)"
+    },
+    {
+      "line": 11697,
+      "field": ":ASHENBEACH",
+      "weight": 15,
+      "condition": "i.ability == :INNERFOCUS"
+    },
+    {
+      "line": 11698,
+      "field": ":ASHENBEACH",
+      "weight": 15,
+      "condition": "i.ability == :OWNTEMPO"
+    },
+    {
+      "line": 11699,
+      "field": ":ASHENBEACH",
+      "weight": 15,
+      "condition": "i.ability == :PUREPOWER"
+    },
+    {
+      "line": 11700,
+      "field": ":ASHENBEACH",
+      "weight": 15,
+      "condition": "i.ability == :STEADFAST"
+    },
+    {
+      "line": 11701,
+      "field": ":ASHENBEACH",
+      "weight": 15,
+      "condition": "i.ability == :STALWART"
+    },
+    {
+      "line": 11702,
+      "field": ":ASHENBEACH",
+      "weight": 20,
+      "condition": "i.ability == :SANDSTREAM || nonmegaform.ability == :SANDSTREAM"
+    },
+    {
+      "line": 11703,
+      "field": ":ASHENBEACH",
+      "weight": 20,
+      "condition": "i.ability == :WATERCOMPACTION"
+    },
+    {
+      "line": 11704,
+      "field": ":ASHENBEACH",
+      "weight": 30,
+      "condition": "i.ability == :SANDFORCE"
+    },
+    {
+      "line": 11705,
+      "field": ":ASHENBEACH",
+      "weight": 35,
+      "condition": "i.ability == :SANDVEIL"
+    },
+    {
+      "line": 11706,
+      "field": ":ASHENBEACH",
+      "weight": 50,
+      "condition": "i.ability == :SANDRUSH"
+    },
+    {
+      "line": 11708,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.hasType?(:WATER)"
+    },
+    {
+      "line": 11709,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 11710,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :WATERVEIL"
+    },
+    {
+      "line": 11711,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :HYDRATION"
+    },
+    {
+      "line": 11712,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :TORRENT"
+    },
+    {
+      "line": 11713,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :SCHOOLING"
+    },
+    {
+      "line": 11714,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :WATERCOMPACTION"
+    },
+    {
+      "line": 11715,
+      "field": ":WATERSURFACE",
+      "weight": 50,
+      "condition": "i.ability == :SWIFTSWIM"
+    },
+    {
+      "line": 11716,
+      "field": ":WATERSURFACE",
+      "weight": 50,
+      "condition": "i.ability == :SURGESURFER"
+    },
+    {
+      "line": 11717,
+      "field": ":WATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :STEAMENGINE"
+    },
+    {
+      "line": 11718,
+      "field": ":WATERSURFACE",
+      "weight": -50,
+      "condition": "PBTypes.typesEff(:WATER, i.types, inverse: @battle.inverse?).superEffective?"
+    },
+    {
+      "line": 11720,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.hasType?(:WATER)"
+    },
+    {
+      "line": 11721,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 11722,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.ability == :WATERVEIL"
+    },
+    {
+      "line": 11723,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.ability == :HYDRATION"
+    },
+    {
+      "line": 11724,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.ability == :TORRENT"
+    },
+    {
+      "line": 11725,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.ability == :SCHOOLING"
+    },
+    {
+      "line": 11726,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.ability == :WATERCOMPACTION"
+    },
+    {
+      "line": 11727,
+      "field": ":UNDERWATER",
+      "weight": 50,
+      "condition": "i.ability == :SWIFTSWIM"
+    },
+    {
+      "line": 11728,
+      "field": ":UNDERWATER",
+      "weight": 25,
+      "condition": "i.ability == :STEAMENGINE"
+    },
+    {
+      "line": 11729,
+      "field": ":UNDERWATER",
+      "weight": -50,
+      "condition": "PBTypes.typesEff(:WATER, i.types, inverse: @battle.inverse?).superEffective?"
+    },
+    {
+      "line": 11731,
+      "field": ":CAVE",
+      "weight": 15,
+      "condition": "i.hasType?(:GROUND)"
+    },
+    {
+      "line": 11733,
+      "field": ":GLITCH",
+      "weight": 20,
+      "condition": "Rejuv && i.ability == :DOWNLOAD"
+    },
+    {
+      "line": 11735,
+      "field": ":CRYSTALCAVERN",
+      "weight": 25,
+      "condition": "i.hasType?(:DRAGON)"
+    },
+    {
+      "line": 11736,
+      "field": ":CRYSTALCAVERN",
+      "weight": 30,
+      "condition": "i.ability == :PRISMARMOR"
+    },
+    {
+      "line": 11737,
+      "field": ":CRYSTALCAVERN",
+      "weight": 20,
+      "condition": "i.ability == :TERAFORMZERO"
+    },
+    {
+      "line": 11738,
+      "field": ":CRYSTALCAVERN",
+      "weight": 10,
+      "condition": "i.ability == :TERASHELL"
+    },
+    {
+      "line": 11740,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.hasType?(:WATER)"
+    },
+    {
+      "line": 11741,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11742,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 11743,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :SCHOOLING"
+    },
+    {
+      "line": 11744,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :WATERCOMPACTION"
+    },
+    {
+      "line": 11745,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :TOXICBOOST"
+    },
+    {
+      "line": 11746,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :POISONHEAL"
+    },
+    {
+      "line": 11747,
+      "field": ":MURKWATERSURFACE",
+      "weight": 25,
+      "condition": "i.ability == :MERCILESS"
+    },
+    {
+      "line": 11748,
+      "field": ":MURKWATERSURFACE",
+      "weight": 50,
+      "condition": "i.ability == :SWIFTSWIM"
+    },
+    {
+      "line": 11749,
+      "field": ":MURKWATERSURFACE",
+      "weight": 50,
+      "condition": "i.ability == :SURGESURFER"
+    },
+    {
+      "line": 11750,
+      "field": ":MURKWATERSURFACE",
+      "weight": 20,
+      "condition": "i.ability == :GOOEY"
+    },
+    {
+      "line": 11751,
+      "field": ":MURKWATERSURFACE",
+      "weight": 20,
+      "condition": "i.ability == :STENCH"
+    },
+    {
+      "line": 11753,
+      "field": ":MOUNTAIN",
+      "weight": 25,
+      "condition": "i.hasType?(:ROCK)"
+    },
+    {
+      "line": 11754,
+      "field": ":MOUNTAIN",
+      "weight": 25,
+      "condition": "i.hasType?(:FLYING)"
+    },
+    {
+      "line": 11755,
+      "field": ":MOUNTAIN",
+      "weight": 20,
+      "condition": "[i.ability, nonmegaform.ability].intersect?([:SNOWWARNING, :HAILWARNING])"
+    },
+    {
+      "line": 11756,
+      "field": ":MOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :DROUGHT || nonmegaform.ability == :DROUGHT"
+    },
+    {
+      "line": 11757,
+      "field": ":MOUNTAIN",
+      "weight": 25,
+      "condition": "i.ability == :LONGREACH"
+    },
+    {
+      "line": 11758,
+      "field": ":MOUNTAIN",
+      "weight": 30,
+      "condition": "i.ability == :GALEWINGS && @battle.pbWeather(nil) == :STRONGWINDS"
+    },
+    {
+      "line": 11759,
+      "field": ":MOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :WINDRIDER && @battle.pbWeather(nil) == :STRONGWINDS"
+    },
+    {
+      "line": 11760,
+      "field": ":MOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :WINDPOWER && @battle.pbWeather(nil) == :STRONGWINDS"
+    },
+    {
+      "line": 11762,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 25,
+      "condition": "i.hasType?(:ROCK)"
+    },
+    {
+      "line": 11763,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 25,
+      "condition": "i.hasType?(:FLYING)"
+    },
+    {
+      "line": 11764,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 25,
+      "condition": "i.hasType?(:ICE)"
+    },
+    {
+      "line": 11765,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 20,
+      "condition": "[i.ability, nonmegaform.ability].intersect?([:SNOWWARNING, :HAILWARNING])"
+    },
+    {
+      "line": 11766,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :DROUGHT || nonmegaform.ability == :DROUGHT"
+    },
+    {
+      "line": 11767,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 20,
+      "condition": "(i.ability == :ICEBODY)"
+    },
+    {
+      "line": 11768,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :SNOWCLOAK"
+    },
+    {
+      "line": 11769,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 25,
+      "condition": "i.ability == :LONGREACH"
+    },
+    {
+      "line": 11770,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 25,
+      "condition": "i.ability == :REFRIGERATE"
+    },
+    {
+      "line": 11771,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 30,
+      "condition": "i.ability == :GALEWINGS && @battle.pbWeather(nil) == :STRONGWINDS"
+    },
+    {
+      "line": 11772,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :WINDRIDER && @battle.pbWeather(nil) == :STRONGWINDS"
+    },
+    {
+      "line": 11773,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :WINDPOWER && @battle.pbWeather(nil) == :STRONGWINDS"
+    },
+    {
+      "line": 11774,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 20,
+      "condition": "i.ability == :ICESCALES"
+    },
+    {
+      "line": 11775,
+      "field": ":SNOWYMOUNTAIN",
+      "weight": 50,
+      "condition": "i.ability == :SLUSHRUSH || i.crested == :EMPOLEON"
+    },
+    {
+      "line": 11777,
+      "field": ":HOLY",
+      "weight": 20,
+      "condition": "i.hasType?(:NORMAL)"
+    },
+    {
+      "line": 11778,
+      "field": ":HOLY",
+      "weight": 20,
+      "condition": "i.ability == :JUSTIFIED"
+    },
+    {
+      "line": 11779,
+      "field": ":HOLY",
+      "weight": 25,
+      "condition": "i.ability == :POWERSPOT"
+    },
+    {
+      "line": 11780,
+      "field": ":HOLY",
+      "weight": 10,
+      "condition": "i.ability == :PURIFYINGSALT"
+    },
+    {
+      "line": 11782,
+      "field": ":MIRROR",
+      "weight": 25,
+      "condition": "i.ability == :SANDVEIL"
+    },
+    {
+      "line": 11783,
+      "field": ":MIRROR",
+      "weight": 25,
+      "condition": "i.ability == :SNOWCLOAK"
+    },
+    {
+      "line": 11784,
+      "field": ":MIRROR",
+      "weight": 25,
+      "condition": "i.ability == :ILLUSION"
+    },
+    {
+      "line": 11785,
+      "field": ":MIRROR",
+      "weight": 25,
+      "condition": "i.ability == :TANGLEDFEET"
+    },
+    {
+      "line": 11786,
+      "field": ":MIRROR",
+      "weight": 25,
+      "condition": "i.ability == :MAGICBOUNCE"
+    },
+    {
+      "line": 11787,
+      "field": ":MIRROR",
+      "weight": 25,
+      "condition": "i.ability == :COLORCHANGE"
+    },
+    {
+      "line": 11788,
+      "field": ":MIRROR",
+      "weight": 25,
+      "condition": "i.ability == :MIRRORARMOR"
+    },
+    {
+      "line": 11790,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.hasType?(:FAIRY)"
+    },
+    {
+      "line": 11791,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.hasType?(:STEEL)"
+    },
+    {
+      "line": 11792,
+      "field": ":FAIRYTALE",
+      "weight": 40,
+      "condition": "i.hasType?(:DRAGON)"
+    },
+    {
+      "line": 11793,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :POWEROFALCHEMY"
+    },
+    {
+      "line": 11794,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :MIRRORARMOR || nonmegaform.ability == :MIRRORARMOR"
+    },
+    {
+      "line": 11795,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :PASTELVEIL"
+    },
+    {
+      "line": 11796,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :MAGICGUARD || nonmegaform.ability == :MAGICGUARD"
+    },
+    {
+      "line": 11797,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :MAGICBOUNCE"
+    },
+    {
+      "line": 11798,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :FAIRYAURA"
+    },
+    {
+      "line": 11799,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :BATTLEARMOR || nonmegaform.ability == :BATTLEARMOR"
+    },
+    {
+      "line": 11800,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :SHELLARMOR || nonmegaform.ability == :SHELLARMOR"
+    },
+    {
+      "line": 11801,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :ARMORTAIL || nonmegaform.ability == :ARMORTAIL"
+    },
+    {
+      "line": 11802,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :MAGICIAN"
+    },
+    {
+      "line": 11803,
+      "field": ":FAIRYTALE",
+      "weight": 25,
+      "condition": "i.ability == :MARVELSCALE"
+    },
+    {
+      "line": 11804,
+      "field": ":FAIRYTALE",
+      "weight": 30,
+      "condition": "i.ability == :STANCECHANGE"
+    },
+    {
+      "line": 11805,
+      "field": ":FAIRYTALE",
+      "weight": 30,
+      "condition": "i.ability == :DAUNTLESSSHIELD"
+    },
+    {
+      "line": 11806,
+      "field": ":FAIRYTALE",
+      "weight": 30,
+      "condition": "i.ability == :INTREPIDSWORD"
+    },
+    {
+      "line": 11808,
+      "field": ":DRAGONSDEN",
+      "weight": 25,
+      "condition": "i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11809,
+      "field": ":DRAGONSDEN",
+      "weight": 50,
+      "condition": "i.hasType?(:DRAGON)"
+    },
+    {
+      "line": 11810,
+      "field": ":DRAGONSDEN",
+      "weight": 20,
+      "condition": "i.ability == :MARVELSCALE"
+    },
+    {
+      "line": 11811,
+      "field": ":DRAGONSDEN",
+      "weight": 20,
+      "condition": "i.ability == :MULTISCALE"
+    },
+    {
+      "line": 11812,
+      "field": ":DRAGONSDEN",
+      "weight": 25,
+      "condition": "i.ability == :DRAGONSMAW"
+    },
+    {
+      "line": 11813,
+      "field": ":DRAGONSDEN",
+      "weight": 25,
+      "condition": "i.ability == :DRAGONIZE"
+    },
+    {
+      "line": 11814,
+      "field": ":DRAGONSDEN",
+      "weight": 20,
+      "condition": "i.ability == :GOODASGOLD"
+    },
+    {
+      "line": 11815,
+      "field": ":DRAGONSDEN",
+      "weight": 20,
+      "condition": "i.ability == :MAGMAARMOR || nonmegaform.ability == :MAGMAARMOR"
+    },
+    {
+      "line": 11817,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 25,
+      "condition": "i.hasType?(:GRASS)"
+    },
+    {
+      "line": 11818,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 25,
+      "condition": "i.hasType?(:BUG)"
+    },
+    {
+      "line": 11819,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 20,
+      "condition": "i.ability == :FLOWERGIFT"
+    },
+    {
+      "line": 11820,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 20,
+      "condition": "i.ability == :FLOWERVEIL"
+    },
+    {
+      "line": 11821,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 20,
+      "condition": "i.ability == :DROUGHT || nonmegaform.ability == :DROUGHT"
+    },
+    {
+      "line": 11822,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 20,
+      "condition": "i.ability == :DRIZZLE || nonmegaform.ability == :DRIZZLE"
+    },
+    {
+      "line": 11823,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 20,
+      "condition": "Rejuv && (i.ability == :GRASSYSURGE || nonmegaform.ability == :GRASSYSURGE)"
+    },
+    {
+      "line": 11824,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 15,
+      "condition": "i.ability == :SEEDSOWER || nonmegaform.ability == :SEEDSOWER"
+    },
+    {
+      "line": 11825,
+      "field": "*PBFields::FLOWERGARDEN",
+      "weight": 25,
+      "condition": "i.ability == :RIPEN"
+    },
+    {
+      "line": 11827,
+      "field": ":STARLIGHT",
+      "weight": 25,
+      "condition": "i.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 11828,
+      "field": ":STARLIGHT",
+      "weight": 25,
+      "condition": "i.hasType?(:FAIRY)"
+    },
+    {
+      "line": 11829,
+      "field": ":STARLIGHT",
+      "weight": 25,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11830,
+      "field": ":STARLIGHT",
+      "weight": 20,
+      "condition": "i.ability == :MARVELSCALE"
+    },
+    {
+      "line": 11831,
+      "field": ":STARLIGHT",
+      "weight": 20,
+      "condition": "i.ability == :VICTORYSTAR"
+    },
+    {
+      "line": 11832,
+      "field": ":STARLIGHT",
+      "weight": 25,
+      "condition": "i.ability == :ILLUMINATE || nonmegaform.ability == :ILLUMINATE"
+    },
+    {
+      "line": 11833,
+      "field": ":STARLIGHT",
+      "weight": 30,
+      "condition": "i.ability == :SHADOWSHIELD"
+    },
+    {
+      "line": 11835,
+      "field": ":NEWWORLD",
+      "weight": 25,
+      "condition": "i.hasType?(:FLYING)"
+    },
+    {
+      "line": 11836,
+      "field": ":NEWWORLD",
+      "weight": 25,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11837,
+      "field": ":NEWWORLD",
+      "weight": 20,
+      "condition": "i.ability == :VICTORYSTAR"
+    },
+    {
+      "line": 11838,
+      "field": ":NEWWORLD",
+      "weight": 25,
+      "condition": "PBStuff::LevitateAbilities.include?(i.ability)"
+    },
+    {
+      "line": 11839,
+      "field": ":NEWWORLD",
+      "weight": 30,
+      "condition": "i.ability == :SHADOWSHIELD"
+    },
+    {
+      "line": 11841,
+      "field": ":INVERSE",
+      "weight": 10,
+      "condition": "i.hasType?(:NORMAL)"
+    },
+    {
+      "line": 11842,
+      "field": ":INVERSE",
+      "weight": 10,
+      "condition": "i.hasType?(:ICE)"
+    },
+    {
+      "line": 11843,
+      "field": ":INVERSE",
+      "weight": -10,
+      "condition": "i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11844,
+      "field": ":INVERSE",
+      "weight": -30,
+      "condition": "i.hasType?(:STEEL)"
+    },
+    {
+      "line": 11846,
+      "field": ":PSYTERRAIN",
+      "weight": 25,
+      "condition": "i.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 11847,
+      "field": ":PSYTERRAIN",
+      "weight": 20,
+      "condition": "i.ability == :PUREPOWER"
+    },
+    {
+      "line": 11848,
+      "field": ":PSYTERRAIN",
+      "weight": 20,
+      "condition": "i.ability == :ANTICIPATION || nonmegaform.ability == :ANTICIPATION"
+    },
+    {
+      "line": 11849,
+      "field": ":PSYTERRAIN",
+      "weight": 20,
+      "condition": "Rejuv && (i.ability == :FOREWARN || nonmegaform.ability == :FOREWARN)"
+    },
+    {
+      "line": 11850,
+      "field": ":PSYTERRAIN",
+      "weight": 50,
+      "condition": "i.ability == :TELEPATHY"
+    },
+    {
+      "line": 11851,
+      "field": ":PSYTERRAIN",
+      "weight": 25,
+      "condition": "i.ability == :POWERSPOT"
+    },
+    {
+      "line": 11852,
+      "field": ":PSYTERRAIN",
+      "weight": 10,
+      "condition": "i.ability == :MINDSEYE"
+    },
+    {
+      "line": 11854,
+      "field": ":DIMENSIONAL",
+      "weight": 25,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11855,
+      "field": ":DIMENSIONAL",
+      "weight": 30,
+      "condition": "i.ability == :SHADOWSHIELD"
+    },
+    {
+      "line": 11856,
+      "field": ":DIMENSIONAL",
+      "weight": 30,
+      "condition": "i.ability == :BEASTBOOST"
+    },
+    {
+      "line": 11857,
+      "field": ":DIMENSIONAL",
+      "weight": 30,
+      "condition": "i.ability == :PERSIHBODY"
+    },
+    {
+      "line": 11858,
+      "field": ":DIMENSIONAL",
+      "weight": 20,
+      "condition": "i.ability == :RATTLED || nonmegaform.ability == :RATTLED"
+    },
+    {
+      "line": 11859,
+      "field": ":DIMENSIONAL",
+      "weight": 20,
+      "condition": "i.ability == :BERSERK || nonmegaform.ability == :BERSERK"
+    },
+    {
+      "line": 11860,
+      "field": ":DIMENSIONAL",
+      "weight": 20,
+      "condition": "i.ability == :ANGERPOINT || nonmegaform.ability == :ANGERPOINT"
+    },
+    {
+      "line": 11861,
+      "field": ":DIMENSIONAL",
+      "weight": 20,
+      "condition": "i.ability == :JUSTIFIED || nonmegaform.ability == :JUSTIFIED"
+    },
+    {
+      "line": 11862,
+      "field": ":DIMENSIONAL",
+      "weight": 20,
+      "condition": "[:PRESSURE, *PBStuff::UnnerveAbilities].intersect?([i.ability, nonmegaform.ability])"
+    },
+    {
+      "line": 11864,
+      "field": ":FROZENDIMENSION",
+      "weight": 25,
+      "condition": "i.hasType?(:ICE)"
+    },
+    {
+      "line": 11865,
+      "field": ":FROZENDIMENSION",
+      "weight": 25,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11866,
+      "field": ":FROZENDIMENSION",
+      "weight": 25,
+      "condition": "(i.ability == :ICEBODY)"
+    },
+    {
+      "line": 11867,
+      "field": ":FROZENDIMENSION",
+      "weight": 25,
+      "condition": "i.ability == :SNOWCLOAK"
+    },
+    {
+      "line": 11868,
+      "field": ":FROZENDIMENSION",
+      "weight": 25,
+      "condition": "i.ability == :REFRIGERATE"
+    },
+    {
+      "line": 11869,
+      "field": ":FROZENDIMENSION",
+      "weight": 50,
+      "condition": "i.ability == :SLUSHRUSH || i.crested == :EMPOLEON"
+    },
+    {
+      "line": 11870,
+      "field": ":FROZENDIMENSION",
+      "weight": 25,
+      "condition": "i.ability == :ICEFACE"
+    },
+    {
+      "line": 11871,
+      "field": ":FROZENDIMENSION",
+      "weight": 20,
+      "condition": "i.ability == :RATTLED || nonmegaform.ability == :RATTLED"
+    },
+    {
+      "line": 11872,
+      "field": ":FROZENDIMENSION",
+      "weight": 20,
+      "condition": "i.ability == :BERSERK || nonmegaform.ability == :BERSERK"
+    },
+    {
+      "line": 11873,
+      "field": ":FROZENDIMENSION",
+      "weight": 20,
+      "condition": "i.ability == :ANGERPOINT || nonmegaform.ability == :ANGERPOINT"
+    },
+    {
+      "line": 11874,
+      "field": ":FROZENDIMENSION",
+      "weight": 20,
+      "condition": "i.ability == :JUSTIFIED || nonmegaform.ability == :JUSTIFIED"
+    },
+    {
+      "line": 11875,
+      "field": ":FROZENDIMENSION",
+      "weight": 20,
+      "condition": "[:PRESSURE, *PBStuff::UnnerveAbilities].intersect?([i.ability, nonmegaform.ability])"
+    },
+    {
+      "line": 11877,
+      "field": ":HAUNTED",
+      "weight": 25,
+      "condition": "i.hasType?(:GHOST)"
+    },
+    {
+      "line": 11878,
+      "field": ":HAUNTED",
+      "weight": 25,
+      "condition": "i.ability == :RATTLED"
+    },
+    {
+      "line": 11879,
+      "field": ":HAUNTED",
+      "weight": 15,
+      "condition": "i.ability == :CURSEDBODY"
+    },
+    {
+      "line": 11880,
+      "field": ":HAUNTED",
+      "weight": 25,
+      "condition": "i.ability == :PERISHBODY"
+    },
+    {
+      "line": 11881,
+      "field": ":HAUNTED",
+      "weight": 25,
+      "condition": "i.ability == :POWERSPOT"
+    },
+    {
+      "line": 11883,
+      "field": ":CORRUPTED",
+      "weight": 25,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11884,
+      "field": ":CORRUPTED",
+      "weight": -25,
+      "condition": "[:GRASSPELT, :LEAFGUARD, :FLOWERVEIL].include?(i.ability)"
+    },
+    {
+      "line": 11885,
+      "field": ":CORRUPTED",
+      "weight": 25,
+      "condition": "i.ability == :POISONHEAL"
+    },
+    {
+      "line": 11886,
+      "field": ":CORRUPTED",
+      "weight": 15,
+      "condition": "[:WONDERSKIN, :IMMUNITY, :PASTELVEIL].include?(i.ability)"
+    },
+    {
+      "line": 11887,
+      "field": ":CORRUPTED",
+      "weight": 15,
+      "condition": "[:POISONTOUCH, :POISONPOINT].include?(i.ability)"
+    },
+    {
+      "line": 11888,
+      "field": ":CORRUPTED",
+      "weight": 15,
+      "condition": "i.ability == :LIQUIDOOZE"
+    },
+    {
+      "line": 11889,
+      "field": ":CORRUPTED",
+      "weight": 30,
+      "condition": "[:TOXICBOOST, :CORROSION].include?(i.ability)"
+    },
+    {
+      "line": 11891,
+      "field": ":CORRUPTED",
+      "weight": 25,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11892,
+      "field": ":CORRUPTED",
+      "weight": -25,
+      "condition": "!i.hasType?(:POISON)"
+    },
+    {
+      "line": 11895,
+      "field": ":BEWITCHED",
+      "weight": 20,
+      "condition": "i.ability == :FLOWERVEIL"
+    },
+    {
+      "line": 11896,
+      "field": ":BEWITCHED",
+      "weight": 25,
+      "condition": "i.hasType?(:GRASS) || i.hasType?(:FAIRY)"
+    },
+    {
+      "line": 11897,
+      "field": ":BEWITCHED",
+      "weight": 25,
+      "condition": "i.ability == :NATURALCURE"
+    },
+    {
+      "line": 11898,
+      "field": ":BEWITCHED",
+      "weight": 25,
+      "condition": "i.ability == :PASTELVEIL"
+    },
+    {
+      "line": 11899,
+      "field": ":BEWITCHED",
+      "weight": 25,
+      "condition": "i.ability == :COTTONDOWN"
+    },
+    {
+      "line": 11900,
+      "field": ":BEWITCHED",
+      "weight": 25,
+      "condition": "i.ability == :POWERSPOT"
+    },
+    {
+      "line": 11901,
+      "field": ":BEWITCHED",
+      "weight": 20,
+      "condition": "i.ability == :EFFECTSPORE"
+    },
+    {
+      "line": 11903,
+      "field": ":SKY",
+      "weight": 15,
+      "condition": "i.ability == :EARLYBIRD"
+    },
+    {
+      "line": 11904,
+      "field": ":SKY",
+      "weight": 15,
+      "condition": "i.ability == :CLOUDNINE"
+    },
+    {
+      "line": 11905,
+      "field": ":SKY",
+      "weight": 25,
+      "condition": "i.hasType?(:FLYING)"
+    },
+    {
+      "line": 11906,
+      "field": ":SKY",
+      "weight": 25,
+      "condition": "i.ability == :GALEWINGS"
+    },
+    {
+      "line": 11907,
+      "field": ":SKY",
+      "weight": 25,
+      "condition": "i.ability == :BIGPECKS || nonmegaform.ability == :BIGPECKS"
+    },
+    {
+      "line": 11908,
+      "field": ":SKY",
+      "weight": 25,
+      "condition": "PBStuff::LevitateAbilities.intersect?([i.ability, nonmegaform.ability])"
+    },
+    {
+      "line": 11909,
+      "field": ":SKY",
+      "weight": 25,
+      "condition": "i.ability == :AERILATE"
+    },
+    {
+      "line": 11910,
+      "field": ":SKY",
+      "weight": 30,
+      "condition": "i.ability == :LONGREACH"
+    },
+    {
+      "line": 11912,
+      "field": ":INFERNAL",
+      "weight": 25,
+      "condition": "i.hasType?(:FIRE)"
+    },
+    {
+      "line": 11913,
+      "field": ":INFERNAL",
+      "weight": 25,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11914,
+      "field": ":INFERNAL",
+      "weight": 25,
+      "condition": "i.ability == :PERSIHBODY"
+    },
+    {
+      "line": 11915,
+      "field": ":INFERNAL",
+      "weight": 30,
+      "condition": "i.ability == :MAGMAARMOR || nonmegaform.ability == :MAGMAARMOR"
+    },
+    {
+      "line": 11916,
+      "field": ":INFERNAL",
+      "weight": 20,
+      "condition": "i.ability == :FLAMEBODY || nonmegaform.ability == :FLAMEBODY"
+    },
+    {
+      "line": 11917,
+      "field": ":INFERNAL",
+      "weight": 20,
+      "condition": "i.ability == :DESOLATELAND || nonmegaform.ability == :DESOLATELAND"
+    },
+    {
+      "line": 11918,
+      "field": ":INFERNAL",
+      "weight": 25,
+      "condition": "i.ability == :STEAMENGINE"
+    },
+    {
+      "line": 11919,
+      "field": ":INFERNAL",
+      "weight": 30,
+      "condition": "i.ability == :FLASHFIRE"
+    },
+    {
+      "line": 11920,
+      "field": ":INFERNAL",
+      "weight": 30,
+      "condition": "i.ability == :FLAREBOOST"
+    },
+    {
+      "line": 11921,
+      "field": ":INFERNAL",
+      "weight": 30,
+      "condition": "i.ability == :BLAZE"
+    },
+    {
+      "line": 11922,
+      "field": ":INFERNAL",
+      "weight": -20,
+      "condition": "i.ability == :PASTELVEIL"
+    },
+    {
+      "line": 11923,
+      "field": ":INFERNAL",
+      "weight": -30,
+      "condition": "i.ability == :ICEFACE"
+    },
+    {
+      "line": 11925,
+      "field": ":COLOSSEUM",
+      "weight": 15,
+      "condition": "i.ability == :STALWART"
+    },
+    {
+      "line": 11926,
+      "field": ":COLOSSEUM",
+      "weight": 20,
+      "condition": "i.ability == :DEFIANT"
+    },
+    {
+      "line": 11927,
+      "field": ":COLOSSEUM",
+      "weight": 20,
+      "condition": "i.ability == :COMPETITIVE"
+    },
+    {
+      "line": 11928,
+      "field": ":COLOSSEUM",
+      "weight": -30,
+      "condition": "i.ability == :RATTLED || i.ability == :WIMPOUT"
+    },
+    {
+      "line": 11929,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :WONDERGUARD"
+    },
+    {
+      "line": 11930,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :QUICKDRAW"
+    },
+    {
+      "line": 11931,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :EMERGENCYEXIT"
+    },
+    {
+      "line": 11932,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :BATTLEARMOR || nonmegaform.ability == :BATTLEARMOR"
+    },
+    {
+      "line": 11933,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :SHELLARMOR || nonmegaform.ability == :SHELLARMOR"
+    },
+    {
+      "line": 11934,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :MIRRORARMOR || nonmegaform.ability == :MIRRORARMOR"
+    },
+    {
+      "line": 11935,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :MAGICGUARD || nonmegaform.ability == :MAGICGUARD"
+    },
+    {
+      "line": 11936,
+      "field": ":COLOSSEUM",
+      "weight": 25,
+      "condition": "i.ability == :SKILLLINK"
+    },
+    {
+      "line": 11937,
+      "field": ":COLOSSEUM",
+      "weight": 30,
+      "condition": "i.ability == :NOGUARD || nonmegaform.ability == :NOGUARD"
+    },
+    {
+      "line": 11938,
+      "field": ":COLOSSEUM",
+      "weight": 50,
+      "condition": "i.ability == :DAUNTLESSSHIELD"
+    },
+    {
+      "line": 11939,
+      "field": ":COLOSSEUM",
+      "weight": 50,
+      "condition": "i.ability == :INTREPIDSWORD"
+    },
+    {
+      "line": 11941,
+      "field": "*PBFields::CONCERT",
+      "weight": 25,
+      "condition": "i.ability == :TECHNICIAN"
+    },
+    {
+      "line": 11942,
+      "field": "*PBFields::CONCERT",
+      "weight": 25,
+      "condition": "[:HEAVYMETAL, :SOLIDROCK, :PUNKROCK, :ROCKHEAD, :SOUNDPROOF].include?(i.ability)"
+    },
+    {
+      "line": 11943,
+      "field": "*PBFields::CONCERT",
+      "weight": 15,
+      "condition": "[:HEAVYMETAL, :SOLIDROCK, :PUNKROCK, :GALVANIZE, :PLUS].include?(i.ability) && @battle.ProgressiveFieldCheck(PBFields::CONCERT, 1, 3)"
+    },
+    {
+      "line": 11944,
+      "field": "*PBFields::CONCERT",
+      "weight": -15,
+      "condition": "[:KLUTZ, :MINUS].include?(i.ability) && @battle.ProgressiveFieldCheck(PBFields::CONCERT, 2, 4)"
+    },
+    {
+      "line": 11945,
+      "field": "*PBFields::CONCERT",
+      "weight": 25,
+      "condition": "[:RUNAWAY, :EMERGENCYEXIT].include?(i.ability) && @battle.ProgressiveFieldCheck(PBFields::CONCERT, 2, 4)"
+    },
+    {
+      "line": 11946,
+      "field": "*PBFields::CONCERT",
+      "weight": 30,
+      "condition": "i.ability == :RATTLED && @battle.ProgressiveFieldCheck(PBFields::CONCERT, 3, 4)"
+    },
+    {
+      "line": 11948,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11949,
+      "field": ":BACKALLEY",
+      "weight": 20,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11950,
+      "field": ":BACKALLEY",
+      "weight": 20,
+      "condition": "i.hasType?(:BUG)"
+    },
+    {
+      "line": 11951,
+      "field": ":BACKALLEY",
+      "weight": 20,
+      "condition": "i.hasType?(:STEEL)"
+    },
+    {
+      "line": 11952,
+      "field": ":BACKALLEY",
+      "weight": -25,
+      "condition": "i.hasType?(:FAIRY)"
+    },
+    {
+      "line": 11953,
+      "field": ":BACKALLEY",
+      "weight": 20,
+      "condition": "i.ability == :STENCH"
+    },
+    {
+      "line": 11954,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.ability == :DOWNLOAD"
+    },
+    {
+      "line": 11955,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.ability == :PICKPOCKET || nonmegaform.ability == :PICKPOCKET"
+    },
+    {
+      "line": 11956,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.ability == :MERCILESS || nonmegaform.ability == :MERCILESS"
+    },
+    {
+      "line": 11957,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.ability == :MAGICIAN || nonmegaform.ability == :MAGICIAN"
+    },
+    {
+      "line": 11958,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.ability == :ANTICIPATION || nonmegaform.ability == :ANTICIPATION"
+    },
+    {
+      "line": 11959,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.ability == :FOREWARN || nonmegaform.ability == :FOREWARN"
+    },
+    {
+      "line": 11960,
+      "field": ":BACKALLEY",
+      "weight": 25,
+      "condition": "i.ability == :RATTLED || nonmegaform.ability == :RATTLED"
+    },
+    {
+      "line": 11961,
+      "field": ":BACKALLEY",
+      "weight": 20,
+      "condition": "i.ability == :DEFIANT"
+    },
+    {
+      "line": 11963,
+      "field": ":CITY",
+      "weight": 25,
+      "condition": "i.hasType?(:NORMAL)"
+    },
+    {
+      "line": 11964,
+      "field": ":CITY",
+      "weight": 20,
+      "condition": "i.hasType?(:POISON)"
+    },
+    {
+      "line": 11965,
+      "field": ":CITY",
+      "weight": 20,
+      "condition": "i.hasType?(:BUG)"
+    },
+    {
+      "line": 11966,
+      "field": ":CITY",
+      "weight": 20,
+      "condition": "i.hasType?(:STEEL)"
+    },
+    {
+      "line": 11967,
+      "field": ":CITY",
+      "weight": -20,
+      "condition": "i.hasType?(:FAIRY)"
+    },
+    {
+      "line": 11968,
+      "field": ":CITY",
+      "weight": 20,
+      "condition": "i.ability == :STENCH"
+    },
+    {
+      "line": 11969,
+      "field": ":CITY",
+      "weight": 25,
+      "condition": "i.ability == :DOWNLOAD"
+    },
+    {
+      "line": 11970,
+      "field": ":CITY",
+      "weight": 25,
+      "condition": "i.ability == :BIGPECKS || nonmegaform.ability == :BIGPECKS"
+    },
+    {
+      "line": 11971,
+      "field": ":CITY",
+      "weight": 25,
+      "condition": "i.ability == :PICKUP || nonmegaform.ability == :PICKUP"
+    },
+    {
+      "line": 11972,
+      "field": ":CITY",
+      "weight": 25,
+      "condition": "i.ability == :EARLYBIRD || nonmegaform.ability == :EARLYBIRD"
+    },
+    {
+      "line": 11973,
+      "field": ":CITY",
+      "weight": 25,
+      "condition": "i.ability == :RATTLED || nonmegaform.ability == :RATTLED"
+    },
+    {
+      "line": 11974,
+      "field": ":CITY",
+      "weight": 20,
+      "condition": "i.ability == :HUSTLE"
+    },
+    {
+      "line": 11975,
+      "field": ":CITY",
+      "weight": 20,
+      "condition": "i.ability == :FRISK || nonmegaform.ability == :FRISK"
+    },
+    {
+      "line": 11976,
+      "field": ":CITY",
+      "weight": 20,
+      "condition": "i.ability == :COMPETITIVE"
+    },
+    {
+      "line": 11978,
+      "field": ":CLOUDS",
+      "weight": 25,
+      "condition": "i.hasType?(:FLYING)"
+    },
+    {
+      "line": 11979,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :CLOUDNINE"
+    },
+    {
+      "line": 11980,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :FLUFFY"
+    },
+    {
+      "line": 11981,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :BIGPECKS"
+    },
+    {
+      "line": 11982,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :EARLYBIRD"
+    },
+    {
+      "line": 11983,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :WINDPOWER"
+    },
+    {
+      "line": 11984,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :VOLTABSORB && @battle.weather == :RAINDANCE"
+    },
+    {
+      "line": 11985,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :LIGHTNINGROD && @battle.weather == :RAINDANCE"
+    },
+    {
+      "line": 11986,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :MOTORDRIVE && @battle.weather == :RAINDANCE"
+    },
+    {
+      "line": 11987,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :SNOWCLOAK && @battle.weather == :HAIL"
+    },
+    {
+      "line": 11988,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :ICEBODY && @battle.weather == :HAIL"
+    },
+    {
+      "line": 11989,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :FORECAST"
+    },
+    {
+      "line": 11990,
+      "field": ":CLOUDS",
+      "weight": 20,
+      "condition": "i.ability == :OVERCOAT"
+    },
+    {
+      "line": 11992,
+      "field": ":DARKNESS1",
+      "weight": 10,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11993,
+      "field": ":DARKNESS1",
+      "weight": 10,
+      "condition": "i.ability == :DARKAURA"
+    },
+    {
+      "line": 11994,
+      "field": ":DARKNESS1",
+      "weight": -10,
+      "condition": "i.ability == :FAIRYAURA"
+    },
+    {
+      "line": 11995,
+      "field": ":DARKNESS1",
+      "weight": 20,
+      "condition": "i.ability == :RATTLED"
+    },
+    {
+      "line": 11997,
+      "field": ":DARKNESS2",
+      "weight": 20,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 11998,
+      "field": ":DARKNESS2",
+      "weight": 20,
+      "condition": "i.ability == :DARKAURA"
+    },
+    {
+      "line": 11999,
+      "field": ":DARKNESS2",
+      "weight": -20,
+      "condition": "i.ability == :FAIRYAURA"
+    },
+    {
+      "line": 12000,
+      "field": ":DARKNESS2",
+      "weight": 20,
+      "condition": "i.ability == :RATTLED"
+    },
+    {
+      "line": 12001,
+      "field": ":DARKNESS2",
+      "weight": -20,
+      "condition": "i.ability == :INSOMNIA"
+    },
+    {
+      "line": 12002,
+      "field": ":DARKNESS2",
+      "weight": 20,
+      "condition": "i.ability == :BADDREAMS"
+    },
+    {
+      "line": 12003,
+      "field": ":DARKNESS2",
+      "weight": 20,
+      "condition": "i.ability == :SHADOWSHIELD"
+    },
+    {
+      "line": 12004,
+      "field": ":DARKNESS2",
+      "weight": 20,
+      "condition": "i.ability == :PICKPOCKET"
+    },
+    {
+      "line": 12006,
+      "field": ":DARKNESS3",
+      "weight": 40,
+      "condition": "i.hasType?(:DARK)"
+    },
+    {
+      "line": 12007,
+      "field": ":DARKNESS3",
+      "weight": 40,
+      "condition": "i.ability == :DARKAURA"
+    },
+    {
+      "line": 12008,
+      "field": ":DARKNESS3",
+      "weight": -40,
+      "condition": "i.ability == :FAIRYAURA"
+    },
+    {
+      "line": 12009,
+      "field": ":DARKNESS3",
+      "weight": 40,
+      "condition": "i.ability == :RATTLED"
+    },
+    {
+      "line": 12010,
+      "field": ":DARKNESS3",
+      "weight": -40,
+      "condition": "i.ability == :INSOMNIA"
+    },
+    {
+      "line": 12011,
+      "field": ":DARKNESS3",
+      "weight": 40,
+      "condition": "i.ability == :BADDREAMS"
+    },
+    {
+      "line": 12012,
+      "field": ":DARKNESS3",
+      "weight": 40,
+      "condition": "i.ability == :SHADOWSHIELD"
+    },
+    {
+      "line": 12013,
+      "field": ":DARKNESS3",
+      "weight": 40,
+      "condition": "i.ability == :PICKPOCKET"
+    },
+    {
+      "line": 12015,
+      "field": ":DANCEFLOOR",
+      "weight": 20,
+      "condition": "i.ability == :INSOMNIA"
+    },
+    {
+      "line": 12016,
+      "field": ":DANCEFLOOR",
+      "weight": 20,
+      "condition": "i.ability == :MAGICGUARD"
+    },
+    {
+      "line": 12017,
+      "field": ":DANCEFLOOR",
+      "weight": 10,
+      "condition": "i.ability == :MAGICIAN"
+    },
+    {
+      "line": 12018,
+      "field": ":DANCEFLOOR",
+      "weight": 40,
+      "condition": "i.ability == :DANCER"
+    },
+    {
+      "line": 12019,
+      "field": ":DANCEFLOOR",
+      "weight": 20,
+      "condition": "i.ability == :ILLUMINATE"
+    },
+    {
+      "line": 12021,
+      "field": ":CROWD",
+      "weight": 20,
+      "condition": "i.ability == :GUTS"
+    },
+    {
+      "line": 12022,
+      "field": ":CROWD",
+      "weight": 10,
+      "condition": "i.ability == :INNERFOCUS"
+    },
+    {
+      "line": 12023,
+      "field": ":CROWD",
+      "weight": 30,
+      "condition": "i.ability == :INTIMIDATE"
+    },
+    {
+      "line": 12024,
+      "field": ":CROWD",
+      "weight": 20,
+      "condition": "i.ability == :IRONFIST"
+    }
+  ]
+}

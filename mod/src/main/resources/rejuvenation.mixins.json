@@ -9,7 +9,8 @@
     "StatusMessageMixin",
     "AbilityRegistryMixin",
     "WeatherMessageMixin",
-    "BoostMessageMixin"
+    "BoostMessageMixin",
+    "ChoiceRequestMixin"
   ],
   "injectors": {
     "defaultRequire": 1

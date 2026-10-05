@@ -1,0 +1,8 @@
+{
+  "checked": 35,
+  "optionalAbsent": [],
+  "mergedTargets": [
+    "name/modid/mixin/client/MoveTileMixin.calculateAdjustedAccuracy(DLjava/lang/String;Lcom/cobblemon/mod/common/client/battle/ClientBattlePokemon;Lcom/cobblemon/mod/common/api/moves/MoveTemplate;)D -\u003e com/cobblemon/mod/common/client/gui/battle/subscreen/BattleMoveSelection$MoveTile; provider priority 1000, consumer priority 1100; RETURN permits merged targets; consumer applies after provider",
+    "name/modid/mixin/client/MoveTileMixin.renderTooltipAtPosition(Lnet/minecraft/class_332;III[I)V -\u003e com/cobblemon/mod/common/client/gui/battle/subscreen/BattleMoveSelection$MoveTile; provider priority 1000, consumer priority 1100; HEAD/RETURN permits merged targets; consumer applies after provider"
+  ]
+}

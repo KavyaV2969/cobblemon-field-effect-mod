@@ -18,8 +18,11 @@ import java.util.*;
 /** Resource reload publishes immutable snapshots. Active battles retain their snapshot. */
 public final class RejuvenationFields implements ModInitializer {
     public static final Logger LOG = LoggerFactory.getLogger("rejuvenation_fields");
-    public record Catalog(JsonObject data, long revision) {}
-    public static volatile Catalog catalog = new Catalog(new JsonObject(), 0);
+    /** One validated datapack revision: the catalog, its simulator JSON and the compiled environment index. */
+    public record Catalog(JsonObject data, long revision, String json, EnvironmentResolver.Index environment) {
+        Catalog(JsonObject data, long revision) { this(data, revision, data.toString(), EnvironmentResolver.compile(data)); }
+    }
+    public static volatile Catalog catalog = new Catalog(new JsonObject(), 0, "{}", EnvironmentResolver.Index.EMPTY);
     // Cobblemon boots its worker during its initializer, potentially before ours.
     // The mixin must not depend on Fabric entrypoint ordering.
     public static final String engine = readEngine();
@@ -49,7 +52,11 @@ public final class RejuvenationFields implements ModInitializer {
                 return Unit.INSTANCE;
             }));
         ShowdownInterpreter.registerUpdateInstructionParser("rejuvenationstate", (battle,set,message,remaining) ->
-            b -> b.dispatchGo(() -> { FieldApi.update(b.getBattleId(),message.argumentAt(0));return Unit.INSTANCE; }));
+            b -> b.dispatchGo(() -> { FieldStateSync.update(b,message.argumentAt(0));return Unit.INSTANCE; }));
+        dev.rejuvenation.net.FieldPayloads.register();
+        // On-demand preview evaluations run on the server thread, which owns the simulator.
+        net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking.registerGlobalReceiver(dev.rejuvenation.net.FieldPayloads.EvaluationRequest.ID,
+            (payload, context) -> context.server().execute(() -> InspectorSync.requested(context.player(), payload.json())));
         // League trainers select their field before the LOWEST environment capture below.
         com.cobblemon.mod.common.api.events.CobblemonEvents.BATTLE_STARTED_PRE.subscribe(
             com.cobblemon.mod.common.api.Priority.NORMAL,
@@ -61,6 +68,15 @@ public final class RejuvenationFields implements ModInitializer {
             (java.util.function.Consumer<com.cobblemon.mod.common.api.events.battles.BattleStartedEvent.Pre>) event -> {
                 if (!event.isCanceled()) FieldApi.capture(event.getBattle()); else FieldApi.clear(event.getBattle().getBattleId());
             });
+        // Publish the catalog to the simulator before any battle can start, on the server thread that drives Graal.
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STARTED.register(server -> {
+            FieldEvaluator.serverStarted(Thread.currentThread());
+            SimulatorCatalog.publishNow("server start", false);
+        });
+        net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resources, success) -> {
+            // Cobblemon's own reload resets the simulator's ability registry, so republish even an unchanged revision.
+            if (success) SimulatorCatalog.publishNow("datapack reload", true);
+        });
         net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents.SERVER_STARTED.register(RuntimeInventory::write);
         com.cobblemon.mod.common.api.events.CobblemonEvents.POKEMON_CATCH_RATE.subscribe(
             com.cobblemon.mod.common.api.Priority.LOWEST,
@@ -89,6 +105,12 @@ public final class RejuvenationFields implements ModInitializer {
                 JsonObject value = read(entry.getValue().method_14482());
                 for (JsonElement mapping : value.getAsJsonArray("rules")) mappings.add(mapping);
             }
+            JsonArray structures = new JsonArray();
+            for (var entry : manager.method_14488("rejuvenation/structures", id -> id.method_12832().endsWith(".json")).entrySet()) {
+                JsonObject value = read(entry.getValue().method_14482());
+                if (value.get("schemaVersion").getAsInt() != 1) throw new IllegalArgumentException(entry.getKey() + ": unsupported structure mapping schema");
+                for (JsonElement mapping : value.getAsJsonArray("rules")) structures.add(mapping);
+            }
             for (var entry : manager.method_14488("rejuvenation/items", id -> id.method_12832().endsWith(".json")).entrySet()) {
                 var value=read(entry.getValue().method_14482()).getAsJsonObject("items");
                 for (var item:value.entrySet()) { if(items.has(item.getKey())) throw new IllegalArgumentException("Duplicate simulator item "+item.getKey()); items.add(item.getKey(),item.getValue()); }
@@ -108,13 +130,15 @@ public final class RejuvenationFields implements ModInitializer {
             }
             for (JsonElement element : mappings) if (!fields.has(element.getAsJsonObject().get("field").getAsString()))
                 throw new IllegalArgumentException("Mapping references missing field: " + element);
-            next.add("fields", fields); next.add("mappings", mappings); next.add("items", items); next.add("abilities", abilities); next.add("trainers", trainers);
+            for (JsonElement element : structures) if (!fields.has(element.getAsJsonObject().get("field").getAsString()))
+                throw new IllegalArgumentException("Structure mapping references missing field: " + element);
+            next.add("fields", fields); next.add("mappings", mappings); next.add("structures", structures); next.add("items", items); next.add("abilities", abilities); next.add("trainers", trainers);
             next.addProperty("default", "rejuvenation:indoor");
             CatalogValidator.validate(next);
             catalog = new Catalog(next, catalog.revision()+1);
             registerAbilityTemplates(abilities);
             for(var field:fields.entrySet())if(field.getValue().getAsJsonObject().has("typeDefinitions"))registerTypes(field.getValue().getAsJsonObject().getAsJsonObject("typeDefinitions"));
-            LOG.info("Loaded {} fields and {} environment rules (revision {})", fields.size(), mappings.size(), catalog.revision());
+            LOG.info("Loaded {} fields, {} environment rules and {} structure rules (revision {})", fields.size(), mappings.size(), structures.size(), catalog.revision());
         } catch (Exception error) {
             LOG.error("Rejected field reload; previous revision retained", error);
             throw new IllegalArgumentException("Invalid Rejuvenation datapack: " + error.getMessage(), error);

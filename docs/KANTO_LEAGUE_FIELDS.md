@@ -52,4 +52,4 @@ Per-member win share with no field and on the assigned field.
 
 Source snapshot: `COBBLEVERSE-RCT-DP-v20.zip` SHA-256 `b61d830c049f68eff42782fb78fbb1250b9bbb39bfcdca06bc5cc11b5704ae79`. Re-run `python rejuvenation/research/trainer_fields.py` after the RCT datapack or the field rules change.
 
-Run & Bun AI does not evaluate field effects (see [TRAINER_INTEGRATION.md](TRAINER_INTEGRATION.md)); the advantage comes from the field rules applying to the trainer's team, not from AI awareness.
+Run & Bun AI combines its native scoring with the shared field-aware evaluator, strategic turn lookahead, team field utility and legal gimmick comparisons through optional adapters (see [INTEGRATIONS.md](INTEGRATIONS.md)). All 762 AI source leads have reviewed dispositions with zero ordinary applicable strategy pending. Trainer teams and progression files remain unchanged.

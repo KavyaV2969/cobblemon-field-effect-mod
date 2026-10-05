@@ -405,9 +405,18 @@ for name,f in fields.items():
 mapping=read(DATA/'mappings/modpack.json')['rules'];known=read(ROOT/'research/biome-inventory.json')
 for r in mapping:ensure(r['field'] in fields,'mapping','unknown field');ensure(set(r)<=set('biome tag dimension submerged maxY skyVisible minDepth field reason'.split()),'mapping','unknown predicate')
 explicit={r['biome'] for r in mapping if 'biome' in r};ensure(set(known)<=explicit,'mapping','unmapped detected biomes')
+structures=[]
+for p in sorted((DATA/'structures').glob('*.json')):
+    doc=read(p);ensure(doc.get('schemaVersion')==1,'structures/'+p.name,'unsupported schema')
+    for r in doc['rules']:
+        where='structures/'+p.name
+        ensure(isinstance(r,dict) and set(r)<={'structure','tag','field','reason'} and r.get('field') in fields,where,'invalid structure mapping')
+        ensure(('structure' in r)!=('tag' in r),where,'a structure mapping names exactly one structure or tag')
+        ensure(re.fullmatch(r'[a-z0-9_.-]+:[a-z0-9_./-]+',r.get('structure',r.get('tag','')) or '') is not None,where,'invalid structure identifier')
+        structures.append(r)
+ensure(any(r.get('submerged') is True for r in mapping),'mapping','missing underwater stage')
 unavailable={kind:{v:locations for v,locations in values.items() if v not in registry[kind] and not (kind=='items' and v in items)} for kind,values in refs.items()}
 write(ROOT/'research/reference-validation.json',{'unavailable':unavailable,'counts':{kind:len(values) for kind,values in refs.items()},'reason':'Rejuvenation-specific or misspelled IDs absent from installed Showdown base. These rules cannot trigger until a compatible definition is registered.'})
-import re
 trainers={}
 for p in sorted((DATA/'trainers').glob('*.json')):
     for tid,row in read(p)['trainers'].items():
@@ -418,7 +427,7 @@ for p in sorted((DATA/'trainers').glob('*.json')):
         for k in ['winShare','indoorWinShare']:
             if k in row:ensure(isinstance(row[k],(int,float)) and not isinstance(row[k],bool) and 0<=row[k]<=1,where,'invalid trainer score')
         trainers[tid]=row
-catalog={'fields':fields,'mappings':mapping,'items':items,'abilities':abilities,'trainers':trainers,'default':'rejuvenation:indoor'}
+catalog={'fields':fields,'mappings':mapping,'structures':structures,'items':items,'abilities':abilities,'trainers':trainers,'default':'rejuvenation:indoor'}
 write(ROOT/'research/catalog.json',catalog)
 write(ROOT/'research/test-results/datapack-validation.json',{'errors':errors,'fields':len(fields),'biomes':len(known),'explicitBiomes':len(explicit),'counts':count,'unavailableCounts':{k:len(v) for k,v in unavailable.items()}})
 if errors:

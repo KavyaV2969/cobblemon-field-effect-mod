@@ -10,7 +10,9 @@ The archive/loose-data scan discovered **165 candidate biome IDs**, all explicit
 
 At server start, the mod writes `rejuvenation/research/runtime-biomes.json` with actual registered IDs and explicit/fallback coverage. Dynamically registered future biomes are resolved through tags, dimensions, depth and the default.
 
-Wild battle anchor: first non-player entity-backed actor (the wild Pokémon), then a player fallback. Environment overrides use the anchor position, not a player’s arbitrary home biome. Submerged Overworld battles use Underwater. Selected surface mappings use Cave when at least 12 blocks below the solid-surface height and sky is hidden.
+Precedence for natural battles (see [FIELD_SELECTION.md](FIELD_SELECTION.md)): an explicit or RCT-configured trainer field, then a submerged battle (Underwater), then a configured generated structure, then the biome rows below, then the default. Wild battle anchor: first non-player entity-backed actor (the wild Pokémon), then a player fallback. Biome rows use the anchor position, not a player’s arbitrary home biome. Selected surface mappings use Cave when at least 12 blocks below the solid-surface height and sky is hidden.
+
+Playtest changes (2026-10-05): every ordinary plains biome maps to Grassy Terrain (`minecraft:sunflower_plains` no longer falls to Flower Garden through the flower pattern) and mushroom biomes map to Fairy Tale Field.
 
 | Biome ID | Source mod/pack | Selected field | Reason | Mechanism / availability |
 |---|---|---|---|---|
@@ -51,7 +53,7 @@ Wild battle anchor: first non-player entity-backed actor (the wild Pokémon), th
 | minecraft:lush_caves | Minecraft | rejuvenation:cave | Subterranean environment | explicit; non-Terralith candidate |
 | minecraft:mangrove_swamp | Minecraft | rejuvenation:swamp | Wet swamp | explicit; non-Terralith candidate |
 | minecraft:meadow | Minecraft | rejuvenation:grassy_terrain | Open vegetated land | explicit; non-Terralith candidate |
-| minecraft:mushroom_fields | Minecraft | rejuvenation:corrosive | Fungal growth | explicit; non-Terralith candidate |
+| minecraft:mushroom_fields | Minecraft | rejuvenation:fairytale | Mushroom biome | explicit; non-Terralith candidate |
 | minecraft:nether_wastes | Minecraft | rejuvenation:volcanic | Hot volcanic environment | explicit; non-Terralith candidate |
 | minecraft:ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
 | minecraft:old_growth_birch_forest | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
@@ -72,7 +74,7 @@ Wild battle anchor: first non-player entity-backed actor (the wild Pokémon), th
 | minecraft:stony_peaks | Minecraft | rejuvenation:mountain | Elevated mountain terrain | explicit; non-Terralith candidate |
 | minecraft:stony_shore | Minecraft | rejuvenation:beach | Coastal sand/rock | explicit; non-Terralith candidate |
 | minecraft:sulfur_caves | VanillaBackport | rejuvenation:corrosive_mist | Sulfurous cave gases | explicit; non-Terralith candidate |
-| minecraft:sunflower_plains | Minecraft | rejuvenation:flower_garden_2 | Flower-rich vegetation | explicit; non-Terralith candidate |
+| minecraft:sunflower_plains | Minecraft | rejuvenation:grassy_terrain | Plains biome variant | explicit; non-Terralith candidate |
 | minecraft:swamp | Minecraft | rejuvenation:swamp | Wet swamp | explicit; non-Terralith candidate |
 | minecraft:taiga | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:the_end | Minecraft | rejuvenation:new_world | Fragmented void-world | explicit; non-Terralith candidate |
@@ -186,7 +188,7 @@ The exact source archive paths for each row are in `research/biome-mapping.json`
 
 | Predicate | Field | Reason |
 |---|---|---|
-| {"dimension":"minecraft:overworld","submerged":true} | rejuvenation:underwater | Battle anchor submerged in water |
+| {"submerged":true} | rejuvenation:underwater | Battle submerged in water |
 | {"tag":"minecraft:is_forest"} | rejuvenation:forest | Future biome tag compatibility |
 | {"tag":"minecraft:is_jungle"} | rejuvenation:forest | Future biome tag compatibility |
 | {"tag":"minecraft:is_taiga"} | rejuvenation:forest | Future biome tag compatibility |
@@ -205,3 +207,18 @@ The exact source archive paths for each row are in `research/biome-mapping.json`
 | {"dimension":"cobblemonraiddens:raid_dimension"} | rejuvenation:cave | Dimension fallback |
 | {"dimension":"legendarymonuments:distortion_world"} | rejuvenation:dimensional | Dimension fallback |
 | {"maxY":0,"skyVisible":false} | rejuvenation:deep_earth | Unknown deep underground biome |
+
+## Generated structures
+
+Only structures listed here override the biome; any other structure falls through to the biome rows. A battle is inside a structure when the wild Pokémon or a participating player stands inside one of its generated pieces.
+
+| Structure or tag | Field | Reason |
+|---|---|---|
+| minecraft:mansion | rejuvenation:back_alley | Woodland Mansion |
+| #repurposed_structures:collections/mansions | rejuvenation:back_alley | Woodland Mansion variant |
+| minecraft:village_plains | rejuvenation:city | Village |
+| minecraft:village_desert | rejuvenation:city | Village |
+| minecraft:village_savanna | rejuvenation:city | Village |
+| minecraft:village_snowy | rejuvenation:city | Village |
+| minecraft:village_taiga | rejuvenation:city | Village |
+| #minecraft:village | rejuvenation:city | Village |

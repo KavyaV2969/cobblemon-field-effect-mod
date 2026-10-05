@@ -2,10 +2,9 @@
   "schemaVersion": 1,
   "rules": [
     {
-      "dimension": "minecraft:overworld",
       "submerged": true,
       "field": "rejuvenation:underwater",
-      "reason": "Battle anchor submerged in water"
+      "reason": "Battle submerged in water"
     },
     {
       "biome": "cobblemonraiddens:raid_den",
@@ -306,8 +305,16 @@
     },
     {
       "biome": "minecraft:mushroom_fields",
-      "field": "rejuvenation:corrosive",
-      "reason": "Fungal growth"
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:mushroom_fields",
+      "field": "rejuvenation:fairytale",
+      "reason": "Mushroom biome"
     },
     {
       "biome": "minecraft:nether_wastes",
@@ -491,8 +498,8 @@
     },
     {
       "biome": "minecraft:sunflower_plains",
-      "field": "rejuvenation:flower_garden_2",
-      "reason": "Flower-rich vegetation"
+      "field": "rejuvenation:grassy_terrain",
+      "reason": "Plains biome variant"
     },
     {
       "biome": "minecraft:swamp",

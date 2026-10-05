@@ -1,0 +1,6012 @@
+{
+  "source": "Battle_AI.rb",
+  "sourceFileSha256": "0e0facc479030dfe2cdc97bade012346d444365ba0e97b45e42d40b34319e873",
+  "leads": 762,
+  "dispositions": {
+    "implemented_strategy": 53,
+    "ai_rollout_consequence": 318,
+    "ai_source_weights_ported": 72,
+    "excluded_custom_move": 3,
+    "unreachable_in_build": 3,
+    "ai_mechanic_measured": 313
+  },
+  "meaning": {
+    "implemented_strategy": "Source strategic intent implemented by bounded consequence, party-context or opponent-policy scoring with named decision tests.",
+    "ai_mechanic_measured": "Predicts a battle mechanic; the strategy uses the simulator/field engine outcome instead.",
+    "ai_rollout_consequence": "Scores a field-dependent consequence; the rollout produces it and a named term values it.",
+    "ai_source_weights_ported": "Source strategy weights generated from the source and verified by the Ruby oracle.",
+    "ai_strategy_gap": "Strategic intent not represented by the strategy; the limitation is stated.",
+    "unreachable_in_build": "Disabled by a constant of this build or unreachable for the named move/field.",
+    "excluded_custom_move": "Names a move or ability absent from the installed Cobblemon registry.",
+    "excluded_crest": "Crest-only branch; Crests do not exist in Cobblemon.",
+    "ai_review_pending": "Not yet semantically reviewed."
+  },
+  "classification": "per-lead semantic review from research/ai-review-decisions.json",
+  "decisions": [
+    {
+      "id": "mechanic-damage",
+      "disposition": "ai_mechanic_measured",
+      "leads": 135
+    },
+    {
+      "id": "mechanic-effectiveness",
+      "disposition": "ai_mechanic_measured",
+      "leads": 24
+    },
+    {
+      "id": "mechanic-survival",
+      "disposition": "ai_mechanic_measured",
+      "leads": 5
+    },
+    {
+      "id": "mechanic-accuracy",
+      "disposition": "ai_mechanic_measured",
+      "leads": 11
+    },
+    {
+      "id": "mechanic-priority",
+      "disposition": "ai_mechanic_measured",
+      "leads": 4
+    },
+    {
+      "id": "mechanic-healing",
+      "disposition": "ai_mechanic_measured",
+      "leads": 16
+    },
+    {
+      "id": "mechanic-residual",
+      "disposition": "ai_mechanic_measured",
+      "leads": 61
+    },
+    {
+      "id": "mechanic-entry",
+      "disposition": "ai_mechanic_measured",
+      "leads": 57
+    },
+    {
+      "id": "shadow-sky-residual-strategy",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "id": "move-stage-predictions",
+      "disposition": "ai_rollout_consequence",
+      "leads": 62
+    },
+    {
+      "id": "move-stage-companions",
+      "disposition": "ai_rollout_consequence",
+      "leads": 3
+    },
+    {
+      "id": "field-disruption-ported",
+      "disposition": "ai_source_weights_ported",
+      "leads": 21
+    },
+    {
+      "id": "move-field-mechanics",
+      "disposition": "ai_rollout_consequence",
+      "leads": 148
+    },
+    {
+      "id": "excluded-unavailable-moves",
+      "disposition": "excluded_custom_move",
+      "leads": 3
+    },
+    {
+      "id": "source-preference-without-mechanic",
+      "disposition": "implemented_strategy",
+      "leads": 12
+    },
+    {
+      "id": "starlight-weather-party-preference",
+      "disposition": "implemented_strategy",
+      "leads": 6
+    },
+    {
+      "id": "opponent-choice-anticipation",
+      "disposition": "implemented_strategy",
+      "leads": 25
+    },
+    {
+      "id": "duration-value",
+      "disposition": "implemented_strategy",
+      "leads": 6
+    },
+    {
+      "id": "multi-turn-plans",
+      "disposition": "implemented_strategy",
+      "leads": 4
+    },
+    {
+      "id": "helper-field-mechanics",
+      "disposition": "ai_rollout_consequence",
+      "leads": 85
+    },
+    {
+      "id": "switch-affinity-ported",
+      "disposition": "ai_source_weights_ported",
+      "leads": 51
+    },
+    {
+      "id": "switch-entry-consequences",
+      "disposition": "ai_rollout_consequence",
+      "leads": 19
+    },
+    {
+      "id": "build-constants",
+      "disposition": "unreachable_in_build",
+      "leads": 3
+    }
+  ],
+  "methods": [
+    {
+      "method": "accuracyWeatherAbilityActive?",
+      "disposition": "ai_mechanic_measured",
+      "leads": 2
+    },
+    {
+      "method": "allyswitchcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "arocode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "bothOpponentsImmune?",
+      "disposition": "ai_mechanic_measured",
+      "leads": 2
+    },
+    {
+      "method": "buildspeedGuess",
+      "disposition": "implemented_strategy",
+      "leads": 5
+    },
+    {
+      "method": "canGroundMoveHit?",
+      "disposition": "ai_mechanic_measured",
+      "leads": 3
+    },
+    {
+      "method": "deathcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "destinycode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "dragoncheercode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "electricterraincode",
+      "disposition": "ai_source_weights_ported",
+      "leads": 2
+    },
+    {
+      "method": "encorecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "flinchcode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "flingcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "flowershieldcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 4
+    },
+    {
+      "method": "focuscode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "getAbilityDisruptScore",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "leads": 7
+    },
+    {
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "leads": 9
+    },
+    {
+      "method": "getItemScore",
+      "disposition": "unreachable_in_build",
+      "leads": 1
+    },
+    {
+      "method": "getMovePriority",
+      "disposition": "ai_mechanic_measured",
+      "leads": 4
+    },
+    {
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "leads": 213
+    },
+    {
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "leads": 13
+    },
+    {
+      "method": "getMoveScore",
+      "disposition": "excluded_custom_move",
+      "leads": 3
+    },
+    {
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "leads": 24
+    },
+    {
+      "method": "getMoveScore",
+      "disposition": "unreachable_in_build",
+      "leads": 1
+    },
+    {
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "leads": 19
+    },
+    {
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "leads": 51
+    },
+    {
+      "method": "grassyterraincode",
+      "disposition": "ai_source_weights_ported",
+      "leads": 2
+    },
+    {
+      "method": "hailcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "hailcode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "hazardcode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 8
+    },
+    {
+      "method": "hazecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "leads": 61
+    },
+    {
+      "method": "hpGainPerTurn",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "hypercode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "isUsefulStatusMove?",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "isValidDragonDartsTarget",
+      "disposition": "ai_mechanic_measured",
+      "leads": 6
+    },
+    {
+      "method": "itemchangedynamicspeedcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "lockoncode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "luckychantcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "metronomecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "mistyterraincode",
+      "disposition": "ai_source_weights_ported",
+      "leads": 2
+    },
+    {
+      "method": "moveInvulMisses?",
+      "disposition": "ai_mechanic_measured",
+      "leads": 1
+    },
+    {
+      "method": "moveSuccessful?",
+      "disposition": "ai_mechanic_measured",
+      "leads": 4
+    },
+    {
+      "method": "nevermisscode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "nightmarecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "notOHKO?",
+      "disposition": "ai_mechanic_measured",
+      "leads": 3
+    },
+    {
+      "method": "ohkode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 3
+    },
+    {
+      "method": "oppstatdrop",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "oppstatrestorecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "opptypeaddcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "opptypechangecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "outragecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "pbAegislashStats",
+      "disposition": "ai_mechanic_measured",
+      "leads": 1
+    },
+    {
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "leads": 36
+    },
+    {
+      "method": "pbFormChangeUponSwitchIn",
+      "disposition": "ai_mechanic_measured",
+      "leads": 3
+    },
+    {
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "leads": 9
+    },
+    {
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "leads": 99
+    },
+    {
+      "method": "pbSereneGraceCheck",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "leads": 39
+    },
+    {
+      "method": "pbStatChangingSwitchOpponent",
+      "disposition": "ai_mechanic_measured",
+      "leads": 3
+    },
+    {
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "leads": 8
+    },
+    {
+      "method": "petrifycode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "phasecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 4
+    },
+    {
+      "method": "pivotcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 3
+    },
+    {
+      "method": "protectEffectWorks?",
+      "disposition": "implemented_strategy",
+      "leads": 5
+    },
+    {
+      "method": "protectcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "protectcode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "protectcode",
+      "disposition": "unreachable_in_build",
+      "leads": 1
+    },
+    {
+      "method": "psychicterraincode",
+      "disposition": "ai_source_weights_ported",
+      "leads": 2
+    },
+    {
+      "method": "quarkdriveCheck",
+      "disposition": "ai_mechanic_measured",
+      "leads": 2
+    },
+    {
+      "method": "raincode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "raincode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "recovercode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "recyclecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "rotocode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 4
+    },
+    {
+      "method": "saltcurecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "sandcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "sandcode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "screencode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "selfstatboost",
+      "disposition": "ai_rollout_consequence",
+      "leads": 6
+    },
+    {
+      "method": "selfstatdrop",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "shouldSwitch?",
+      "disposition": "implemented_strategy",
+      "leads": 3
+    },
+    {
+      "method": "smackcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "snatchcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "snowcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 2
+    },
+    {
+      "method": "snowcode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "spoopycode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "suckercode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "suncode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "suncode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "survivesAt1HP?",
+      "disposition": "ai_mechanic_measured",
+      "leads": 2
+    },
+    {
+      "method": "tailwindcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "telecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "leads": 9
+    },
+    {
+      "method": "trcode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    },
+    {
+      "method": "typechangecode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "upperhandcode",
+      "disposition": "implemented_strategy",
+      "leads": 2
+    },
+    {
+      "method": "weathercode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "wideguardcode",
+      "disposition": "implemented_strategy",
+      "leads": 3
+    },
+    {
+      "method": "wishcode",
+      "disposition": "ai_rollout_consequence",
+      "leads": 1
+    },
+    {
+      "method": "wondercode",
+      "disposition": "implemented_strategy",
+      "leads": 1
+    }
+  ],
+  "predictionAudit": {
+    "moveStages:match": 140,
+    "moveStages:unreachable": 1,
+    "moveStages:ai_prediction_differs_from_source_mechanic": 1,
+    "moveStages:unavailable": 1,
+    "entryStages:match": 100,
+    "entryStages:ai_prediction_differs_from_source_mechanic": 4,
+    "residualHp:match": 74,
+    "residualHp:ai_prediction_differs_from_source_mechanic": 13
+  },
+  "rubyOracle": {
+    "disruptionCases": 10000,
+    "affinityCases": 6000,
+    "nonNeutralDisruption": 2764,
+    "nonZeroAffinity": 725,
+    "differences": 0
+  },
+  "leadsByLine": [
+    {
+      "line": 470,
+      "endLine": 470,
+      "method": "buildspeedGuess",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 477,
+      "endLine": 477,
+      "method": "buildspeedGuess",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 484,
+      "endLine": 504,
+      "method": "buildspeedGuess",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 486,
+      "endLine": 486,
+      "method": "buildspeedGuess",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 490,
+      "endLine": 490,
+      "method": "buildspeedGuess",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 1652,
+      "endLine": 1655,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1729,
+      "endLine": 1742,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1750,
+      "endLine": 1750,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1750,
+      "endLine": 1750,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1772,
+      "endLine": 1772,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 1773,
+      "endLine": 1773,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 1775,
+      "endLine": 1775,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 1775,
+      "endLine": 1775,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 1794,
+      "endLine": 1796,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1895,
+      "endLine": 1899,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 1897,
+      "endLine": 1899,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 1930,
+      "endLine": 1969,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 1932,
+      "endLine": 1968,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 1943,
+      "endLine": 1968,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 1957,
+      "endLine": 1968,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1964,
+      "endLine": 1968,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1966,
+      "endLine": 1968,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 1958,
+      "endLine": 1960,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1961,
+      "endLine": 1963,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1971,
+      "endLine": 1971,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 1980,
+      "endLine": 1980,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 1987,
+      "endLine": 1992,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 1993,
+      "endLine": 2003,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 2012,
+      "endLine": 2012,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2013,
+      "endLine": 2013,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2025,
+      "endLine": 2029,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 2032,
+      "endLine": 2034,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2036,
+      "endLine": 2036,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2050,
+      "endLine": 2052,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2081,
+      "endLine": 2083,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2084,
+      "endLine": 2086,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2107,
+      "endLine": 2107,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2108,
+      "endLine": 2108,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2109,
+      "endLine": 2109,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2113,
+      "endLine": 2113,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2124,
+      "endLine": 2124,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2132,
+      "endLine": 2132,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2138,
+      "endLine": 2138,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2142,
+      "endLine": 2142,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2147,
+      "endLine": 2147,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2152,
+      "endLine": 2152,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2153,
+      "endLine": 2153,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2160,
+      "endLine": 2160,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2161,
+      "endLine": 2161,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2165,
+      "endLine": 2165,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2170,
+      "endLine": 2170,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2176,
+      "endLine": 2176,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2180,
+      "endLine": 2184,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2188,
+      "endLine": 2188,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2189,
+      "endLine": 2189,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2193,
+      "endLine": 2193,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2200,
+      "endLine": 2200,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2205,
+      "endLine": 2205,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2218,
+      "endLine": 2218,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2236,
+      "endLine": 2236,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2278,
+      "endLine": 2278,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2280,
+      "endLine": 2280,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-companions"
+    },
+    {
+      "line": 2284,
+      "endLine": 2284,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2286,
+      "endLine": 2286,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-companions"
+    },
+    {
+      "line": 2290,
+      "endLine": 2290,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2291,
+      "endLine": 2291,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2294,
+      "endLine": 2294,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2296,
+      "endLine": 2296,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2297,
+      "endLine": 2297,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2298,
+      "endLine": 2298,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2304,
+      "endLine": 2304,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2308,
+      "endLine": 2317,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 2318,
+      "endLine": 2323,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2324,
+      "endLine": 2326,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2331,
+      "endLine": 2331,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2337,
+      "endLine": 2337,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2342,
+      "endLine": 2342,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2343,
+      "endLine": 2343,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2344,
+      "endLine": 2344,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2345,
+      "endLine": 2345,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2349,
+      "endLine": 2349,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2351,
+      "endLine": 2351,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2355,
+      "endLine": 2357,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2362,
+      "endLine": 2362,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2363,
+      "endLine": 2363,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2364,
+      "endLine": 2364,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2376,
+      "endLine": 2376,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2381,
+      "endLine": 2381,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2385,
+      "endLine": 2385,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2395,
+      "endLine": 2395,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2396,
+      "endLine": 2396,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2411,
+      "endLine": 2411,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2412,
+      "endLine": 2412,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2415,
+      "endLine": 2415,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2421,
+      "endLine": 2421,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2448,
+      "endLine": 2451,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2497,
+      "endLine": 2497,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2511,
+      "endLine": 2511,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2519,
+      "endLine": 2528,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 2539,
+      "endLine": 2539,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2540,
+      "endLine": 2540,
+      "method": "getMoveScore",
+      "disposition": "excluded_custom_move",
+      "decision": "excluded-unavailable-moves"
+    },
+    {
+      "line": 2544,
+      "endLine": 2553,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 2554,
+      "endLine": 2559,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2560,
+      "endLine": 2562,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2567,
+      "endLine": 2567,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2613,
+      "endLine": 2620,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2625,
+      "endLine": 2634,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 2635,
+      "endLine": 2640,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2641,
+      "endLine": 2643,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2660,
+      "endLine": 2660,
+      "method": "getMoveScore",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 2667,
+      "endLine": 2674,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2672,
+      "endLine": 2672,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2690,
+      "endLine": 2693,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2698,
+      "endLine": 2701,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2715,
+      "endLine": 2715,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2736,
+      "endLine": 2736,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2765,
+      "endLine": 2765,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2767,
+      "endLine": 2767,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2770,
+      "endLine": 2774,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2773,
+      "endLine": 2773,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2775,
+      "endLine": 2775,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2778,
+      "endLine": 2778,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2781,
+      "endLine": 2781,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2784,
+      "endLine": 2784,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2789,
+      "endLine": 2797,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2792,
+      "endLine": 2797,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2793,
+      "endLine": 2793,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2794,
+      "endLine": 2797,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2795,
+      "endLine": 2795,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2799,
+      "endLine": 2806,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2801,
+      "endLine": 2806,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2802,
+      "endLine": 2802,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2803,
+      "endLine": 2806,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2808,
+      "endLine": 2815,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2810,
+      "endLine": 2815,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2811,
+      "endLine": 2811,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2812,
+      "endLine": 2815,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2816,
+      "endLine": 2818,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2820,
+      "endLine": 2827,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2822,
+      "endLine": 2827,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2823,
+      "endLine": 2823,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2824,
+      "endLine": 2827,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2830,
+      "endLine": 2834,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2831,
+      "endLine": 2831,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2833,
+      "endLine": 2833,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2837,
+      "endLine": 2841,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2847,
+      "endLine": 2847,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2850,
+      "endLine": 2850,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2851,
+      "endLine": 2851,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2853,
+      "endLine": 2853,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2854,
+      "endLine": 2858,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2856,
+      "endLine": 2856,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2857,
+      "endLine": 2857,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2860,
+      "endLine": 2860,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2865,
+      "endLine": 2865,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2866,
+      "endLine": 2869,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2870,
+      "endLine": 2875,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2882,
+      "endLine": 2884,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 2886,
+      "endLine": 2886,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2889,
+      "endLine": 2889,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 2890,
+      "endLine": 2890,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2893,
+      "endLine": 2893,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 2894,
+      "endLine": 2894,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2899,
+      "endLine": 2899,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 2918,
+      "endLine": 2918,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2930,
+      "endLine": 2930,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2932,
+      "endLine": 2932,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2937,
+      "endLine": 2940,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2939,
+      "endLine": 2939,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2941,
+      "endLine": 2943,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2944,
+      "endLine": 2944,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2957,
+      "endLine": 2957,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2964,
+      "endLine": 2964,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2967,
+      "endLine": 2967,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2968,
+      "endLine": 2968,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2977,
+      "endLine": 2977,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 2983,
+      "endLine": 2987,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3008,
+      "endLine": 3016,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3025,
+      "endLine": 3033,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3038,
+      "endLine": 3038,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3049,
+      "endLine": 3049,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 3050,
+      "endLine": 3050,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "starlight-weather-party-preference"
+    },
+    {
+      "line": 3060,
+      "endLine": 3060,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3061,
+      "endLine": 3061,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "starlight-weather-party-preference"
+    },
+    {
+      "line": 3071,
+      "endLine": 3076,
+      "method": "getMoveScore",
+      "disposition": "unreachable_in_build",
+      "decision": "build-constants"
+    },
+    {
+      "line": 3079,
+      "endLine": 3079,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3080,
+      "endLine": 3080,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3081,
+      "endLine": 3081,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "starlight-weather-party-preference"
+    },
+    {
+      "line": 3087,
+      "endLine": 3087,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3089,
+      "endLine": 3089,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "starlight-weather-party-preference"
+    },
+    {
+      "line": 3095,
+      "endLine": 3095,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3096,
+      "endLine": 3096,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "starlight-weather-party-preference"
+    },
+    {
+      "line": 3102,
+      "endLine": 3116,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3109,
+      "endLine": 3115,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3114,
+      "endLine": 3114,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3122,
+      "endLine": 3136,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3129,
+      "endLine": 3135,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3134,
+      "endLine": 3134,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3142,
+      "endLine": 3158,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3153,
+      "endLine": 3153,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3154,
+      "endLine": 3154,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3155,
+      "endLine": 3155,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3156,
+      "endLine": 3156,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3171,
+      "endLine": 3171,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3180,
+      "endLine": 3180,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3225,
+      "endLine": 3237,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3228,
+      "endLine": 3235,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3240,
+      "endLine": 3240,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3253,
+      "endLine": 3253,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3282,
+      "endLine": 3282,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3286,
+      "endLine": 3286,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3291,
+      "endLine": 3291,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3298,
+      "endLine": 3298,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3299,
+      "endLine": 3299,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3302,
+      "endLine": 3302,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3304,
+      "endLine": 3311,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3313,
+      "endLine": 3317,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3324,
+      "endLine": 3329,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3328,
+      "endLine": 3328,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3349,
+      "endLine": 3349,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3356,
+      "endLine": 3360,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3363,
+      "endLine": 3363,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3383,
+      "endLine": 3383,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3394,
+      "endLine": 3394,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3438,
+      "endLine": 3438,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3450,
+      "endLine": 3450,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3454,
+      "endLine": 3454,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3455,
+      "endLine": 3455,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3461,
+      "endLine": 3461,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3496,
+      "endLine": 3496,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3507,
+      "endLine": 3507,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3519,
+      "endLine": 3519,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3556,
+      "endLine": 3556,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3557,
+      "endLine": 3557,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3559,
+      "endLine": 3566,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-companions"
+    },
+    {
+      "line": 3574,
+      "endLine": 3574,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3576,
+      "endLine": 3576,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3578,
+      "endLine": 3581,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3584,
+      "endLine": 3584,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3585,
+      "endLine": 3585,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3598,
+      "endLine": 3598,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3604,
+      "endLine": 3610,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3607,
+      "endLine": 3610,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3636,
+      "endLine": 3636,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3637,
+      "endLine": 3637,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3644,
+      "endLine": 3644,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3654,
+      "endLine": 3654,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3657,
+      "endLine": 3657,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3669,
+      "endLine": 3669,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3689,
+      "endLine": 3689,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3700,
+      "endLine": 3700,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-stage-predictions"
+    },
+    {
+      "line": 3770,
+      "endLine": 3770,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 3771,
+      "endLine": 3771,
+      "method": "getMoveScore",
+      "disposition": "implemented_strategy",
+      "decision": "starlight-weather-party-preference"
+    },
+    {
+      "line": 3802,
+      "endLine": 3802,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3828,
+      "endLine": 3828,
+      "method": "getMoveScore",
+      "disposition": "excluded_custom_move",
+      "decision": "excluded-unavailable-moves"
+    },
+    {
+      "line": 3838,
+      "endLine": 3838,
+      "method": "getMoveScore",
+      "disposition": "excluded_custom_move",
+      "decision": "excluded-unavailable-moves"
+    },
+    {
+      "line": 3855,
+      "endLine": 3855,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3857,
+      "endLine": 3857,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 3859,
+      "endLine": 3859,
+      "method": "getMoveScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "move-field-mechanics"
+    },
+    {
+      "line": 4143,
+      "endLine": 4143,
+      "method": "petrifycode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4178,
+      "endLine": 4178,
+      "method": "flinchcode",
+      "disposition": "implemented_strategy",
+      "decision": "source-preference-without-mechanic"
+    },
+    {
+      "line": 4375,
+      "endLine": 4378,
+      "method": "selfstatboost",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4453,
+      "endLine": 4453,
+      "method": "selfstatboost",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4459,
+      "endLine": 4461,
+      "method": "selfstatboost",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4462,
+      "endLine": 4462,
+      "method": "selfstatboost",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4486,
+      "endLine": 4486,
+      "method": "selfstatboost",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4526,
+      "endLine": 4529,
+      "method": "selfstatboost",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4642,
+      "endLine": 4647,
+      "method": "selfstatdrop",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4893,
+      "endLine": 4893,
+      "method": "oppstatdrop",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4895,
+      "endLine": 4895,
+      "method": "oppstatdrop",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 4996,
+      "endLine": 4996,
+      "method": "dragoncheercode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5118,
+      "endLine": 5118,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5120,
+      "endLine": 5120,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5124,
+      "endLine": 5124,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5125,
+      "endLine": 5125,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5129,
+      "endLine": 5129,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5131,
+      "endLine": 5131,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5138,
+      "endLine": 5138,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5150,
+      "endLine": 5156,
+      "method": "hazardremovalcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5225,
+      "endLine": 5228,
+      "method": "oppstatrestorecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5243,
+      "endLine": 5246,
+      "method": "hazecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5374,
+      "endLine": 5377,
+      "method": "tailwindcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5416,
+      "endLine": 5416,
+      "method": "typechangecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5451,
+      "endLine": 5451,
+      "method": "opptypechangecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5476,
+      "endLine": 5476,
+      "method": "opptypeaddcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5613,
+      "endLine": 5613,
+      "method": "ohkode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5614,
+      "endLine": 5614,
+      "method": "ohkode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5616,
+      "endLine": 5616,
+      "method": "ohkode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5769,
+      "endLine": 5769,
+      "method": "luckychantcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5790,
+      "endLine": 5790,
+      "method": "screencode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5791,
+      "endLine": 5791,
+      "method": "screencode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5882,
+      "endLine": 5882,
+      "method": "nevermisscode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5893,
+      "endLine": 5893,
+      "method": "lockoncode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5959,
+      "endLine": 5959,
+      "method": "protectcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 5964,
+      "endLine": 5968,
+      "method": "protectcode",
+      "disposition": "unreachable_in_build",
+      "decision": "build-constants"
+    },
+    {
+      "line": 5999,
+      "endLine": 6001,
+      "method": "protectcode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 6085,
+      "endLine": 6089,
+      "method": "snatchcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6114,
+      "endLine": 6114,
+      "method": "wideguardcode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 6115,
+      "endLine": 6115,
+      "method": "wideguardcode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 6116,
+      "endLine": 6116,
+      "method": "wideguardcode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 6157,
+      "endLine": 6157,
+      "method": "metronomecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6267,
+      "endLine": 6267,
+      "method": "encorecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6313,
+      "endLine": 6313,
+      "method": "hypercode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6319,
+      "endLine": 6319,
+      "method": "hypercode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6450,
+      "endLine": 6450,
+      "method": "recovercode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6524,
+      "endLine": 6524,
+      "method": "wishcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6688,
+      "endLine": 6688,
+      "method": "deathcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6829,
+      "endLine": 6829,
+      "method": "destinycode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6848,
+      "endLine": 6848,
+      "method": "phasecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6855,
+      "endLine": 6855,
+      "method": "phasecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6859,
+      "endLine": 6859,
+      "method": "phasecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6860,
+      "endLine": 6860,
+      "method": "phasecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6889,
+      "endLine": 6889,
+      "method": "pivotcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6893,
+      "endLine": 6893,
+      "method": "pivotcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 6894,
+      "endLine": 6894,
+      "method": "pivotcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7084,
+      "endLine": 7084,
+      "method": "itemchangedynamicspeedcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7092,
+      "endLine": 7092,
+      "method": "itemchangedynamicspeedcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7115,
+      "endLine": 7115,
+      "method": "weathercode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7127,
+      "endLine": 7127,
+      "method": "suncode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7131,
+      "endLine": 7131,
+      "method": "suncode",
+      "disposition": "implemented_strategy",
+      "decision": "duration-value"
+    },
+    {
+      "line": 7153,
+      "endLine": 7153,
+      "method": "raincode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7157,
+      "endLine": 7157,
+      "method": "raincode",
+      "disposition": "implemented_strategy",
+      "decision": "duration-value"
+    },
+    {
+      "line": 7176,
+      "endLine": 7176,
+      "method": "sandcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7179,
+      "endLine": 7179,
+      "method": "sandcode",
+      "disposition": "implemented_strategy",
+      "decision": "duration-value"
+    },
+    {
+      "line": 7198,
+      "endLine": 7198,
+      "method": "hailcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7199,
+      "endLine": 7199,
+      "method": "hailcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7203,
+      "endLine": 7203,
+      "method": "hailcode",
+      "disposition": "implemented_strategy",
+      "decision": "duration-value"
+    },
+    {
+      "line": 7223,
+      "endLine": 7223,
+      "method": "snowcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7224,
+      "endLine": 7224,
+      "method": "snowcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7228,
+      "endLine": 7228,
+      "method": "snowcode",
+      "disposition": "implemented_strategy",
+      "decision": "duration-value"
+    },
+    {
+      "line": 7285,
+      "endLine": 7285,
+      "method": "focuscode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7319,
+      "endLine": 7319,
+      "method": "suckercode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 7402,
+      "endLine": 7402,
+      "method": "telecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7432,
+      "endLine": 7432,
+      "method": "trcode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 7457,
+      "endLine": 7457,
+      "method": "wondercode",
+      "disposition": "implemented_strategy",
+      "decision": "duration-value"
+    },
+    {
+      "line": 7596,
+      "endLine": 7605,
+      "method": "psychicterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7597,
+      "endLine": 7597,
+      "method": "psychicterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7695,
+      "endLine": 7697,
+      "method": "smackcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7700,
+      "endLine": 7700,
+      "method": "smackcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7706,
+      "endLine": 7706,
+      "method": "nightmarecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7738,
+      "endLine": 7738,
+      "method": "spoopycode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7759,
+      "endLine": 7759,
+      "method": "saltcurecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7803,
+      "endLine": 7803,
+      "method": "hazardcode",
+      "disposition": "implemented_strategy",
+      "decision": "multi-turn-plans"
+    },
+    {
+      "line": 7850,
+      "endLine": 7854,
+      "method": "electricterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7851,
+      "endLine": 7851,
+      "method": "electricterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7873,
+      "endLine": 7900,
+      "method": "grassyterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7874,
+      "endLine": 7874,
+      "method": "grassyterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7907,
+      "endLine": 7925,
+      "method": "mistyterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7908,
+      "endLine": 7908,
+      "method": "mistyterraincode",
+      "disposition": "ai_source_weights_ported",
+      "decision": "field-disruption-ported"
+    },
+    {
+      "line": 7972,
+      "endLine": 7972,
+      "method": "arocode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7981,
+      "endLine": 7986,
+      "method": "flowershieldcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7987,
+      "endLine": 7987,
+      "method": "flowershieldcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7988,
+      "endLine": 8019,
+      "method": "flowershieldcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 7991,
+      "endLine": 7991,
+      "method": "flowershieldcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8025,
+      "endLine": 8025,
+      "method": "rotocode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8030,
+      "endLine": 8033,
+      "method": "rotocode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8034,
+      "endLine": 8063,
+      "method": "rotocode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8036,
+      "endLine": 8036,
+      "method": "rotocode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8139,
+      "endLine": 8139,
+      "method": "flingcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8166,
+      "endLine": 8169,
+      "method": "recyclecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8365,
+      "endLine": 8365,
+      "method": "outragecode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8435,
+      "endLine": 8437,
+      "method": "upperhandcode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 8445,
+      "endLine": 8447,
+      "method": "upperhandcode",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 8485,
+      "endLine": 8492,
+      "method": "allyswitchcode",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8734,
+      "endLine": 8736,
+      "method": "isValidDragonDartsTarget",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 8748,
+      "endLine": 8748,
+      "method": "isValidDragonDartsTarget",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 8750,
+      "endLine": 8750,
+      "method": "isValidDragonDartsTarget",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 8754,
+      "endLine": 8754,
+      "method": "isValidDragonDartsTarget",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 8757,
+      "endLine": 8762,
+      "method": "isValidDragonDartsTarget",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 8769,
+      "endLine": 8769,
+      "method": "isValidDragonDartsTarget",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 8781,
+      "endLine": 8781,
+      "method": "pbSereneGraceCheck",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8782,
+      "endLine": 8782,
+      "method": "pbSereneGraceCheck",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 8883,
+      "endLine": 8884,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8890,
+      "endLine": 8890,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8909,
+      "endLine": 8912,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8910,
+      "endLine": 8910,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8926,
+      "endLine": 8928,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8937,
+      "endLine": 8937,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8940,
+      "endLine": 8940,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8941,
+      "endLine": 8941,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 8951,
+      "endLine": 8951,
+      "method": "pbRoughAccuracy",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 9072,
+      "endLine": 9072,
+      "method": "getMovePriority",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-priority"
+    },
+    {
+      "line": 9076,
+      "endLine": 9076,
+      "method": "getMovePriority",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-priority"
+    },
+    {
+      "line": 9077,
+      "endLine": 9077,
+      "method": "getMovePriority",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-priority"
+    },
+    {
+      "line": 9082,
+      "endLine": 9082,
+      "method": "getMovePriority",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-priority"
+    },
+    {
+      "line": 9098,
+      "endLine": 9098,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9100,
+      "endLine": 9117,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9104,
+      "endLine": 9117,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9124,
+      "endLine": 9124,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9127,
+      "endLine": 9127,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9132,
+      "endLine": 9138,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9134,
+      "endLine": 9138,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9141,
+      "endLine": 9141,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9144,
+      "endLine": 9144,
+      "method": "getHealAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9151,
+      "endLine": 9151,
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9158,
+      "endLine": 9158,
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9161,
+      "endLine": 9161,
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9162,
+      "endLine": 9162,
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9167,
+      "endLine": 9167,
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9170,
+      "endLine": 9170,
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9174,
+      "endLine": 9174,
+      "method": "getDrainAmount",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-healing"
+    },
+    {
+      "line": 9186,
+      "endLine": 9192,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9193,
+      "endLine": 9198,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9199,
+      "endLine": 9204,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9206,
+      "endLine": 9206,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9207,
+      "endLine": 9207,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9208,
+      "endLine": 9208,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9209,
+      "endLine": 9209,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9210,
+      "endLine": 9210,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9211,
+      "endLine": 9211,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9212,
+      "endLine": 9212,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9213,
+      "endLine": 9213,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9214,
+      "endLine": 9214,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9215,
+      "endLine": 9215,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9219,
+      "endLine": 9219,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9220,
+      "endLine": 9220,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9221,
+      "endLine": 9221,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_rollout_consequence",
+      "decision": "shadow-sky-residual-strategy"
+    },
+    {
+      "line": 9226,
+      "endLine": 9226,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9229,
+      "endLine": 9229,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9231,
+      "endLine": 9233,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9234,
+      "endLine": 9242,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9235,
+      "endLine": 9241,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9245,
+      "endLine": 9245,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9250,
+      "endLine": 9250,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9251,
+      "endLine": 9251,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9251,
+      "endLine": 9251,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9252,
+      "endLine": 9252,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9259,
+      "endLine": 9259,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9263,
+      "endLine": 9263,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9263,
+      "endLine": 9263,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9272,
+      "endLine": 9272,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9273,
+      "endLine": 9273,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9274,
+      "endLine": 9274,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9275,
+      "endLine": 9275,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9276,
+      "endLine": 9276,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9278,
+      "endLine": 9286,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9280,
+      "endLine": 9286,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9282,
+      "endLine": 9286,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9292,
+      "endLine": 9292,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9310,
+      "endLine": 9310,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9311,
+      "endLine": 9311,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9313,
+      "endLine": 9313,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9317,
+      "endLine": 9324,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9319,
+      "endLine": 9319,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9321,
+      "endLine": 9321,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9322,
+      "endLine": 9322,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9327,
+      "endLine": 9328,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9330,
+      "endLine": 9330,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9338,
+      "endLine": 9338,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9349,
+      "endLine": 9349,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9350,
+      "endLine": 9350,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9351,
+      "endLine": 9351,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9352,
+      "endLine": 9352,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9353,
+      "endLine": 9363,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9354,
+      "endLine": 9354,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9355,
+      "endLine": 9355,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9356,
+      "endLine": 9356,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9357,
+      "endLine": 9357,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9358,
+      "endLine": 9358,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9359,
+      "endLine": 9359,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9360,
+      "endLine": 9360,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9361,
+      "endLine": 9361,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9362,
+      "endLine": 9362,
+      "method": "hpGainPerTurn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-residual"
+    },
+    {
+      "line": 9390,
+      "endLine": 9390,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9406,
+      "endLine": 9406,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9410,
+      "endLine": 9410,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9431,
+      "endLine": 9431,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9436,
+      "endLine": 9438,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9439,
+      "endLine": 9441,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9442,
+      "endLine": 9444,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9446,
+      "endLine": 9456,
+      "method": "pbTypeModNoMessages",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 9513,
+      "endLine": 9520,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9524,
+      "endLine": 9534,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9530,
+      "endLine": 9534,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9532,
+      "endLine": 9534,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9537,
+      "endLine": 9537,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9543,
+      "endLine": 9568,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9551,
+      "endLine": 9568,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9557,
+      "endLine": 9568,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9564,
+      "endLine": 9568,
+      "method": "totalHazardDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 9638,
+      "endLine": 9638,
+      "method": "getAbilityDisruptScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 9641,
+      "endLine": 9641,
+      "method": "getAbilityDisruptScore",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 10184,
+      "endLine": 10184,
+      "method": "getItemScore",
+      "disposition": "unreachable_in_build",
+      "decision": "build-constants"
+    },
+    {
+      "line": 10512,
+      "endLine": 10512,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 10653,
+      "endLine": 10656,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 10657,
+      "endLine": 10659,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 10660,
+      "endLine": 10662,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 10663,
+      "endLine": 10665,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 10802,
+      "endLine": 10805,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 10835,
+      "endLine": 10835,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 10836,
+      "endLine": 10836,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11056,
+      "endLine": 11056,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11111,
+      "endLine": 11111,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11174,
+      "endLine": 11174,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11389,
+      "endLine": 11394,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11484,
+      "endLine": 11486,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11505,
+      "endLine": 11505,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11517,
+      "endLine": 11520,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11524,
+      "endLine": 11524,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 11534,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11547,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11554,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11562,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11565,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11572,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11597,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11612,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11618,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11625,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11632,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11640,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11648,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11655,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11657,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11666,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11671,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11678,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11685,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11695,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11707,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11719,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11730,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11732,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11734,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11739,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11752,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11761,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11776,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11789,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11807,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11816,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11826,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11834,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11840,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11845,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11853,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11863,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11876,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11882,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11894,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11902,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11911,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11924,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11940,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11947,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11962,
+      "endLine": 12025,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11943,
+      "endLine": 11943,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11944,
+      "endLine": 11944,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11945,
+      "endLine": 11945,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 11946,
+      "endLine": 11946,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_source_weights_ported",
+      "decision": "switch-affinity-ported"
+    },
+    {
+      "line": 12034,
+      "endLine": 12034,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 12131,
+      "endLine": 12131,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 12231,
+      "endLine": 12231,
+      "method": "getSwitchInScoresParty",
+      "disposition": "ai_rollout_consequence",
+      "decision": "switch-entry-consequences"
+    },
+    {
+      "line": 12336,
+      "endLine": 12344,
+      "method": "shouldSwitch?",
+      "disposition": "implemented_strategy",
+      "decision": "multi-turn-plans"
+    },
+    {
+      "line": 12388,
+      "endLine": 12388,
+      "method": "shouldSwitch?",
+      "disposition": "implemented_strategy",
+      "decision": "multi-turn-plans"
+    },
+    {
+      "line": 12545,
+      "endLine": 12545,
+      "method": "shouldSwitch?",
+      "disposition": "implemented_strategy",
+      "decision": "multi-turn-plans"
+    },
+    {
+      "line": 12626,
+      "endLine": 12626,
+      "method": "bothOpponentsImmune?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 12627,
+      "endLine": 12627,
+      "method": "bothOpponentsImmune?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 12711,
+      "endLine": 12723,
+      "method": "pbStatChangingSwitchOpponent",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12713,
+      "endLine": 12723,
+      "method": "pbStatChangingSwitchOpponent",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12715,
+      "endLine": 12723,
+      "method": "pbStatChangingSwitchOpponent",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12786,
+      "endLine": 12814,
+      "method": "quarkdriveCheck",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12795,
+      "endLine": 12795,
+      "method": "quarkdriveCheck",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12822,
+      "endLine": 12822,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12827,
+      "endLine": 12836,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12838,
+      "endLine": 12841,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12844,
+      "endLine": 12847,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12848,
+      "endLine": 12852,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12855,
+      "endLine": 12857,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12859,
+      "endLine": 12862,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12874,
+      "endLine": 12877,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12881,
+      "endLine": 12891,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12896,
+      "endLine": 12906,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12921,
+      "endLine": 12921,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12922,
+      "endLine": 12922,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12926,
+      "endLine": 12926,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12927,
+      "endLine": 12927,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12935,
+      "endLine": 12937,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12939,
+      "endLine": 12942,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12944,
+      "endLine": 12946,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12948,
+      "endLine": 12951,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12950,
+      "endLine": 12950,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12952,
+      "endLine": 12954,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12955,
+      "endLine": 12958,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12960,
+      "endLine": 12962,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12964,
+      "endLine": 12966,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12968,
+      "endLine": 12972,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12974,
+      "endLine": 12976,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12978,
+      "endLine": 12980,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12988,
+      "endLine": 12990,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12992,
+      "endLine": 12995,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 12996,
+      "endLine": 12998,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13000,
+      "endLine": 13002,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13004,
+      "endLine": 13014,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13016,
+      "endLine": 13019,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13021,
+      "endLine": 13024,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13026,
+      "endLine": 13031,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13033,
+      "endLine": 13041,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13035,
+      "endLine": 13040,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13037,
+      "endLine": 13039,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13043,
+      "endLine": 13048,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13050,
+      "endLine": 13054,
+      "method": "pbStatChangingSwitch",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 13441,
+      "endLine": 13441,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13454,
+      "endLine": 13454,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13504,
+      "endLine": 13510,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13507,
+      "endLine": 13509,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13532,
+      "endLine": 13536,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13547,
+      "endLine": 13547,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13548,
+      "endLine": 13548,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13597,
+      "endLine": 13597,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13616,
+      "endLine": 13618,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13631,
+      "endLine": 13633,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13644,
+      "endLine": 13644,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13650,
+      "endLine": 13650,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13651,
+      "endLine": 13651,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13657,
+      "endLine": 13657,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13661,
+      "endLine": 13665,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13663,
+      "endLine": 13663,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13669,
+      "endLine": 13669,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13672,
+      "endLine": 13672,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13677,
+      "endLine": 13677,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13680,
+      "endLine": 13680,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13684,
+      "endLine": 13686,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13687,
+      "endLine": 13687,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13690,
+      "endLine": 13690,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13691,
+      "endLine": 13693,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13692,
+      "endLine": 13692,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13701,
+      "endLine": 13701,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13707,
+      "endLine": 13707,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13776,
+      "endLine": 13820,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13789,
+      "endLine": 13820,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13795,
+      "endLine": 13820,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13801,
+      "endLine": 13820,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13811,
+      "endLine": 13820,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13841,
+      "endLine": 13841,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13883,
+      "endLine": 13883,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13884,
+      "endLine": 13884,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13896,
+      "endLine": 13896,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13898,
+      "endLine": 13898,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13900,
+      "endLine": 13903,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13910,
+      "endLine": 13910,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13916,
+      "endLine": 13916,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13920,
+      "endLine": 13920,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13926,
+      "endLine": 13926,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13930,
+      "endLine": 13930,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13932,
+      "endLine": 13932,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13933,
+      "endLine": 13933,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13934,
+      "endLine": 13934,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13935,
+      "endLine": 13935,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13938,
+      "endLine": 13963,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13940,
+      "endLine": 13963,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13942,
+      "endLine": 13963,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13944,
+      "endLine": 13963,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13946,
+      "endLine": 13963,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13948,
+      "endLine": 13963,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13949,
+      "endLine": 13949,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13950,
+      "endLine": 13950,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13951,
+      "endLine": 13951,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13952,
+      "endLine": 13963,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13954,
+      "endLine": 13958,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13955,
+      "endLine": 13958,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13956,
+      "endLine": 13958,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13957,
+      "endLine": 13958,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13960,
+      "endLine": 13962,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13989,
+      "endLine": 13989,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13990,
+      "endLine": 13990,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13991,
+      "endLine": 13991,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 13993,
+      "endLine": 13995,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14005,
+      "endLine": 14005,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14008,
+      "endLine": 14008,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14030,
+      "endLine": 14053,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14031,
+      "endLine": 14035,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14036,
+      "endLine": 14038,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14039,
+      "endLine": 14051,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14052,
+      "endLine": 14052,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14055,
+      "endLine": 14055,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14056,
+      "endLine": 14056,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14057,
+      "endLine": 14057,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14058,
+      "endLine": 14058,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14059,
+      "endLine": 14059,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14069,
+      "endLine": 14075,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14077,
+      "endLine": 14085,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14118,
+      "endLine": 14118,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14129,
+      "endLine": 14129,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14130,
+      "endLine": 14130,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14134,
+      "endLine": 14134,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14136,
+      "endLine": 14136,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14138,
+      "endLine": 14141,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14143,
+      "endLine": 14143,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14153,
+      "endLine": 14153,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14159,
+      "endLine": 14159,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14161,
+      "endLine": 14161,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14167,
+      "endLine": 14167,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14199,
+      "endLine": 14199,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14261,
+      "endLine": 14261,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14277,
+      "endLine": 14277,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14278,
+      "endLine": 14278,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14285,
+      "endLine": 14285,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14312,
+      "endLine": 14312,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14313,
+      "endLine": 14313,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14314,
+      "endLine": 14317,
+      "method": "pbRoughDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14376,
+      "endLine": 14376,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14380,
+      "endLine": 14380,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14384,
+      "endLine": 14390,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14386,
+      "endLine": 14390,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14388,
+      "endLine": 14390,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14394,
+      "endLine": 14394,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14448,
+      "endLine": 14448,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14454,
+      "endLine": 14454,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14456,
+      "endLine": 14456,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14459,
+      "endLine": 14459,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14462,
+      "endLine": 14462,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14466,
+      "endLine": 14466,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14471,
+      "endLine": 14471,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14478,
+      "endLine": 14478,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14483,
+      "endLine": 14483,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14494,
+      "endLine": 14494,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14516,
+      "endLine": 14516,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14517,
+      "endLine": 14517,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14522,
+      "endLine": 14522,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14526,
+      "endLine": 14526,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14533,
+      "endLine": 14533,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14545,
+      "endLine": 14545,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14556,
+      "endLine": 14556,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14567,
+      "endLine": 14567,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14570,
+      "endLine": 14570,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14610,
+      "endLine": 14610,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14613,
+      "endLine": 14613,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14617,
+      "endLine": 14617,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14621,
+      "endLine": 14621,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14623,
+      "endLine": 14633,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14644,
+      "endLine": 14644,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14648,
+      "endLine": 14648,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14650,
+      "endLine": 14650,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14668,
+      "endLine": 14668,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14672,
+      "endLine": 14672,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14673,
+      "endLine": 14673,
+      "method": "pbBetterBaseDamage",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-damage"
+    },
+    {
+      "line": 14703,
+      "endLine": 14703,
+      "method": "pbAegislashStats",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 14713,
+      "endLine": 14713,
+      "method": "moveSuccessful?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 14714,
+      "endLine": 14714,
+      "method": "moveSuccessful?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 14715,
+      "endLine": 14715,
+      "method": "moveSuccessful?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 14717,
+      "endLine": 14717,
+      "method": "moveSuccessful?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 14742,
+      "endLine": 14742,
+      "method": "pbFormChangeUponSwitchIn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 14747,
+      "endLine": 14751,
+      "method": "pbFormChangeUponSwitchIn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 14772,
+      "endLine": 14774,
+      "method": "pbFormChangeUponSwitchIn",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-entry"
+    },
+    {
+      "line": 14876,
+      "endLine": 14876,
+      "method": "isUsefulStatusMove?",
+      "disposition": "ai_rollout_consequence",
+      "decision": "helper-field-mechanics"
+    },
+    {
+      "line": 14933,
+      "endLine": 14933,
+      "method": "notOHKO?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-survival"
+    },
+    {
+      "line": 14942,
+      "endLine": 14942,
+      "method": "notOHKO?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-survival"
+    },
+    {
+      "line": 14943,
+      "endLine": 14943,
+      "method": "notOHKO?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-survival"
+    },
+    {
+      "line": 14952,
+      "endLine": 14952,
+      "method": "canGroundMoveHit?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 14956,
+      "endLine": 14956,
+      "method": "canGroundMoveHit?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 14958,
+      "endLine": 14958,
+      "method": "canGroundMoveHit?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 14982,
+      "endLine": 14982,
+      "method": "moveInvulMisses?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-effectiveness"
+    },
+    {
+      "line": 15023,
+      "endLine": 15023,
+      "method": "survivesAt1HP?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-survival"
+    },
+    {
+      "line": 15024,
+      "endLine": 15024,
+      "method": "survivesAt1HP?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-survival"
+    },
+    {
+      "line": 15035,
+      "endLine": 15035,
+      "method": "protectEffectWorks?",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 15045,
+      "endLine": 15045,
+      "method": "protectEffectWorks?",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 15046,
+      "endLine": 15046,
+      "method": "protectEffectWorks?",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 15047,
+      "endLine": 15047,
+      "method": "protectEffectWorks?",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 15048,
+      "endLine": 15048,
+      "method": "protectEffectWorks?",
+      "disposition": "implemented_strategy",
+      "decision": "opponent-choice-anticipation"
+    },
+    {
+      "line": 15058,
+      "endLine": 15058,
+      "method": "accuracyWeatherAbilityActive?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    },
+    {
+      "line": 15059,
+      "endLine": 15059,
+      "method": "accuracyWeatherAbilityActive?",
+      "disposition": "ai_mechanic_measured",
+      "decision": "mechanic-accuracy"
+    }
+  ]
+}

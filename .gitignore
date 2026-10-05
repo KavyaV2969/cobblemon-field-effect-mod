@@ -7,15 +7,22 @@
 /integration/
 /Rejuvenation 14 copy/
 
+# Local decompilations of external mods (ABI evidence only; never redistributed).
+/research/bytecode/
+
 # Python caches and local diagnostic logs.
 __pycache__/
 *.py[cod]
 *.log
 /research/test-results/gradle-thread-diagnostic.txt
 /research/test-results/live-process.json
+/research/test-results/live-startup-[0-9]*.json
 
 # Editor and operating-system files.
 .idea/
 .vscode/
 .DS_Store
 Thumbs.db
+
+# Generated worklist quoting Battle_AI.rb branch bodies verbatim (local review aid; source is not redistributed).
+/research/ai-source-worklist.txt

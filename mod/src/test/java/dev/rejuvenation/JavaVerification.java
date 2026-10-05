@@ -91,6 +91,49 @@ public final class JavaVerification {
   FieldApi.captureEnvironment(otherBattle,true);check(FieldApi.captureMultiplier(otherBattle,"cobblemon:dive_ball",12).orElseThrow()==3.5,"Underwater environment independent of field");
   FieldApi.captureEnvironment(captureBattle,true);check(FieldApi.captureMultiplier(captureBattle,"cobblemon:dusk_ball",23).orElseThrow()==3.5,"Field and night bonuses are OR, not stacked");
   FieldApi.clear(captureBattle);check(FieldApi.captureMultiplier(captureBattle,"cobblemon:dusk_ball",12).isEmpty(),"Capture cleanup");FieldApi.clearAll();check(FieldApi.current(otherBattle).isEmpty(),"Global cleanup");
+  int environment=EnvironmentVerification.run(catalog);
+  int client=dev.rejuvenation.client.ClientVerification.run();
+  // On-demand gimmick previews are honoured only as the sanitized request offers them.
+  var moveset=new com.cobblemon.mod.common.battles.ShowdownMoveset();
+  var psychic=new com.cobblemon.mod.common.battles.InBattleMove();psychic.setId("psychic");psychic.setMove("Psychic");
+  var surf=new com.cobblemon.mod.common.battles.InBattleMove();surf.setId("surf");surf.setMove("Surf");
+  moveset.setMoves(java.util.List.of(psychic,surf));moveset.setCanTerastallize("Psychic");
+  var z=new com.cobblemon.mod.common.battles.InBattleGimmickMove();z.setMove("shatteredpsyche");
+  var disabled=new com.cobblemon.mod.common.battles.InBattleGimmickMove();disabled.setMove("hydrovortex");disabled.setDisabled(true);
+  moveset.setCanZMove(java.util.Arrays.asList(z,disabled));
+  var request=new com.cobblemon.mod.common.battles.ShowdownActionRequest();request.setActive(java.util.List.of(moveset));
+  int legality=0;
+  for(var row:new Object[][]{{"psychic","terastallize",true},{"psychic","zmove",true},{"surf","zmove",false},{"psychic","mega",false},{"psychic","ultra",false},
+      {"psychic","dynamax",false},{"thunderbolt","terastallize",false},{"psychic","bogus",false}}){
+   if(InspectorSync.legal(request,0,(String)row[0],(String)row[1])!=(boolean)row[2])throw new AssertionError("Gimmick legality "+java.util.Arrays.toString(row));legality++;
+  }
+  if(InspectorSync.legal(request,1,"psychic","terastallize"))throw new AssertionError("Gimmick legality beyond the request's actives");legality++;
+  moveset.setCanMegaEvo(true);moveset.setCanDynamax(true);moveset.setMaxMoves(java.util.Arrays.asList(null,z));
+  if(!InspectorSync.legal(request,0,"psychic","mega") || InspectorSync.legal(request,0,"psychic","dynamax") || !InspectorSync.legal(request,0,"surf","dynamax"))throw new AssertionError("Mega/Dynamax legality");legality+=3;
+  System.out.println("PASS on-demand preview gimmick legality follows the sanitized request: "+legality+" checks");
+  for(String json:List.of("{}","{\"turn\":5}","{\"turn\":4,\"decision\":12}","{\"turn\":5,\"decision\":11}","{\"turn\":5,\"decision\":null}"))
+   check(!InspectorSync.matchesDecision(JsonParser.parseString(json).getAsJsonObject(),5,12),"Stale/malformed preview decision rejected");
+  check(InspectorSync.matchesDecision(JsonParser.parseString("{\"turn\":5,\"decision\":12}").getAsJsonObject(),5,12),"Exact preview decision accepted");
+  System.out.println("PASS preview decision identity: 6 checks (same-turn replacement, old turn, missing/malformed token)");
+  for(boolean runBun:new boolean[]{false,true})for(boolean extras:new boolean[]{false,true}){
+   var installed=java.util.Set.copyOf(java.util.stream.Stream.of(runBun?"rbrctai":"",extras?"cobblemon-battle-extras":"").filter(s->!s.isEmpty()).toList());
+   check(dev.rejuvenation.compat.CompatMixinPlugin.enabled("dev.rejuvenation.compat.mixin.RunBunDecisionMixin",installed::contains)==runBun,"RunBun optional presence gate");
+   check(dev.rejuvenation.compat.CompatMixinPlugin.enabled("dev.rejuvenation.compat.mixin.BattleExtrasPreviewMixin",installed::contains)==extras,"BattleExtras optional presence gate");
+   check(dev.rejuvenation.compat.CompatMixinPlugin.enabled("dev.rejuvenation.mixin.ShowdownMixin",installed::contains),"Core panel/field remains enabled independently of optional mods");
+  }
+  System.out.println("PASS optional integrations: 12 checks across both mod presence combinations");
+  int packets=PacketVerification.run();System.out.println("PASS actual field/preview/request packet codecs: "+packets+" checks");
+  var abi=MixinAbiVerification.run();
+  Files.writeString(path.getParent().resolve("test-results/mixin-abi.json"),new GsonBuilder().setPrettyPrinting().create().toJson(abi));
+  System.out.println("PASS mixin ABI against the installed Cobblemon, Run & Bun and Battle Extras bytecode: "+abi.checked()+" injector/shadow checks"
+    +(abi.optionalAbsent().isEmpty()?"":"; optional targets absent: "+abi.optionalAbsent())+"; certified merged targets: "+abi.mergedTargets());
   System.out.println("PASS Java: strict parser, all definitions, bad rules/values, duplicate keys, resolution priority, trainer opt-in boundary and capture snapshot/rounding/cleanup");
+  System.out.println("PASS Java environment precedence: "+environment+" checks (trainer > underwater > structure > biome > fallback; indexed biome rules equal ordered rules)");
+  System.out.println("PASS isolated client state, exact preview presentation and panel layout: "+client+" checks");
+  var receipt=new JsonObject();receipt.addProperty("clientChecks",client);receipt.addProperty("environmentChecks",environment);
+  receipt.addProperty("requestLegalityChecks",legality);receipt.addProperty("decisionIdentityChecks",6);
+  receipt.addProperty("optionalModChecks",12);receipt.addProperty("packetCodecChecks",packets);receipt.addProperty("mixinAbiChecks",abi.checked());
+  receipt.addProperty("engineSha256",java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(RejuvenationFields.engine.getBytes(java.nio.charset.StandardCharsets.UTF_8))));
+  Files.writeString(path.getParent().resolve("test-results/java-verification.json"),new GsonBuilder().setPrettyPrinting().create().toJson(receipt));
  }
 }

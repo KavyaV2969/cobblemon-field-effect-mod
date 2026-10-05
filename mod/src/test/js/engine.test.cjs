@@ -14,7 +14,8 @@ vm.createContext(sandbox);vm.runInContext(fs.readFileSync(path.join(root,'mod/sr
 const items=JSON.parse(fs.readFileSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/items/seeds.json'))).items;
 const abilities=JSON.parse(fs.readFileSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/abilities/source.json'))).abilities;
 const trainers={};for(const filename of fs.readdirSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/trainers')))Object.assign(trainers,JSON.parse(fs.readFileSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/trainers',filename))).trainers);
-const E=sandbox.RejuvenationEngine;const catalog={fields,mappings,items,abilities,trainers,default:'rejuvenation:indoor'};E.load(JSON.stringify(catalog));
+const structures=[];for(const filename of fs.readdirSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/structures')))structures.push(...JSON.parse(fs.readFileSync(path.join(root,'datapack/data/rejuvenation/rejuvenation/structures',filename))).rules);
+const E=sandbox.RejuvenationEngine;const catalog={fields,mappings,structures,items,abilities,trainers,default:'rejuvenation:indoor'};E.load(JSON.stringify(catalog));
 let count=0;const passedTests=[],failedTests=[];
 function test(name,fn){try{fn();console.log('PASS '+name);passedTests.push(name);count++;}catch(e){failedTests.push(name);console.error('FAIL '+name,e);process.exitCode=1;}}
 const fid=s=>'rejuvenation:'+s;
@@ -236,5 +237,11 @@ require('./battle-effects-audit.cjs')({test,battle,pokemon,move,E,fid,assert,cat
 require('./battle-field-audit.cjs')({test,battle,pokemon,move,E,fid,assert,catalog,Battle});
 require('./battle-audit.cjs')({test,battle,pokemon,move,E,fid,assert,catalog,Battle});
 require('./battle-residual-audit.cjs')({test,battle,pokemon,move,E,fid,assert,catalog,Battle});
+require('./evaluation-regression.cjs')({test,battle,pokemon,E,fid,assert,Battle});
+require('./strategy-regression.cjs')({test,battle,pokemon,E,fid,assert,Battle});
+require('./strategy-lookahead-regression.cjs')({test,battle,pokemon,E,fid,assert,Battle});
+require('./strategy-completion.cjs')({test,battle,pokemon,E,fid,assert,Battle});
+require('./ai-prediction-audit.cjs')({test,E,fid,assert,Battle,receipt:path.join(root,'research/test-results/ai-prediction-audit.json')});
+require('./ai-source-oracle.cjs')({test,E,assert,Battle,root,receipt:path.join(root,'research/test-results/ai-source-oracle.json')});
 console.log(count+' tests passed');
-fs.mkdirSync(path.join(root,'research/test-results'),{recursive:true});fs.writeFileSync(path.join(root,'research/test-results/simulator.json'),JSON.stringify({passed:count,failed:process.exitCode?true:false,passedTests,failedTests,simulator,fieldDefinitions:Object.keys(fields).length},null,2));
+fs.mkdirSync(path.join(root,'research/test-results'),{recursive:true});fs.writeFileSync(path.join(root,'research/test-results/simulator.json'),JSON.stringify({passed:count,failed:process.exitCode?true:false,passedTests,failedTests,simulator,fieldDefinitions:Object.keys(fields).length,engineSha256:require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(root,'mod/src/main/resources/rejuvenation-engine.js'))).digest('hex')},null,2));

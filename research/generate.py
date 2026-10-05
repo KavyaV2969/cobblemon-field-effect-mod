@@ -305,7 +305,9 @@ def select(b):
      'terralith:cave/infested_caves':('CORRUPTED','Infested cave'),'terralith:cave/fungal_caves':('CORROSIVE','Fungal cave'),
      'terralith:moonlight_grove':('BEWITCHED','Glowing enchanted woodland'),'terralith:moonlight_valley':('STARLIGHT','Moonlit valley'),
      'terralith:mirage_isles':('RAINBOW','Mirage island atmosphere'),'terralith:cloud_forest':('SKY','Cloud-level woodland'),
-     'terralith:yellowstone':('VOLCANIC','Geothermal terrain'),'terralith:caldera':('VOLCANICTOP','Volcanic caldera')}
+     'terralith:yellowstone':('VOLCANIC','Geothermal terrain'),'terralith:caldera':('VOLCANICTOP','Volcanic caldera'),
+     # Playtest decision (2026-10-05): every ordinary plains biome is Grassy Terrain; the flower pattern below must not claim sunflower plains.
+     'minecraft:sunflower_plains':('GRASSY','Plains biome variant')}
     if b in overrides: return overrides[b]
     for pattern,sym,reason in [
       ('skylands','SKY','Floating sky islands'),('amethyst','CRYSTALCAVERN','Amethyst crystal environment'),
@@ -317,7 +319,7 @@ def select(b):
       ('snow|frozen|ice|wintry|winter|cold_shrub','ICY','Ice/snow environment'),
       ('cave|underground','CAVE','Subterranean environment'),('beach|shore','ASHENBEACH','Coastal sand/rock'),
       ('flower|bloom|orchid|lavender_valley','FLOWERGARDEN2','Flower-rich vegetation'),
-      ('mushroom','CORROSIVE','Fungal growth'),('forest|taiga|grove|jungle|wooded|shield$','FOREST','Dense woodland'),
+      ('mushroom','FAIRYTALE','Mushroom biome'),('forest|taiga|grove|jungle|wooded|shield$','FOREST','Dense woodland'),
       ('desert|sands|badlands|mesa|arid|oasis','DESERT','Arid sand/mesa terrain'),
       ('mountain|peak|highland|cliff|spire|windswept|plateau','MOUNTAIN','Elevated mountain terrain'),
       ('rocky|gravel|stone|canyon','ROCKY','Exposed rock'),
@@ -325,11 +327,12 @@ def select(b):
         if re.search(pattern,p): return sym,reason
     raise ValueError('Biome needs intentional review: '+b)
 rows=[]
-rules=[{'dimension':'minecraft:overworld','submerged':True,'field':fid('UNDERWATER'),'reason':'Battle anchor submerged in water'}]
+# Submerged rows form the underwater stage, which the resolver checks before structures and biomes in every dimension.
+rules=[{'submerged':True,'field':fid('UNDERWATER'),'reason':'Battle submerged in water'}]
 for b,entries in sorted(biomes.items()):
     sym,reason=select(b); source='; '.join(sorted(set(e['source'] for e in entries)))
     rows.append({'biome':b,'source':source,'field':fid(sym),'reason':reason,'mechanism':'explicit'})
-    if sym in ['GRASSY','FOREST','FLOWERGARDEN2','DESERT','MOUNTAIN','ROCKY','ASHENBEACH']:
+    if sym in ['GRASSY','FOREST','FLOWERGARDEN2','DESERT','MOUNTAIN','ROCKY','ASHENBEACH','FAIRYTALE']:
         rules.append({'biome':b,'dimension':'minecraft:overworld','minDepth':12,'skyVisible':False,'field':fid('CAVE'),'reason':'Battle at least 12 blocks below solid surface in a surface biome'})
     rules.append({'biome':b,'field':fid(sym),'reason':reason})
 for tag,sym in [('minecraft:is_forest','FOREST'),('minecraft:is_jungle','FOREST'),('minecraft:is_taiga','FOREST'),
@@ -340,4 +343,12 @@ rules.extend([{'dimension':d,'field':fid(f),'reason':'Dimension fallback'} for d
 rules.append({'maxY':0,'skyVisible':False,'field':fid('DEEPEARTH'),'reason':'Unknown deep underground biome'})
 write(OUT/'datapack/data/rejuvenation/rejuvenation/mappings/modpack.json',{'schemaVersion':1,'rules':rules})
 write(OUT/'research/biome-mapping.json',rows)
+# Generated structures override biome rules only when configured; any other structure falls through to the biome.
+# Tags cover the vanilla variants and the equivalent Repurposed Structures ones (which join #minecraft:village).
+structures=[
+    {'structure':'minecraft:mansion','field':fid('BACKALLEY'),'reason':'Woodland Mansion'},
+    {'tag':'repurposed_structures:collections/mansions','field':fid('BACKALLEY'),'reason':'Woodland Mansion variant'},
+    *[{'structure':'minecraft:village_'+v,'field':fid('CITY'),'reason':'Village'} for v in ['plains','desert','savanna','snowy','taiga']],
+    {'tag':'minecraft:village','field':fid('CITY'),'reason':'Village'}]
+write(OUT/'datapack/data/rejuvenation/rejuvenation/structures/vanilla.json',{'schemaVersion':1,'rules':structures})
 print('Generated',len(fields),'field definitions;',len(rows),'explicit biome mappings;',sum(len(f['rules']) for f in fields.values()),'additional rules')

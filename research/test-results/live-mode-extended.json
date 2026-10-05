@@ -5,8 +5,8 @@
   "originalWorldCopied": false,
   "freshChunks": true,
   "success": true,
-  "jarSha256": "bd51069c844dccb405520ba4d162b6f752de04e15f904a5a1e21614480f72638",
-  "processId": 12076,
+  "jarSha256": "20209f31ede40e52c0b238bbda7365c6606bd59c534ad653e479d069e09564c6",
+  "processId": 15696,
   "liveBiomes": 70,
   "catalogRevision": 1,
   "battleChecks": {
@@ -36,6 +36,8 @@
     "battles": 6
   },
   "exitCode": 1,
-  "elapsedSeconds": 278.0,
-  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion"
+  "elapsedSeconds": 242.2,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion",
+  "fieldIntegrationErrors": [],
+  "log": "research/test-results/live-mode-extended.log"
 }

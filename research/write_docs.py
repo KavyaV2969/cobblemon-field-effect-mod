@@ -20,7 +20,7 @@ overview=['# Rejuvenation field catalogue','','Local reference: Rejuvenation **1
     '', '[Coverage and source review ledger](FIELD_COVERAGE.md) records the implementation status of each field, evidence and exceptions.',
     '', '| Original ID | Display name | Datapack ID | Specification |','|---|---|---|---|']
 coverage=['# Field coverage','',
-    '**Implementation status: all 57 Rejuvenation field definitions are implemented and their source audit is closed.** Every ordinary field-dependent branch in the local Rejuvenation 14.0.14 battle scripts is either implemented with a passing named regression test, or recorded below as a custom-move/Crest exclusion, unreachable, unsupported with a concrete cause, or presentation-only. Battle AI branches wait for the Run & Bun AI adapter.',
+    '**Implementation status: all 57 Rejuvenation field definitions are implemented and their source audit is closed.** Every ordinary field-dependent branch in the local Rejuvenation 14.0.14 battle scripts has an evidence-backed disposition. All 762 AI leads are individually reviewed; ordinary applicable strategy has zero pending leads. The adapter combines Run & Bun scoring with simulator consequence lookahead, source field weights and reserve-team planning; see [INTEGRATIONS.md](INTEGRATIONS.md).',
     '', '**Verification boundary:** behavior is verified by '+str(tests['passed'])+' simulator regression checks, the Graal/Java suites, a bounded Ruby method oracle and selected live Minecraft battles. No field is certified through exhaustive live play or two-client multiplayer; see [TESTING.md](TESTING.md) and [REMAINING_WORK.md](REMAINING_WORK.md).',
     '', '## Evidence','',
     f'- **Definitions:** all 57 `fieldtext.rb` entries ship. The compiled `fields.dat` comparison checks {comparison["comparisons"]:,} properties (moves, types, messages, transitions, Nature/Secret Power, Mimicry, Burmy cloak, seeds, status highlights and change targets) with {len(comparison["differences"])} differences.',
@@ -97,7 +97,8 @@ rows=read('biome-mapping.json');mapping=['# Biome mapping','','The archive/loose
     '', '**Live registry:** an isolated Minecraft/Fabric startup using this profile’s installed mods, configuration, required packs and world level metadata exported **70 registered biome IDs**. All 70 have explicit mappings and zero use fallback. `research/runtime-biomes.json` records the actual IDs. This check generated fresh chunks and did not modify the original world.',
     '', '**Enabled-world distinction:** `saves/New World/level.dat` lists Terralith-DP.zip as disabled. Its additional 95 IDs are intentionally covered for optional activation. Therefore 165 is the candidate catalogue, not the active registry count.',
     '', 'At server start, the mod writes `rejuvenation/research/runtime-biomes.json` with actual registered IDs and explicit/fallback coverage. Dynamically registered future biomes are resolved through tags, dimensions, depth and the default.',
-    '', 'Wild battle anchor: first non-player entity-backed actor (the wild Pokémon), then a player fallback. Environment overrides use the anchor position, not a player’s arbitrary home biome. Submerged Overworld battles use Underwater. Selected surface mappings use Cave when at least 12 blocks below the solid-surface height and sky is hidden.',
+    '', 'Precedence for natural battles (see [FIELD_SELECTION.md](FIELD_SELECTION.md)): an explicit or RCT-configured trainer field, then a submerged battle (Underwater), then a configured generated structure, then the biome rows below, then the default. Wild battle anchor: first non-player entity-backed actor (the wild Pokémon), then a player fallback. Biome rows use the anchor position, not a player’s arbitrary home biome. Selected surface mappings use Cave when at least 12 blocks below the solid-surface height and sky is hidden.',
+    '', 'Playtest changes (2026-10-05): every ordinary plains biome maps to Grassy Terrain (`minecraft:sunflower_plains` no longer falls to Flower Garden through the flower pattern) and mushroom biomes map to Fairy Tale Field.',
     '', '| Biome ID | Source mod/pack | Selected field | Reason | Mechanism / availability |','|---|---|---|---|---|']
 for row in rows:
     src=row['source'];label='Terralith (optional datapack)' if row['biome'].startswith('terralith:') else 'VanillaBackport' if row['biome'] in ['minecraft:pale_garden','minecraft:sulfur_caves'] else 'Minecraft' if row['biome'].startswith('minecraft:') else row['biome'].split(':')[0]
@@ -105,6 +106,10 @@ for row in rows:
 mapping+=['','The exact source archive paths for each row are in `research/biome-mapping.json` and `research/biome-inventory.json`.','', '## Future compatibility rules','','| Predicate | Field | Reason |','|---|---|---|']
 for row in catalog['mappings']:
     if 'biome' not in row:mapping.append('| '+cell(compact({k:v for k,v in row.items() if k not in ['field','reason']}))+' | '+cell(row['field'])+' | '+cell(row['reason'])+' |')
+mapping+=['','## Generated structures','','Only structures listed here override the biome; any other structure falls through to the biome rows. A battle is inside a structure when the wild Pokémon or a participating player stands inside one of its generated pieces.','',
+    '| Structure or tag | Field | Reason |','|---|---|---|']
+for row in catalog.get('structures',[]):
+    mapping.append('| '+cell(('#'+row['tag']) if 'tag' in row else row['structure'])+' | '+cell(row['field'])+' | '+cell(row.get('reason',''))+' |')
 write(DOC/'BIOME_MAPPING.md','\n'.join(mapping))
 mods=read('mod-inventory.json');top={m['id']:m for m in mods if m['archive'].startswith('mods\\') and '!' not in m['archive']}
 inventory=['# Inspected profile','','Minecraft 1.21.1; Fabric Loader 0.18.4; Fabric API 0.116.14+1.21.1; Cobblemon 1.7.3+1.21.1; Java 21. No existing Java/Kotlin project or Git checkout was present in the profile.',
@@ -142,6 +147,6 @@ for tid,row in scores['trainers'].items():
     best,base=row['scores'][assigned[tid]['field']]['members'],row['baseline']['members']
     league.append(f"- **{row['name']}** ({label(assigned[tid]['field'])}): "+', '.join(f"{m} {base[m]:.0%}→{best[m]:.0%}" for m in best))
 league+=['','Source snapshot: `'+teams['source']['datapack']+'` SHA-256 `'+teams['source']['sha256']+'`. Re-run `python rejuvenation/research/trainer_fields.py` after the RCT datapack or the field rules change.',
-    '', 'Run & Bun AI does not evaluate field effects (see [TRAINER_INTEGRATION.md](TRAINER_INTEGRATION.md)); the advantage comes from the field rules applying to the trainer\'s team, not from AI awareness.']
+    '', 'Run & Bun AI combines its native scoring with the shared field-aware evaluator, strategic turn lookahead, team field utility and legal gimmick comparisons through optional adapters (see [INTEGRATIONS.md](INTEGRATIONS.md)). All 762 AI source leads have reviewed dispositions with zero ordinary applicable strategy pending. Trainer teams and progression files remain unchanged.']
 write(DOC/'KANTO_LEAGUE_FIELDS.md','\n'.join(league))
 print('Generated catalogues for',len(fields),'fields and',len(rows),'biomes;',sum(v['implementationComplete'] for v in ledger.values()),'fields source-audit closed')

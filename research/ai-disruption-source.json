@@ -1,0 +1,1175 @@
+{
+  "source": "Rejuvenation 14 copy\\Scripts\\Battle_AI.rb",
+  "method": "getFieldDisruptScore",
+  "fields": [
+    "ASHENBEACH",
+    "BIGTOP",
+    "CAVE",
+    "CHESS",
+    "CORROSIVE",
+    "CORROSIVEMIST",
+    "CRYSTALCAVERN",
+    "DARKCRYSTALCAVERN",
+    "DESERT",
+    "DRAGONSDEN",
+    "ELECTERRAIN",
+    "FACTORY",
+    "FAIRYTALE",
+    "FLOWERGARDEN4",
+    "FLOWERGARDEN5",
+    "FOREST",
+    "GLITCH",
+    "GRASSY",
+    "HAUNTED",
+    "HOLY",
+    "ICY",
+    "INDOOR",
+    "INVERSE",
+    "MISTY",
+    "MOUNTAIN",
+    "MURKWATERSURFACE",
+    "NEWWORLD",
+    "PSYTERRAIN",
+    "RAINBOW",
+    "ROCKY",
+    "SHORTCIRCUIT",
+    "SNOWYMOUNTAIN",
+    "STARLIGHT",
+    "SWAMP",
+    "UNDERWATER",
+    "WASTELAND",
+    "WATERSURFACE"
+  ],
+  "rules": [
+    {
+      "line": 9780,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:ELECTRIC) || opponent.pbPartner.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9781,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9782,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9783,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SURGESURFER"
+    },
+    {
+      "line": 9784,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SURGESURFER"
+    },
+    {
+      "line": 9786,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:GRASS) || opponent.pbPartner.hasType?(:GRASS)"
+    },
+    {
+      "line": 9787,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:GRASS)"
+    },
+    {
+      "line": 9788,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:GRASS)"
+    },
+    {
+      "line": 9790,
+      "factor": "1.8",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 9791,
+      "factor": "0.2",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 9792,
+      "factor": "0.2",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 9794,
+      "factor": "1.3",
+      "condition": "attacker.hasType?(:WATER)"
+    },
+    {
+      "line": 9795,
+      "factor": "1.5",
+      "condition": "pbPartyHasType?(:WATER)"
+    },
+    {
+      "line": 9796,
+      "factor": "0.8",
+      "condition": "aroles.include?(:SPECIALWALL) || aroles.include?(:PHYSICALWALL)"
+    },
+    {
+      "line": 9797,
+      "factor": "1.2",
+      "condition": "oroles.include?(:SPECIALWALL) || oroles.include?(:PHYSICALWALL)"
+    },
+    {
+      "line": 9800,
+      "factor": "1.3",
+      "condition": "attacker.spatk > attacker.attack && (opponent.hasType?(:FAIRY) || opponent.pbPartner.hasType?(:FAIRY))"
+    },
+    {
+      "line": 9801,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:FAIRY) && opponent.spatk > opponent.attack"
+    },
+    {
+      "line": 9802,
+      "factor": "0.5",
+      "condition": "opponent.hasType?(:DRAGON) || opponent.pbPartner.hasType?(:DRAGON)"
+    },
+    {
+      "line": 9803,
+      "factor": "1.5",
+      "condition": "attacker.hasType?(:DRAGON)"
+    },
+    {
+      "line": 9804,
+      "factor": "1.5",
+      "condition": "pbPartyHasType?(:DRAGON)"
+    },
+    {
+      "line": 9805,
+      "factor": "1.8",
+      "condition": "@battle.field.counter == 1 && !(attacker.hasType?(:POISON) || attacker.hasType?(:STEEL))"
+    },
+    {
+      "line": 9807,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:FAIRY)"
+    },
+    {
+      "line": 9809,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:DARK) || opponent.pbPartner.hasType?(:DARK) || opponent.hasType?(:GHOST) || opponent.pbPartner.hasType?(:GHOST)"
+    },
+    {
+      "line": 9810,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:DARK) || attacker.hasType?(:GHOST)"
+    },
+    {
+      "line": 9811,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:DARK) || pbPartyHasType?(:GHOST)"
+    },
+    {
+      "line": 9813,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:PSYCHIC) || opponent.pbPartner.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 9814,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 9815,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:PSYCHIC)"
+    },
+    {
+      "line": 9816,
+      "factor": "attacker.pbSpeed > opponent.pbSpeed ? 1.3 : 0.7",
+      "condition": "always"
+    },
+    {
+      "line": 9818,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:FIGHTING) || opponent.pbPartner.hasType?(:FIGHTING)"
+    },
+    {
+      "line": 9819,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:FIGHTING)"
+    },
+    {
+      "line": 9820,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:FIGHTING)"
+    },
+    {
+      "line": 9821,
+      "factor": "1.5",
+      "condition": "opponent.ability == :DANCER"
+    },
+    {
+      "line": 9822,
+      "factor": "0.5",
+      "condition": "attacker.ability == :DANCER"
+    },
+    {
+      "line": 9823,
+      "factor": "0.5",
+      "condition": "attacker.pbHasMove?(:SING, :DRAGONDANCE, :QUIVERDANCE)"
+    },
+    {
+      "line": 9824,
+      "factor": "1.5",
+      "condition": "checkAImoves([:SING, :DRAGONDANCE, :QUIVERDANCE], aimem)"
+    },
+    {
+      "line": 9836,
+      "factor": "0.7",
+      "condition": "attacker.pbHasMove?(:SLEEPPOWDER)"
+    },
+    {
+      "line": 9837,
+      "factor": "1.3",
+      "condition": "checkAImoves([:SLEEPPOWDER], aimem)"
+    },
+    {
+      "line": 9839,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:NORMAL) || opponent.pbPartner.hasType?(:NORMAL)"
+    },
+    {
+      "line": 9840,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:NORMAL)"
+    },
+    {
+      "line": 9841,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:NORMAL)"
+    },
+    {
+      "line": 9842,
+      "factor": "1.4",
+      "condition": "opponent.ability == :CLOUDNINE"
+    },
+    {
+      "line": 9843,
+      "factor": "0.6",
+      "condition": "attacker.ability == :CLOUDNINE"
+    },
+    {
+      "line": 9844,
+      "factor": "0.8",
+      "condition": "attacker.pbHasMove?(:SONICBOOM)"
+    },
+    {
+      "line": 9845,
+      "factor": "1.2",
+      "condition": "checkAImoves([:SONICBOOM], aimem)"
+    },
+    {
+      "line": 9847,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:POISON) || opponent.pbPartner.hasType?(:POISON)"
+    },
+    {
+      "line": 9848,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:POISON)"
+    },
+    {
+      "line": 9849,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:POISON)"
+    },
+    {
+      "line": 9850,
+      "factor": "1.5",
+      "condition": "opponent.ability == :CORROSION"
+    },
+    {
+      "line": 9851,
+      "factor": "0.5",
+      "condition": "attacker.ability == :CORROSION"
+    },
+    {
+      "line": 9852,
+      "factor": "0.7",
+      "condition": "attacker.pbHasMove?(:SLEEPPOWDER)"
+    },
+    {
+      "line": 9853,
+      "factor": "1.3",
+      "condition": "checkAImoves([:SLEEPPOWDER], aimem)"
+    },
+    {
+      "line": 9859,
+      "factor": "2",
+      "condition": "attacker.hp.to_f / attacker.totalhp < 0.2"
+    },
+    {
+      "line": 9860,
+      "factor": "5",
+      "condition": "opponent.pbNonActivePokemonCount == 0"
+    },
+    {
+      "line": 9863,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:POISON) || opponent.pbPartner.hasType?(:POISON)"
+    },
+    {
+      "line": 9865,
+      "factor": "0.7",
+      "condition": "always"
+    },
+    {
+      "line": 9867,
+      "factor": "1.4",
+      "condition": "always"
+    },
+    {
+      "line": 9869,
+      "factor": "1.4",
+      "condition": "!pbPartyHasType?(:POISON)"
+    },
+    {
+      "line": 9870,
+      "factor": "1.5",
+      "condition": "opponent.ability == :CORROSION"
+    },
+    {
+      "line": 9871,
+      "factor": "0.5",
+      "condition": "attacker.ability == :CORROSION"
+    },
+    {
+      "line": 9872,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 9873,
+      "factor": "0.8 ",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 9874,
+      "factor": "0.8 ",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 9876,
+      "factor": "1.3",
+      "condition": "attacker.spatk > attacker.attack && (opponent.hasType?(:GROUND) || opponent.pbPartner.hasType?(:GROUND))"
+    },
+    {
+      "line": 9877,
+      "factor": "0.7",
+      "condition": "opponent.spatk > opponent.attack && (attacker.hasType?(:GROUND))"
+    },
+    {
+      "line": 9878,
+      "factor": "1.5",
+      "condition": "attacker.hasType?(:ELECTRIC) || attacker.hasType?(:WATER)"
+    },
+    {
+      "line": 9879,
+      "factor": "0.5",
+      "condition": "opponent.hasType?(:ELECTRIC) || opponent.pbPartner.hasType?(:WATER)"
+    },
+    {
+      "line": 9880,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:GROUND)"
+    },
+    {
+      "line": 9881,
+      "factor": "1.5",
+      "condition": "pbPartyHasType?(:WATER) || pbPartyHasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9882,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SANDRUSH && @battle.pbWeather(nil) != :SANDSTORM"
+    },
+    {
+      "line": 9883,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SANDRUSH && @battle.pbWeather(nil) != :SANDSTORM"
+    },
+    {
+      "line": 9885,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:ICE) || opponent.pbPartner.hasType?(:ICE)"
+    },
+    {
+      "line": 9886,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ICE)"
+    },
+    {
+      "line": 9887,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ICE)"
+    },
+    {
+      "line": 9888,
+      "factor": "0.5",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 9889,
+      "factor": "1.1",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 9890,
+      "factor": "1.1",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 9891,
+      "factor": "1.3",
+      "condition": "opponent.ability == :ICESCALES"
+    },
+    {
+      "line": 9892,
+      "factor": "0.7",
+      "condition": "attacker.ability == :ICESCALES"
+    },
+    {
+      "line": 9893,
+      "factor": "1.3",
+      "condition": "(opponent.ability == :SLUSHRUSH || opponent.crested == :EMPOLEON || (opponent.crested == :CASTFORM && opponent.form == 3)) && ![:HAIL, :SNOW].include?(@battle.pbWeather(nil))"
+    },
+    {
+      "line": 9894,
+      "factor": "0.7",
+      "condition": "(attacker.ability == :SLUSHRUSH || attacker.crested == :EMPOLEON || (attacker.crested == :CASTFORM && attacker.form == 3)) && ![:HAIL, :SNOW].include?(@battle.pbWeather(nil))"
+    },
+    {
+      "line": 9896,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:ROCK) || opponent.pbPartner.hasType?(:ROCK)"
+    },
+    {
+      "line": 9897,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ROCK)"
+    },
+    {
+      "line": 9898,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ROCK)"
+    },
+    {
+      "line": 9900,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:GRASS) || opponent.hasType?(:BUG) || opponent.pbPartner.hasType?(:GRASS) || opponent.pbPartner.hasType?(:BUG)"
+    },
+    {
+      "line": 9901,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:GRASS) || attacker.hasType?(:BUG)"
+    },
+    {
+      "line": 9902,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:GRASS) || pbPartyHasType?(:BUG)"
+    },
+    {
+      "line": 9903,
+      "factor": "1.8",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 9904,
+      "factor": "0.2",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 9905,
+      "factor": "0.2",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 9917,
+      "factor": "1.2",
+      "condition": "opponent.hasType?(:ELECTRIC) || opponent.pbPartner.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9918,
+      "factor": "0.8",
+      "condition": "attacker.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9919,
+      "factor": "0.8",
+      "condition": "pbPartyHasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9921,
+      "factor": "1.4",
+      "condition": "opponent.hasType?(:ELECTRIC) || opponent.pbPartner.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9922,
+      "factor": "0.6",
+      "condition": "attacker.hasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9923,
+      "factor": "0.6",
+      "condition": "pbPartyHasType?(:ELECTRIC)"
+    },
+    {
+      "line": 9924,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SURGESURFER"
+    },
+    {
+      "line": 9925,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SURGESURFER"
+    },
+    {
+      "line": 9926,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:DARK) || opponent.pbPartner.hasType?(:DARK) || opponent.hasType?(:GHOST) || opponent.pbPartner.hasType?(:GHOST)"
+    },
+    {
+      "line": 9927,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:DARK) || attacker.hasType?(:GHOST)"
+    },
+    {
+      "line": 9928,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:DARK) || pbPartyHasType?(:GHOST)"
+    },
+    {
+      "line": 9930,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:POISON) || opponent.pbPartner.hasType?(:POISON)"
+    },
+    {
+      "line": 9931,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:POISON)"
+    },
+    {
+      "line": 9932,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:POISON)"
+    },
+    {
+      "line": 9934,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:FIGHTING) || opponent.pbPartner.hasType?(:FIGHTING) || opponent.hasType?(:PSYCHIC) || opponent.pbPartner.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 9935,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:FIGHTING) || attacker.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 9936,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:FIGHTING) || pbPartyHasType?(:PSYCHIC)"
+    },
+    {
+      "line": 9937,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SANDRUSH && @battle.pbWeather(nil) != :SANDSTORM"
+    },
+    {
+      "line": 9938,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SANDRUSH && @battle.pbWeather(nil) != :SANDSTORM"
+    },
+    {
+      "line": 9940,
+      "factor": "1.6",
+      "condition": "opponent.hasType?(:WATER) || opponent.pbPartner.hasType?(:WATER)"
+    },
+    {
+      "line": 9942,
+      "factor": "0.4",
+      "condition": "always"
+    },
+    {
+      "line": 9944,
+      "factor": "1.3",
+      "condition": "always"
+    },
+    {
+      "line": 9946,
+      "factor": "0.4",
+      "condition": "pbPartyHasType?(:WATER)"
+    },
+    {
+      "line": 9947,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SWIFTSWIM && @battle.pbWeather(nil) != :RAINDANCE"
+    },
+    {
+      "line": 9948,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SWIFTSWIM && @battle.pbWeather(nil) != :RAINDANCE"
+    },
+    {
+      "line": 9949,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SURGESURFER"
+    },
+    {
+      "line": 9950,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SURGESURFER"
+    },
+    {
+      "line": 9951,
+      "factor": "1.3",
+      "condition": "!attacker.hasType?(:POISON) && @battle.field.counter == 1"
+    },
+    {
+      "line": 9953,
+      "factor": "2.0",
+      "condition": "opponent.hasType?(:WATER) || opponent.pbPartner.hasType?(:WATER)"
+    },
+    {
+      "line": 9955,
+      "factor": "0.1",
+      "condition": "always"
+    },
+    {
+      "line": 9957,
+      "factor": "1.5",
+      "condition": "always"
+    },
+    {
+      "line": 9958,
+      "factor": "2",
+      "condition": "attacker.hasType?(:ROCK) || attacker.hasType?(:GROUND)"
+    },
+    {
+      "line": 9960,
+      "factor": "1.2",
+      "condition": "attacker.attack > attacker.spatk"
+    },
+    {
+      "line": 9961,
+      "factor": "0.8",
+      "condition": "opponent.attack > opponent.spatk"
+    },
+    {
+      "line": 9962,
+      "factor": "0.1",
+      "condition": "pbPartyHasType?(:WATER)"
+    },
+    {
+      "line": 9963,
+      "factor": "0.9",
+      "condition": "opponent.ability == :SWIFTSWIM"
+    },
+    {
+      "line": 9964,
+      "factor": "1.1",
+      "condition": "attacker.ability == :SWIFTSWIM"
+    },
+    {
+      "line": 9965,
+      "factor": "1.3",
+      "condition": "!attacker.hasType?(:POISON) && @battle.field.counter == 1"
+    },
+    {
+      "line": 9967,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:ROCK) || opponent.pbPartner.hasType?(:ROCK)"
+    },
+    {
+      "line": 9968,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ROCK)"
+    },
+    {
+      "line": 9969,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ROCK)"
+    },
+    {
+      "line": 9970,
+      "factor": "1.2",
+      "condition": "opponent.hasType?(:GROUND) || opponent.pbPartner.hasType?(:GROUND)"
+    },
+    {
+      "line": 9971,
+      "factor": "0.8",
+      "condition": "attacker.hasType?(:GROUND)"
+    },
+    {
+      "line": 9972,
+      "factor": "0.8",
+      "condition": "pbPartyHasType?(:GROUND)"
+    },
+    {
+      "line": 9973,
+      "factor": "0.7",
+      "condition": "opponent.hasType?(:FLYING) || opponent.pbPartner.hasType?(:FLYING)"
+    },
+    {
+      "line": 9974,
+      "factor": "1.3",
+      "condition": "attacker.hasType?(:FLYING)"
+    },
+    {
+      "line": 9975,
+      "factor": "1.3",
+      "condition": "pbPartyHasType?(:FLYING)"
+    },
+    {
+      "line": 9977,
+      "factor": "1.3",
+      "condition": "attacker.hasType?(:DARK) || attacker.hasType?(:STEEL) || attacker.hasType?(:FAIRY)"
+    },
+    {
+      "line": 9978,
+      "factor": "1.3",
+      "condition": "pbPartyHasType?(:DARK) || pbPartyHasType?(:STEEL) || pbPartyHasType?(:FAIRY)"
+    },
+    {
+      "line": 9982,
+      "factor": "ratio1",
+      "condition": "always"
+    },
+    {
+      "line": 9984,
+      "factor": "ratio2",
+      "condition": "always"
+    },
+    {
+      "line": 9989,
+      "factor": "oratio1",
+      "condition": "always"
+    },
+    {
+      "line": 9991,
+      "factor": "oratio2",
+      "condition": "always"
+    },
+    {
+      "line": 9994,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:ROCK) || opponent.pbPartner.hasType?(:ROCK) || opponent.hasType?(:DRAGON) || opponent.pbPartner.hasType?(:DRAGON)"
+    },
+    {
+      "line": 9995,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ROCK) || attacker.hasType?(:DRAGON)"
+    },
+    {
+      "line": 9996,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ROCK) || pbPartyHasType?(:DRAGON)"
+    },
+    {
+      "line": 9998,
+      "factor": "1.6",
+      "condition": "opponent.hasType?(:WATER) || opponent.pbPartner.hasType?(:WATER)"
+    },
+    {
+      "line": 10000,
+      "factor": "0.4",
+      "condition": "always"
+    },
+    {
+      "line": 10002,
+      "factor": "1.3",
+      "condition": "always"
+    },
+    {
+      "line": 10004,
+      "factor": "0.4",
+      "condition": "pbPartyHasType?(:WATER)"
+    },
+    {
+      "line": 10005,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SWIFTSWIM && @battle.pbWeather(nil) != :RAINDANCE"
+    },
+    {
+      "line": 10006,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SWIFTSWIM && @battle.pbWeather(nil) != :RAINDANCE"
+    },
+    {
+      "line": 10007,
+      "factor": "1.3",
+      "condition": "opponent.ability == :SURGESURFER"
+    },
+    {
+      "line": 10008,
+      "factor": "0.7",
+      "condition": "attacker.ability == :SURGESURFER"
+    },
+    {
+      "line": 10009,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:STEEL) || opponent.pbPartner.hasType?(:STEEL) || opponent.hasType?(:POISON) || opponent.pbPartner.hasType?(:POISON)"
+    },
+    {
+      "line": 10011,
+      "factor": "0.7",
+      "condition": "always"
+    },
+    {
+      "line": 10013,
+      "factor": "1.8",
+      "condition": "always"
+    },
+    {
+      "line": 10015,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:POISON)"
+    },
+    {
+      "line": 10017,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:ROCK) || opponent.pbPartner.hasType?(:ROCK) || opponent.hasType?(:FLYING) || opponent.pbPartner.hasType?(:FLYING)"
+    },
+    {
+      "line": 10018,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ROCK) || attacker.hasType?(:FLYING)"
+    },
+    {
+      "line": 10019,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ROCK) || pbPartyHasType?(:FLYING)"
+    },
+    {
+      "line": 10021,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:ROCK) || opponent.pbPartner.hasType?(:ROCK) || opponent.hasType?(:FLYING) || opponent.pbPartner.hasType?(:FLYING) || opponent.hasType?(:ICE) || opponent.pbPartner.hasType?(:ICE)"
+    },
+    {
+      "line": 10022,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ROCK) || attacker.hasType?(:FLYING) || attacker.hasType?(:ICE)"
+    },
+    {
+      "line": 10023,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ROCK) || pbPartyHasType?(:FLYING) || pbPartyHasType?(:ICE)"
+    },
+    {
+      "line": 10024,
+      "factor": "0.5",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 10025,
+      "factor": "1.5",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 10026,
+      "factor": "1.5",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 10027,
+      "factor": "1.3",
+      "condition": "opponent.ability == :ICESCALES"
+    },
+    {
+      "line": 10028,
+      "factor": "0.7",
+      "condition": "attacker.ability == :ICESCALES"
+    },
+    {
+      "line": 10029,
+      "factor": "1.3",
+      "condition": "(opponent.ability == :SLUSHRUSH || opponent.crested == :EMPOLEON || (opponent.crested == :CASTFORM && opponent.form == 3)) && ![:HAIL, :SNOW].include?(@battle.pbWeather(nil))"
+    },
+    {
+      "line": 10030,
+      "factor": "0.7",
+      "condition": "(attacker.ability == :SLUSHRUSH || attacker.crested == :EMPOLEON || (attacker.crested == :CASTFORM && attacker.form == 3)) && ![:HAIL, :SNOW].include?(@battle.pbWeather(nil))"
+    },
+    {
+      "line": 10032,
+      "factor": "1.4",
+      "condition": "opponent.hasType?(:NORMAL) || opponent.pbPartner.hasType?(:NORMAL) || opponent.hasType?(:FAIRY) || opponent.pbPartner.hasType?(:FAIRY)"
+    },
+    {
+      "line": 10033,
+      "factor": "0.6",
+      "condition": "attacker.hasType?(:NORMAL) || attacker.hasType?(:FAIRY)"
+    },
+    {
+      "line": 10034,
+      "factor": "0.6",
+      "condition": "pbPartyHasType?(:NORMAL) || pbPartyHasType?(:FAIRY)"
+    },
+    {
+      "line": 10035,
+      "factor": "0.5",
+      "condition": "opponent.hasType?(:DARK) || opponent.pbPartner.hasType?(:DARK) || opponent.hasType?(:GHOST) || opponent.pbPartner.hasType?(:GHOST)"
+    },
+    {
+      "line": 10036,
+      "factor": "1.5",
+      "condition": "attacker.hasType?(:DARK) || attacker.hasType?(:GHOST)"
+    },
+    {
+      "line": 10037,
+      "factor": "1.5",
+      "condition": "pbPartyHasType?(:DARK) || pbPartyHasType?(:GHOST)"
+    },
+    {
+      "line": 10038,
+      "factor": "1.2",
+      "condition": "opponent.hasType?(:DRAGON) || opponent.pbPartner.hasType?(:DRAGON) || opponent.hasType?(:PSYCHIC) || opponent.pbPartner.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10039,
+      "factor": "0.8",
+      "condition": "attacker.hasType?(:DRAGON) || attacker.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10040,
+      "factor": "0.8",
+      "condition": "pbPartyHasType?(:DRAGON) || pbPartyHasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10042,
+      "factor": "1.4",
+      "condition": "opponent.hasType?(:GHOST) || opponent.pbPartner.hasType?(:GHOST) || opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 10043,
+      "factor": "0.6",
+      "condition": "attacker.hasType?(:GHOST) || attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 10044,
+      "factor": "1.5",
+      "condition": "attacker.hasType?(:NORMAL) || attacker.hasType?(:PSYCHIC) || attacker.hasType?(:DRAGON) || attacker.hasType?(:FAIRY)"
+    },
+    {
+      "line": 10045,
+      "factor": "1.5",
+      "condition": "pbPartyHasType?(:NORMAL) || pbPartyHasType?(:PSYCHIC) || pbPartyHasType?(:DRAGON) || pbPartyHasType?(:FAIRY)"
+    },
+    {
+      "line": 10060,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:DRAGON) || opponent.pbPartner.hasType?(:DRAGON) || opponent.hasType?(:STEEL) || opponent.pbPartner.hasType?(:STEEL) || opponent.hasType?(:FAIRY) || opponent.pbPartner.hasType?(:FAIRY)"
+    },
+    {
+      "line": 10061,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:DRAGON) || attacker.hasType?(:STEEL) || attacker.hasType?(:FAIRY)"
+    },
+    {
+      "line": 10062,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:DRAGON) || pbPartyHasType?(:STEEL) || pbPartyHasType?(:FAIRY)"
+    },
+    {
+      "line": 10063,
+      "factor": "1.3",
+      "condition": "opponent.ability == :STANCECHANGE"
+    },
+    {
+      "line": 10064,
+      "factor": "0.7",
+      "condition": "attacker.ability == :STANCECHANGE"
+    },
+    {
+      "line": 10066,
+      "factor": "1.7",
+      "condition": "opponent.hasType?(:DRAGON) || opponent.pbPartner.hasType?(:DRAGON)"
+    },
+    {
+      "line": 10067,
+      "factor": "0.3",
+      "condition": "attacker.hasType?(:DRAGON)"
+    },
+    {
+      "line": 10068,
+      "factor": "0.3",
+      "condition": "pbPartyHasType?(:DRAGON)"
+    },
+    {
+      "line": 10069,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 10070,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 10071,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 10072,
+      "factor": "1.3",
+      "condition": "opponent.ability == :MULTISCALE || opponent.ability == :GOODASGOLD"
+    },
+    {
+      "line": 10073,
+      "factor": "0.7",
+      "condition": "attacker.ability == :MULTISCALE || opponent.ability == :GOODASGOLD"
+    },
+    {
+      "line": 10075,
+      "factor": "1.5 ",
+      "condition": "opponent.hasType?(:BUG) || opponent.pbPartner.hasType?(:BUG) || opponent.hasType?(:GRASS) || opponent.pbPartner.hasType?(:GRASS)"
+    },
+    {
+      "line": 10076,
+      "factor": "0.33",
+      "condition": "attacker.hasType?(:GRASS) || attacker.hasType?(:BUG)"
+    },
+    {
+      "line": 10077,
+      "factor": "0.33",
+      "condition": "pbPartyHasType?(:BUG) || pbPartyHasType?(:GRASS)"
+    },
+    {
+      "line": 10078,
+      "factor": "1.2 ",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 10079,
+      "factor": "0.33",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 10080,
+      "factor": "0.33",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 10082,
+      "factor": "2.0 ",
+      "condition": "opponent.hasType?(:BUG) || opponent.pbPartner.hasType?(:BUG) || opponent.hasType?(:GRASS) || opponent.pbPartner.hasType?(:GRASS)"
+    },
+    {
+      "line": 10083,
+      "factor": "0.25",
+      "condition": "attacker.hasType?(:GRASS) || attacker.hasType?(:BUG)"
+    },
+    {
+      "line": 10084,
+      "factor": "0.25",
+      "condition": "pbPartyHasType?(:BUG) || pbPartyHasType?(:GRASS)"
+    },
+    {
+      "line": 10085,
+      "factor": "1.6 ",
+      "condition": "opponent.hasType?(:FIRE) || opponent.pbPartner.hasType?(:FIRE)"
+    },
+    {
+      "line": 10086,
+      "factor": "0.25",
+      "condition": "attacker.hasType?(:FIRE)"
+    },
+    {
+      "line": 10087,
+      "factor": "0.25",
+      "condition": "pbPartyHasType?(:FIRE)"
+    },
+    {
+      "line": 10089,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:PSYCHIC) || opponent.pbPartner.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10090,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10091,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10092,
+      "factor": "1.3",
+      "condition": "opponent.hasType?(:FAIRY) || opponent.pbPartner.hasType?(:FAIRY) || opponent.hasType?(:DARK) || opponent.pbPartner.hasType?(:DARK)"
+    },
+    {
+      "line": 10093,
+      "factor": "0.7",
+      "condition": "attacker.hasType?(:FAIRY) || attacker.hasType?(:DARK)"
+    },
+    {
+      "line": 10094,
+      "factor": "0.7",
+      "condition": "pbPartyHasType?(:FAIRY) || pbPartyHasType?(:DARK)"
+    },
+    {
+      "line": 10098,
+      "factor": "1.7",
+      "condition": "opponent.hasType?(:NORMAL) || opponent.pbPartner.hasType?(:NORMAL)"
+    },
+    {
+      "line": 10099,
+      "factor": "0.3",
+      "condition": "attacker.hasType?(:NORMAL)"
+    },
+    {
+      "line": 10100,
+      "factor": "0.3",
+      "condition": "pbPartyHasType?(:NORMAL)"
+    },
+    {
+      "line": 10101,
+      "factor": "1.5",
+      "condition": "opponent.hasType?(:ICE) || opponent.pbPartner.hasType?(:ICE)"
+    },
+    {
+      "line": 10102,
+      "factor": "0.5",
+      "condition": "attacker.hasType?(:ICE)"
+    },
+    {
+      "line": 10103,
+      "factor": "0.5",
+      "condition": "pbPartyHasType?(:ICE)"
+    },
+    {
+      "line": 10105,
+      "factor": "1.7",
+      "condition": "opponent.hasType?(:PSYCHIC) || opponent.pbPartner.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10106,
+      "factor": "0.3",
+      "condition": "attacker.hasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10107,
+      "factor": "0.3",
+      "condition": "pbPartyHasType?(:PSYCHIC)"
+    },
+    {
+      "line": 10109,
+      "factor": "1.3",
+      "condition": "opponent.ability == :TELEPATHY"
+    },
+    {
+      "line": 10110,
+      "factor": "0.7",
+      "condition": "attacker.ability == :TELEPATHY"
+    }
+  ]
+}

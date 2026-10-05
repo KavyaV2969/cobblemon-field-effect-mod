@@ -1,1 +1,1 @@
-{"schemaVersion":1,"id":"rejuvenation_verification","version":"0.1.0","name":"Isolated Rejuvenation verification fixture","environment":"*","entrypoints":{"main":["dev.rejuvenation.verification.LiveBattleFixture"]},"depends":{"rejuvenation_fields":"*","fabric-api":"*","cobblemon":"*"}}
+{"schemaVersion":1,"id":"rejuvenation_verification","version":"0.2.0","name":"Isolated Rejuvenation verification fixture","environment":"*","entrypoints":{"main":["dev.rejuvenation.verification.LiveBattleFixture"]},"depends":{"rejuvenation_fields":"*","fabric-api":"*","cobblemon":"*"}}

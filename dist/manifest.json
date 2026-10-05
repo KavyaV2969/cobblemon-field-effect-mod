@@ -1,19 +1,19 @@
 {
-  "version": "0.1.0",
+  "version": "0.2.0",
   "releaseStatus": "source-audit-complete-preview",
   "minecraft": "1.21.1",
   "loader": "Fabric 0.18.4",
   "cobblemon": "1.7.3+1.21.1",
   "artifacts": [
     {
-      "path": "rejuvenation-fields-0.1.0.jar",
-      "bytes": 120304,
-      "sha256": "bd51069c844dccb405520ba4d162b6f752de04e15f904a5a1e21614480f72638"
+      "path": "rejuvenation-fields-0.2.0.jar",
+      "bytes": 1617239,
+      "sha256": "71cea4cf4280fb01c7c70c1e8a3665c1e762412c50a34ce172b98cc2422b4dc3"
     },
     {
-      "path": "rejuvenation-fields-datapack-0.1.0.zip",
-      "bytes": 477875,
-      "sha256": "3783381f641ca02b1ea24d7ed9c500da7353edcf752da82cca0e57333a64dce2"
+      "path": "rejuvenation-fields-datapack-0.2.0.zip",
+      "bytes": 478299,
+      "sha256": "395191380447640612f4e18cbfaee31a2666258afa8b2bbf325b01a995a69f30"
     }
   ],
   "fieldsDiscovered": 57,
@@ -24,7 +24,7 @@
   "behaviorVerificationScope": "Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification",
   "compiledDefinitionPropertiesCompared": 4494,
   "compiledDefinitionDifferences": 0,
-  "simulatorTestsPassed": 505,
+  "simulatorTestsPassed": 564,
   "candidateBiomes": 165,
   "explicitlyMappedCandidates": 165,
   "candidateFallbacks": 0,
@@ -33,7 +33,15 @@
     "abilities": 0,
     "items": 0
   },
-  "implementationCompletionStandardMet": true,
+  "clientAssets": {
+    "fieldBackdrops": 57,
+    "source": "Pok\u00e9mon Rejuvenation V14 Graphics/Battlebacks (see assets/rejuvenation/field_backdrops.json)",
+    "clientOnly": true
+  },
+  "integrations": {
+    "rbrctai": "adapter mixins (optional, applied only when installed)",
+    "cobblemon-battle-extras": "client adapter mixins (optional, applied only when installed)"
+  },
   "remainingWork": "../docs/REMAINING_WORK.md",
   "protectedFiles": "../research/protected-integrity.json",
   "sourceMethodOracle": {
@@ -48,7 +56,8 @@
     "scope": "Two methods only; not full field certification"
   },
   "liveVerification": {
-    "artifactMatches": true,
+    "historical": true,
+    "artifactMatches": false,
     "success": true,
     "battles": 7,
     "registeredBiomes": 70,
@@ -56,34 +65,218 @@
   },
   "liveModes": {
     "abilities": {
-      "artifactMatches": true,
+      "artifactMatches": false,
       "success": true,
       "battles": 3,
       "checks": 10,
       "receipt": "../research/test-results/live-mode-abilities.json"
     },
     "battle": {
-      "artifactMatches": true,
+      "artifactMatches": false,
       "success": true,
       "battles": 7,
       "checks": 23,
       "receipt": "../research/test-results/live-mode-battle.json"
     },
     "extended": {
-      "artifactMatches": true,
+      "artifactMatches": false,
       "success": true,
       "battles": 6,
       "checks": 19,
       "receipt": "../research/test-results/live-mode-extended.json"
+    },
+    "integration": {
+      "artifactMatches": false,
+      "success": true,
+      "battles": 7,
+      "checks": 25,
+      "receipt": "../research/test-results/live-mode-integration.json"
     }
   },
   "liveBiomeRegistry": {
     "count": 70,
     "receipt": "../research/runtime-biomes.json"
   },
+  "performance": {
+    "runtime": "Cobblemon 1.7.3 shaded Graal, interpreter only",
+    "engineSha256": "1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b",
+    "fieldsAttached": 57,
+    "runtimeAssertions": 42,
+    "adapterChecks": 42,
+    "firstCatalogPublishMillis": 2900,
+    "warmCatalogPublishMillis": 538,
+    "publicationWarmupMillis": 813,
+    "simulatorDexesLoadedBeforePublish": 0,
+    "simulatorDexesLoadedAfterPublish": 3,
+    "evaluate4QueriesMillis": 50,
+    "strategy": [
+      {
+        "teamSize": 1,
+        "candidates": 8,
+        "millis": 451,
+        "damageCalls": 32,
+        "cacheHits": 17,
+        "damageMillis": 178,
+        "damageMechanicsMillis": 142,
+        "screened": 2,
+        "phases": {
+          "setup": 31,
+          "screening": 15,
+          "rollouts": 346,
+          "matchups": 212,
+          "branches": 94,
+          "resources": 0,
+          "policies": 55,
+          "rollouts_count": 8
+        }
+      },
+      {
+        "teamSize": 6,
+        "candidates": 13,
+        "millis": 850,
+        "damageCalls": 40,
+        "cacheHits": 30,
+        "damageMillis": 304,
+        "damageMechanicsMillis": 249,
+        "screened": 5,
+        "phases": {
+          "setup": 38,
+          "screening": 22,
+          "rollouts": 646,
+          "matchups": 326,
+          "branches": 131,
+          "resources": 71,
+          "policies": 59,
+          "rollouts_count": 10
+        }
+      },
+      {
+        "teamSize": 6,
+        "turn": 1,
+        "candidates": 13,
+        "millis": 791,
+        "damageCalls": 40,
+        "cacheHits": 30,
+        "damageMillis": 273,
+        "damageMechanicsMillis": 223,
+        "screened": 5,
+        "phases": {
+          "setup": 39,
+          "screening": 52,
+          "rollouts": 549,
+          "matchups": 293,
+          "branches": 120,
+          "resources": 55,
+          "policies": 85,
+          "rollouts_count": 10
+        }
+      },
+      {
+        "teamSize": 6,
+        "turn": 2,
+        "candidates": 13,
+        "millis": 778,
+        "damageCalls": 50,
+        "cacheHits": 25,
+        "damageMillis": 326,
+        "damageMechanicsMillis": 268,
+        "screened": 5,
+        "phases": {
+          "setup": 28,
+          "screening": 39,
+          "rollouts": 543,
+          "matchups": 313,
+          "branches": 94,
+          "resources": 42,
+          "policies": 117,
+          "rollouts_count": 10
+        }
+      },
+      {
+        "teamSize": 6,
+        "turn": 3,
+        "candidates": 13,
+        "millis": 726,
+        "damageCalls": 50,
+        "cacheHits": 25,
+        "damageMillis": 288,
+        "damageMechanicsMillis": 236,
+        "screened": 5,
+        "phases": {
+          "setup": 27,
+          "screening": 34,
+          "rollouts": 512,
+          "matchups": 308,
+          "branches": 49,
+          "resources": 48,
+          "policies": 97,
+          "rollouts_count": 10
+        }
+      },
+      {
+        "teamSize": 6,
+        "doubles": true,
+        "candidates": 24,
+        "millis": 2673,
+        "damageCalls": 105,
+        "cacheHits": 77,
+        "damageMillis": 840,
+        "damageMechanicsMillis": 684,
+        "screened": 16,
+        "phases": {
+          "setup": 45,
+          "screening": 175,
+          "rollouts": 2237,
+          "matchups": 555,
+          "branches": 995,
+          "resources": 51,
+          "policies": 154,
+          "rollouts_count": 17
+        }
+      }
+    ],
+    "note": "Catalog publication happens at server start and datapack reload, not at battle start (SimulatorCatalog)."
+  },
   "buildLog": {
     "successful": true,
-    "sha256": "9313e38437e8aadca4a04c2e6ebbfb227e9b41bd248c720253f4e3efda4c2455",
+    "sha256": "bcfdb3e0a5399c4289222cb58dfb0cc6c03d7dd7afc6d78d99c66ba4939b7b09",
     "path": "../research/test-results/build.log"
-  }
+  },
+  "integrationEvidence": {
+    "engineSha256": "1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b",
+    "aiLeads": 762,
+    "aiDispositions": {
+      "implemented_strategy": 53,
+      "ai_rollout_consequence": 318,
+      "ai_source_weights_ported": 72,
+      "excluded_custom_move": 3,
+      "unreachable_in_build": 3,
+      "ai_mechanic_measured": 313
+    },
+    "aiOpenLeads": 0,
+    "receiptsMatchEngine": {
+      "simulator": true,
+      "java": true,
+      "graal": true,
+      "benchmark": true,
+      "integrationReport": true
+    },
+    "buildSuccessful": true,
+    "report": "../docs/INTEGRATIONS.md",
+    "receipt": "../research/test-results/integration-completion.json",
+    "scope": "Bounded field-aware strategy over Run & Bun scoring and exact field previews; not a claim of source-equivalent AI play",
+    "decisionLatency": {
+      "warmMedianMillis": {
+        "1": 479,
+        "6": 736,
+        "6-turn1": 687,
+        "6-turn2": 762,
+        "6-turn3": 776,
+        "doubles": 2730
+      },
+      "processorAffinity": "0xFFF",
+      "publicationWarmupMillis": 1177
+    }
+  },
+  "implementationCompletionStandardMet": true
 }

@@ -1,0 +1,27 @@
+{
+  "success": true,
+  "timestamp": "2026-10-05T02:56:37.034775+00:00",
+  "profile": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]",
+  "installed": [
+    {
+      "artifact": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\dist\\rejuvenation-fields-0.2.0.jar",
+      "installed": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\mods\\rejuvenation-fields-0.2.0.jar",
+      "sha256": "20209f31ede40e52c0b238bbda7365c6606bd59c534ad653e479d069e09564c6",
+      "bytes": 1551232,
+      "matchesManifest": true
+    },
+    {
+      "artifact": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\dist\\rejuvenation-fields-datapack-0.2.0.zip",
+      "installed": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\datapacks\\rejuvenation-fields-datapack-0.2.0.zip",
+      "sha256": "64714698b4e33f39c834c31cdad2e54604cb562f6658e753b947bf7a8c1176d6",
+      "bytes": 490347,
+      "matchesManifest": true
+    }
+  ],
+  "removed": [
+    "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\mods\\rejuvenation-fields-0.1.0.jar",
+    "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\datapacks\\rejuvenation-fields-datapack-0.1.0.zip"
+  ],
+  "fieldJarCount": 1,
+  "fieldDatapackCount": 1
+}

@@ -222,6 +222,14 @@ public final class CatalogValidator {
    var rule=element.getAsJsonObject();require(fields.has(rule.get("field").getAsString()),"mapping","Missing field");
    require(words("biome tag dimension submerged maxY skyVisible minDepth field reason").containsAll(rule.keySet()),"mapping","Unknown predicate");
   }
+  // Structure rows name exactly one structure registry ID or structure tag; unmapped structures fall through to biome rules.
+  if(catalog.has("structures"))for(JsonElement element:catalog.getAsJsonArray("structures")){
+   require(element.isJsonObject(),"structure","Invalid structure mapping");var rule=element.getAsJsonObject();
+   require(words("structure tag field reason").containsAll(rule.keySet()) && rule.has("field") && fields.has(rule.get("field").getAsString()),"structure","Invalid structure mapping");
+   require(rule.has("structure")!=rule.has("tag"),"structure","A structure mapping names exactly one structure or tag");
+   String id=(rule.has("structure")?rule.get("structure"):rule.get("tag")).getAsString();
+   require(id.matches("[a-z0-9_.-]+:[a-z0-9_./-]+"),"structure","Invalid structure identifier "+id);
+  }
  }
  private static void content(JsonObject data,JsonObject fields,String where){
   for(var entry:data.getAsJsonObject("moves").entrySet()){

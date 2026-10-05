@@ -27,9 +27,12 @@
   function airborne(p) { return p && !p.isGrounded(); }
   function canHeal(b,p){return p.hp>0 && p.hp<p.maxhp && !p.volatiles.healblock && !healingBlocked(b,p,b.effect);}
   function context(b,user,target,move,value) { return {b,user,target,move:move || b.activeMove,value}; }
+  const conditionEntries=new WeakMap();
   function test(c,x) {
     if(!c) return true;
-    const [key,arg] = Object.entries(c)[0];
+    let entry=conditionEntries.get(c);
+    if(!entry){entry=Object.entries(c)[0];if(Object.isFrozen(c))conditionEntries.set(c,entry);}
+    const [key,arg] = entry;
     const who = v => x[v === 'target' ? 'target' : 'user'];
     const compare=(a,op,b)=>op==='>'?a>b:op==='>='?a>=b:op==='<'?a<b:op==='<='?a<=b:a===b;
     switch(key) {
@@ -232,11 +235,12 @@
         }
         case 'randomPower': {
           let roll=x.move.rejuvenationRandomPower;
-          if(roll===undefined){if(x.b.activeMove!==x.move){let choices=Array.from({length:a.range},(_,i)=>i);if(a.maximize && test(a.maximize,x))choices=[a.low,a.high];const average=choices.reduce((n,i)=>n+a.values[Math.max(0,Math.min(a.values.length-1,i+(x.user?.boosts.atk || 0)))],0)/choices.length;x.value*=a.scaleField?scaledMultiplier(x.b,average):average;break;}roll=x.b.random(a.range);if(a.maximize && test(a.maximize,x))roll=roll<a.threshold?a.low:a.high;roll=Math.max(0,Math.min(a.values.length-1,roll+(x.user?.boosts.atk || 0)));x.move.rejuvenationRandomPower=roll;message(x.b,'WHAMMO!');message(x.b,a.messages?.[roll]);}
+          if(roll===undefined){if(x.b.activeMove!==x.move){let choices=Array.from({length:a.range},(_,i)=>i);if(a.maximize && test(a.maximize,x))choices=[a.low,a.high];const average=choices.reduce((n,i)=>n+a.values[Math.max(0,Math.min(a.values.length-1,i+(x.user?.boosts.atk || 0)))],0)/choices.length;x.value*=a.scaleField?scaledMultiplier(x.b,average):average;break;}roll=x.b.rejuvenationPreviewRoll===undefined?x.b.random(a.range):x.b.rejuvenationPreviewRoll?a.range-1:0;if(a.maximize && test(a.maximize,x))roll=roll<a.threshold?a.low:a.high;roll=Math.max(0,Math.min(a.values.length-1,roll+(x.user?.boosts.atk || 0)));x.move.rejuvenationRandomPower=roll;message(x.b,'WHAMMO!');message(x.b,a.messages?.[roll]);}
           x.value*=a.scaleField?scaledMultiplier(x.b,a.values[roll]):a.values[roll];break;
         }
         case 'extraType': {
           const candidates=a.values.filter(t=>!a.excludePrimary || t!==x.move.type),layer=a.layer || 'field';
+          if(!a.cycle && candidates.length>1)x.move.rejuvenationRandomTypes=true;
           x.move.rejuvenationTypeRolls ||= {};let t=x.move.rejuvenationTypeRolls[layer];
           if(t===undefined){const s=state(x.b);t=a.cycle?candidates[s.roll%candidates.length]:x.b.activeMove===x.move?x.b.sample(candidates):'???';
             if(x.b.activeMove===x.move){x.move.rejuvenationTypeRolls[layer]=t;if(a.cycle)s.roll=(s.roll+1)%candidates.length;}}
@@ -394,7 +398,7 @@
       move.onTryHit=function(target,user){return !!target.status || user.hp<user.maxhp;};
     }
     else if(a.recipe==='swallow')move.onHit=function(p){const layers=p.volatiles.stockpile?.layers;if(!layers)return false;if(layers>=a.cureAt)p.cureStatus();const amount=Math.round(p.maxhp*a.fractions[layers-1]);this.heal(amount,p,p,move);p.removeVolatile('stockpile');};
-    else if(a.recipe==='randomPowerCallback'){delete move.onBasePower;move.basePowerCallback=function(user,target){if(move.rejuvenationChancePower===undefined){const boosted=this.randomChance(a.numerator,a.denominator);move.rejuvenationChancePower=boosted?a.boosted:a.base;if(boosted && a.activation){this.attrLastMove('[anim] '+a.activation);this.add('-activate',user,'move: '+move.name);}}return move.rejuvenationChancePower;};}
+    else if(a.recipe==='randomPowerCallback'){delete move.onBasePower;move.basePowerCallback=function(user,target){if(move.rejuvenationChancePower===undefined){const boosted=this.rejuvenationPreviewRoll===undefined?this.randomChance(a.numerator,a.denominator):this.rejuvenationPreviewRoll?a.boosted>a.base:a.boosted<a.base;move.rejuvenationChancePower=boosted?a.boosted:a.base;if(boosted && a.activation){this.attrLastMove('[anim] '+a.activation);this.add('-activate',user,'move: '+move.name);}}return move.rejuvenationChancePower;};}
     else if(a.recipe==='refreshVolatileBeforeHit')move.onPrepareHit=function(p){p.removeVolatile(a.id);};
     else if(a.recipe==='reapplyStatusHeal'){
       const oldTry=move.onTry,oldHit=move.onHit;
@@ -473,10 +477,18 @@
   function onceMessage(b,text,user){if(!text)return;const s=state(b);s.turnMessages ||= new Set();const key=text.includes('{1}')?text+'|'+user?.getSlot():text;if(s.turnMessages.has(key))return;s.turnMessages.add(key);message(b,text,user);}
   function sync(b){const s=state(b);if(s)b.add('rejuvenationstate',JSON.stringify({field:s.id,counters:s.counters,duration:s.duration,overlay:s.overlay?.id || null,overlayDuration:s.overlay?.duration || 0}));}
   function protectedFromField(p,move) { return p.isSemiInvulnerable() || p.volatiles.commanding || p.volatiles.protect || p.side.sideConditions.wideguard || p.side.sideConditions.matblock || (p.side.sideConditions.quickguard && move?.priority>0); }
+  const eventRules=new WeakMap();
+  function rulesFor(field,event){
+    if(!field)return [];
+    if(!Object.isFrozen(field))return (field.rules || []).filter(r=>r.event===event);
+    let index=eventRules.get(field);
+    if(!index){index=new Map();for(const rule of field.rules || []){if(!index.has(rule.event))index.set(rule.event,[]);index.get(rule.event).push(rule);}eventRules.set(field,index);}
+    return index.get(event) || [];
+  }
   function rules(b,event,x) {
-    for(const r of current(b)?.rules || []) if(r.event===event && test(r.condition,x)) runActions(r.actions,x);
+    for(const r of rulesFor(current(b),event))if(test(r.condition,x))runActions(r.actions,x);
     const overlay=state(b)?.overlay;
-    if(overlay && ['residual','setStatus','tryHit','priority','speed','specialAttack'].includes(event)) for(const r of state(b).catalog.fields[overlay.id].rules || [])if(r.event===event && test(r.condition,x))runActions(r.actions,x);
+    if(overlay && ['residual','setStatus','tryHit','priority','speed','specialAttack'].includes(event))for(const r of rulesFor(state(b).catalog.fields[overlay.id],event))if(test(r.condition,x))runActions(r.actions,x);
     return x.value;
   }
   function family(f) { return f.progression?.group; }
@@ -554,7 +566,13 @@
   function willChange(b,move,user,target) {
     const s=state(b),f=current(b),m=f.moves[move.id]; if(!m?.transition)return false;
     const counters=s.counters.slice();if(m.counter)s.counters[m.counter.index-1]+=m.counter.amount;
-    const can=test(m.transition.condition,context(b,user,target,move));s.counters=counters;
+    // Battle_Field.rb:568 runs the change condition inside the damage calculation of a move that hits
+    // (missAcc is false there), so an earlier action's per-move result never decides it.
+    const own=k=>Object.prototype.hasOwnProperty.call(s,k),had=[own('missed'),own('connected')],results=[s.missed,s.connected];
+    s.missed=false;s.connected=true;
+    let can;
+    try{can=test(m.transition.condition,context(b,user,target,move));}
+    finally{s.counters=counters;['missed','connected'].forEach((k,i)=>{if(had[i])s[k]=results[i];else delete s[k];});}
     const dest=s.catalog.fields[m.transition.field];
     return can && (!family(f) || family(f)!==family(dest));
   }
@@ -618,7 +636,8 @@
     }
     if(move.id==='secretpower'){
       const mimic=state(b).catalog.fields[state(b).overlay?.id || state(b).id];
-      const chosen=b.sample(mimic.secretPowerEffects);
+      // The chosen effect is a secondary: it never changes the hit's damage (previews treat the draw as effect-only).
+      effectDraws++;let chosen;try{chosen=b.sample(mimic.secretPowerEffects);}finally{effectDraws--;}
       // The catalog is frozen; the simulator annotates secondary and self effect objects while it applies them.
       move.secondaries=[{chance:move.secondaries?.[0]?.chance || 30,...JSON.parse(JSON.stringify(chosen))}];
     }
@@ -811,6 +830,10 @@
   function attach(b,field,options={}) {
     if(!catalog?.fields[field])throw new Error('Unknown initial field '+field);
     for(const [key,item]of Object.entries(catalog.items || {})){b.dex.data.Items[key]=item;b.dex.items.itemCache.delete(key);}
+    // The installed dex caches only existing items, so every getItem() of a Pokemon without an item constructed
+    // a new empty Item. The empty item is immutable data; it is cached frozen, as the dex caches existing ones.
+    if(!b.dex.items.itemCache.get(''))b.dex.items.itemCache.set('',b.dex.deepFreeze(b.dex.items.getByID('')));
+    if(typeof options.battleId==='string'){b.rejuvenationBattleId=options.battleId;battlesById.set(options.battleId,b);}
     b.rejuvenation={catalog,id:field,stack:[{id:field}],counters:[0,0,0,0,0],roll:0,overlay:null,duration:0,tempIndex:null,eruption:false,survival:new Set()};
     b.rejuvenation.actorTypes=structuredCloneValue(options.actorTypes || {});
     if(Object.entries(b.rejuvenation.actorTypes).some(([k,v])=>!/^p[1-4]$/.test(k) || !['wild','player','npc'].includes(v)))throw new Error('Invalid battle actor types');
@@ -849,6 +872,15 @@
     // priority. Rejuvenation's rule also applies to airborne users.
     const glide=b.dex.moves.get('grassyglide');
     if(!glide.rejuvenationWrapped){const fn=glide.onModifyPriority;b.dex.moves.moveCache.set('grassyglide',Object.freeze({...glide,rejuvenationWrapped:true,onModifyPriority(...args){if(state(this))return;return fn?.apply(this,args);}}));}
+    // Rejuvenation Upper Hand checks the queued move's effective priority (Battle_MoveEffects.rb:9925),
+    // including Chess king/field additions. The native callback only reads the base move priority.
+    const upper=b.dex.moves.get('upperhand');
+    if(!upper.rejuvenationWrapped){const fn=upper.onTryHit;b.dex.moves.moveCache.set('upperhand',Object.freeze({...upper,rejuvenationWrapped:true,onTryHit(target,user,...args){
+      const action=state(this)?this.queue.willMove(target):null;
+      if(!action)return fn?.call(this,target,user,...args);
+      const move=action.move;action.move={...move,priority:action.priority ?? move.priority};
+      try{return fn?.call(this,target,user,...args);}finally{action.move=move;}
+    }}));}
     const mimicry=b.dex.abilities.get('mimicry');
     if(!mimicry.rejuvenationWrapped){const wrapped={...mimicry,rejuvenationWrapped:true};for(const key of ['onStart','onTerrainChange']){const fn=mimicry[key];wrapped[key]=function(...args){if(state(this))return;return fn?.apply(this,args);};}b.dex.abilities.abilityCache.set('mimicry',Object.freeze(wrapped));}
     // An accuracy miss is announced by the -miss line; failures and blocked moves are not misses (Battler.rb:6963 user.missAcc).
@@ -982,9 +1014,27 @@
     try{return fn();}finally{b.add=old;if(previous)b.rejuvenationWeatherTextOverride=previous;else delete b.rejuvenationWeatherTextOverride;}
   }
   function weatherDefinition(b,key){return current(b)?.weatherDefinitions?.[key] || (state(b)?.catalog || catalog)?.fields[indoor]?.weatherDefinitions?.[key];}
+  // Declared types and weathers are patched into each simulator dex when that dex's data loads.
+  // Reading `dex.data` on every registered mod would force all ~45 Showdown mods to load; in
+  // Cobblemon's interpreter-only Graal runtime that alone took ~18 s on the first battle start.
+  let declaredAssets=null,declaredSoundTypes={};
+  const dexPrototype=Object.getPrototypeOf(RegistryDex);
+  if(!dexPrototype.rejuvenationLoadWrapped){
+    const nativeLoad=dexPrototype.loadData;
+    dexPrototype.loadData=function(){if(this.dataCache)return this.dataCache;const data=nativeLoad.call(this);patchDexAssets(this);return data;};
+    dexPrototype.rejuvenationLoadWrapped=true;
+  }
   function installDeclaredFieldAssets(data){
-    const defaultTypes=data.fields[indoor]?.typeDefinitions || {};
-    for(const dex of Object.values(RegistryDex.dexes)){
+    declaredAssets={data,revision:(declaredAssets?.revision || 0)+1};
+    // Only already-loaded dexes are patched now; the rest are patched by the loadData wrapper.
+    for(const dex of Object.values(RegistryDex.dexes))if(dex.dataCache)patchDexAssets(dex);
+  }
+  function patchDexAssets(dex){
+    if(!declaredAssets || dex.rejuvenationAssetsRevision===declaredAssets.revision)return;
+    dex.rejuvenationAssetsRevision=declaredAssets.revision;
+    if(Object.keys(declaredSoundTypes).length)installSoundAliases(dex);
+    const data=declaredAssets.data,defaultTypes=data.fields[indoor]?.typeDefinitions || {};
+    {
       for(const [name,row]of Object.entries(defaultTypes)){
         const key=id(name);dex.data.TypeChart[key]={name,damageTaken:{...row.damageTaken}};dex.types.typeCache.delete(key);dex.types.allCache=null;
         for(const [target,n]of Object.entries(row.outgoing)){const k=id(target),old=dex.data.TypeChart[k];if(old){dex.data.TypeChart[k]={...old,damageTaken:{...old.damageTaken,[name]:n}};dex.types.typeCache.delete(k);}}
@@ -1019,11 +1069,11 @@
       for(const dex of Object.values(RegistryDex.dexes)){dex.abilities.abilityCache.delete(key);dex.abilities.allCache=null;}
     }
     declaredSoundTypes=Object.fromEntries(Object.entries(data.abilities || {}).filter(([,row])=>row.soundMoveTypes).map(([key,row])=>[key,[...row.soundMoveTypes]]));
-    if(Object.keys(declaredSoundTypes).length)for(const dex of Object.values(RegistryDex.dexes))installSoundAliases(dex);
+    // Unloaded dexes receive the aliases from the loadData wrapper (patchDexAssets) when they load.
+    if(Object.keys(declaredSoundTypes).length)for(const dex of Object.values(RegistryDex.dexes))if(dex.dataCache)installSoundAliases(dex);
   }
   // Source checkSoundMove? also gates Throat Chop (Battle.rb:1351, Battler.rb:5801).
   // Showdown checks that volatile before ModifyMove can add the sound flag.
-  let declaredSoundTypes={};
   function declaredSound(p,move){const list=!p.ignoringAbility() && declaredSoundTypes[p.ability];return !!list && !!move && move.category!==undefined && list.includes(move.type);}
   function installSoundAliases(dex){
     const c=dex.conditions.get('throatchop');if(!c.exists || c.rejuvenationSoundAliases)return;
@@ -1540,7 +1590,7 @@
     return out;
   };
   const oldDestroy=Battle.prototype.destroy;
-  Battle.prototype.destroy=function(...args){for(const side of this.sides.filter(Boolean))for(const p of side.pokemon){delete p.rejuvenationFlags;delete p.rejuvenationFormType;}delete this.rejuvenation;return oldDestroy.apply(this,args);};
+  Battle.prototype.destroy=function(...args){if(this.rejuvenationBattleId && battlesById.get(this.rejuvenationBattleId)===this)battlesById.delete(this.rejuvenationBattleId);for(const side of this.sides.filter(Boolean))for(const p of side.pokemon){delete p.rejuvenationFlags;delete p.rejuvenationFormType;}delete this.rejuvenation;return oldDestroy.apply(this,args);};
   const oldImmunity=Pokemon.prototype.runImmunity;
   function chartOverride(b,attackType,defenseType,move,target){
     let value;for(const r of current(b)?.typeChart || [])if((r.attackType==='*' || r.attackType===attackType) && (r.defenseType==='*' || r.defenseType===defenseType) && test(r.condition,context(b,b.activePokemon,target,move)))value=r.value;return value;
@@ -1584,7 +1634,1992 @@
     for(const f of Object.values(data.fields))for(const row of Object.values(f.conditionDurations || {})){for(const mid of row.sourceMoves)check('moves',mid);for(const aid of row.sourceAbilities || [])check('abilities',aid);}
     return Object.fromEntries(Object.entries(missing).map(([k,v])=>[k,[...v].sort()]));
   }
-  global.RejuvenationEngine={load(json){const data=typeof json==='string'?JSON.parse(json):json;validate(data);installDeclaredFieldAssets(data);installDeclaredAbilities(data);catalog=freeze(data);return JSON.stringify(references(data));},attach,change,destroy,progress,current,test,runActions,
+  // ---------------------------------------------------------------------------------------------
+  // Read-only move evaluation, shared by the Run & Bun AI adapter and the client damage preview.
+  // Each query runs the simulator's own pipeline (priority, ModifyType/ModifyMove, TryMove, TryHit,
+  // immunity, accuracy, getDamage, status/heal application) inside a transaction that restores the
+  // Pokémon involved, both sides, the field, the battle's own properties and field-engine state,
+  // uses a cloned PRNG and restores the log tail. The whole call is additionally wrapped in one
+  // transaction over every Pokémon. The same query is measured with the field state attached and
+  // detached, so consumers apply the field's effect without a second implementation of any rule.
+  // ---------------------------------------------------------------------------------------------
+  const battlesById=new Map();
+  // Plain data is recognised structurally, so objects created in another realm (the simulator's) qualify too.
+  // The kind depends only on the prototype, so it is computed once per prototype; frozen data is shared.
+  const kindByPrototype=new Map();
+  function plainKind(v){
+    if(v===null || typeof v!=='object')return null;
+    let kind;
+    if(Array.isArray(v))kind='array';
+    else{
+      const p=Object.getPrototypeOf(v);kind=kindByPrototype.get(p);
+      if(kind===undefined){const tag=Object.prototype.toString.call(v);
+        kind=tag==='[object Set]'?'set':tag==='[object Map]'?'map':p===null || Object.getPrototypeOf(p)===null?'object':null;kindByPrototype.set(p,kind);}
+    }
+    return kind && !Object.isFrozen(v)?kind:null;
+  }
+  // Snapshots allocate only for mutable containers; primitive and shared reference leaves are stored as they are.
+  function Capture(ref,kind,keys,values){this.ref=ref;this.kind=kind;this.keys=keys;this.values=values;}
+  function captureValue(v,depth){
+    const kind=depth>0?plainKind(v):null;
+    if(!kind)return v;
+    if(kind==='array'){const values=new Array(v.length);for(let i=0;i<v.length;i++)values[i]=captureValue(v[i],depth-1);return new Capture(v,0,null,values);}
+    if(kind==='set')return new Capture(v,1,null,[...v]);
+    if(kind==='map')return new Capture(v,2,null,[...v.entries()]);
+    const keys=Object.keys(v),values=new Array(keys.length);
+    for(let i=0;i<keys.length;i++)values[i]=captureValue(v[keys[i]],depth-1);
+    return new Capture(v,3,keys,values);
+  }
+  // Restoration writes only what changed, preserving element/entry order exactly as captured.
+  function restoreValue(c){
+    const v=c.ref,values=c.values,n=values.length;
+    if(c.kind===0){
+      let same=v.length===n;
+      for(let i=0;i<n;i++){const x=values[i] instanceof Capture?restoreValue(values[i]):values[i];if(same && v[i]!==x)same=false;}
+      if(!same){v.length=0;for(let i=0;i<n;i++)v.push(values[i] instanceof Capture?values[i].ref:values[i]);}
+    }else if(c.kind===1){
+      let same=v.size===n,i=0;if(same)for(const x of v)if(x!==values[i++]){same=false;break;}
+      if(!same){v.clear();for(const x of values)v.add(x);}
+    }else if(c.kind===2){
+      let same=v.size===n,i=0;if(same)for(const [k,x] of v){const e=values[i++];if(k!==e[0] || x!==e[1]){same=false;break;}}
+      if(!same){v.clear();for(const [k,x] of values)v.set(k,x);}
+    }else{
+      const keys=c.keys,present=Object.keys(v);
+      let same=present.length===n;
+      if(same)for(let i=0;i<n;i++)if(present[i]!==keys[i]){same=false;break;}
+      if(!same){const known=new Set(keys);for(const k of present)if(!known.has(k))delete v[k];}
+      for(let i=0;i<n;i++){const k=keys[i],x=values[i] instanceof Capture?restoreValue(values[i]):values[i];
+        if(v[k]!==x || (!same && !Object.prototype.hasOwnProperty.call(v,k)))v[k]=x;}
+    }
+    return v;
+  }
+  // The team set and the base move slots never change during a battle; they are kept by reference.
+  const fixedPokemonKeys=new Set(['set','baseMoveSlots','battle','side']);
+  // A side's team is assigned once by its constructor and holds the same sets as each Pokemon's `set`.
+  const fixedSideKeys=new Set([...fixedPokemonKeys,'team']);
+  function captureInstance(o,depth,fixed){
+    const keys=Object.keys(o),values=new Array(keys.length);
+    for(let i=0;i<keys.length;i++)values[i]=fixed?.has(keys[i])?o[keys[i]]:captureValue(o[keys[i]],depth);
+    return new Capture(o,3,keys,values);
+  }
+  function captureBattle(b,pokemon){
+    const parts=[captureInstance(b.field,3)];
+    for(const side of b.sides.filter(Boolean))parts.push(captureInstance(side,3,fixedSideKeys));
+    for(const p of pokemon || b.sides.filter(Boolean).flatMap(side=>side.pokemon))parts.push(captureInstance(p,3,fixedPokemonKeys));
+    if(b.queue?.list)parts.push(captureValue(b.queue.list,1));
+    if(b.faintQueue)parts.push(captureValue(b.faintQueue,3));
+    if(b.inputLog)parts.push(captureValue(b.inputLog,2));
+    const own=Object.create(null);for(const k of Object.keys(b))if(k!=='log' && k!=='rejuvenation')own[k]=b[k];
+    // attrLastMove/retargetLastMove edit or splice log[lastMoveLine] in place, so the tail from that line is kept.
+    const tailStart=b.lastMoveLine>=0?Math.min(b.lastMoveLine,b.log.length):b.log.length;
+    return {parts,own,tailStart,tail:b.log.slice(tailStart),state:b.rejuvenation,hasState:Object.prototype.hasOwnProperty.call(b,"rejuvenation"),stateCopy:b.rejuvenation?captureValue(b.rejuvenation,5):null};
+  }
+  function restoreBattle(b,snapshot){
+    for(const part of snapshot.parts)if(part instanceof Capture)restoreValue(part);
+    // Transient keys are removed newest first, which lets engines revert the object's shape instead of degrading it.
+    const keys=Object.keys(b);for(let i=keys.length-1;i>=0;i--){const k=keys[i];if(k!=='log' && k!=='rejuvenation' && !(k in snapshot.own))delete b[k];}
+    for(const k in snapshot.own)if(b[k]!==snapshot.own[k])b[k]=snapshot.own[k];
+    b.log.length=snapshot.tailStart;b.log.push(...snapshot.tail);
+    if(snapshot.state){b.rejuvenation=snapshot.state;if(snapshot.stateCopy instanceof Capture)restoreValue(snapshot.stateCopy);}
+    else if(snapshot.hasState)b.rejuvenation=undefined;else delete b.rejuvenation;
+  }
+  function transaction(b,fn,pokemon){
+    const snapshot=captureBattle(b,pokemon),prng=b.prng;b.prng=prng.clone();
+    // No hypothetical event may publish simulator output or finish the real battle.
+    b.send=()=>{};b.checkWin=()=>false;
+    try{return fn();}finally{restoreBattle(b,snapshot);b.prng=prng;}
+  }
+  // Several independent hypotheticals from the same state: a snapshot only records references and captured
+  // values, so one capture is restored after each item exactly as separate transactions would be.
+  function transactionEach(b,items,fn,pokemon){
+    const snapshot=captureBattle(b,pokemon),prng=b.prng,results=[];
+    for(const item of items){
+      b.prng=prng.clone();b.send=()=>{};b.checkWin=()=>false;
+      try{results.push(fn(item));}finally{restoreBattle(b,snapshot);b.prng=prng;}
+    }
+    return results;
+  }
+  // Temporarily replaces a member of an object that snapshots do not cover (BattleActions); the returned function
+  // restores it exactly, including whether it was an own property or inherited from the prototype.
+  function swap(o,key,value){const own=Object.prototype.hasOwnProperty.call(o,key),old=o[key];o[key]=value;return ()=>{if(own)o[key]=old;else delete o[key];};}
+  // Pokemon a hypothetical move can affect: the actives (abilities, allies, Commander...) and the participants.
+  function involved(b,...pokemon){const out=new Set(b.getAllActive());for(const p of pokemon)if(p)out.add(p);return [...out];}
+  function findPokemon(b,uuid){for(const side of b.sides.filter(Boolean))for(const p of side.pokemon)if(p.uuid===uuid)return p;return null;}
+  function spreadTargets(user,move){
+    if(!['allAdjacent','allAdjacentFoes'].includes(move.target))return 1;
+    return (move.target==='allAdjacent'?[...user.adjacentAllies(),...user.adjacentFoes()]:user.adjacentFoes()).filter(p=>p && !p.fainted).length;
+  }
+  function evaluatorPriority(b,user,moveId,query){
+    const move=b.dex.getActiveMove(moveId),action={choice:'move',pokemon:user,move,fractionalPriority:0};
+    if(query.gimmick==='zmove')action.zmove=b.actions.getZMove(move,user);
+    if(query.gimmick==='dynamax' || user.volatiles.dynamax)action.maxMove=b.actions.getMaxMove(move,user)?.id;
+    b.getActionSpeed(action);
+    return action.priority;
+  }
+  function prepareMove(b,user,target,moveId,priority,query={}){
+    let move=b.dex.getActiveMove(moveId);
+    // Conversion belongs to BattleActions: generic Z/Max moves in the dex have placeholder power/category.
+    if(query.gimmick==='zmove')move=b.actions.getActiveZMove(move,user);
+    else if(query.gimmick==='dynamax' || user.volatiles.dynamax)move=b.actions.getActiveMaxMove(move,user);
+    move.priority=priority;move.hit=1;
+    b.setActiveMove(move,user,target);
+    b.singleEvent('ModifyType',move,null,user,target,move,move);
+    b.singleEvent('ModifyMove',move,null,user,target,move,move);
+    move=b.runEvent('ModifyType',user,target,move,move);
+    move=b.runEvent('ModifyMove',user,target,move,move);
+    if(move && move.spreadHit===undefined)move.spreadHit=spreadTargets(user,move)>1;
+    return move;
+  }
+  // Hit steps that can make a target immune, in Showdown's trySpreadMoveHit order.
+  function isImmune(b,user,target,move){
+    if(['self','allies','allySide','all','foeSide'].includes(move.target) || target===user)return false;
+    const tryHit=b.singleEvent('TryHit',move,null,target,user,move);
+    const result=tryHit===false || tryHit===null?tryHit:b.runEvent('TryHit',target,user,move);
+    if(result===false || result===null || result==='')return true;
+    const typeImmunity=move.category!=='Status'?!move.ignoreImmunity || (move.ignoreImmunity!==true && !move.ignoreImmunity[move.type]):move.ignoreImmunity===false;
+    if(typeImmunity && !target.runImmunity(move.type))return true;
+    if(b.runEvent('TryImmunity',target,user,move)===false)return true;
+    return !!(move.pranksterBoosted && target.hasType('Dark') && !target.isAlly(user));
+  }
+  // A chosen damage roll (percent) for hypothetical evaluation. A field with a fixed roll (Concert 1 and 4, applied
+  // through Battle.prototype.randomizer) keeps its own roll, so previews and lookahead see the real damage there.
+  function forcedRoll(b,percent){const roll=current(b)?.damageRoll;return d=>b.trunc(b.trunc(d*(roll ?? percent))/100);}
+  // One damage roll; `fixed` is the random percentage removed (0 = highest roll, 15 = lowest).
+  function rollDamage(b,user,target,move,fixed,crit,ignoreImmunity){
+    // A shallow copy equals the former fresh clone overwritten by every property of the prepared move.
+    const m=Object.assign(Object.create(Object.getPrototypeOf(move)),move);if(crit!==undefined)m.willCrit=crit;m.hit=1;if(ignoreImmunity)m.ignoreImmunity=true;
+    b.randomizer=forcedRoll(b,100-fixed);
+    try{const d=b.actions.getDamage(user,target,m,true);return typeof d==='number'?d:d===false?null:0;}finally{delete b.randomizer;}
+  }
+  function guaranteedCritical(b,user,target,move){
+    if(move.willCrit!==undefined)return !!move.willCrit;
+    // Installed modern Showdown guarantees critical hits at stage 4. Ordinary preview ranges exclude
+    // chance critical hits, matching Battle Extras, but must retain guaranteed ones.
+    return b.gen>=6 && b.runEvent('ModifyCritRatio',user,target,move,move.critRatio || 0)>=4;
+  }
+  function measure(b,user,target,moveId,query){
+    const out={};
+    // Priority is resolved on a fresh active move before any modification, as the action queue does.
+    out.priority=evaluatorPriority(b,user,moveId,query);
+    const move=prepareMove(b,user,target,moveId,out.priority,query);
+    if(!move)return {fails:true,priority:out.priority};
+    Object.assign(out,{type:move.type,category:move.category,target:move.target,basePower:move.basePower,
+      multihit:move.multihit ?? null,drain:move.drain ?? null,recoil:move.recoil ?? null,heal:move.heal ?? null,
+      bypassesProtect:!move.flags?.protect,overrideOffensiveStat:move.overrideOffensiveStat ?? null,overrideDefensiveStat:move.overrideDefensiveStat ?? null,
+      secondaryTypes:[...(move.rejuvenationTypes || [])],randomSecondaryType:!!move.rejuvenationRandomTypes});
+    const transition=state(b)?current(b).moves[move.id]?.transition:null;
+    out.changesFieldTo=transition && willChange(b,move,user,target)?transition.field:null;
+    out.fails=!b.singleEvent('TryMove',move,null,user,target,move) || !b.runEvent('TryMove',user,target,move);
+    out.immune=isImmune(b,user,target,move);
+    // Accuracy as hitStepAccuracy computes it, without the random roll.
+    let accuracy=move.accuracy;
+    if(move.ohko)accuracy=30;
+    else{
+      accuracy=b.runEvent('ModifyAccuracy',target,user,move,accuracy);
+      if(accuracy!==true){
+        let boost=0;
+        if(!move.ignoreAccuracy)boost=b.clampIntRange(b.runEvent('ModifyBoost',user,null,null,{...user.boosts}).accuracy,-6,6);
+        if(!move.ignoreEvasion)boost=b.clampIntRange(boost-b.runEvent('ModifyBoost',target,null,null,{...target.boosts}).evasion,-6,6);
+        if(boost>0)accuracy=b.trunc(accuracy*(3+boost)/3);else if(boost<0)accuracy=b.trunc(accuracy*3/(3-boost));
+      }
+    }
+    if(move.alwaysHit || (move.target==='self' && move.category==='Status'))accuracy=true;
+    else accuracy=b.runEvent('Accuracy',target,user,move,accuracy);
+    out.accuracy=accuracy===true?true:typeof accuracy==='number'?Math.max(0,Math.min(100,accuracy)):0;
+    out.critRatio=b.runEvent('ModifyCritRatio',user,target,move,move.critRatio || 0);
+    if(query.strategy){
+      // Strategic lookahead reads only priority, accuracy, immunity and the highest roll; speeds come from the
+      // caller and the stage-4 critical policy reuses the stage computed above (as guaranteedCritical does).
+      // `facts` callers read only priority, accuracy and chances; their own rollout deals the damage.
+      if(move.category!=='Status' && !query.facts)out.maxDamage=rollDamage(b,user,target,move,0,move.willCrit!==undefined?!!move.willCrit:b.gen>=6 && out.critRatio>=4);
+      // Probability that at least one chance-based secondary applies, from the chances after ModifyMove
+      // (Serene Grace, field rules) and the target's ModifySecondaries (Shield Dust, Covert Cloak).
+      out.critBlocked=b.runEvent('CriticalHit',target,null,move)===false;
+      if(query.secondaries!==false && move.secondaries?.length && target!==user){
+        const list=b.runEvent('ModifySecondaries',target,user,move,move.secondaries.slice());
+        let none=1;for(const s of Array.isArray(list)?list:[])if(s.chance!==undefined && s.chance<100)none*=1-Math.max(0,s.chance)/100;
+        if(none<1)out.secondaryChance=1-none;
+      }
+      return out;
+    }
+    out.userSpeed=user.getStat('spe');out.targetSpeed=target.getStat('spe');
+    out.targetHp=target.hp;out.targetMaxHp=target.maxhp;
+    if(move.category!=='Status'){
+      out.typeMod=b.clampIntRange(target.runEffectiveness(move),-6,6);
+      out.critBlocked=b.runEvent('CriticalHit',target,null,move)===false;
+      // Optional rolls need the pre-damage state (an eaten resist berry, Stellar boosts), so they run in their own transactions.
+      if(query.range)out.minDamage=transaction(b,()=>rollDamage(b,user,target,move,15,guaranteedCritical(b,user,target,move)),[user,target]);
+      if(query.crit)out.critDamage=transaction(b,()=>[rollDamage(b,user,target,move,15,true),rollDamage(b,user,target,move,0,true)],[user,target]);
+      // Last, inside measure's own transaction: the highest roll, then endure-style effects (Sturdy, Chess pawns,
+      // Colosseum Stalwart), which act in the Damage event after getDamage and do not depend on the roll.
+      out.maxDamage=rollDamage(b,user,target,move,0,guaranteedCritical(b,user,target,move));
+      out.survivesLethal=target.hp>0 && (r=>typeof r==='number' && r<target.hp)(b.runEvent('Damage',target,user,move,target.hp));
+    }else{
+      // Status moves: does the primary effect apply under the current rules?
+      const applies=fn=>!out.immune && transaction(b,()=>{const r=fn();return r!==false && r!==null && r!==undefined && r!=='';},[user,target]);
+      if(move.status)out.statusApplies=applies(()=>target.setStatus(move.status,user,move));
+      else if(move.volatileStatus && target!==user)out.statusApplies=applies(()=>target.addVolatile(move.volatileStatus,user,move));
+      else if(move.boosts && target!==user)out.statusApplies=applies(()=>b.boost(move.boosts,target,user,move));
+      if(move.flags?.heal)out.healFraction=transaction(b,()=>{user.hp=1;
+        if(move.heal)b.heal(b.modify(user.maxhp,move.heal),user,user,move);else if(typeof move.onHit==='function')move.onHit.call(b,user,user,move);
+        return Math.max(0,user.hp-1)/user.maxhp;},[user,target]);
+    }
+    return out;
+  }
+  // The native measurement only needs what a consumer's own calculator lacks: the native damage and immunity
+  // under the same battle state, to scale its own estimate by the field's effect.
+  function measureNative(b,user,target,moveId,query){
+    // Detached by value, not deletion: restoring the battle then keeps its own-key order.
+    b.rejuvenation=undefined;
+    const move=prepareMove(b,user,target,moveId,evaluatorPriority(b,user,moveId,query),query);
+    if(!move)return {fails:true};
+    const out={type:move.type,category:move.category,fails:!b.singleEvent('TryMove',move,null,user,target,move) || !b.runEvent('TryMove',user,target,move),
+      immune:isImmune(b,user,target,move),userSpeed:user.getStat('spe'),targetSpeed:target.getStat('spe')};
+    if(move.category!=='Status'){
+      out.typeMod=b.clampIntRange(target.runEffectiveness(move),-6,6);
+      if(query.range)out.minDamage=transaction(b,()=>rollDamage(b,user,target,move,15,guaranteedCritical(b,user,target,move)),[user,target]);
+      out.maxDamage=rollDamage(b,user,target,move,0,guaranteedCritical(b,user,target,move));
+      // A native type immunity stops getDamage before any event runs; this is the baseline for a field that removes it.
+      if(out.maxDamage===null)out.maxDamageIgnoringImmunity=rollDamage(b,user,target,move,0,false,true);
+    }else if(move.status)out.statusApplies=!out.immune && transaction(b,()=>!!target.setStatus(move.status,user,move),[user,target]);
+    return out;
+  }
+  function applyEvaluationGimmick(b,user,gimmick){
+    if(!gimmick || gimmick==='zmove')return;
+    if(gimmick==='mega' || gimmick==='ultra'){
+      if(!(gimmick==='mega'?user.canMegaEvo:user.canUltraBurst))throw Error('unavailable '+gimmick);
+      // runMegaEvo chooses canMegaEvo first; Ultra Burst must explicitly select its own form.
+      if(gimmick==='ultra')user.canMegaEvo=null;
+      b.actions.runMegaEvo(user);
+    }else if(gimmick==='terastallize'){
+      if(!user.canTerastallize)throw Error('unavailable tera');b.actions.terastallize(user);
+    }else if(gimmick==='dynamax'){
+      // Battle.runAction 'runDynamax' as installed: the volatile, the side resources and the Pokemon's Tera option.
+      if(!user.volatiles.dynamax){
+        if(!user.getDynamaxRequest())throw Error('unavailable dynamax');
+        user.addVolatile('dynamax');user.side.dynamaxUsed=true;user.canTerastallize=null;
+        if(user.side.allySide)user.side.allySide.dynamaxUsed=true;
+      }
+    }else throw Error('unknown gimmick');
+  }
+  // Complete hit pipeline for displayed ranges, including per-hit items/abilities, protection,
+  // fixed damage and endure effects. Damage is conditional on connecting (accuracy is reported separately).
+  // One bound of a preview range, by the real move pipeline. The damage roll, the critical policy and accuracy are set
+  // to the bound; so is the hit count, through the simulator's own draws (the 2-5 hit distribution, Loaded Dice) and,
+  // on the low run, the misses of a multi-accuracy move's later hits. Any other random draw before or during a damage
+  // calculation (Magnitude, Psywave, Present, called moves, random targets, a contact ability between hits) makes the
+  // run one sample rather than a bound: it is reported as stochastic and the range is not displayed.
+  let effectDraws=0;
+  function previewRoll(b,user,target,query,low){
+    applyEvaluationGimmick(b,user,query.gimmick);
+    b.rejuvenationPreviewRoll=low?0:1;
+    const before=target.hp,oldEvent=b.runEvent,oldDamage=b.actions.getDamage,oldLoop=b.actions.hitStepMoveHitLoop,oldSpread=b.actions.spreadMoveHit;
+    let hits=0,damageCalls=0,inDamage=0,countingHits=false;const draws=[];
+    // A draw is recorded with the number of completed damage calculations against the target (-1 inside one);
+    // only draws after the last one cannot have changed the damage.
+    const note=()=>draws.push(inDamage?-1:damageCalls),oldSample=b.sample,oldRandom=b.random,oldChance=b.randomChance;
+    // Hit-count draws: sample() of the count distribution, random(m,n) of a count range, and Loaded Dice's random(k)
+    // subtracted from the count; each returns the value that yields the bound.
+    const restoreSample=swap(b,'sample',function(items){
+      if(countingHits && Array.isArray(items) && items.length && items.every(x=>typeof x==='number'))return low?Math.min(...items):Math.max(...items);
+      // One possible outcome, or a draw that only selects a secondary effect, cannot change the damage.
+      if(!effectDraws && !(Array.isArray(items) && items.length && items.every(x=>x===items[0])))note();
+      return oldSample.apply(this,arguments);});
+    const restoreRandom=swap(b,'random',function(m,n){
+      if(countingHits && typeof m==='number')return n===undefined?(low?m-1:0):(low?m:n-1);
+      note();return oldRandom.apply(this,arguments);});
+    // A certain outcome (0 or full chance) draws nothing that could change the result.
+    const restoreChance=swap(b,'randomChance',function(numerator,denominator){
+      if(this.forceRandomChance!==null && this.forceRandomChance!==undefined)return this.forceRandomChance;
+      if(numerator<=0)return false;if(numerator>=denominator)return true;
+      note();return oldChance.apply(this,arguments);});
+    const restoreLoop=swap(b.actions,'hitStepMoveHitLoop',function(...args){countingHits=true;try{return oldLoop.apply(this,args);}finally{countingHits=false;}});
+    const restoreSpread=swap(b.actions,'spreadMoveHit',function(...args){countingHits=false;return oldSpread.apply(this,args);});
+    b.randomizer=forcedRoll(b,low?85:100);
+    b.runEvent=function(event,...args){
+      const value=oldEvent.call(this,event,...args);
+      if(event!=='Accuracy')return value;
+      const move=args[2];
+      return low && move?.multiaccuracy && move.hit>1?0:true;
+    };
+    const restoreDamage=swap(b.actions,'getDamage',function(u,t,m,...args){
+      countingHits=false;
+      if(m && typeof m==='object'){
+        m.willCrit=guaranteedCritical(b,u,t,m);
+        if(u===user && t===target)hits++;
+      }
+      inDamage++;
+      try{return oldDamage.call(this,u,t,m,...args);}finally{inDamage--;if(u===user && t===target)damageCalls++;}
+    });
+    try{
+      const base=b.dex.getActiveMove(query.move),z=query.gimmick==='zmove'?b.actions.getZMove(base,user):undefined;
+      const max=query.gimmick==='dynamax' || user.volatiles.dynamax?b.actions.getMaxMove(base,user)?.id:undefined;
+      b.actions.useMove(base,user,target,null,z,max);
+      // Field destruction/collapse may occur in AfterMove, after the hit pipeline finishes.
+      b.runEvent('AfterMove',user,target,b.activeMove || base);
+      return {damage:Math.max(0,before-target.hp),hits,stochastic:draws.some(at=>at<damageCalls)};
+    }finally{b.runEvent=oldEvent;restoreSample();restoreRandom();restoreChance();restoreLoop();restoreSpread();restoreDamage();delete b.randomizer;}
+  }
+  function evaluateMove(b,query){
+    const user=findPokemon(b,query.user),target=findPokemon(b,query.target ?? query.user);
+    if(!user || !target || !b.dex.moves.get(query.move).exists)return {query,error:'unknown pokemon or move'};
+    // A benched Pokemon is measured as it would attack after switching in: the simulator ignores the abilities and
+    // items of inactive Pokemon, so it enters the side's first occupied slot (or query.slot) with its entry effects.
+    if(query.bench && !user.isActive){
+      const slot=Number.isInteger(query.slot)?query.slot:user.side.active.findIndex(a=>a);
+      if(slot<0 || user.hp<=0 || user.fainted || query.gimmick)return {query,error:'unavailable bench evaluation'};
+      const result=transaction(b,()=>{b.actions.switchIn(user,slot);b.actions.runSwitch(user);if(b.gen>=5)b.eachEvent('Update');
+        return evaluateMove(b,{...query,bench:false});});
+      return {...result,query};
+    }
+    if(query.gimmick==='zmove' && !b.actions.getZMove(b.dex.moves.get(query.move),user))return {query,error:'unavailable zmove'};
+    const withField=transaction(b,()=>{applyEvaluationGimmick(b,user,query.gimmick);return measure(b,user,target,query.move,query);});
+    const nativeRules=transaction(b,()=>{applyEvaluationGimmick(b,user,query.gimmick);return measureNative(b,user,target,query.move,query);});
+    // A random additional type is deliberately typeless during read-only measurements. A seeded sample is
+    // not a certified range over its possible immunities/types; omit damage display until the type is known.
+    if(query.range && withField.randomSecondaryType)withField.uncertainDamageRange=true;
+    if(query.range && withField.category!=='Status' && !withField.randomSecondaryType){
+      const low=transaction(b,()=>previewRoll(b,user,target,query,true));
+      const high=transaction(b,()=>previewRoll(b,user,target,query,false));
+      // A range from random power, damage, called moves or targets would be one seeded sample: it is not displayed.
+      if(low.stochastic || high.stochastic){withField.stochasticDamage=true;withField.uncertainDamageRange=true;}
+      else{withField.totalMinDamage=low.damage;withField.totalMaxDamage=high.damage;withField.minHits=low.hits;withField.maxHits=high.hits;}
+    }
+    return {query,withField,native:nativeRules};
+  }
+  function evaluate(b,queries){
+    if(!state(b))return {field:null,overlay:null,turn:b.turn,results:[]};
+    const results=transaction(b,()=>queries.map(q=>evaluateMove(b,q)));
+    return {field:state(b).id,overlay:state(b).overlay?.id || null,turn:b.turn,results};
+  }
+  // Strategic scoring contains no field formulas. Consequences are produced by the same actions,
+  // entry events and residual events as a real turn, inside the evaluator's rollback transaction.
+  // BEGIN GENERATED SOURCE AI AFFINITY
+  // Rejuvenation switch strategy weights; mechanics continue to come exclusively from the simulator.
+  function sourceAffinity(b,p,field=current(b)){
+    const original=field?.originalId || "INDOOR",stage=Number(original.match(/\d+$/)?.[0] || 0);
+    const effective=p.hasAbility(p.ability)?p.ability:"",unsuppressed=!!effective;
+    const ability=a=>effective===a,baseAbility=a=>unsuppressed && p.baseAbility===a;let score=0;
+    switch(original){
+    case "ELECTERRAIN":
+      if(ability("surgesurfer"))score+=50; // Battle_AI.rb:11535
+      if(true && ability("teravolt"))score+=50; // Battle_AI.rb:11536
+      if(ability("galvanize"))score+=25; // Battle_AI.rb:11537
+      if(true && ability("steadfast"))score+=25; // Battle_AI.rb:11538
+      if(true && ability("quickfeet"))score+=25; // Battle_AI.rb:11539
+      if(true && ability("lightningrod"))score+=25; // Battle_AI.rb:11540
+      if(true && ability("battery"))score+=25; // Battle_AI.rb:11541
+      if(ability("transistor"))score+=25; // Battle_AI.rb:11542
+      if(p.hasType("Electric"))score+=25; // Battle_AI.rb:11543
+      if(ability("electromorphosis"))score+=25; // Battle_AI.rb:11544
+      if(true && ability("static"))score+=20; // Battle_AI.rb:11545
+      if(true && ability("voltabsorb"))score+=15; // Battle_AI.rb:11546
+      break;
+    case "GRASSY":
+      if(ability("grasspelt"))score+=30; // Battle_AI.rb:11548
+      if(ability("cottondown"))score+=30; // Battle_AI.rb:11549
+      if(true && ability("overgrow"))score+=30; // Battle_AI.rb:11550
+      if(true && ability("sapsipper"))score+=20; // Battle_AI.rb:11551
+      if(true && ability("harvest"))score+=25; // Battle_AI.rb:11552
+      if(p.hasType("Grass") || p.hasType("Fire"))score+=25; // Battle_AI.rb:11553
+      break;
+    case "MISTY":
+      if(p.hasType("Fairy"))score+=20; // Battle_AI.rb:11555
+      if(ability("marvelscale"))score+=20; // Battle_AI.rb:11556
+      if(ability("dryskin"))score+=20; // Battle_AI.rb:11557
+      if(ability("watercompaction"))score+=20; // Battle_AI.rb:11558
+      if(ability("pixilate"))score+=25; // Battle_AI.rb:11559
+      if(ability("soulheart"))score+=25; // Battle_AI.rb:11560
+      if(ability("pastelveil"))score+=20; // Battle_AI.rb:11561
+      break;
+    case "DARKCRYSTALCAVERN":
+      if(ability("prismarmor"))score+=30; // Battle_AI.rb:11563
+      if(ability("shadowshield"))score+=30; // Battle_AI.rb:11564
+      break;
+    case "CHESS":
+      if(ability("adaptability"))score+=10; // Battle_AI.rb:11566
+      if(ability("synchronize"))score+=10; // Battle_AI.rb:11567
+      if(ability("anticipation"))score+=10; // Battle_AI.rb:11568
+      if(ability("telepathy"))score+=10; // Battle_AI.rb:11569
+      if(true && ability("stancechange"))score+=30; // Battle_AI.rb:11570
+      if(true && ability("stall"))score+=25; // Battle_AI.rb:11571
+      break;
+    case "BIGTOP":
+      if(ability("sheerforce"))score+=30; // Battle_AI.rb:11573
+      if(ability("purepower"))score+=30; // Battle_AI.rb:11574
+      if(ability("hugepower"))score+=30; // Battle_AI.rb:11575
+      if(ability("guts"))score+=30; // Battle_AI.rb:11576
+      if(ability("dancer"))score+=10; // Battle_AI.rb:11577
+      if(p.hasType("Fighting"))score+=20; // Battle_AI.rb:11578
+      if(ability("punkrock") || ability("junglebeat"))score+=20; // Battle_AI.rb:11579
+      if(ability("costar") && b.gameType!=="singles")score+=10; // Battle_AI.rb:11580
+      break;
+    case "BURNING":
+      if(p.hasType("Fire"))score+=25; // Battle_AI.rb:11582
+      if(ability("waterveil"))score+=15; // Battle_AI.rb:11583
+      if(ability("heatproof"))score+=15; // Battle_AI.rb:11584
+      if(ability("waterbubble"))score+=15; // Battle_AI.rb:11585
+      if(ability("steamengine"))score+=25; // Battle_AI.rb:11586
+      if(ability("flashfire"))score+=30; // Battle_AI.rb:11587
+      if(ability("flareboost"))score+=30; // Battle_AI.rb:11588
+      if(ability("blaze"))score+=30; // Battle_AI.rb:11589
+      if(ability("wellbakedbody"))score+=30; // Battle_AI.rb:11590
+      if(ability("thermalexchange"))score+=15; // Battle_AI.rb:11591
+      if((ability("icebody")))score-=30; // Battle_AI.rb:11592
+      if(ability("leafguard"))score-=30; // Battle_AI.rb:11593
+      if(ability("grasspelt"))score-=30; // Battle_AI.rb:11594
+      if(ability("fluffy"))score-=30; // Battle_AI.rb:11595
+      if(ability("iceface"))score-=30; // Battle_AI.rb:11596
+      break;
+    case "VOLCANIC":
+      if(p.hasType("Fire"))score+=25; // Battle_AI.rb:11598
+      if(ability("waterveil"))score+=15; // Battle_AI.rb:11599
+      if(ability("heatproof"))score+=15; // Battle_AI.rb:11600
+      if(ability("waterbubble"))score+=15; // Battle_AI.rb:11601
+      if(ability("magmaarmor") || baseAbility("magmaarmor"))score+=20; // Battle_AI.rb:11602
+      if(ability("steamengine"))score+=25; // Battle_AI.rb:11603
+      if(ability("flashfire"))score+=30; // Battle_AI.rb:11604
+      if(ability("flareboost"))score+=30; // Battle_AI.rb:11605
+      if(ability("blaze"))score+=30; // Battle_AI.rb:11606
+      if((ability("icebody")))score-=30; // Battle_AI.rb:11607
+      if(ability("leafguard"))score-=30; // Battle_AI.rb:11608
+      if(ability("grasspelt"))score-=30; // Battle_AI.rb:11609
+      if(ability("fluffy"))score-=30; // Battle_AI.rb:11610
+      if(ability("iceface"))score-=30; // Battle_AI.rb:11611
+      break;
+    case "SWAMP":
+      if(ability("gooey"))score+=15; // Battle_AI.rb:11613
+      if(ability("watercompaction"))score+=20; // Battle_AI.rb:11614
+      if(ability("propellertail"))score+=15; // Battle_AI.rb:11615
+      if(ability("dryskin"))score+=20; // Battle_AI.rb:11616
+      if(ability("rattled") || baseAbility("rattled"))score+=10; // Battle_AI.rb:11617
+      break;
+    case "RAINBOW":
+      if(ability("wonderskin"))score+=10; // Battle_AI.rb:11619
+      if(ability("marvelscale"))score+=20; // Battle_AI.rb:11620
+      if(ability("soulheart"))score+=25; // Battle_AI.rb:11621
+      if(ability("cloudnine"))score+=30; // Battle_AI.rb:11622
+      if(ability("prismarmor"))score+=30; // Battle_AI.rb:11623
+      if(ability("pastelveil"))score+=20; // Battle_AI.rb:11624
+      break;
+    case "CORROSIVE":
+      if(ability("poisonheal"))score+=20; // Battle_AI.rb:11626
+      if(ability("toxicboost"))score+=25; // Battle_AI.rb:11627
+      if(ability("merciless"))score+=30; // Battle_AI.rb:11628
+      if(ability("corrosion"))score+=30; // Battle_AI.rb:11629
+      if(ability("toxicchain"))score+=20; // Battle_AI.rb:11630
+      if(p.hasType("Poison"))score+=15; // Battle_AI.rb:11631
+      break;
+    case "CORROSIVEMIST":
+      if(ability("watercompaction"))score+=10; // Battle_AI.rb:11633
+      if(ability("poisonheal"))score+=20; // Battle_AI.rb:11634
+      if(ability("toxicboost"))score+=25; // Battle_AI.rb:11635
+      if(ability("merciless"))score+=30; // Battle_AI.rb:11636
+      if(ability("corrosion"))score+=30; // Battle_AI.rb:11637
+      if(ability("toxicchain"))score+=20; // Battle_AI.rb:11638
+      if(p.hasType("Poison"))score+=15; // Battle_AI.rb:11639
+      break;
+    case "DESERT":
+      if(ability("sandstream") || baseAbility("sandstream") || ability("sandspit") || baseAbility("sandspit"))score+=20; // Battle_AI.rb:11641
+      if(ability("sandveil"))score+=25; // Battle_AI.rb:11642
+      if(ability("sandforce"))score+=30; // Battle_AI.rb:11643
+      if(ability("sandrush"))score+=50; // Battle_AI.rb:11644
+      if(ability("eartheater"))score+=20; // Battle_AI.rb:11645
+      if(p.hasType("Ground"))score+=20; // Battle_AI.rb:11646
+      if(p.hasType("Electric"))score-=25; // Battle_AI.rb:11647
+      break;
+    case "ICY":
+      if(p.hasType("Ice"))score+=25; // Battle_AI.rb:11649
+      if((ability("icebody")))score+=25; // Battle_AI.rb:11650
+      if(ability("snowcloak"))score+=25; // Battle_AI.rb:11651
+      if(ability("refrigerate"))score+=25; // Battle_AI.rb:11652
+      if(ability("icescales"))score+=20; // Battle_AI.rb:11653
+      if(ability("slushrush") || false)score+=50; // Battle_AI.rb:11654
+      break;
+    case "ROCKY":
+      if(ability("gorillatactics"))score-=15; // Battle_AI.rb:11656
+      break;
+    case "FOREST":
+      if(ability("sapsipper"))score+=20; // Battle_AI.rb:11658
+      if(p.hasType("Grass") || p.hasType("Bug"))score+=25; // Battle_AI.rb:11659
+      if(ability("grasspelt"))score+=30; // Battle_AI.rb:11660
+      if(ability("overgrow"))score+=30; // Battle_AI.rb:11661
+      if(ability("swarm"))score+=30; // Battle_AI.rb:11662
+      if(ability("effectspore"))score+=20; // Battle_AI.rb:11663
+      break;
+    case "SUPERHEATED":
+      if(p.hasType("Fire"))score+=15; // Battle_AI.rb:11665
+      break;
+    case "VOLCANICTOP":
+      if(p.hasType("Fire"))score+=15; // Battle_AI.rb:11667
+      if(ability("steamengine"))score+=25; // Battle_AI.rb:11668
+      if(ability("iceface"))score-=30; // Battle_AI.rb:11669
+      if(ability("galewings") && b.field.isWeather("deltastream"))score+=30; // Battle_AI.rb:11670
+      break;
+    case "FACTORY":
+      if(p.hasType("Electric"))score+=25; // Battle_AI.rb:11672
+      if(ability("motordrive"))score+=20; // Battle_AI.rb:11673
+      if(ability("steelworker"))score+=20; // Battle_AI.rb:11674
+      if(ability("download"))score+=25; // Battle_AI.rb:11675
+      if(ability("technician"))score+=25; // Battle_AI.rb:11676
+      if(ability("galvanize"))score+=25; // Battle_AI.rb:11677
+      break;
+    case "SHORTCIRCUIT":
+      if(ability("voltabsorb"))score+=20; // Battle_AI.rb:11679
+      if(ability("static"))score+=20; // Battle_AI.rb:11680
+      if(ability("galvanize"))score+=25; // Battle_AI.rb:11681
+      if(ability("surgesurfer"))score+=50; // Battle_AI.rb:11682
+      if(true && ability("download"))score+=20; // Battle_AI.rb:11683
+      if(p.hasType("Electric"))score+=25; // Battle_AI.rb:11684
+      break;
+    case "WASTELAND":
+      if(p.hasType("Poison"))score+=10; // Battle_AI.rb:11686
+      if(ability("corrosion"))score+=10; // Battle_AI.rb:11687
+      if(ability("poisonheal"))score+=20; // Battle_AI.rb:11688
+      if(ability("effectspore"))score+=20; // Battle_AI.rb:11689
+      if(ability("poisonpoint"))score+=20; // Battle_AI.rb:11690
+      if(ability("stench"))score+=20; // Battle_AI.rb:11691
+      if(ability("gooey"))score+=20; // Battle_AI.rb:11692
+      if(ability("toxicboost"))score+=25; // Battle_AI.rb:11693
+      if(ability("merciless"))score+=30; // Battle_AI.rb:11694
+      break;
+    case "ASHENBEACH":
+      if(p.hasType("Fighting"))score+=10; // Battle_AI.rb:11696
+      if(ability("innerfocus"))score+=15; // Battle_AI.rb:11697
+      if(ability("owntempo"))score+=15; // Battle_AI.rb:11698
+      if(ability("purepower"))score+=15; // Battle_AI.rb:11699
+      if(ability("steadfast"))score+=15; // Battle_AI.rb:11700
+      if(ability("stalwart"))score+=15; // Battle_AI.rb:11701
+      if(ability("sandstream") || baseAbility("sandstream"))score+=20; // Battle_AI.rb:11702
+      if(ability("watercompaction"))score+=20; // Battle_AI.rb:11703
+      if(ability("sandforce"))score+=30; // Battle_AI.rb:11704
+      if(ability("sandveil"))score+=35; // Battle_AI.rb:11705
+      if(ability("sandrush"))score+=50; // Battle_AI.rb:11706
+      break;
+    case "WATERSURFACE":
+      if(p.hasType("Water"))score+=25; // Battle_AI.rb:11708
+      if(p.hasType("Electric"))score+=25; // Battle_AI.rb:11709
+      if(ability("waterveil"))score+=25; // Battle_AI.rb:11710
+      if(ability("hydration"))score+=25; // Battle_AI.rb:11711
+      if(ability("torrent"))score+=25; // Battle_AI.rb:11712
+      if(ability("schooling"))score+=25; // Battle_AI.rb:11713
+      if(ability("watercompaction"))score+=25; // Battle_AI.rb:11714
+      if(ability("swiftswim"))score+=50; // Battle_AI.rb:11715
+      if(ability("surgesurfer"))score+=50; // Battle_AI.rb:11716
+      if(ability("steamengine"))score+=25; // Battle_AI.rb:11717
+      if(b.dex.getEffectiveness("Water",p)>0)score-=50; // Battle_AI.rb:11718
+      break;
+    case "UNDERWATER":
+      if(p.hasType("Water"))score+=25; // Battle_AI.rb:11720
+      if(p.hasType("Electric"))score+=25; // Battle_AI.rb:11721
+      if(ability("waterveil"))score+=25; // Battle_AI.rb:11722
+      if(ability("hydration"))score+=25; // Battle_AI.rb:11723
+      if(ability("torrent"))score+=25; // Battle_AI.rb:11724
+      if(ability("schooling"))score+=25; // Battle_AI.rb:11725
+      if(ability("watercompaction"))score+=25; // Battle_AI.rb:11726
+      if(ability("swiftswim"))score+=50; // Battle_AI.rb:11727
+      if(ability("steamengine"))score+=25; // Battle_AI.rb:11728
+      if(b.dex.getEffectiveness("Water",p)>0)score-=50; // Battle_AI.rb:11729
+      break;
+    case "CAVE":
+      if(p.hasType("Ground"))score+=15; // Battle_AI.rb:11731
+      break;
+    case "GLITCH":
+      if(true && ability("download"))score+=20; // Battle_AI.rb:11733
+      break;
+    case "CRYSTALCAVERN":
+      if(p.hasType("Dragon"))score+=25; // Battle_AI.rb:11735
+      if(ability("prismarmor"))score+=30; // Battle_AI.rb:11736
+      if(ability("teraformzero"))score+=20; // Battle_AI.rb:11737
+      if(ability("terashell"))score+=10; // Battle_AI.rb:11738
+      break;
+    case "MURKWATERSURFACE":
+      if(p.hasType("Water"))score+=25; // Battle_AI.rb:11740
+      if(p.hasType("Poison"))score+=25; // Battle_AI.rb:11741
+      if(p.hasType("Electric"))score+=25; // Battle_AI.rb:11742
+      if(ability("schooling"))score+=25; // Battle_AI.rb:11743
+      if(ability("watercompaction"))score+=25; // Battle_AI.rb:11744
+      if(ability("toxicboost"))score+=25; // Battle_AI.rb:11745
+      if(ability("poisonheal"))score+=25; // Battle_AI.rb:11746
+      if(ability("merciless"))score+=25; // Battle_AI.rb:11747
+      if(ability("swiftswim"))score+=50; // Battle_AI.rb:11748
+      if(ability("surgesurfer"))score+=50; // Battle_AI.rb:11749
+      if(ability("gooey"))score+=20; // Battle_AI.rb:11750
+      if(ability("stench"))score+=20; // Battle_AI.rb:11751
+      break;
+    case "MOUNTAIN":
+      if(p.hasType("Rock"))score+=25; // Battle_AI.rb:11753
+      if(p.hasType("Flying"))score+=25; // Battle_AI.rb:11754
+      if(["snowwarning","hailwarning"].some(a=>ability(a)||baseAbility(a)))score+=20; // Battle_AI.rb:11755
+      if(ability("drought") || baseAbility("drought"))score+=20; // Battle_AI.rb:11756
+      if(ability("longreach"))score+=25; // Battle_AI.rb:11757
+      if(ability("galewings") && b.field.isWeather("deltastream"))score+=30; // Battle_AI.rb:11758
+      if(ability("windrider") && b.field.isWeather("deltastream"))score+=20; // Battle_AI.rb:11759
+      if(ability("windpower") && b.field.isWeather("deltastream"))score+=20; // Battle_AI.rb:11760
+      break;
+    case "SNOWYMOUNTAIN":
+      if(p.hasType("Rock"))score+=25; // Battle_AI.rb:11762
+      if(p.hasType("Flying"))score+=25; // Battle_AI.rb:11763
+      if(p.hasType("Ice"))score+=25; // Battle_AI.rb:11764
+      if(["snowwarning","hailwarning"].some(a=>ability(a)||baseAbility(a)))score+=20; // Battle_AI.rb:11765
+      if(ability("drought") || baseAbility("drought"))score+=20; // Battle_AI.rb:11766
+      if((ability("icebody")))score+=20; // Battle_AI.rb:11767
+      if(ability("snowcloak"))score+=20; // Battle_AI.rb:11768
+      if(ability("longreach"))score+=25; // Battle_AI.rb:11769
+      if(ability("refrigerate"))score+=25; // Battle_AI.rb:11770
+      if(ability("galewings") && b.field.isWeather("deltastream"))score+=30; // Battle_AI.rb:11771
+      if(ability("windrider") && b.field.isWeather("deltastream"))score+=20; // Battle_AI.rb:11772
+      if(ability("windpower") && b.field.isWeather("deltastream"))score+=20; // Battle_AI.rb:11773
+      if(ability("icescales"))score+=20; // Battle_AI.rb:11774
+      if(ability("slushrush") || false)score+=50; // Battle_AI.rb:11775
+      break;
+    case "HOLY":
+      if(p.hasType("Normal"))score+=20; // Battle_AI.rb:11777
+      if(ability("justified"))score+=20; // Battle_AI.rb:11778
+      if(ability("powerspot"))score+=25; // Battle_AI.rb:11779
+      if(ability("purifyingsalt"))score+=10; // Battle_AI.rb:11780
+      break;
+    case "MIRROR":
+      if(ability("sandveil"))score+=25; // Battle_AI.rb:11782
+      if(ability("snowcloak"))score+=25; // Battle_AI.rb:11783
+      if(ability("illusion"))score+=25; // Battle_AI.rb:11784
+      if(ability("tangledfeet"))score+=25; // Battle_AI.rb:11785
+      if(ability("magicbounce"))score+=25; // Battle_AI.rb:11786
+      if(ability("colorchange"))score+=25; // Battle_AI.rb:11787
+      if(ability("mirrorarmor"))score+=25; // Battle_AI.rb:11788
+      break;
+    case "FAIRYTALE":
+      if(p.hasType("Fairy"))score+=25; // Battle_AI.rb:11790
+      if(p.hasType("Steel"))score+=25; // Battle_AI.rb:11791
+      if(p.hasType("Dragon"))score+=40; // Battle_AI.rb:11792
+      if(ability("powerofalchemy"))score+=25; // Battle_AI.rb:11793
+      if(ability("mirrorarmor") || baseAbility("mirrorarmor"))score+=25; // Battle_AI.rb:11794
+      if(ability("pastelveil"))score+=25; // Battle_AI.rb:11795
+      if(ability("magicguard") || baseAbility("magicguard"))score+=25; // Battle_AI.rb:11796
+      if(ability("magicbounce"))score+=25; // Battle_AI.rb:11797
+      if(ability("fairyaura"))score+=25; // Battle_AI.rb:11798
+      if(ability("battlearmor") || baseAbility("battlearmor"))score+=25; // Battle_AI.rb:11799
+      if(ability("shellarmor") || baseAbility("shellarmor"))score+=25; // Battle_AI.rb:11800
+      if(ability("armortail") || baseAbility("armortail"))score+=25; // Battle_AI.rb:11801
+      if(ability("magician"))score+=25; // Battle_AI.rb:11802
+      if(ability("marvelscale"))score+=25; // Battle_AI.rb:11803
+      if(ability("stancechange"))score+=30; // Battle_AI.rb:11804
+      if(ability("dauntlessshield"))score+=30; // Battle_AI.rb:11805
+      if(ability("intrepidsword"))score+=30; // Battle_AI.rb:11806
+      break;
+    case "DRAGONSDEN":
+      if(p.hasType("Fire"))score+=25; // Battle_AI.rb:11808
+      if(p.hasType("Dragon"))score+=50; // Battle_AI.rb:11809
+      if(ability("marvelscale"))score+=20; // Battle_AI.rb:11810
+      if(ability("multiscale"))score+=20; // Battle_AI.rb:11811
+      if(ability("dragonsmaw"))score+=25; // Battle_AI.rb:11812
+      if(ability("dragonize"))score+=25; // Battle_AI.rb:11813
+      if(ability("goodasgold"))score+=20; // Battle_AI.rb:11814
+      if(ability("magmaarmor") || baseAbility("magmaarmor"))score+=20; // Battle_AI.rb:11815
+      break;
+    case "FLOWERGARDEN1":
+    case "FLOWERGARDEN2":
+    case "FLOWERGARDEN3":
+    case "FLOWERGARDEN4":
+    case "FLOWERGARDEN5":
+      if(p.hasType("Grass"))score+=25; // Battle_AI.rb:11817
+      if(p.hasType("Bug"))score+=25; // Battle_AI.rb:11818
+      if(ability("flowergift"))score+=20; // Battle_AI.rb:11819
+      if(ability("flowerveil"))score+=20; // Battle_AI.rb:11820
+      if(ability("drought") || baseAbility("drought"))score+=20; // Battle_AI.rb:11821
+      if(ability("drizzle") || baseAbility("drizzle"))score+=20; // Battle_AI.rb:11822
+      if(true && (ability("grassysurge") || baseAbility("grassysurge")))score+=20; // Battle_AI.rb:11823
+      if(ability("seedsower") || baseAbility("seedsower"))score+=15; // Battle_AI.rb:11824
+      if(ability("ripen"))score+=25; // Battle_AI.rb:11825
+      break;
+    case "STARLIGHT":
+      if(p.hasType("Psychic"))score+=25; // Battle_AI.rb:11827
+      if(p.hasType("Fairy"))score+=25; // Battle_AI.rb:11828
+      if(p.hasType("Dark"))score+=25; // Battle_AI.rb:11829
+      if(ability("marvelscale"))score+=20; // Battle_AI.rb:11830
+      if(ability("victorystar"))score+=20; // Battle_AI.rb:11831
+      if(ability("illuminate") || baseAbility("illuminate"))score+=25; // Battle_AI.rb:11832
+      if(ability("shadowshield"))score+=30; // Battle_AI.rb:11833
+      break;
+    case "NEWWORLD":
+      if(p.hasType("Flying"))score+=25; // Battle_AI.rb:11835
+      if(p.hasType("Dark"))score+=25; // Battle_AI.rb:11836
+      if(ability("victorystar"))score+=20; // Battle_AI.rb:11837
+      if(["levitate","eelevate","solaridol","lunaridol","gravitycontrol"].some(ability))score+=25; // Battle_AI.rb:11838
+      if(ability("shadowshield"))score+=30; // Battle_AI.rb:11839
+      break;
+    case "INVERSE":
+      if(p.hasType("Normal"))score+=10; // Battle_AI.rb:11841
+      if(p.hasType("Ice"))score+=10; // Battle_AI.rb:11842
+      if(p.hasType("Fire"))score-=10; // Battle_AI.rb:11843
+      if(p.hasType("Steel"))score-=30; // Battle_AI.rb:11844
+      break;
+    case "PSYTERRAIN":
+      if(p.hasType("Psychic"))score+=25; // Battle_AI.rb:11846
+      if(ability("purepower"))score+=20; // Battle_AI.rb:11847
+      if(ability("anticipation") || baseAbility("anticipation"))score+=20; // Battle_AI.rb:11848
+      if(true && (ability("forewarn") || baseAbility("forewarn")))score+=20; // Battle_AI.rb:11849
+      if(ability("telepathy"))score+=50; // Battle_AI.rb:11850
+      if(ability("powerspot"))score+=25; // Battle_AI.rb:11851
+      if(ability("mindseye"))score+=10; // Battle_AI.rb:11852
+      break;
+    case "DIMENSIONAL":
+      if(p.hasType("Dark"))score+=25; // Battle_AI.rb:11854
+      if(ability("shadowshield"))score+=30; // Battle_AI.rb:11855
+      if(ability("beastboost"))score+=30; // Battle_AI.rb:11856
+      if(ability("perishbody"))score+=30; // Battle_AI.rb:11857
+      if(ability("rattled") || baseAbility("rattled"))score+=20; // Battle_AI.rb:11858
+      if(ability("berserk") || baseAbility("berserk"))score+=20; // Battle_AI.rb:11859
+      if(ability("angerpoint") || baseAbility("angerpoint"))score+=20; // Battle_AI.rb:11860
+      if(ability("justified") || baseAbility("justified"))score+=20; // Battle_AI.rb:11861
+      if(["pressure","unnerve","asonechilling","asonegrim"].some(a=>ability(a)||baseAbility(a)))score+=20; // Battle_AI.rb:11862
+      break;
+    case "FROZENDIMENSION":
+      if(p.hasType("Ice"))score+=25; // Battle_AI.rb:11864
+      if(p.hasType("Dark"))score+=25; // Battle_AI.rb:11865
+      if((ability("icebody")))score+=25; // Battle_AI.rb:11866
+      if(ability("snowcloak"))score+=25; // Battle_AI.rb:11867
+      if(ability("refrigerate"))score+=25; // Battle_AI.rb:11868
+      if(ability("slushrush") || false)score+=50; // Battle_AI.rb:11869
+      if(ability("iceface"))score+=25; // Battle_AI.rb:11870
+      if(ability("rattled") || baseAbility("rattled"))score+=20; // Battle_AI.rb:11871
+      if(ability("berserk") || baseAbility("berserk"))score+=20; // Battle_AI.rb:11872
+      if(ability("angerpoint") || baseAbility("angerpoint"))score+=20; // Battle_AI.rb:11873
+      if(ability("justified") || baseAbility("justified"))score+=20; // Battle_AI.rb:11874
+      if(["pressure","unnerve","asonechilling","asonegrim"].some(a=>ability(a)||baseAbility(a)))score+=20; // Battle_AI.rb:11875
+      break;
+    case "HAUNTED":
+      if(p.hasType("Ghost"))score+=25; // Battle_AI.rb:11877
+      if(ability("rattled"))score+=25; // Battle_AI.rb:11878
+      if(ability("cursedbody"))score+=15; // Battle_AI.rb:11879
+      if(ability("perishbody"))score+=25; // Battle_AI.rb:11880
+      if(ability("powerspot"))score+=25; // Battle_AI.rb:11881
+      break;
+    case "CORRUPTED":
+      if(p.hasType("Poison"))score+=25; // Battle_AI.rb:11883
+      if(["grasspelt","leafguard","flowerveil"].some(ability))score-=25; // Battle_AI.rb:11884
+      if(ability("poisonheal"))score+=25; // Battle_AI.rb:11885
+      if(["wonderskin","immunity","pastelveil"].some(ability))score+=15; // Battle_AI.rb:11886
+      if(["poisontouch","poisonpoint"].some(ability))score+=15; // Battle_AI.rb:11887
+      if(ability("liquidooze"))score+=15; // Battle_AI.rb:11888
+      if(["toxicboost","corrosion"].some(ability))score+=30; // Battle_AI.rb:11889
+      if(ability("dryskin") && (p.hasType("Poison")))score+=25; // Battle_AI.rb:11891
+      if(ability("dryskin") && (!p.hasType("Poison")))score-=25; // Battle_AI.rb:11892
+      break;
+    case "BEWITCHED":
+      if(ability("flowerveil"))score+=20; // Battle_AI.rb:11895
+      if(p.hasType("Grass") || p.hasType("Fairy"))score+=25; // Battle_AI.rb:11896
+      if(ability("naturalcure"))score+=25; // Battle_AI.rb:11897
+      if(ability("pastelveil"))score+=25; // Battle_AI.rb:11898
+      if(ability("cottondown"))score+=25; // Battle_AI.rb:11899
+      if(ability("powerspot"))score+=25; // Battle_AI.rb:11900
+      if(ability("effectspore"))score+=20; // Battle_AI.rb:11901
+      break;
+    case "SKY":
+      if(ability("earlybird"))score+=15; // Battle_AI.rb:11903
+      if(ability("cloudnine"))score+=15; // Battle_AI.rb:11904
+      if(p.hasType("Flying"))score+=25; // Battle_AI.rb:11905
+      if(ability("galewings"))score+=25; // Battle_AI.rb:11906
+      if(ability("bigpecks") || baseAbility("bigpecks"))score+=25; // Battle_AI.rb:11907
+      if(["levitate","eelevate","solaridol","lunaridol","gravitycontrol"].some(a=>ability(a)||baseAbility(a)))score+=25; // Battle_AI.rb:11908
+      if(ability("aerilate"))score+=25; // Battle_AI.rb:11909
+      if(ability("longreach"))score+=30; // Battle_AI.rb:11910
+      break;
+    case "INFERNAL":
+      if(p.hasType("Fire"))score+=25; // Battle_AI.rb:11912
+      if(p.hasType("Dark"))score+=25; // Battle_AI.rb:11913
+      if(ability("perishbody"))score+=25; // Battle_AI.rb:11914
+      if(ability("magmaarmor") || baseAbility("magmaarmor"))score+=30; // Battle_AI.rb:11915
+      if(ability("flamebody") || baseAbility("flamebody"))score+=20; // Battle_AI.rb:11916
+      if(ability("desolateland") || baseAbility("desolateland"))score+=20; // Battle_AI.rb:11917
+      if(ability("steamengine"))score+=25; // Battle_AI.rb:11918
+      if(ability("flashfire"))score+=30; // Battle_AI.rb:11919
+      if(ability("flareboost"))score+=30; // Battle_AI.rb:11920
+      if(ability("blaze"))score+=30; // Battle_AI.rb:11921
+      if(ability("pastelveil"))score-=20; // Battle_AI.rb:11922
+      if(ability("iceface"))score-=30; // Battle_AI.rb:11923
+      break;
+    case "COLOSSEUM":
+      if(ability("stalwart"))score+=15; // Battle_AI.rb:11925
+      if(ability("defiant"))score+=20; // Battle_AI.rb:11926
+      if(ability("competitive"))score+=20; // Battle_AI.rb:11927
+      if(ability("rattled") || ability("wimpout"))score-=30; // Battle_AI.rb:11928
+      if(ability("wonderguard"))score+=25; // Battle_AI.rb:11929
+      if(ability("quickdraw"))score+=25; // Battle_AI.rb:11930
+      if(ability("emergencyexit"))score+=25; // Battle_AI.rb:11931
+      if(ability("battlearmor") || baseAbility("battlearmor"))score+=25; // Battle_AI.rb:11932
+      if(ability("shellarmor") || baseAbility("shellarmor"))score+=25; // Battle_AI.rb:11933
+      if(ability("mirrorarmor") || baseAbility("mirrorarmor"))score+=25; // Battle_AI.rb:11934
+      if(ability("magicguard") || baseAbility("magicguard"))score+=25; // Battle_AI.rb:11935
+      if(ability("skilllink"))score+=25; // Battle_AI.rb:11936
+      if(ability("noguard") || baseAbility("noguard"))score+=30; // Battle_AI.rb:11937
+      if(ability("dauntlessshield"))score+=50; // Battle_AI.rb:11938
+      if(ability("intrepidsword"))score+=50; // Battle_AI.rb:11939
+      break;
+    case "CONCERT1":
+    case "CONCERT2":
+    case "CONCERT3":
+    case "CONCERT4":
+      if(ability("technician"))score+=25; // Battle_AI.rb:11941
+      if(["heavymetal","solidrock","punkrock","rockhead","soundproof"].some(ability))score+=25; // Battle_AI.rb:11942
+      if(["heavymetal","solidrock","punkrock","galvanize","plus"].some(ability) && (stage>=1 && stage<=3))score+=15; // Battle_AI.rb:11943
+      if(["klutz","minus"].some(ability) && (stage>=2 && stage<=4))score-=15; // Battle_AI.rb:11944
+      if(["runaway","emergencyexit"].some(ability) && (stage>=2 && stage<=4))score+=25; // Battle_AI.rb:11945
+      if(ability("rattled") && (stage>=3 && stage<=4))score+=30; // Battle_AI.rb:11946
+      break;
+    case "BACKALLEY":
+      if(p.hasType("Dark"))score+=25; // Battle_AI.rb:11948
+      if(p.hasType("Poison"))score+=20; // Battle_AI.rb:11949
+      if(p.hasType("Bug"))score+=20; // Battle_AI.rb:11950
+      if(p.hasType("Steel"))score+=20; // Battle_AI.rb:11951
+      if(p.hasType("Fairy"))score-=25; // Battle_AI.rb:11952
+      if(ability("stench"))score+=20; // Battle_AI.rb:11953
+      if(ability("download"))score+=25; // Battle_AI.rb:11954
+      if(ability("pickpocket") || baseAbility("pickpocket"))score+=25; // Battle_AI.rb:11955
+      if(ability("merciless") || baseAbility("merciless"))score+=25; // Battle_AI.rb:11956
+      if(ability("magician") || baseAbility("magician"))score+=25; // Battle_AI.rb:11957
+      if(ability("anticipation") || baseAbility("anticipation"))score+=25; // Battle_AI.rb:11958
+      if(ability("forewarn") || baseAbility("forewarn"))score+=25; // Battle_AI.rb:11959
+      if(ability("rattled") || baseAbility("rattled"))score+=25; // Battle_AI.rb:11960
+      if(ability("defiant"))score+=20; // Battle_AI.rb:11961
+      break;
+    case "CITY":
+      if(p.hasType("Normal"))score+=25; // Battle_AI.rb:11963
+      if(p.hasType("Poison"))score+=20; // Battle_AI.rb:11964
+      if(p.hasType("Bug"))score+=20; // Battle_AI.rb:11965
+      if(p.hasType("Steel"))score+=20; // Battle_AI.rb:11966
+      if(p.hasType("Fairy"))score-=20; // Battle_AI.rb:11967
+      if(ability("stench"))score+=20; // Battle_AI.rb:11968
+      if(ability("download"))score+=25; // Battle_AI.rb:11969
+      if(ability("bigpecks") || baseAbility("bigpecks"))score+=25; // Battle_AI.rb:11970
+      if(ability("pickup") || baseAbility("pickup"))score+=25; // Battle_AI.rb:11971
+      if(ability("earlybird") || baseAbility("earlybird"))score+=25; // Battle_AI.rb:11972
+      if(ability("rattled") || baseAbility("rattled"))score+=25; // Battle_AI.rb:11973
+      if(ability("hustle"))score+=20; // Battle_AI.rb:11974
+      if(ability("frisk") || baseAbility("frisk"))score+=20; // Battle_AI.rb:11975
+      if(ability("competitive"))score+=20; // Battle_AI.rb:11976
+      break;
+    case "CLOUDS":
+      if(p.hasType("Flying"))score+=25; // Battle_AI.rb:11978
+      if(ability("cloudnine"))score+=20; // Battle_AI.rb:11979
+      if(ability("fluffy"))score+=20; // Battle_AI.rb:11980
+      if(ability("bigpecks"))score+=20; // Battle_AI.rb:11981
+      if(ability("earlybird"))score+=20; // Battle_AI.rb:11982
+      if(ability("windpower"))score+=20; // Battle_AI.rb:11983
+      if(ability("voltabsorb") && b.field.isWeather("raindance"))score+=20; // Battle_AI.rb:11984
+      if(ability("lightningrod") && b.field.isWeather("raindance"))score+=20; // Battle_AI.rb:11985
+      if(ability("motordrive") && b.field.isWeather("raindance"))score+=20; // Battle_AI.rb:11986
+      if(ability("snowcloak") && b.field.isWeather(["hail","snow"]))score+=20; // Battle_AI.rb:11987
+      if(ability("icebody") && b.field.isWeather(["hail","snow"]))score+=20; // Battle_AI.rb:11988
+      if(ability("forecast"))score+=20; // Battle_AI.rb:11989
+      if(ability("overcoat"))score+=20; // Battle_AI.rb:11990
+      break;
+    case "DARKNESS1":
+      if(p.hasType("Dark"))score+=10; // Battle_AI.rb:11992
+      if(ability("darkaura"))score+=10; // Battle_AI.rb:11993
+      if(ability("fairyaura"))score-=10; // Battle_AI.rb:11994
+      if(ability("rattled"))score+=20; // Battle_AI.rb:11995
+      break;
+    case "DARKNESS2":
+      if(p.hasType("Dark"))score+=20; // Battle_AI.rb:11997
+      if(ability("darkaura"))score+=20; // Battle_AI.rb:11998
+      if(ability("fairyaura"))score-=20; // Battle_AI.rb:11999
+      if(ability("rattled"))score+=20; // Battle_AI.rb:12000
+      if(ability("insomnia"))score-=20; // Battle_AI.rb:12001
+      if(ability("baddreams"))score+=20; // Battle_AI.rb:12002
+      if(ability("shadowshield"))score+=20; // Battle_AI.rb:12003
+      if(ability("pickpocket"))score+=20; // Battle_AI.rb:12004
+      break;
+    case "DARKNESS3":
+      if(p.hasType("Dark"))score+=40; // Battle_AI.rb:12006
+      if(ability("darkaura"))score+=40; // Battle_AI.rb:12007
+      if(ability("fairyaura"))score-=40; // Battle_AI.rb:12008
+      if(ability("rattled"))score+=40; // Battle_AI.rb:12009
+      if(ability("insomnia"))score-=40; // Battle_AI.rb:12010
+      if(ability("baddreams"))score+=40; // Battle_AI.rb:12011
+      if(ability("shadowshield"))score+=40; // Battle_AI.rb:12012
+      if(ability("pickpocket"))score+=40; // Battle_AI.rb:12013
+      break;
+    case "DANCEFLOOR":
+      if(ability("insomnia"))score+=20; // Battle_AI.rb:12015
+      if(ability("magicguard"))score+=20; // Battle_AI.rb:12016
+      if(ability("magician"))score+=10; // Battle_AI.rb:12017
+      if(ability("dancer"))score+=40; // Battle_AI.rb:12018
+      if(ability("illuminate"))score+=20; // Battle_AI.rb:12019
+      break;
+    case "CROWD":
+      if(ability("guts"))score+=20; // Battle_AI.rb:12021
+      if(ability("innerfocus"))score+=10; // Battle_AI.rb:12022
+      if(ability("intimidate"))score+=30; // Battle_AI.rb:12023
+      if(ability("ironfist"))score+=20; // Battle_AI.rb:12024
+      break;
+    }return score/100;
+  }
+  // END GENERATED SOURCE AI AFFINITY
+  // BEGIN GENERATED SOURCE AI DISRUPTION
+  // Battle_AI.rb getFieldDisruptScore: field preference of the current matchup (1 is neutral, higher favours the
+  // opponent). Strategic weights only; every battle mechanic still comes from the simulator.
+  function sourceDisruptionScore(V,original,overlay=false,violent=false){
+    const A=V.attacker,O=V.opponent,AP=V.attackerPartner,OP=V.opponentPartner;
+    const type=(p,t)=>!!p && p.types.includes(t),party=t=>V.partyTypes.includes(t);
+    const ability=(p,a)=>!!p && p.ability===a,hasMove=(p,moves)=>!!p && moves.some(m=>p.moves.includes(m));
+    const role=(p,r)=>!!p && p.roles.includes(r);
+    let score=100,ratio1=0,ratio2=0,oratio1=0,oratio2=0;
+    switch(original){
+    case "INDOOR":
+      break;
+    case "ELECTERRAIN":
+      if(type(O,"Electric") || type(OP,"Electric"))score*=1.5; // Battle_AI.rb:9780
+      if(type(A,"Electric"))score*=0.5; // Battle_AI.rb:9781
+      if(party("Electric"))score*=0.5; // Battle_AI.rb:9782
+      if(ability(O,"surgesurfer"))score*=1.3; // Battle_AI.rb:9783
+      if(ability(A,"surgesurfer"))score*=0.7; // Battle_AI.rb:9784
+      break;
+    case "GRASSY":
+      if(type(O,"Grass") || type(OP,"Grass"))score*=1.5; // Battle_AI.rb:9786
+      if(type(A,"Grass"))score*=0.5; // Battle_AI.rb:9787
+      if(party("Grass"))score*=0.5; // Battle_AI.rb:9788
+      if(!overlay){
+        if(type(O,"Fire") || type(OP,"Fire"))score*=1.8; // Battle_AI.rb:9790
+        if(type(A,"Fire"))score*=0.2; // Battle_AI.rb:9791
+        if(party("Fire"))score*=0.2; // Battle_AI.rb:9792
+      }
+      if(type(A,"Water"))score*=1.3; // Battle_AI.rb:9794
+      if(party("Water"))score*=1.5; // Battle_AI.rb:9795
+      if(role(A,"SPECIALWALL") || role(A,"PHYSICALWALL"))score*=0.8; // Battle_AI.rb:9796
+      if(role(O,"SPECIALWALL") || role(O,"PHYSICALWALL"))score*=1.2; // Battle_AI.rb:9797
+      break;
+    case "MISTY":
+      if(!overlay){
+        if(A.spa > A.atk && (type(O,"Fairy") || type(OP,"Fairy")))score*=1.3; // Battle_AI.rb:9800
+        if(type(A,"Fairy") && O.spa > O.atk)score*=0.7; // Battle_AI.rb:9801
+        if(type(O,"Dragon") || type(OP,"Dragon"))score*=0.5; // Battle_AI.rb:9802
+        if(type(A,"Dragon"))score*=1.5; // Battle_AI.rb:9803
+        if(party("Dragon"))score*=1.5; // Battle_AI.rb:9804
+        if(V.counter===1 && !(type(A,"Poison") || type(A,"Steel")))score*=1.8; // Battle_AI.rb:9805
+      }
+      if(party("Fairy"))score*=0.7; // Battle_AI.rb:9807
+      break;
+    case "DARKCRYSTALCAVERN":
+      if(type(O,"Dark") || type(OP,"Dark") || type(O,"Ghost") || type(OP,"Ghost"))score*=1.3; // Battle_AI.rb:9809
+      if(type(A,"Dark") || type(A,"Ghost"))score*=0.7; // Battle_AI.rb:9810
+      if(party("Dark") || party("Ghost"))score*=0.7; // Battle_AI.rb:9811
+      break;
+    case "CHESS":
+      if(type(O,"Psychic") || type(OP,"Psychic"))score*=1.3; // Battle_AI.rb:9813
+      if(type(A,"Psychic"))score*=0.7; // Battle_AI.rb:9814
+      if(party("Psychic"))score*=0.7; // Battle_AI.rb:9815
+      score*=(A.speed>O.speed?1.3:0.7); // Battle_AI.rb:9816
+      break;
+    case "BIGTOP":
+      if(type(O,"Fighting") || type(OP,"Fighting"))score*=1.5; // Battle_AI.rb:9818
+      if(type(A,"Fighting"))score*=0.5; // Battle_AI.rb:9819
+      if(party("Fighting"))score*=0.5; // Battle_AI.rb:9820
+      if(ability(O,"dancer"))score*=1.5; // Battle_AI.rb:9821
+      if(ability(A,"dancer"))score*=0.5; // Battle_AI.rb:9822
+      if(hasMove(A,["sing","dragondance","quiverdance"]))score*=0.5; // Battle_AI.rb:9823
+      if(hasMove(O,["sing","dragondance","quiverdance"]))score*=1.5; // Battle_AI.rb:9824
+      break;
+    case "SWAMP":
+      if(hasMove(A,["sleeppowder"]))score*=0.7; // Battle_AI.rb:9836
+      if(hasMove(O,["sleeppowder"]))score*=1.3; // Battle_AI.rb:9837
+      break;
+    case "RAINBOW":
+      if(type(O,"Normal") || type(OP,"Normal"))score*=1.5; // Battle_AI.rb:9839
+      if(type(A,"Normal"))score*=0.5; // Battle_AI.rb:9840
+      if(party("Normal"))score*=0.5; // Battle_AI.rb:9841
+      if(ability(O,"cloudnine"))score*=1.4; // Battle_AI.rb:9842
+      if(ability(A,"cloudnine"))score*=0.6; // Battle_AI.rb:9843
+      if(hasMove(A,["sonicboom"]))score*=0.8; // Battle_AI.rb:9844
+      if(hasMove(O,["sonicboom"]))score*=1.2; // Battle_AI.rb:9845
+      break;
+    case "CORROSIVE":
+      if(type(O,"Poison") || type(OP,"Poison"))score*=1.3; // Battle_AI.rb:9847
+      if(type(A,"Poison"))score*=0.7; // Battle_AI.rb:9848
+      if(party("Poison"))score*=0.7; // Battle_AI.rb:9849
+      if(ability(O,"corrosion"))score*=1.5; // Battle_AI.rb:9850
+      if(ability(A,"corrosion"))score*=0.5; // Battle_AI.rb:9851
+      if(hasMove(A,["sleeppowder"]))score*=0.7; // Battle_AI.rb:9852
+      if(hasMove(O,["sleeppowder"]))score*=1.3; // Battle_AI.rb:9853
+      break;
+    case "CORROSIVEMIST":
+      if(violent){
+        if(!O.protect && !O.skyDrop && !(O.semiInvulnerable && V.attackerFaster) && !ability(O,"flashfire")){
+          if(A.hp/A.maxhp < 0.2)score*=2; // Battle_AI.rb:9859
+          if(V.opponentReserves===0)score*=5; // Battle_AI.rb:9860
+        }
+      }
+      if(type(O,"Poison") || type(OP,"Poison"))score*=1.3; // Battle_AI.rb:9863
+      if(type(A,"Poison")){
+        score*=0.7; // Battle_AI.rb:9865
+      }else if(!type(A,"Steel")){
+        score*=1.4; // Battle_AI.rb:9867
+      }
+      if(!party("Poison"))score*=1.4; // Battle_AI.rb:9869
+      if(ability(O,"corrosion"))score*=1.5; // Battle_AI.rb:9870
+      if(ability(A,"corrosion"))score*=0.5; // Battle_AI.rb:9871
+      if(type(O,"Fire") || type(OP,"Fire"))score*=1.5; // Battle_AI.rb:9872
+      if(type(A,"Fire"))score*=0.8; // Battle_AI.rb:9873
+      if(party("Fire"))score*=0.8; // Battle_AI.rb:9874
+      break;
+    case "DESERT":
+      if(A.spa > A.atk && (type(O,"Ground") || type(OP,"Ground")))score*=1.3; // Battle_AI.rb:9876
+      if(O.spa > O.atk && (type(A,"Ground")))score*=0.7; // Battle_AI.rb:9877
+      if(type(A,"Electric") || type(A,"Water"))score*=1.5; // Battle_AI.rb:9878
+      if(type(O,"Electric") || type(OP,"Water"))score*=0.5; // Battle_AI.rb:9879
+      if(party("Ground"))score*=0.7; // Battle_AI.rb:9880
+      if(party("Water") || party("Electric"))score*=1.5; // Battle_AI.rb:9881
+      if(ability(O,"sandrush") && V.weather!=="sandstorm")score*=1.3; // Battle_AI.rb:9882
+      if(ability(A,"sandrush") && V.weather!=="sandstorm")score*=0.7; // Battle_AI.rb:9883
+      break;
+    case "ICY":
+      if(type(O,"Ice") || type(OP,"Ice"))score*=1.3; // Battle_AI.rb:9885
+      if(type(A,"Ice"))score*=0.5; // Battle_AI.rb:9886
+      if(party("Ice"))score*=0.5; // Battle_AI.rb:9887
+      if(type(O,"Fire") || type(OP,"Fire"))score*=0.5; // Battle_AI.rb:9888
+      if(type(A,"Fire"))score*=1.1; // Battle_AI.rb:9889
+      if(party("Fire"))score*=1.1; // Battle_AI.rb:9890
+      if(ability(O,"icescales"))score*=1.3; // Battle_AI.rb:9891
+      if(ability(A,"icescales"))score*=0.7; // Battle_AI.rb:9892
+      if((ability(O,"slushrush") || false || false) && !["hail","snow"].includes(V.weather))score*=1.3; // Battle_AI.rb:9893
+      if((ability(A,"slushrush") || false || false) && !["hail","snow"].includes(V.weather))score*=0.7; // Battle_AI.rb:9894
+      break;
+    case "ROCKY":
+      if(type(O,"Rock") || type(OP,"Rock"))score*=1.5; // Battle_AI.rb:9896
+      if(type(A,"Rock"))score*=0.5; // Battle_AI.rb:9897
+      if(party("Rock"))score*=0.5; // Battle_AI.rb:9898
+      break;
+    case "FOREST":
+      if(type(O,"Grass") || type(O,"Bug") || type(OP,"Grass") || type(OP,"Bug"))score*=1.5; // Battle_AI.rb:9900
+      if(type(A,"Grass") || type(A,"Bug"))score*=0.5; // Battle_AI.rb:9901
+      if(party("Grass") || party("Bug"))score*=0.5; // Battle_AI.rb:9902
+      if(type(O,"Fire") || type(OP,"Fire"))score*=1.8; // Battle_AI.rb:9903
+      if(type(A,"Fire"))score*=0.2; // Battle_AI.rb:9904
+      if(party("Fire"))score*=0.2; // Battle_AI.rb:9905
+      break;
+    case "FACTORY":
+      if(type(O,"Electric") || type(OP,"Electric"))score*=1.2; // Battle_AI.rb:9917
+      if(type(A,"Electric"))score*=0.8; // Battle_AI.rb:9918
+      if(party("Electric"))score*=0.8; // Battle_AI.rb:9919
+      break;
+    case "SHORTCIRCUIT":
+      if(type(O,"Electric") || type(OP,"Electric"))score*=1.4; // Battle_AI.rb:9921
+      if(type(A,"Electric"))score*=0.6; // Battle_AI.rb:9922
+      if(party("Electric"))score*=0.6; // Battle_AI.rb:9923
+      if(ability(O,"surgesurfer"))score*=1.3; // Battle_AI.rb:9924
+      if(ability(A,"surgesurfer"))score*=0.7; // Battle_AI.rb:9925
+      if(type(O,"Dark") || type(OP,"Dark") || type(O,"Ghost") || type(OP,"Ghost"))score*=1.3; // Battle_AI.rb:9926
+      if(type(A,"Dark") || type(A,"Ghost"))score*=0.7; // Battle_AI.rb:9927
+      if(party("Dark") || party("Ghost"))score*=0.7; // Battle_AI.rb:9928
+      break;
+    case "WASTELAND":
+      if(type(O,"Poison") || type(OP,"Poison"))score*=1.3; // Battle_AI.rb:9930
+      if(type(A,"Poison"))score*=0.7; // Battle_AI.rb:9931
+      if(party("Poison"))score*=0.7; // Battle_AI.rb:9932
+      break;
+    case "ASHENBEACH":
+      if(type(O,"Fighting") || type(OP,"Fighting") || type(O,"Psychic") || type(OP,"Psychic"))score*=1.3; // Battle_AI.rb:9934
+      if(type(A,"Fighting") || type(A,"Psychic"))score*=0.7; // Battle_AI.rb:9935
+      if(party("Fighting") || party("Psychic"))score*=0.7; // Battle_AI.rb:9936
+      if(ability(O,"sandrush") && V.weather!=="sandstorm")score*=1.3; // Battle_AI.rb:9937
+      if(ability(A,"sandrush") && V.weather!=="sandstorm")score*=0.7; // Battle_AI.rb:9938
+      break;
+    case "WATERSURFACE":
+      if(type(O,"Water") || type(OP,"Water"))score*=1.6; // Battle_AI.rb:9940
+      if(type(A,"Water")){
+        score*=0.4; // Battle_AI.rb:9942
+      }else if(!A.airborne){
+        score*=1.3; // Battle_AI.rb:9944
+      }
+      if(party("Water"))score*=0.4; // Battle_AI.rb:9946
+      if(ability(O,"swiftswim") && V.weather!=="raindance")score*=1.3; // Battle_AI.rb:9947
+      if(ability(A,"swiftswim") && V.weather!=="raindance")score*=0.7; // Battle_AI.rb:9948
+      if(ability(O,"surgesurfer"))score*=1.3; // Battle_AI.rb:9949
+      if(ability(A,"surgesurfer"))score*=0.7; // Battle_AI.rb:9950
+      if(!type(A,"Poison") && V.counter===1)score*=1.3; // Battle_AI.rb:9951
+      break;
+    case "UNDERWATER":
+      if(type(O,"Water") || type(OP,"Water"))score*=2.0; // Battle_AI.rb:9953
+      if(type(A,"Water")){
+        score*=0.1; // Battle_AI.rb:9955
+      }else{
+        score*=1.5; // Battle_AI.rb:9957
+        if(type(A,"Rock") || type(A,"Ground"))score*=2; // Battle_AI.rb:9958
+      }
+      if(A.atk > A.spa)score*=1.2; // Battle_AI.rb:9960
+      if(O.atk > O.spa)score*=0.8; // Battle_AI.rb:9961
+      if(party("Water"))score*=0.1; // Battle_AI.rb:9962
+      if(ability(O,"swiftswim"))score*=0.9; // Battle_AI.rb:9963
+      if(ability(A,"swiftswim"))score*=1.1; // Battle_AI.rb:9964
+      if(!type(A,"Poison") && V.counter===1)score*=1.3; // Battle_AI.rb:9965
+      break;
+    case "CAVE":
+      if(type(O,"Rock") || type(OP,"Rock"))score*=1.5; // Battle_AI.rb:9967
+      if(type(A,"Rock"))score*=0.5; // Battle_AI.rb:9968
+      if(party("Rock"))score*=0.5; // Battle_AI.rb:9969
+      if(type(O,"Ground") || type(OP,"Ground"))score*=1.2; // Battle_AI.rb:9970
+      if(type(A,"Ground"))score*=0.8; // Battle_AI.rb:9971
+      if(party("Ground"))score*=0.8; // Battle_AI.rb:9972
+      if(type(O,"Flying") || type(OP,"Flying"))score*=0.7; // Battle_AI.rb:9973
+      if(type(A,"Flying"))score*=1.3; // Battle_AI.rb:9974
+      if(party("Flying"))score*=1.3; // Battle_AI.rb:9975
+      break;
+    case "GLITCH":
+      if(type(A,"Dark") || type(A,"Steel") || type(A,"Fairy"))score*=1.3; // Battle_AI.rb:9977
+      if(party("Dark") || party("Steel") || party("Fairy"))score*=1.3; // Battle_AI.rb:9978
+      ratio1=A.spa/A.spd; // Battle_AI.rb:9979
+      ratio2=A.spd/A.spa; // Battle_AI.rb:9980
+      if(ratio1<1){
+        score*=ratio1; // Battle_AI.rb:9982
+      }else if(ratio2 < 1){
+        score*=ratio2; // Battle_AI.rb:9984
+      }
+      oratio1=O.spa/A.spd; // Battle_AI.rb:9986
+      oratio2=O.spd/A.spa; // Battle_AI.rb:9987
+      if(oratio1>1){
+        score*=oratio1; // Battle_AI.rb:9989
+      }else if(oratio2 > 1){
+        score*=oratio2; // Battle_AI.rb:9991
+      }
+      break;
+    case "CRYSTALCAVERN":
+      if(type(O,"Rock") || type(OP,"Rock") || type(O,"Dragon") || type(OP,"Dragon"))score*=1.5; // Battle_AI.rb:9994
+      if(type(A,"Rock") || type(A,"Dragon"))score*=0.5; // Battle_AI.rb:9995
+      if(party("Rock") || party("Dragon"))score*=0.5; // Battle_AI.rb:9996
+      break;
+    case "MURKWATERSURFACE":
+      if(type(O,"Water") || type(OP,"Water"))score*=1.6; // Battle_AI.rb:9998
+      if(type(A,"Water")){
+        score*=0.4; // Battle_AI.rb:10000
+      }else if(!A.airborne){
+        score*=1.3; // Battle_AI.rb:10002
+      }
+      if(party("Water"))score*=0.4; // Battle_AI.rb:10004
+      if(ability(O,"swiftswim") && V.weather!=="raindance")score*=1.3; // Battle_AI.rb:10005
+      if(ability(A,"swiftswim") && V.weather!=="raindance")score*=0.7; // Battle_AI.rb:10006
+      if(ability(O,"surgesurfer"))score*=1.3; // Battle_AI.rb:10007
+      if(ability(A,"surgesurfer"))score*=0.7; // Battle_AI.rb:10008
+      if(type(O,"Steel") || type(OP,"Steel") || type(O,"Poison") || type(OP,"Poison"))score*=1.3; // Battle_AI.rb:10009
+      if(type(A,"Poison")){
+        score*=0.7; // Battle_AI.rb:10011
+      }else if(!type(A,"Steel")){
+        score*=1.8; // Battle_AI.rb:10013
+      }
+      if(party("Poison"))score*=0.7; // Battle_AI.rb:10015
+      break;
+    case "MOUNTAIN":
+      if(type(O,"Rock") || type(OP,"Rock") || type(O,"Flying") || type(OP,"Flying"))score*=1.5; // Battle_AI.rb:10017
+      if(type(A,"Rock") || type(A,"Flying"))score*=0.5; // Battle_AI.rb:10018
+      if(party("Rock") || party("Flying"))score*=0.5; // Battle_AI.rb:10019
+      break;
+    case "SNOWYMOUNTAIN":
+      if(type(O,"Rock") || type(OP,"Rock") || type(O,"Flying") || type(OP,"Flying") || type(O,"Ice") || type(OP,"Ice"))score*=1.5; // Battle_AI.rb:10021
+      if(type(A,"Rock") || type(A,"Flying") || type(A,"Ice"))score*=0.5; // Battle_AI.rb:10022
+      if(party("Rock") || party("Flying") || party("Ice"))score*=0.5; // Battle_AI.rb:10023
+      if(type(O,"Fire") || type(OP,"Fire"))score*=0.5; // Battle_AI.rb:10024
+      if(type(A,"Fire"))score*=1.5; // Battle_AI.rb:10025
+      if(party("Fire"))score*=1.5; // Battle_AI.rb:10026
+      if(ability(O,"icescales"))score*=1.3; // Battle_AI.rb:10027
+      if(ability(A,"icescales"))score*=0.7; // Battle_AI.rb:10028
+      if((ability(O,"slushrush") || false || false) && !["hail","snow"].includes(V.weather))score*=1.3; // Battle_AI.rb:10029
+      if((ability(A,"slushrush") || false || false) && !["hail","snow"].includes(V.weather))score*=0.7; // Battle_AI.rb:10030
+      break;
+    case "HOLY":
+      if(type(O,"Normal") || type(OP,"Normal") || type(O,"Fairy") || type(OP,"Fairy"))score*=1.4; // Battle_AI.rb:10032
+      if(type(A,"Normal") || type(A,"Fairy"))score*=0.6; // Battle_AI.rb:10033
+      if(party("Normal") || party("Fairy"))score*=0.6; // Battle_AI.rb:10034
+      if(type(O,"Dark") || type(OP,"Dark") || type(O,"Ghost") || type(OP,"Ghost"))score*=0.5; // Battle_AI.rb:10035
+      if(type(A,"Dark") || type(A,"Ghost"))score*=1.5; // Battle_AI.rb:10036
+      if(party("Dark") || party("Ghost"))score*=1.5; // Battle_AI.rb:10037
+      if(type(O,"Dragon") || type(OP,"Dragon") || type(O,"Psychic") || type(OP,"Psychic"))score*=1.2; // Battle_AI.rb:10038
+      if(type(A,"Dragon") || type(A,"Psychic"))score*=0.8; // Battle_AI.rb:10039
+      if(party("Dragon") || party("Psychic"))score*=0.8; // Battle_AI.rb:10040
+      break;
+    case "HAUNTED":
+      if(type(O,"Ghost") || type(OP,"Ghost") || type(O,"Fire") || type(OP,"Fire"))score*=1.4; // Battle_AI.rb:10042
+      if(type(A,"Ghost") || type(A,"Fire"))score*=0.6; // Battle_AI.rb:10043
+      if(type(A,"Normal") || type(A,"Psychic") || type(A,"Dragon") || type(A,"Fairy"))score*=1.5; // Battle_AI.rb:10044
+      if(party("Normal") || party("Psychic") || party("Dragon") || party("Fairy"))score*=1.5; // Battle_AI.rb:10045
+      break;
+    case "FAIRYTALE":
+      if(type(O,"Dragon") || type(OP,"Dragon") || type(O,"Steel") || type(OP,"Steel") || type(O,"Fairy") || type(OP,"Fairy"))score*=1.5; // Battle_AI.rb:10060
+      if(type(A,"Dragon") || type(A,"Steel") || type(A,"Fairy"))score*=0.5; // Battle_AI.rb:10061
+      if(party("Dragon") || party("Steel") || party("Fairy"))score*=0.5; // Battle_AI.rb:10062
+      if(ability(O,"stancechange"))score*=1.3; // Battle_AI.rb:10063
+      if(ability(A,"stancechange"))score*=0.7; // Battle_AI.rb:10064
+      break;
+    case "DRAGONSDEN":
+      if(type(O,"Dragon") || type(OP,"Dragon"))score*=1.7; // Battle_AI.rb:10066
+      if(type(A,"Dragon"))score*=0.3; // Battle_AI.rb:10067
+      if(party("Dragon"))score*=0.3; // Battle_AI.rb:10068
+      if(type(O,"Fire") || type(OP,"Fire"))score*=1.5; // Battle_AI.rb:10069
+      if(type(A,"Fire"))score*=0.5; // Battle_AI.rb:10070
+      if(party("Fire"))score*=0.5; // Battle_AI.rb:10071
+      if(ability(O,"multiscale") || ability(O,"goodasgold"))score*=1.3; // Battle_AI.rb:10072
+      if(ability(A,"multiscale") || ability(O,"goodasgold"))score*=0.7; // Battle_AI.rb:10073
+      break;
+    case "FLOWERGARDEN4":
+      if(type(O,"Bug") || type(OP,"Bug") || type(O,"Grass") || type(OP,"Grass"))score*=1.5; // Battle_AI.rb:10075
+      if(type(A,"Grass") || type(A,"Bug"))score*=0.33; // Battle_AI.rb:10076
+      if(party("Bug") || party("Grass"))score*=0.33; // Battle_AI.rb:10077
+      if(type(O,"Fire") || type(OP,"Fire"))score*=1.2; // Battle_AI.rb:10078
+      if(type(A,"Fire"))score*=0.33; // Battle_AI.rb:10079
+      if(party("Fire"))score*=0.33; // Battle_AI.rb:10080
+      break;
+    case "FLOWERGARDEN5":
+      if(type(O,"Bug") || type(OP,"Bug") || type(O,"Grass") || type(OP,"Grass"))score*=2.0; // Battle_AI.rb:10082
+      if(type(A,"Grass") || type(A,"Bug"))score*=0.25; // Battle_AI.rb:10083
+      if(party("Bug") || party("Grass"))score*=0.25; // Battle_AI.rb:10084
+      if(type(O,"Fire") || type(OP,"Fire"))score*=1.6; // Battle_AI.rb:10085
+      if(type(A,"Fire"))score*=0.25; // Battle_AI.rb:10086
+      if(party("Fire"))score*=0.25; // Battle_AI.rb:10087
+      break;
+    case "STARLIGHT":
+      if(type(O,"Psychic") || type(OP,"Psychic"))score*=1.5; // Battle_AI.rb:10089
+      if(type(A,"Psychic"))score*=0.5; // Battle_AI.rb:10090
+      if(party("Psychic"))score*=0.5; // Battle_AI.rb:10091
+      if(type(O,"Fairy") || type(OP,"Fairy") || type(O,"Dark") || type(OP,"Dark"))score*=1.3; // Battle_AI.rb:10092
+      if(type(A,"Fairy") || type(A,"Dark"))score*=0.7; // Battle_AI.rb:10093
+      if(party("Fairy") || party("Dark"))score*=0.7; // Battle_AI.rb:10094
+      break;
+    case "NEWWORLD":
+      break;
+    case "INVERSE":
+      if(type(O,"Normal") || type(OP,"Normal"))score*=1.7; // Battle_AI.rb:10098
+      if(type(A,"Normal"))score*=0.3; // Battle_AI.rb:10099
+      if(party("Normal"))score*=0.3; // Battle_AI.rb:10100
+      if(type(O,"Ice") || type(OP,"Ice"))score*=1.5; // Battle_AI.rb:10101
+      if(type(A,"Ice"))score*=0.5; // Battle_AI.rb:10102
+      if(party("Ice"))score*=0.5; // Battle_AI.rb:10103
+      break;
+    case "PSYTERRAIN":
+      if(type(O,"Psychic") || type(OP,"Psychic"))score*=1.7; // Battle_AI.rb:10105
+      if(type(A,"Psychic"))score*=0.3; // Battle_AI.rb:10106
+      if(party("Psychic"))score*=0.3; // Battle_AI.rb:10107
+      if(!overlay){
+        if(ability(O,"telepathy"))score*=1.3; // Battle_AI.rb:10109
+        if(ability(A,"telepathy"))score*=0.7; // Battle_AI.rb:10110
+      }
+      break;
+    }
+    return score*0.01;
+  }
+  // END GENERATED SOURCE AI DISRUPTION
+  // View of a matchup for the generated getFieldDisruptScore port, read from simulator Pokemon: types, effective
+  // ability, raw stats (Ruby's attack/spatk), effective speed, moves, wall roles (Battle_AI.rb pbGetMonRoles: a
+  // healing move with >251 EVs and a matching nature), the AI side's living party types and the field counter.
+  const wallNatures={PHYSICALWALL:['Bold','Relaxed','Impish','Lax'],SPECIALWALL:['Calm','Gentle','Sassy','Careful']};
+  function disruptionMon(b,p){
+    if(!p || p.hp<=0)return null;
+    const healing=p.moveSlots.some(s=>b.dex.moves.get(s.id).flags?.heal),evs=p.set?.evs || {},nature=b.dex.natures.get(p.set?.nature || '').name;
+    const roles=healing?[...(evs.def>251 && wallNatures.PHYSICALWALL.includes(nature)?['PHYSICALWALL']:[]),...(evs.spd>251 && wallNatures.SPECIALWALL.includes(nature)?['SPECIALWALL']:[])]:[];
+    return {types:p.getTypes(),ability:p.hasAbility(p.ability)?p.ability:'',atk:p.storedStats.atk,def:p.storedStats.def,spa:p.storedStats.spa,spd:p.storedStats.spd,
+      speed:p.getStat('spe'),hp:p.hp,maxhp:p.maxhp,moves:p.moveSlots.map(s=>s.id),airborne:!p.isGrounded(),roles,
+      protect:!!p.volatiles.protect,skyDrop:!!p.volatiles.skydrop,semiInvulnerable:p.isSemiInvulnerable()};
+  }
+  function disruptionView(b,attacker,opponent){
+    const partner=p=>p.side.active.find(a=>a && a!==p && a.hp>0 && !a.fainted) || null;
+    const party=[attacker.side,attacker.side.allySide].filter(Boolean).flatMap(s=>s.pokemon).filter(p=>p.hp>0);
+    const trickRoom=!!b.field.pseudoWeather.trickroom,a=attacker.getStat('spe'),o=opponent.getStat('spe');
+    return {attacker:disruptionMon(b,attacker),opponent:disruptionMon(b,opponent),attackerPartner:disruptionMon(b,partner(attacker)),opponentPartner:disruptionMon(b,partner(opponent)),
+      partyTypes:[...new Set(party.flatMap(p=>p.getTypes()))],weather:b.field.effectiveWeather(),counter:state(b)?.counters?.[0] || 0,
+      opponentReserves:opponent.side.pokemon.filter(p=>!p.isActive && p.hp>0).length,attackerFaster:trickRoom?a<o:a>o};
+  }
+  // Structural fingerprint of everything a damage measurement can read: every own property of the
+  // Pokemon (volatiles, statuses, history, flags, slots), sides, active allies, field and engine state.
+  // Only remaining-turn durations are omitted; no installed or catalog damage rule reads them.
+  const digestSkip=new Set(['getDetails','getHealth','side','battle','set','baseMoveSlots','details','fullname','name']);
+  function digest(v,depth){
+    if(v===null || v===undefined)return '~';
+    const t=typeof v;if(t==='function')return 'f';if(t!=='object')return t[0]+v;
+    if(typeof v.uuid==='string')return '@'+v.uuid;
+    const kind=depth>0?plainKind(v):null;
+    if(!kind)return '#'+(v.id ?? v.name ?? 'o');
+    let out=kind[0]+'(';
+    if(kind==='array' || kind==='set')for(const x of v)out+=digest(x,depth-1)+',';
+    else if(kind==='map')for(const [k,x] of v)out+=digest(k,depth-1)+'='+digest(x,depth-1)+',';
+    // An effect state's target is its holder, already identified by the enclosing Pokemon or side.
+    else for(const k of Object.keys(v))if(k!=='duration' && k!=='catalog' && k!=='target')out+=k+'='+digest(v[k],depth-1)+',';
+    return out+')';
+  }
+  // An own property holding undefined is the same state as an absent one.
+  function pokemonDigest(p){let out='';for(const k of Object.keys(p))if(!digestSkip.has(k) && p[k]!==undefined)out+=k+'='+digest(p[k],3)+';';return out;}
+  // Whether a field definition's rules read move history (lastMove conditions, streak power, turns active).
+  const historyReaders=new WeakMap();
+  function readsHistory(definition){
+    if(!definition || typeof definition!=='object')return {lastMove:false,streak:false,turnsActive:false};
+    let row=historyReaders.get(definition);
+    if(!row){const text=JSON.stringify(definition.rules || []);row={lastMove:text.includes('"lastMove"'),streak:text.includes('"streakPower"'),turnsActive:text.includes('"turnsActive"')};historyReaders.set(definition,row);}
+    return row;
+  }
+  // Per-turn counters that the simulator core only writes while moves run. Only an effect's own handler reads them
+  // (Rage Fist, Fake Out, Stomping Tantrum, Stakeout, Burning Jealousy, Lash Out...); a handler's source text names
+  // the property it reads. 'moveThisTurn' also matches 'moveThisTurnResult', which only keeps more state.
+  const turnCounters=['timesAttacked','activeMoveActions','activeTurns','moveThisTurn','moveThisTurnResult','moveLastTurnResult',
+    'statsRaisedThisTurn','statsLoweredThisTurn','hurtThisTurn','newlySwitched'];
+  const counterReaders=new WeakMap();
+  function countersRead(effect){
+    if(!effect || (typeof effect!=='object' && typeof effect!=='function'))return [];
+    let found=counterReaders.get(effect);if(found)return found;
+    const names=new Set(),seen=new Set();
+    const scan=(o,depth)=>{
+      if(typeof o==='function'){const text=Function.prototype.toString.call(o);
+        // A function without source text (native or bound) could read anything.
+        if(/\[native code\]/.test(text) && !/^class /.test(text))turnCounters.forEach(n=>names.add(n));
+        else for(const n of turnCounters)if(text.includes(n))names.add(n);return;}
+      if(!o || typeof o!=='object' || seen.has(o) || depth<0)return;seen.add(o);
+      for(const k of Object.keys(o))scan(o[k],depth-1);
+    };
+    scan(effect,3);found=[...names];counterReaders.set(effect,found);return found;
+  }
+  // Counters read by any handler the simulator can find during a measurement: the format and registered battle
+  // events, field, side and slot conditions, and every active Pokemon's status, volatiles, ability, item, species
+  // and moves (with their Max forms while Dynamaxed), plus field rules reading turns active.
+  function countersInPlay(b,definitions){
+    const read=new Set();const add=e=>{for(const n of countersRead(e))read.add(n);};
+    if(definitions.some(r=>r.turnsActive))read.add('activeTurns');
+    add(b.format);for(const list of Object.values(b.events || {}))for(const h of list || [])add(h.callback);
+    const conditions=ids=>{for(const id of Object.keys(ids || {}))add(b.dex.conditions.getByID(id));};
+    conditions(b.field.pseudoWeather);if(b.field.weather)add(b.dex.conditions.getByID(b.field.weather));if(b.field.terrain)add(b.dex.conditions.getByID(b.field.terrain));
+    for(const side of b.sides.filter(Boolean)){conditions(side.sideConditions);for(const slot of side.slotConditions || [])conditions(slot);}
+    for(const p of b.getAllActive()){
+      add(p.getStatus());conditions(p.volatiles);add(p.getAbility());add(p.getItem());add(p.baseSpecies);add(p.species);
+      for(const slot of p.moveSlots){const move=b.dex.moves.get(slot.id);add(move);
+        if(p.volatiles.dynamax){const max=b.actions.getMaxMove(move,p);if(max)add(b.dex.moves.get(max.id || max));}}
+    }
+    return read;
+  }
+  // Per-action move results are read only by after-move rules and move transitions (which a measurement evaluates for
+  // the measured move itself, see willChange); turn messages only deduplicate text. Durations are omitted as in digest.
+  const transientStateKeys=new Set(['missed','connected','accuracyMiss','drainHealed','turnMessages','duration','catalog','target']);
+  function stateDigest(s){
+    if(!s)return '~';
+    let out='o(';for(const k of Object.keys(s))if(!transientStateKeys.has(k))out+=k+'='+digest(s[k],3)+',';
+    return out+')';
+  }
+  const sideDigestSkip=new Set(['foe','allySide','battle','team','pokemon','activeRequest','choice','name','avatar','lastSelectedMove']);
+  function battleDigest(b){
+    const f=b.field;
+    let out=stateDigest(state(b))+'|'+f.weather+digest(f.weatherState,3)+f.terrain+digest(f.terrainState,3)+digest(f.pseudoWeather,3)
+      +'|'+digest(b.lastSuccessfulMoveThisTurn,0)+digest(b.lastMove,0);
+    for(const side of b.sides.filter(Boolean)){
+      out+='|';for(const k of Object.keys(side))if(!sideDigestSkip.has(k))out+=k+'='+digest(side[k],3)+';';
+      for(const a of side.active)if(a)out+='\n'+pokemonDigest(a);
+    }
+    return out;
+  }
+  // Status moves that a field turns into attacks (e.g. Deep Earth Topsy-Turvy), cached per frozen definition.
+  const statusAttackRules=new WeakMap();
+  function statusMoveAttacks(b,moveId){
+    return [current(b),current(b)?.overlay,(state(b)?.catalog || catalog)?.fields[indoor]].some(f=>{
+      if(!f || typeof f!=='object')return false;let rules=statusAttackRules.get(f);
+      if(!rules){rules=(f.rules || []).filter(r=>r.event==='modifyMove' && JSON.stringify(r.actions).includes('"category"')).map(r=>JSON.stringify(r.condition));statusAttackRules.set(f,rules);}
+      return rules.some(c=>c.includes('"'+moveId+'"'));
+    });
+  }
+  // Best-attack results keyed by the complete fingerprint stay valid for the whole battle: later decisions of the
+  // same battle (doubles partners, later turns) reuse them. A battle keeps its catalog; the cache is bounded.
+  const strategyMemos=new WeakMap();
+  function strategyMemo(b){
+    let row=strategyMemos.get(b);
+    if(!row || row.catalog!==state(b).catalog || row.map.size>4000){row={catalog:state(b).catalog,map:new Map()};strategyMemos.set(b,row);}
+    return row.map;
+  }
+  function strategy(b,request){
+    if(!state(b))return {candidates:[]};
+    return transaction(b,()=>{
+      // Use a reproducible analysis seed, independently of the real battle's next random roll.
+      b.prng.seed=[7919,104729,1543,3253];
+      const user=findPokemon(b,request.user);if(!user)return {candidates:[]};
+      const team=user.side.pokemon.filter(p=>p.hp>0 && !p.fainted);
+      const foes=b.sides.filter(s=>s && s!==user.side && s!==user.side.allySide).flatMap(s=>s.pokemon).filter(p=>p.hp>0 && !p.fainted);
+      const opponents=foes.filter(p=>p.isActive);if(!opponents.length)return {candidates:[]};
+      const memo=strategyMemo(b);let damageCalls=0,cacheHits=0,damageMillis=0,damageMechanicsMillis=0;
+      // Wall-clock phases (nested phases are also included in their parents) for decision-latency receipts.
+      const phases={setup:0,screening:0,rollouts:0,matchups:0,branches:0,resources:0,policies:0,rollouts_count:0};
+      const timed=(name,fn)=>{const at=Date.now();try{return fn();}finally{phases[name]+=Date.now()-at;}};
+      const environment=()=>JSON.stringify({field:state(b)?.id,overlay:state(b)?.overlay,counters:state(b)?.counters,duration:state(b)?.duration,
+        weather:b.field.weather,terrain:b.field.terrain,rooms:Object.entries(b.field.pseudoWeather).map(([id,s])=>[id,s.duration])});
+      // `digests` optionally supplies [battleDigest, pokemonDigest(p), pokemonDigest(t)] of the current state.
+      const bestAttack=(p,t,digests)=>{
+        if(!p || !t || p.hp<=0 || t.hp<=0)return {damage:0,priority:0,speed:p?.getStat('spe') || 0,move:null};
+        const [base,attacker,defender]=digests || [battleDigest(b),pokemonDigest(p),pokemonDigest(t)];
+        const key=base+'\n>'+attacker+'\n<'+defender;if(memo.has(key)){cacheHits++;return memo.get(key);}
+        const speed=p.getStat('spe');let best={damage:0,priority:0,speed,move:null};
+        // Some fields turn status moves into attacks (e.g. Deep Earth Topsy-Turvy).
+        const slots=p.moveSlots.filter(slot=>slot.pp>0 && !slot.disabled && (b.dex.moves.get(slot.id).category!=='Status' || statusMoveAttacks(b,slot.id)));
+        const start=Date.now();
+        const outs=transactionEach(b,slots,slot=>{const at=Date.now(),out=measure(b,p,t,slot.id,{strategy:true,secondaries:false});damageMechanicsMillis+=Date.now()-at;return out;},involved(b,p,t));
+        damageCalls+=slots.length;damageMillis+=Date.now()-start;
+        slots.forEach((slot,i)=>{
+          const out=outs[i];if(out.fails || out.immune || out.category==='Status')return;
+          // Expected critical hits from the measured stage (Gen 7+ chances 1/24, 1/8, 1/2; stage 4 is already a
+          // guaranteed critical inside maxDamage), so crit-raising fields and moves change the potential.
+          const stage=Math.max(0,Math.min(4,out.critRatio || 0)),critChance=out.critBlocked || stage>=4?0:[0,1/24,1/8,1/2][stage];
+          const damage=(out.maxDamage || 0)*.925*(1+.5*critChance)*(out.accuracy===true?1:(out.accuracy || 0)/100);
+          if(damage>best.damage)best={damage,priority:out.priority || 0,speed,move:slot.id};
+        });
+        memo.set(key,best);return best;
+      };
+      // Decision-time move history. The matchup potential describes the lasting state (boosts, status, types,
+      // items, abilities, volatiles, sides, field and counters); one turn's transient history is reset to these
+      // values unless the active field's rules read it. The incoming-reply measurements keep the complete state.
+      const history=new Map(),historyLastMove=b.lastMove,historySides=b.sides.map(s=>s?.lastMove);
+      for(const side of b.sides.filter(Boolean))for(const p of side.pokemon)history.set(p,{lastMove:p.lastMove,lastMoveUsed:p.lastMoveUsed,
+        lastMoveTargetLoc:p.lastMoveTargetLoc,attackedBy:p.attackedBy.map(a=>({...a})),lastDamage:p.lastDamage,
+        slots:new Map(p.moveSlots.map(s=>[s.id,[s.pp,s.used]])),streak:p.rejuvenationStreak,counters:turnCounters.map(k=>p[k])});
+      // Per-turn counters return to their decision-time values too, unless a handler in play reads them (Rage Fist after
+      // being hit, Fake Out after the first turn, Stomping Tantrum after a failure keep their real consequence).
+      const canonicalHistory=()=>{
+        const definitions=[current(b),state(b)?.overlay?(state(b).catalog || catalog).fields[state(b).overlay.id]:null].map(readsHistory);
+        const keepLastMove=definitions.some(r=>r.lastMove),keepStreak=definitions.some(r=>r.streak),counters=countersInPlay(b,definitions);
+        if(!keepLastMove){b.lastMove=historyLastMove;b.sides.forEach((s,i)=>{if(s)s.lastMove=historySides[i];});}
+        for(const a of b.getAllActive()){
+          const h=history.get(a);if(!h)continue;
+          if(!keepLastMove){a.lastMove=h.lastMove;a.lastMoveUsed=h.lastMoveUsed;}
+          a.lastMoveTargetLoc=h.lastMoveTargetLoc;a.attackedBy=h.attackedBy.map(x=>({...x}));a.lastDamage=h.lastDamage;
+          for(const s of a.moveSlots){const row=h.slots.get(s.id);if(row){s.pp=row[0];s.used=row[1];}}
+          if(!keepStreak)a.rejuvenationStreak=h.streak;
+          turnCounters.forEach((k,i)=>{if(!counters.has(k) && a[k]!==h.counters[i])a[k]=h.counters[i];});
+        }
+      };
+      const matchup=(p,t)=>timed('matchups',()=>transaction(b,()=>{
+        // Potential is measured at full health to separate lasting matchup changes from HP already
+        // priced by the rollout. The actual reply and KO calculation always use current health.
+        p.hp=p.maxhp;t.hp=t.maxhp;canonicalHistory();
+        const base=battleDigest(b),mine=pokemonDigest(p),theirs=pokemonDigest(t);
+        const offense=bestAttack(p,t,[base,mine,theirs]),defense=bestAttack(t,p,[base,theirs,mine]);
+        const faster=!!b.field.pseudoWeather.trickroom?offense.speed<=defense.speed:offense.speed>=defense.speed;
+        return Math.min(1.5,offense.damage/t.maxhp)-Math.min(1.5,defense.damage/p.maxhp)+(faster?.08:-.08);
+      },involved(b,p,t)));
+      // Source switch heuristics make reserve planning linear and cheap. Active and proposed switch
+      // consequences still use exact simulator measurements, including entry effects and hazards.
+      const teamValue=(reservesOnly=false)=>{
+        const overlay=state(b)?.overlay?.id,definition=(state(b)?.catalog || catalog)?.fields[overlay];
+        const s=state(b),backup=s.duration && s.tempIndex!==null?s.catalog.fields[s.stack[s.tempIndex-1]?.id]:null;
+        const durationWeight=s.duration?Math.min(1,s.duration/3):1;
+        const overlayWeight=definition?Math.min(.7,(s.overlay.duration || 3)/3*.7):0;
+        const affinity=p=>durationWeight*sourceAffinity(b,p)+(backup?(1-durationWeight)*sourceAffinity(b,p,backup):0)
+          +(definition && definition!==current(b)?overlayWeight*sourceAffinity(b,p,definition):0);
+        return team.reduce((v,p)=>v+(p.hp>0 && !(reservesOnly && p.isActive)?(p.isActive?1:.5)*affinity(p):0),0)
+          -foes.reduce((v,p)=>v+(p.hp>0 && !(reservesOnly && p.isActive)?(p.isActive?1:.5)*affinity(p):0),0);
+      };
+      const health=()=>b.sides.filter(Boolean).flatMap(s=>s.pokemon).map(p=>({p,hp:p.hp/p.maxhp,boosts:{...p.boosts},status:p.status}));
+      const hpValue=before=>before.reduce((sum,r)=>sum+(r.p.side===user.side || r.p.side===user.side.allySide?1:-1)*
+        ((r.p.hp/r.p.maxhp-r.hp)*100+(r.hp>0 && r.p.hp<=0?-40:0)),0);
+      // Entry hazards are valued by what they actually do to the reserves that would enter: each living reserve
+      // switches in through the simulator's switchIn/runSwitch inside a transaction (field-modified spikes and
+      // rocks, Sticky Web on Forest, Wasteland conversions...). Each reserve is expected to enter half the time.
+      const hazardIds=new Set(['spikes','toxicspikes','stealthrock','stickyweb','gmaxsteelsurge']),hazardMemo=new Map();
+      // Petrification (ptr) deals 1/8 per turn and blocks healing (persistentStatusPolicies.ptr).
+      const statusCost={slp:18,frz:20,par:12,brn:10,tox:15,psn:8,ptr:14};
+      const hazardImpact=side=>{
+        if(!Object.keys(side.sideConditions).some(id=>hazardIds.has(id)))return 0;
+        const reserves=side.pokemon.filter(p=>p.hp>0 && !p.fainted && !p.isActive),slot=side.active.findIndex(a=>a);
+        if(!reserves.length || slot<0)return 0;
+        const key=digest(side.sideConditions,3)+'|'+battleDigest(b)+'|'+reserves.map(pokemonDigest).join('\n');
+        if(hazardMemo.has(key))return hazardMemo.get(key);
+        let total=0;
+        for(const r of reserves)total+=transaction(b,()=>{
+          const hp=r.hp/r.maxhp,status=r.status,boosts={...r.boosts};
+          b.actions.switchIn(r,slot);b.actions.runSwitch(r);
+          const lost=Math.max(0,hp-r.hp/r.maxhp)*100+(r.hp<=0?40:0);
+          const afflicted=r.status!==status?statusCost[r.status] || 0:0;
+          const lowered=Object.keys(boosts).reduce((s,k)=>s+Math.max(0,boosts[k]-(r.boosts[k] || 0))*4,0);
+          return lost+afflicted+lowered;
+        });
+        // Battle_AI.rb:7803: hazards gain value when a living ally can actually force another entry. Probe the
+        // simulator's forceSwitchFlag rather than copying Colosseum, Suction Cups, Ingrain or Guard Dog rules.
+        let phazing=false;
+        const target=side.active.find(p=>p?.hp>0),other=b.sides.find(s=>s!==side && s!==side.allySide);
+        if(target && other)for(const p of other.pokemon){
+          if(p.hp<=0)continue;
+          for(const slot of p.moveSlots)if(slot.pp>0 && b.dex.moves.get(slot.id).forceSwitch){
+            phazing=transaction(b,()=>{b.actions.runMove(slot.id,p,p.getLocOf(target));return !!target.forceSwitchFlag;});
+            if(phazing)break;
+          }
+          if(phazing)break;
+        }
+        const result=.5*total*(phazing?1.3:1);hazardMemo.set(key,result);return result;
+      };
+      const lastingValue=()=>{
+        let value=0;
+        for(const side of b.sides.filter(Boolean)){
+          const sign=side===user.side || side===user.side.allySide?1:-1;
+          for(const p of side.pokemon)if(p.hp>0){
+            const status=statusCost[p.status] || 0;
+            value-=sign*status*(p.isActive?1:.4);
+            if(p.volatiles.perishsong)value-=sign*15/Math.max(1,p.volatiles.perishsong.duration || 1);
+            if(p.volatiles.substitute)value+=sign*8*p.volatiles.substitute.hp/p.maxhp;
+            if(p.volatiles.trapped || p.volatiles.partiallytrapped)value-=sign*3;
+            if(p.volatiles.taunt && p.isActive)value-=sign*3*p.moveSlots.filter(s=>b.dex.moves.get(s.id).category==='Status').length;
+            // A recharge turn (Hyper Beam family) forfeits the next action unless a field removes it.
+            if(p.isActive && p.volatiles.mustrecharge)value-=sign*25;
+          }
+          // Wish and Future Sight are slot conditions in the installed simulator: Wish restores its stored HP to the
+          // slot's occupant (only the missing part counts); a pending future attack is measured against it.
+          side.slotConditions.forEach((conditions,slot)=>{
+            const holder=side.active[slot];if(!holder || holder.hp<=0)return;
+            if(conditions.wish)value+=sign*.8*Math.min(conditions.wish.hp || 0,holder.maxhp-holder.hp)/holder.maxhp*100;
+            const future=conditions.futuremove,source=future?.source;
+            if(future?.move && source && source.hp>0){
+              const m=transaction(b,()=>measure(b,source,holder,future.move,{strategy:true,secondaries:false}),involved(b,source,holder));
+              if(!m.fails && !m.immune)value-=sign*.8*Math.min(100,(m.maxDamage || 0)*.925/holder.maxhp*100);
+            }
+          });
+          // Strategic option value, not mechanical damage: actual entry/residual calculations still
+          // determine the rollout. Hazards, screens and delayed support also matter beyond this turn.
+          value-=sign*hazardImpact(side);
+          for(const [id,s]of Object.entries(side.sideConditions)){
+            const turns=Math.min(4,s.duration || 4);
+            if(['reflect','lightscreen','auroraveil','tailwind','safeguard'].includes(id))value+=sign*turns*2;
+          }
+        }
+        return value;
+      };
+      const setupStart=Date.now();
+      const fieldBefore=environment(),utilityBefore=teamValue(),reserveBefore=teamValue(true),decisionField=state(b).id;
+      const decisionSnapshot=captureBattle(b);
+      const contextBefore={weather:b.field.weather,terrain:b.field.terrain,rooms:Object.keys(b.field.pseudoWeather).sort().join(',')};
+      // Source preferences (Battle_AI.rb:2013..4178), retained as bounded strategic weights. Unlike the source's
+      // zero Surf/Muddy Water multiplier, a favourable immediate KO is never discarded by a party preference.
+      const sourcePreference=q=>{
+        if(q.switch)return 1;
+        const field=originalOf(decisionField),id=q.move;let factor=1;
+        if(field==='ASHENBEACH' && ['wildboltstorm','sandsearstorm','springtidestorm','twister','whirlpool'].includes(id))factor*=.7;
+        if(field==='GLITCH' && id==='icefang')factor*=1.2;
+        if(field==='DRAGONSDEN' && ['surf','muddywater'].includes(id))factor*=team.some(p=>p.hasType('Fire') || p.hasType('Dragon'))?.25:1.5;
+        if(field==='VOLCANICTOP' && ['outrage','thrash','petaldance','ragingfury'].includes(id) && !user.hasAbility('owntempo'))factor*=.5;
+        if(['RAINBOW','MOUNTAIN'].includes(field) && ['snowscape','chillyreception'].includes(id))factor*=1.5;
+        const move=b.dex.moves.get(id);
+        if(field==='ROCKY' && (move.secondary?.volatileStatus==='flinch' || move.secondaries?.some(s=>s.volatileStatus==='flinch')))factor*=1.1;
+        return factor;
+      };
+      // Battle_AI.rb:1908 values a move that changes the field by sqrt(current/new) of getFieldDisruptScore, both
+      // computed for the decision-time matchup. The view is taken once per opponent before any rollout.
+      const disruptionViews=new Map();
+      const disruptionFor=foe=>{if(!disruptionViews.has(foe))disruptionViews.set(foe,disruptionView(b,user,foe));return disruptionViews.get(foe);};
+      const originalOf=id=>(state(b).catalog || catalog).fields[id]?.originalId || 'INDOOR';
+      const tacticalBefore=matchup(user,opponents[0]),lastingBefore=lastingValue();
+      phases.setup+=Date.now()-setupStart;
+      // Chance policy of the lookahead. The deciding move branches explicitly on its secondary effects (weighted by
+      // the simulator's own modified chance); every other chance event takes its median outcome (it happens when at
+      // least as likely as not), so no single draw of the analysis seed biases every candidate in the same way.
+      let secondaryRoll=49,inSecondaries=0;
+      const chancePolicy=fn=>{
+        const random=b.random,randomChance=b.randomChance,secondaries=b.actions.secondaries;
+        const restoreSecondaries=swap(b.actions,'secondaries',function(...args){inSecondaries++;try{return secondaries.apply(this,args);}finally{inSecondaries--;}});
+        b.random=function(m,n){return inSecondaries && m===100 && n===undefined?secondaryRoll:random.apply(this,arguments);};
+        b.randomChance=function(n,d){return this.forceRandomChance!==null?this.forceRandomChance:n/d>=.5;};
+        try{return fn();}finally{restoreSecondaries();b.random=random;b.randomChance=randomChance;}
+      };
+      const execute=(p,t,q,connect=true,secondary)=>{
+        const base=b.dex.getActiveMove(q.move);if(q.gimmick==='zmove' && !b.actions.getZMove(base,p))throw Error('unavailable zmove');
+        const z=q.gimmick==='zmove'?b.actions.getZMove(base,p):undefined;
+        const max=q.gimmick==='dynamax' || p.volatiles.dynamax?b.actions.getMaxMove(base,p)?.id:undefined;
+        const event=b.runEvent,damage=b.actions.getDamage,randomizer=b.randomizer,roll=secondaryRoll;
+        b.runEvent=function(name,...args){const result=event.call(this,name,...args);return name==='Accuracy' && result!==0 && result!==false?(connect?true:0):result;};
+        const restoreDamage=swap(b.actions,'getDamage',function(u,t,m,...args){if(m && typeof m==='object')m.willCrit=guaranteedCritical(b,u,t,m);return damage.call(this,u,t,m,...args);});
+        b.randomizer=forcedRoll(b,93);
+        // Secondary branch: roll 0 applies every chance secondary, roll 99 only guaranteed ones.
+        if(secondary!==undefined)secondaryRoll=secondary?0:99;
+        try{b.queue.cancelMove(p);b.actions.runMove(base,p,p.getLocOf(t),null,z,false,max);}
+        finally{b.runEvent=event;restoreDamage();secondaryRoll=roll;if(randomizer)b.randomizer=randomizer;else delete b.randomizer;}
+      };
+      const resourceMemo=new Map();
+      const resourceGain=(p,t,gimmick)=>transaction(b,()=>{
+        const threat=bestAttack(t,user).move;
+        const potential=()=>{
+          const physical=p.moveSlots.filter(s=>b.dex.moves.get(s.id).category==='Physical').length;
+          const special=p.moveSlots.filter(s=>b.dex.moves.get(s.id).category==='Special').length;
+          const offense=(physical*p.getStat('atk')+special*p.getStat('spa'))/Math.max(1,physical+special);
+          let defence=0;
+          if(threat){const move=prepareMove(b,t,p,threat,evaluatorPriority(b,t,threat,{}));
+            defence=isImmune(b,t,p,move)?1.5:-.3*p.runEffectiveness(move);}
+          // Reserve opportunity is a bounded heuristic over simulator stats, immunity and effective
+          // typing, not another damage model. Current candidates retain complete move rollouts.
+          let coverage=0;
+          for(const slot of p.moveSlots){if(b.dex.moves.get(slot.id).category==='Status')continue;
+            const move=prepareMove(b,p,t,slot.id,evaluatorPriority(b,p,slot.id,{}));
+            if(move && (p.hasType(move.type) || p.terastallized===move.type))coverage+=.1;}
+          return .4*Math.log(Math.max(1,offense))+.2*Math.log(Math.max(1,p.getStat('spe')))
+            +.3*Math.log(Math.max(1,(p.getStat('def')+p.getStat('spd'))/2))+.3*Math.log(p.maxhp)+defence+coverage+sourceAffinity(b,p);
+        };
+        const before=potential();
+        if(gimmick==='zmove'){
+          let gain=0;
+          for(const slot of p.moveSlots){
+            if(!b.actions.getZMove(b.dex.moves.get(slot.id),p))continue;
+            const z=transaction(b,()=>measure(b,p,t,slot.id,{gimmick}),involved(b,p,t));damageCalls++;
+            gain=Math.max(gain,Math.min(1.5,(z.maxDamage || 0)/t.maxhp)-bestAttack(p,t).damage/t.maxhp);
+          }
+          return gain;
+        }
+        applyEvaluationGimmick(b,p,gimmick);return potential()-before;
+      // A gimmick and measurements change only the holder, the actives, sides and field (all captured).
+      },involved(b,p,t,user));
+      const bestReserve=(gimmick,t)=>{
+        const key=gimmick+'/'+t.uuid;if(resourceMemo.has(key))return resourceMemo.get(key);
+        let gain=0;
+        for(const p of team)if(p!==user && !p.isActive){try{gain=Math.max(gain,resourceGain(p,t,gimmick));}catch(_){/* reserve cannot use this resource */}}
+        resourceMemo.set(key,gain);return gain;
+      };
+      // Replacement after a pivot (U-turn, Volt Switch, Parting Shot...): the reserve whose source affinity and
+      // simulator immunity/effectiveness against the opposing threat are best. Only the choice is heuristic;
+      // the switch itself runs through the simulator's own switchIn/runSwitch and entry events.
+      // Switch-in preference in the manner of the source's party scoring: field affinity, simulator immunity and
+      // effectiveness against the opposing threat, and remaining health.
+      const switchInScore=(r,move)=>{
+        const resist=!move || move.category==='Status'?0:!r.runImmunity(move.type)?3:-r.runEffectiveness(move);
+        return sourceAffinity(b,r)/25+resist+r.hp/r.maxhp;
+      };
+      const threatMove=(foe,p)=>{const threat=foe && foe.hp>0?bestAttack(foe,p).move:null;return threat?b.dex.getActiveMove(threat):null;};
+      const pivotReplacement=(p,foe)=>{
+        const move=threatMove(foe,p);
+        let best=null,bestScore=-Infinity;
+        for(const r of p.side.pokemon){
+          if(r.isActive || r.hp<=0 || r.fainted)continue;
+          const score=switchInScore(r,move);
+          if(score>bestScore){bestScore=score;best=r;}
+        }
+        return best;
+      };
+      // The simulator's own post-action sequence (Battle.runAction): forced drag-ins, active move clearing,
+      // faint processing (Faint/AfterFaint rules), Update (berries, herbs) and pivot replacements.
+      const afterAction=foeOf=>{
+        for(const side of b.sides.filter(Boolean))for(const a of side.active)if(a?.forceSwitchFlag){if(a.hp)b.actions.dragIn(a.side,a.position);a.forceSwitchFlag=false;}
+        b.clearActiveMove();b.faintMessages();
+        if(b.gen>=5)b.eachEvent('Update');
+        for(const side of b.sides.filter(Boolean))for(const a of side.active)if(a?.switchFlag && a.hp>0 && !a.fainted){
+          const r=pivotReplacement(a,foeOf(a));a.switchFlag=false;
+          if(r){b.actions.switchIn(r,a.position);b.actions.runSwitch(r);b.faintMessages();if(b.gen>=5)b.eachEvent('Update');}
+        }
+      };
+      // One bounded opponent policy per decision. Utility moves are tried through the real move/entry pipeline,
+      // so field status protection, speed control, Taunt and setup are consequences, never duplicated formulas.
+      const policyMemo=new Map();
+      const opponentPolicy=foe=>{
+        if(policyMemo.has(foe.uuid))return policyMemo.get(foe.uuid);
+        const policy=timed('policies',()=>{
+          const before=health(),lasting=lastingValue(),potential=matchup(user,foe),options=[];
+          for(const slot of foe.moveSlots){
+            if(slot.pp<=0 || slot.disabled)continue;
+            const move=b.dex.moves.get(slot.id);
+            if(move.stallingMove || ['wideguard','quickguard','craftyshield','matblock'].includes(move.sideCondition)){options.push({move:slot.id,protect:true,value:0});continue;}
+            if(move.category!=='Status' && !move.secondary?.boosts && !move.secondaries?.some(s=>s.boosts) && !move.self?.boosts && !move.forceSwitch)continue;
+            const value=transaction(b,()=>chancePolicy(()=>{
+              execute(foe,user,{move:slot.id});afterAction(a=>a.side===foe.side?user:foe);
+              const mine=user.side.active[user.position],theirs=foe.side.active[foe.position];
+              const tactical=mine?.hp>0 && theirs?.hp>0?matchup(mine,theirs)-potential:0;
+              return -hpValue(before)-(lastingValue()-lasting)-12*tactical;
+            }));
+            options.push({move:slot.id,value});
+          }
+          const protection=options.find(o=>o.protect),utility=options.filter(o=>!o.protect).sort((a,b)=>b.value-a.value)[0];
+          const threat=threatMove(user,foe);
+          const reserve=foe.side.pokemon.filter(p=>!p.isActive && p.hp>0 && !p.fainted)
+            .sort((a,b)=>switchInScore(b,threat)-switchInScore(a,threat))[0];
+          return {protection,utility:utility?.value>1?utility:null,reserve};
+        });
+        policyMemo.set(foe.uuid,policy);return policy;
+      };
+      // Reserve weather/terrain/room utility of a resulting context against the opposing lead. Every decision-time
+      // reserve enters through the real switch-in pipeline at the decision state, once in the decision context and
+      // once with the resulting weather, terrain and rooms transplanted, comparing the strongest moves both ways. The
+      // term thus isolates the context from a rollout's incidental damage, boosts and history (and from a field
+      // change, which the field terms value), and is measured once per distinct context in a decision. Each side's
+      // `contextReserves` likeliest entrants (the switch-in preference of switch screening and pivots) are profiled.
+      const contextMemo=new Map(),contextBaselines=new Map();
+      const contextReserves=request.screen===false?Infinity:(request.screen?.contextReserves ?? 2);
+      let likelyEntrants=null;
+      const reserveContextValue=()=>{
+        const f=b.field;
+        const changed=f.weather!==contextBefore.weather || f.terrain!==contextBefore.terrain || Object.keys(f.pseudoWeather).sort().join(',')!==contextBefore.rooms;
+        if(!changed)return 0;
+        const key=f.weather+digest(f.weatherState,3)+'|'+f.terrain+digest(f.terrainState,3)+'|'+digest(f.pseudoWeather,3);
+        if(contextMemo.has(key))return contextMemo.get(key);
+        const context={weather:f.weather,weatherState:f.weatherState,terrain:f.terrain,terrainState:f.terrainState,
+          rooms:Object.entries(f.pseudoWeather).filter(([id])=>id!==effectId)};
+        const transplant=()=>{
+          f.weather=context.weather;f.weatherState=context.weatherState;f.terrain=context.terrain;f.terrainState=context.terrainState;
+          for(const id of Object.keys(f.pseudoWeather))if(id!==effectId && !context.rooms.some(([room])=>room===id))delete f.pseudoWeather[id];
+          for(const [id,room] of context.rooms)f.pseudoWeather[id]=room;
+        };
+        const value=transaction(b,()=>{
+          restoreBattle(b,decisionSnapshot);
+          if(!likelyEntrants){
+            const likely=(list,threat)=>list.filter(r=>!r.isActive && r.hp>0 && !r.fainted)
+              .map(r=>({r,score:switchInScore(r,threat)})).sort((x,y)=>y.score-x.score).slice(0,contextReserves).map(x=>x.r);
+            likelyEntrants=new Set([...likely(team,threatMove(opponents[0],user)),...likely(foes,threatMove(user,opponents[0]))]);
+          }
+          let total=0;
+          for(const group of [[team,foes,-1],[foes,team,1]])for(const r of group[0]){
+            if(r.isActive || r.hp<=0 || r.fainted || !likelyEntrants.has(r))continue;
+            const target=group[1].find(p=>p.isActive && p.hp>0);if(!target)continue;
+            const profile=()=>{
+              b.actions.switchIn(r,0);b.actions.runSwitch(r);
+              r.hp=r.maxhp;target.hp=target.maxhp;
+              return bestAttack(r,target).damage/target.maxhp-bestAttack(target,r).damage/r.maxhp;
+            };
+            const baselineKey=r.uuid+'/'+target.uuid;
+            if(!contextBaselines.has(baselineKey))contextBaselines.set(baselineKey,transaction(b,profile));
+            total-=group[2]*6*(transaction(b,()=>{transplant();return profile();})-contextBaselines.get(baselineKey));
+          }
+          return total;
+        });
+        contextMemo.set(key,value);return value;
+      };
+      const candidates=[];
+      // Every independent rollout starts at this identical decision state. Capture the complete team once,
+      // retaining full rollback safety for forced entries/forms without recapturing twelve Pokemon per branch.
+      const rolloutSnapshot=captureBattle(b),rolloutPrng=b.prng;
+      const rolloutTransaction=fn=>{
+        b.prng=rolloutPrng.clone();b.send=()=>{};b.checkWin=()=>false;
+        try{return fn();}finally{restoreBattle(b,rolloutSnapshot);b.prng=rolloutPrng;}
+      };
+      const candidate=(q,connect,secondary,policyReply)=>timed('rollouts',()=>{phases.rollouts_count++;return rolloutTransaction(()=>chancePolicy(()=>{
+          let p=user,t=findPokemon(b,q.target) || opponents[0];const before=health();
+          const foe=t.side===user.side || t.side===user.side.allySide?opponents[0]:t;
+          const slot=user.position,foeSide=foe.side,foeSlot=foe.position;
+          const own=()=>user.side.active[slot],opposing=()=>foeSide.active[foeSlot];
+          const foeOf=a=>a.side===user.side?opposing():own();
+          // Hypothetical turn boundaries never build or publish choice requests.
+          b.makeRequest=function(){};
+          // Transactions normally suppress victory checks for isolated measurements. A turn rollout needs the
+          // native end-of-battle boundary; its win/PP/request changes are covered by the full rollback snapshot.
+          b.checkWin=Object.getPrototypeOf(b).checkWin;
+          if(q.switch){
+            p=findPokemon(b,q.switch);if(!p || p.isActive || p.hp<=0)throw Error('invalid switch');
+            b.actions.switchIn(p,user.position);b.actions.runSwitch(p);afterAction(foeOf);
+          }else applyEvaluationGimmick(b,p,q.gimmick);
+          b.queue.list.length=0;
+          const enqueue=(actor,target,query)=>{
+            const action={choice:'move',pokemon:actor,moveid:query.move,targetLoc:actor.getLocOf(target)};
+            if(query.gimmick==='zmove')action.zmove=b.actions.getZMove(b.dex.moves.get(query.move),actor);
+            if(query.gimmick==='dynamax' || actor.volatiles.dynamax)action.maxMove=b.actions.getMaxMove(b.dex.moves.get(query.move),actor)?.id;
+            b.queue.addChoice(action);
+          };
+          if(!q.switch)enqueue(p,t,q);
+          // The native queue orders every enqueued action by its effective priority and speed.
+          let incoming=bestAttack(foe,p);
+          if(policyReply?.move)incoming={...incoming,move:policyReply.move};
+          if(incoming.move && !policyReply?.switch)enqueue(foe,p,{move:incoming.move});
+          // Doubles partners also act: real spread targets, redirection, Wide Guard and field side effects
+          // are executed by the simulator. Unknown partner choices use their strongest known measured attack.
+          for(const actor of b.getAllActive())if(actor!==p && actor!==foe && actor.hp>0){
+            const target=actor.side===user.side || actor.side===user.side.allySide?foe:p;
+            const move=bestAttack(actor,target).move;if(move)enqueue(actor,target,{move});
+          }
+          // Accuracy, priority and secondary chance of the deciding move; the rollout itself deals the damage.
+          const measurement=q.switch?null:transaction(b,()=>measure(b,p,t,q.move,{...q,strategy:true,facts:true}),involved(b,p,t));
+          const reply=()=>{
+            const attacker=opposing(),defender=own();
+            if(!attacker || !defender || attacker.hp<=0 || defender.hp<=0 || attacker.fainted || defender.fainted)return;
+            if(policyReply?.switch){const reserve=findPokemon(b,policyReply.switch);if(reserve && !reserve.isActive && reserve.hp>0){b.actions.switchIn(reserve,foeSlot);b.actions.runSwitch(reserve);afterAction(foeOf);}return;}
+            const move=attacker===foe && defender===p?incoming.move:bestAttack(attacker,defender).move;
+            if(move){execute(attacker,defender,{move});afterAction(foeOf);}
+          };
+          if(policyReply?.switch)reply();
+          b.queue.sort();
+          const actions=b.queue.list.filter(a=>a.choice==='move');
+          for(const action of actions){
+            const actor=action.pokemon;if(!actor.isActive || actor.hp<=0 || actor.fainted){b.queue.cancelMove(actor);continue;}
+            if(actor===p && !q.switch){const target=t.isActive || t.side===user.side?t:opposing();if(target){execute(p,target,q,connect,secondary);afterAction(foeOf);}}
+            else if(actor===foe)reply();
+            else{const target=actor.side===user.side || actor.side===user.side.allySide?opposing():own();if(target?.hp>0){execute(actor,target,{move:action.move.id});afterAction(foeOf);}}
+          }
+          const hpImmediate=hpValue(before);
+          // The move's own value for the multiplicative source rule: damage dealt to the opposing side (percent).
+          const dealt=before.filter(r=>r.p.side!==user.side && r.p.side!==user.side.allySide).reduce((s,r)=>s+Math.max(0,(r.hp-r.p.hp/r.p.maxhp)*100),0);
+          // End of turn as in runAction's residual case, then the simulator's own next-turn boundary
+          // (DisableMove/choice locks, trapping, Dynamax expiry, per-turn history), so the lasting matchup
+          // describes the state in which the next decision is actually made.
+          b.clearActiveMove(true);
+          if(!b.ended){b.updateSpeed();b.residualEvent('Residual');afterAction(foeOf);}
+          // Fainted actives are replaced before the next turn, as the simulator's end-of-turn switch requests do:
+          // Healing Wish and Lunar Dance act on the replacement, and the next matchup is against whoever comes in.
+          for(const side of b.sides.filter(Boolean))side.active.forEach((a,slot)=>{
+            if(!a || !(a.fainted || a.hp<=0) || b.ended)return;
+            const r=pivotReplacement(a,foeOf(a));
+            if(r){b.actions.switchIn(r,slot);b.actions.runSwitch(r);b.faintMessages();if(b.gen>=5)b.eachEvent('Update');}
+          });
+          if(!b.ended)b.nextTurn();
+          const residual=hpValue(before)-hpImmediate;
+          // A charging two-turn move (Solar Beam, Fly, Razor Wind...) strikes next turn: the strike is measured
+          // now and credited at a discount; fields that skip the charge already deal the damage in the rollout.
+          let deferred=0;
+          const charging=own()?.volatiles.twoturnmove,striker=own(),struck=opposing();
+          if(charging?.move && striker===p && struck && struck.hp>0){
+            const m=transaction(b,()=>measure(b,striker,struck,charging.move,{strategy:true,secondaries:false}),involved(b,striker,struck));
+            if(!m.fails && !m.immune && m.category!=='Status')deferred=.8*Math.min(100,(m.maxDamage || 0)*.925*(m.accuracy===true?1:(m.accuracy || 0)/100)/struck.maxhp*100);
+          }
+          const envAfter=environment(),fieldChanged=state(b).id!==decisionField;
+          let disruption=0,disruptionRatio=1;
+          if(fieldChanged && !q.switch){
+            const view=disruptionFor(foe);
+            disruptionRatio=sourceDisruptionScore(view,originalOf(decisionField))/sourceDisruptionScore(view,originalOf(state(b).id));
+            disruption=(Math.sqrt(disruptionRatio)-1)*Math.max(25,dealt);
+          }
+          // Overlays, durations and expiry keep the team field-affinity valuation; a main-field change made by the
+          // candidate is valued by the source disruption rule instead, so it is not counted twice.
+          // Field changes the source disruption table rates neutral at both ends (e.g. Flower Garden stages) keep the
+          // team field-affinity valuation.
+          const rated=fieldChanged && !q.switch && disruptionRatio!==1;
+          const future=envAfter!==fieldBefore?(rated?teamValue(true)-reserveBefore:teamValue()-utilityBefore):0;
+          const mine=own(),theirs=opposing();
+          const tactical=mine && theirs && mine.hp>0 && theirs.hp>0 && !mine.fainted && !theirs.fainted?matchup(mine,theirs)-tacticalBefore:0;
+          const lasting=lastingValue()-lastingBefore;
+          const preference=sourcePreference(q),sourceWeight=(preference-1)*Math.max(5,.15*dealt+Math.max(0,lasting+deferred));
+          const context=reserveContextValue();
+          const contextChanged=b.field.weather!==contextBefore.weather || b.field.terrain!==contextBefore.terrain || Object.keys(b.field.pseudoWeather).sort().join(',')!==contextBefore.rooms;
+          const turns=Math.max(b.field.weatherState?.duration || 0,b.field.terrainState?.duration || 0,...Object.values(b.field.pseudoWeather).map(s=>s.duration || 0));
+          const durationValue=contextChanged?Math.min(2,Math.max(0,turns-1)/5)*(12*tactical+context):0;
+          // Source Starlight party rule: concealing the stars is useful when no living ally uses their boosts.
+          // Both parties are considered; the source only examines its own party.
+          const stars=originalOf(decisionField)==='STARLIGHT' && b.field.weather!==contextBefore.weather
+            ?(b.field.weather?1:-1)*6*(foes.filter(p=>p.getTypes().some(t=>['Dark','Fairy','Psychic'].includes(t))).length-
+              team.filter(p=>p.getTypes().some(t=>['Dark','Fairy','Psychic'].includes(t))).length):0;
+          // Use limited rollout, giving setup, recovery, recoil, traps/protect and temporary expiry
+          // their actual consequences. The native AI continues to supply its detailed family heuristics.
+          const score=hpImmediate+.7*residual+22*future+disruption+12*tactical+lasting+deferred+sourceWeight+context+durationValue+stars;
+          return {query:q,score,fieldValue:22*future+disruption,disruptionRatio,tacticalValue:tactical,immediate:hpImmediate,residual,lasting,deferred,
+            fieldAfter:state(b)?.id,overlayAfter:state(b)?.overlay?.id || null,durationAfter:state(b)?.duration || 0,
+            userHp:p.hp,targetHp:t.hp,userSpeedAfter:p.getStat('spe'),targetSpeedAfter:t.getStat('spe'),accuracy:measurement?.accuracy,priority:measurement?.priority,
+            sourceWeight,contextValue:context+stars,durationValue,reply:policyReply || {move:incoming.move},
+            secondaryChance:measurement?.secondaryChance ?? 0,activeAfter:own()?.uuid || null,opposingAfter:opposing()?.uuid || null,
+            activeAfterBoosts:own()?{...own().boosts}:null};
+      }));});
+      const blend=(row,other,weight)=>{for(const key of ['score','fieldValue','disruptionRatio','tacticalValue','immediate','residual','lasting','deferred','sourceWeight','contextValue','durationValue'])row[key]=weight*row[key]+(1-weight)*other[key];};
+      const outcomes=(q,reply)=>{
+        const hit=candidate(q,true,true,reply),chance=q.switch || hit.accuracy===true?1:Math.max(0,Math.min(1,(hit.accuracy || 0)/100));
+        const effect=hit.secondaryChance;
+        if(effect>0 && effect<1){
+          const plain=timed('branches',()=>candidate(q,true,false,reply));
+          hit.secondaryOutcomes=[{probability:effect,field:hit.fieldAfter},{probability:1-effect,field:plain.fieldAfter}];
+          blend(hit,plain,effect);
+        }
+        if(chance<1){
+          const miss=timed('branches',()=>candidate(q,false,undefined,reply));blend(hit,miss,chance);
+          hit.outcomes=[{probability:chance,field:hit.fieldAfter,overlay:hit.overlayAfter},{probability:1-chance,field:miss.fieldAfter,overlay:miss.overlayAfter}];
+        }
+        return hit;
+      };
+      // Deterministic screening before complete rollouts. Ordinary moves, Z-moves, Dynamax variants (Max moves set
+      // weather and terrain) and the native choice are always rolled out. Mega/Ultra/Tera variants keep the best
+      // `gimmickMoves` moves per gimmick by a simulator measurement under that gimmick (immediate damage share,
+      // KO, field transition); switches keep the best `switches` reserves by switch-in preference. In doubles, the
+      // same move and gimmick aimed at different targets keeps the best `targets` targets by that measurement (an
+      // ally hit counts against it). Screened candidates are reported explicitly and the consumer keeps its own
+      // decision for them.
+      const limits={gimmickMoves:request.screen?.gimmickMoves ?? 2,switches:request.screen?.switches ?? 2,targets:request.screen?.targets ?? 1};
+      const screenedOut=new Map();
+      const formGimmicks=['mega','ultra','terastallize'];
+      const measuredValue=q=>{
+        try{
+          const t=findPokemon(b,q.target) || opponents[0];
+          const m=transaction(b,()=>{applyEvaluationGimmick(b,user,q.gimmick);
+            return measure(b,user,t,q.move,{strategy:true,secondaries:false,...(q.gimmick==='zmove'?{gimmick:'zmove'}:{})});},involved(b,user,t));
+          const accuracy=m.accuracy===true?1:(m.accuracy || 0)/100;
+          const share=m.fails || m.immune?0:Math.min(1,(m.maxDamage || 0)*.925/Math.max(1,t.hp));
+          const sign=t.side===user.side || t.side===user.side.allySide?-1:1;
+          return accuracy*sign*(share+(share>=1?.5:0))+(m.changesFieldTo?2:0)+(m.category==='Status'?.25:0);
+        }catch(_){return -Infinity;}
+      };
+      if(request.screen!==false)timed('screening',()=>{
+        const groups=new Map(),targets=new Map(),targetKey=q=>q.move+'/'+(q.gimmick || '');
+        for(const q of request.candidates || [])if(q.move && !formGimmicks.includes(q.gimmick))targets.set(targetKey(q),(targets.get(targetKey(q)) || 0)+1);
+        for(const q of request.candidates || []){
+          if(q.native)continue;
+          let group=null,value=0;
+          if(q.switch){
+            const r=findPokemon(b,q.switch);if(!r)continue;
+            group='switch';value=switchInScore(r,threatMove(opponents[0],user));
+          }else if(formGimmicks.includes(q.gimmick)){group=q.gimmick;value=measuredValue(q);}
+          else if(targets.get(targetKey(q))>1){group='target:'+targetKey(q);value=measuredValue(q);}
+          if(!group)continue;
+          if(!groups.has(group))groups.set(group,[]);
+          groups.get(group).push({q,value});
+        }
+        for(const [group,rows]of groups){
+          const keep=group==='switch'?limits.switches:group.startsWith('target:')?limits.targets:limits.gimmickMoves;
+          rows.sort((x,y)=>y.value-x.value);
+          rows.slice(keep).forEach((row,i)=>screenedOut.set(row.q,{group,value:row.value,rank:keep+i+1}));
+        }
+      });
+      const replyOptions=[];
+      for(const q of request.candidates || []){
+        if(screenedOut.has(q)){candidates.push({query:q,pruned:'screened',screen:screenedOut.get(q)});continue;}
+        try{
+          const target=findPokemon(b,q.target),foe=target && target.side!==user.side?target:opponents[0];
+          const policy=opponentPolicy(foe);
+          const hit=outcomes(q);
+          // A single additional strategic reply prevents automatic attack-only assumptions without a minimax tree.
+          // Protect is conditional on an incoming attack; a useful status/speed-control reply remains possible.
+          let alternative=policy.utility;
+          if(policy.protection && !q.switch && b.dex.moves.get(q.move).flags?.protect)alternative=policy.protection;
+          const locked=user.volatiles.lockedmove || ['outrage','thrash','petaldance','ragingfury'].includes(q.move);
+          if(policy.reserve && locked && !foe.trapped)alternative={switch:policy.reserve.uuid};
+          if(alternative && alternative.move!==hit.reply.move)replyOptions.push({q,hit,alternative});
+          candidates.push(hit);
+        }catch(error){candidates.push({query:q,error:String(error.message || error)});}
+      }
+      // Forecast utility for every candidate, but fully branch the strongest contenders plus native choices,
+      // explicit utility counters and distinct field changes. Exhaustively doubling all rollouts stalls the
+      // interpreter-only server. The cheap risk term comes from the already measured opponent policy.
+      const counterMoves=new Set(['taunt','encore','disable','spite','haze','clearsmog','topsyturvy','imprison']);
+      replyOptions.sort((a,c)=>c.hit.score-a.hit.score);
+      for(let i=0;i<replyOptions.length;i++){
+        const {q,hit,alternative}=replyOptions[i],m=q.move?b.dex.moves.get(q.move):null;
+        if(request.screen===false || i<(request.screen?.replies ?? 2) || q.native || counterMoves.has(q.move) || m?.forceSwitch || hit.fieldAfter!==decisionField || hit.overlayAfter!==(state(b)?.overlay?.id || null)){
+          const reply=timed('branches',()=>outcomes(q,alternative));
+          hit.replyOutcomes=[{probability:.65,reply:hit.reply,score:hit.score},{probability:.35,reply:alternative,score:reply.score}];
+          blend(hit,reply,.65);
+        }else{
+          const risk=hit.targetHp>0 && alternative.value>0?.35*alternative.value:0;
+          hit.score-=risk;hit.replyEstimate={reply:alternative,measuredPolicyRisk:risk,reason:'bounded contender forecast'};
+        }
+      }
+      const currentGains=new Map();
+      timed('resources',()=>{for(const row of candidates)if(!row.error && !row.pruned && row.query.gimmick && team.length>1){
+        let t=findPokemon(b,row.query.target) || opponents[0];if(t.side===user.side || t.side===user.side.allySide)t=opponents[0];
+        const key=row.query.gimmick+'/'+t.uuid;
+        if(!currentGains.has(key)){let gain=0;try{gain=resourceGain(user,t,row.query.gimmick);}catch(_){}currentGains.set(key,gain);}
+        row.opportunityCost=22*Math.max(0,bestReserve(row.query.gimmick,t)-currentGains.get(key));
+        row.score-=row.opportunityCost;
+      }});
+      return {candidates,metrics:{damageCalls,cacheHits,damageMillis,damageMechanicsMillis,candidates:candidates.length,
+        screened:candidates.filter(r=>r.pruned).length,phases}};
+    });
+  }
+  // Reference diagnostics walk the whole catalog; they are computed on request, not on every publication.
+  global.RejuvenationEngine={load(json){const data=typeof json==='string'?JSON.parse(json):json;validate(data);installDeclaredFieldAssets(data);installDeclaredAbilities(data);catalog=freeze(data);return '{}';},
+    references(){return JSON.stringify(catalog?references(catalog):{});},attach,change,destroy,progress,current,test,runActions,
+    /** Read-only effective-move evaluation for a Cobblemon battle UUID (or a Battle); returns JSON text. */
+    evaluate(battle,queries){const b=typeof battle==='string'?battlesById.get(battle):battle;const list=typeof queries==='string'?JSON.parse(queries):queries;
+      if(!b)return JSON.stringify({field:null,overlay:null,results:[]});return JSON.stringify(evaluate(b,list));},
+    strategy(battle,request){const b=typeof battle==='string'?battlesById.get(battle):battle;
+      return JSON.stringify(b?strategy(b,typeof request==='string'?JSON.parse(request):request):{candidates:[]});},
+    /** One strategy decision and one preview evaluation on a throwaway, unregistered battle: the interpreter-only
+     *  runtime then pays its first-use cost at catalog publication instead of during the first AI decision. */
+    warmup(){
+      const started=Date.now(),b=new Battle({formatid:'cobblemonsingles',seed:[1,2,3,4]});
+      try{
+        attach(b,catalog?.default || indoor);
+        const set=(species,ability,moves,n)=>({species,ability,moves,uuid:'00000000-0000-0000-0000-00000000000'+n,movesInfo:moves.map(()=>({pp:20,maxPp:20}))});
+        b.setPlayer('p1',{name:'A',team:[set('Mew','Synchronize',['psychic','surf','growth','recover'],1),set('Scizor','Technician',['bulletpunch','uturn','swordsdance','roost'],3)]});
+        b.setPlayer('p2',{name:'B',team:[set('Snorlax','Thick Fat',['bodyslam','earthquake','curse','rest'],2)]});
+        b.choose('p1','team 12');b.choose('p2','team 1');
+        const user=b.sides[0].active[0],target=b.sides[1].active[0];
+        strategy(b,{user:user.uuid,candidates:[...user.moveSlots.map(s=>({move:s.id,target:target.uuid})),{switch:b.sides[0].pokemon[1].uuid}]});
+        evaluate(b,user.moveSlots.map(s=>({user:user.uuid,target:target.uuid,move:s.id,range:true})));
+      }finally{b.destroy();}
+      return JSON.stringify({millis:Date.now()-started});
+    },
+    battle(id){return battlesById.get(id) || null;},
+    /** Source AI strategy weights (read-only), for the Ruby-oracle comparison of the generated ports. */
+    sourceDisruption(view,original,overlay,violent){return sourceDisruptionScore(typeof view==='string'?JSON.parse(view):view,original,!!overlay,!!violent);},
+    sourceAffinity(battle,uuid,original){const b=typeof battle==='string'?battlesById.get(battle):battle,p=b && findPokemon(b,uuid);
+      const field=Object.values((state(b)?.catalog || catalog).fields).find(f=>f.originalId===original);return p && field?sourceAffinity(b,p,field):null;},
     resolve(environment){for(const r of catalog.mappings)if(Object.entries(r).every(([k,v])=>!['biome','dimension','tag','submerged','maxY','skyVisible','minDepth'].includes(k) || (k==='tag'?environment.tags?.includes(v):k==='maxY'?environment.y<=v:k==='minDepth'?environment.depth>=v:environment[k]===v)))return r.field;return catalog.default;},
   };
   function validate(data) {
@@ -1827,5 +3862,6 @@ if(a.scaleField!==undefined && (!['multiply','cyclePower','randomPower'].include
       for(const callbacks of Object.values(f.suppressedAbilityCallbacks || {}))if(!['["onTryHit"]','["onImmunity"]'].includes(JSON.stringify(callbacks)))throw new Error('Unsupported ability callback');
     }
     for(const m of data.mappings)if(!data.fields[m.field])throw new Error('Invalid biome mapping '+m.field);
+    for(const m of data.structures || [])if(!m || !data.fields[m.field] || (m.structure===undefined)===(m.tag===undefined) || Object.keys(m).some(k=>!['structure','tag','field','reason'].includes(k)) || !/^[a-z0-9_.-]+:[a-z0-9_./-]+$/.test(m.structure ?? m.tag))throw new Error('Invalid structure mapping '+JSON.stringify(m));
   }
 })(globalThis);

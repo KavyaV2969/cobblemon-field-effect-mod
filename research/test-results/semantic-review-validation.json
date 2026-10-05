@@ -1,12 +1,15 @@
 {
   "sourceLeadCounts": {
     "implemented_and_tested": 905,
-    "unreachable_in_build": 10,
+    "unreachable_in_build": 13,
     "unsupported": 9,
     "excluded_crest": 11,
-    "excluded_ai_adapter": 763,
-    "presentation_only": 27,
-    "excluded_custom_move": 11
+    "implemented_strategy": 53,
+    "ai_rollout_consequence": 318,
+    "ai_source_weights_ported": 72,
+    "excluded_custom_move": 14,
+    "ai_mechanic_measured": 314,
+    "presentation_only": 27
   },
   "manuallyReviewed": 1736,
   "ordinaryPending": [],
@@ -69,6 +72,6 @@
     "CITY",
     "DEUXFINALIS"
   ],
-  "completionMeaning": "Every runtime AST lead naming the field is implemented with a passing named test, or recorded as a custom-move/Crest exclusion, unreachable, unsupported with a concrete cause, or presentation-only. Battle AI leads wait for the AI adapter. Not an exhaustive live or multiplayer certification.",
+  "completionMeaning": "Every runtime AST lead naming the field is implemented with a passing named test, or recorded as a custom-move/Crest exclusion, unreachable, unsupported with a concrete cause, or presentation-only. Battle_AI.rb strategy leads carry the per-lead review of research/ai_review.py (measured mechanics, rollout consequences, ported source weights, explicit strategy gaps, exclusions). Not an exhaustive live or multiplayer certification.",
   "warning": "Nested AST leads are not unique mechanics. Blind-spot references found by blindspot_scan.py are triaged in audit-worklist.md."
 }

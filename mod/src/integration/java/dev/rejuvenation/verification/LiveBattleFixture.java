@@ -40,6 +40,10 @@ public final class LiveBattleFixture implements ModInitializer {
   if(abilityMode)phase=7;
   if(extendedMode)phase=10;
   report.addProperty("isolatedGameDir",location.toString());report.add("checks",checks);
+  if(Boolean.getBoolean("rejuvenation.verifyIntegration")){
+   // 0.2.0 integration checks replace the phase sequence below.
+   finished=true;var integration=new IntegrationChecks();ServerTickEvents.END_SERVER_TICK.register(integration::tick);return;
+  }
   CobblemonEvents.BATTLE_STARTED_PRE.subscribe(Priority.NORMAL,(java.util.function.Consumer<BattleStartedEvent.Pre>) event->{
    if(creating && override!=null)FieldApi.select(event.getBattle().getBattleId(),FieldApi.Priority.EXPLICIT,override);
   });
@@ -123,7 +127,10 @@ public final class LiveBattleFixture implements ModInitializer {
       player.method_6122(net.minecraft.class_1268.field_5808,ring);
       Class.forName("com.github.yajatkaul.mega_showdown.gimmick.GimmickTurnCheck").getMethod("check",net.minecraft.class_3222.class).invoke(null,player);
      }
-     var pokemon=properties.create(player);var party=new PlayerPartyStore(player.method_5667());party.add(pokemon);
+     var pokemon=properties.create(player);var party=com.cobblemon.mod.common.Cobblemon.INSTANCE.getStorage().getParty(player);party.clearParty();party.add(pokemon);
+     // Avoid waiting on a send-out animation in an unattended client. -1 below
+     // disables native distance fleeing for this isolated mechanics fixture.
+     if(pokemon.sendOut(world,new net.minecraft.class_243(player.method_23317()-3,player.method_23318(),player.method_23321()),null,entity->kotlin.Unit.INSTANCE)==null)throw new IllegalStateException("Fixture lead was not sent out");
      second=null;acted=0;
      if(phase==13 || phase==14){
       var reserve=new PokemonProperties();reserve.setSpecies("snorlax");reserve.setLevel(60);reserve.setAbility("thickfat");reserve.setMoves(List.of("splash"));
@@ -134,10 +141,11 @@ public final class LiveBattleFixture implements ModInitializer {
      if(phase>=5){wild.method_31472();enemy.setSpecies("blissey");enemy.setLevel(100);wild=enemy.createEntity(world);}
      if(phase==9){wild.method_31472();enemy.setSpecies("mew");enemy.setAbility("souleater");wild=enemy.createEntity(world);}
      wild.method_5814(player.method_23317()+3,player.method_23318(),player.method_23321());wild.method_5875(true);wild.method_5977(true);world.method_8649(wild);
+     wild.getPokemon().setState(new com.cobblemon.mod.common.pokemon.activestate.SentOutState(wild));
      override=switch(phase){case 0->null;case 1->"rejuvenation:forest";case 2->"rejuvenation:electric_terrain";case 3->"rejuvenation:water_surface";case 5->"rejuvenation:deux_finalis";case 6->"rejuvenation:haunted";case 7,8,9->"rejuvenation:indoor";case 10->"rejuvenation:colosseum";case 12->"rejuvenation:mountain";case 13->"rejuvenation:electric_terrain";case 14->"rejuvenation:holy";case 15->"rejuvenation:cave";default->"rejuvenation:dark_crystal_cavern";};
      creating=true;
      BattleStartResult result;
-     try{result=BattleBuilder.INSTANCE.pve(player,wild,pokemon.getUuid(),BattleFormat.Companion.getGEN_9_SINGLES(),false,false,32f,party);}finally{creating=false;}
+     try{result=BattleBuilder.INSTANCE.pve(player,wild,pokemon.getUuid(),BattleFormat.Companion.getGEN_9_SINGLES(),false,false,-1f,party);}finally{creating=false;}
      if(!(result instanceof SuccessfulBattleStart success))throw new IllegalStateException("Battle start rejected: "+result);
      battle=success.getBattle();RejuvenationFields.LOG.info("Live fixture started phase {} battle {}",phase,battle.getBattleId());step=0;delay=20;return;
     }

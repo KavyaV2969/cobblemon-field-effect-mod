@@ -104,9 +104,10 @@ module.exports=({test,battle,pokemon,E,fid,assert,Battle})=>{
  test('field-change damage boost assumes the measured move connects, not the previous action result',()=>{
   // Battle_Field.rb:568 evaluates the change condition inside the damage calculation of a hitting move: Icy Dive
   // (water backup, "connected") must not read an earlier move's result. Without the water backup it never changes.
+  // changesFieldTo names the field that becomes visible: breaking the ice exposes the Water Surface frame beneath it.
   const boosted=[];
   for(const [lower,upper,mover,target,moveId,destination]of [
-   ['water_surface','icy',{moves:['dive']},{},'dive','indoor'],
+   ['water_surface','icy',{moves:['dive']},{},'dive','water_surface'],
    ['forest','icy',{moves:['dive']},{},'dive',null]]){
    const b=battle(lower,mover,target);E.change(b,fid(upper),{push:true});
    const results=[[true,false],[false,true],[undefined,undefined]].map(([missed,connected])=>{

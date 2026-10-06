@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:city",
+  "title": "City",
+  "summary": "“The streets are busy...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Battles inside generated villages (vanilla and modded variants)."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Physical normal moves are 1.5× stronger.",
+        "Poison moves, bug moves, and steel moves are 1.3× stronger.",
+        "First Impression also counts as Normal for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Beat Up, First Impression, Pay Day, Smog, Steamroller, and Techno Blast: 1.5× stronger.",
+        "Poison Gas and Smog: never miss."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Normal-type.",
+        "Nature Power becomes Smog.",
+        "Secret Power can cause poison."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Covet, Pursuit, and Thief change the field into Back Alley."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Big Pecks: Defense +1 when it enters.",
+        "Early Bird: Attack +1 when it enters.",
+        "Pickup: Speed +1 when it enters.",
+        "Rattled: Speed +1 when it enters."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Synthetic Seed: Attack +1 and accuracy +1."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

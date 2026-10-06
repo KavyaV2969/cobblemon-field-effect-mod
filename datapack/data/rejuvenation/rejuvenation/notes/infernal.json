@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:infernal",
+  "title": "Infernal Field",
+  "summary": "“The souls of the damned burn on...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Soul Sand Valley."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Fire moves and dark moves are 1.5× stronger.",
+        "Special fairy moves and water moves are halved (0.5×).",
+        "Aura Sphere, Frustration, and Spirit Break also count as Dark for type matchups.",
+        "Ground moves also count as Fire for type matchups.",
+        "Steel moves also count as Fire for type matchups.",
+        "Rock moves also count as Fire for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Dream Eater, Punishment, and Smog: 2× stronger.",
+        "Blast Burn, Infernal Parade, Inferno, Inferno Overdrive, Precipice Blades, and Raging Fury: 1.5× stronger.",
+        "Dark Void, Inferno, and Will-O-Wisp: never miss."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Fire-type.",
+        "Nature Power becomes Punishment.",
+        "Secret Power can cause burn."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Glaciate changes the field into Dimensional.",
+        "Judgment, Origin Pulse, and Purify change the field into Volcanic Top."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Blaze: 1.5× power for Fire-type moves.",
+        "Desolate Land, Flame Body, or Magma Armor: Defense +1 and Special Defense +1 when it enters.",
+        "Fire Mane: 2× power for Fire-type moves."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Soul Eater restores 1/16 of its HP.",
+        "Steam Engine: Speed +1.",
+        "Each turn, grounded Pokémon that are not Fire-type (not those using Aqua Ring, Dig, or Dive) without Flame Body, Flare Boost, Flash Fire, Heatproof, Magic Guard, Magma Armor, Water Bubble, Water Veil, or Well-Baked Body lose 1/8 of their maximum HP (burned by the field)."
+      ]
+    },
+    {
+      "heading": "Weather and status",
+      "lines": [
+        "Hail cannot be started here.",
+        "Rain cannot be started here.",
+        "Snow cannot be started here."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Elemental Seed: Attack +1, Special Attack +1, and is trapped."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

@@ -191,6 +191,13 @@
         case 'removeVolatile': if(p?.removeVolatile(a.id))message(x.b,a.message,p);break;
         case 'mimicry': if(p)applyMimicry(x.b,p);break;
         case 'moveBehavior': moveBehavior(a,x);break;
+        case 'accuracyPenalty': {
+          // Inherently accuracy-bypassing checks (value true) stay exempt; only a numeric accuracy is scaled, with native rounding.
+          if(typeof x.value!=='number')break;
+          const before=x.value,after=x.b.modify(before,a.factor);if(after===before)break;
+          x.value=after;if(a.attribute && x.user && x.target && x.move)probeAccuracy(x.b,x.user,x.target,x.move,before,after);break;
+        }
+        case 'mechanic': mechanicEvent(a,x);break;
         case 'removeCallbacks': for(const key of a.callbacks)delete x.move[key];break;
         case 'pairField': {
           const s=state(x.b);if(current(x.b).terrainPolicy?.blockedMessage || (a.disallowPermanentField===s.id && s.duration<=0))break;
@@ -475,7 +482,16 @@
     return true;
   }
   function onceMessage(b,text,user){if(!text)return;const s=state(b);s.turnMessages ||= new Set();const key=text.includes('{1}')?text+'|'+user?.getSlot():text;if(s.turnMessages.has(key))return;s.turnMessages.add(key);message(b,text,user);}
-  function sync(b){const s=state(b);if(s)b.add('rejuvenationstate',JSON.stringify({field:s.id,counters:s.counters,duration:s.duration,overlay:s.overlay?.id || null,overlayDuration:s.overlay?.duration || 0}));}
+  // Public battlefield state only: the visible field, its layers and the counters the current field's notes describe.
+  // Nothing here reveals either team's hidden information.
+  function publicState(b){
+    const s=state(b),f=current(b),out={};
+    if(f?.mechanics?.sculkWarning)out.warning=s.counters[(f.mechanics.sculkWarning.counter || 1)-1] || 0;
+    if(f?.mechanics?.creakingDistraction)out.distraction=b.sides.filter(Boolean).map(side=>s.custom?.distraction?.[side.id] || 0);
+    return out;
+  }
+  function sync(b){const s=state(b);if(s)b.add('rejuvenationstate',JSON.stringify({field:s.id,counters:s.counters,duration:s.duration,overlay:s.overlay?.id || null,overlayDuration:s.overlay?.duration || 0,
+    stack:s.stack.map(frame=>frame.id),substrate:s.stack.length>1 && s.stack.at(-2).context?s.stack.at(-2).id:null,public:publicState(b)}));}
   function protectedFromField(p,move) { return p.isSemiInvulnerable() || p.volatiles.commanding || p.volatiles.protect || p.side.sideConditions.wideguard || p.side.sideConditions.matblock || (p.side.sideConditions.quickguard && move?.priority>0); }
   const eventRules=new WeakMap();
   function rulesFor(field,event){
@@ -504,7 +520,7 @@
     }
     if(!duration && !options.push) s.stack.pop();
     if(duration && s.tempIndex===null) s.tempIndex=s.stack.length;
-    s.stack.push({id:field}); s.id=field; s.counters=[0,0,0,0,0]; s.duration=duration || s.duration;
+    s.stack.push({id:field}); s.id=field; s.counters=[0,0,0,0,0]; s.custom={}; s.duration=duration || s.duration;
     releaseFieldRoll(b);
     s.eruption=false;
     if(s.permanentCondition && test(s.permanentCondition,context(b,user,null))){s.duration=0;s.tempIndex=null;delete s.permanentCondition;delete s.durationCondition;}
@@ -524,7 +540,7 @@
     const s=state(b); if(!s) return;
     const old=current(b);
     s.stack.pop(); if(!s.stack.length) s.stack.push({id:indoor});
-    s.id=s.stack.at(-1).id; s.counters=[0,0,0,0,0];
+    s.id=s.stack.at(-1).id; s.counters=[0,0,0,0,0]; s.custom={};
     releaseFieldRoll(b);
     if(s.tempIndex!==null && s.stack.length<=s.tempIndex) { s.duration=0;s.tempIndex=null;delete s.durationCondition;delete s.permanentCondition; }
     if(old.originalId==='DEEPEARTH') b.field.removePseudoWeather('gravity');
@@ -578,6 +594,7 @@
   }
   function power(b,power,user,target,move) {
     const f=current(b);if(!f || move.category==='Status')return;
+    if(f.mechanics?.sculkWarning)recordResolvedPower(b,move,power);
     const s=state(b),overlay=s.overlay && s.catalog.fields[s.overlay.id]?.overlay;
     let mult=f.moves[move.id]?.multiplier ?? 1;
     const weather=user?.hasAbility('megasol')?'sunnyday':b.field.effectiveWeather();
@@ -617,7 +634,8 @@
     const f=current(b);if(!f)return;
     const r=f.moves[move.id];
     if(r?.accuracy!==undefined)move.accuracy=r.accuracy===0?true:r.accuracy;
-    move.rejuvenationTypes=secondaryTypes(b,move,user,target);
+    move.rejuvenationTypes=composeTypes(b,move,user,target,f);
+    b.rejuvenationProbe=undefined;
     rules(b,'modifyMove',context(b,user,target,move));
     if(!move.rejuvenationTryMoveWrapped){const nativeTry=move.onTryMove;
       move.rejuvenationTryMoveWrapped=true;
@@ -626,9 +644,13 @@
         const f=current(this);
         if(f.moves[activeMove.id]?.multiplier===0){message(this,f.moves[activeMove.id]?.message,target,user);return false;}
         if(typeMultiplier(this,activeMove,user,target,f)===0){message(this,typeMessage(this,activeMove,user,target,f),user,target);return false;}
-        return nativeTry?.call(this,user,target,activeMove);
+        // A move that passes its pre-execution checks has been executed, whatever its targets then do (miss, Protect, immunity).
+        const result=nativeTry?.call(this,user,target,activeMove);
+        if(result!==false && result!==null)activeMove.rejuvenationExecuted=true;
+        return result;
       };
     }
+    if(f.accuracyCrash && !move.ohko)installFieldCrash(b,move,f.accuracyCrash);
     const overlay=state(b).overlay;
     if(overlay)move.rejuvenationTypes.push(...secondaryTypes(b,move,user,target,state(b).catalog.fields[overlay.id].overlay));
     if(move.id==='naturepower' && b.dex.moves.get(f.naturePower).exists) {
@@ -639,7 +661,9 @@
       // The chosen effect is a secondary: it never changes the hit's damage (previews treat the draw as effect-only).
       effectDraws++;let chosen;try{chosen=b.sample(mimic.secretPowerEffects);}finally{effectDraws--;}
       // The catalog is frozen; the simulator annotates secondary and self effect objects while it applies them.
-      move.secondaries=[{chance:move.secondaries?.[0]?.chance || 30,...JSON.parse(JSON.stringify(chosen))}];
+      const secondary={chance:move.secondaries?.[0]?.chance || 30,...JSON.parse(JSON.stringify(chosen))};
+      if(secondary.message){const text=secondary.message;delete secondary.message;secondary.onHit=function(hit){message(this,text,hit);};}
+      move.secondaries=[secondary];
     }
     if(move.id==='camouflage'){const mimic=state(b).catalog.fields[state(b).overlay?.id || state(b).id];move.onHit=function(p){const t=mimic.mimicry;if(t && types.includes(t)){p.setType(t);this.add('-start',p,'typechange',t);}};}
   }
@@ -649,12 +673,23 @@
     state(b).missed=user.moveThisTurnResult===false;
     // Protection and immunity leave a null result: the move neither failed outright nor connected (Battler.rb:6725 realnumhits == 0).
     state(b).connected=user.moveThisTurnResult===true;
+    mechanicsAfterMove(b,user,target,move);
     applyFieldMove(b,user,target,move);
     // effects[:Metronome]: consecutive successful uses of one move, counted without the item (Battler.rb:7156-7167).
     const streak=user.rejuvenationStreak;
     user.rejuvenationStreak=state(b).connected?{id:move.id,count:streak?.id===move.id?streak.count+1:1}:{id:move.id,count:0};
     state(b).accuracyMiss=null;state(b).drainHealed=null;
     sync(b);
+  }
+  // Where a transition leads: Indoor means the visible field is removed and the frame beneath it is exposed.
+  function transitionDestination(b,f,t,move,user){
+    const s=state(b);let dest=t.field;
+    if(f.originalId==='ICY' && ['rejuvenation:water_surface','rejuvenation:murkwater_surface','rejuvenation:cave'].includes(s.stack.at(-2)?.id))dest=indoor;
+    // Surface removal (melting snow or ice) exposes the environment's own substrate frame instead of transforming into the
+    // transition's ordinary destination. Only a context frame qualifies; an ordinary backup keeps its original rules.
+    if(t.removesSurface && s.stack.at(-2)?.context)dest=indoor;
+    if(f.progression?.group==='flower_garden' && user?.hasAbility('ripen') && s.catalog.fields[dest]?.progression?.stage>f.progression.stage)dest=s.catalog.fields[dest].moves[move.id]?.transition?.field || dest;
+    return dest;
   }
   function applyFieldMove(b,user,target,move){
     const f=current(b);if(!f)return;const r=f.moves[move.id];
@@ -669,15 +704,200 @@
       // Ruby evaluates change effects after replacement, except water pollution.
       const early=(t.after || []).filter(a=>a.op==='water_pollution');
       runActions(early,context(b,user,target,move));
-      let dest=t.field;
-      if(f.originalId==='ICY' && ['rejuvenation:water_surface','rejuvenation:murkwater_surface','rejuvenation:cave'].includes(state(b).stack.at(-2)?.id))dest=indoor;
-      if(f.progression?.group==='flower_garden' && user.hasAbility('ripen') && state(b).catalog.fields[dest]?.progression?.stage>f.progression.stage)dest=state(b).catalog.fields[dest].moves[move.id]?.transition?.field || dest;
+      const dest=transitionDestination(b,f,t,move,user);
       if(dest===indoor)destroy(b,t.message);
       else change(b,dest,{push:t.push,message:t.message},user);
       runActions((t.after || []).filter(a=>a.op!=='water_pollution'),context(b,user,target,move));
     }
     rules(b,'afterMove',context(b,user,target,move));
     sync(b);
+  }
+  // ---------------------------------------------------------------------------------------------
+  // Data-configured field mechanics. The behaviour below is coded and closed; every number, move group and message
+  // comes from the field definition's `mechanics` object, which is validated when the catalog loads.
+  //   sculkWarning        Deep Dark: shared Warning 0-4, calming, Darkness, Rattled and retaliation.
+  //   creakingDistraction Pale Garden: per-side counter 0-3 that strikes the side at its maximum.
+  //   bloodlust           Crimson Forest: Attack boost for the direct attacker after each opposing knockout.
+  // Counters, allowances and flags live in the battle-local `custom` state, which is reset whenever the visible field
+  // changes, so nothing leaks between fields and hypothetical evaluations restore it with the rest of the state.
+  // ---------------------------------------------------------------------------------------------
+  function mechanic(b,name){return current(b)?.mechanics?.[name];}
+  function customState(b){const s=state(b);return s.custom || (s.custom={});}
+  // A side's allowance is spent by a real mutation and renews when the simulator's turn counter changes.
+  function sideAllowance(b){const c=customState(b);if(!c.allow || c.allow.turn!==b.turn)c.allow={turn:b.turn,used:{}};return c.allow.used;}
+  // Fainted Pokemon awaiting the faint queue (0 HP) and Commander-hidden Pokemon are not on the battlefield.
+  function fieldMons(b){return orderedActive(b).filter(p=>p.hp>0 && !p.volatiles.commanding);}
+  function warningIndex(cfg){return (cfg.counter || 1)-1;}
+  function warningOf(b,cfg){return state(b).counters[warningIndex(cfg)] || 0;}
+  // Native Base Power as the damage calculation received it, before field, STAB, item and ability amplification.
+  // Every target and every hit of the action reports to the highest value; spread and multi-hit actions therefore
+  // classify by their strongest evaluated hit and never count more than once.
+  function recordResolvedPower(b,move,value){if(b.activeMove===move && typeof value==='number' && value>(move.rejuvenationPower || 0))move.rejuvenationPower=value;}
+  function resolvedPower(b,user,target,move){
+    if(move.rejuvenationPower!==undefined)return move.rejuvenationPower;
+    // No damage calculation ran (Protect, immunity, absorption or a miss): ask the simulator's own callback, on a cloned PRNG.
+    let value=move.basePower || 0;
+    if(typeof move.basePowerCallback==='function'){
+      const prng=b.prng;b.prng=prng.clone();
+      try{const v=move.basePowerCallback.call(b,user,target || user,move);if(Number.isFinite(v))value=v;}catch(e){/* keep the static Base Power */}
+      finally{b.prng=prng;}
+    }
+    return value;
+  }
+  // One exclusive class per action, in the documented order: calming, explicit override, sound flag, seismic list, then
+  // resolved Base Power. Sources never add together.
+  function classifyWarning(b,user,target,move,cfg){
+    const moveId=move.id;
+    if(cfg.calming.moves.includes(moveId))return {kind:'calming',amount:cfg.amounts.calming,text:cfg.calming.messages[moveId] || cfg.calming.defaultMessage};
+    const override=cfg.overrides[moveId];
+    if(override)return {kind:'override',amount:override.amount,text:override.message};
+    if(move.flags?.sound && cfg.sound.categories.includes(move.category))return {kind:'sound',amount:cfg.sound.amount,text:cfg.sound.message};
+    if(cfg.seismic.moves.includes(moveId))return {kind:'seismic',amount:cfg.seismic.amount,text:cfg.seismic.message};
+    if(move.category==='Status')return null;
+    const power=resolvedPower(b,user,target,move);
+    if(power>=cfg.thresholds.major)return {kind:'major',amount:cfg.amounts.major,text:(move.isZ || move.isMax)?cfg.messages.gimmick:cfg.messages.major};
+    if(power>=cfg.thresholds.moderate)return {kind:'moderate',amount:cfg.amounts.moderate,text:cfg.messages.moderate};
+    return null;
+  }
+  // Milestones are announced in order; Rattled reacts as the Darkness milestone is crossed, never otherwise.
+  function announceStages(b,cfg,from,to,user){
+    for(let stage=from+1;stage<=to;stage++){
+      for(const line of cfg.stages[stage] || [])message(b,line,user);
+      if(stage===cfg.darknessAt)for(const mon of fieldMons(b)){
+        if(!mon.hasAbility(cfg.rattled.ability))continue;
+        beforeCanonicalMessage(b,['-boost','-unboost'],mon,cfg.rattled.message,()=>b.boost(cfg.rattled.stats,mon,null,effect));
+      }
+    }
+  }
+  // The only way Warning changes. A clamped no-op never consumes the side's allowance; a real change does.
+  function changeWarning(b,cfg,user,amount,text){
+    const s=state(b),index=warningIndex(cfg),old=s.counters[index] || 0,next=Math.max(0,Math.min(cfg.maximum,old+amount));
+    if(next===old || !user)return false;
+    const used=sideAllowance(b);if(used[user.side.id])return false;
+    used[user.side.id]=true;s.counters[index]=next;
+    message(b,text,user);
+    if(next>old)announceStages(b,cfg,old,next,user);
+    else if(old>=cfg.darknessAt && next<cfg.darknessAt)message(b,cfg.messages.recede,user);
+    return true;
+  }
+  // Environmental loss goes through one place. A read-only damage preview records what would be lost instead of dealing it,
+  // so a displayed range and its KO label describe the move's own hit only; real battles and rollouts deal it.
+  function strikeDamage(b,mon,amount){
+    const preview=b.rejuvenationPreview;
+    if(preview){preview.strikes.push({uuid:mon.uuid,amount:Math.min(amount,mon.hp)});return;}
+    b.directDamage(amount,mon,null,effect);
+  }
+  function retaliationImmunity(p,cfg){
+    for(const [ability,text] of Object.entries(cfg.immunities.abilities))if(p.hasAbility(ability))return text;
+    for(const [type,text] of Object.entries(cfg.immunities.types))if(p.hasType(type))return text;
+    return null;
+  }
+  // Retaliation fires once per turn. Warning stays capped at its maximum until the first processing point (a resolved
+  // action, an entry or seed, or an end-of-turn residual) of a turn in which it has not yet fired.
+  function processRetaliation(b,cfg,source){
+    const s=state(b),c=customState(b);
+    if(b.ended || warningOf(b,cfg)<cfg.retaliationAt || c.retaliated===b.turn)return;
+    c.retaliated=b.turn;
+    message(b,cfg.retaliation.announce,source);
+    for(const mon of fieldMons(b)){
+      const immune=retaliationImmunity(mon,cfg);
+      if(immune){message(b,immune,mon);continue;}
+      strikeDamage(b,mon,Math.max(1,Math.floor(mon.maxhp*cfg.retaliation.fraction+1e-9)));
+    }
+    s.counters[warningIndex(cfg)]=cfg.resetTo;
+    message(b,cfg.retaliation.resetMessage,source);
+  }
+  function warningAfterMove(b,user,target,move,cfg){
+    if(b.ended || !move.rejuvenationExecuted){processRetaliation(b,cfg,user);return;}
+    const cls=classifyWarning(b,user,target,move,cfg);
+    if(cls && (cls.kind!=='calming' || state(b).connected))changeWarning(b,cfg,user,cls.amount,cls.text);
+    processRetaliation(b,cfg,user);
+  }
+  function distractionAfterMove(b,user,move,cfg){
+    const c=customState(b),counts=c.distraction ||= {},ticks=c.tick ||= {},side=user.side.id;
+    if(!state(b).connected)return;
+    if(move.category==='Status'){
+      // A status execution fully resets the side. It never renews that side's damaging-tick allowance.
+      if(counts[side]>0){counts[side]=0;message(b,cfg.resetMessage,user);}
+      return;
+    }
+    if(ticks[side]===b.turn)return;
+    ticks[side]=b.turn;
+    const next=Math.min(cfg.maximum,(counts[side] || 0)+1);counts[side]=next;
+    for(const line of cfg.stages[next] || [])message(b,line,user);
+    if(next<cfg.maximum)return;
+    for(const mon of user.side.active)if(mon && mon.hp>0 && !mon.volatiles.commanding)strikeDamage(b,mon,Math.max(1,Math.floor(mon.maxhp*cfg.damageFraction+1e-9)));
+    counts[side]=0;message(b,cfg.subsidedMessage,user);
+  }
+  function mechanicsAfterMove(b,user,target,move){
+    const f=current(b);if(!f?.mechanics || !user)return;
+    if(f.mechanics.sculkWarning)warningAfterMove(b,user,target,move,f.mechanics.sculkWarning);
+    if(f.mechanics.creakingDistraction)distractionAfterMove(b,user,move,f.mechanics.creakingDistraction);
+  }
+  // Called at entries, seeds and the end-of-turn residual so a capped Warning is never stranded.
+  function mechanicsPending(b,source){
+    const cfg=mechanic(b,'sculkWarning');if(cfg)processRetaliation(b,cfg,source || b.sides.filter(Boolean)[0]?.active.find(p=>p && !p.fainted) || null);
+  }
+  function mechanicEvent(a,x){
+    if(a.kind==='sculkWarning' && a.event==='seed'){
+      const cfg=mechanic(x.b,'sculkWarning');if(!cfg || !x.user)return;
+      if(changeWarning(x.b,cfg,x.user,cfg.amounts.seed,cfg.seedMessage))processRetaliation(x.b,cfg,x.user);
+    }
+  }
+  // Piglin Bloodlust: knockouts are counted as they are processed (one per opposing Pokemon directly knocked out by a
+  // move) and paid out once per batch, when the simulator announces that the batch is finished.
+  function bloodlustFaint(b,target,source,sourceEffect){
+    if(!mechanic(b,'bloodlust') || !source || !target || sourceEffect?.effectType!=='Move' || source.side===target.side)return;
+    const counts=customState(b).bloodlust ||= {},key=source.side.id+':'+source.position+':'+source.name;
+    counts[key]=(counts[key] || 0)+1;
+  }
+  function bloodlustPay(b){
+    const cfg=mechanic(b,'bloodlust'),c=customState(b);if(!cfg || !c.bloodlust)return;
+    const counts=c.bloodlust;delete c.bloodlust;
+    for(const mon of active(b)){
+      const n=counts[mon.side.id+':'+mon.position+':'+mon.name];
+      if(!n || mon.hp<=0)continue;
+      beforeCanonicalMessage(b,['-boost','-unboost'],mon,cfg.message,()=>b.boost({[cfg.stat]:cfg.amount*n},mon,mon,effect));
+    }
+  }
+  // Priority punishment: the final accuracy is scaled, and the unscaled value is remembered so the roll can be attributed.
+  // A miss is blamed on the field only when the same native roll would have hit at the unscaled accuracy.
+  function probeAccuracy(b,user,target,move,before,after){b.rejuvenationProbe={user,target,move,before,after};}
+  function installAccuracyProbe(b){
+    const roll=b.randomChance;
+    b.randomChance=function(numerator,denominator){
+      const probe=this.rejuvenationProbe;
+      if(!probe || denominator!==100 || numerator!==probe.after || probe.target!==this.activeTarget)return roll.call(this,numerator,denominator);
+      this.rejuvenationProbe=undefined;
+      const drawn=this.prng.clone().next(100),hit=roll.call(this,numerator,denominator);
+      if(!hit && drawn<probe.before)probe.move.rejuvenationFieldMiss=true;
+      return hit;
+    };
+  }
+  // Wraps MoveFail once per move so a field-caused miss crashes like High Jump Kick (never on moves that already crash).
+  function installFieldCrash(b,move,policy){
+    if(move.rejuvenationCrashWrapped || move.hasCrashDamage)return;
+    move.rejuvenationCrashWrapped=true;
+    const native=move.onMoveFail;
+    move.onMoveFail=function(target,source,activeMove){
+      native?.call(this,target,source,activeMove);
+      if(!activeMove.rejuvenationFieldMiss || !source || source.fainted)return;
+      activeMove.rejuvenationFieldMiss=false;
+      for(const line of policy.messages)message(this,line,source);
+      this.damage(source.baseMaxhp*policy.fraction,source,source,this.dex.conditions.get('highjumpkick'));
+    };
+  }
+  // Derived additional attacking types: each row is evaluated once, in order, against the types accumulated so far, so
+  // forest cutters that gain Grass can gain the field's Dark or Fire component too. Duplicates are never added.
+  function composeTypes(b,move,user,target,field){
+    const list=secondaryTypes(b,move,user,target,field);
+    for(const row of field?.typeComposition || []){
+      const have=[move.type,...list];
+      if(have.includes(row.add) || !row.whenTypes.some(t=>have.includes(t)) || !test(row.condition,context(b,user,target,move)))continue;
+      list.push(row.add);
+      if(row.message && b.activeMove===move){move.rejuvenationRuleMessages ||= new Set();if(!move.rejuvenationRuleMessages.has(row.message)){message(b,row.message,user,target);move.rejuvenationRuleMessages.add(row.message);}}
+    }
+    return list;
   }
   function seed(b,p) {
     const f=current(b),s=f.seed;if(!s || !p.hasItem(s.item) || p.ignoringItem())return;
@@ -707,7 +927,7 @@
   function enter(b,p) {
     const f=current(b);if(!f || p.fainted)return;
     seed(b,p);rules(b,'switchIn',context(b,p,p));rules(b,'overlayIn',context(b,p,p));
-    applyMimicry(b,p);
+    applyMimicry(b,p);mechanicsPending(b,p);
   }
   function environmentAbilityRows(b){return (state(b)?.catalog || catalog)?.fields[indoor]?.environmentAbilities || {};}
   // Battle.rb quarkdriveCheck / protosynthesisCheck and the switch-in block of Battler.rb:3416-3441 run at different moments:
@@ -755,6 +975,7 @@
     const s=state(b);if(!s)return;
     s.turnMessages=new Set();
     holdPausedClocks(b);
+    mechanicsPending(b);
     rules(b,'fieldResidual',context(b));
     for(const p of orderedActive(b))rules(b,'residual',context(b,p,p));
     s.eruption=false;
@@ -764,7 +985,7 @@
       const text=current(b).endMessage,expired=current(b);
       s.stack.splice(s.tempIndex); if(!s.stack.length)s.stack.push({id:indoor});
       if(current(b).originalId==='DEEPEARTH')b.field.removePseudoWeather('gravity');
-      s.id=s.stack.at(-1).id;s.tempIndex=null;s.counters=[0,0,0,0,0];delete s.durationCondition;delete s.permanentCondition;pausedClockShift(b,expired,current(b));message(b,text || current(b).expirationReturnMessage);cleanOverlay(b);rules(b,'activate',context(b));
+      s.id=s.stack.at(-1).id;s.tempIndex=null;s.counters=[0,0,0,0,0];s.custom={};delete s.durationCondition;delete s.permanentCondition;pausedClockShift(b,expired,current(b));message(b,text || current(b).expirationReturnMessage);cleanOverlay(b);rules(b,'activate',context(b));
       releaseFieldRoll(b);
       for(const p of orderedActive(b))enter(b,p);
       if(b.field.terrain)b.field.clearTerrain();
@@ -783,11 +1004,12 @@
     onSwitchInPriority:-2,onSwitchIn(p){rules(this,'pokemonEntry',context(this,p,p));enter(this,p);},
     onFieldResidualOrder:28,onFieldResidual(){residual(this);},
     onModifyAccuracyPriority:-1,onModifyAccuracy(value,target,user,move){return rules(this,'accuracy',context(this,user,target,move,value));},
-    onAccuracy(value,target,user,move){return rules(this,'perfectAccuracy',context(this,user,target,move,value));},
+    onAccuracy(value,target,user,move){return rules(this,'finalAccuracy',context(this,user,target,move,rules(this,'perfectAccuracy',context(this,user,target,move,value))));},
     // invulMisses? (Battle_Move.rb:954) repeats the field aura conditions of the perfect-accuracy line; a base-accuracy result is not a bypass.
     onInvulnerabilityPriority:2,onInvulnerability(target,user,move){if(rules(this,'perfectAccuracy',context(this,user,target,move,undefined))===true)return 0;},
     // pbOnKillEffects: effects for the user of a move that knocked out a target.
-    onAfterFaint(length,target,source,sourceEffect){if(source && source.hp>0 && sourceEffect?.effectType==='Move')rules(this,'afterFaint',context(this,source,target,sourceEffect,length));},
+    onFaint(target,source,sourceEffect){bloodlustFaint(this,target,source,sourceEffect);},
+    onAfterFaint(length,target,source,sourceEffect){if(source && source.hp>0 && sourceEffect?.effectType==='Move')rules(this,'afterFaint',context(this,source,target,sourceEffect,length));bloodlustPay(this);},
     onCriticalHit(target,source,move){if(rules(this,'criticalHit',context(this,this.activePokemon,target,move,true))===false)return false;},
     onModifyPriority(value,user,target,move){return rules(this,'priority',context(this,user,target,move,value));},
     onModifyCritRatio(value,user,target,move){return rules(this,'criticalRatio',context(this,user,target,move,value));},
@@ -827,14 +1049,28 @@
     onSetWeather(p,source,weather){if(rules(this,'setWeather',{...context(this,source || p,p),status:weather,value:true})===false)return null;},
     onEffectiveness(value,target,defType,move){const custom=chartOverride(this,move.type,defType,move,target);return (custom===undefined || custom==='immune'?value:custom)+(move.rejuvenationTypes || []).reduce((n,t)=>{const custom=chartOverride(this,t,defType,move,target);const policy=current(this)?.extraTypePolicies?.[t];if(policy?.mode==='firstWeaknessTwice')return n+(defType===target.getTypes()[0]?Math.max(0,this.dex.getEffectiveness(t,defType))*2:0);return n+(custom===undefined || custom==='immune'?this.dex.getEffectiveness(t,defType):custom);},0);},
   };
+  // Environment-derived substrate layers beneath the visible field, bottom first. They are dormant stack frames: only the
+  // visible field supplies mechanics, and destruction or surface removal exposes the next frame. Malformed stacks are
+  // rejected before any battle state exists: unknown or Indoor fields, repeated fields (a cycle) and excess depth.
+  const maxLayers=3;
+  function layerFrames(cat,field,layers){
+    if(layers===undefined || layers===null)return [];
+    if(!Array.isArray(layers) || layers.length>maxLayers)throw new Error('Invalid field layer stack');
+    const seen=new Set([field]);
+    return layers.map(layer=>{
+      if(typeof layer!=='string' || !cat.fields[layer] || layer===indoor || seen.has(layer))throw new Error('Invalid field layer '+JSON.stringify(layer));
+      seen.add(layer);return {id:layer,context:true};
+    });
+  }
   function attach(b,field,options={}) {
     if(!catalog?.fields[field])throw new Error('Unknown initial field '+field);
+    const frames=layerFrames(catalog,field,options.layers);
     for(const [key,item]of Object.entries(catalog.items || {})){b.dex.data.Items[key]=item;b.dex.items.itemCache.delete(key);}
     // The installed dex caches only existing items, so every getItem() of a Pokemon without an item constructed
     // a new empty Item. The empty item is immutable data; it is cached frozen, as the dex caches existing ones.
     if(!b.dex.items.itemCache.get(''))b.dex.items.itemCache.set('',b.dex.deepFreeze(b.dex.items.getByID('')));
     if(typeof options.battleId==='string'){b.rejuvenationBattleId=options.battleId;battlesById.set(options.battleId,b);}
-    b.rejuvenation={catalog,id:field,stack:[{id:field}],counters:[0,0,0,0,0],roll:0,overlay:null,duration:0,tempIndex:null,eruption:false,survival:new Set()};
+    b.rejuvenation={catalog,id:field,stack:[...frames,{id:field}],counters:[0,0,0,0,0],custom:{},roll:0,overlay:null,duration:0,tempIndex:null,eruption:false,survival:new Set()};
     b.rejuvenation.actorTypes=structuredCloneValue(options.actorTypes || {});
     if(Object.entries(b.rejuvenation.actorTypes).some(([k,v])=>!/^p[1-4]$/.test(k) || !['wild','player','npc'].includes(v)))throw new Error('Invalid battle actor types');
     const policy=current(b).multiplierPolicy;
@@ -885,6 +1121,7 @@
     if(!mimicry.rejuvenationWrapped){const wrapped={...mimicry,rejuvenationWrapped:true};for(const key of ['onStart','onTerrainChange']){const fn=mimicry[key];wrapped[key]=function(...args){if(state(this))return;return fn?.apply(this,args);};}b.dex.abilities.abilityCache.set('mimicry',Object.freeze(wrapped));}
     // An accuracy miss is announced by the -miss line; failures and blocked moves are not misses (Battler.rb:6963 user.missAcc).
     const add=b.add;b.add=function(...args){if(args[0]==='-miss' && state(this))state(this).accuracyMiss=args[1];if(args[0]==='-heal' && args[3]==='[from] drain' && state(this))state(this).drainHealed=args[1];const result=add.apply(this,args);if(args[0]==='-crit' && state(this))rules(this,'criticalMessage',context(this,this.activePokemon,args[1],this.activeMove));return result;};
+    installAccuracyProbe(b);
     b.field.addPseudoWeather(effectId);
     assignPartyRoles(b);
     sync(b);
@@ -1629,6 +1866,7 @@
     const check=(kind,id)=>{if(!dex[kind].get(id).exists && !(kind==='items' && data.items?.[id]) && !(kind==='abilities' && data.abilities?.[id]))missing[kind].add(id);};
     function visit(v){if(!v || typeof v!=='object')return;if(v.move)check('moves',v.move);if(v.sourceMove)check('moves',v.sourceMove);if(v.ability?.values)for(const id of v.ability.values)check('abilities',id);if(v.effectiveAbility?.values)for(const id of v.effectiveAbility.values)check('abilities',id);if(v.item?.values)for(const id of v.item.values)check('items',id);if(v.globalAbility)for(const id of v.globalAbility)check('abilities',id);if(v.lastMove)for(const id of v.lastMove.values)check('moves',id);if(v.op==='ability')check('abilities',v.id);if(v.sourceAbility)check('abilities',v.sourceAbility);if(v.recipe==='randomMovePool')for(const mid of v.choices || [])check('moves',mid);if(v.op==='pairField'){check('moves',v.token);for(const row of v.pairs)check('moves',row.with);}for(const x of Object.values(v))visit(x);}
     for(const f of Object.values(data.fields)){for(const content of [f,f.overlay].filter(Boolean))for(const mid of Object.keys(content.moves))check('moves',mid);for(const iid of Object.keys(f.itemHandlers || {}))check('items',iid);check('moves',f.naturePower);check('moves',f.secretPower);if(f.seed)check('items',f.seed.item);for(const mid of [...f.statusBuffs,...f.statusNerfs,...Object.keys(f.healing?.moveMultipliers || {}),...(f.gravityUsableMoves || [])])check('moves',mid);for(const aid of [...Object.keys(f.abilityHandlers || {}),...Object.keys(f.abilityDamageCategories || {}),...Object.keys(f.suppressedAbilityCallbacks || {}),...(f.grounding?.airborneAbilities || [])])check('abilities',aid);for(const iid of f.grounding?.forceGroundingItems || [])check('items',iid);visit(f);}
+    for(const f of Object.values(data.fields)){const w=f.mechanics?.sculkWarning;if(w)for(const mid of [...w.calming.moves,...w.seismic.moves,...Object.keys(w.overrides)])check('moves',mid);}
     for(const f of Object.values(data.fields))if(f.trapping){for(const mid of [...Object.keys(f.trapping.moveIncrements),...Object.keys(f.trapping.statLoss)])check('moves',mid);for(const aid of f.trapping.immuneAbilities)check('abilities',aid);}
     for(const f of Object.values(data.fields))for(const aid of [...Object.keys(f.abilityAbsorptions || {}),...(f.indirectImmunityAbilities || [])])check('abilities',aid);
     for(const f of Object.values(data.fields))for(const row of Object.values(f.conditionDurations || {})){for(const mid of row.sourceMoves)check('moves',mid);for(const aid of row.sourceAbilities || [])check('abilities',aid);}
@@ -1810,7 +2048,8 @@
       bypassesProtect:!move.flags?.protect,overrideOffensiveStat:move.overrideOffensiveStat ?? null,overrideDefensiveStat:move.overrideDefensiveStat ?? null,
       secondaryTypes:[...(move.rejuvenationTypes || [])],randomSecondaryType:!!move.rejuvenationRandomTypes});
     const transition=state(b)?current(b).moves[move.id]?.transition:null;
-    out.changesFieldTo=transition && willChange(b,move,user,target)?transition.field:null;
+    if(transition && willChange(b,move,user,target)){const dest=transitionDestination(b,current(b),transition,move,user);out.changesFieldTo=dest===indoor?(state(b).stack.length>1?state(b).stack.at(-2).id:indoor):dest;}
+    else out.changesFieldTo=null;
     out.fails=!b.singleEvent('TryMove',move,null,user,target,move) || !b.runEvent('TryMove',user,target,move);
     out.immune=isImmune(b,user,target,move);
     // Accuracy as hitStepAccuracy computes it, without the random roll.
@@ -1828,6 +2067,13 @@
     if(move.alwaysHit || (move.target==='self' && move.category==='Status'))accuracy=true;
     else accuracy=b.runEvent('Accuracy',target,user,move,accuracy);
     out.accuracy=accuracy===true?true:typeof accuracy==='number'?Math.max(0,Math.min(100,accuracy)):0;
+    // A priority move scaled by the field's accuracy penalty crashes when it misses because of that penalty alone: the probability is
+    // the part of the native accuracy the penalty removed (the same attribution the real roll uses).
+    const probe=b.rejuvenationProbe,crash=current(b)?.accuracyCrash;
+    if(probe && probe.move===move && crash && !move.ohko && !move.hasCrashDamage){
+      out.fieldMissChance=Math.max(0,Math.min(100,probe.before)-probe.after)/100;out.fieldCrashFraction=crash.fraction;
+    }
+    b.rejuvenationProbe=undefined;
     out.critRatio=b.runEvent('ModifyCritRatio',user,target,move,move.critRatio || 0);
     if(query.strategy){
       // Strategic lookahead reads only priority, accuracy, immunity and the highest roll; speeds come from the
@@ -1914,7 +2160,7 @@
   let effectDraws=0;
   function previewRoll(b,user,target,query,low){
     applyEvaluationGimmick(b,user,query.gimmick);
-    b.rejuvenationPreviewRoll=low?0:1;
+    b.rejuvenationPreviewRoll=low?0:1;b.rejuvenationPreview={strikes:[]};
     const before=target.hp,oldEvent=b.runEvent,oldDamage=b.actions.getDamage,oldLoop=b.actions.hitStepMoveHitLoop,oldSpread=b.actions.spreadMoveHit;
     let hits=0,damageCalls=0,inDamage=0,countingHits=false;const draws=[];
     // A draw is recorded with the number of completed damage calculations against the target (-1 inside one);
@@ -1962,8 +2208,8 @@
       b.actions.useMove(base,user,target,null,z,max);
       // Field destruction/collapse may occur in AfterMove, after the hit pipeline finishes.
       b.runEvent('AfterMove',user,target,b.activeMove || base);
-      return {damage:Math.max(0,before-target.hp),hits,stochastic:draws.some(at=>at<damageCalls)};
-    }finally{b.runEvent=oldEvent;restoreSample();restoreRandom();restoreChance();restoreLoop();restoreSpread();restoreDamage();delete b.randomizer;}
+      return {damage:Math.max(0,before-target.hp),hits,stochastic:draws.some(at=>at<damageCalls),strikes:b.rejuvenationPreview.strikes};
+    }finally{delete b.rejuvenationPreview;b.runEvent=oldEvent;restoreSample();restoreRandom();restoreChance();restoreLoop();restoreSpread();restoreDamage();delete b.randomizer;}
   }
   function evaluateMove(b,query){
     const user=findPokemon(b,query.user),target=findPokemon(b,query.target ?? query.user);
@@ -1988,7 +2234,10 @@
       const high=transaction(b,()=>previewRoll(b,user,target,query,false));
       // A range from random power, damage, called moves or targets would be one seeded sample: it is not displayed.
       if(low.stochastic || high.stochastic){withField.stochasticDamage=true;withField.uncertainDamageRange=true;}
-      else{withField.totalMinDamage=low.damage;withField.totalMaxDamage=high.damage;withField.minHits=low.hits;withField.maxHits=high.hits;}
+      else{withField.totalMinDamage=low.damage;withField.totalMaxDamage=high.damage;withField.minHits=low.hits;withField.maxHits=high.hits;
+        // Environmental loss caused by the same action (Deep Dark retaliation, a Creaking strike) is reported apart from the hit.
+        const loss=uuid=>Math.max(0,...high.strikes.filter(x=>x.uuid===uuid).map(x=>x.amount),...low.strikes.filter(x=>x.uuid===uuid).map(x=>x.amount));
+        if(high.strikes.length || low.strikes.length)withField.fieldStrike={targetLoss:loss(target.uuid),userLoss:user===target?0:loss(user.uuid)};}
     }
     return {query,withField,native:nativeRules};
   }
@@ -2564,6 +2813,21 @@
     }return score/100;
   }
   // END GENERATED SOURCE AI AFFINITY
+  // Strategic worth of a field for a Pokemon where there is no source party rule (the custom fields): the always-on type
+  // multipliers the field declares for the Pokemon's own types, and exemption from the field's environmental strike. A bounded
+  // heuristic over the field's own data; every consequence still comes from the simulator.
+  function declaredAffinity(b,p,field){
+    let score=0;
+    for(const row of field?.types || []){
+      const type=row.match?.moveType;
+      if(type && row.condition?.always===true && typeof row.multiplier==='number' && p.hasType(type))score+=Math.max(-30,Math.min(30,(row.multiplier-1)*40));
+    }
+    const warning=field?.mechanics?.sculkWarning;
+    // Reserves have no active ability for hasAbility, so exemption here reads the Pokemon's own ability and types.
+    if(warning && (Object.keys(warning.immunities.abilities).includes(p.ability) || Object.keys(warning.immunities.types).some(type=>p.hasType(type))))score+=25;
+    return score;
+  }
+  function fieldAffinity(b,p,field=current(b)){return sourceAffinity(b,p,field)+(field?.custom?declaredAffinity(b,p,field):0);}
   // BEGIN GENERATED SOURCE AI DISRUPTION
   // Battle_AI.rb getFieldDisruptScore: field preference of the current matchup (1 is neutral, higher favours the
   // opponent). Strategic weights only; every battle mechanic still comes from the simulator.
@@ -3046,7 +3310,7 @@
       // Wall-clock phases (nested phases are also included in their parents) for decision-latency receipts.
       const phases={setup:0,screening:0,rollouts:0,matchups:0,branches:0,resources:0,policies:0,rollouts_count:0};
       const timed=(name,fn)=>{const at=Date.now();try{return fn();}finally{phases[name]+=Date.now()-at;}};
-      const environment=()=>JSON.stringify({field:state(b)?.id,overlay:state(b)?.overlay,counters:state(b)?.counters,duration:state(b)?.duration,
+      const environment=()=>JSON.stringify({field:state(b)?.id,stack:state(b)?.stack?.map(frame=>frame.id),overlay:state(b)?.overlay,counters:state(b)?.counters,duration:state(b)?.duration,
         weather:b.field.weather,terrain:b.field.terrain,rooms:Object.entries(b.field.pseudoWeather).map(([id,s])=>[id,s.duration])});
       // `digests` optionally supplies [battleDigest, pokemonDigest(p), pokemonDigest(t)] of the current state.
       const bestAttack=(p,t,digests)=>{
@@ -3107,8 +3371,10 @@
         const s=state(b),backup=s.duration && s.tempIndex!==null?s.catalog.fields[s.stack[s.tempIndex-1]?.id]:null;
         const durationWeight=s.duration?Math.min(1,s.duration/3):1;
         const overlayWeight=definition?Math.min(.7,(s.overlay.duration || 3)/3*.7):0;
-        const affinity=p=>durationWeight*sourceAffinity(b,p)+(backup?(1-durationWeight)*sourceAffinity(b,p,backup):0)
-          +(definition && definition!==current(b)?overlayWeight*sourceAffinity(b,p,definition):0);
+        const substrate=s.stack.length>1 && s.stack.at(-2).context?s.catalog.fields[s.stack.at(-2).id]:null;
+        // The dormant layer beneath the field is what melting, breaking or a ceasing temporary field would expose: it keeps part of its worth.
+        const affinity=p=>durationWeight*fieldAffinity(b,p)+(backup?(1-durationWeight)*fieldAffinity(b,p,backup):0)
+          +(definition && definition!==current(b)?overlayWeight*fieldAffinity(b,p,definition):0)+(substrate?.3*fieldAffinity(b,p,substrate):0);
         return team.reduce((v,p)=>v+(p.hp>0 && !(reservesOnly && p.isActive)?(p.isActive?1:.5)*affinity(p):0),0)
           -foes.reduce((v,p)=>v+(p.hp>0 && !(reservesOnly && p.isActive)?(p.isActive?1:.5)*affinity(p):0),0);
       };
@@ -3150,10 +3416,29 @@
         }
         const result=.5*total*(phazing?1.3:1);hazardMemo.set(key,result);return result;
       };
+      // Standing environmental risk of the field's public counters (Deep Dark Warning, Pale Garden Distraction): what the next strike
+      // would cost the side's present Pokemon (the simulator's own immunity rule exempts some) times the chance the counter gets there
+      // next turn. A strike dealt during a rollout is real damage already counted in its HP terms; only what is still pending is priced
+      // here, so calming the Warning, resetting a Distraction or taking the strike on an immune Pokemon changes a candidate's value.
+      const standingRisk=side=>{
+        const f=current(b),s=state(b),warning=f?.mechanics?.sculkWarning,distraction=f?.mechanics?.creakingDistraction;
+        const mons=side.active.filter(p=>p && p.hp>0 && !p.fainted && !p.volatiles.commanding);
+        let risk=0;
+        if(warning){
+          const level=s.counters[warningIndex(warning)] || 0,reach=Math.min(1,level/warning.retaliationAt)**2;
+          for(const p of mons)if(!retaliationImmunity(p,warning))risk+=reach*Math.min(100*warning.retaliation.fraction,100*p.hp/p.maxhp);
+        }
+        if(distraction){
+          const count=s.custom?.distraction?.[side.id] || 0,reach=Math.min(1,count/distraction.maximum)**2;
+          for(const p of mons)risk+=reach*Math.min(100*distraction.damageFraction,100*p.hp/p.maxhp);
+        }
+        return risk;
+      };
       const lastingValue=()=>{
         let value=0;
         for(const side of b.sides.filter(Boolean)){
           const sign=side===user.side || side===user.side.allySide?1:-1;
+          value-=sign*standingRisk(side);
           for(const p of side.pokemon)if(p.hp>0){
             const status=statusCost[p.status] || 0;
             value-=sign*status*(p.isActive?1:.4);
@@ -3251,7 +3536,7 @@
             const move=prepareMove(b,p,t,slot.id,evaluatorPriority(b,p,slot.id,{}));
             if(move && (p.hasType(move.type) || p.terastallized===move.type))coverage+=.1;}
           return .4*Math.log(Math.max(1,offense))+.2*Math.log(Math.max(1,p.getStat('spe')))
-            +.3*Math.log(Math.max(1,(p.getStat('def')+p.getStat('spd'))/2))+.3*Math.log(p.maxhp)+defence+coverage+sourceAffinity(b,p);
+            +.3*Math.log(Math.max(1,(p.getStat('def')+p.getStat('spd'))/2))+.3*Math.log(p.maxhp)+defence+coverage+fieldAffinity(b,p);
         };
         const before=potential();
         if(gimmick==='zmove'){
@@ -3279,7 +3564,7 @@
       // effectiveness against the opposing threat, and remaining health.
       const switchInScore=(r,move)=>{
         const resist=!move || move.category==='Status'?0:!r.runImmunity(move.type)?3:-r.runEffectiveness(move);
-        return sourceAffinity(b,r)/25+resist+r.hp/r.maxhp;
+        return fieldAffinity(b,r)/25+resist+r.hp/r.maxhp;
       };
       const threatMove=(foe,p)=>{const threat=foe && foe.hp>0?bestAttack(foe,p).move:null;return threat?b.dex.getActiveMove(threat):null;};
       const pivotReplacement=(p,foe)=>{
@@ -3494,7 +3779,8 @@
             fieldAfter:state(b)?.id,overlayAfter:state(b)?.overlay?.id || null,durationAfter:state(b)?.duration || 0,
             userHp:p.hp,targetHp:t.hp,userSpeedAfter:p.getStat('spe'),targetSpeedAfter:t.getStat('spe'),accuracy:measurement?.accuracy,priority:measurement?.priority,
             sourceWeight,contextValue:context+stars,durationValue,reply:policyReply || {move:incoming.move},
-            secondaryChance:measurement?.secondaryChance ?? 0,activeAfter:own()?.uuid || null,opposingAfter:opposing()?.uuid || null,
+            secondaryChance:measurement?.secondaryChance ?? 0,fieldMissChance:measurement?.fieldMissChance || 0,fieldCrashFraction:measurement?.fieldCrashFraction || 0,
+            activeAfter:own()?.uuid || null,opposingAfter:opposing()?.uuid || null,
             activeAfterBoosts:own()?{...own().boosts}:null};
       }));});
       const blend=(row,other,weight)=>{for(const key of ['score','fieldValue','disruptionRatio','tacticalValue','immediate','residual','lasting','deferred','sourceWeight','contextValue','durationValue'])row[key]=weight*row[key]+(1-weight)*other[key];};
@@ -3510,6 +3796,10 @@
           const miss=timed('branches',()=>candidate(q,false,undefined,reply));blend(hit,miss,chance);
           hit.outcomes=[{probability:chance,field:hit.fieldAfter,overlay:hit.overlayAfter},{probability:1-chance,field:miss.fieldAfter,overlay:miss.overlayAfter}];
         }
+        // The miss branch is a plain miss; the field's crash (a fraction of the user's maximum HP) follows only a miss the field's accuracy
+        // penalty caused, so it is priced here from the measured chance rather than copied into the branch.
+        const crash=100*hit.fieldMissChance*hit.fieldCrashFraction;
+        if(crash>0){hit.score-=crash;hit.crashRisk=crash;}
         return hit;
       };
       // Deterministic screening before complete rollouts. Ordinary moves, Z-moves, Dynamax variants (Max moves set
@@ -3599,6 +3889,7 @@
         screened:candidates.filter(r=>r.pruned).length,phases}};
     });
   }
+  function matchMapping(environment){for(const r of catalog.mappings)if(Object.entries(r).every(([k,v])=>!['biome','dimension','tag','submerged','maxY','skyVisible','minDepth'].includes(k) || (k==='tag'?environment.tags?.includes(v):k==='maxY'?environment.y<=v:k==='minDepth'?environment.depth>=v:environment[k]===v)))return r;return null;}
   // Reference diagnostics walk the whole catalog; they are computed on request, not on every publication.
   global.RejuvenationEngine={load(json){const data=typeof json==='string'?JSON.parse(json):json;validate(data);installDeclaredFieldAssets(data);installDeclaredAbilities(data);catalog=freeze(data);return '{}';},
     references(){return JSON.stringify(catalog?references(catalog):{});},attach,change,destroy,progress,current,test,runActions,
@@ -3624,11 +3915,17 @@
       return JSON.stringify({millis:Date.now()-started});
     },
     battle(id){return battlesById.get(id) || null;},
+    /** Complete battle-state fingerprint used as the AI/preview cache key (field stack, counters, custom state, sides, Pokemon). */
+    fingerprint(battle){const b=typeof battle==='string'?battlesById.get(battle):battle;return b?battleDigest(b):'';},
     /** Source AI strategy weights (read-only), for the Ruby-oracle comparison of the generated ports. */
     sourceDisruption(view,original,overlay,violent){return sourceDisruptionScore(typeof view==='string'?JSON.parse(view):view,original,!!overlay,!!violent);},
+    /** Strategic worth of a field (by ID) for one Pokemon, including the declared heuristic of the custom fields. */
+    fieldAffinity(battle,uuid,fieldId){const b=typeof battle==='string'?battlesById.get(battle):battle,p=b && findPokemon(b,uuid),field=(state(b)?.catalog || catalog).fields[fieldId];return p && field?fieldAffinity(b,p,field):null;},
     sourceAffinity(battle,uuid,original){const b=typeof battle==='string'?battlesById.get(battle):battle,p=b && findPokemon(b,uuid);
       const field=Object.values((state(b)?.catalog || catalog).fields).find(f=>f.originalId===original);return p && field?sourceAffinity(b,p,field):null;},
-    resolve(environment){for(const r of catalog.mappings)if(Object.entries(r).every(([k,v])=>!['biome','dimension','tag','submerged','maxY','skyVisible','minDepth'].includes(k) || (k==='tag'?environment.tags?.includes(v):k==='maxY'?environment.y<=v:k==='minDepth'?environment.depth>=v:environment[k]===v)))return r.field;return catalog.default;},
+    resolve(environment){return matchMapping(environment)?.field || catalog.default;},
+    /** The selected field with its environment layers (bottom first), as the battle start option `layers` expects. */
+    resolveLayers(environment){const row=matchMapping(environment);return {field:row?.field || catalog.default,layers:row?.substrate?[row.substrate]:[]};},
   };
   function validate(data) {
     if(!data.fields || !data.fields[indoor])throw new Error('Missing no-field definition');
@@ -3640,8 +3937,8 @@
       }
     }
     const knownConditions=new Set(['always','all','any','not','move','sourceMove','moveType','category','flag','field','backup','grounded','ability','item','type','species','form','formName','status','weather','weatherFor','incomingWeather','startedCondition','damageSource','counter','hp','priority','foe','missed','volatile','value','semiInvulnerable','globalAbility','effectiveness','turnsActive','level','stateFlag','overlay','weatherActive','pokemonStatus','targetStatus','chance','samePokemon','statsLowered','selfInflicted','contact','hasAlly','level','transformed','wild','itemStealable','usableMove','pokemonActive','pokemonFlag','statSumComparison','sideAbility','sideCondition','role','moveTarget','fullHealing','faster','lastMove','attackType','foeFainted','effectiveAbility','pseudoWeather','abilityChangedType','basePower','holderAllied','hitEffectiveness','allyAbility','variableMultihit','holderIsUser','sideItem','holderAbilityState','baseMoveType','actorType','boostStage','connected','effectId','calledBy','accuracyMiss','damageDealt','drainHealed','canFlinch','baseCanFlinch','sheerForce','allyCanHeal','oneHitKO','zMove','immunityType','volatileSourceMove','canHeal']);
-    const knownActions=new Set(['multiply','add','set','cap','reject','message','boost','heal','damage','status','ability','type','moveType','volatile','consume','form','forcedType','itemForm','randomType','randomForm','forEach','abilityMessage','addSecondary','stealItem','preventStatLoss','secondaryChance','pseudoWeather','progress','changeField','destroyField','oldCategory','inverse','ice_spikes','accuracy_cloud','arm_eruption','cave_collapse','mist_explosion','water_pollution','bothHazards','hazardBurst','restoreTypes','trap','setHPFraction','harvestBerry','volatileDuration','clearHazards','sideCondition','typedDamage','spikeDamage','trickRoom','wish','perishSong','removeVolatile','cureStatus','randomBoost','randomStat','randomStatus','conditional','transferStat','castling','counter','setFlag','setPokemonFlag','bindFieldClock','weatherTemporary','hpPower','cyclePower','randomPower','extraType','residualDamage','flashFire','concertNoise','moveMessage','groupMessage','clearWeather','setWeather','clearOverlay','moveProperty','adjustWish','mimicry','survive','moveBehavior','criticalStage','weightDelta','removeCallbacks','pairField','createField','baseAccuracy','clearBoosts','identifyItems','boostByHighestStat','streakPower','healByDamage','damageShare','fieldMove','randomWeather','reconcileWeather']);
-    const knownEvents=new Set('activate fieldResidual residual switchIn pokemonEntry basePower modifyMove afterMove accuracy priority damage attack specialAttack defense specialDefense speed tryHeal setStatus tryHit weatherChange effectiveness receivedDamage tryVolatile criticalRatio weight chargeMove tryMove overlayIn formChange setWeather afterHit pseudoWeatherStart perfectAccuracy baseAccuracy criticalHit tryFlinch flinch snatch afterFaint weatherReconcile criticalMessage modifyMoveLate sideConditionStart fractionalPriority trapPokemon'.split(' '));
+    const knownActions=new Set(['multiply','add','set','cap','reject','message','boost','heal','damage','status','ability','type','moveType','volatile','consume','form','forcedType','itemForm','randomType','randomForm','forEach','abilityMessage','addSecondary','stealItem','preventStatLoss','secondaryChance','pseudoWeather','progress','changeField','destroyField','oldCategory','inverse','ice_spikes','accuracy_cloud','arm_eruption','cave_collapse','mist_explosion','water_pollution','bothHazards','hazardBurst','restoreTypes','trap','setHPFraction','harvestBerry','volatileDuration','clearHazards','sideCondition','typedDamage','spikeDamage','trickRoom','wish','perishSong','removeVolatile','cureStatus','randomBoost','randomStat','randomStatus','conditional','transferStat','castling','counter','setFlag','setPokemonFlag','bindFieldClock','weatherTemporary','hpPower','cyclePower','randomPower','extraType','residualDamage','flashFire','concertNoise','moveMessage','groupMessage','clearWeather','setWeather','clearOverlay','moveProperty','adjustWish','mimicry','survive','moveBehavior','criticalStage','weightDelta','removeCallbacks','pairField','createField','baseAccuracy','clearBoosts','identifyItems','boostByHighestStat','streakPower','healByDamage','damageShare','fieldMove','randomWeather','reconcileWeather','accuracyPenalty','mechanic']);
+    const knownEvents=new Set('activate fieldResidual residual switchIn pokemonEntry basePower modifyMove afterMove accuracy priority damage attack specialAttack defense specialDefense speed tryHeal setStatus tryHit weatherChange effectiveness receivedDamage tryVolatile criticalRatio weight chargeMove tryMove overlayIn formChange setWeather afterHit pseudoWeatherStart perfectAccuracy baseAccuracy criticalHit tryFlinch flinch snatch afterFaint weatherReconcile criticalMessage modifyMoveLate sideConditionStart fractionalPriority trapPokemon finalAccuracy'.split(' '));
     function checkCondition(c) {
       if(!c || Object.keys(c).length!==1 || !knownConditions.has(Object.keys(c)[0]))throw new Error('Malformed condition '+JSON.stringify(c));const [k,v]=Object.entries(c)[0];
       if(c.all||c.any){if(!Array.isArray(v) || !v.length)throw new Error('Empty Boolean condition');v.forEach(checkCondition);}if(c.not)checkCondition(c.not);
@@ -3670,6 +3967,44 @@
       if(['contact','wild','usableMove','pokemonActive'].includes(k) && (!v || !['user','target'].includes(v.who) || k==='wild' && typeof v.value!=='boolean'))throw new Error('Invalid actor/contact predicate');
     }
     function checkProbability(a){if(!a || !Number.isInteger(a.numerator) || !Number.isInteger(a.denominator) || a.numerator<0 || a.denominator<1 || a.numerator>a.denominator || a.denominator>10000)throw new Error('Invalid probability');}
+    function checkText(v){return typeof v==='string' && v.length>0 && v.length<=240;}
+    function checkTexts(list){return Array.isArray(list) && list.length>0 && list.length<=4 && list.every(checkText);}
+    const intIn=(v,lo,hi)=>Number.isInteger(v) && v>=lo && v<=hi;
+    const moveIds=list=>Array.isArray(list) && list.length<=64 && new Set(list).size===list.length && list.every(m=>typeof m==='string' && /^[a-z0-9]+$/.test(m));
+    function exactKeys(o,keys,what){if(!o || typeof o!=='object' || Array.isArray(o) || Object.keys(o).sort().join()!==[...keys].sort().join())throw new Error('Invalid '+what);}
+    function checkMechanics(m){
+      if(!m || typeof m!=='object' || Array.isArray(m) || !Object.keys(m).length || Object.keys(m).some(k=>!['sculkWarning','creakingDistraction','bloodlust'].includes(k)))throw new Error('Invalid field mechanics');
+      if(m.sculkWarning){
+        const w=m.sculkWarning;
+        exactKeys(w,['counter','maximum','darknessAt','retaliationAt','resetTo','thresholds','amounts','overrides','sound','seismic','calming','messages','stages','rattled','retaliation','immunities','seedMessage'],'Sculk Warning');
+        if(!intIn(w.counter,1,5) || !intIn(w.maximum,2,8) || !intIn(w.darknessAt,1,w.maximum) || !intIn(w.retaliationAt,w.darknessAt,w.maximum) || !intIn(w.resetTo,0,w.retaliationAt-1))throw new Error('Invalid Sculk Warning scale');
+        exactKeys(w.thresholds,['moderate','major'],'Sculk Warning thresholds');if(!intIn(w.thresholds.moderate,1,1000) || !intIn(w.thresholds.major,w.thresholds.moderate,1000))throw new Error('Invalid Sculk Warning thresholds');
+        exactKeys(w.amounts,['moderate','major','calming','seed'],'Sculk Warning amounts');if(!intIn(w.amounts.moderate,0,4) || !intIn(w.amounts.major,0,4) || !intIn(w.amounts.calming,-4,0) || !intIn(w.amounts.seed,0,4))throw new Error('Invalid Sculk Warning amounts');
+        if(!w.overrides || typeof w.overrides!=='object' || Array.isArray(w.overrides) || Object.keys(w.overrides).length>64)throw new Error('Invalid Sculk Warning overrides');
+        for(const [id,row] of Object.entries(w.overrides)){if(!/^[a-z0-9]+$/.test(id))throw new Error('Invalid override move');exactKeys(row,['amount','message'],'Sculk Warning override');if(!intIn(row.amount,0,4) || !checkText(row.message))throw new Error('Invalid Sculk Warning override');}
+        exactKeys(w.sound,['amount','message','categories'],'Sculk Warning sound');if(!intIn(w.sound.amount,0,4) || !checkText(w.sound.message) || !Array.isArray(w.sound.categories) || !w.sound.categories.length || w.sound.categories.some(c=>!['Physical','Special','Status'].includes(c)))throw new Error('Invalid Sculk Warning sound policy');
+        exactKeys(w.seismic,['amount','message','moves'],'Sculk Warning seismic');if(!intIn(w.seismic.amount,0,4) || !checkText(w.seismic.message) || !moveIds(w.seismic.moves))throw new Error('Invalid Sculk Warning seismic list');
+        exactKeys(w.calming,['moves','messages','defaultMessage'],'Sculk Warning calming');if(!moveIds(w.calming.moves) || !checkText(w.calming.defaultMessage) || !w.calming.messages || Object.entries(w.calming.messages).some(([id,text])=>!w.calming.moves.includes(id) || !checkText(text)))throw new Error('Invalid Sculk Warning calming group');
+        exactKeys(w.messages,['moderate','major','gimmick','recede'],'Sculk Warning messages');if(Object.values(w.messages).some(v=>!checkText(v)))throw new Error('Invalid Sculk Warning messages');
+        if(!w.stages || typeof w.stages!=='object' || Object.keys(w.stages).some(k=>!intIn(Number(k),1,w.maximum) || !checkTexts(w.stages[k])))throw new Error('Invalid Sculk Warning stages');
+        exactKeys(w.rattled,['ability','stats','message'],'Sculk Warning Rattled');if(!/^[a-z0-9]+$/.test(w.rattled.ability) || !checkText(w.rattled.message))throw new Error('Invalid Sculk Warning Rattled');checkStatMap(w.rattled.stats);
+        exactKeys(w.retaliation,['announce','fraction','resetMessage'],'Sculk Warning retaliation');if(!checkText(w.retaliation.announce) || !checkText(w.retaliation.resetMessage) || !(w.retaliation.fraction>0 && w.retaliation.fraction<=1))throw new Error('Invalid Sculk Warning retaliation');
+        exactKeys(w.immunities,['abilities','types'],'Sculk Warning immunities');
+        for(const [id,text] of Object.entries(w.immunities.abilities))if(!/^[a-z0-9]+$/.test(id) || !checkText(text))throw new Error('Invalid retaliation immunity ability');
+        for(const [type,text] of Object.entries(w.immunities.types))if(!types.includes(type) || !checkText(text))throw new Error('Invalid retaliation immunity type');
+        if(!checkText(w.seedMessage))throw new Error('Invalid Sculk Warning seed message');
+      }
+      if(m.creakingDistraction){
+        const d=m.creakingDistraction;
+        exactKeys(d,['maximum','damageFraction','stages','resetMessage','subsidedMessage'],'Creaking Distraction');
+        if(!intIn(d.maximum,2,8) || !(d.damageFraction>0 && d.damageFraction<=1) || !checkText(d.resetMessage) || !checkText(d.subsidedMessage) || !d.stages || Object.keys(d.stages).some(k=>!intIn(Number(k),1,d.maximum) || !checkTexts(d.stages[k])))throw new Error('Invalid Creaking Distraction');
+      }
+      if(m.bloodlust){
+        const l=m.bloodlust;
+        exactKeys(l,['stat','amount','message'],'Piglin Bloodlust');
+        if(!['atk','def','spa','spd','spe'].includes(l.stat) || !intIn(l.amount,1,3) || !checkText(l.message))throw new Error('Invalid Piglin Bloodlust');
+      }
+    }
     function checkStatMap(value){if(!value || Array.isArray(value) || !Object.keys(value).length || Object.entries(value).some(([k,v])=>!['atk','def','spa','spd','spe','accuracy','evasion'].includes(k) || !Number.isInteger(v) || !v || Math.abs(v)>12))throw new Error('Invalid stat map');}
     function checkStatusPool(a){if(!Array.isArray(a.values) || !a.values.length || a.values.some(v=>!['brn','frz','par','psn','tox','slp','ptr'].includes(v)))throw new Error('Invalid random status pool');if(a.force){checkCondition(a.force.condition);if(!a.values.includes(a.force.status))throw new Error('Invalid forced status');}}
     function checkActions(actions){for(const a of actions || []){
@@ -3680,6 +4015,8 @@
       if(a.op==='setWeather' && a.keepDuration!==undefined && a.keepDuration!==true)throw new Error('Invalid weather clock policy');if(a.op==='setWeather' && a.duration!==undefined && (!Number.isInteger(a.duration) || a.duration<=0 || a.duration>20 || a.keepDuration))throw new Error('Invalid weather duration');if(a.op==='setWeather' && a.onSuccess!==undefined){if(!Array.isArray(a.onSuccess))throw new Error('Invalid weather success actions');checkActions(a.onSuccess);}
       if(a.op==='randomWeather'){if(!Number.isInteger(a.duration) || a.duration<1 || a.duration>20 || typeof a.force!=='boolean' || !Array.isArray(a.choices) || a.choices.length<2 || new Set(a.choices.map(c=>c.id)).size!==a.choices.length || a.choices.some(c=>Object.keys(c).sort().join()!=='id,message' || !['sunnyday','raindance','sandstorm','hail','snow','desolateland','primordialsea','deltastream','shadowsky'].includes(c.id) || typeof c.message!=='string'))throw new Error('Invalid weather cycle');}
       if(a.op==='forEach'){if(!['foes','allies','others'].includes(a.group) || !Array.isArray(a.actions))throw new Error('Invalid action group');checkActions(a.actions);}
+      if(a.op==='accuracyPenalty' && (Object.keys(a).some(k=>!['op','factor','attribute','who'].includes(k)) || !Number.isFinite(a.factor) || a.factor<=0 || a.factor>1 || a.attribute!==undefined && typeof a.attribute!=='boolean'))throw new Error('Invalid accuracy penalty');
+      if(a.op==='mechanic' && (Object.keys(a).sort().join()!=='event,kind,op' || a.kind!=='sculkWarning' || a.event!=='seed'))throw new Error('Invalid mechanic event');
       if(a.op==='forcedType' && !types.includes(a.type))throw new Error('Invalid forced type');
       if(a.op==='itemForm' && (!/^[a-z0-9]+$/.test(a.defaultSpecies) || !types.includes(a.defaultType) || !Array.isArray(a.variants) || !a.variants.length || a.variants.some(v=>Object.keys(v).sort().join()!=='items,species,type' || !Array.isArray(v.items) || !v.items.length || v.items.some(i=>!/^[a-z0-9]+$/.test(i)) || !/^[a-z0-9]+$/.test(v.species) || !types.includes(v.type))))throw new Error('Invalid item form');
       if(a.op==='randomType' && (!Array.isArray(a.values) || !a.values.length || a.values.some(t=>!types.includes(t)) || a.force!==undefined && typeof a.force!=='boolean'))throw new Error('Invalid random type');
@@ -3792,6 +4129,15 @@ if(a.scaleField!==undefined && (!['multiply','cyclePower','randomPower'].include
       if(f.inactiveAbilities && (!Array.isArray(f.inactiveAbilities) || f.inactiveAbilities.some(a=>!RegistryDex.abilities.get(a).exists)))throw new Error('Invalid inactive abilities');
       for(const row of f.statusTypeBypass || []){if(Object.keys(row).sort().join()!=='condition,source,status' || row.status!=='psn')throw new Error('Invalid status type bypass');checkCondition(row.condition);}
       for(const [key,row]of Object.entries(f.customVolatiles || {})){if(!/^rejuvenation[a-z0-9]+$/.test(key) || Object.keys(row).sort().join()!=='actions,source' || !Array.isArray(row.actions))throw new Error('Invalid custom volatile');checkActions(row.actions);}
+      if(f.mechanics!==undefined)checkMechanics(f.mechanics);
+      if(f.typeComposition!==undefined){
+        if(!Array.isArray(f.typeComposition) || !f.typeComposition.length || f.typeComposition.length>16)throw new Error('Invalid type composition');
+        for(const row of f.typeComposition){
+          if(!row || Object.keys(row).some(k=>!['whenTypes','add','condition','message'].includes(k)) || !Array.isArray(row.whenTypes) || !row.whenTypes.length || row.whenTypes.length>4 || row.whenTypes.some(x=>!types.includes(x) || x==='???' || x==='Shadow') || !types.includes(row.add) || row.add==='???' || row.add==='Shadow' || row.message!==undefined && !checkText(row.message))throw new Error('Invalid type composition row');
+          checkCondition(row.condition);
+        }
+      }
+      if(f.accuracyCrash!==undefined){const c=f.accuracyCrash;if(!c || Object.keys(c).sort().join()!=='fraction,messages' || !(c.fraction>0 && c.fraction<=1) || !checkTexts(c.messages))throw new Error('Invalid accuracy crash policy');}
       if(f.progression){const p=f.progression;if(typeof p.group!=='string' || !Number.isInteger(p.stage) || !Number.isInteger(p.maximum) || p.stage<1 || p.stage>p.maximum || p.statChangeShrinkMessage!==undefined && (typeof p.statChangeShrinkMessage!=='string' || !p.statChangeShrinkMessage))throw new Error('Invalid progression');}
       if(f.rampagePolicy){const row=f.rampagePolicy;if(Object.keys(row).some(k=>!['duration','noConfusionMoves','source'].includes(k)) || row.duration!==undefined && (!Number.isInteger(row.duration) || row.duration<1 || row.duration>3) || !Array.isArray(row.noConfusionMoves) || row.noConfusionMoves.some(m=>!['outrage','thrash','petaldance','ragingfury'].includes(m)))throw new Error('Invalid rampage policy');}
       if(f.multiplierPolicy){const p=f.multiplierPolicy;if(Object.keys(p).sort().join()!==['defaultDifficultyMode','defaultFieldFrenzy','casualMode','casualFactor','frenzyBoostFactor','frenzyReductionFactor','combinedMinimum','source'].sort().join() || ![0,1,2].includes(p.defaultDifficultyMode) || ![0,1,2].includes(p.casualMode) || typeof p.defaultFieldFrenzy!=='boolean' || ['casualFactor','frenzyBoostFactor','frenzyReductionFactor','combinedMinimum'].some(k=>!Number.isFinite(p[k]) || p[k]<=0 || p[k]>4))throw new Error('Invalid multiplier policy');}
@@ -3869,7 +4215,11 @@ if(a.scaleField!==undefined && (!['multiply','cyclePower','randomPower'].include
       for(const r of f.typeChart || []){if(![-1,0,1,'immune'].includes(r.value))throw new Error('Invalid chart result');checkCondition(r.condition);}
       for(const callbacks of Object.values(f.suppressedAbilityCallbacks || {}))if(!['["onTryHit"]','["onImmunity"]'].includes(JSON.stringify(callbacks)))throw new Error('Unsupported ability callback');
     }
-    for(const m of data.mappings)if(!data.fields[m.field])throw new Error('Invalid biome mapping '+m.field);
-    for(const m of data.structures || [])if(!m || !data.fields[m.field] || (m.structure===undefined)===(m.tag===undefined) || Object.keys(m).some(k=>!['structure','tag','field','reason'].includes(k)) || !/^[a-z0-9_.-]+:[a-z0-9_./-]+$/.test(m.structure ?? m.tag))throw new Error('Invalid structure mapping '+JSON.stringify(m));
+    for(const m of data.mappings){if(!data.fields[m.field])throw new Error('Invalid biome mapping '+m.field);
+      if(m.substrate!==undefined){try{layerFrames(data,m.field,[m.substrate]);}catch(e){throw new Error('Invalid biome mapping substrate '+JSON.stringify(m.substrate));}}}
+    // Containment is data for the Java probe (which structure parts count as 'inside'); the engine only checks its shape.
+    const validContainment=c=>c===undefined || (!!c && typeof c==='object' && (c.mode==='pieces' && Object.keys(c).length===1
+      || c.mode==='footprint' && Object.keys(c).sort().join()==='above,below,horizontal,mode' && ['horizontal','above','below'].every(k=>Number.isInteger(c[k]) && c[k]>=0 && c[k]<=32)));
+    for(const m of data.structures || [])if(!m || !data.fields[m.field] || (m.structure===undefined)===(m.tag===undefined) || Object.keys(m).some(k=>!['structure','tag','field','reason','containment'].includes(k)) || !validContainment(m.containment) || !/^[a-z0-9_.-]+:[a-z0-9_./-]+$/.test(m.structure ?? m.tag))throw new Error('Invalid structure mapping '+JSON.stringify(m));
   }
 })(globalThis);

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:indoor",
+  "title": "No Field",
+  "summary": "No field: ordinary battle rules apply.",
+  "sections": [
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Normal-type.",
+        "Nature Power becomes Tri Attack.",
+        "Secret Power can cause paralysis."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

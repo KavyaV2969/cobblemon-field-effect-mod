@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:water_surface",
+  "title": "Water Surface",
+  "summary": "“The water's surface is calm.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Cold Ocean, Deep Cold Ocean, Deep Lukewarm Ocean, Deep Ocean, Lukewarm Ocean, Ocean, River, and Warm Ocean."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Water moves are 1.5× stronger.",
+        "Ground moves fail."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Dive, Hydro Vortex, Muddy Water, Octazooka, Origin Pulse, Sludge Wave, Surf, Triple Dive, and Whirlpool: 1.2× stronger.",
+        "Spikes and Toxic Spikes: no effect here."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Water-type.",
+        "Nature Power becomes Whirlpool.",
+        "Secret Power can lower the target's Speed."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Blizzard, Glaciate, and Subzero Slammer change the field into Icy. The old field returns when the new one ends or is removed.",
+        "Acid Downpour and Sludge Wave change the field into Murkwater Surface once their uses add up to 2 (Acid Downpour 2 and Sludge Wave 1).",
+        "Anchor Shot, Dive, Grav Apple, Gravity, and Triple Dive change the field into Underwater."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Propeller Tail: 1.5× damage."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Dry Skin or Water Absorb restores 1/16 of its HP.",
+        "Steam Engine: Speed +1.",
+        "Water Compaction: Defense +2.",
+        "This field sweeps away entry hazards."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Elemental Seed: Special Defense +1 and is wrapped in a veil of water (Aqua Ring)."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

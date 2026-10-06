@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:corrupted",
+  "title": "Corrupted Cave",
+  "summary": "“Corruption seeps from every| crevice!”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Poison moves are 1.5× stronger.",
+        "Rock moves and grass moves are 1.2× stronger.",
+        "Fairy moves are halved (0.5×).",
+        "Diamond Storm, Rock Slide, Rock Tomb, Smack Down, and Stone Edge also count as Poison for type matchups.",
+        "Gunk Shot and Sludge Wave also count as Rock for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Apple Acid and Seed Flare: 1.5× stronger."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Poison-type.",
+        "Nature Power becomes Gunk Shot.",
+        "Secret Power can cause poison."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Purify, Seed Flare, Solar Beam, and Solar Blade change the field into Cave.",
+        "Blast Burn, Eruption, Heat Wave, Inferno Overdrive, and Lava Plume change the field into Volcanic."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Corrosion: 1.5× damage."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Dry Skin restores 1/8 of its HP."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Synthetic Seed: Defense +2 and suffers bad poison."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

@@ -29,8 +29,8 @@ for p in (DATA/'abilities').glob('*.json'):
     document=read(p);ensure(document.get('schemaVersion')==1,str(p),'invalid ability schema')
     for aid,row in document['abilities'].items():
         ensure(aid not in abilities,str(p),'duplicate ability ID');abilities[aid]=row
-events=set('activate fieldResidual residual switchIn pokemonEntry basePower modifyMove afterMove accuracy priority damage attack specialAttack defense specialDefense speed tryHeal setStatus tryHit weatherChange effectiveness receivedDamage tryVolatile criticalRatio weight chargeMove tryMove overlayIn formChange setWeather afterHit pseudoWeatherStart perfectAccuracy baseAccuracy criticalHit tryFlinch flinch snatch afterFaint weatherReconcile criticalMessage modifyMoveLate sideConditionStart fractionalPriority trapPokemon'.split())
-actions=set('multiply add set cap reject message boost heal damage status ability type moveType volatile consume form forcedType itemForm randomType randomForm forEach abilityMessage addSecondary stealItem preventStatLoss secondaryChance pseudoWeather progress changeField destroyField oldCategory inverse ice_spikes accuracy_cloud arm_eruption cave_collapse mist_explosion water_pollution hazardBurst restoreTypes trap setHPFraction harvestBerry volatileDuration clearHazards bothHazards sideCondition typedDamage spikeDamage trickRoom wish perishSong removeVolatile cureStatus randomBoost randomStat randomStatus conditional transferStat castling counter setFlag setPokemonFlag bindFieldClock weatherTemporary hpPower cyclePower randomPower extraType residualDamage flashFire concertNoise moveMessage groupMessage clearWeather setWeather clearOverlay moveProperty adjustWish mimicry survive moveBehavior criticalStage weightDelta removeCallbacks pairField createField baseAccuracy clearBoosts identifyItems boostByHighestStat streakPower healByDamage damageShare fieldMove randomWeather reconcileWeather'.split())
+events=set('activate fieldResidual residual switchIn pokemonEntry basePower modifyMove afterMove accuracy priority damage attack specialAttack defense specialDefense speed tryHeal setStatus tryHit weatherChange effectiveness receivedDamage tryVolatile criticalRatio weight chargeMove tryMove overlayIn formChange setWeather afterHit pseudoWeatherStart perfectAccuracy baseAccuracy criticalHit tryFlinch flinch snatch afterFaint weatherReconcile criticalMessage modifyMoveLate sideConditionStart fractionalPriority trapPokemon finalAccuracy'.split())
+actions=set('multiply add set cap reject message boost heal damage status ability type moveType volatile consume form forcedType itemForm randomType randomForm forEach abilityMessage addSecondary stealItem preventStatLoss secondaryChance pseudoWeather progress changeField destroyField oldCategory inverse ice_spikes accuracy_cloud arm_eruption cave_collapse mist_explosion water_pollution hazardBurst restoreTypes trap setHPFraction harvestBerry volatileDuration clearHazards bothHazards sideCondition typedDamage spikeDamage trickRoom wish perishSong removeVolatile cureStatus randomBoost randomStat randomStatus conditional transferStat castling counter setFlag setPokemonFlag bindFieldClock weatherTemporary hpPower cyclePower randomPower extraType residualDamage flashFire concertNoise moveMessage groupMessage clearWeather setWeather clearOverlay moveProperty adjustWish mimicry survive moveBehavior criticalStage weightDelta removeCallbacks pairField createField baseAccuracy clearBoosts identifyItems boostByHighestStat streakPower healByDamage damageShare fieldMove randomWeather reconcileWeather accuracyPenalty mechanic'.split())
 conditions=set('always all any not move sourceMove moveType category flag field backup grounded ability item type species form formName status weather weatherFor incomingWeather startedCondition damageSource counter hp priority foe missed volatile value semiInvulnerable globalAbility effectiveness turnsActive stateFlag overlay weatherActive pokemonStatus targetStatus chance samePokemon statsLowered selfInflicted contact hasAlly level transformed wild itemStealable usableMove pokemonActive pokemonFlag statSumComparison sideAbility sideCondition role moveTarget fullHealing faster lastMove attackType foeFainted effectiveAbility pseudoWeather abilityChangedType basePower holderAllied hitEffectiveness allyAbility variableMultihit holderIsUser sideItem holderAbilityState baseMoveType actorType boostStage connected effectId calledBy accuracyMiss damageDealt drainHealed canFlinch baseCanFlinch sheerForce allyCanHeal oneHitKO zMove immunityType volatileSourceMove canHeal'.split())
 types=set('Normal Fire Water Electric Grass Ice Fighting Poison Ground Flying Psychic Bug Rock Ghost Dragon Dark Steel Fairy Shadow ???'.split())
 stats=set('atk def spa spd spe accuracy evasion'.split());count={'conditions':0,'actions':0,'rules':0,'moves':0,'transitions':0}
@@ -96,6 +96,8 @@ def check_actions(values,where):
         op=a.get('op')
         if 'who' in a:ensure(a['who'] in ['user','target'],where,'invalid action subject')
         if op=='conditional':check_condition(a.get('condition'),where);check_actions(a.get('actions'),where)
+        if op=='accuracyPenalty':ensure(set(a)<={'op','factor','attribute','who'} and number(a.get('factor')) and 0<a['factor']<=1 and isinstance(a.get('attribute',False),bool),where,'invalid accuracy penalty')
+        if op=='mechanic':ensure(set(a)=={'op','kind','event'} and a['kind']=='sculkWarning' and a['event']=='seed',where,'invalid mechanic event')
         if op=='setPokemonFlag':ensure(re.fullmatch('[a-z][a-z0-9_]*',a.get('id','')) and isinstance(a.get('value'),bool),where,'invalid Pokemon flag action')
         if op=='setWeather' and 'onSuccess' in a:check_actions(a['onSuccess'],where+'/weather')
         if op=='setWeather' and 'keepDuration' in a:ensure(a['keepDuration'] is True,where,'invalid weather clock policy')
@@ -229,7 +231,51 @@ for aid,row in abilities.items():
         ensure(key in ['onStart','onModifyMove','onBasePower','onSourceModifyAccuracy','onSourceAccuracy','onModifyCritRatio','onAllyModifyCritRatio','onTryHit','onModifyType','onModifyAtk','onModifySpA','onResidual','onDamagingHit','onImmunity','onBeforeResidual','onEnd'] and set(callback)=={'condition','actions','source','mode'} and callback.get('mode') in ['replace','prepend','append','scaleBoosts'],aid,'invalid declared callback')
         check_condition(callback.get('condition'),aid);check_actions(callback.get('actions'),aid)
     registry['abilities'].append(aid)
+def text_ok(v):return isinstance(v,str) and 0<len(v)<=240
+def texts_ok(v):return isinstance(v,list) and 0<len(v)<=4 and all(text_ok(x) for x in v)
+def move_ids_ok(v):return isinstance(v,list) and len(v)<=64 and len(set(v))==len(v) and all(isinstance(m,str) and re.fullmatch('[a-z0-9]+',m) for m in v)
+def check_mechanics(m,where):
+    ensure(isinstance(m,dict) and m and set(m)<={'sculkWarning','creakingDistraction','bloodlust'},where,'invalid field mechanics')
+    if not isinstance(m,dict):return
+    w=m.get('sculkWarning')
+    if w is not None:
+        at=where+'/sculkWarning'
+        ensure(set(w)=={'counter','maximum','darknessAt','retaliationAt','resetTo','thresholds','amounts','overrides','sound','seismic','calming','messages','stages','rattled','retaliation','immunities','seedMessage'},at,'malformed Sculk Warning')
+        if set(w)=={'counter','maximum','darknessAt','retaliationAt','resetTo','thresholds','amounts','overrides','sound','seismic','calming','messages','stages','rattled','retaliation','immunities','seedMessage'}:
+            ensure(integer(w['counter'],1,5) and integer(w['maximum'],2,8) and integer(w['darknessAt'],1,w['maximum']) and integer(w['retaliationAt'],w['darknessAt'],w['maximum']) and integer(w['resetTo'],0,w['retaliationAt']-1),at,'invalid scale')
+            ensure(set(w['thresholds'])=={'moderate','major'} and integer(w['thresholds']['moderate'],1,1000) and integer(w['thresholds']['major'],w['thresholds']['moderate'],1000),at,'invalid thresholds')
+            ensure(set(w['amounts'])=={'moderate','major','calming','seed'} and integer(w['amounts']['moderate'],0,4) and integer(w['amounts']['major'],0,4) and integer(w['amounts']['calming'],-4,0) and integer(w['amounts']['seed'],0,4),at,'invalid amounts')
+            ensure(isinstance(w['overrides'],dict) and len(w['overrides'])<=64 and all(re.fullmatch('[a-z0-9]+',k) and set(v)=={'amount','message'} and integer(v['amount'],0,4) and text_ok(v['message']) for k,v in w['overrides'].items()),at,'invalid overrides')
+            for k in w['overrides']:reference('moves',k,at)
+            s=w['sound'];ensure(set(s)=={'amount','message','categories'} and integer(s['amount'],0,4) and text_ok(s['message']) and isinstance(s['categories'],list) and s['categories'] and all(c in ['Physical','Special','Status'] for c in s['categories']),at,'invalid sound policy')
+            s=w['seismic'];ensure(set(s)=={'amount','message','moves'} and integer(s['amount'],0,4) and text_ok(s['message']) and move_ids_ok(s['moves']),at,'invalid seismic policy')
+            for k in s['moves']:reference('moves',k,at)
+            c=w['calming'];ensure(set(c)=={'moves','messages','defaultMessage'} and move_ids_ok(c['moves']) and text_ok(c['defaultMessage']) and isinstance(c['messages'],dict) and all(k in c['moves'] and text_ok(v) for k,v in c['messages'].items()),at,'invalid calming group')
+            for k in c['moves']:reference('moves',k,at)
+            ensure(set(w['messages'])=={'moderate','major','gimmick','recede'} and all(text_ok(v) for v in w['messages'].values()),at,'invalid messages')
+            ensure(isinstance(w['stages'],dict) and all(re.fullmatch('[1-8]',k) and int(k)<=w['maximum'] and texts_ok(v) for k,v in w['stages'].items()),at,'invalid stages')
+            r=w['rattled'];ensure(set(r)=={'ability','stats','message'} and re.fullmatch('[a-z0-9]+',r['ability']) and text_ok(r['message']),at,'invalid Rattled');stat_map(r['stats'],at)
+            r=w['retaliation'];ensure(set(r)=={'announce','fraction','resetMessage'} and text_ok(r['announce']) and text_ok(r['resetMessage']) and number(r['fraction']) and 0<r['fraction']<=1,at,'invalid retaliation')
+            i=w['immunities'];ensure(set(i)=={'abilities','types'} and all(re.fullmatch('[a-z0-9]+',k) and text_ok(v) for k,v in i['abilities'].items()) and all(k in types and text_ok(v) for k,v in i['types'].items()),at,'invalid immunities')
+            for k in i['abilities']:reference('abilities',k,at)
+            reference('abilities',w['rattled']['ability'],at)
+            ensure(text_ok(w['seedMessage']),at,'invalid seed message')
+    d=m.get('creakingDistraction')
+    if d is not None:
+        at=where+'/creakingDistraction'
+        ensure(set(d)=={'maximum','damageFraction','stages','resetMessage','subsidedMessage'} and integer(d.get('maximum'),2,8) and number(d.get('damageFraction')) and 0<d['damageFraction']<=1 and text_ok(d.get('resetMessage')) and text_ok(d.get('subsidedMessage')) and isinstance(d.get('stages'),dict) and all(re.fullmatch('[1-8]',k) and int(k)<=d['maximum'] and texts_ok(v) for k,v in d['stages'].items()),at,'invalid Creaking Distraction')
+    l=m.get('bloodlust')
+    if l is not None:ensure(set(l)=={'stat','amount','message'} and l['stat'] in ['atk','def','spa','spd','spe'] and integer(l['amount'],1,3) and text_ok(l['message']),where+'/bloodlust','invalid Piglin Bloodlust')
 for name,f in fields.items():
+    if 'mechanics' in f:check_mechanics(f['mechanics'],name+'/mechanics')
+    if 'typeComposition' in f:
+        rows=f['typeComposition'];ensure(isinstance(rows,list) and 0<len(rows)<=16,name,'invalid type composition')
+        for row in rows if isinstance(rows,list) else []:
+            ensure(set(row)<={'whenTypes','add','condition','message'} and {'whenTypes','add','condition'}<=set(row) and isinstance(row['whenTypes'],list) and 0<len(row['whenTypes'])<=4 and all(x in types-{'???','Shadow'} for x in row['whenTypes']) and row['add'] in types-{'???','Shadow'} and ('message' not in row or text_ok(row['message'])),name,'invalid type composition row')
+            check_condition(row.get('condition'),name+'/typeComposition')
+    if 'accuracyCrash' in f:
+        c=f['accuracyCrash'];ensure(set(c)=={'fraction','messages'} and number(c['fraction']) and 0<c['fraction']<=1 and texts_ok(c['messages']),name,'invalid accuracy crash policy')
+    if f.get('custom'):ensure(f['custom'] is True and isinstance(f.get('specification'),str) and f['specification'].endswith('_Field.md'),name,'invalid custom field marker')
     for key,row in f.get('weatherDefinitions',{}).items():
         ensure(re.fullmatch('[a-z0-9]+',key) and set(row)==set('name duration damageFraction damageMessage startMessage endMessage excludedAbilities excludedItems excludedVolatiles excludedFlags source'.split()) and integer(row.get('duration'),1,20) and number(row.get('damageFraction')) and 0<row['damageFraction']<=1,name,'invalid weather definition')
         for k in ['name','source','startMessage','endMessage','damageMessage']:ensure(isinstance(row.get(k),str),name,'invalid weather text')
@@ -403,14 +449,18 @@ for name,f in fields.items():
     if 'silentVolatileEnds' in f:ensure(isinstance(f['silentVolatileEnds'],list) and f['silentVolatileEnds'] and all(k in ['slowstart'] for k in f['silentVolatileEnds']),name,'invalid silent volatile end')
     if 'seed' in f:reference('items',f['seed']['item'],name+'/seed')
 mapping=read(DATA/'mappings/modpack.json')['rules'];known=read(ROOT/'research/biome-inventory.json')
-for r in mapping:ensure(r['field'] in fields,'mapping','unknown field');ensure(set(r)<=set('biome tag dimension submerged maxY skyVisible minDepth field reason'.split()),'mapping','unknown predicate')
+for r in mapping:
+    ensure(r['field'] in fields,'mapping','unknown field');ensure(set(r)<=set('biome tag dimension submerged maxY skyVisible minDepth field reason substrate'.split()),'mapping','unknown predicate')
+    if 'substrate' in r:ensure(isinstance(r['substrate'],str) and r['substrate'] in fields and r['substrate']!='rejuvenation:indoor' and r['substrate']!=r['field'],'mapping','invalid substrate layer '+str(r['substrate']))
 explicit={r['biome'] for r in mapping if 'biome' in r};ensure(set(known)<=explicit,'mapping','unmapped detected biomes')
 structures=[]
 for p in sorted((DATA/'structures').glob('*.json')):
     doc=read(p);ensure(doc.get('schemaVersion')==1,'structures/'+p.name,'unsupported schema')
     for r in doc['rules']:
         where='structures/'+p.name
-        ensure(isinstance(r,dict) and set(r)<={'structure','tag','field','reason'} and r.get('field') in fields,where,'invalid structure mapping')
+        ensure(isinstance(r,dict) and set(r)<={'structure','tag','field','reason','containment'} and r.get('field') in fields,where,'invalid structure mapping')
+        if isinstance(r,dict) and 'containment' in r:
+            c=r['containment'];ensure(isinstance(c,dict) and (c=={'mode':'pieces'} or (set(c)=={'mode','horizontal','above','below'} and c['mode']=='footprint' and integer(c['horizontal'],0,32) and integer(c['above'],0,64) and integer(c['below'],0,32))),where,'invalid structure containment')
         ensure(('structure' in r)!=('tag' in r),where,'a structure mapping names exactly one structure or tag')
         ensure(re.fullmatch(r'[a-z0-9_.-]+:[a-z0-9_./-]+',r.get('structure',r.get('tag','')) or '') is not None,where,'invalid structure identifier')
         structures.append(r)
@@ -427,9 +477,46 @@ for p in sorted((DATA/'trainers').glob('*.json')):
         for k in ['winShare','indoorWinShare']:
             if k in row:ensure(isinstance(row[k],(int,float)) and not isinstance(row[k],bool) and 0<=row[k]<=1,where,'invalid trainer score')
         trainers[tid]=row
+# Field Notes: one plain-text document per field, mirroring the server's checks (closed keys, bounded, no markup) and keeping
+# developer vocabulary (JSON, rule/op names, namespaced IDs, source file names) out of player-facing text.
+note_keys={'schemaVersion','field','title','summary','sections','overlay','counters','substrateText'}
+dev_words=['{','}','"','json','schemaVersion','.rb','todo','undefined','null','rejuvenation:','ruby','battle.rb','§']
+def plain_note(v,limit):return isinstance(v,str) and 0<len(v)<=limit and not any(ord(c)<32 or ord(c)==127 or c=='§' for c in v)
+def note_strings(doc):
+    yield doc['title'];yield doc['summary']
+    for s in doc['sections']:
+        yield s['heading']
+        for l in s['lines']:yield l
+    for l in doc.get('overlay',[]):yield l
+    for c in doc.get('counters',[]):
+        yield c['label']
+        for th in c.get('thresholds',[]):yield th['text']
+    if 'substrateText' in doc:yield doc['substrateText']
+notes={}
+for p in sorted((DATA/'notes').glob('*.json')):
+    doc=read(p);where='notes/'+p.name
+    ensure(isinstance(doc,dict) and set(doc)<=note_keys and {'schemaVersion','field','title','summary','sections'}<=set(doc) and doc['schemaVersion']==1,where,'unknown or missing keys')
+    if errors and errors[-1].startswith(where):continue
+    ensure(doc['field'] in fields and p.stem==doc['field'].split(':')[1],where,'notes name an unknown or mismatched field')
+    ensure(plain_note(doc['title'],80) and plain_note(doc['summary'],400),where,'invalid title or summary')
+    ensure(isinstance(doc['sections'],list) and 0<len(doc['sections'])<=14,where,'invalid sections')
+    for s in doc['sections']:
+        ensure(isinstance(s,dict) and set(s)=={'heading','lines'} and plain_note(s['heading'],60) and isinstance(s['lines'],list) and 0<len(s['lines'])<=40 and all(plain_note(l,960) for l in s['lines']),where,'invalid section')
+    for l in doc.get('overlay',[]):ensure(plain_note(l,960),where,'invalid overlay line')
+    for c in doc.get('counters',[]):
+        ensure(isinstance(c,dict) and set(c)<={'id','label','scope','maximum','thresholds'} and c.get('id') in ('warning','distraction') and plain_note(c.get('label'),60) and c.get('scope') in ('shared','perSide') and integer(c.get('maximum'),1,8),where,'invalid counter')
+        for th in c.get('thresholds',[]):ensure(isinstance(th,dict) and set(th)=={'at','text'} and integer(th['at'],1,8) and plain_note(th['text'],240),where,'invalid threshold')
+    ensure(len(json.dumps(doc,ensure_ascii=False).encode('utf-8'))<=16000,where,'notes exceed 16000 bytes')
+    try:
+        for s in note_strings(doc):
+            low=s.replace('{substrate}','').lower()
+            ensure(not any(w.lower() in low for w in dev_words),where,'developer text in a player-facing line: '+s[:60])
+    except (KeyError,TypeError):pass
+    notes[doc['field']]=doc
+ensure(set(notes)==set(fields),'notes','notes cover exactly the catalog fields (missing: '+', '.join(sorted(set(fields)-set(notes)))[:200]+')')
 catalog={'fields':fields,'mappings':mapping,'structures':structures,'items':items,'abilities':abilities,'trainers':trainers,'default':'rejuvenation:indoor'}
 write(ROOT/'research/catalog.json',catalog)
-write(ROOT/'research/test-results/datapack-validation.json',{'errors':errors,'fields':len(fields),'biomes':len(known),'explicitBiomes':len(explicit),'counts':count,'unavailableCounts':{k:len(v) for k,v in unavailable.items()}})
+write(ROOT/'research/test-results/datapack-validation.json',{'errors':errors,'fields':len(fields),'originalFields':sum(1 for f in fields.values() if not f.get('custom')),'customFields':sum(1 for f in fields.values() if f.get('custom')),'biomes':len(known),'explicitBiomes':len(explicit),'counts':count,'unavailableCounts':{k:len(v) for k,v in unavailable.items()}})
 if errors:
     print('\n'.join(errors));sys.exit(1)
 print(f"Validated {len(fields)} fields, {count['rules']} rules, {count['moves']} move entries, {count['transitions']} transitions and {len(known)} explicit biomes")

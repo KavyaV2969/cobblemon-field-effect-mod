@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:back_alley",
+  "title": "Back Alley",
+  "summary": "“Shifty eyes are all around...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Battles inside Woodland Mansions."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Physical dark moves are 1.5× stronger.",
+        "Poison moves, bug moves, and steel moves are 1.3× stronger.",
+        "Fairy moves are halved (0.5×).",
+        "First Impression also counts as Dark for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Aerial Ace, Air Cutter, Air Slash, Aqua Cutter, Beat Up, Behemoth Blade, Branch Poke, Ceaseless Edge, Cross Poison, Cut, Drill Peck, Drill Run, False Surrender, Fell Stinger, First Impression, Fury Attack, Fury Cutter, Glacial Lance, Horn Attack, Horn Leech, Infestation, Leaf Blade, Megahorn, Needle Arm, Night Slash, Pay Day, Peck, Pin Missile, Pluck, Poison Jab, Poison Sting, Psycho Cut, Razor Leaf, Razor Shell, Sacred Sword, Shadow Sneak, Slash, Smart Strike, Smog, Solar Blade, Spectral Thief, Steamroller, Stone Axe, Techno Blast, Twineedle, and X-Scissor: 1.5× stronger.",
+        "Poison Gas and Smog: never miss."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Steel-type.",
+        "Nature Power becomes Beat Up.",
+        "Secret Power can cause poison."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Boomburst, Echoed Voice, Hyper Voice, and Uproar change the field into City."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Anticipation or Forewarn: Defense +1 and Special Defense +1 when it enters.",
+        "Magician: Special Attack +1 when it enters.",
+        "Merciless or Pickpocket: Attack +1 when it enters.",
+        "Rattled: Speed +1 when it enters."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Synthetic Seed: Attack +1 and accuracy +1."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

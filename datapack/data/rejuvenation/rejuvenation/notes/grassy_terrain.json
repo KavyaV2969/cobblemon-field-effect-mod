@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:grassy_terrain",
+  "title": "Grassy Terrain",
+  "summary": "“The field is in full bloom.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Meadow, Plains, Savanna, and Sunflower Plains."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Fairy Wind, Grass Knot, Gust, Icy Wind, Ominous Wind, Razor Wind, Silver Wind, and Twister: 1.5× stronger.",
+        "Bulldoze, Earthquake, Magnitude, Muddy Water, and Surf: halved (0.5×).",
+        "Grass Whistle: 80% accuracy."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Grass-type.",
+        "Nature Power becomes Energy Ball.",
+        "Secret Power can cause sleep."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Acid Downpour and Sludge Wave change the field into Corrosive.",
+        "Muddy Water and Surf change the field into Swamp once their uses add up to 3 (Muddy Water 2 and Surf 1)."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Overgrow: 1.5× power for Grass-type moves."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Sap Sipper restores 1/16 of its HP."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Elemental Seed: Defense +1 and takes root (Ingrain)."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ],
+  "overlay": [
+    "Fairy Wind, Gust, Icy Wind, Ominous Wind, Razor Wind, Silver Wind, and Twister: 1.5× stronger."
+  ]
+}

@@ -114,6 +114,6 @@ public final class ClientVerification {
             check(l==null || l.x()>=0 && l.y()>=10+40*tiles && l.x()+l.width()<=w && l.y()+l.height()<=h,"Panel fits resized GUI");
             check(l==null || l.y()+l.height()<=log.y()-3,"Panel clears log");
         }
-        return checks;
+        return checks+NotesVerification.run();
     }
 }

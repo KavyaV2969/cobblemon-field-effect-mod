@@ -1,6 +1,7 @@
 {
   "rejuvenation:back_alley": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -1255,6 +1256,7 @@
   },
   "rejuvenation:beach": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -2839,6 +2841,7 @@
   },
   "rejuvenation:bewitched": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -3958,6 +3961,7 @@
   },
   "rejuvenation:big_top": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -5629,6 +5633,7 @@
   },
   "rejuvenation:cave": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -6677,6 +6682,7 @@
   },
   "rejuvenation:chess_board": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -8994,6 +9000,7 @@
   },
   "rejuvenation:city": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -10025,6 +10032,7 @@
   },
   "rejuvenation:colosseum": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -11962,6 +11970,7 @@
   },
   "rejuvenation:concert_1": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -13716,6 +13725,7 @@
   },
   "rejuvenation:concert_2": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -15233,6 +15243,7 @@
   },
   "rejuvenation:concert_3": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -16871,6 +16882,7 @@
   },
   "rejuvenation:concert_4": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -19545,6 +19557,7 @@
   },
   "rejuvenation:corrosive": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -20797,6 +20810,7 @@
   },
   "rejuvenation:corrosive_mist": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -22290,6 +22304,7 @@
   },
   "rejuvenation:corrupted": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -23367,8 +23382,33 @@
     },
     "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
   },
+  "rejuvenation:crimson_forest": {
+    "definitionComparison": "not applicable: custom field, no Rejuvenation source",
+    "custom": true,
+    "implementationComplete": true,
+    "fullBehaviorVerified": false,
+    "runtimeSourceLeads": [],
+    "aiSourceLeads": [],
+    "semanticReviewCounts": {},
+    "implementedRules": 59,
+    "unavailableReferences": {
+      "moves": [],
+      "abilities": [],
+      "items": []
+    },
+    "methodOracle": {
+      "methods": [
+        "fieldDefenseBoost",
+        "calculateFieldMultiplier"
+      ],
+      "receipt": "test-results/runtime-oracle.json",
+      "fullFieldCertification": false
+    },
+    "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
+  },
   "rejuvenation:crystal_cavern": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -24088,6 +24128,7 @@
   },
   "rejuvenation:dark_crystal_cavern": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -24671,8 +24712,33 @@
     },
     "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
   },
+  "rejuvenation:deep_dark": {
+    "definitionComparison": "not applicable: custom field, no Rejuvenation source",
+    "custom": true,
+    "implementationComplete": true,
+    "fullBehaviorVerified": false,
+    "runtimeSourceLeads": [],
+    "aiSourceLeads": [],
+    "semanticReviewCounts": {},
+    "implementedRules": 38,
+    "unavailableReferences": {
+      "moves": [],
+      "abilities": [],
+      "items": []
+    },
+    "methodOracle": {
+      "methods": [
+        "fieldDefenseBoost",
+        "calculateFieldMultiplier"
+      ],
+      "receipt": "test-results/runtime-oracle.json",
+      "fullFieldCertification": false
+    },
+    "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
+  },
   "rejuvenation:deep_earth": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -26870,6 +26936,7 @@
   },
   "rejuvenation:desert": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -28367,6 +28434,7 @@
   },
   "rejuvenation:deux_finalis": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -31085,6 +31153,7 @@
   },
   "rejuvenation:dimensional": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -33553,6 +33622,7 @@
   },
   "rejuvenation:dragons_den": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -35613,6 +35683,7 @@
   },
   "rejuvenation:electric_terrain": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -38545,6 +38616,7 @@
   },
   "rejuvenation:factory": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -39434,6 +39506,7 @@
   },
   "rejuvenation:fairytale": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -42109,6 +42182,7 @@
   },
   "rejuvenation:flower_garden_1": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -44353,6 +44427,7 @@
   },
   "rejuvenation:flower_garden_2": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -46729,6 +46804,7 @@
   },
   "rejuvenation:flower_garden_3": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -49234,6 +49310,7 @@
   },
   "rejuvenation:flower_garden_4": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -51769,6 +51846,7 @@
   },
   "rejuvenation:flower_garden_5": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -54579,6 +54657,7 @@
   },
   "rejuvenation:forest": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -56274,6 +56353,7 @@
   },
   "rejuvenation:frozen_dimension": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -59726,6 +59806,7 @@
   },
   "rejuvenation:glitch": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -61469,6 +61550,7 @@
   },
   "rejuvenation:grassy_terrain": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -63122,6 +63204,7 @@
   },
   "rejuvenation:haunted": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -64571,6 +64654,7 @@
   },
   "rejuvenation:holy": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -66247,6 +66331,7 @@
   },
   "rejuvenation:icy": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -67676,6 +67761,7 @@
   },
   "rejuvenation:indoor": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -68168,6 +68254,7 @@
   },
   "rejuvenation:infernal": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -70367,6 +70454,7 @@
   },
   "rejuvenation:inverse": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -70631,6 +70719,7 @@
   },
   "rejuvenation:misty_terrain": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -71942,6 +72031,7 @@
   },
   "rejuvenation:mountain": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -72706,6 +72796,7 @@
   },
   "rejuvenation:murkwater_surface": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -74303,6 +74394,7 @@
   },
   "rejuvenation:new_world": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -77011,8 +77103,36 @@
     },
     "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
   },
+  "rejuvenation:pale_garden": {
+    "definitionComparison": "not applicable: custom field, no Rejuvenation source",
+    "custom": true,
+    "implementationComplete": true,
+    "fullBehaviorVerified": false,
+    "runtimeSourceLeads": [],
+    "aiSourceLeads": [],
+    "semanticReviewCounts": {},
+    "implementedRules": 48,
+    "unavailableReferences": {
+      "moves": [
+        "mirrorbeam",
+        "vorpalblade"
+      ],
+      "abilities": [],
+      "items": []
+    },
+    "methodOracle": {
+      "methods": [
+        "fieldDefenseBoost",
+        "calculateFieldMultiplier"
+      ],
+      "receipt": "test-results/runtime-oracle.json",
+      "fullFieldCertification": false
+    },
+    "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
+  },
   "rejuvenation:psychic_terrain": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -79180,6 +79300,7 @@
   },
   "rejuvenation:rainbow": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -81006,6 +81127,7 @@
   },
   "rejuvenation:rocky": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -81819,6 +81941,7 @@
   },
   "rejuvenation:short_circuit": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -83006,6 +83129,7 @@
   },
   "rejuvenation:sky": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -84788,6 +84912,7 @@
   },
   "rejuvenation:snowy_mountain": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -86273,6 +86398,7 @@
   },
   "rejuvenation:starlight": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -88247,6 +88373,7 @@
   },
   "rejuvenation:swamp": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -89466,6 +89593,7 @@
   },
   "rejuvenation:underwater": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -91527,6 +91655,7 @@
   },
   "rejuvenation:volcanic": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -92850,6 +92979,7 @@
   },
   "rejuvenation:volcanic_top": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -94622,8 +94752,33 @@
     },
     "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
   },
+  "rejuvenation:warped_forest": {
+    "definitionComparison": "not applicable: custom field, no Rejuvenation source",
+    "custom": true,
+    "implementationComplete": true,
+    "fullBehaviorVerified": false,
+    "runtimeSourceLeads": [],
+    "aiSourceLeads": [],
+    "semanticReviewCounts": {},
+    "implementedRules": 50,
+    "unavailableReferences": {
+      "moves": [],
+      "abilities": [],
+      "items": []
+    },
+    "methodOracle": {
+      "methods": [
+        "fieldDefenseBoost",
+        "calculateFieldMultiplier"
+      ],
+      "receipt": "test-results/runtime-oracle.json",
+      "fullFieldCertification": false
+    },
+    "warning": "No automatic one-to-one certification of distributed source blocks. Review source conditions, enclosing guards, handler order and original tests before marking verified."
+  },
   "rejuvenation:wasteland": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [
@@ -96092,6 +96247,7 @@
   },
   "rejuvenation:water_surface": {
     "definitionComparison": "passed",
+    "custom": false,
     "implementationComplete": true,
     "fullBehaviorVerified": false,
     "runtimeSourceLeads": [

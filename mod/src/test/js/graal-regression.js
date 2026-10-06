@@ -3,8 +3,8 @@
   const {Battle}=require('./sim/battle'),E=globalThis.RejuvenationEngine;
   let checks=0;
   function check(value,description){if(!value)throw Error(description);checks++;}
-  function battle(field,first,second={}){
-    const b=new Battle({formatid:'cobblemonsingles',seed:[1,2,3,4]});E.attach(b,'rejuvenation:'+field);
+  function battle(field,first,second={},options={}){
+    const b=new Battle({formatid:'cobblemonsingles',seed:[1,2,3,4]});E.attach(b,'rejuvenation:'+field,options);
     for(const [side,config] of [[1,first],[2,second]]){
       const pokemon={species:'Mew',ability:'Synchronize',moves:['splash'],...config};
       pokemon.uuid='00000000-0000-0000-0000-00000000000'+side;
@@ -60,5 +60,19 @@
   check(b.log.some(s=>s.startsWith('|-weather|ShadowSky') && s.includes('[rejuvenationsilent]')),'Custom weather context and flavor suppression marker in Graal');
   const wb=b.dex.getActiveMove('weatherball');b.runEvent('ModifyMove',storm,b.sides[1].active[0],wb,wb);check(wb.type==='Shadow' && wb.basePower===100 && wb.target==='allAdjacentFoes','Storm Weather Ball behavior in Graal');
   storm.setAbility('synchronize');check(b.field.weather==='','Weather reconciles on ability loss in Graal');b.destroy();
+  // Environment layers start in the real simulator stack (as ShowdownMixin passes them) and melting restores the substrate.
+  b=battle('icy',{species:'Charizard',moves:['heatwave','splash']},{},{layers:['rejuvenation:water_surface']});
+  check(JSON.stringify(b.rejuvenation.stack.map(f=>f.id))===JSON.stringify(['rejuvenation:water_surface','rejuvenation:icy']),'Layered start in Graal');
+  const planned=JSON.parse(E.strategy(b,{user:'00000000-0000-0000-0000-000000000001',candidates:[{move:'heatwave',target:'00000000-0000-0000-0000-000000000002'}]}));
+  check(!planned.candidates[0].error && planned.candidates[0].fieldAfter==='rejuvenation:water_surface' && b.rejuvenation.stack.length===2,'Layered strategy in Graal rolls back');
+  turn(b,1);check(b.rejuvenation.id==='rejuvenation:water_surface' && b.rejuvenation.stack.length===1,'Melting restores the substrate in Graal');b.destroy();
+  // The custom fields attach, run their mechanics in the shaded runtime and clean up.
+  for(const field of ['deep_dark','pale_garden','warped_forest','crimson_forest']){
+    b=battle(field,{moves:['splash']});check(b.rejuvenation.id==='rejuvenation:'+field,'Custom field attaches in Graal: '+field);b.destroy();check(b.rejuvenation===undefined,'Custom field cleanup in Graal: '+field);
+  }
+  b=battle('deep_dark',{moves:['earthquake']});turn(b,1);check(b.rejuvenation.counters[0]===2,'Deep Dark Warning rises by the seismic amount in Graal');b.destroy();
+  b=battle('crimson_forest',{moves:['quickattack']});
+  const quick=b.dex.getActiveMove('quickattack');b.runEvent('ModifyMove',b.sides[0].active[0],b.sides[1].active[0],quick,quick);
+  check(b.runEvent('Accuracy',b.sides[1].active[0],b.sides[0].active[0],quick,100)===80,'Crimson priority accuracy penalty in Graal');b.destroy();
   return checks;
 })()

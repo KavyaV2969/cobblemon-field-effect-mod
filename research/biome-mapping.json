@@ -79,8 +79,8 @@
   {
     "biome": "minecraft:crimson_forest",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
-    "field": "rejuvenation:bewitched",
-    "reason": "Otherworldly forest",
+    "field": "rejuvenation:crimson_forest",
+    "reason": "Crimson Forest biome",
     "mechanism": "explicit"
   },
   {
@@ -100,16 +100,18 @@
   {
     "biome": "minecraft:deep_dark",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
-    "field": "rejuvenation:dark_crystal_cavern",
-    "reason": "Dark underground sculk",
+    "field": "rejuvenation:deep_dark",
+    "reason": "Deep Dark biome",
     "mechanism": "explicit"
   },
   {
     "biome": "minecraft:deep_frozen_ocean",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
-    "field": "rejuvenation:water_surface",
-    "reason": "Open surface water",
-    "mechanism": "explicit"
+    "field": "rejuvenation:icy",
+    "reason": "Ice sheet over deep ocean water",
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:water_surface",
+    "layerReason": "Deep ocean water under the ice"
   },
   {
     "biome": "minecraft:deep_lukewarm_ocean",
@@ -184,23 +186,29 @@
   {
     "biome": "minecraft:frozen_ocean",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
-    "field": "rejuvenation:water_surface",
-    "reason": "Open surface water",
-    "mechanism": "explicit"
+    "field": "rejuvenation:icy",
+    "reason": "Ice sheet over open ocean water",
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:water_surface",
+    "layerReason": "Open ocean water under the ice"
   },
   {
     "biome": "minecraft:frozen_peaks",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:snowy_mountain",
     "reason": "Snow-covered mountain",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:mountain",
+    "layerReason": "Bare mountain rock under the snow"
   },
   {
     "biome": "minecraft:frozen_river",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
-    "field": "rejuvenation:water_surface",
-    "reason": "Open surface water",
-    "mechanism": "explicit"
+    "field": "rejuvenation:icy",
+    "reason": "Ice over river water",
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:water_surface",
+    "layerReason": "River water under the ice"
   },
   {
     "biome": "minecraft:grove",
@@ -214,7 +222,8 @@
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "layerExemption": "Snow blocks and packed ice run all the way down, so melting exposes no distinct ground: Icy keeps the source transition."
   },
   {
     "biome": "minecraft:jagged_peaks",
@@ -303,8 +312,8 @@
   {
     "biome": "minecraft:pale_garden",
     "source": "mods\\VanillaBackport-fabric-1.21.1-1.1.7.10.jar",
-    "field": "rejuvenation:bewitched",
-    "reason": "Uncanny pale forest",
+    "field": "rejuvenation:pale_garden",
+    "reason": "Pale Garden biome",
     "mechanism": "explicit"
   },
   {
@@ -347,28 +356,36 @@
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:beach",
+    "layerReason": "Beach sand under the snow (the existing Beach allocation)"
   },
   {
     "biome": "minecraft:snowy_plains",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:grassy_terrain",
+    "layerReason": "Plains grass under the snow (the existing Plains allocation)"
   },
   {
     "biome": "minecraft:snowy_slopes",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:snowy_mountain",
     "reason": "Snow-covered mountain",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:mountain",
+    "layerReason": "Bare mountain rock under the snow"
   },
   {
     "biome": "minecraft:snowy_taiga",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar; datapacks\\COBBLEVERSE-DP-v31.zip; datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:forest",
+    "layerReason": "Taiga forest floor under the snow (the existing Taiga allocation)"
   },
   {
     "biome": "minecraft:soul_sand_valley",
@@ -450,8 +467,8 @@
   {
     "biome": "minecraft:warped_forest",
     "source": ".fabric\\remappedJars\\minecraft-1.21.1-0.18.4\\client-intermediary.jar",
-    "field": "rejuvenation:bewitched",
-    "reason": "Otherworldly forest",
+    "field": "rejuvenation:warped_forest",
+    "reason": "Warped Forest biome",
     "mechanism": "explicit"
   },
   {
@@ -501,7 +518,9 @@
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:grassy_terrain",
+    "layerReason": "Island grass under the snow (the existing Island allocation)"
   },
   {
     "biome": "terralith:alpine_grove",
@@ -627,7 +646,8 @@
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:frozen_dimension",
     "reason": "Combined anomalous fire and ice",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "layerExemption": "Frozen Dimension is a combined anomaly, not an ice surface; its own Purify transition returns to Icy."
   },
   {
     "biome": "terralith:cave/fungal_caves",
@@ -690,7 +710,9 @@
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:grassy_terrain",
+    "layerReason": "Shrubland under the snow (the existing Shrubland allocation)"
   },
   {
     "biome": "terralith:deep_warm_ocean",
@@ -746,14 +768,18 @@
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:snowy_mountain",
     "reason": "Snow-covered mountain",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:mountain",
+    "layerReason": "Bare cliff rock under the snow"
   },
   {
     "biome": "terralith:glacial_chasm",
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:snowy_mountain",
     "reason": "Snow-covered mountain",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:mountain",
+    "layerReason": "Bare chasm rock under the ice and snow"
   },
   {
     "biome": "terralith:granite_cliffs",
@@ -802,7 +828,9 @@
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Frozen marsh",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:swamp",
+    "layerReason": "Marsh ground under the ice (the existing Swamp allocation)"
   },
   {
     "biome": "terralith:jungle_mountains",
@@ -1012,28 +1040,36 @@
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:desert",
+    "layerReason": "Mesa sand under the snow (the existing Badlands allocation)"
   },
   {
     "biome": "terralith:snowy_cherry_grove",
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:forest",
+    "layerReason": "Grove floor under the snow (the existing Grove allocation)"
   },
   {
     "biome": "terralith:snowy_maple_forest",
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:forest",
+    "layerReason": "Forest floor under the snow (the existing Forest allocation)"
   },
   {
     "biome": "terralith:snowy_shield",
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:forest",
+    "layerReason": "Shield forest floor under the snow (the existing Shield allocation)"
   },
   {
     "biome": "terralith:steppe",
@@ -1124,14 +1160,18 @@
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:forest",
+    "layerReason": "Forest floor under the snow (the existing Forest allocation)"
   },
   {
     "biome": "terralith:wintry_lowlands",
     "source": "datapacks\\extra\\Terralith-DP.zip; resourcepacks\\z DO NOT ENABLE z [Terralith - Credits Only].zip",
     "field": "rejuvenation:icy",
     "reason": "Ice/snow environment",
-    "mechanism": "explicit"
+    "mechanism": "explicit",
+    "substrate": "rejuvenation:grassy_terrain",
+    "layerReason": "Lowland grass under the snow (the existing Lowlands allocation)"
   },
   {
     "biome": "terralith:yellowstone",

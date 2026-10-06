@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "id": "rejuvenation:deep_dark",
+  "originalId": "DEEPDARK",
+  "name": "Deep Dark Field",
+  "entryMessage": "The Deep Dark is listening...",
+  "specification": "Deep_Dark_Field.md",
+  "base": "INDOOR",
+  "hooks": {
+    "naturePower": "darkpulse",
+    "secretPower": "darkpulse",
+    "mimicry": "Dark",
+    "secretPowerEffects": [{"boosts": {"accuracy": -1}, "message": "The darkness obscured {1}'s vision!"}]
+  },
+  "types": [
+    {"type": "Dark", "multiplier": 1.5, "message": "The Deep Dark empowered the attack!"},
+    {"type": "Ghost", "multiplier": 1.5, "message": "The Deep Dark empowered the attack!"},
+    {"type": "Fairy", "multiplier": 0.5, "message": "The Deep Dark swallowed up the purity..."},
+    {"type": "Rock", "multiplier": 1.3, "message": "The cavern strengthened the attack!"},
+    {"type": "Ground", "multiplier": 1.3, "message": "The cavern strengthened the attack!"}
+  ],
+  "terrainPulse": {"type": "Dark"},
+  "rules": [
+    {
+      "event": "accuracy",
+      "condition": {"all": [
+        {"counter": {"index": 1, "op": ">=", "value": 3}},
+        {"not": {"ability": {"who": "user", "values": ["keeneye", "compoundeyes", "illuminate"]}}}
+      ]},
+      "actions": [{"op": "accuracyPenalty", "factor": 0.9}],
+      "source": "Deep_Dark_Field.md: Warning Stages (Darkness)"
+    }
+  ],
+  "seed": {"item": "magicalseed", "effect": null, "duration": null, "message": null, "stats": {}},
+  "seedActions": [
+    {"op": "ability", "id": "soundproof"},
+    {"op": "message", "text": "The Magical Seed muffled {1}'s presence!"},
+    {"op": "mechanic", "kind": "sculkWarning", "event": "seed"}
+  ],
+  "mechanics": {
+    "sculkWarning": {
+      "counter": 1,
+      "maximum": 4,
+      "darknessAt": 3,
+      "retaliationAt": 4,
+      "resetTo": 1,
+      "thresholds": {"moderate": 90, "major": 150},
+      "amounts": {"moderate": 1, "major": 2, "calming": -1, "seed": 1},
+      "overrides": {
+        "boomburst": {"amount": 2, "message": "The deafening blast sent the sculk into a frenzy!"},
+        "clangingscales": {"amount": 2, "message": "The clang echoed throughout the Ancient City!"},
+        "clangoroussoulblaze": {"amount": 2, "message": "The ancient city rang with Kommo-o's war cry!"},
+        "uproar": {"amount": 2, "message": "The relentless noise enraged the sculk!"},
+        "earthquake": {"amount": 2, "message": "The ancient city shook violently!"},
+        "explosion": {"amount": 2, "message": "The explosion reverberated through the Deep Dark!"},
+        "selfdestruct": {"amount": 2, "message": "The explosion reverberated through the Deep Dark!"}
+      },
+      "sound": {
+        "amount": 2,
+        "message": "The sculk reacted heavily to the noise!",
+        "categories": ["Physical", "Special", "Status"]
+      },
+      "seismic": {
+        "amount": 2,
+        "message": "The vibration spread violently through the sculk!",
+        "moves": ["earthpower", "bulldoze", "magnitude", "fissure", "stompingtantrum", "highhorsepower", "headlongrush", "precipiceblades", "rockslide", "stoneedge", "smackdown", "meteorbeam", "mistyexplosion", "mindblown"]
+      },
+      "calming": {
+        "moves": ["calmmind", "meditate", "flash", "rest", "aromatherapy", "lunarblessing"],
+        "messages": {
+          "calmmind": "The Pokémon's composure quieted the surrounding sculk...",
+          "meditate": "Stillness returned briefly to the Deep Dark...",
+          "flash": "The sudden light pushed back the darkness!"
+        },
+        "defaultMessage": "A soothing calm settled over the sculk..."
+      },
+      "messages": {
+        "moderate": "The force of the attack disturbed the sculk!",
+        "major": "The overwhelming attack sent vibrations through the Deep Dark!",
+        "gimmick": "The Deep Dark trembled from the impact!",
+        "recede": "The darkness receded..."
+      },
+      "stages": {
+        "1": ["A sculk sensor stirred..."],
+        "2": ["Something stirred beneath the darkness..."],
+        "3": ["An ancient shriek echoed a warning!", "Darkness engulfed the battlefield!"],
+        "4": ["The earth began to tremble..."]
+      },
+      "rattled": {"ability": "rattled", "stats": {"spe": 1}, "message": "{1} was rattled by the ancient shriek!"},
+      "retaliation": {"announce": "The Deep Dark struck back!", "fraction": 0.2, "resetMessage": "Silence returned to the Deep Dark..."},
+      "immunities": {
+        "abilities": {
+          "soundproof": "{1}'s Soundproof shut out the sonic assault!",
+          "punkrock": "{1} endured the violent resonance!",
+          "solidrock": "{1}'s Solid Rock absorbed the violent resonance!"
+        },
+        "types": {"Ghost": "{1}'s spectral form let the resonance pass through it!"}
+      },
+      "seedMessage": "But the disturbance stirred the sculk..."
+    }
+  },
+  "artwork": {"file": "deepdark.jpg", "description": "Minecraft Deep Dark cave screenshot (user-provided)"},
+  "biomes": ["minecraft:deep_dark"],
+  "structures": [{"structure": "minecraft:ancient_city", "reason": "Ancient City"}, {"tag": "repurposed_structures:collections/ancient_cities", "reason": "Ancient City variant"}],
+  "notes": {
+    "summary": "The sculk of the Deep Dark listens to the battle. Loud or violent moves wake it; calm moves quiet it. At full alarm it strikes everyone on the field.",
+    "sections": [
+      {"heading": "Type power", "lines": [
+        "Dark and Ghost moves are 1.5× stronger.",
+        "Rock and Ground moves are 1.3× stronger.",
+        "Fairy moves are halved (0.5×).",
+        "Mimicry, Camouflage and Terrain Pulse use the Dark type. Nature Power becomes Dark Pulse.",
+        "Secret Power can lower the target's Accuracy."]},
+      {"heading": "Sculk Warning", "lines": [
+        "One shared Warning from 0 to 4 for the whole battlefield.",
+        "Each side can change the Warning once per turn; raising and calming it share that one change. A change that would do nothing (for example calming at 0) is not used up.",
+        "A move adds Warning by the first group that applies: calming moves lower it by 1; moves with their own entry (such as Earthquake, Boomburst, Uproar and Explosion), sound moves and the Earthquake-style moves (Earth Power, Bulldoze, Rock Slide, Stone Edge and others) add 2; otherwise power decides: 90 to 149 adds 1, 150 or more adds 2.",
+        "The power counted is the move's own power before type, STAB, item and ability boosts. Spread and multi-hit moves count once, by their strongest hit.",
+        "The move only has to be carried out: a miss, Protect, immunity or absorbing ability still wakes the sculk. A move stopped before it starts (sleep, paralysis, flinch) or a charging turn does not.",
+        "Switching and fainting never reset the Warning."]},
+      {"heading": "Warning stages", "lines": [
+        "Warning 1 and 2 only announce that the sculk is stirring.",
+        "Warning 3: Darkness. Every accuracy check is multiplied by 0.9 (not a stat drop). Keen Eye, Compound Eyes and Illuminate ignore it. Rattled raises Speed by 1 when the Warning rises to 3.",
+        "Warning 4: the Deep Dark strikes back. Every active Pokémon that is not immune loses 20% of its maximum HP, even through Protect or a Substitute. It happens once per turn, after the move that caused it, and the Warning then drops to 1, ending the Darkness.",
+        "Immune to the strike: Soundproof, Punk Rock, Solid Rock and Ghost types. Immunity does not stop their own moves from raising the Warning."]},
+      {"heading": "Calming", "lines": [
+        "Calm Mind, Meditate, Flash, Rest, Aromatherapy and Lunar Blessing lower the Warning by 1.",
+        "If calming brings the Warning below 3, the Darkness lifts."]},
+      {"heading": "Magical Seed", "lines": [
+        "The holder's ability becomes Soundproof for the rest of its time on the field, then the seed tries to raise the Warning by 1 (it counts as the holder's side change for the turn)."]}
+    ],
+    "counters": [
+      {"id": "warning", "label": "Sculk Warning", "scope": "shared", "maximum": 4, "thresholds": [{"at": 3, "text": "Darkness: accuracy ×0.9"}, {"at": 4, "text": "The Deep Dark strikes back"}]}
+    ]
+  }
+}

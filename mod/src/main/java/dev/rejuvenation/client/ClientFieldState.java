@@ -10,7 +10,19 @@ import java.util.*;
  */
 public final class ClientFieldState {
     private ClientFieldState() {}
-    public record State(UUID battle, String field, String name, int duration, String overlay, String overlayName, int overlayDuration, long changedAt) {}
+    /**
+     * The battle's visible field state. {@code substrate} is the dormant layer directly beneath the field (null for none), {@code counters}
+     * the public counters of the current field by ID (one value, or one per side), and {@code viewer} which side the receiving player is
+     * on (0 or 1; -1 for a spectator), so per-side counters read from the player's own side.
+     */
+    public record State(UUID battle, String field, String name, int duration, String overlay, String overlayName, int overlayDuration, long changedAt,
+                        String substrate, String substrateName, Map<String, List<Integer>> counters, int viewer) {
+        public State(UUID battle, String field, String name, int duration, String overlay, String overlayName, int overlayDuration, long changedAt) {
+            this(battle, field, name, duration, overlay, overlayName, overlayDuration, changedAt, null, null, Map.of(), -1);
+        }
+    }
+    /** One field's notes as the server sent them for this battle: {@code missing} when the server has none, else the document. */
+    public record NotesDoc(String field, long revision, boolean missing, JsonObject doc) {}
     public record Evaluation(UUID user, String move, UUID target, String gimmick, OptionalDouble factor, boolean fieldBlocks, boolean nativeBlocks,
                              OptionalDouble accuracy, OptionalInt priority, String type, String nativeType, String category, String nativeCategory,
                              OptionalInt basePower, OptionalInt critRatio, Optional<Boolean> statusApplies, String changesFieldTo,
@@ -28,6 +40,8 @@ public final class ClientFieldState {
     /** Incremented whenever new evaluations arrive, so tooltip caches can be invalidated. */
     private static volatile int evaluationRevision;
     private static final Set<UUID> endedBattles=new LinkedHashSet<>();
+    private static volatile Map<String, NotesDoc> notes = Map.of();
+    private static volatile UUID notesBattle;
 
     static void acceptState(String text) {
         var json = JsonParser.parseString(text).getAsJsonObject();
@@ -35,6 +49,7 @@ public final class ClientFieldState {
         if (!json.has("field") || json.get("field").isJsonNull()) {
             endedBattles.add(battle);if(endedBattles.size()>128)endedBattles.remove(endedBattles.iterator().next());
             if (state != null && state.battle().equals(battle)) { state = null; previousField = null; }
+            if (battle.equals(notesBattle)) { notes = Map.of(); notesBattle = null; }
             if (battle.equals(evaluationBattle)) clearEvaluations();
             return;
         }
@@ -48,7 +63,47 @@ public final class ClientFieldState {
         if (old == null || !old.battle().equals(battle)) previousField = null;
         state = new State(battle, field, json.get("name").getAsString(), json.has("duration") ? json.get("duration").getAsInt() : 0,
             json.has("overlay") ? json.get("overlay").getAsString() : null, json.has("overlayName") ? json.get("overlayName").getAsString() : null,
-            json.has("overlayDuration") ? json.get("overlayDuration").getAsInt() : 0, changed ? System.currentTimeMillis() : old.changedAt());
+            json.has("overlayDuration") ? json.get("overlayDuration").getAsInt() : 0, changed ? System.currentTimeMillis() : old.changedAt(),
+            json.has("substrate") ? json.get("substrate").getAsString() : null, json.has("substrateName") ? json.get("substrateName").getAsString() : null,
+            counters(json), json.has("viewer") ? json.get("viewer").getAsInt() : -1);
+    }
+
+    /** Public counters by ID: a number is one value, an array one value per side. Bounded and ignores anything else. */
+    static Map<String, List<Integer>> counters(JsonObject json) {
+        var out = new TreeMap<String, List<Integer>>();
+        if (!json.has("public") || !json.get("public").isJsonObject()) return out;
+        for (var entry : json.getAsJsonObject("public").entrySet()) {
+            if (out.size() >= 8) break;
+            var value = entry.getValue();
+            if (value.isJsonPrimitive() && value.getAsJsonPrimitive().isNumber()) out.put(entry.getKey(), List.of(value.getAsInt()));
+            else if (value.isJsonArray() && value.getAsJsonArray().size() <= 4) {
+                var values = new ArrayList<Integer>();
+                for (var item : value.getAsJsonArray()) if (item.isJsonPrimitive() && item.getAsJsonPrimitive().isNumber()) values.add(item.getAsInt());
+                if (!values.isEmpty()) out.put(entry.getKey(), List.copyOf(values));
+            }
+        }
+        return out;
+    }
+
+    /** The server's notes for a field of the current battle, cached by (field, revision); a newer revision replaces an older one. */
+    static void acceptNotes(String text) {
+        var json = JsonParser.parseString(text).getAsJsonObject();
+        var battle = UUID.fromString(json.get("battle").getAsString());
+        if (endedBattles.contains(battle) || !json.has("field") || !json.has("revision")) return;
+        if (!battle.equals(notesBattle)) { notes = Map.of(); notesBattle = battle; }
+        String field = json.get("field").getAsString();
+        long revision = json.get("revision").getAsLong();
+        var existing = notes.get(field);
+        if (existing != null && existing.revision() > revision) return;
+        boolean missing = json.has("missing") || !json.has("notes") || !json.get("notes").isJsonObject();
+        var map = new HashMap<>(notes);
+        map.put(field, new NotesDoc(field, revision, missing, missing ? null : json.getAsJsonObject("notes")));
+        notes = Map.copyOf(map);
+    }
+    /** Notes for a field of the battle being shown, if the server sent any (or sent that it has none). */
+    public static Optional<NotesDoc> notes(String field) {
+        var s = state;
+        return s != null && s.battle().equals(notesBattle) ? Optional.ofNullable(notes.get(field)) : Optional.empty();
     }
 
     static void acceptEvaluations(String text) {
@@ -153,6 +208,8 @@ public final class ClientFieldState {
         var s = state;
         return battle != null && s != null && s.battle().equals(battle.getBattleId()) ? Optional.of(s) : Optional.empty();
     }
+    /** The last state received, whichever battle the client shows (offline fixtures have no Cobblemon client). */
+    static Optional<State> received() { return Optional.ofNullable(state); }
     /** The field shown before the latest change in this battle, for a short crossfade. */
     public static Optional<String> previous(long withinMillis) {
         var p = previousField;
@@ -174,7 +231,7 @@ public final class ClientFieldState {
     }
     public static int evaluationRevision() { return evaluationRevision; }
     public static String normalize(String move) { return move.toLowerCase(Locale.ROOT).replaceAll("[^a-z0-9]", ""); }
-    static void reset() { state = null; previousField = null; clearEvaluations(); evaluationBattle = null; evaluationTurn = 0; evaluationDecision = 0; endedBattles.clear(); }
+    static void reset() { state = null; notes = Map.of(); notesBattle = null; previousField = null; clearEvaluations(); evaluationBattle = null; evaluationTurn = 0; evaluationDecision = 0; endedBattles.clear(); }
     /** Exact-key lookup for the current decision, without requesting. */
     public static Optional<Evaluation> evaluation(UUID user, String move, UUID target, String gimmick) {
         var battle = CobblemonClient.INSTANCE.getBattle();

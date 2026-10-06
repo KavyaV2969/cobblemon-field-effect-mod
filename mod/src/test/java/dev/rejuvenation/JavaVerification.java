@@ -92,6 +92,8 @@ public final class JavaVerification {
   FieldApi.captureEnvironment(captureBattle,true);check(FieldApi.captureMultiplier(captureBattle,"cobblemon:dusk_ball",23).orElseThrow()==3.5,"Field and night bonuses are OR, not stacked");
   FieldApi.clear(captureBattle);check(FieldApi.captureMultiplier(captureBattle,"cobblemon:dusk_ball",12).isEmpty(),"Capture cleanup");FieldApi.clearAll();check(FieldApi.current(otherBattle).isEmpty(),"Global cleanup");
   int environment=EnvironmentVerification.run(catalog);
+  int structures=StructureVerification.run(catalog);
+  int notes=NotesVerification.run(catalog,path.getParent().getParent().resolve("datapack/data/rejuvenation/rejuvenation/notes"));
   int client=dev.rejuvenation.client.ClientVerification.run();
   // On-demand gimmick previews are honoured only as the sanitized request offers them.
   var moveset=new com.cobblemon.mod.common.battles.ShowdownMoveset();
@@ -129,8 +131,10 @@ public final class JavaVerification {
     +(abi.optionalAbsent().isEmpty()?"":"; optional targets absent: "+abi.optionalAbsent())+"; certified merged targets: "+abi.mergedTargets());
   System.out.println("PASS Java: strict parser, all definitions, bad rules/values, duplicate keys, resolution priority, trainer opt-in boundary and capture snapshot/rounding/cleanup");
   System.out.println("PASS Java environment precedence: "+environment+" checks (trainer > underwater > structure > biome > fallback; indexed biome rules equal ordered rules)");
+  System.out.println("PASS structure selection: "+structures+" checks (village footprint, API-shaped chunk/start fixtures, bastion/fortress/Ancient City rows, participants, overlap order, cache invalidation, layers)");
+  System.out.println("PASS field notes (server): "+notes+" checks (61 documents validated, hostile/malformed rejected, datapack replacement, packet bounds, per-battle snapshot revisions)");
   System.out.println("PASS isolated client state, exact preview presentation and panel layout: "+client+" checks");
-  var receipt=new JsonObject();receipt.addProperty("clientChecks",client);receipt.addProperty("environmentChecks",environment);
+  var receipt=new JsonObject();receipt.addProperty("clientChecks",client);receipt.addProperty("notesServerChecks",notes);receipt.addProperty("environmentChecks",environment);receipt.addProperty("structureChecks",structures);
   receipt.addProperty("requestLegalityChecks",legality);receipt.addProperty("decisionIdentityChecks",6);
   receipt.addProperty("optionalModChecks",12);receipt.addProperty("packetCodecChecks",packets);receipt.addProperty("mixinAbiChecks",abi.checked());
   receipt.addProperty("engineSha256",java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(RejuvenationFields.engine.getBytes(java.nio.charset.StandardCharsets.UTF_8))));

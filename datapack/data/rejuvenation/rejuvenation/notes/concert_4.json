@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:concert_4",
+  "title": "Concert Venue",
+  "summary": "“Let's get HYPED!”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Sound-based moves are 1.5× stronger."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Acid, Acid Spray, Circle Throw, Dragon Tail, Drum Beating, Fake Out, First Impression, and Rollout: 1.5× stronger.",
+        "Sing: 100% accuracy."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Normal-type.",
+        "Nature Power becomes Hyper Voice.",
+        "Secret Power can cause flinching."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Sheer Cold changes the field into Concert Venue 1 when the move does not miss.",
+        "Baby-Doll Eyes, Embargo, Play Nice, Quash, Slack Off, Throat Chop, Tickle, and Yawn change the field into Concert Venue 3."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Emergency Exit or Run Away: Speed +1 when it enters.",
+        "Heavy Metal, Punk Rock, Rock Head, Solid Rock, or Soundproof: Defense +1 when it enters.",
+        "Rattled: Speed +2 when it enters."
+      ]
+    },
+    {
+      "heading": "Progression",
+      "lines": [
+        "Stage 4 of 4: the crowd grows through its stages and shrinks again.",
+        "Entering Pokémon with Klutz or Minus grow it.",
+        "Seeds grow it. Lowering accuracy or raising evasion shrinks it."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Synthetic Seed: Special Attack +1 and gains a special effect."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

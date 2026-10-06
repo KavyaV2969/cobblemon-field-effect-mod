@@ -2,6 +2,36 @@
   "schemaVersion": 1,
   "rules": [
     {
+      "structure": "minecraft:ancient_city",
+      "reason": "Ancient City",
+      "field": "rejuvenation:deep_dark"
+    },
+    {
+      "tag": "repurposed_structures:collections/ancient_cities",
+      "reason": "Ancient City variant",
+      "field": "rejuvenation:deep_dark"
+    },
+    {
+      "structure": "minecraft:bastion_remnant",
+      "field": "rejuvenation:colosseum",
+      "reason": "Bastion Remnant"
+    },
+    {
+      "tag": "repurposed_structures:collections/bastions",
+      "field": "rejuvenation:colosseum",
+      "reason": "Bastion variant"
+    },
+    {
+      "structure": "minecraft:fortress",
+      "field": "rejuvenation:colosseum",
+      "reason": "Nether Fortress"
+    },
+    {
+      "tag": "repurposed_structures:collections/fortresses",
+      "field": "rejuvenation:colosseum",
+      "reason": "Fortress variant"
+    },
+    {
       "structure": "minecraft:mansion",
       "field": "rejuvenation:back_alley",
       "reason": "Woodland Mansion"
@@ -14,32 +44,156 @@
     {
       "structure": "minecraft:village_plains",
       "field": "rejuvenation:city",
-      "reason": "Village"
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
     },
     {
       "structure": "minecraft:village_desert",
       "field": "rejuvenation:city",
-      "reason": "Village"
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
     },
     {
       "structure": "minecraft:village_savanna",
       "field": "rejuvenation:city",
-      "reason": "Village"
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
     },
     {
       "structure": "minecraft:village_snowy",
       "field": "rejuvenation:city",
-      "reason": "Village"
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
     },
     {
       "structure": "minecraft:village_taiga",
       "field": "rejuvenation:city",
-      "reason": "Village"
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
     },
     {
       "tag": "minecraft:village",
       "field": "rejuvenation:city",
-      "reason": "Village"
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/default_small",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/default_mid",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/default_large",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/dark_small",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/dark_mid",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/fighting_small",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/fighting_mid",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/fighting_large",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
     }
   ]
 }

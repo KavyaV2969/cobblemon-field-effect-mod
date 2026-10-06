@@ -26,12 +26,14 @@
         "rejuvenation:crystal_cavern/mirrorbeam",
         "rejuvenation:dark_crystal_cavern/mirrorbeam",
         "rejuvenation:new_world/mirrorbeam",
+        "rejuvenation:pale_garden/mirrorbeam",
         "rejuvenation:rainbow/mirrorbeam",
         "rejuvenation:rainbow/mirrorbeam",
         "rejuvenation:starlight/mirrorbeam"
       ],
       "vorpalblade": [
-        "rejuvenation:bewitched/vorpalblade"
+        "rejuvenation:bewitched/vorpalblade",
+        "rejuvenation:pale_garden/vorpalblade"
       ],
       "aquabatics": [
         "rejuvenation:big_top/highlight",
@@ -160,8 +162,8 @@
     "items": {}
   },
   "counts": {
-    "moves": 712,
-    "abilities": 236,
+    "moves": 714,
+    "abilities": 238,
     "items": 76
   },
   "reason": "Rejuvenation-specific or misspelled IDs absent from installed Showdown base. These rules cannot trigger until a compatible definition is registered."

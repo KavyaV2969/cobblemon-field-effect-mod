@@ -40,3 +40,7 @@ manifest = {'description': 'Field panel backdrops copied unmodified from Pokémo
             'selection': 'graphic[0] of each field definition; Battle_Field.rb backdrop, Battle.rb pbChangeBGSprite', 'fields': rows}
 (ROOT / 'mod/src/main/resources/assets/rejuvenation/field_backdrops.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 print(f'Copied {len(rows)} field backdrops ({sum(r["bytes"] for r in rows.values())} bytes) from {game}')
+# The four custom fields' backdrops are not Rejuvenation artwork; the stale-file sweep above removed them, so rebuild them from the
+# preserved originals (research/custom-artwork) and re-add their manifest rows. The 57 attributions above are not touched.
+import custom_artwork
+custom_artwork.main()

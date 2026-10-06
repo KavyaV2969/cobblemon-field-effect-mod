@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:holy",
+  "title": "Blessed Field",
+  "summary": "“The field is blessed!”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Special fairy moves and special normal moves are 1.5× stronger.",
+        "Psychic moves and dragon moves are 1.2× stronger.",
+        "Ghost moves and special dark moves are halved (0.5×)."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Ancient Power, Extreme Speed, Judgment, Magical Leaf, Mystical Fire, Mystical Power, Return, Sacred Fire, and Sacred Sword: 1.5× stronger.",
+        "Aeroblast, Astral Barrage, Behemoth Bash, Behemoth Blade, Bleakwind Storm, Collision Course, Crush Grip, Diamond Storm, Doom Desire, Double Iron Bash, Dragon Ascent, Dragon Energy, Electro Drift, Fleur Cannon, Freezing Glare, Genesis Supernova, Glacial Lance, Hyperspace Hole, Ivy Cudgel, Land's Wrath, Luster Purge, Menacing Moonraze Maelstrom, Mist Ball, Moongeist Beam, Oblivion Wing, Origin Pulse, Precipice Blades, Prismatic Laser, Psycho Boost, Psystrike, Relic Song, Roar of Time, Sandsear Storm, Searing Sunraze Smash, Secret Sword, Spacial Rend, Springtide Storm, Sunsteel Strike, Tera Starstorm, Thunder Cage, Thunderous Kick, V-create, and Wildbolt Storm: 1.3× stronger.",
+        "Bitter Blade and Eerie Spell: halved (0.5×)."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Normal-type.",
+        "Nature Power becomes Judgment.",
+        "Secret Power can lower the target's Special Attack."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Curse, Ominous Wind, Phantom Force, Shadow Force, and Trick-or-Treat change the field into Haunted. The old field returns when the new one ends or is removed.",
+        "Light That Burns the Sky breaks the field apart, exposing whatever lay beneath it."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Purifying Salt: 1.5× damage."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Magical Seed: Special Attack +1 and gains a special effect."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

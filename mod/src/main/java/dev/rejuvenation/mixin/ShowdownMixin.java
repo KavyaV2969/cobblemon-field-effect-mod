@@ -40,6 +40,8 @@ public abstract class ShowdownMixin {
             fieldOptions.addProperty("battleId",battle.getBattleId().toString());
             var actorTypes=new JsonObject();for(var actor:battle.getActors())actorTypes.addProperty(actor.getShowdownId(),actor.getType().name().toLowerCase(java.util.Locale.ROOT));
             fieldOptions.add("actorTypes",actorTypes);
+            // Environment layers start in the simulator's stack, not just in UI metadata (bottom first, beneath the visible field).
+            if(!resolved.layers().isEmpty()){var layers=new JsonArray();for(String layer:resolved.layers())layers.add(layer);fieldOptions.add("layers",layers);}
             options.add("rejuvenationFieldOptions",fieldOptions);
             messages[i]=">start "+options;
         }

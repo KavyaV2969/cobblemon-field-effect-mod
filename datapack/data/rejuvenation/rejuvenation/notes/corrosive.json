@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:corrosive",
+  "title": "Corrosive Field",
+  "summary": "“The field is corrupted!”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Apple Acid, Mud Bomb, Mud Shot, Mud-Slap, Muddy Water, Smack Down, Thousand Arrows, and Whirlpool also count as Poison for type matchups.",
+        "Grass moves also count as Poison for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Acid, Acid Spray, Grass Knot, and Snap Trap: 2× stronger.",
+        "Apple Acid, Mud Bomb, Mud Shot, Mud-Slap, Muddy Water, Smack Down, Thousand Arrows, and Whirlpool: 1.5× stronger.",
+        "Poison Powder, Sleep Powder, Stun Spore, and Toxic: 100% accuracy."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Poison-type.",
+        "Nature Power becomes Acid Spray.",
+        "Secret Power can cause poison."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Purify and Seed Flare change the field into Grassy Terrain."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Corrosion: 1.5× damage."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Telluric Seed: is shielded as by Baneful Bunker."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

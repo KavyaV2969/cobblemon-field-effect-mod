@@ -15,6 +15,7 @@ NAMES={'ELECTERRAIN':'electric_terrain','GRASSY':'grassy_terrain','MISTY':'misty
  'WATERSURFACE':'water_surface','MURKWATERSURFACE':'murkwater_surface','SNOWYMOUNTAIN':'snowy_mountain',
  'DEEPEARTH':'deep_earth','DRAGONSDEN':'dragons_den','NEWWORLD':'new_world','FROZENDIMENSION':'frozen_dimension',
  'BACKALLEY':'back_alley','DEUXFINALIS':'deux_finalis'}
+NAMES.update({'DEEPDARK':'deep_dark','PALEGARDEN':'pale_garden','WARPEDFOREST':'warped_forest','CRIMSONFOREST':'crimson_forest'})
 NAMES.update({f'FLOWERGARDEN{i}':f'flower_garden_{i}' for i in range(1,6)})
 NAMES.update({f'CONCERT{i}':f'concert_{i}' for i in range(1,5)})
 def fid(s): return 'rejuvenation:'+NAMES.get(s,s.lower())
@@ -260,6 +261,21 @@ extend_battler_source(fields,rule,action,both)
 from battle_rules import extend as extend_battle
 extend_battle(fields,rule,action,both)
 status_move_coverage(fields)
+# Surface removal: the transitions that melt snow or ice (fire moves, and hot water on ice) restore the environment's own
+# substrate frame when the battle began on one (engine `removesSurface`, see docs/ENVIRONMENT_LAYERS.md). Without a context
+# frame they keep their source destination (Cave, Water Surface, Mountain). Anything else (eruptions, flying, Dive, quakes
+# that need water below) is a genuine transformation or has its own backup test and is deliberately not listed.
+HEAT=['heatwave','searingshot','flameburst','lavaplume','firepledge','mindblown','incinerate','infernooverdrive','burningjealousy','ragingfury']
+SURFACE_REMOVAL={'ICY':{'rejuvenation:cave':HEAT+['eruption','magmadrift'],'rejuvenation:water_surface':['scald','steameruption','hydrosteam','matchagotcha']},
+    'SNOWYMOUNTAIN':{'rejuvenation:mountain':HEAT}}
+for sym,groups in SURFACE_REMOVAL.items():
+    for destination,moves in groups.items():
+        for move in moves:
+            transition=fields[sym]['moves'][move]['transition']
+            assert transition['field']==destination,(sym,move,transition['field'])
+            transition['removesSurface']=True
+import custom_fields
+custom=custom_fields.build(fields)
 # The shipped game loads fields.dat unless it is missing (Cache.rb:94). The
 # compiler discards message-only move rows. Keep the effective executable rows.
 compiled=json.loads((OUT/'research/compiled-field-specification.json').read_text(encoding='utf-8'))
@@ -289,17 +305,53 @@ write(OUT/'mod/src/main/resources/rejuvenation-types.json',fields['INDOOR']['typ
 write(assets/'lang/en_us.json',translations)
 for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock']:
     write(assets/f'models/item/{s}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'minecraft:item/gold_nugget' if s=='amulet_coin' else 'minecraft:item/cobblestone' if s=='amplifield_rock' else 'minecraft:item/wheat_seeds'}})
-for sym,field in fields.items(): write(OUT/f'datapack/data/rejuvenation/rejuvenation/fields/{field["id"].split(":")[1]}.json',field)
+for sym,field in [*fields.items(),*custom.items()]: write(OUT/f'datapack/data/rejuvenation/rejuvenation/fields/{field["id"].split(":")[1]}.json',field)
+# Player-facing Field Notes for all 61 fields (data/<ns>/rejuvenation/notes); the custom fields' notes come from their canonical inputs.
+import field_notes
+notes_written,notes_skipped=field_notes.build({**{f['id']:f for f in fields.values()},**{f['id']:f for f in custom.values()}},custom_fields.load_inputs())
+print('Wrote',len(notes_written),'field notes;',notes_skipped,'rule shapes left out of the prose rather than approximated')
 write(OUT/'datapack/pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation v14 field definitions for Cobblemon 1.7.3'}})
 write(OUT/'research/field-id-map.json',{sym:fid(sym) for sym in fields})
 # Mapping based on actual biome IDs; all choices explicit and reproducible.
 biomes=json.loads((OUT/'research/biome-inventory.json').read_text(encoding='utf-8'))
+# The four custom fields own their biomes (research/custom-fields/*.json); the other Minecraft-inspired allocations stay as before.
+custom_biome_rows,custom_structures=custom_fields.mapping_rows()
+custom_sym={f['id']:sym for sym,f in custom.items()}
+custom_biomes={b:(custom_sym[field],reason) for b,field,reason in custom_biome_rows}
+# Environment layers (docs/ENVIRONMENT_LAYERS.md). A layer is the substrate beneath a snow or ice surface, taken from the
+# biome's own allocation, so melting or breaking the surface exposes the right ground instead of the source's generic Cave.
+# Icy and Snowy Mountain are the only surface fields with a melt transition, so they are the only fields that get layers.
+# Frozen water is Icy over Water Surface (the ocean and river rows used to select Water Surface directly).
+LAYER_OVERRIDES={'minecraft:frozen_ocean':('ICY','Ice sheet over open ocean water'),'minecraft:deep_frozen_ocean':('ICY','Ice sheet over deep ocean water'),
+ 'minecraft:frozen_river':('ICY','Ice over river water')}
+SUBSTRATE={
+ 'minecraft:frozen_ocean':('WATERSURFACE','Open ocean water under the ice'),'minecraft:deep_frozen_ocean':('WATERSURFACE','Deep ocean water under the ice'),
+ 'minecraft:frozen_river':('WATERSURFACE','River water under the ice'),
+ 'minecraft:snowy_plains':('GRASSY','Plains grass under the snow (the existing Plains allocation)'),
+ 'minecraft:snowy_beach':('ASHENBEACH','Beach sand under the snow (the existing Beach allocation)'),
+ 'minecraft:snowy_taiga':('FOREST','Taiga forest floor under the snow (the existing Taiga allocation)'),
+ 'minecraft:frozen_peaks':('MOUNTAIN','Bare mountain rock under the snow'),'minecraft:snowy_slopes':('MOUNTAIN','Bare mountain rock under the snow'),
+ 'terralith:alpha_islands_winter':('GRASSY','Island grass under the snow (the existing Island allocation)'),
+ 'terralith:cold_shrubland':('GRASSY','Shrubland under the snow (the existing Shrubland allocation)'),
+ 'terralith:ice_marsh':('SWAMP','Marsh ground under the ice (the existing Swamp allocation)'),
+ 'terralith:snowy_badlands':('DESERT','Mesa sand under the snow (the existing Badlands allocation)'),
+ 'terralith:snowy_cherry_grove':('FOREST','Grove floor under the snow (the existing Grove allocation)'),
+ 'terralith:snowy_maple_forest':('FOREST','Forest floor under the snow (the existing Forest allocation)'),
+ 'terralith:snowy_shield':('FOREST','Shield forest floor under the snow (the existing Shield allocation)'),
+ 'terralith:wintry_forest':('FOREST','Forest floor under the snow (the existing Forest allocation)'),
+ 'terralith:wintry_lowlands':('GRASSY','Lowland grass under the snow (the existing Lowlands allocation)'),
+ 'terralith:frozen_cliffs':('MOUNTAIN','Bare cliff rock under the snow'),'terralith:glacial_chasm':('MOUNTAIN','Bare chasm rock under the ice and snow')}
+# Frozen biomes with no layer, each intentional.
+UNLAYERED={'minecraft:ice_spikes':'Snow blocks and packed ice run all the way down, so melting exposes no distinct ground: Icy keeps the source transition.',
+ 'terralith:cave/frostfire_caves':'Frozen Dimension is a combined anomaly, not an ice surface; its own Purify transition returns to Icy.'}
+UNDERGROUND_SUBSTRATE=('CAVE','Cave rock under a frozen underground')
 def select(b):
     p=b.split(':')[1]
+    if b in LAYER_OVERRIDES: return LAYER_OVERRIDES[b]
     overrides={'legendarymonuments:distortion_world_biome':('DIMENSIONAL','Distorted extradimensional environment'),
      'lumymon:nightmare_void':('HAUNTED','Nightmare dimension'),'lumymon:origin_sky':('SKY','Open sky dimension'),
-     'cobblemonraiddens:raid_den':('CAVE','Underground raid den'), 'minecraft:deep_dark':('DARKCRYSTALCAVERN','Dark underground sculk'),
-     'minecraft:pale_garden':('BEWITCHED','Uncanny pale forest'),'minecraft:sulfur_caves':('CORROSIVEMIST','Sulfurous cave gases'),
+     'cobblemonraiddens:raid_den':('CAVE','Underground raid den'), 
+     'minecraft:sulfur_caves':('CORROSIVEMIST','Sulfurous cave gases'),
      'terralith:warped_mesa':('DIMENSIONAL','Warped fantasy mesa'),'terralith:cave/frostfire_caves':('FROZENDIMENSION','Combined anomalous fire and ice'),
      'terralith:cave/mantle_caves':('DEEPEARTH','Deep mantle'),'terralith:cave/deep_caves':('DEEPEARTH','Deep underground'),
      'terralith:cave/infested_caves':('CORRUPTED','Infested cave'),'terralith:cave/fungal_caves':('CORROSIVE','Fungal cave'),
@@ -308,11 +360,12 @@ def select(b):
      'terralith:yellowstone':('VOLCANIC','Geothermal terrain'),'terralith:caldera':('VOLCANICTOP','Volcanic caldera'),
      # Playtest decision (2026-10-05): every ordinary plains biome is Grassy Terrain; the flower pattern below must not claim sunflower plains.
      'minecraft:sunflower_plains':('GRASSY','Plains biome variant')}
+    if b in custom_biomes: return custom_biomes[b]
     if b in overrides: return overrides[b]
     for pattern,sym,reason in [
       ('skylands','SKY','Floating sky islands'),('amethyst','CRYSTALCAVERN','Amethyst crystal environment'),
       ('volcanic_(peaks|crater)','VOLCANICTOP','Volcano summit/crater'),('thermal|basalt_deltas|nether_wastes','VOLCANIC','Hot volcanic environment'),
-      ('soul_sand','INFERNAL','Tormented soul environment'),('crimson|warped_forest','BEWITCHED','Otherworldly forest'),
+      ('soul_sand','INFERNAL','Tormented soul environment'),
       ('the_end|end_|the_void','NEWWORLD','Fragmented void-world'),('ice_marsh','ICY','Frozen marsh'),
       ('swamp','SWAMP','Wet swamp'),('ocean|river','WATERSURFACE','Open surface water'),
       ('snow.*(peak|mountain|slope)|frozen_(peak|cliff)|glacial_chasm','SNOWYMOUNTAIN','Snow-covered mountain'),
@@ -331,10 +384,17 @@ rows=[]
 rules=[{'submerged':True,'field':fid('UNDERWATER'),'reason':'Battle submerged in water'}]
 for b,entries in sorted(biomes.items()):
     sym,reason=select(b); source='; '.join(sorted(set(e['source'] for e in entries)))
-    rows.append({'biome':b,'source':source,'field':fid(sym),'reason':reason,'mechanism':'explicit'})
+    substrate=SUBSTRATE.get(b)
+    if sym in ('ICY','SNOWYMOUNTAIN') and not substrate and b not in UNLAYERED: raise ValueError('Frozen biome needs an intentional layer or an explicit exemption: '+b)
+    if substrate and sym not in ('ICY','SNOWYMOUNTAIN'): raise ValueError('Only Icy and Snowy Mountain take a layer: '+b)
+    rows.append({'biome':b,'source':source,'field':fid(sym),'reason':reason,'mechanism':'explicit',
+        **({'substrate':fid(substrate[0]),'layerReason':substrate[1]} if substrate else {}),**({'layerExemption':UNLAYERED[b]} if b in UNLAYERED else {})})
+    if substrate and not b.endswith(('ocean','river')):
+        rules.append({'biome':b,'dimension':'minecraft:overworld','minDepth':12,'skyVisible':False,'field':fid(sym),'substrate':fid(UNDERGROUND_SUBSTRATE[0]),
+            'reason':'Frozen underground: '+UNDERGROUND_SUBSTRATE[1]})
     if sym in ['GRASSY','FOREST','FLOWERGARDEN2','DESERT','MOUNTAIN','ROCKY','ASHENBEACH','FAIRYTALE']:
         rules.append({'biome':b,'dimension':'minecraft:overworld','minDepth':12,'skyVisible':False,'field':fid('CAVE'),'reason':'Battle at least 12 blocks below solid surface in a surface biome'})
-    rules.append({'biome':b,'field':fid(sym),'reason':reason})
+    rules.append({'biome':b,'field':fid(sym),'reason':reason,**({'substrate':fid(substrate[0])} if substrate else {})})
 for tag,sym in [('minecraft:is_forest','FOREST'),('minecraft:is_jungle','FOREST'),('minecraft:is_taiga','FOREST'),
  ('minecraft:is_ocean','WATERSURFACE'),('minecraft:is_river','WATERSURFACE'),('minecraft:is_mountain','MOUNTAIN'),
  ('minecraft:is_beach','ASHENBEACH'),('minecraft:is_badlands','DESERT'),('c:is_snowy','ICY'),('c:is_swamp','SWAMP'),('c:is_cave','CAVE')]:
@@ -345,10 +405,27 @@ write(OUT/'datapack/data/rejuvenation/rejuvenation/mappings/modpack.json',{'sche
 write(OUT/'research/biome-mapping.json',rows)
 # Generated structures override biome rules only when configured; any other structure falls through to the biome.
 # Tags cover the vanilla variants and the equivalent Repurposed Structures ones (which join #minecraft:village).
+# Containment (docs/FIELD_SELECTION.md): a generated village is scattered building and street pieces with open ground between them,
+# and players and wild Pokemon stand on that ground, so villages use a bounded footprint around their real pieces (8 blocks
+# horizontally, 12 above the roofs, 4 below the floors: streets, plazas and yards count; caves below and open sky above do not).
+# Every other structure keeps exact piece containment.
+VILLAGE={'mode':'footprint','horizontal':8,'above':12,'below':4}
 structures=[
     {'structure':'minecraft:mansion','field':fid('BACKALLEY'),'reason':'Woodland Mansion'},
     {'tag':'repurposed_structures:collections/mansions','field':fid('BACKALLEY'),'reason':'Woodland Mansion variant'},
-    *[{'structure':'minecraft:village_'+v,'field':fid('CITY'),'reason':'Village'} for v in ['plains','desert','savanna','snowy','taiga']],
-    {'tag':'minecraft:village','field':fid('CITY'),'reason':'Village'}]
+    *[{'structure':'minecraft:village_'+v,'field':fid('CITY'),'reason':'Village','containment':VILLAGE} for v in ['plains','desert','savanna','snowy','taiga']],
+    {'tag':'minecraft:village','field':fid('CITY'),'reason':'Village','containment':VILLAGE}]
+# Every installed village variant is City, whether or not it joins #minecraft:village: Cobblemon Additions' village structures
+# are listed one by one (its #bca:villages tag also contains a swamp witch hut, which is not a village).
+structures+=[{'structure':'bca:village/'+v,'field':fid('CITY'),'reason':'Cobblemon Additions village','containment':VILLAGE} for v in
+    ['default_small','default_mid','default_large','dark_small','dark_mid','fighting_small','fighting_mid','fighting_large']]
+# Bastion Remnants and Nether Fortresses are Colosseum arenas; Repurposed Structures' variants join through its collection tags.
+structures+=[{'structure':'minecraft:bastion_remnant','field':fid('COLOSSEUM'),'reason':'Bastion Remnant'},
+    {'tag':'repurposed_structures:collections/bastions','field':fid('COLOSSEUM'),'reason':'Bastion variant'},
+    {'structure':'minecraft:fortress','field':fid('COLOSSEUM'),'reason':'Nether Fortress'},
+    {'tag':'repurposed_structures:collections/fortresses','field':fid('COLOSSEUM'),'reason':'Fortress variant'}]
+structures+=custom_structures
+# Overlapping structures resolve by class, most specific first, then by listed order: Ancient City, Colosseum arenas, mansions, villages.
+structures.sort(key=lambda row:{fid('DEEPDARK'):0,fid('COLOSSEUM'):1,fid('BACKALLEY'):2,fid('CITY'):3}.get(row['field'],9))
 write(OUT/'datapack/data/rejuvenation/rejuvenation/structures/vanilla.json',{'schemaVersion':1,'rules':structures})
 print('Generated',len(fields),'field definitions;',len(rows),'explicit biome mappings;',sum(len(f['rules']) for f in fields.values()),'additional rules')

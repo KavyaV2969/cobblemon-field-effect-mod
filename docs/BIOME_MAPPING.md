@@ -27,11 +27,11 @@ Playtest changes (2026-10-05): every ordinary plains biome maps to Grassy Terrai
 | minecraft:birch_forest | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:cherry_grove | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:cold_ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
-| minecraft:crimson_forest | Minecraft | rejuvenation:bewitched | Otherworldly forest | explicit; non-Terralith candidate |
+| minecraft:crimson_forest | Minecraft | rejuvenation:crimson_forest | Crimson Forest biome | explicit; non-Terralith candidate |
 | minecraft:dark_forest | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:deep_cold_ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
-| minecraft:deep_dark | Minecraft | rejuvenation:dark_crystal_cavern | Dark underground sculk | explicit; non-Terralith candidate |
-| minecraft:deep_frozen_ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
+| minecraft:deep_dark | Minecraft | rejuvenation:deep_dark | Deep Dark biome | explicit; non-Terralith candidate |
+| minecraft:deep_frozen_ocean | Minecraft | rejuvenation:icy | Ice sheet over deep ocean water | explicit; non-Terralith candidate |
 | minecraft:deep_lukewarm_ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
 | minecraft:deep_ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
 | minecraft:desert | Minecraft | rejuvenation:desert | Arid sand/mesa terrain | explicit; non-Terralith candidate |
@@ -42,9 +42,9 @@ Playtest changes (2026-10-05): every ordinary plains biome maps to Grassy Terrai
 | minecraft:eroded_badlands | Minecraft | rejuvenation:desert | Arid sand/mesa terrain | explicit; non-Terralith candidate |
 | minecraft:flower_forest | Minecraft | rejuvenation:flower_garden_2 | Flower-rich vegetation | explicit; non-Terralith candidate |
 | minecraft:forest | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
-| minecraft:frozen_ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
+| minecraft:frozen_ocean | Minecraft | rejuvenation:icy | Ice sheet over open ocean water | explicit; non-Terralith candidate |
 | minecraft:frozen_peaks | Minecraft | rejuvenation:snowy_mountain | Snow-covered mountain | explicit; non-Terralith candidate |
-| minecraft:frozen_river | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
+| minecraft:frozen_river | Minecraft | rejuvenation:icy | Ice over river water | explicit; non-Terralith candidate |
 | minecraft:grove | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:ice_spikes | Minecraft | rejuvenation:icy | Ice/snow environment | explicit; non-Terralith candidate |
 | minecraft:jagged_peaks | Minecraft | rejuvenation:mountain | Elevated mountain terrain | explicit; non-Terralith candidate |
@@ -59,7 +59,7 @@ Playtest changes (2026-10-05): every ordinary plains biome maps to Grassy Terrai
 | minecraft:old_growth_birch_forest | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:old_growth_pine_taiga | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:old_growth_spruce_taiga | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
-| minecraft:pale_garden | VanillaBackport | rejuvenation:bewitched | Uncanny pale forest | explicit; non-Terralith candidate |
+| minecraft:pale_garden | VanillaBackport | rejuvenation:pale_garden | Pale Garden biome | explicit; non-Terralith candidate |
 | minecraft:plains | Minecraft | rejuvenation:grassy_terrain | Open vegetated land | explicit; non-Terralith candidate |
 | minecraft:river | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
 | minecraft:savanna | Minecraft | rejuvenation:grassy_terrain | Open vegetated land | explicit; non-Terralith candidate |
@@ -80,7 +80,7 @@ Playtest changes (2026-10-05): every ordinary plains biome maps to Grassy Terrai
 | minecraft:the_end | Minecraft | rejuvenation:new_world | Fragmented void-world | explicit; non-Terralith candidate |
 | minecraft:the_void | Minecraft | rejuvenation:new_world | Fragmented void-world | explicit; non-Terralith candidate |
 | minecraft:warm_ocean | Minecraft | rejuvenation:water_surface | Open surface water | explicit; non-Terralith candidate |
-| minecraft:warped_forest | Minecraft | rejuvenation:bewitched | Otherworldly forest | explicit; non-Terralith candidate |
+| minecraft:warped_forest | Minecraft | rejuvenation:warped_forest | Warped Forest biome | explicit; non-Terralith candidate |
 | minecraft:windswept_forest | Minecraft | rejuvenation:forest | Dense woodland | explicit; non-Terralith candidate |
 | minecraft:windswept_gravelly_hills | Minecraft | rejuvenation:mountain | Elevated mountain terrain | explicit; non-Terralith candidate |
 | minecraft:windswept_hills | Minecraft | rejuvenation:mountain | Elevated mountain terrain | explicit; non-Terralith candidate |
@@ -210,10 +210,16 @@ The exact source archive paths for each row are in `research/biome-mapping.json`
 
 ## Generated structures
 
-Only structures listed here override the biome; any other structure falls through to the biome rows. A battle is inside a structure when the wild Pokémon or a participating player stands inside one of its generated pieces.
+Only structures listed here override the biome; any other structure falls through to the biome rows. A battle is inside a structure when the wild Pokémon or a participating player is inside one of its generated pieces, or, for rows with a footprint containment (villages), inside the piece footprint of the structure plus bounded margins configured on the row (see [FIELD_SELECTION.md](FIELD_SELECTION.md)).
 
 | Structure or tag | Field | Reason |
 |---|---|---|
+| minecraft:ancient_city | rejuvenation:deep_dark | Ancient City |
+| #repurposed_structures:collections/ancient_cities | rejuvenation:deep_dark | Ancient City variant |
+| minecraft:bastion_remnant | rejuvenation:colosseum | Bastion Remnant |
+| #repurposed_structures:collections/bastions | rejuvenation:colosseum | Bastion variant |
+| minecraft:fortress | rejuvenation:colosseum | Nether Fortress |
+| #repurposed_structures:collections/fortresses | rejuvenation:colosseum | Fortress variant |
 | minecraft:mansion | rejuvenation:back_alley | Woodland Mansion |
 | #repurposed_structures:collections/mansions | rejuvenation:back_alley | Woodland Mansion variant |
 | minecraft:village_plains | rejuvenation:city | Village |
@@ -222,3 +228,11 @@ Only structures listed here override the biome; any other structure falls throug
 | minecraft:village_snowy | rejuvenation:city | Village |
 | minecraft:village_taiga | rejuvenation:city | Village |
 | #minecraft:village | rejuvenation:city | Village |
+| bca:village/default_small | rejuvenation:city | Cobblemon Additions village |
+| bca:village/default_mid | rejuvenation:city | Cobblemon Additions village |
+| bca:village/default_large | rejuvenation:city | Cobblemon Additions village |
+| bca:village/dark_small | rejuvenation:city | Cobblemon Additions village |
+| bca:village/dark_mid | rejuvenation:city | Cobblemon Additions village |
+| bca:village/fighting_small | rejuvenation:city | Cobblemon Additions village |
+| bca:village/fighting_mid | rejuvenation:city | Cobblemon Additions village |
+| bca:village/fighting_large | rejuvenation:city | Cobblemon Additions village |

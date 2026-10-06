@@ -103,8 +103,8 @@
     },
     {
       "biome": "minecraft:crimson_forest",
-      "field": "rejuvenation:bewitched",
-      "reason": "Otherworldly forest"
+      "field": "rejuvenation:crimson_forest",
+      "reason": "Crimson Forest biome"
     },
     {
       "biome": "minecraft:dark_forest",
@@ -126,13 +126,14 @@
     },
     {
       "biome": "minecraft:deep_dark",
-      "field": "rejuvenation:dark_crystal_cavern",
-      "reason": "Dark underground sculk"
+      "field": "rejuvenation:deep_dark",
+      "reason": "Deep Dark biome"
     },
     {
       "biome": "minecraft:deep_frozen_ocean",
-      "field": "rejuvenation:water_surface",
-      "reason": "Open surface water"
+      "field": "rejuvenation:icy",
+      "reason": "Ice sheet over deep ocean water",
+      "substrate": "rejuvenation:water_surface"
     },
     {
       "biome": "minecraft:deep_lukewarm_ocean",
@@ -218,18 +219,30 @@
     },
     {
       "biome": "minecraft:frozen_ocean",
-      "field": "rejuvenation:water_surface",
-      "reason": "Open surface water"
+      "field": "rejuvenation:icy",
+      "reason": "Ice sheet over open ocean water",
+      "substrate": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:frozen_peaks",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:snowy_mountain",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "minecraft:frozen_peaks",
       "field": "rejuvenation:snowy_mountain",
-      "reason": "Snow-covered mountain"
+      "reason": "Snow-covered mountain",
+      "substrate": "rejuvenation:mountain"
     },
     {
       "biome": "minecraft:frozen_river",
-      "field": "rejuvenation:water_surface",
-      "reason": "Open surface water"
+      "field": "rejuvenation:icy",
+      "reason": "Ice over river water",
+      "substrate": "rejuvenation:water_surface"
     },
     {
       "biome": "minecraft:grove",
@@ -367,8 +380,8 @@
     },
     {
       "biome": "minecraft:pale_garden",
-      "field": "rejuvenation:bewitched",
-      "reason": "Uncanny pale forest"
+      "field": "rejuvenation:pale_garden",
+      "reason": "Pale Garden biome"
     },
     {
       "biome": "minecraft:plains",
@@ -421,23 +434,63 @@
     },
     {
       "biome": "minecraft:snowy_beach",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "minecraft:snowy_beach",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:beach"
+    },
+    {
+      "biome": "minecraft:snowy_plains",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "minecraft:snowy_plains",
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:grassy_terrain"
+    },
+    {
+      "biome": "minecraft:snowy_slopes",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:snowy_mountain",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "minecraft:snowy_slopes",
       "field": "rejuvenation:snowy_mountain",
-      "reason": "Snow-covered mountain"
+      "reason": "Snow-covered mountain",
+      "substrate": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:snowy_taiga",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "minecraft:snowy_taiga",
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:forest"
     },
     {
       "biome": "minecraft:soul_sand_valley",
@@ -536,8 +589,8 @@
     },
     {
       "biome": "minecraft:warped_forest",
-      "field": "rejuvenation:bewitched",
-      "reason": "Otherworldly forest"
+      "field": "rejuvenation:warped_forest",
+      "reason": "Warped Forest biome"
     },
     {
       "biome": "minecraft:windswept_forest",
@@ -619,8 +672,18 @@
     },
     {
       "biome": "terralith:alpha_islands_winter",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "terralith:alpha_islands_winter",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:grassy_terrain"
     },
     {
       "biome": "terralith:alpine_grove",
@@ -842,8 +905,18 @@
     },
     {
       "biome": "terralith:cold_shrubland",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "terralith:cold_shrubland",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:grassy_terrain"
     },
     {
       "biome": "terralith:deep_warm_ocean",
@@ -930,13 +1003,33 @@
     },
     {
       "biome": "terralith:frozen_cliffs",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
       "field": "rejuvenation:snowy_mountain",
-      "reason": "Snow-covered mountain"
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "terralith:frozen_cliffs",
+      "field": "rejuvenation:snowy_mountain",
+      "reason": "Snow-covered mountain",
+      "substrate": "rejuvenation:mountain"
+    },
+    {
+      "biome": "terralith:glacial_chasm",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:snowy_mountain",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "terralith:glacial_chasm",
       "field": "rejuvenation:snowy_mountain",
-      "reason": "Snow-covered mountain"
+      "reason": "Snow-covered mountain",
+      "substrate": "rejuvenation:mountain"
     },
     {
       "biome": "terralith:granite_cliffs",
@@ -1018,8 +1111,18 @@
     },
     {
       "biome": "terralith:ice_marsh",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
       "field": "rejuvenation:icy",
-      "reason": "Frozen marsh"
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "terralith:ice_marsh",
+      "field": "rejuvenation:icy",
+      "reason": "Frozen marsh",
+      "substrate": "rejuvenation:swamp"
     },
     {
       "biome": "terralith:jungle_mountains",
@@ -1336,23 +1439,63 @@
     },
     {
       "biome": "terralith:snowy_badlands",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "terralith:snowy_badlands",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:desert"
+    },
+    {
+      "biome": "terralith:snowy_cherry_grove",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "terralith:snowy_cherry_grove",
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:forest"
+    },
+    {
+      "biome": "terralith:snowy_maple_forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "terralith:snowy_maple_forest",
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:forest"
+    },
+    {
+      "biome": "terralith:snowy_shield",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "terralith:snowy_shield",
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:forest"
     },
     {
       "biome": "terralith:steppe",
@@ -1480,13 +1623,33 @@
     },
     {
       "biome": "terralith:wintry_forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "terralith:wintry_forest",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:forest"
+    },
+    {
+      "biome": "terralith:wintry_lowlands",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
     },
     {
       "biome": "terralith:wintry_lowlands",
       "field": "rejuvenation:icy",
-      "reason": "Ice/snow environment"
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:grassy_terrain"
     },
     {
       "biome": "terralith:yellowstone",

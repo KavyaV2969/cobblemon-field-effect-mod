@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:snowy_mountain",
+  "title": "Snowy Mountain",
+  "summary": "“The snow glows white| on the mountain...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Frozen Peaks (over Mountain) and Snowy Slopes (over Mountain)."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Rock moves, ice moves, and flying moves are 1.5× stronger.",
+        "Fire moves are halved (0.5×).",
+        "Rock moves also count as Ice for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Icy Wind: 2× stronger.",
+        "Avalanche, Bitter Malice, Chilling Water, Circle Throw, Fairy Wind, Glaciate, Gust, Hyper Voice, Mountain Gale, Ominous Wind, Powder Snow, Razor Wind, Silver Wind, Storm Throw, Twister, and Vital Throw: 1.5× stronger.",
+        "Hydro Steam, Scald, and Steam Eruption: halved (0.5×).",
+        "Thunder: never miss."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Ice-type.",
+        "Nature Power becomes Avalanche.",
+        "Secret Power can cause freezing."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Burning Jealousy, Fire Pledge, Flame Burst, Heat Wave, Incinerate, Inferno Overdrive, Lava Plume, Mind Blown, Raging Fury, and Searing Shot change the field into Mountain.",
+        "Bounce and Fly change the field into Sky.",
+        "Eruption changes the field into Volcanic Top."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Long Reach: 1.5× damage.",
+        "Rocky Payload: 2× power for Rock-type moves."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Ice Body restores 1/16 of its HP."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Telluric Seed: Special Attack +2 and accuracy −1."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ],
+  "substrateText": "When the snow is melted or broken, the ground beneath it ({substrate}) is restored instead of the usual replacement."
+}

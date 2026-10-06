@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:volcanic_top",
+  "title": "Volcanic Top",
+  "summary": "“The mountain could erupt any time!”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Fire moves and flying moves are 1.5× stronger.",
+        "Ice moves are halved (0.5×).",
+        "Clear Smog, Dig, Dive, Egg Bomb, Explosion, Gust, Icy Wind, Magnet Bomb, Ominous Wind, Precipice Blades, Razor Wind, Seismic Toss, Self-Destruct, Silver Wind, Smog, and Twister also count as Fire for type matchups.",
+        "Rock moves also count as Fire for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Clear Smog, Gust, Hydro Steam, Icy Wind, Infernal Parade, Ominous Wind, Precipice Blades, Razor Wind, Scald, Silver Wind, Smog, Steam Eruption, Thunder, and Twister: 1.5× stronger.",
+        "Eruption, Heat Wave, Lava Plume, and Magma Storm: 1.2× stronger.",
+        "Hydro Pump, Hydro Vortex, Muddy Water, Oceanic Operetta, Sparkling Aria, Surf, Water Pledge, and Water Spout: halved (0.5×).",
+        "Thunder: never miss."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Fire-type.",
+        "Nature Power becomes Eruption.",
+        "Secret Power can cause burn."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Blizzard, Glaciate, and Subzero Slammer change the field into Mountain.",
+        "Bounce and Fly change the field into Sky."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Fire Mane: 2× power for Fire-type moves.",
+        "Long Reach: 1.5× damage.",
+        "Rocky Payload: 2× power for Rock-type moves."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Steam Engine: Speed +1."
+      ]
+    },
+    {
+      "heading": "Weather and status",
+      "lines": [
+        "Hail cannot be started here.",
+        "Snow cannot be started here."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Telluric Seed: Defense +1 and sets a shell trap."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

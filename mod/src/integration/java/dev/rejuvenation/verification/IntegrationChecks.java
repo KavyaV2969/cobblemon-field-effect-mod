@@ -106,7 +106,27 @@ final class IntegrationChecks {
                     var state = FieldApi.current(battle.getBattleId()).orElseThrow();
                     if (state.get("overlay").isJsonNull()) { delay = 20; return; }
                     check("rejuvenation:electric_terrain".equals(state.get("overlay").getAsString()), "Ion Deluge creates the Electric Terrain overlay over City");
-                    screenshot("panel-city-electric-overlay"); delay = 20; step = 150;
+                    screenshot("panel-city-electric-overlay"); go(140, 20);
+                }
+                // Field Notes: a real mouse click on the HUD panel (through Minecraft's own input path and Fabric's screen events) opens the overlay.
+                case 140 -> { probe(this::openChat); go(141, 10); }
+                case 141 -> {
+                    Object r = clientResult.get(); if (r == null) { delay = 5; return; }
+                    check("ok".equals(r), "A mouse-enabled screen hosts the notes overlay: " + r); probe(this::clickPanel); go(142, 10);
+                }
+                case 142 -> {
+                    Object r = clientResult.get(); if (r == null) { delay = 5; return; }
+                    check("open".equals(r), "A real mouse click on the HUD field panel opens the Field Notes overlay: " + r); go(143, 20);
+                }
+                case 143 -> { screenshot("notes-city-electric-overlay"); go(144, 30); }
+                case 144 -> { probe(() -> pressKey(256)); go(145, 10); }
+                case 145 -> {
+                    Object r = clientResult.get(); if (r == null) { delay = 5; return; }
+                    check("closed|hosted".equals(r), "Escape closes the overlay and is consumed, the hosting screen stays: " + r); probe(this::clickPanel); go(146, 10);
+                }
+                case 146 -> {
+                    Object r = clientResult.get(); if (r == null) { delay = 5; return; }
+                    check("open".equals(r), "The overlay re-opens from the panel: " + r); go(150, 10);
                 }
                 case 150 -> { if (!act("thief")) return; next(60); step = 16; }
                 case 16 -> {
@@ -119,8 +139,21 @@ final class IntegrationChecks {
                 case 160 -> {
                     Object field = clientResult.get(); if (field == null) { requestClient(() -> ClientFieldState.current().map(ClientFieldState.State::field).orElse(null)); delay = 10; return; }
                     check("rejuvenation:back_alley".equals(field), "Thief turns City into Back Alley; the client panel follows: " + field);
-                    screenshot("panel-back-alley"); end(); next(30); step = 161;
+                    screenshot("panel-back-alley"); go(1600, 10);
                 }
+                // The open overlay followed City -> Back Alley without being closed or clicked.
+                case 1600 -> { probe(() -> pressKey(-1)); go(1601, 10); }
+                case 1601 -> {
+                    Object r = clientResult.get(); if (r == null) { delay = 5; return; }
+                    check("open|hosted".equals(r), "The notes overlay stays open and follows the field transformation: " + r); screenshot("notes-back-alley"); go(1602, 30);
+                }
+                case 1602 -> { probe(() -> pressKey(256)); go(1603, 10); }
+                case 1603 -> {
+                    Object r = clientResult.get(); if (r == null) { delay = 5; return; }
+                    check("closed|hosted".equals(r), "Escape closes the overlay: " + r);
+                    probe(() -> { class_310.method_1551().method_1507(null); return "ok"; }); go(1604, 10);
+                }
+                case 1604 -> { end(); next(30); step = 161; }
                 case 161 -> {
                     // Underwater wins over the village around it.
                     int x = villagePos.method_10263(), y = villagePos.method_10264(), z = villagePos.method_10260();
@@ -128,7 +161,21 @@ final class IntegrationChecks {
                     tp(server, x + 0.5, y, z + 0.5); next(20); step = 162;
                 }
                 case 162 -> { startWild(player, world, List.of("surf")); wild.method_5814(villagePos.method_10263() + 1.5, villagePos.method_10264() + 1, villagePos.method_10260() + 0.5); expect("rejuvenation:underwater", "underwater"); next(5); step = 163; }
-                case 163 -> { if (!started()) return; verifyStart("Submerged battle inside a village opens on Underwater (underwater beats structure)"); end(); next(30); step = 17; }
+                case 163 -> { if (!started()) return; verifyStart("Submerged battle inside a village opens on Underwater (underwater beats structure)"); end(); next(30); step = 164; }
+                // Streets and plazas between a village's pieces: outside every piece box, inside the bounded footprint.
+                case 164 -> {
+                    var gap = villageGap(world, villagePos);
+                    if (gap == null) { skipped.add("No street gap outside every village piece box was found; footprint covered by the API-shaped fixtures"); step = 17; return; }
+                    report.addProperty("villageGap", gap.method_10263() + " " + gap.method_10264() + " " + gap.method_10260() + " (" + gapDistance + " blocks outside the nearest piece box)");
+                    dryArena(server, gap);
+                    tp(server, gap.method_10263() + 0.5, gap.method_10264(), gap.method_10260() + 0.5); go(165, 60);
+                }
+                case 165 -> { startWild(player, world, List.of("iondeluge", "thief", "psychic")); expect("rejuvenation:city", "structure"); next(5); step = 166; }
+                case 166 -> {
+                    if (!started()) return;
+                    verifyStart("Battle in a village street gap " + gapDistance + " blocks outside every piece box opens on City via the footprint containment");
+                    screenshot("panel-city-village-gap"); end(); next(30); step = 17;
+                }
                 // An unmapped structure falls through to its biome.
                 case 17 -> {
                     var portal = locateInside(world, "minecraft:ruined_portal", player.method_24515());
@@ -183,6 +230,74 @@ final class IntegrationChecks {
         } catch (Throwable error) { finish(error); }
     }
 
+    private void go(int to, int ticks) { step = to; delay = ticks; wait = 0; clientResult.set(null); }
+    private int gapDistance;
+    /** Where the nearest generated village has ground that is outside every one of its piece boxes but within 8 blocks of one. */
+    private class_2338 villageGap(class_3218 world, class_2338 from) {
+        var key = class_6862.method_40092(class_7924.field_41246, class_2960.method_60654("minecraft:village"));
+        var registry = world.method_30349().method_30530(class_7924.field_41246);
+        for (var start : world.method_27056().method_41035(new net.minecraft.class_1923(from), s -> registry.method_47983(s).method_40220(key))) {
+            if (!start.method_16657()) continue;
+            var boxes = new ArrayList<net.minecraft.class_3341>();
+            for (var piece : start.method_14963()) boxes.add(((net.minecraft.class_3443) piece).method_14935());
+            for (int d = 2; d <= 7; d++) for (var box : boxes) {
+                int cx = (box.method_35415() + box.method_35418()) / 2, cz = (box.method_35417() + box.method_35420()) / 2;
+                int[][] candidates = {{box.method_35415() - d, cz}, {box.method_35418() + d, cz}, {cx, box.method_35417() - d}, {cx, box.method_35420() + d}};
+                for (int[] c : candidates) {
+                    int x = c[0], z = c[1];
+                    if (boxes.stream().anyMatch(b -> x >= b.method_35415() && x <= b.method_35418() && z >= b.method_35417() && z <= b.method_35420())) continue;
+                    world.method_8497(x >> 4, z >> 4);
+                    int y = world.method_8624(class_2902.class_2903.field_13197, x, z);
+                    if (y < box.method_35416() - 3 || y > box.method_35419() + 8) continue;
+                    gapDistance = d;
+                    return new class_2338(x, y, z);
+                }
+            }
+        }
+        return null;
+    }
+    private interface Probe { Object get() throws Exception; }
+    private void probe(Probe query) {
+        requestClient(() -> { try { return query.get(); } catch (Exception error) { throw new RuntimeException(error); } });
+    }
+    private Object openChat() {
+        var client = class_310.method_1551();
+        if (!isHost(client.field_1755)) client.method_1507(new net.minecraft.class_408(""));
+        return client.field_1755 == null ? "no screen" : "ok";
+    }
+    private static boolean isHost(net.minecraft.class_437 screen) {
+        return screen instanceof net.minecraft.class_408 || screen instanceof com.cobblemon.mod.common.client.gui.battle.BattleGUI;
+    }
+    private static boolean overlayOpen() throws ReflectiveOperationException {
+        var field = Class.forName("dev.rejuvenation.client.FieldNotesRenderer").getDeclaredField("overlay"); field.setAccessible(true);
+        Object overlay = field.get(null); var open = overlay.getClass().getDeclaredMethod("isOpen"); open.setAccessible(true);
+        return (boolean) open.invoke(overlay);
+    }
+    /** A genuine left click in the middle of the HUD field panel, delivered through Minecraft's mouse handler. */
+    private Object clickPanel() throws ReflectiveOperationException {
+        var client = class_310.method_1551();
+        var current = Class.forName("dev.rejuvenation.client.FieldPanelRenderer").getDeclaredMethod("currentLayout"); current.setAccessible(true);
+        Object layout = current.invoke(null); if (layout == null) return "no panel";
+        var type = layout.getClass();
+        double gx = (int) type.getMethod("x").invoke(layout) + (int) type.getMethod("width").invoke(layout) / 2.0, gy = (int) type.getMethod("y").invoke(layout) + (int) type.getMethod("height").invoke(layout) / 2.0;
+        var window = client.method_22683();
+        var mouse = client.field_1729;
+        var x = mouse.getClass().getDeclaredField("field_1795"); var y = mouse.getClass().getDeclaredField("field_1794"); x.setAccessible(true); y.setAccessible(true);
+        x.setDouble(mouse, gx * window.method_4480() / window.method_4486()); y.setDouble(mouse, gy * window.method_4507() / window.method_4502());
+        var button = mouse.getClass().getDeclaredMethod("method_1601", long.class, int.class, int.class, int.class); button.setAccessible(true);
+        button.invoke(mouse, window.method_4490(), 0, 1, 0); button.invoke(mouse, window.method_4490(), 0, 0, 0);
+        return overlayOpen() ? "open" : "closed";
+    }
+    /** A key press and release through Minecraft's keyboard handler; key -1 only reports the state. */
+    private Object pressKey(int key) throws ReflectiveOperationException {
+        var client = class_310.method_1551();
+        if (key >= 0) {
+            var onKey = client.field_1774.getClass().getDeclaredMethod("method_1466", long.class, int.class, int.class, int.class, int.class); onKey.setAccessible(true);
+            long window = client.method_22683().method_4490();
+            onKey.invoke(client.field_1774, window, key, 0, 1, 0); onKey.invoke(client.field_1774, window, key, 0, 0, 0);
+        }
+        return (overlayOpen() ? "open" : "closed") + "|" + (isHost(client.field_1755) ? "hosted" : client.field_1755 == null ? "none" : "other");
+    }
     private void next(int ticks) { step++; delay = ticks; wait = 0; clientResult.set(null); RejuvenationFields.LOG.info("Integration verification step {}", step); }
     private void check(boolean ok, String text) { if (!ok) throw new IllegalStateException("Failed: " + text); checks.add(text); }
     private void expect(String field, String source) { expectField = field; expectSource = source; }
@@ -350,7 +465,11 @@ final class IntegrationChecks {
             int nativeMax = (int) nativePreview.getClass().getMethod("maxPercent").invoke(nativePreview), fieldMax = (int) fieldPreview.getClass().getMethod("maxPercent").invoke(fieldPreview);
             double factor = evaluations.getFirst().factor().orElse(1);
             report.addProperty("battleExtrasNativeMaxPercent", nativeMax); report.addProperty("battleExtrasFieldMaxPercent", fieldMax); report.addProperty("battleExtrasFieldFactor", factor);
-            return factor > 1.05 && fieldMax > nativeMax && Math.abs(fieldMax - nativeMax * factor) <= Math.max(2, nativeMax * 0.05);
+            // Previews now show the server's exact range as a share of the real target's HP, so the displayed maximum must equal that
+            // exact figure (not the fixture's synthetic calculator contexts) and the field must be measurably stronger than native.
+            var exact = BattleExtrasFieldAdapter.exact(evaluations.getFirst());
+            report.addProperty("battleExtrasExactMaxPercent", exact.maxPercent());
+            return factor > 1.05 && exact.maxPercent() > 0 && fieldMax == exact.maxPercent();
         } catch (ReflectiveOperationException error) { return "SKIP Battle Extras calculator API changed: " + error; }
     }
     private void checkMixins() throws ClassNotFoundException {

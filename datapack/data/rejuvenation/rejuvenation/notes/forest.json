@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:forest",
+  "title": "Forest Field",
+  "summary": "“The field is abound with trees.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Bamboo Jungle, Birch Forest, Cherry Grove, Dark Forest, Forest, Grove, Jungle, and Old Growth Birch Forest and 6 more biomes."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Special bug moves and grass moves are 1.5× stronger.",
+        "Air Cutter, Air Slash, Breaking Swipe, Cut, Fury Cutter, Psycho Cut, and Slash also count as Grass for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Cut: 2× stronger.",
+        "Air Cutter, Air Slash, Attack Order, Branch Poke, Breaking Swipe, Electroweb, Fury Cutter, Grav Apple, Psycho Cut, and Slash: 1.5× stronger.",
+        "Muddy Water and Surf: halved (0.5×)."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Bug-type.",
+        "Nature Power becomes Wood Hammer.",
+        "Secret Power can cause sleep."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Muddy Water and Surf change the field into Swamp once their uses add up to 3 (Muddy Water 2 and Surf 1)."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Grass Pelt: 1.5× Defense.",
+        "Jungle Beat: 1.5× power for sound-based moves.",
+        "Overgrow: 1.5× power for Grass-type moves.",
+        "Swarm: 1.5× power for Bug-type moves."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Sap Sipper restores 1/16 of its HP."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Telluric Seed: is shielded as by Spiky Shield."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

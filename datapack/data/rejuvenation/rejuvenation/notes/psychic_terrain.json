@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:psychic_terrain",
+  "title": "Psychic Terrain",
+  "summary": "“The field became mysterious!”",
+  "sections": [
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Aura Sphere, Focus Blast, Hex, Hidden Power Water, Magical Leaf, Mind Blown, Moonblast, Mystical Fire, and Secret Power: 1.5× stronger.",
+        "Hypnosis: 90% accuracy."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Psychic-type.",
+        "Nature Power becomes Psychic.",
+        "Secret Power can cause confusion."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Anticipation or Forewarn: Special Attack +2 when it enters.",
+        "Mind's Eye: Special Attack +1 when it enters.",
+        "Pure Power: 2× special damage."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Magical Seed: Special Attack +2 and becomes confused."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ],
+  "overlay": [
+    "Aura Sphere, Focus Blast, Hex, Hidden Power Water, Magical Leaf, Mind Blown, Moonblast, Mystical Fire, and Secret Power: 1.5× stronger."
+  ]
+}

@@ -4,17 +4,17 @@ The latest build targets the actual installed Minecraft 1.21.1, Fabric Loader 0.
 
 | Verification | Result | Boundary |
 |---|---|---|
-| Closed datapack schema, references and transitions | Passed: 57 fields, 2,997 additional rule rows, 1,647 core move entries, 517 transitions | Reports 27 absent moves; no absent abilities or held items |
+| Closed datapack schema, references, transitions and Field Notes | Passed: 61 fields (57 original, 4 custom), 3,192 rule rows, 1,700 core move entries, 518 transitions, 61 notes documents | Reports 27 absent moves; no absent abilities or held items |
 | Compiled source definition comparison | Passed: 4,494 properties, zero differences across 57 fields, including Mimicry, Burmy cloak, seeds, status highlights and change targets | Definition data only; runtime handlers are covered by the semantic register |
 | Executed local Ruby method oracle | 171,396 defense contexts and 120 difficulty/Frenzy contexts match | Loads the original `Battle_Field.rb`; tests two methods with bounded type/ability/weather inputs, not complete fields |
-| Installed simulator regression suite | 564 checks passed | Named regression test for every implemented source lead, plus strategy, preview, singles/doubles, complete turns, simultaneous state and cleanup |
+| Installed simulator regression suite | 631 checks passed | Named regression test for every implemented source lead, plus strategy, preview, singles/doubles, complete turns, simultaneous state and cleanup |
 | Semantic source-lead register | 1,736 leads reviewed, zero pending | 905 implemented and tested; AI, presentation, custom-move, Crest, unreachable and unsupported leads recorded individually. `when` clauses inside `case true` are not AST leads; see REMAINING_WORK.md |
-| Cobblemon shaded Graal | All 57 fields attach/destroy; 42 battle-runtime assertions and declared-ability registry restoration passed | Includes Growth, room/weather timing, Stance Change, forbidden-type flavor, Mimicry, Glitch Rest and Haunted Destiny Bond |
+| Cobblemon shaded Graal | All 61 fields load; 55 battle-runtime assertions (layered start and melt, the four custom fields attach, run mechanics and clean up) and declared-ability registry restoration passed | Includes Growth, room/weather timing, Stance Change, forbidden-type flavor, Mimicry, Glitch Rest and Haunted Destiny Bond |
 | Java verification | Passed | Parser, malformed data, duplicate keys, priorities, opt-in boundary, pending options, late packets, held-item packing and capture snapshots/rounding |
-| Environment resolution | 26,948 Java checks passed | Indexed biome rules equal the ordered resolver; explicit/trainer/arena > underwater > mapped structure > biome > Indoor; malformed structure rows rejected |
+| Environment resolution and structure selection | 26,949 environment and 120 structure Java checks passed (API-shaped chunk and structure-start fixtures, village footprint limits, overlap order, cache invalidation) | Indexed biome rules equal the ordered resolver; explicit/trainer/arena > underwater > mapped structure > biome > Indoor; malformed structure rows rejected |
 | Shared evaluation and adapters | 42 shaded-Graal adapter checks passed | Production candidate scoring for all five gimmicks; AI and preview corrections, effectiveness certification and random-type suppression on real evaluations |
 | Graal performance | Publication loads three dexes; cold and warm timings recorded in `research/test-results/graal-performance.json` | Interpreter-only benchmark; world-start publication and real battle-start timings are verified separately by the live integration receipt |
-| Live 0.2.0 environment, adapters and field panel | Seven battles and 25 checks passed (2026-10-05), zero skips and zero field-integration log errors; `research/test-results/live-mode-integration.json` and `live-integration.json` | Plains → Grassy Terrain, mushroom → Fairy Tale, generated village → City, Ion Deluge overlay, Thief → Back Alley, submerged village → Underwater, unmapped ruined portal → biome/depth row, mansion → Back Alley; four screenshots visually inspected |
+| Live environment, adapters, field panel and Field Notes (current jar) | Eight battles and 33 checks passed (2026-10-06, jar `828d3df44eb2`), zero skips and zero field-integration log errors; `research/test-results/live-mode-integration.json`, 70 registered biomes re-captured | Adds to the earlier checks: a battle in a real generated village street gap two blocks outside every piece box selects City (footprint containment); a real mouse click on the HUD panel opens the Field Notes overlay, Escape closes it (consumed, screen stays), it stays open through City → Back Alley, with screenshots in `research/test-results/screenshots/`. Run twice: the first run failed on a stale Battle Extras assertion (the live check compared against the pre-exact synthetic calculator; fixed to compare with the server's exact range). Single client only |
 | Live performance (historical) | Catalog published at server start in 864 ms; worst field start work 13.4242 ms across seven battles; no battle published the catalog. Brock reached turn three; Run & Bun issued 60 queries in 1,867 ms. Battle Extras Leaf Blade max preview rose from 37% to 54% (measured field/native factor 1.48684) | Historical receipt from an earlier jar; it predates the AI review and strategy integration. Current decision latency: [INTEGRATIONS.md](INTEGRATIONS.md#decision-performance) |
 | Actual Fabric/Cobblemon regressions | All requested modes passed on the current 0.2.0 jar (2026-10-05): `--battle`: 7 battles / 23 checks; `--abilities`: 3 battles / 10 checks; `--extended`: 6 battles / 19 checks. Each has a separate `research/test-results/live-mode-<mode>.json` receipt with `success: true`, the matching artifact hash and zero field-integration log errors | Natural/explicit fields, items, capture, Petrification/Purify, Haunted Magic Powder, declared abilities, reload restoration, weather/hazards, Revival Blessing, Genesis Supernova, RCT Brock and cleanup; single client only |
 | Runtime biome registry | 70 entries, 70 explicitly mapped, zero fallback | Optional disabled Terralith content has 95 additional candidate entries |
@@ -33,16 +33,16 @@ The Git repository is rooted at `rejuvenation/`, so its diff covers the authored
 
 ## Current offline receipts
 
-Generated by `research/write_integration_report.py` from the receipts that fingerprint engine `b2ba5f4db999938f423fecf71a60b9e92559bf010b94ed6811b70c606fbfd968`.
+Generated by `research/write_integration_report.py` from the receipts that fingerprint engine `3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad`.
 
 | Receipt | Result |
 |---|---|
-| Simulator (`simulator.json`) | 564 passed, 51 named AI/strategy tests |
+| Simulator (`simulator.json`) | 631 passed, 51 named AI/strategy tests |
 | AI review (`ai-coverage.json`) | 762 leads; implemented_strategy 53, ai_rollout_consequence 318, ai_source_weights_ported 72, excluded_custom_move 3, unreachable_in_build 3, ai_mechanic_measured 313 |
 | AI prediction audit | 334 rows: match 314, unreachable 1, ai_prediction_differs_from_source_mechanic 18, unavailable 1 |
 | AI Ruby oracle | 10,000 disruption / 6,000 affinity cases, 0 differences |
 | Mechanic Ruby oracle | 171,396 defense / 120 difficulty contexts, 0 differences |
 | Definitions | 4,494 properties, 0 differences |
-| Java | 933 client, 26,948 environment, 12 packet codec, 35 mixin ABI, 30 request/decision/optional-mod checks |
-| Graal | 57 fields, 42 runtime assertions, 42 adapter checks, publication warm-up 1005 ms |
+| Java | 2080 client (including the notes overlay), 145 notes (server), 120 structure selection, 26,949 environment, 16 packet codec, 35 mixin ABI, 30 request/decision/optional-mod checks |
+| Graal | 61 fields, 55 runtime assertions, 42 adapter checks, publication warm-up 634 ms |
 | Decision benchmark | see [INTEGRATIONS.md](INTEGRATIONS.md#decision-performance) |

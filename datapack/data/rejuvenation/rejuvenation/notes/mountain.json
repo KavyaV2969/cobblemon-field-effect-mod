@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:mountain",
+  "title": "Mountain",
+  "summary": "“High up!”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Jagged Peaks, Savanna Plateau, Stony Peaks, Windswept Gravelly Hills, Windswept Hills, and Windswept Savanna."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Rock moves and flying moves are 1.5× stronger."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Avalanche, Circle Throw, Eruption, Fairy Wind, Gust, Hyper Voice, Icy Wind, Mountain Gale, Ominous Wind, Razor Wind, Silver Wind, Storm Throw, Thunder, Twister, and Vital Throw: 1.5× stronger.",
+        "Thunder: never miss."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Rock-type.",
+        "Nature Power becomes Rock Slide.",
+        "Secret Power can cause flinching."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Bounce and Fly change the field into Sky.",
+        "Blizzard, Glaciate, Mountain Gale, and Subzero Slammer change the field into Snowy Mountain.",
+        "Eruption, Inferno Overdrive, and Lava Plume change the field into Volcanic Top."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Long Reach: 1.5× damage.",
+        "Rocky Payload: 2× power for Rock-type moves."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Telluric Seed: Attack +2 and accuracy −1."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

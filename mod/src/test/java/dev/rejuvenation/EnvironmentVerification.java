@@ -65,7 +65,7 @@ final class EnvironmentVerification {
         check(EnvironmentResolver.resolve(at("minecraft:jungle", false, structure("repurposed_structures:village_jungle", "minecraft:village")), index).field().equals(city), "Tagged village variant -> City");
         check(index.structureIds().contains("minecraft:mansion") && index.structureTags().contains("minecraft:village"), "Structure index");
         // Unmapped structures fall through to the biome.
-        for (String other : List.of("minecraft:stronghold", "minecraft:ancient_city", "minecraft:pillager_outpost")) {
+        for (String other : List.of("minecraft:stronghold", "minecraft:trail_ruins", "minecraft:pillager_outpost")) {
             r = EnvironmentResolver.resolve(at("minecraft:forest", false, structure(other)), index);
             check(r.field().equals("rejuvenation:forest") && r.source() == Source.BIOME, "Unmapped " + other + " falls through to its biome");
         }

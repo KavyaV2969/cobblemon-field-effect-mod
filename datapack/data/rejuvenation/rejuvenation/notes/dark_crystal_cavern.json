@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:dark_crystal_cavern",
+  "title": "Dark Crystal Cavern",
+  "summary": "“Darkness is gathering...”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Tera Starstorm also counts as Dark for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Prismatic Laser: 2× stronger.",
+        "Aurora Beam, Black Hole Eclipse, Dark Pulse, Dazzling Gleam, Diamond Storm, Doom Desire, Flash Cannon, Lumina Crash, Luster Purge, Menacing Moonraze Maelstrom, Mirror Shot, Moongeist Beam, Night Daze, Night Slash, Photon Geyser, Power Gem, Shadow Ball, Shadow Bone, Shadow Claw, Shadow Force, Shadow Punch, Shadow Sneak, Signal Beam, Techno Blast, and Tera Starstorm: 1.5× stronger.",
+        "Light That Burns the Sky: halved (0.5×).",
+        "Dark Void: 100% accuracy."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Dark-type.",
+        "Nature Power becomes Dark Pulse.",
+        "Secret Power can lower the target's accuracy."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Bulldoze, Earthquake, Fissure, Magnitude, and Tectonic Rage change the field into Cave once their uses add up to 2."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Magical Seed: Special Defense +1 and gains a special effect."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

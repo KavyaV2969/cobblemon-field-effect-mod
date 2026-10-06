@@ -44,7 +44,8 @@
           }
         },
         "push": false,
-        "message": "The hot water melted the ice!"
+        "message": "The hot water melted the ice!",
+        "removesSurface": true
       }
     },
     "steameruption": {
@@ -66,7 +67,8 @@
           }
         },
         "push": false,
-        "message": "The hot water melted the ice!"
+        "message": "The hot water melted the ice!",
+        "removesSurface": true
       }
     },
     "hydrosteam": {
@@ -88,7 +90,8 @@
           }
         },
         "push": false,
-        "message": "The hot water melted the ice!"
+        "message": "The hot water melted the ice!",
+        "removesSurface": true
       }
     },
     "earthquake": {
@@ -318,7 +321,8 @@
           }
         },
         "push": false,
-        "message": "The hot tea melted the ice!"
+        "message": "The hot tea melted the ice!",
+        "removesSurface": true
       }
     },
     "dive": {
@@ -352,7 +356,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "eruption": {
@@ -362,7 +367,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "searingshot": {
@@ -372,7 +378,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "flameburst": {
@@ -382,7 +389,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "lavaplume": {
@@ -392,7 +400,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "firepledge": {
@@ -402,7 +411,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "mindblown": {
@@ -412,7 +422,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "incinerate": {
@@ -422,7 +433,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "infernooverdrive": {
@@ -432,7 +444,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "burningjealousy": {
@@ -442,7 +455,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "magmadrift": {
@@ -452,7 +466,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     },
     "ragingfury": {
@@ -462,7 +477,8 @@
           "always": true
         },
         "push": false,
-        "message": "The ice melted away!"
+        "message": "The ice melted away!",
+        "removesSurface": true
       }
     }
   },

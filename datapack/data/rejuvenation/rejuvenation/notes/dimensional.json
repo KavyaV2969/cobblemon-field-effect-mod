@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:dimensional",
+  "title": "Dimensional Field",
+  "summary": "“Darkness radiates.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Distortion World Biome."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Dark moves and shadow moves are 1.5× stronger.",
+        "Ghost moves are 1.3× stronger.",
+        "Fairy moves are halved (0.5×)."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Black Hole Eclipse: 2× stronger.",
+        "Bitter Blade, Bitter Malice, Dynamax Cannon, Eternabeam, Fiery Wrath, Freezing Glare, Hyperspace Fury, Hyperspace Hole, Lash Out, Outrage, Raging Fury, Roar of Time, Shadow Force, Spacial Rend, Stomping Tantrum, Temper Flare, Thrash, and Thunderous Kick: 1.5× stronger.",
+        "Dark Pulse and Night Daze: 1.2× stronger.",
+        "Lucky Chant and Teatime: no effect here.",
+        "Dark Pulse, Dark Void, and Night Daze: never miss."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Dark-type.",
+        "Nature Power becomes Dark Pulse.",
+        "Secret Power can cause flinching."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Blizzard, Freeze Shock, Glaciate, Ice Burn, and Sheer Cold change the field into Frozen Dimensional once their uses add up to 2 (Blizzard 1, Freeze Shock 2, Glaciate 2, Ice Burn 2, and Sheer Cold 1).",
+        "Purify and Seed Flare break the field apart, exposing whatever lay beneath it.",
+        "Precipice Blades changes the field into Infernal."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Anger Point or Justified: Attack +1 when it enters.",
+        "Anger Shell: Attack +1, Special Attack +1, Speed +1, Defense −1, and Special Defense −1 when it enters.",
+        "Berserk: Special Attack +1 when it enters.",
+        "Rattled: Speed +1 when it enters."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Soul Eater restores 1/16 of its HP."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Magical Seed: Defense +1 and warps the room (Trick Room)."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

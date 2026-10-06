@@ -7,15 +7,18 @@ import net.fabricmc.fabric.api.client.networking.v1.ClientPlayConnectionEvents;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 
-/** Client-only: the field panel and the field-aware move previews. Never loaded on a dedicated server. */
+/** Client-only: the field panel, its notes overlay and the field-aware move previews. Never loaded on a dedicated server. */
 public final class RejuvenationFieldsClient implements ClientModInitializer {
     private static boolean panelFailed;
     @Override public void onInitializeClient() {
         ClientPlayNetworking.registerGlobalReceiver(FieldPayloads.FieldState.ID, (payload, context) ->
             context.client().execute(() -> accept(() -> ClientFieldState.acceptState(payload.json()))));
+        ClientPlayNetworking.registerGlobalReceiver(FieldPayloads.Notes.ID, (payload, context) ->
+            context.client().execute(() -> accept(() -> ClientFieldState.acceptNotes(payload.json()))));
         ClientPlayNetworking.registerGlobalReceiver(FieldPayloads.MoveEvaluations.ID, (payload, context) ->
             context.client().execute(() -> accept(() -> ClientFieldState.acceptEvaluations(payload.json()))));
-        ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> { ClientFieldState.reset(); FieldPanelRenderer.clearTextureCache(); panelFailed=false; });
+        ClientPlayConnectionEvents.DISCONNECT.register((handler, client) -> { ClientFieldState.reset(); FieldNotesRenderer.reset(); FieldPanelRenderer.clearTextureCache(); panelFailed=false; });
+        FieldNotesRenderer.register();
         // Previews ask for on-demand measurements while drawing; requests leave once per tick, in server-sized chunks.
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(client -> accept(() -> {
             if (!ClientPlayNetworking.canSend(FieldPayloads.EvaluationRequest.ID)) return;

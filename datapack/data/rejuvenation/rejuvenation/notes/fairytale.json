@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:fairytale",
+  "title": "Fairy Tale Field",
+  "summary": "“Once upon a time...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Mushroom Fields."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Dragon moves are 2× stronger.",
+        "Steel moves, fairy moves, and slicing moves are 1.5× stronger.",
+        "Magic Powder also counts as Fairy for type matchups.",
+        "Fire moves also count as Dragon for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Draining Kiss and Mist Ball: 2× stronger.",
+        "Ancient Power, Armor Cannon, Behemoth Bash, Eerie Spell, Fleur Cannon, Magical Leaf, Menacing Moonraze Maelstrom, Moongeist Beam, Mystical Fire, Oceanic Operetta, Relic Song, Smart Strike, and Sparkling Aria: 1.5× stronger."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Fairy-type.",
+        "Nature Power becomes Secret Sword.",
+        "Secret Power can cause sleep."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Armor Tail, Battle Armor, or Shell Armor: Defense +1 when it enters.",
+        "Magic Bounce, Magic Guard, or Pastel Veil: Special Defense +1 when it enters.",
+        "Magician: Special Attack +1 when it enters.",
+        "Marvel Scale: 1.5× Defense.",
+        "Mirror Armor: Special Defense +1 when it enters.",
+        "Power of Alchemy: Defense +1 and Special Defense +1 when it enters.",
+        "Queenly Majesty: 1.5× damage.",
+        "Stance Change: Defense +1 when it enters."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Magical Seed: is shielded as by King's Shield."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

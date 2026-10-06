@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:flower_garden_2",
+  "title": "Flower Garden",
+  "summary": "“Seeds line the field.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Flower Forest."
+      ]
+    },
+    {
+      "heading": "Type power",
+      "lines": [
+        "Grass moves are 1.1× stronger."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Cut: 1.5× stronger."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Grass-type.",
+        "Nature Power becomes Growth.",
+        "Secret Power can raise the target's evasiveness."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Acid Downpour, Breaking Swipe, Cut, and X-Scissor change the field into Flower Garden 1.",
+        "Bloom Doom, Flower Shield, Grassy Terrain, Growth, Ingrain, Rain Dance, Rototiller, Sunny Day, and Water Sport change the field into Flower Garden 3."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Swarm: 1.5× power for Bug-type moves."
+      ]
+    },
+    {
+      "heading": "Progression",
+      "lines": [
+        "Stage 2 of 5: the garden grows through its stages and shrinks again.",
+        "Entering Pokémon with Drizzle, Drought, Flower Gift, Flower Veil, Grassy Surge, or Orichalcum Pulse grow it.",
+        "Seeds grow it. Lowering accuracy or raising evasion shrinks it."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Synthetic Seed: Special Defense +1 and takes root (Ingrain)."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

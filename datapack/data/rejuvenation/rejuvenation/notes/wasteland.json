@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:wasteland",
+  "title": "Wasteland",
+  "summary": "“The waste is watching...”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Mud Bomb, Mud Shot, and Mud-Slap also count as Poison for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Spit Up: 2× stronger.",
+        "Mud Bomb, Mud Shot, Mud-Slap, Power Whip, and Vine Whip: 1.5× stronger.",
+        "Gunk Shot, Octazooka, Sludge, Sludge Bomb, and Sludge Wave: 1.2× stronger.",
+        "Bulldoze, Earthquake, and Magnitude: weakened to 0.25×."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Poison-type.",
+        "Nature Power becomes Gunk Shot.",
+        "Secret Power can cause burn, freezing, paralysis, or poison."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Tidy Up breaks the field apart once their uses add up to 3 (Tidy Up 1), exposing whatever lay beneath it."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Entry hazards (Spikes, Stealth Rock, Sticky Web, Toxic Spikes) are suspended while this field lasts."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Telluric Seed: Attack +1, Special Attack +1, and scatters Stealth Rock on both sides."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

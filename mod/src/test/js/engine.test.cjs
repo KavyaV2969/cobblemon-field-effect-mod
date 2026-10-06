@@ -30,7 +30,7 @@ function battle(field='forest',a={},t={}){
 }
 function pokemon(b){return [b.sides[0].active[0],b.sides[1].active[0]];}
 function move(b,id){return b.dex.getActiveMove(id);}
-test('all 57 definitions parse and are attachable',()=>{assert.equal(Object.keys(fields).length,57);for(const f of Object.values(fields)){const b=new Battle({formatid:'gen9customgame'});E.attach(b,f.id);assert.equal(E.current(b).id,f.id);b.destroy();}});
+test('all 57 original and 4 custom definitions parse and are attachable',()=>{assert.equal(Object.keys(fields).length,61);assert.equal(Object.values(fields).filter(f=>!f.custom).length,57);assert.equal(Object.values(fields).filter(f=>f.custom).length,4);for(const f of Object.values(fields)){const b=new Battle({formatid:'gen9customgame'});E.attach(b,f.id);assert.equal(E.current(b).id,f.id);b.destroy();}});
 test('every Kanto league trainer starts on a shipped non-Indoor field chosen by the engine scores',()=>{
  const scores=JSON.parse(fs.readFileSync(path.join(root,'research/trainer-field-scores.json'))).trainers;
  assert.equal(Object.keys(trainers).length,13);
@@ -216,6 +216,11 @@ test('Frozen Dimension converts Snow before native weather initialization',()=>{
 test('field weather duration applies to moves and weather abilities without double extending rocks',()=>{for(const [field,mid,item,duration]of [['desert','sunnyday','',7],['sky','raindance','Damp Rock',7],['beach','sandstorm','',7],['icy','snowscape','',7],['indoor','sunnyday','Heat Rock',7],['indoor','raindance','',4]]){const b=battle(field,{moves:[mid],item});b.choose('p1','move 1');b.choose('p2','move 1');assert.equal(b.field.weatherState.duration,duration,field+' '+mid);b.destroy();}for(const [field,ability]of [['desert','Drought'],['sky','Drizzle'],['beach','Sand Stream'],['icy','Snow Warning']]){const b=battle(field,{ability});assert.equal(b.field.weatherState.duration,8,ability);b.destroy();}});
 test('Sky Cloud Nine prevents weather creation rather than merely suppressing it',()=>{const b=battle('sky',{}, {ability:'Cloud Nine'}),[u]=pokemon(b);assert.equal(b.field.setWeather('raindance',u),null);assert.equal(b.field.weather,'');assert(b.log.some(s=>s.includes('But it failed!')));b.destroy();});
 test('Mimicry preserves added types and avoids repeated unchanged flavor',()=>{const b=battle('forest',{ability:'Mimicry'}),[u]=pokemon(b);u.addType('Ghost');E.change(b,fid('desert'));assert.deepEqual(u.getTypes(),['Ground','Ghost']);assert.equal(u.addedType,'Ghost');E.change(b,fid('indoor'));assert.deepEqual(u.getTypes(),['Psychic','Ghost']);const before=b.log.length;b.runEvent('SwitchIn',u);assert(!b.log.slice(before).some(s=>s.includes('returned to its original type!')));b.destroy();});
+const fixture=require('./fixture.cjs')({Battle,E,fid,assert});
+require('./layer-regression.cjs')({test,battle,pokemon,move,E,fid,assert,catalog,Battle,root,fixture});
+require('./custom-field-regression.cjs')({test,E,fid,assert,Battle,catalog,fixture});
+require('./custom-fusion-regression.cjs')({test,E,fid,assert,Battle,catalog,fixture});
+require('./custom-strategy-regression.cjs')({test,E,fid,assert,Battle,catalog,fixture});
 require('./status-regression.cjs')({test,battle,pokemon,move,E,fid,assert,catalog});
 require('./distributed-regression.cjs')({test,battle,pokemon,move,E,fid,assert});
 require('./ability-regression.cjs')({test,battle,pokemon,move,E,fid,assert});

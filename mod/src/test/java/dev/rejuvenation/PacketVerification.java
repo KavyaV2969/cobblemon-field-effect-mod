@@ -22,6 +22,7 @@ public final class PacketVerification {
  }
  public static int run(){
   return verify(FieldPayloads.FieldState.CODEC,FieldPayloads.FieldState::new,1<<18)
+   +verify(FieldPayloads.Notes.CODEC,FieldPayloads.Notes::new,1<<15)
    +verify(FieldPayloads.MoveEvaluations.CODEC,FieldPayloads.MoveEvaluations::new,1<<18)
    +verify(FieldPayloads.EvaluationRequest.CODEC,FieldPayloads.EvaluationRequest::new,1<<14);
  }

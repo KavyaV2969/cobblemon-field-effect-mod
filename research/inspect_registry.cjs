@@ -7,4 +7,7 @@ const result={moves:ids('moves'),abilities:ids('abilities'),items:ids('items'),s
 // Datapacks/mods can supply additional Showdown scripts at runtime. IDs are
 // inventoried separately from the base dex instead of assuming they were loaded.
 fs.writeFileSync(path.join(__dirname,'simulator-registry.json'),JSON.stringify(result,null,2));
+// Display names for the player-facing field notes (moves, abilities, items), straight from the installed dex.
+const names=kind=>Object.fromEntries(dex[kind].all().filter(x=>x.exists).map(x=>[x.id,x.name]).sort((a,b)=>a[0]<b[0]?-1:1));
+fs.writeFileSync(path.join(__dirname,'display-names.json'),JSON.stringify({moves:names('moves'),abilities:names('abilities'),items:names('items')},null,1));
 console.log('Inspected bundled Cobblemon dex: '+result.moves.length+' moves, '+result.abilities.length+' abilities, '+result.items.length+' items');

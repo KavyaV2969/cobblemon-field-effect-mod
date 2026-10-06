@@ -1,0 +1,62 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:murkwater_surface",
+  "title": "Murkwater Surface",
+  "summary": "“The water is tainted...”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Water moves and poison moves are 1.5× stronger.",
+        "Ground moves fail.",
+        "Apple Acid, Mud Bomb, Mud Shot, Mud-Slap, Smack Down, and Thousand Waves also count as Poison for type matchups.",
+        "Sludge Wave also counts as Water for type matchups.",
+        "Water moves also count as Poison for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Acid, Acid Spray, Apple Acid, Brine, Mud Bomb, Mud Shot, Mud-Slap, Smack Down, and Thousand Waves: 1.5× stronger.",
+        "Spikes and Toxic Spikes: no effect here."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Poison-type.",
+        "Nature Power becomes Sludge Wave.",
+        "Secret Power can cause poison."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Blizzard, Glaciate, and Subzero Slammer change the field into Icy. The old field returns when the new one ends or is removed.",
+        "Tidy Up changes the field into Water Surface once their uses add up to 2 (Tidy Up 1).",
+        "Purify and Whirlpool change the field into Water Surface once their uses add up to 2 (Purify 2 and Whirlpool 2). The old field returns when the new one ends or is removed."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Dry Skin or Water Absorb restores 1/8 of its HP.",
+        "Water Compaction: Defense +2.",
+        "Each turn, grounded Pokémon that are not Steel or Poison-type (not those using Dive) without Immunity, Magic Guard, Pastel Veil, Poison Heal, Surge Surfer, Toxic Boost, or Wonder Guard lose 1/8 of their maximum HP (hurt by the toxic water).",
+        "This field sweeps away entry hazards."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Elemental Seed: Speed +1, is wrapped in a veil of water (Aqua Ring), and suffers bad poison."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ]
+}

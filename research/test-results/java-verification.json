@@ -1,10 +1,12 @@
 {
-  "clientChecks": 933,
-  "environmentChecks": 26948,
+  "clientChecks": 2080,
+  "notesServerChecks": 145,
+  "environmentChecks": 26949,
+  "structureChecks": 120,
   "requestLegalityChecks": 12,
   "decisionIdentityChecks": 6,
   "optionalModChecks": 12,
-  "packetCodecChecks": 12,
+  "packetCodecChecks": 16,
   "mixinAbiChecks": 35,
-  "engineSha256": "b2ba5f4db999938f423fecf71a60b9e92559bf010b94ed6811b70c606fbfd968"
+  "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad"
 }

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-05T17:02:48.105447+00:00",
+  "timestamp": "2026-10-06T01:53:18.558093+00:00",
   "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
   "deployed": [
     {
@@ -7,15 +7,23 @@
       "installedPath": "mods/rejuvenation-fields-0.2.0.jar",
       "bytes": 2549366,
       "sha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7",
-      "previousSha256": "5249fc8874a842d87e5adef245a8af3a2a3515a950ee632fe88e93d982880940",
-      "replaced": true
+      "previousSha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7",
+      "replaced": false
     },
     {
       "artifact": "rejuvenation-fields-datapack-0.2.0.zip",
       "installedPath": "datapacks/rejuvenation-fields-datapack-0.2.0.zip",
       "bytes": 588760,
       "sha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d",
-      "previousSha256": "395191380447640612f4e18cbfaee31a2666258afa8b2bbf325b01a995a69f30",
+      "previousSha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d",
+      "replaced": false
+    },
+    {
+      "artifact": "rejuvenation-gym-overrides-0.2.0.zip",
+      "installedPath": "datapacks/rejuvenation-gym-overrides-0.2.0.zip",
+      "bytes": 10742,
+      "sha256": "2f07447ae1435eba2b1a869f5b2937e1072c1d319aabd59c69c4b7d7a13de682",
+      "previousSha256": null,
       "replaced": true
     }
   ],

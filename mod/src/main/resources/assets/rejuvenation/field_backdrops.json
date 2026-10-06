@@ -572,6 +572,99 @@
         512,
         288
       ]
+    },
+    "rejuvenation:crimson_forest": {
+      "texture": "rejuvenation:textures/gui/field/crimson_forest.png",
+      "source": "user-provided artwork: crimsonforest.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "f0fdc1c22a15d6063553c1990345053b72be18fb18f211466aaa9a177b08fb34",
+      "originalFormat": "PNG",
+      "originalSize": [
+        3200,
+        2000
+      ],
+      "crop": [
+        0,
+        100,
+        3200,
+        1900
+      ],
+      "sha256": "253a8deb385a8fdde125025b1189b56aaaeaf6543b029c0a603185ac6d3e0a9f",
+      "bytes": 205028,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:deep_dark": {
+      "texture": "rejuvenation:textures/gui/field/deep_dark.png",
+      "source": "user-provided artwork: deepdark.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "49484fb8bdb4953521295cf4b541ff4efd7cb96c990b5329ad476dec5c011276",
+      "originalFormat": "WEBP",
+      "originalSize": [
+        640,
+        350
+      ],
+      "crop": [
+        9,
+        0,
+        631,
+        350
+      ],
+      "sha256": "c14a60bc67e36ba4700eb695ebbd68633f8070376e7048314ad3d4d382e6f7a1",
+      "bytes": 177642,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:pale_garden": {
+      "texture": "rejuvenation:textures/gui/field/pale_garden.png",
+      "source": "user-provided artwork: palegarden.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "c1c828730b7e148ec1ac1300a446d14280a233454f795fd77ad57a4a6075b4d3",
+      "originalFormat": "WEBP",
+      "originalSize": [
+        860,
+        484
+      ],
+      "crop": [
+        0,
+        0,
+        860,
+        484
+      ],
+      "sha256": "d8f9a2ebfd459b6d887269776d57290097cabcff13c0506bf4de56f0933c33ca",
+      "bytes": 192950,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:warped_forest": {
+      "texture": "rejuvenation:textures/gui/field/warped_forest.png",
+      "source": "user-provided artwork: warpedforest.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "9d5c39c5426a5dad1bd3bc7b5c5a0b63e0ca54e8c9fb69f701cdefdf8407d5bf",
+      "originalFormat": "WEBP",
+      "originalSize": [
+        1200,
+        675
+      ],
+      "crop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sha256": "57b7f49640642fe1effa887695b8a479e761ae4debf246d34aba3b14dd1cedd3",
+      "bytes": 291937,
+      "size": [
+        512,
+        288
+      ]
     }
-  }
+  },
+  "customArtwork": "Four custom-field backdrops are user-provided Minecraft screenshots, centre-cropped to 16:9 and resized to 512x288 (research/custom_artwork.py); originals are kept unmodified in research/custom-artwork/originals."
 }

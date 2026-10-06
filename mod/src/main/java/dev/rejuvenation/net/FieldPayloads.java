@@ -22,6 +22,18 @@ public final class FieldPayloads {
         @Override public class_8710.class_9154<? extends class_8710> method_56479() { return ID; }
     }
 
+    /**
+     * One field's player-facing notes (or {@code missing}) with the revision of the battle's catalog snapshot, sent by the server with the
+     * field state the first time the field is shown to a player. Plain text only; the client never requests anything.
+     */
+    public record Notes(String json) implements class_8710 {
+        private static final int MAX_NOTES = 1 << 15;
+        public static final class_8710.class_9154<Notes> ID = new class_8710.class_9154<>(class_2960.method_60655("rejuvenation", "field_notes"));
+        public static final class_9139<class_2540, Notes> CODEC = class_8710.method_56484(
+            (value, buf) -> buf.method_10788(value.json(), MAX_NOTES), buf -> new Notes(buf.method_10800(MAX_NOTES)));
+        @Override public class_8710.class_9154<? extends class_8710> method_56479() { return ID; }
+    }
+
     /** Field-aware evaluations of the receiving player's moves for the current decision. */
     public record MoveEvaluations(String json) implements class_8710 {
         public static final class_8710.class_9154<MoveEvaluations> ID = new class_8710.class_9154<>(class_2960.method_60655("rejuvenation", "move_evaluations"));
@@ -45,6 +57,7 @@ public final class FieldPayloads {
 
     public static void register() {
         PayloadTypeRegistry.playS2C().register(FieldState.ID, FieldState.CODEC);
+        PayloadTypeRegistry.playS2C().register(Notes.ID, Notes.CODEC);
         PayloadTypeRegistry.playS2C().register(MoveEvaluations.ID, MoveEvaluations.CODEC);
         PayloadTypeRegistry.playC2S().register(EvaluationRequest.ID, EvaluationRequest.CODEC);
     }

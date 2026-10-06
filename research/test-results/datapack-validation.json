@@ -1,14 +1,16 @@
 {
   "errors": [],
-  "fields": 57,
+  "fields": 61,
+  "originalFields": 57,
+  "customFields": 4,
   "biomes": 165,
   "explicitBiomes": 165,
   "counts": {
-    "conditions": 14712,
-    "actions": 5240,
-    "rules": 2997,
-    "moves": 1647,
-    "transitions": 517
+    "conditions": 15749,
+    "actions": 5597,
+    "rules": 3192,
+    "moves": 1700,
+    "transitions": 518
   },
   "unavailableCounts": {
     "moves": 27,

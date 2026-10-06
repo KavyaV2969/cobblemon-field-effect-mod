@@ -36,19 +36,30 @@ public final class FieldPanelRenderer {
     public record Layout(int x, int y, int width, int height, int imageX, int imageY, int imageWidth, int imageHeight) {}
 
     public static void render(class_332 context) {
+        var state = ClientFieldState.current();
+        var layout = currentLayout();
+        if (state.isEmpty() || layout == null) return;
+        draw(context, layout, state.get());
+    }
+
+    /** Where the panel is drawn right now, or null when it is not (no battle, minimised, HUD hidden, no room). */
+    static Layout currentLayout() {
         var client = class_310.method_1551();
         var battle = CobblemonClient.INSTANCE.getBattle();
-        if (battle == null || battle.getMinimised() || client.field_1690.field_1842) return;
-        var state = ClientFieldState.current();
-        if (state.isEmpty()) return;
+        if (battle == null || battle.getMinimised() || client.field_1690.field_1842 || ClientFieldState.current().isEmpty()) return null;
         int screenW = client.method_22683().method_4486(), screenH = client.method_22683().method_4502();
         int opposing = 1;
         for (var side : battle.getSides()) if (side != null && side != battle.getSide1()) {
             int n = 0; for (var actor : side.getActors()) n += actor.getActivePokemon().size(); opposing = Math.max(opposing, n);
         }
-        var layout = layout(LogBounds.current(screenW, screenH), screenW, screenH, opposing);
-        if (layout == null) return;
-        draw(context, layout, state.get());
+        return layout(LogBounds.current(screenW, screenH), screenW, screenH, opposing);
+    }
+
+    /** Bottom edge of the battle log the panel sits above, or -1 when unknown. */
+    static int logBottom() {
+        var window = class_310.method_1551().method_22683();
+        var log = LogBounds.current(window.method_4486(), window.method_4502());
+        return log.y() + log.height();
     }
 
     /** Above the log, right-aligned with it, below the opponent tiles (Cobblemon: inset 10, 40 per tile). */
@@ -88,6 +99,12 @@ public final class FieldPanelRenderer {
         text(context, state.name(), l.x() + l.width() / 2f, l.imageY() + l.imageHeight() + 2.5f, 1f, l.width() - 8, true, 0xFFFFFFFF);
     }
 
+    /** A horizontal strip of a field's backdrop (centre-cropped to the strip's aspect), for the notes overlay's banner. */
+    static void banner(class_332 context, String field, int x, int y, int w, int h) {
+        int regionH = Math.max(1, Math.min(288, 512 * h / Math.max(1, w))), v = (288 - regionH) / 2;
+        context.method_25293(texture(field), x, y, w, h, 0, v, 512, regionH, 512, 288);
+    }
+
     private static void backdrop(class_332 context, Layout l, String field, float alpha) {
         context.method_51422(1f, 1f, 1f, alpha);
         com.mojang.blaze3d.systems.RenderSystem.enableBlend();
@@ -108,7 +125,7 @@ public final class FieldPanelRenderer {
     static void clearTextureCache() { textures.clear(); }
 
     /** Nine-slice of Cobblemon's log frame: outline, header band, body, footer; the log's scrollbar column is not used. */
-    private static void frame(class_332 c, int x, int y, int w, int h) {
+    static void frame(class_332 c, int x, int y, int w, int h) {
         int midW = w - BORDER_LEFT - BORDER_RIGHT, midH = h - HEADER - FOOTER;
         // Header band (rows 0-5); the right part carries the frame's chamfered corner.
         c.method_25293(Resources.FRAME, x, y, 6, HEADER, 0, 0, 6, HEADER, FRAME_W, FRAME_H);

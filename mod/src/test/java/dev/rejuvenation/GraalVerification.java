@@ -23,9 +23,9 @@ public final class GraalVerification {
    int dexesAfter=c.eval("js",dexCount).asInt();
    if(dexesAfter>dexesBefore+3)throw new AssertionError("Catalog publication loaded "+(dexesAfter-dexesBefore)+" simulator dex mods");
    var result=c.eval("js","(function(){const Battle=require('./sim/battle').Battle;let count=0;for(const id of Object.keys(JSON.parse('"+Files.readString(root.resolve("rejuvenation/research/catalog.json")).replace("\\","\\\\").replace("'","\\'").replace("\r", "\\r").replace("\n","\\n")+"').fields)){const b=new Battle({formatid:'cobblemonsingles'});RejuvenationEngine.attach(b,id);if(b.rejuvenation.id!==id)throw Error(id);b.destroy();count++;}return count;})()");
-   if(result.asInt()!=57)throw new AssertionError("Missing fields");
+   if(result.asInt()!=61)throw new AssertionError("Missing fields");
    int regressions=c.eval("js",Files.readString(root.resolve("rejuvenation/mod/src/test/js/graal-regression.js"))).asInt();
-   if(regressions!=42)throw new AssertionError("Missing Graal regressions: "+regressions);
+   if(regressions!=55)throw new AssertionError("Missing Graal regressions: "+regressions);
    // Cobblemon's Abilities.reload clears the simulator registry; the next catalog publication must restore declared abilities.
    String exists="require('./sim/dex').Dex.mod('cobblemon').abilities.get('defragment').exists===true && require('./sim/dex').Dex.mod('cobblemon').abilities.all().some(a=>a.id==='junglebeat')";
    if(!c.eval("js",exists).asBoolean())throw new AssertionError("Declared abilities missing from Cobblemon's registry data");
@@ -61,7 +61,7 @@ public final class GraalVerification {
    var perf=new com.google.gson.JsonObject();
    perf.addProperty("runtime","Cobblemon 1.7.3 shaded Graal, interpreter only");
    perf.addProperty("engineSha256",java.util.HexFormat.of().formatHex(java.security.MessageDigest.getInstance("SHA-256").digest(Files.readAllBytes(root.resolve("rejuvenation/mod/src/main/resources/rejuvenation-engine.js")))));
-   perf.addProperty("fieldsAttached",57);perf.addProperty("runtimeAssertions",regressions);perf.addProperty("adapterChecks",adapterChecks);
+   perf.addProperty("fieldsAttached",61);perf.addProperty("runtimeAssertions",regressions);perf.addProperty("adapterChecks",adapterChecks);
    perf.addProperty("firstCatalogPublishMillis",firstPublish);perf.addProperty("warmCatalogPublishMillis",warmPublish);
    perf.addProperty("publicationWarmupMillis",warmupMillis);
    perf.addProperty("simulatorDexesLoadedBeforePublish",dexesBefore);perf.addProperty("simulatorDexesLoadedAfterPublish",dexesAfter);
@@ -71,7 +71,7 @@ public final class GraalVerification {
    Files.createDirectories(root.resolve("rejuvenation/research/test-results"));
    Files.writeString(root.resolve("rejuvenation/research/test-results/graal-performance.json"),new com.google.gson.GsonBuilder().setPrettyPrinting().create().toJson(perf));
    System.out.println("PASS shaded Graal performance: first publish "+firstPublish+" ms, warm publish "+warmPublish+" ms, dex mods loaded "+dexesBefore+" -> "+dexesAfter+", 4-query evaluation "+evaluateMillis+" ms, twin battles identical");
-   System.out.println("PASS shaded Graal: boot index, engine binding, closed catalog, all 57 fields, cleanup, 42 battle-runtime assertions and declared-ability registry restoration");
+   System.out.println("PASS shaded Graal: boot index, engine binding, closed catalog, all 61 fields (57 original, 4 custom), cleanup, 55 battle-runtime assertions and declared-ability registry restoration");
   }
  }
 }

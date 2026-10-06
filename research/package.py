@@ -11,11 +11,13 @@ with zipfile.ZipFile(jar) as z:
     assert not any(n.endswith('.jar') or n.startswith('com/cobblemon/') for n in z.namelist()),'Dependencies must not be redistributed'
     assert all(n.startswith('dev/rejuvenation/') for n in z.namelist() if n.endswith('.class')),'External classes must not be bundled'
     assert z.read('rejuvenation-engine.js')==(ROOT/'mod/src/main/resources/rejuvenation-engine.js').read_bytes(),'Jar has stale engine'
-    # Client UI resources: exactly the 57 field backdrops plus their attribution and provenance manifest.
+    # Client UI resources: exactly the 57 original and 4 custom field backdrops plus their attribution and provenance manifest.
     backdrops=[n for n in z.namelist() if n.startswith('assets/rejuvenation/textures/gui/field/') and n.endswith('.png')]
-    assert len(backdrops)==57,'Missing field backdrops'
+    assert len(backdrops)==61,'Missing field backdrops'
     assert 'assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt' in z.namelist() and 'assets/rejuvenation/field_backdrops.json' in z.namelist()
     assert 'rejuvenation.compat.mixins.json' in z.namelist() and 'dev/rejuvenation/client/RejuvenationFieldsClient.class' in z.namelist()
+    assert all(f'dev/rejuvenation/client/{c}.class' in z.namelist() for c in ('FieldNotesOverlay','FieldNotesRenderer','FieldNotesModel')),'Field notes overlay missing'
+    assert 'dev/rejuvenation/FieldNotes.class' in z.namelist()
     # Dedicated-server safety: only client classes may refer to client-only Minecraft, Cobblemon or Fabric classes.
     import re
     client_only=[rb'net/minecraft/class_310(?![0-9])',rb'net/minecraft/class_332(?![0-9])',rb'com/cobblemon/mod/common/client/',rb'net/fabricmc/fabric/api/client/',rb'dev/rejuvenation/client/']
@@ -36,7 +38,8 @@ with zipfile.ZipFile(pack,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) 
         z.writestr(info,p.read_bytes())
 with zipfile.ZipFile(pack) as z:
     assert 'pack.mcmeta' in z.namelist()
-    definitions=[n for n in z.namelist() if '/fields/' in n and n.endswith('.json')];assert len(definitions)==57
+    definitions=[n for n in z.namelist() if '/fields/' in n and n.endswith('.json')];assert len(definitions)==61
+    notes=[n for n in z.namelist() if '/rejuvenation/notes/' in n and n.endswith('.json')];assert len(notes)==61,'Field notes missing'
     for n in definitions:assert read(ROOT/'datapack'/n)==json.loads(z.read(n))
     # The datapack is server data only: no client artwork.
     assert not any(n.endswith('.png') or n.startswith('assets/') for n in z.namelist()),'Graphics must not be in the datapack'
@@ -45,12 +48,12 @@ validation=read(ROOT/'research/test-results/datapack-validation.json');tests=rea
 assert not validation['errors'] and not tests['failed'] and not comparison['differences']
 manifest={'version':'0.2.0','releaseStatus':'source-audit-complete-preview','minecraft':'1.21.1','loader':'Fabric 0.18.4','cobblemon':'1.7.3+1.21.1',
     'artifacts':[{'path':p.name,'bytes':p.stat().st_size,'sha256':digest(p)} for p in [jar,pack]],
-    'fieldsDiscovered':57,'definitionsLoaded':57,'sourceAuditClosedFields':len(review['completeFields']),'partiallyImplemented':57-len(review['completeFields']),
+    'fieldsDiscovered':57,'definitionsLoaded':61,'originalFields':57,'customFields':4,'totalFields':61,'fieldNotes':61,'sourceAuditClosedFields':len(review['completeFields']),'partiallyImplemented':57-len(review['completeFields']),
     'fullyBehaviorallyVerified':0,'behaviorVerificationScope':'Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification',
     'compiledDefinitionPropertiesCompared':comparison['comparisons'],'compiledDefinitionDifferences':len(comparison['differences']),
     'simulatorTestsPassed':tests['passed'],'candidateBiomes':validation['biomes'],'explicitlyMappedCandidates':validation['explicitBiomes'],'candidateFallbacks':0,
     'unavailableReferences':validation['unavailableCounts'],
-    'clientAssets':{'fieldBackdrops':57,'source':'Pokémon Rejuvenation V14 Graphics/Battlebacks (see assets/rejuvenation/field_backdrops.json)','clientOnly':True},
+    'clientAssets':{'fieldBackdrops':61,'customBackdropsFrom':'user-supplied reference images (see assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt)','source':'Pokémon Rejuvenation V14 Graphics/Battlebacks (see assets/rejuvenation/field_backdrops.json)','clientOnly':True},
     'integrations':{'rbrctai':'adapter mixins (optional, applied only when installed)','cobblemon-battle-extras':'client adapter mixins (optional, applied only when installed)'},
     'remainingWork':'../docs/REMAINING_WORK.md','protectedFiles':'../research/protected-integrity.json'}
 oracle=ROOT/'research/test-results/runtime-oracle.json'

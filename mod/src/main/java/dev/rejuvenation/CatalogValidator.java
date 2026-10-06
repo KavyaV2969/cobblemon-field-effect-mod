@@ -4,13 +4,14 @@ import com.google.gson.*;
 import com.google.gson.stream.*;
 import java.io.*;
 import java.util.*;
+import java.util.stream.StreamSupport;
 
 /** Shared reload boundary. No scripts, expressions, reflection or arbitrary paths. */
 public final class CatalogValidator {
  private CatalogValidator() {}
  private static final Set<String> CONDITIONS=words("always all any not move sourceMove moveType category flag field backup grounded ability item type species form formName status weather weatherFor incomingWeather startedCondition damageSource counter hp priority foe missed volatile value semiInvulnerable globalAbility effectiveness turnsActive stateFlag overlay weatherActive pokemonStatus targetStatus chance samePokemon statsLowered selfInflicted contact hasAlly level transformed wild itemStealable usableMove pokemonActive pokemonFlag statSumComparison sideAbility sideCondition role moveTarget fullHealing faster lastMove attackType foeFainted effectiveAbility pseudoWeather abilityChangedType basePower holderAllied hitEffectiveness allyAbility variableMultihit holderIsUser sideItem holderAbilityState baseMoveType actorType boostStage connected effectId calledBy accuracyMiss damageDealt drainHealed canFlinch baseCanFlinch sheerForce allyCanHeal oneHitKO zMove immunityType volatileSourceMove canHeal");
- private static final Set<String> ACTIONS=words("multiply add set cap reject message boost heal damage status ability type moveType volatile consume form forcedType itemForm randomType randomForm forEach abilityMessage addSecondary stealItem preventStatLoss secondaryChance pseudoWeather progress changeField destroyField oldCategory inverse ice_spikes accuracy_cloud arm_eruption cave_collapse mist_explosion water_pollution hazardBurst restoreTypes trap setHPFraction harvestBerry volatileDuration clearHazards bothHazards sideCondition typedDamage spikeDamage wish trickRoom perishSong removeVolatile cureStatus randomBoost randomStat randomStatus conditional transferStat castling counter setFlag setPokemonFlag bindFieldClock weatherTemporary hpPower cyclePower randomPower extraType residualDamage flashFire concertNoise moveMessage groupMessage clearWeather setWeather clearOverlay moveProperty adjustWish mimicry survive moveBehavior criticalStage weightDelta removeCallbacks pairField createField baseAccuracy clearBoosts identifyItems boostByHighestStat streakPower healByDamage damageShare fieldMove randomWeather reconcileWeather");
- private static final Set<String> EVENTS=words("activate fieldResidual residual switchIn pokemonEntry basePower modifyMove afterMove accuracy priority damage attack specialAttack defense specialDefense speed tryHeal setStatus tryHit weatherChange effectiveness receivedDamage tryVolatile criticalRatio weight chargeMove tryMove overlayIn formChange setWeather afterHit pseudoWeatherStart perfectAccuracy baseAccuracy criticalHit tryFlinch flinch snatch afterFaint weatherReconcile criticalMessage modifyMoveLate sideConditionStart fractionalPriority trapPokemon");
+ private static final Set<String> ACTIONS=words("multiply add set cap reject message boost heal damage status ability type moveType volatile consume form forcedType itemForm randomType randomForm forEach abilityMessage addSecondary stealItem preventStatLoss secondaryChance pseudoWeather progress changeField destroyField oldCategory inverse ice_spikes accuracy_cloud arm_eruption cave_collapse mist_explosion water_pollution hazardBurst restoreTypes trap setHPFraction harvestBerry volatileDuration clearHazards bothHazards sideCondition typedDamage spikeDamage wish trickRoom perishSong removeVolatile cureStatus randomBoost randomStat randomStatus conditional transferStat castling counter setFlag setPokemonFlag bindFieldClock weatherTemporary hpPower cyclePower randomPower extraType residualDamage flashFire concertNoise moveMessage groupMessage clearWeather setWeather clearOverlay moveProperty adjustWish mimicry survive moveBehavior criticalStage weightDelta removeCallbacks pairField createField baseAccuracy clearBoosts identifyItems boostByHighestStat streakPower healByDamage damageShare fieldMove randomWeather reconcileWeather accuracyPenalty mechanic");
+ private static final Set<String> EVENTS=words("activate fieldResidual residual switchIn pokemonEntry basePower modifyMove afterMove accuracy priority damage attack specialAttack defense specialDefense speed tryHeal setStatus tryHit weatherChange effectiveness receivedDamage tryVolatile criticalRatio weight chargeMove tryMove overlayIn formChange setWeather afterHit pseudoWeatherStart perfectAccuracy baseAccuracy criticalHit tryFlinch flinch snatch afterFaint weatherReconcile criticalMessage modifyMoveLate sideConditionStart fractionalPriority trapPokemon finalAccuracy");
  private static final Set<String> PATHS=words("boosts self.boosts secondaries.0.self.boosts secondaries.0.self secondaries.0.boosts heal recoil basePower damage priority accuracy target spreadModifier sideCondition category status zMove.boost secondaries secondaries.0.status pseudoWeather flags.gravity flags.protect flags.sound flags.bypasssub selfBoost self pranksterBoosted forceSwitch maxHPRecoil magnitude drain ignoreImmunity overrideOffensiveStat overrideDefensiveStat");
  private static Set<String> words(String s) { return Set.of(s.split(" ")); }
  private static void require(boolean test,String where,String detail){if(!test)throw new IllegalArgumentException(where+": "+detail);}
@@ -143,6 +144,14 @@ public final class CatalogValidator {
      if(choice.has("randomRange")){var range=choice.getAsJsonObject("randomRange");require(range.keySet().equals(words("minimum maximum")),where,"Malformed random clock");for(String key:List.of("minimum","maximum"))require(numeric(range.get(key)) && range.get(key).getAsDouble()==range.get(key).getAsInt(),where,"Invalid random clock bound");require(range.get("minimum").getAsInt()>0 && range.get("maximum").getAsInt()>=range.get("minimum").getAsInt() && range.get("maximum").getAsInt()<=20,where,"Invalid random clock range");}
     }
    }
+   if(f.has("mechanics"))mechanics(f.get("mechanics"),fields,where);
+   if(f.has("typeComposition")){
+    var rows=f.getAsJsonArray("typeComposition");require(!rows.isEmpty() && rows.size()<=16,where,"Invalid type composition");
+    for(var e:rows){var r=e.getAsJsonObject();require(words("whenTypes add condition message").containsAll(r.keySet()) && r.has("whenTypes") && r.has("add") && r.has("condition") && r.get("whenTypes").isJsonArray() && !r.getAsJsonArray("whenTypes").isEmpty() && r.getAsJsonArray("whenTypes").size()<=4,where,"Invalid type composition row");
+     for(var ty:r.getAsJsonArray("whenTypes"))require(TYPES.contains(ty.getAsString()) && !ty.getAsString().equals("???") && !ty.getAsString().equals("Shadow"),where,"Invalid composition source type");
+     require(TYPES.contains(r.get("add").getAsString()) && !r.get("add").getAsString().equals("???") && !r.get("add").getAsString().equals("Shadow") && (!r.has("message") || text(r.get("message"))),where,"Invalid composition added type");condition(r.get("condition"),fields,where);}
+   }
+   if(f.has("accuracyCrash")){var c=f.getAsJsonObject("accuracyCrash");require(c.keySet().equals(words("fraction messages")) && numeric(c.get("fraction")) && c.get("fraction").getAsDouble()>0 && c.get("fraction").getAsDouble()<=1,where,"Invalid accuracy crash policy");texts(c.get("messages"),where);}
    if(f.has("progression")){var p=f.getAsJsonObject("progression");require(p.get("group").isJsonPrimitive() && integer(p.get("stage"),1,9) && integer(p.get("maximum"),1,9) && p.get("stage").getAsInt()<=p.get("maximum").getAsInt() && (!p.has("statChangeShrinkMessage") || p.get("statChangeShrinkMessage").isJsonPrimitive() && !p.get("statChangeShrinkMessage").getAsString().isEmpty()),entry.getKey(),"Invalid progression");}
    if(f.has("captureModifiers"))for(var capture:f.getAsJsonObject("captureModifiers").entrySet())require(capture.getKey().matches("[a-z0-9_.-]+:[a-z0-9_/.-]+") && numeric(capture.getValue()) && capture.getValue().getAsDouble()>0 && capture.getValue().getAsDouble()<=10,where,"Invalid capture modifier");
    if(f.has("captureEnvironmentModifiers"))for(var element:f.getAsJsonArray("captureEnvironmentModifiers")){
@@ -220,12 +229,21 @@ public final class CatalogValidator {
   }
   for(JsonElement element:catalog.getAsJsonArray("mappings")){
    var rule=element.getAsJsonObject();require(fields.has(rule.get("field").getAsString()),"mapping","Missing field");
-   require(words("biome tag dimension submerged maxY skyVisible minDepth field reason").containsAll(rule.keySet()),"mapping","Unknown predicate");
+   require(words("biome tag dimension submerged maxY skyVisible minDepth field reason substrate").containsAll(rule.keySet()),"mapping","Unknown predicate");
+   // A substrate is the dormant field beneath the selected one: a known, non-Indoor field other than the field itself.
+   if(rule.has("substrate")){var sub=rule.get("substrate");require(sub.isJsonPrimitive() && sub.getAsJsonPrimitive().isString() && fields.has(sub.getAsString()) && !sub.getAsString().equals("rejuvenation:indoor") && !sub.getAsString().equals(rule.get("field").getAsString()),"mapping","Invalid substrate layer");}
   }
   // Structure rows name exactly one structure registry ID or structure tag; unmapped structures fall through to biome rules.
   if(catalog.has("structures"))for(JsonElement element:catalog.getAsJsonArray("structures")){
    require(element.isJsonObject(),"structure","Invalid structure mapping");var rule=element.getAsJsonObject();
-   require(words("structure tag field reason").containsAll(rule.keySet()) && rule.has("field") && fields.has(rule.get("field").getAsString()),"structure","Invalid structure mapping");
+   require(words("structure tag field reason containment").containsAll(rule.keySet()) && rule.has("field") && fields.has(rule.get("field").getAsString()),"structure","Invalid structure mapping");
+   if(rule.has("containment")){
+    require(rule.get("containment").isJsonObject(),"structure","Invalid structure containment");var c=rule.getAsJsonObject("containment");
+    require(c.has("mode") && c.get("mode").isJsonPrimitive(),"structure","Invalid structure containment mode");
+    if(c.get("mode").getAsString().equals("pieces"))require(c.size()==1,"structure","A pieces containment has no margins");
+    else{require(c.get("mode").getAsString().equals("footprint") && c.keySet().equals(words("mode horizontal above below")),"structure","Invalid structure containment");
+     require(integer(c.get("horizontal"),0,StructureGeometry.MAX_HORIZONTAL) && integer(c.get("above"),0,StructureGeometry.MAX_ABOVE) && integer(c.get("below"),0,StructureGeometry.MAX_BELOW),"structure","Structure containment margin out of range");}
+   }
    require(rule.has("structure")!=rule.has("tag"),"structure","A structure mapping names exactly one structure or tag");
    String id=(rule.has("structure")?rule.get("structure"):rule.get("tag")).getAsString();
    require(id.matches("[a-z0-9_.-]+:[a-z0-9_./-]+"),"structure","Invalid structure identifier "+id);
@@ -276,11 +294,50 @@ public final class CatalogValidator {
    if(k.equals("counter"))require(a.get("index").getAsInt()>=1 && a.get("index").getAsInt()<=5,where,"Invalid counter");
   }
  }
+ private static boolean text(JsonElement e){return e!=null && e.isJsonPrimitive() && e.getAsJsonPrimitive().isString() && !e.getAsString().isEmpty() && e.getAsString().length()<=240;}
+ private static void texts(JsonElement e,String where){require(e!=null && e.isJsonArray() && !e.getAsJsonArray().isEmpty() && e.getAsJsonArray().size()<=4,where,"Invalid message list");for(var t:e.getAsJsonArray())require(text(t),where,"Invalid message");}
+ private static void exact(JsonElement e,String keys,String where){require(e!=null && e.isJsonObject() && e.getAsJsonObject().keySet().equals(words(keys)),where,"Malformed "+where);}
+ private static void moveIds(JsonElement e,String where){require(e!=null && e.isJsonArray() && e.getAsJsonArray().size()<=64,where,"Invalid move list");var seen=new HashSet<String>();for(var m:e.getAsJsonArray())require(m.isJsonPrimitive() && m.getAsString().matches("[a-z0-9]+") && seen.add(m.getAsString()),where,"Invalid move identifier");}
+ private static final Set<String> TYPES=words("Normal Fire Water Electric Grass Ice Fighting Poison Ground Flying Psychic Bug Rock Ghost Dragon Dark Steel Fairy Shadow ???");
+ /** Data-configured field mechanics (Sculk Warning, Creaking Distraction, Piglin Bloodlust): closed shapes, bounded numbers and texts. */
+ private static void mechanics(JsonElement element,JsonObject fields,String where){
+  require(element!=null && element.isJsonObject() && !element.getAsJsonObject().isEmpty() && words("sculkWarning creakingDistraction bloodlust").containsAll(element.getAsJsonObject().keySet()),where,"Invalid field mechanics");
+  var m=element.getAsJsonObject();
+  if(m.has("sculkWarning")){
+   var w=m.getAsJsonObject("sculkWarning");String at=where+"/sculkWarning";
+   exact(w,"counter maximum darknessAt retaliationAt resetTo thresholds amounts overrides sound seismic calming messages stages rattled retaliation immunities seedMessage",at);
+   int max=w.get("maximum").getAsInt();require(integer(w.get("counter"),1,5) && integer(w.get("maximum"),2,8) && integer(w.get("darknessAt"),1,max) && integer(w.get("retaliationAt"),w.get("darknessAt").getAsInt(),max) && integer(w.get("resetTo"),0,w.get("retaliationAt").getAsInt()-1),at,"Invalid scale");
+   exact(w.get("thresholds"),"moderate major",at+"/thresholds");var th=w.getAsJsonObject("thresholds");require(integer(th.get("moderate"),1,1000) && integer(th.get("major"),th.get("moderate").getAsInt(),1000),at,"Invalid thresholds");
+   exact(w.get("amounts"),"moderate major calming seed",at+"/amounts");var am=w.getAsJsonObject("amounts");require(integer(am.get("moderate"),0,4) && integer(am.get("major"),0,4) && integer(am.get("calming"),-4,0) && integer(am.get("seed"),0,4),at,"Invalid amounts");
+   require(w.get("overrides").isJsonObject() && w.getAsJsonObject("overrides").size()<=64,at,"Invalid overrides");
+   for(var o:w.getAsJsonObject("overrides").entrySet()){require(o.getKey().matches("[a-z0-9]+"),at,"Invalid override move");exact(o.getValue(),"amount message",at+"/override");require(integer(o.getValue().getAsJsonObject().get("amount"),0,4) && text(o.getValue().getAsJsonObject().get("message")),at,"Invalid override");}
+   exact(w.get("sound"),"amount message categories",at+"/sound");var so=w.getAsJsonObject("sound");require(integer(so.get("amount"),0,4) && text(so.get("message")) && so.get("categories").isJsonArray() && !so.getAsJsonArray("categories").isEmpty(),at,"Invalid sound policy");for(var c:so.getAsJsonArray("categories"))require(words("Physical Special Status").contains(c.getAsString()),at,"Invalid sound category");
+   exact(w.get("seismic"),"amount message moves",at+"/seismic");var se=w.getAsJsonObject("seismic");require(integer(se.get("amount"),0,4) && text(se.get("message")),at,"Invalid seismic policy");moveIds(se.get("moves"),at);
+   exact(w.get("calming"),"moves messages defaultMessage",at+"/calming");var ca=w.getAsJsonObject("calming");moveIds(ca.get("moves"),at);require(text(ca.get("defaultMessage")) && ca.get("messages").isJsonObject(),at,"Invalid calming group");
+   for(var c:ca.getAsJsonObject("messages").entrySet())require(text(c.getValue()) && StreamSupport.stream(ca.getAsJsonArray("moves").spliterator(),false).anyMatch(x->x.getAsString().equals(c.getKey())),at,"Invalid calming message");
+   exact(w.get("messages"),"moderate major gimmick recede",at+"/messages");for(var v:w.getAsJsonObject("messages").entrySet())require(text(v.getValue()),at,"Invalid message");
+   require(w.get("stages").isJsonObject(),at,"Invalid stages");for(var s:w.getAsJsonObject("stages").entrySet()){require(s.getKey().matches("[1-8]") && Integer.parseInt(s.getKey())<=max,at,"Invalid stage");texts(s.getValue(),at);}
+   exact(w.get("rattled"),"ability stats message",at+"/rattled");var ra=w.getAsJsonObject("rattled");require(ra.get("ability").getAsString().matches("[a-z0-9]+") && text(ra.get("message")),at,"Invalid Rattled");stats(ra.getAsJsonObject("stats"),at);
+   exact(w.get("retaliation"),"announce fraction resetMessage",at+"/retaliation");var re=w.getAsJsonObject("retaliation");require(text(re.get("announce")) && text(re.get("resetMessage")) && numeric(re.get("fraction")) && re.get("fraction").getAsDouble()>0 && re.get("fraction").getAsDouble()<=1,at,"Invalid retaliation");
+   exact(w.get("immunities"),"abilities types",at+"/immunities");var im=w.getAsJsonObject("immunities");
+   for(var a:im.getAsJsonObject("abilities").entrySet())require(a.getKey().matches("[a-z0-9]+") && text(a.getValue()),at,"Invalid immunity ability");
+   for(var ty:im.getAsJsonObject("types").entrySet())require(TYPES.contains(ty.getKey()) && text(ty.getValue()),at,"Invalid immunity type");
+   require(text(w.get("seedMessage")),at,"Invalid seed message");
+  }
+  if(m.has("creakingDistraction")){
+   var d=m.getAsJsonObject("creakingDistraction");String at=where+"/creakingDistraction";exact(d,"maximum damageFraction stages resetMessage subsidedMessage",at);int max=d.get("maximum").getAsInt();
+   require(integer(d.get("maximum"),2,8) && numeric(d.get("damageFraction")) && d.get("damageFraction").getAsDouble()>0 && d.get("damageFraction").getAsDouble()<=1 && text(d.get("resetMessage")) && text(d.get("subsidedMessage")) && d.get("stages").isJsonObject(),at,"Invalid Creaking Distraction");
+   for(var s:d.getAsJsonObject("stages").entrySet()){require(s.getKey().matches("[1-8]") && Integer.parseInt(s.getKey())<=max,at,"Invalid stage");texts(s.getValue(),at);}
+  }
+  if(m.has("bloodlust")){var l=m.getAsJsonObject("bloodlust");String at=where+"/bloodlust";exact(l,"stat amount message",at);require(words("atk def spa spd spe").contains(l.get("stat").getAsString()) && integer(l.get("amount"),1,3) && text(l.get("message")),at,"Invalid Piglin Bloodlust");}
+ }
  private static void actions(JsonArray list,JsonObject fields,String where){
   require(list!=null,where,"Missing actions");
   for(var element:list){var a=element.getAsJsonObject();String op=a.get("op").getAsString();require(ACTIONS.contains(op),where,"Unknown action "+op);
    if(a.has("who"))require(words("user target").contains(a.get("who").getAsString()),where,"Invalid action subject");
    if(op.equals("conditional")){condition(a.get("condition"),fields,where);actions(a.getAsJsonArray("actions"),fields,where);}
+   if(op.equals("accuracyPenalty"))require(words("op factor attribute who").containsAll(a.keySet()) && numeric(a.get("factor")) && a.get("factor").getAsDouble()>0 && a.get("factor").getAsDouble()<=1 && (!a.has("attribute") || a.get("attribute").getAsJsonPrimitive().isBoolean()),where,"Invalid accuracy penalty");
+   if(op.equals("mechanic"))require(a.keySet().equals(words("op kind event")) && a.get("kind").getAsString().equals("sculkWarning") && a.get("event").getAsString().equals("seed"),where,"Invalid mechanic event");
    if(a.has("messagePlacement"))require(words("before after").contains(a.get("messagePlacement").getAsString()),where,"Invalid message placement");
    if(op.equals("boost") && a.has("source"))require(a.get("source").getAsString().equals("environment"),where,"Invalid boost source");
    if(op.equals("hazardBurst")){require(a.has("id") && words("spikes stealthrock stickyweb toxicspikes").contains(a.get("id").getAsString()) && a.has("messages") && a.get("messages").isJsonArray() && !a.getAsJsonArray("messages").isEmpty() && words("op id messages type fraction perLayer grounded immuneTypes poison boosts").containsAll(a.keySet()),where,"Invalid hazard burst");

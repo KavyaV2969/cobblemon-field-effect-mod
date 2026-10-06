@@ -7,24 +7,28 @@
   "artifacts": [
     {
       "path": "rejuvenation-fields-0.2.0.jar",
-      "bytes": 1617494,
-      "sha256": "5249fc8874a842d87e5adef245a8af3a2a3515a950ee632fe88e93d982880940"
+      "bytes": 2549366,
+      "sha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7"
     },
     {
       "path": "rejuvenation-fields-datapack-0.2.0.zip",
-      "bytes": 478299,
-      "sha256": "395191380447640612f4e18cbfaee31a2666258afa8b2bbf325b01a995a69f30"
+      "bytes": 588760,
+      "sha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d"
     }
   ],
   "fieldsDiscovered": 57,
-  "definitionsLoaded": 57,
+  "definitionsLoaded": 61,
+  "originalFields": 57,
+  "customFields": 4,
+  "totalFields": 61,
+  "fieldNotes": 61,
   "sourceAuditClosedFields": 57,
   "partiallyImplemented": 0,
   "fullyBehaviorallyVerified": 0,
   "behaviorVerificationScope": "Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification",
   "compiledDefinitionPropertiesCompared": 4494,
   "compiledDefinitionDifferences": 0,
-  "simulatorTestsPassed": 564,
+  "simulatorTestsPassed": 631,
   "candidateBiomes": 165,
   "explicitlyMappedCandidates": 165,
   "candidateFallbacks": 0,
@@ -34,7 +38,8 @@
     "items": 0
   },
   "clientAssets": {
-    "fieldBackdrops": 57,
+    "fieldBackdrops": 61,
+    "customBackdropsFrom": "user-supplied reference images (see assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt)",
     "source": "Pok\u00e9mon Rejuvenation V14 Graphics/Battlebacks (see assets/rejuvenation/field_backdrops.json)",
     "clientOnly": true
   },
@@ -57,9 +62,9 @@
   },
   "liveVerification": {
     "historical": true,
-    "artifactMatches": false,
+    "artifactMatches": true,
     "success": true,
-    "battles": 7,
+    "battles": 8,
     "registeredBiomes": 70,
     "receipt": "../research/test-results/live-startup.json"
   },
@@ -86,10 +91,10 @@
       "receipt": "../research/test-results/live-mode-extended.json"
     },
     "integration": {
-      "artifactMatches": false,
+      "artifactMatches": true,
       "success": true,
-      "battles": 7,
-      "checks": 25,
+      "battles": 8,
+      "checks": 33,
       "receipt": "../research/test-results/live-mode-integration.json"
     }
   },
@@ -99,54 +104,54 @@
   },
   "performance": {
     "runtime": "Cobblemon 1.7.3 shaded Graal, interpreter only",
-    "engineSha256": "b2ba5f4db999938f423fecf71a60b9e92559bf010b94ed6811b70c606fbfd968",
-    "fieldsAttached": 57,
-    "runtimeAssertions": 42,
+    "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
+    "fieldsAttached": 61,
+    "runtimeAssertions": 55,
     "adapterChecks": 42,
-    "firstCatalogPublishMillis": 3968,
-    "warmCatalogPublishMillis": 649,
-    "publicationWarmupMillis": 1005,
+    "firstCatalogPublishMillis": 2977,
+    "warmCatalogPublishMillis": 532,
+    "publicationWarmupMillis": 634,
     "simulatorDexesLoadedBeforePublish": 0,
     "simulatorDexesLoadedAfterPublish": 3,
-    "evaluate4QueriesMillis": 83,
+    "evaluate4QueriesMillis": 53,
     "strategy": [
       {
         "teamSize": 1,
         "candidates": 8,
-        "millis": 860,
+        "millis": 568,
         "damageCalls": 32,
         "cacheHits": 17,
-        "damageMillis": 348,
-        "damageMechanicsMillis": 295,
+        "damageMillis": 225,
+        "damageMechanicsMillis": 189,
         "screened": 2,
         "phases": {
-          "setup": 49,
-          "screening": 41,
-          "rollouts": 672,
-          "matchups": 410,
-          "branches": 196,
+          "setup": 27,
+          "screening": 17,
+          "rollouts": 481,
+          "matchups": 277,
+          "branches": 180,
           "resources": 0,
-          "policies": 91,
+          "policies": 40,
           "rollouts_count": 8
         }
       },
       {
         "teamSize": 6,
         "candidates": 13,
-        "millis": 1204,
+        "millis": 1051,
         "damageCalls": 40,
         "cacheHits": 30,
-        "damageMillis": 415,
-        "damageMechanicsMillis": 344,
+        "damageMillis": 395,
+        "damageMechanicsMillis": 326,
         "screened": 5,
         "phases": {
-          "setup": 67,
-          "screening": 59,
-          "rollouts": 845,
-          "matchups": 449,
-          "branches": 174,
-          "resources": 110,
-          "policies": 107,
+          "setup": 28,
+          "screening": 28,
+          "rollouts": 867,
+          "matchups": 411,
+          "branches": 207,
+          "resources": 68,
+          "policies": 53,
           "rollouts_count": 10
         }
       },
@@ -154,20 +159,20 @@
         "teamSize": 6,
         "turn": 1,
         "candidates": 13,
-        "millis": 1108,
+        "millis": 1010,
         "damageCalls": 40,
         "cacheHits": 30,
-        "damageMillis": 379,
-        "damageMechanicsMillis": 320,
+        "damageMillis": 338,
+        "damageMechanicsMillis": 280,
         "screened": 5,
         "phases": {
-          "setup": 55,
-          "screening": 45,
-          "rollouts": 789,
-          "matchups": 409,
-          "branches": 179,
-          "resources": 107,
-          "policies": 97,
+          "setup": 40,
+          "screening": 30,
+          "rollouts": 749,
+          "matchups": 366,
+          "branches": 212,
+          "resources": 111,
+          "policies": 68,
           "rollouts_count": 10
         }
       },
@@ -175,20 +180,20 @@
         "teamSize": 6,
         "turn": 2,
         "candidates": 13,
-        "millis": 1374,
+        "millis": 789,
         "damageCalls": 50,
         "cacheHits": 25,
-        "damageMillis": 584,
-        "damageMechanicsMillis": 493,
+        "damageMillis": 287,
+        "damageMechanicsMillis": 241,
         "screened": 5,
         "phases": {
-          "setup": 77,
-          "screening": 84,
-          "rollouts": 895,
-          "matchups": 569,
-          "branches": 115,
-          "resources": 95,
-          "policies": 201,
+          "setup": 31,
+          "screening": 38,
+          "rollouts": 501,
+          "matchups": 285,
+          "branches": 76,
+          "resources": 109,
+          "policies": 95,
           "rollouts_count": 10
         }
       },
@@ -196,20 +201,20 @@
         "teamSize": 6,
         "turn": 3,
         "candidates": 13,
-        "millis": 1049,
+        "millis": 1178,
         "damageCalls": 50,
         "cacheHits": 25,
-        "damageMillis": 421,
-        "damageMechanicsMillis": 349,
+        "damageMillis": 504,
+        "damageMechanicsMillis": 418,
         "screened": 5,
         "phases": {
-          "setup": 49,
-          "screening": 65,
-          "rollouts": 684,
-          "matchups": 426,
-          "branches": 72,
-          "resources": 75,
-          "policies": 160,
+          "setup": 80,
+          "screening": 54,
+          "rollouts": 729,
+          "matchups": 494,
+          "branches": 106,
+          "resources": 95,
+          "policies": 204,
           "rollouts_count": 10
         }
       },
@@ -217,20 +222,20 @@
         "teamSize": 6,
         "doubles": true,
         "candidates": 24,
-        "millis": 3883,
+        "millis": 3198,
         "damageCalls": 105,
         "cacheHits": 77,
-        "damageMillis": 1235,
-        "damageMechanicsMillis": 1012,
+        "damageMillis": 1153,
+        "damageMechanicsMillis": 952,
         "screened": 16,
         "phases": {
-          "setup": 74,
-          "screening": 288,
-          "rollouts": 3219,
-          "matchups": 810,
-          "branches": 1486,
-          "resources": 79,
-          "policies": 207,
+          "setup": 65,
+          "screening": 255,
+          "rollouts": 2603,
+          "matchups": 667,
+          "branches": 864,
+          "resources": 49,
+          "policies": 214,
           "rollouts_count": 17
         }
       }
@@ -239,11 +244,11 @@
   },
   "buildLog": {
     "successful": true,
-    "sha256": "0e8cdde18f33e9048d0f1d03ead99d5f914f584e95a5b8364d3bd2398b1e4205",
+    "sha256": "48779716da72501b5d59fcb2adc818f2dd7fd92d7112bfaf0ca98a661fc79f5c",
     "path": "../research/test-results/build.log"
   },
   "integrationEvidence": {
-    "engineSha256": "b2ba5f4db999938f423fecf71a60b9e92559bf010b94ed6811b70c606fbfd968",
+    "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
     "aiLeads": 762,
     "aiDispositions": {
       "implemented_strategy": 53,
@@ -267,15 +272,15 @@
     "scope": "Bounded field-aware strategy over Run & Bun scoring and exact field previews; not a claim of source-equivalent AI play",
     "decisionLatency": {
       "warmMedianMillis": {
-        "1": 566,
-        "6": 792,
-        "6-turn1": 793,
-        "6-turn2": 856,
-        "6-turn3": 924,
-        "doubles": 3370
+        "1": 747,
+        "6": 887,
+        "6-turn1": 862,
+        "6-turn2": 1022,
+        "6-turn3": 912,
+        "doubles": 3211
       },
-      "processorAffinity": "0xFFF",
-      "publicationWarmupMillis": 1683
+      "processorAffinity": null,
+      "publicationWarmupMillis": 1326
     }
   },
   "implementationCompletionStandardMet": true

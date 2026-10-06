@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:electric_terrain",
+  "title": "Electric Terrain",
+  "summary": "“The field is hyper-charged!”",
+  "sections": [
+    {
+      "heading": "Type power",
+      "lines": [
+        "Explosion, Hurricane, Hydro Vortex, Muddy Water, Self-Destruct, Smack Down, Surf, and Thousand Arrows also count as Electric for type matchups."
+      ]
+    },
+    {
+      "heading": "Move effects",
+      "lines": [
+        "Magnet Bomb: 2× stronger.",
+        "Explosion, Hurricane, Hydro Vortex, Muddy Water, Self-Destruct, Smack Down, Surf, Thousand Arrows, and Wildbolt Storm: 1.5× stronger."
+      ]
+    },
+    {
+      "heading": "Standard moves and typing",
+      "lines": [
+        "Mimicry and Camouflage turn Pokémon Electric-type.",
+        "Nature Power becomes Thunderbolt.",
+        "Secret Power can cause paralysis."
+      ]
+    },
+    {
+      "heading": "Changes and restoration",
+      "lines": [
+        "Tectonic Rage breaks the field apart, exposing whatever lay beneath it."
+      ]
+    },
+    {
+      "heading": "Abilities",
+      "lines": [
+        "Electromorphosis or Lightning Rod: Special Attack +1 when it enters.",
+        "Transistor: 1.6× power for Electric-type moves."
+      ]
+    },
+    {
+      "heading": "Each turn",
+      "lines": [
+        "Motor Drive: Speed +1.",
+        "Volt Absorb restores 1/16 of its HP."
+      ]
+    },
+    {
+      "heading": "Seed",
+      "lines": [
+        "Elemental Seed: Speed +1 and is charged."
+      ]
+    },
+    {
+      "heading": "More",
+      "lines": [
+        "Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here."
+      ]
+    }
+  ],
+  "overlay": [
+    "Magnet Bomb: 2× stronger.",
+    "Explosion, Hurricane, Muddy Water, Self-Destruct, Smack Down, Surf, Thousand Arrows, and Wildbolt Storm: 1.5× stronger.",
+    "Explosion, Hurricane, Muddy Water, Self-Destruct, Smack Down, Surf, and Thousand Arrows also count as Electric for type matchups."
+  ]
+}

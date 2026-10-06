@@ -19,10 +19,11 @@ import java.util.*;
 public final class RejuvenationFields implements ModInitializer {
     public static final Logger LOG = LoggerFactory.getLogger("rejuvenation_fields");
     /** One validated datapack revision: the catalog, its simulator JSON and the compiled environment index. */
-    public record Catalog(JsonObject data, long revision, String json, EnvironmentResolver.Index environment) {
-        Catalog(JsonObject data, long revision) { this(data, revision, data.toString(), EnvironmentResolver.compile(data)); }
+    public record Catalog(JsonObject data, long revision, String json, EnvironmentResolver.Index environment, Map<String, JsonObject> notes) {
+        Catalog(JsonObject data, long revision, Map<String, JsonObject> notes) { this(data, revision, data.toString(), EnvironmentResolver.compile(data), notes); }
+        Catalog(JsonObject data, long revision) { this(data, revision, Map.of()); }
     }
-    public static volatile Catalog catalog = new Catalog(new JsonObject(), 0, "{}", EnvironmentResolver.Index.EMPTY);
+    public static volatile Catalog catalog = new Catalog(new JsonObject(), 0, "{}", EnvironmentResolver.Index.EMPTY, Map.of());
     // Cobblemon boots its worker during its initializer, potentially before ours.
     // The mixin must not depend on Fabric entrypoint ordering.
     public static final String engine = readEngine();
@@ -111,6 +112,12 @@ public final class RejuvenationFields implements ModInitializer {
                 if (value.get("schemaVersion").getAsInt() != 1) throw new IllegalArgumentException(entry.getKey() + ": unsupported structure mapping schema");
                 for (JsonElement mapping : value.getAsJsonArray("rules")) structures.add(mapping);
             }
+            // Field Notes: player-facing text per field, replaceable by any datapack at the same path (validated below with the catalog).
+            var notes = new TreeMap<String, JsonObject>();
+            for (var entry : manager.method_14488("rejuvenation/notes", id -> id.method_12832().endsWith(".json")).entrySet()) {
+                String id = entry.getKey().method_12836() + ":" + entry.getKey().method_12832().substring("rejuvenation/notes/".length()).replaceFirst("\\.json$", "");
+                if (notes.put(id, read(entry.getValue().method_14482())) != null) throw new IllegalArgumentException("Duplicate notes for " + id);
+            }
             for (var entry : manager.method_14488("rejuvenation/items", id -> id.method_12832().endsWith(".json")).entrySet()) {
                 var value=read(entry.getValue().method_14482()).getAsJsonObject("items");
                 for (var item:value.entrySet()) { if(items.has(item.getKey())) throw new IllegalArgumentException("Duplicate simulator item "+item.getKey()); items.add(item.getKey(),item.getValue()); }
@@ -135,10 +142,10 @@ public final class RejuvenationFields implements ModInitializer {
             next.add("fields", fields); next.add("mappings", mappings); next.add("structures", structures); next.add("items", items); next.add("abilities", abilities); next.add("trainers", trainers);
             next.addProperty("default", "rejuvenation:indoor");
             CatalogValidator.validate(next);
-            catalog = new Catalog(next, catalog.revision()+1);
+            catalog = new Catalog(next, catalog.revision()+1, FieldNotes.validateAll(notes, fields));
             registerAbilityTemplates(abilities);
             for(var field:fields.entrySet())if(field.getValue().getAsJsonObject().has("typeDefinitions"))registerTypes(field.getValue().getAsJsonObject().getAsJsonObject("typeDefinitions"));
-            LOG.info("Loaded {} fields, {} environment rules and {} structure rules (revision {})", fields.size(), mappings.size(), structures.size(), catalog.revision());
+            LOG.info("Loaded {} fields, {} environment rules, {} structure rules and {} field notes (revision {})", fields.size(), mappings.size(), structures.size(), catalog.notes().size(), catalog.revision());
         } catch (Exception error) {
             LOG.error("Rejected field reload; previous revision retained", error);
             throw new IllegalArgumentException("Invalid Rejuvenation datapack: " + error.getMessage(), error);

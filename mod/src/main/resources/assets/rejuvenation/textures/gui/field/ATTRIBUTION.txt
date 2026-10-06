@@ -1,3 +1,6 @@
 Field backdrops from Pokémon Rejuvenation V14 (Graphics/Battlebacks), a fan game by Janichroma (lead developer) and the Rejuvenation team; art credited in the game's ReadMe_Credits.txt to Zumi (Honnojis), Janichroma, Crimson, CeriseBlossome, Winter, Azeria, Dallas, Soulja, IronicOmens and MoonPaw. Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc. Used unmodified as client-side UI artwork for this non-commercial field port; not part of the datapack or the server logic.
 
 Files: <field id>.png = Graphics/Battlebacks/battlebg<graphic[0]>.png; see ../../../field_backdrops.json for each source file and SHA-256.
+
+
+Custom field backdrops (deep_dark, pale_garden, warped_forest, crimson_forest): user-provided Minecraft screenshots supplied by the project owner, centre-cropped to 16:9 and resized to 512x288. Minecraft is a trademark of Mojang Studios; the screenshots are used as non-commercial client-side UI artwork. The four files are not Pokémon Rejuvenation artwork; the 57 attributions above are unchanged.

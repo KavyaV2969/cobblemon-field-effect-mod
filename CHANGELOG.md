@@ -4,6 +4,8 @@
 
 The private development builds were numbered 0.2.0; the public numbering starts again at 0.1. Changing the displayed version renames nothing that is stored: mod ID `rejuvenation_fields`, namespace `rejuvenation`, and every field, item, status, packet and payload ID are unchanged ([migration](docs/MIGRATION.md)).
 
+* **`config-overrides/`** holds the RCT server configuration that sets the level cap and level cap offset for fresh modpacks.
+
 ### Field Notes and names
 
 * **Formal Field Notes for all 61 fields.** The notes of the 57 original fields are now the entries of the Pokémon Rejuvenation Wiki (https://rejuvenation.wiki.gg/wiki/Field_Effects and the field pages it lists), converted from stored revisions (`research/wiki-notes/`, `research/wiki_notes.py`): description, general effects, affected abilities and moves, transitions, items and special rules, plus a generated "Where it appears" section and a Source section naming the wiki page, revision and license. The wiki text is licensed Creative Commons Attribution-ShareAlike 4.0, so the notes and the markdown copy are shared under that license ([THIRD_PARTY.md](THIRD_PARTY.md)). The four custom fields' notes are rewritten in the same style.

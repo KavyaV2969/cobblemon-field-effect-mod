@@ -135,6 +135,8 @@ The compatibility mod allows the field system to work properly with:
 - RCT trainers
 - Cobblemon Battle Extras
 
+For a fresh modpack, copy `config-overrides/rctmod-server.toml` into the modpack's `config/` folder. It sets the RCT level cap (`initialLevelCap`) and the level cap offset (`relativeLevelCap`) that the level cap system needs; see [config-overrides](config-overrides/README.md).
+
 I also recommend installing the included **gym roster override** if you want the updated Kanto Gym Challenge described below.
 
 ---

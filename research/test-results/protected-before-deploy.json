@@ -1,0 +1,109 @@
+{
+  "checked": 1254,
+  "changed": [
+    "config\\c2me.toml",
+    "config\\cobblemon-battle-extras.json",
+    "config\\fabric\\indigo-renderer.properties",
+    "config\\iris.properties",
+    "config\\packetfixer.properties",
+    "config\\roughlyenoughitems\\pinyin.properties",
+    "config\\roughlyenoughitems\\pinyin_double.properties",
+    "config\\sodium-options.json",
+    "config\\xaero\\world-map\\client.cfg",
+    "config\\zfastnoise.mixin.properties",
+    "data\\fabricDefaultResourcePacks.dat"
+  ],
+  "added": [
+    "datapacks\\rejuvenation-fields-datapack-0.2.0.zip",
+    "mods\\rejuvenation-fields-0.2.0.jar"
+  ],
+  "deleted": [
+    "mods\\cobblemon-ui-tweaks-1.0.7.jar.disabled",
+    "mods\\counter-fabric-1.8.1-1.9.0.jar.disabled",
+    "mods\\unchained-fabric-1.8.1-1.7.1.jar.disabled"
+  ],
+  "timestamp": "2026-10-05T17:02:37.970243+00:00",
+  "authoredOutsideRejuvenation": [],
+  "note": "Read-only audit; all observed settings differences are preserved and listed below. Original trainer/content archives are compared byte-for-byte. Authorized field-mod/datapack installs appear as additions.",
+  "differences": [
+    {
+      "path": "config\\c2me.toml",
+      "baselineSha256": "3b29c732fba4b60bc87639520cd0ec7fd85facd43873de0419b188ecc48d7cc5",
+      "currentSha256": "c2deb14b200340ac4fe709a062afa755b94c18da642d04a184d960e480cdc71b",
+      "modifiedUtc": "2026-10-05T13:26:19.488302+00:00"
+    },
+    {
+      "path": "config\\cobblemon-battle-extras.json",
+      "baselineSha256": "b6f8a88157ec5f11914526687c0734daf9e56d3024198f2eb9af0a05dfe8edf1",
+      "currentSha256": "7e80874fc6dd98f7f9935cf2f0b5e55b5ae14982a054bd7a27ca35809356b0cc",
+      "modifiedUtc": "2026-10-05T12:13:52.427560+00:00"
+    },
+    {
+      "path": "config\\iris.properties",
+      "baselineSha256": "e5ff16f5e702340b80ec398290e15a8f58d2da86b4adae34b953f2257a2ceb10",
+      "currentSha256": "13adbcbc2dadac7f4bb1d627b62f7fbe1cf15d1dc8e88f02ec99095cbbd6effe",
+      "modifiedUtc": "2026-10-05T14:03:04.448873+00:00"
+    },
+    {
+      "path": "config\\packetfixer.properties",
+      "baselineSha256": "8f750d152252f089bae2f1797c18028666bce31c223a333188c48c70ceabe66c",
+      "currentSha256": "cd9dc3834d2e8d6fe97f91640d49a397d3dbcc11f2ec48a30a19b62339da9a0b",
+      "modifiedUtc": "2026-10-05T13:26:15.409851+00:00"
+    },
+    {
+      "path": "config\\sodium-options.json",
+      "baselineSha256": "65076783919b2d144e1a991b9448e7a79132fc126c950bedb6c6b1a873056540",
+      "currentSha256": "6c39e5cbebf1e47d054ed1e20a30ddc4f915f8ee5ab4cbf18e8184de7b5632db",
+      "modifiedUtc": "2026-10-05T13:27:11.041734+00:00"
+    },
+    {
+      "path": "config\\zfastnoise.mixin.properties",
+      "baselineSha256": "33fd5dba8381601145a59be7fe681be0ce4281976791ffff5aaa8273e208833a",
+      "currentSha256": "32b3454f9fb0aa1cb8af8570689a327a0e4a9a06016125d9fe04f86f94aeb47e",
+      "modifiedUtc": "2026-10-05T13:26:15.671805+00:00"
+    },
+    {
+      "path": "config\\fabric\\indigo-renderer.properties",
+      "baselineSha256": "62f90660ef0be2a6f7c463a53683f3f681850c8e84b44454451d754d64197f98",
+      "currentSha256": "3661eaab1216b328c500228809837c806298d14a5b9f5dd6d19f7dd9b2980322",
+      "modifiedUtc": "2026-10-05T13:27:08.947771+00:00"
+    },
+    {
+      "path": "config\\roughlyenoughitems\\pinyin.properties",
+      "baselineSha256": "1760f6120a4759a3952011d594a766129b2f980acf14605b37cf9f9415f004a7",
+      "currentSha256": "cf61bef67b896422ef9275a4cb2ca530ce1ad668aac299165fbf4c859021a57f",
+      "modifiedUtc": "2026-10-05T13:29:12.318673+00:00"
+    },
+    {
+      "path": "config\\roughlyenoughitems\\pinyin_double.properties",
+      "baselineSha256": "1c921f9ba0f81d404c564d815004be65f71c509c20c25eae51f9a6f1b90472f0",
+      "currentSha256": "0caf9597909555a56c557902525a77aacaed8934cf0cdb6eb18b94988f2201b4",
+      "modifiedUtc": "2026-10-05T13:29:12.358741+00:00"
+    },
+    {
+      "path": "config\\xaero\\world-map\\client.cfg",
+      "baselineSha256": "6fae897d3bf309d9142f7f134f7166827cd2997518c53a79ce03068213691979",
+      "currentSha256": "27709472726ad6a5347f98cc4eaf8a247f6e023fdabcbe50cb1660f5257056b8",
+      "modifiedUtc": "2026-10-05T13:27:15.745829+00:00"
+    },
+    {
+      "path": "data\\fabricDefaultResourcePacks.dat",
+      "baselineSha256": "8809f9dfd16a0479b9ec0757dc50b05de809be489018c289e65111f6f4e13a47",
+      "currentSha256": "a48648eca65e3bd7d62e609cb7f71ff7e2dafd0cc86110118d3ae287765c95fe",
+      "modifiedUtc": "2026-10-05T13:27:16.602237+00:00"
+    }
+  ],
+  "continuationChangedOriginalFiles": [
+    "config\\c2me.toml",
+    "config\\cobblemon-battle-extras.json",
+    "config\\fabric\\indigo-renderer.properties",
+    "config\\iris.properties",
+    "config\\packetfixer.properties",
+    "config\\roughlyenoughitems\\pinyin.properties",
+    "config\\roughlyenoughitems\\pinyin_double.properties",
+    "config\\zfastnoise.mixin.properties",
+    "mods\\cobblemon-ui-tweaks-1.0.7.jar.disabled",
+    "mods\\counter-fabric-1.8.1-1.9.0.jar.disabled",
+    "mods\\unchained-fabric-1.8.1-1.7.1.jar.disabled"
+  ]
+}

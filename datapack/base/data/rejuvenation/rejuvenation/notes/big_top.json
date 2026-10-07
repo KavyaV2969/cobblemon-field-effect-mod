@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:big_top",
+  "title": "Big Top Arena",
+  "summary": "“Now presenting...!”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Big Top Arena is one is one of the Field Effects present in Rejuvenation. It is classified as a Synthetic field and can be found during Venus' battle at Zone Zero."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Sound-based moves → 1.5x boost",
+        "“Loud and clear!”",
+        "High Striker Moves:",
+        "Some moves are classified as \"High Striker\", gaining a random power modifier between 0.5x and 3x. High Striker moves include:",
+        "All Physical Fighting-type moves.",
+        "Behemoth Bash, Blaze Kick, Body Slam, Bounce, Brutal Swing, Bulldoze, Continental Crush, Crabhammer, Double Iron Bash, Dragon Hammer, Dragon Rush, Dual Chop, Earthquake, Giga Impact, Gigaton Hammer, Glaive Rush, Grav Apple, Hard Press, Headlong Rush, Heat Crash, Heavy Slam, High Horsepower, Ice Hammer, Icicle Crash, Iron Tail, Ivy Cudgel, Magnitude, Meteor Mash, Mighty Cleave, Pound, Sky Drop, Slam, Smack Down, Stomp, Stomping Tantrum, Strength, Supercell Slam, Temper Flare & Wood Hammer",
+        "Multipliers:",
+        "Whenever a High Striker move is used, a random number between 1 & 15 is rolled, and the user's current Attack stage is added to this roll.",
+        "“WHAMMO!”",
+        "15+ → 3x boost.",
+        "“...OVER 9000!!!”",
+        "13 or 14 → 2x boost.",
+        "“...POWERFUL!”",
+        "9 to 12 → 1.5x boost.",
+        "“...NICE!”",
+        "3 to 8 → No boost.",
+        "“...OK!”",
+        "2 or less → 0.5x decrease.",
+        "“...WEAK!”",
+        "Roll Maximizing Abilities:",
+        "Guts, Huge Power, Pure Power & Sheer Force change any of their user's roll < 9 to be 14, and any roll > 8 to be 15.",
+        "This change happens before the user's Attack stage is added, which means that it can still roll under 14 if the user's Attack is lowered.",
+        "Probability Tables:"
+      ]
+    },
+    {
+      "heading": "General Effects (continued)",
+      "lines": [
+        "Rounded probabilities of each multiplier for each attack stage are summarized in the tables below:",
+        "No Roll Maximizing ability",
+        "Attack Stage | 0.5x | 1x | 1.5x | 2x | 3x",
+        "-6 | 53,3% | 40,0% | 6,7% | 0,0% | 0,0%",
+        "-5 | 46,7% | 40,0% | 13,3% | 0,0% | 0,0%",
+        "-4 | 40,0% | 40,0% | 20,0% | 0,0% | 0,0%",
+        "-3 | 33,3% | 40,0% | 26,7% | 0,0% | 0,0%",
+        "-2 | 26,7% | 40,0% | 26,7% | 6,7% | 0,0%",
+        "-1 | 20,0% | 40,0% | 26,7% | 13,3% | 0,0%",
+        "0 | 13,3% | 40,0% | 26,7% | 13,3% | 6,7%",
+        "+1 | 6,7% | 40,0% | 26,7% | 13,3% | 13,3%",
+        "+2 | 0,0% | 40,0% | 26,7% | 13,3% | 20,0%",
+        "+3 | 0,0% | 33,3% | 26,7% | 13,3% | 26,7%",
+        "+4 | 0,0% | 26,7% | 26,7% | 13,3% | 33,3%",
+        "+5 | 0,0% | 20,0% | 26,7% | 13,3% | 40,0%",
+        "+6 | 0,0% | 13,3% | 26,7% | 13,3% | 46,7%",
+        "Roll Maximizing Ability",
+        "Attack Stage | 0.5x | 1x | 1.5x | 2x | 3x",
+        "-6 | 0,0% | 53,3% | 46,7% | 0,0% | 0,0%",
+        "-5 | 0,0% | 0,0% | 100,0% | 0,0% | 0,0%",
+        "-4 | 0,0% | 0,0% | 100,0% | 0,0% | 0,0%",
+        "-3 | 0,0% | 0,0% | 100,0% | 0,0% | 0,0%",
+        "-2 | 0,0% | 0,0% | 53,3% | 46,7% | 0,0%",
+        "-1 | 0,0% | 0,0% | 0,0% | 100,0% | 0,0%",
+        "0 | 0,0% | 0,0% | 0,0% | 53,3% | 46,7%",
+        "+1 | 0,0% | 0,0% | 0,0% | 0,0% | 100,0%",
+        "+2 | 0,0% | 0,0% | 0,0% | 0,0% | 100,0%",
+        "+3 | 0,0% | 0,0% | 0,0% | 0,0% | 100,0%",
+        "+4 | 0,0% | 0,0% | 0,0% | 0,0% | 100,0%",
+        "+5 | 0,0% | 0,0% | 0,0% | 0,0% | 100,0%",
+        "+6 | 0,0% | 0,0% | 0,0% | 0,0% | 100,0%"
+      ]
+    },
+    {
+      "heading": "Abilities affected",
+      "lines": [
+        "Buffed Abilities:",
+        "Costar boosts the user's Attack and Special Attack by 1 stage on activation.",
+        "Dancer boosts the user's Special Attack and Speed by 1 stage when using a Dance move.",
+        "Jungle Beat & Punk Rock increases the power of Sound-based moves by 50% instead of 30%.",
+        "Zero to Hero applies Helping Hand to the user on switch-in if they are in Hero form.",
+        "“The crowd cheers for [Pokémon]!”"
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Damage Modifiers: Moves which receive an attack buff:",
+        "Make it Rain, Payday → 1.5x boost, increases extra money given at the end of the battle by 100x.",
+        "“And a little extra for you, darling!”",
+        "Acrobatics, Aqua Step, Drum Beating, Fiery Dance, Fire Lash, First Impression, Flower Trick, Fly, Petal Dance, Power Whip, Revelation Dance, Vine Whip → 1.5x boost.",
+        "“An extravagant aerial finish!”",
+        "“What grace!”",
+        "“Loud and clear!”",
+        "“Back, foul beast!”",
+        "“And what an entrance it is!”",
+        "“A spectacular magic trick!”",
+        "Other moves: Buffed Moves:",
+        "Acrobatics will always deal double damage regardless of whether the user holds an item.",
+        "Aquabatics boosts the user's Special Attack and Speed by 2 stages.",
+        "Belly Drum additionally boosts the user's Defense and Special Defense by 1 stage.",
+        "Chilly Reception sets up snow for 8 turns.",
+        "“Boo! Get off the stage!”",
+        "Dragon Dance boosts the user's Attack and Speed by 2 stages.",
+        "Encore's length is doubled to 6 turns.",
+        "Feather Dance lowers the target's Attack by 3 stages.",
+        "Lunar Dance boosts all of the target's stats by 1 stage.",
+        "Quiver Dance boosts the user's Special Attack, Special Defense, and Speed by 2 stages.",
+        "Sing's accuracy is increased to 100%.",
+        "Swords Dance boosts the user's Attack by 3 stages.",
+        "Teeter Dance lowers all targets' Defense by 1 stage.",
+        "Victory Dance boosts the user's Attack, Defense, and Speed by 2 stages.",
+        "Other Move Changes:",
+        "Clangorous Soul boosts all stats by 2 stages but the user loses 50% of its max HP.",
+        "No Retreat instead boosts the user's Attack, Special Attack and Speed by 2 stages, but lowers Defense and Special Defense by 1 stage.",
+        "This effect is identical to the move Shell Smash.",
+        "Spotlight boosts the Attack and Special Attack of both the user and target by 1 stage."
+      ]
+    },
+    {
+      "heading": "Moves Affected (continued)",
+      "lines": [
+        "Field-dependent moves & Abilities:",
+        "Mimicry changes the user's type to Fighting.",
+        "Camouflage changes the user's type to Fighting.",
+        "Nature Power becomes Acrobatics.",
+        "Secret Power may lower Special Defense.",
+        "Shelter halves damage from Fighting-type moves.",
+        "Terrain Pulse becomes Fighting-type."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Synthetic Seed boosts Attack by 1 stage and applies Helping Hand to the user."
+      ]
+    },
+    {
+      "heading": "Notes",
+      "lines": [
+        "Prior to V14, this field had other effects that have since been removed or changed:",
+        "Dancer boosted Special Attack and Speed by 1 stage on activation instead of when using a dancing move.",
+        "Payday's power boost was 2x, with a 500x boost to payout.",
+        "Rain Dance lasted for 8 turns."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Big Top Arena”, revision 44211: https://rejuvenation.wiki.gg/wiki/Big_Top_Arena",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

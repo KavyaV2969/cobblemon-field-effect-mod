@@ -1,0 +1,26 @@
+{
+ "oldJar": "rejuvenation-fields-0.2.0.jar",
+ "oldEntries": 187,
+ "classesWithIdenticalDisassembly": 105,
+ "resourcesByteIdentical": 65,
+ "moved": 6,
+ "intendedChanges": {
+  "dev/rejuvenation/client/BattleExtrasFieldAdapter.class": "moved to compat/client; members used across packages are public (invalidateTooltipCache, effectivenessKey, certifiedEffectiveness); logic unchanged",
+  "dev/rejuvenation/client/ClientFieldState.class": "evaluation listener hook replaces the direct Battle Extras call",
+  "dev/rejuvenation/client/FieldPanelRenderer.class": "follows the public LogBounds.Bounds type",
+  "dev/rejuvenation/client/LogBounds$Bounds.class": "Bounds is now public (provider hook)",
+  "dev/rejuvenation/client/LogBounds.class": "public provider hook; the Battle Extras reflection moved to compat",
+  "dev/rejuvenation/RejuvenationFields.class": "mapping/structure documents merge by (order, resource ID)",
+  "assets/rejuvenation/field_backdrops.json": "attribution text gains the redistribution-basis sentence; rows unchanged",
+  "assets/rejuvenation/models/item/amplifield_rock.json": "items use the converted Rejuvenation icons",
+  "assets/rejuvenation/models/item/elemental_seed.json": "items use the converted Rejuvenation icons",
+  "assets/rejuvenation/models/item/magical_seed.json": "items use the converted Rejuvenation icons",
+  "assets/rejuvenation/models/item/synthetic_seed.json": "items use the converted Rejuvenation icons",
+  "assets/rejuvenation/models/item/telluric_seed.json": "items use the converted Rejuvenation icons",
+  "assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt": "attribution text gains the redistribution-basis sentence",
+  "fabric.mod.json": "new version, no compat mixin config, no suggests",
+  "rejuvenation.compat.mixins.json": "renamed rejuvenation-compat.mixins.json and moved to the compat jar",
+  "rejuvenation.mixins.json": "TrainerDecisionMixin moved to the compat jar"
+ },
+ "problems": []
+}

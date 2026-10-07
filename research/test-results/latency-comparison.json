@@ -1,0 +1,60 @@
+{
+ "baselineAffinity": "0xFFF",
+ "candidateAffinity": "0xFFF",
+ "publicationWarmupMillis": {
+  "baseline": 1627,
+  "candidate": 1482
+ },
+ "sameAffinity": true,
+ "fixtures": [
+  {
+   "fixture": "1",
+   "baselineWarmMedianMillis": 495,
+   "candidateWarmMedianMillis": 389,
+   "warmChangePercent": -21.4,
+   "baselineColdMillis": 693,
+   "candidateColdMillis": 635
+  },
+  {
+   "fixture": "6",
+   "baselineWarmMedianMillis": 701,
+   "candidateWarmMedianMillis": 546,
+   "warmChangePercent": -22.1,
+   "baselineColdMillis": 852,
+   "candidateColdMillis": 619
+  },
+  {
+   "fixture": "6-turn1",
+   "baselineWarmMedianMillis": 719,
+   "candidateWarmMedianMillis": 495,
+   "warmChangePercent": -31.2,
+   "baselineColdMillis": 856,
+   "candidateColdMillis": 591
+  },
+  {
+   "fixture": "6-turn2",
+   "baselineWarmMedianMillis": 774,
+   "candidateWarmMedianMillis": 602,
+   "warmChangePercent": -22.2,
+   "baselineColdMillis": 826,
+   "candidateColdMillis": 665
+  },
+  {
+   "fixture": "6-turn3",
+   "baselineWarmMedianMillis": 759,
+   "candidateWarmMedianMillis": 608,
+   "warmChangePercent": -19.9,
+   "baselineColdMillis": 762,
+   "candidateColdMillis": 546
+  },
+  {
+   "fixture": "doubles",
+   "baselineWarmMedianMillis": 2690,
+   "candidateWarmMedianMillis": 2110,
+   "warmChangePercent": -21.6,
+   "baselineColdMillis": 2714,
+   "candidateColdMillis": 2085
+  }
+ ],
+ "flaggedOver15Percent": []
+}

@@ -1,0 +1,79 @@
+{{Quote | ''The sky is filled with clouds. ''}}
+[[File:Skyfield.png|thumb]]
+
+Sky Field is a field effect exclusive to Rejuvenation. It is categorized as an Elemental field and is used by [[Souta]].
+
+==Transitions From Other Fields==
+
+* [[Mountain]], [[Snowy Mountain]], and [[Volcanic Top Field]] will transform into this field if either Bounce or Fly is used.
+** ''The battle was taken to the skies!''
+
+==General Effects==
+
+* Flying-type moves increase in base power by 1.5x.
+** ''The open air strengthened the attack!''
+* All weather effects last 8 turns.
+
+==Abilities Affected==
+
+* Aerilate's damage boost is increased to 1.5x.
+* Big Pecks additionally boosts the bearer's Defense by 1 stage on switch-in.
+** ''[Pokémon]'s Big Pecks raised its defense in the skies!''
+* Cloud Nine terminates weather effects instead of disabling them. 
+** ''[Pokémon]'s Cloud Nine removed all weather effects!''
+* Early Bird makes the bearer immune to Sleep.
+* Gale Wings is always active regardless of HP.
+** As of v13.5.6, this interaction is bugged and Gale Wings will not activate if the user is not at full HP.
+* Levitate, [[Lunar Idol]], and [[Solar Idol]] additionally boost the bearer's Speed by 1 stage on switch-in.
+** ''[Pokémon]'s [Ability] made it go faster in the open skies!''
+** As of v13.5.6, the field effect manual does not mention that Lunar Idol or Solar Idol boost Speed.
+* Long Reach additionally increases the bearer's damage by 1.5x and lets them deal super-effective damage to Flying-types.
+* Mimicry changes the user's type to Flying.
+
+==Moves Affected==
+
+===Moves that receive an attack buff===
+
+* Dive, Twister → 1.5x boost, Flying sub-typing.
+** ''The open skies strengthened the attack!''
+* Aeroblast, Bleakwind Storm, Dragon Ascent, Dragon Darts, Esper Wing, Fairy Wind, Flying Press, Grav Apple, Icy Wind, Ominous Wind, Razor Wind, Silver Wind, Sky Uppercut, Steel Wing, Thunder, Thunderbolt, Thundershock → 1.5x boost.
+** ''The open skies strengthened the attack!''
+* Sandsear Storm, Springtide Storm, Windbolt Storm → 1.3x boost.
+** ''The open skies strengthened the attack!''
+
+===Moves that receive an attack nerf===
+
+* Bulldoze, Dig, Earthquake, Magnitude, Rototiller, Spikes, Sticky Web, Toxic Spikes → Fail on use.
+** ''But there is no solid ground!''
+
+===Other moves===
+
+* Bonemerang now deals super-effective damage to Flying-types.
+* Bounce, Fly, Razor Wind, and Sky Attack only last 1 turn.
+* Flying Press' Flying-type damage does not account for resistances.
+* Hurricane and Thunder never miss.
+* Mirror Move additionally boosts the user's Attack, Special Attack and Speed by 1 stage.
+* Tailwind lasts 8 turns and creates Strong Winds.
+* Weather Ball becomes Flying-type during Strong Winds.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Flying.
+* Nature Power becomes Sky Attack.
+* Secret Power may Confuse.
+* Shelter halves damage from Flying-type moves.
+* Terrain Pulse's type becomes Flying.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into [[Mountain]] if one of the moves Grav Apple, Gravity, Ingrain, Smack Down, or Thousand Arrows is used.
+** ''The battle has been brought down to the mountains!''
+
+==Items==
+
+* [[Elemental Seed]] boosts Defense and Special Defense by 1 stage.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

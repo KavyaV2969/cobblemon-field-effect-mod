@@ -1,0 +1,23 @@
+{
+  "packs": [
+    "base"
+  ],
+  "errors": [],
+  "fields": 61,
+  "originalFields": 57,
+  "customFields": 4,
+  "biomes": 165,
+  "explicitBiomes": 64,
+  "counts": {
+    "conditions": 15749,
+    "actions": 5597,
+    "rules": 3192,
+    "moves": 1700,
+    "transitions": 518
+  },
+  "unavailableCounts": {
+    "moves": 27,
+    "abilities": 0,
+    "items": 0
+  }
+}

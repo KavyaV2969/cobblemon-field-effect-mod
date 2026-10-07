@@ -1,0 +1,2 @@
+rootProject.name = 'rejuvenation-fields'
+include 'core', 'compat', 'verification'

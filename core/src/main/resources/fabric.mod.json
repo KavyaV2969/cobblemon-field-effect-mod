@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "rejuvenation_fields",
+  "version": "${version}",
+  "name": "Rejuvenation Fields",
+  "description": "Data-driven contextual battle fields for Cobblemon 1.7.3 (Pokémon Rejuvenation fields plus four custom Minecraft-inspired fields). Third-party AI and preview integrations are in the separate Rejuvenation Fields Compat mod.",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.rejuvenation.RejuvenationFields"
+    ],
+    "client": [
+      "dev.rejuvenation.client.RejuvenationFieldsClient"
+    ]
+  },
+  "mixins": [
+    "rejuvenation.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "fabric-api": ">=0.116.6",
+    "minecraft": "1.21.1",
+    "java": ">=21",
+    "cobblemon": "1.7.3+1.21.1"
+  },
+  "license": "All Rights Reserved (license not yet chosen)",
+  "custom": {
+    "rejuvenation": {
+      "role": "core"
+    }
+  }
+}

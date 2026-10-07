@@ -3,13 +3,13 @@
 Reads the installed RCT datapack without modifying it, snapshots the Kanto series teams
 (research/kanto-league-teams.json), scores every field with the real engine
 (trainer_fields.cjs) and writes the trainer-to-field mapping the mod applies at battle start
-(datapack/.../trainers/kanto.json). Trainer teams and AI configuration are never edited.
+(datapack/cobbleverse/.../trainers/kanto.json). Trainer teams and AI configuration are never edited.
 """
 from pathlib import Path
 import hashlib,json,subprocess,sys,zipfile
-ROOT=Path(__file__).resolve().parents[1];PROFILE=ROOT.parent
+ROOT=Path(__file__).resolve().parents[1];PROFILE=Path(__import__('os').environ.get('REJUVENATION_PROFILE') or ROOT.parent)
 PACK=PROFILE/'datapacks/COBBLEVERSE-RCT-DP-v20.zip'
-OUT=ROOT/'datapack/data/rejuvenation/rejuvenation/trainers/kanto.json'
+OUT=ROOT/'datapack/cobbleverse/data/rejuvenation/rejuvenation/trainers/kanto.json'
 SERIES='kanto'
 with zipfile.ZipFile(PACK) as z:
     ids=sorted(n.rsplit('/',1)[1][:-5] for n in z.namelist() if n.startswith('data/rctmod/mobs/trainers/single/') and n.endswith('.json')

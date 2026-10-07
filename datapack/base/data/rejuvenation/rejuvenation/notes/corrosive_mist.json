@@ -1,0 +1,129 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:corrosive_mist",
+  "title": "Corrosive Mist Field",
+  "summary": "“Corrosive mist settles on the field!”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Sulfur Caves."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Corrosive Mist Field is one of the Field Effects present in Rejuvenation. It is classified as an Elemental field."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Misty Terrain will transform into this field if the moves Clear Smog, Corrosive Gas, Poison Gas or Smog are used 2 times, or the Z-Move Acid Downpour is used 1 time.",
+        "“The mist was corroded!”",
+        "Specifically, Clear Smog, Corrosive Gas, Poison Gas and Smog increment the counter by 1, and Acid Downpour increments it by 2. The field changes to Corrosive Mist Field when the counter reaches 2."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Fire-type moves increase in base power by 1.5x.",
+        "“The toxic mist caught flame!”",
+        "Special Flying-type moves gain a Poison sub-type.",
+        "All non-Poison-type or non-Steel-type Pokémon on the field are poisoned at the end of each turn unless the ability Neutralizing Gas is active.",
+        "“The Pokémon were poisoned by the corrosive mist!”",
+        "Misty Terrain cannot be overlayed."
+      ]
+    },
+    {
+      "heading": "Abilities affected",
+      "lines": [
+        "Activated Abilities:",
+        "Merciless",
+        "Poison Heal",
+        "“[Pokémon] was healed by the poison!”",
+        "Toxic Boost",
+        "Buffed Abilities:",
+        "Aftermath deals 50% max HP damage when activated.",
+        "Corrosion boosts damage dealt by the user by 1.5x.",
+        "Toxic chain can poison Steel-type and Poison-type Pokémon.",
+        "Water Compaction activates on switch-in.",
+        "Other Ability Changes:",
+        "Dry Skin causes the bearer to lose 1/8 max HP at the end of each turn.",
+        "“[Pokémon] absorbed the poison!”",
+        "“[Pokémon] was healed by poison!”",
+        "Poison-type and Steel-type Pokémon aren't damaged, and Poison-type Pokémon heal 1/8 max HP at the end of each turn instead."
+      ]
+    },
+    {
+      "heading": "Moves affected",
+      "lines": [
+        "Damage modifiers: Moves which receive an attack buff:",
+        "Apple Acid, Bubble, Bubble Beam, Sparkling Aria → 1.5x boost, Poison sub-typing.",
+        "“The poison strengthened the attack!”",
+        "Misty Explosion → 1.5x boost if the user is grounded, Poison sub-typing.",
+        "“The poison strengthened the attack!”",
+        "Acid Spray, Clear Smog, Smog → 1.5x boost.",
+        "“The poison strengthened the attack!”",
+        "Other effects: Buffed Moves:",
+        "Acid Armor boosts the user's Defense by 3 stages.",
+        "Barb Barrage and Venoshock double in power regardless of status.",
+        "Corrosive Gas lowers all of the target's stats when successfully destroying its held item.",
+        "Smokescreen lowers the target's Accuracy by 2 stages.",
+        "Toxic's accuracy is increased to 100%.",
+        "Venom Drench can be activated regardless of status.",
+        "Nerfed Moves:",
+        "Aqua Ring instead causes the user to lose 1/16 max HP each turn.",
+        "“[Pokémon]'s Aqua Ring absorbed the poison!”",
+        "Poison-type and Steel-type Pokémon heal as normal.",
+        "Other Move Changes:",
+        "Energy Ball gains a Poison sub-typing.",
+        "Floral Healing and Life Dew poison their target when healing them.",
+        "Field-dependent moves & abilities:",
+        "Mimicry changes the bearer's type to Poison.",
+        "Camouflage changes the user's type to Poison.",
+        "Nature Power becomes Corrosive Gas.",
+        "Secret Power may inflict Poison.",
+        "Shelter halves damage from Poison-type moves.",
+        "Terrain Pulse's type becomes Poison."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.",
+        "This field will transform into Corrosive Field if the move Gravity is used.",
+        "“The toxic mist collected on the ground!”",
+        "This field will transform into Misty Terrain if the move Seed Flare is used.",
+        "“The polluted mist was purified!”",
+        "The field will be terminated if the moves Bleakwind Storm, Defog, Gust, Hurricane, Razor Wind, Tailwind, Twister, Whirlwind, or the Z-Move Supersonic Skystrike are used.",
+        "“The mist was blown away!”",
+        "The field will be terminated and combust, causing all active Pokémon to faint, if the moves Burning Jaleousy, Eruption, Explosion, Fire Pledge, Flame Burst, Heat Wave, Incinerate, Lava Plume, Mind Blown, Searing Shot, Self-Destruct or the Z-Move Inferno Overdrive are used.",
+        "“The toxic mist combusted!”",
+        "The ability Damp will prevent the field from combusting, but it will still be terminated.",
+        "Pokémon will take no field damage if they have the ability Flash Fire, if they are under the effects of a protecting move (Wide Guard & Mat Block included), if they are inside of a Dondozo's mouth through the ability Commander, or if they are in the semi-invulnerable turn of a move.",
+        "Pokémon with the ability Sturdy or under the effects of Endure will survive with 1 HP if they were at full Health."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Elemental Seed raises the user's Attack and Special Attack by 1 stage but badly poisons them.",
+        "Zangoose Crest heals Zangoose even if it is not poisoned."
+      ]
+    },
+    {
+      "heading": "Notes",
+      "lines": [
+        "Prior to V14, Nature Power became Venoshock."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Corrosive Mist Field”, revision 44209: https://rejuvenation.wiki.gg/wiki/Corrosive_Mist_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

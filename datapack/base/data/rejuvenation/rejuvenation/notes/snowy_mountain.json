@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:snowy_mountain",
+  "title": "Snowy Mountain",
+  "summary": "“The snow glows white on the mountain...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Frozen Peaks (over Mountain) and Snowy Slopes (over Mountain)."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Snowy Mountain is one of the field effects present in Rejuvenation. It is classified as a Telluric field."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Mountain will transform into this field if Hail weather has been active for 3 turns, or if one of the following moves is used:",
+        "Blizzard, Glaciate, Mountain Gale, Subzero Slammer",
+        "“The mountain was covered in snow!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Rock-type attacks increase in base power by 1.5x and gain an Ice sub-typing.",
+        "“The snowy mountain strengthened the attack!”",
+        "Ice-type attacks increase in base power by 1.5x.",
+        "“The snowy mountain strengthened the attack!”",
+        "Flying-type attacks increase in base power by 1.5x.",
+        "“The open air strengthened the attack!”",
+        "Fire-type moves decrease in base power by 0.5x.",
+        "The cold softened the attack!",
+        "Special Flying-type attacks increase in base power by 1.5x when Strong Winds is active.",
+        "Sunny and Hail weather last for 8 turns."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Aerilate's base power boost becomes 1.5x.",
+        "Ball Fetch additionally causes the bearer to Pickup a Snowball at the end of the battle if not holding an item.",
+        "Gale Wings is always active during Strong Winds.",
+        "Ice Body, Slush Rush, and Snow Cloak are activated.",
+        "Ice Scales additionally negates the bearer's Ice-type weaknesses.",
+        "Long Reach increases the bearer's damage by 1.5x.",
+        "Mimicry changes the user's type to Ice.",
+        "Refrigerate's base power boost becomes 1.5x."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Icy Wind → 2x boost.",
+        "“The frigid wind strengthened the attack!”",
+        "Avalanche, Bitter Malice, Glaciate, Powder Snow → 1.5x boost.",
+        "“The snow strengthened the attack!”",
+        "As of v13.5.6, the field effect manual does not mention that Glaciate is boosted.",
+        "Circle Throw, Storm Throw, Vital Throw → 1.5x boost.",
+        "“[Pokémon] was thrown down partway the mountain!”",
+        "Fairy Wind, Mountain Gale, Ominous Wind, Razor Wind, Silver Wind, Twister → 1.5x boost.",
+        "“The wind strengthened the attack!”",
+        "Hyper Voice → 1.5x boost.",
+        "“Yodelayheehoo~”",
+        "Fairy Wind, Gust, Icy Wind, Ominous Wind, Razor Wind, Silver Wind, Twister → Additional 1.5x boost when Strong Winds is active.",
+        "“The wind strengthened the attack!”",
+        "Moves which receive an attack nerf:",
+        "Scald, Steam Eruption → 0.5x decrease.",
+        "“The cold softened the attack...”",
+        "Other moves:",
+        "Aurora Veil can be activated regardless of weather.",
+        "Bitter Malice gains a 10% chance to Freeze its target.",
+        "Tailwind lasts for 6 turns and creates Strong Winds while active.",
+        "Thunder never misses.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Ice.",
+        "Nature Power becomes Avalanche.",
+        "Secret Power may Freeze.",
+        "Shelter halves damage from Ice-type moves.",
+        "Terrain Pulse's type becomes Ice."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.",
+        "This field will transform into Mountain if Sunny weather has been active for 3 turns, or if one of the following moves is used:",
+        "Fire Pledge, Flame Burst, Heat Wave, Incinerate, Inferno Overdrive, Lava Plume, Mind Blown, Raging Fury, Searing Shot",
+        "“The snow melted away!”",
+        "This field will transform into Sky Field if either Bounce or Fly is used.",
+        "“The battle was taken to the skies!”",
+        "This field will transform into Volcanic Top Field if either Eruption or Magma Drift is used.",
+        "“The mountain erupted!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Telluric Seed boosts Special Attack by 2 stages but lowers Accuracy by 1 stage."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Snowy Mountain”, revision 32490: https://rejuvenation.wiki.gg/wiki/Snowy_Mountain",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ],
+  "substrateText": "When the snow is melted or broken, the ground beneath it ({substrate}) is restored instead of the usual replacement."
+}

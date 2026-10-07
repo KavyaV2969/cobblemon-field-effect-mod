@@ -1,0 +1,18 @@
+{
+ "environmentSnapshots": 1362720,
+ "structureOverlapCases": 968,
+ "mappingRows": {
+  "monolith": 286,
+  "merged": 286,
+  "baseOnly": 115
+ },
+ "structureRows": {
+  "monolith": 22,
+  "merged": 22,
+  "baseOnly": 10
+ },
+ "trainers": 13,
+ "shuffledMerges": 200,
+ "installed0_2_0": null,
+ "differences": []
+}

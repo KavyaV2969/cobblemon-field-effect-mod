@@ -7,14 +7,14 @@ recorded with their source name and SHA-256. Nothing else from the game is copie
 from pathlib import Path
 import hashlib, json, sys
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'mod/src/main/resources/assets/rejuvenation/textures/gui/field'
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import custom_artwork  # needs Pillow: fail here, before any existing backdrop is replaced
+OUT = ROOT / 'core/src/main/resources/assets/rejuvenation/textures/gui/field'
 spec = json.loads((ROOT / 'research/field-specification.json').read_text(encoding='utf-8'))
 ids = json.loads((ROOT / 'research/field-id-map.json').read_text(encoding='utf-8'))
-candidates = [ROOT / 'Rejuvenation 14 copy']
-location = ROOT / 'research/source-location.json'
-if location.exists(): candidates.append(Path(json.loads(location.read_text(encoding='utf-8'))['scripts']).parent)
-game = next((c for c in candidates if (c / 'Graphics/Battlebacks').is_dir()), None)
-if game is None: sys.exit('Local Rejuvenation installation with Graphics/Battlebacks not found: ' + ', '.join(map(str, candidates)))
+import source_path
+game = source_path.reference_root()
+if game is None or not (game / 'Graphics/Battlebacks').is_dir(): sys.exit('Local Rejuvenation installation with Graphics/Battlebacks not found; set REJUVENATION_REFERENCE')
 battlebacks = {p.name.lower(): p for p in (game / 'Graphics/Battlebacks').iterdir() if p.is_file()}
 OUT.mkdir(parents=True, exist_ok=True)
 for stale in OUT.glob('*.png'): stale.unlink()
@@ -32,11 +32,16 @@ for sym, fid in sorted(ids.items(), key=lambda kv: kv[1]):
 CREDIT = ('Field backdrops from Pokémon Rejuvenation V14 (Graphics/Battlebacks), a fan game by Janichroma (lead developer) and the '
           "Rejuvenation team; art credited in the game's ReadMe_Credits.txt to Zumi (Honnojis), Janichroma, Crimson, CeriseBlossome, Winter, "
           'Azeria, Dallas, Soulja, IronicOmens and MoonPaw. Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc. '
-          'Used unmodified as client-side UI artwork for this non-commercial field port; not part of the datapack or the server logic.')
+          'Used unmodified as client-side UI artwork for this non-commercial field port; not part of the datapack or the server logic. '
+          'Basis: the project owner states this fan mod may use them; no written permission from the Rejuvenation team is on file (see THIRD_PARTY.md).')
 (OUT / 'ATTRIBUTION.txt').write_text(CREDIT + '\n\nFiles: <field id>.png = Graphics/Battlebacks/battlebg<graphic[0]>.png; '
                                      'see ../../../field_backdrops.json for each source file and SHA-256.\n', encoding='utf-8')
 manifest = {'description': 'Field panel backdrops copied unmodified from Pokémon Rejuvenation 14 (client-side UI artwork only).',
             'credit': CREDIT,
             'selection': 'graphic[0] of each field definition; Battle_Field.rb backdrop, Battle.rb pbChangeBGSprite', 'fields': rows}
-(ROOT / 'mod/src/main/resources/assets/rejuvenation/field_backdrops.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+(ROOT / 'core/src/main/resources/assets/rejuvenation/field_backdrops.json').write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 print(f'Copied {len(rows)} field backdrops ({sum(r["bytes"] for r in rows.values())} bytes) from {game}')
+# The four custom fields' backdrops are not Rejuvenation artwork; the stale-file sweep above removed them, so rebuild them from the
+# preserved originals (research/custom-artwork) and re-add their manifest rows. The 57 attributions above are not touched.
+import custom_artwork
+custom_artwork.main()

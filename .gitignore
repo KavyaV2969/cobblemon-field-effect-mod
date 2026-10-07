@@ -1,28 +1,46 @@
-# Gradle caches, generated classes, and copied compile-only dependencies.
-/mod/.gradle/
-/mod/.gradle-home/
-/mod/build/
-
-# Isolated Minecraft installation and its generated verification fixture.
-/integration/
-/Rejuvenation 14 copy/
-
-# Local decompilations of external mods (ABI evidence only; never redistributed).
-/research/bytecode/
-
-# Python caches and local diagnostic logs.
+# Build output, caches and the compile-time copies of installed jars (never redistributed).
+/build/
+/.gradle/
+/.gradle-home/
+/.gradle-user/
+/core/build/
+/compat/build/
+/verification/build/
+/dist/
+/release/
+/public/
 __pycache__/
 *.py[cod]
 *.log
-/research/test-results/gradle-thread-diagnostic.txt
-/research/test-results/live-process.json
-/research/test-results/live-startup-[0-9]*.json
 
-# Editor and operating-system files.
+# Local, machine-specific inputs and the isolated game used for live checks.
+/integration/
+/Rejuvenation 14 copy/
+/mod/
+/research/source-location.json
+/research/backups/
+/research/bytecode/
+/research/showcase/
+/research/ai-source-worklist.txt
+/research/*-bytecode.txt
+/research/test-results/live-startup-*
+/research/test-results/live-process.json
+/research/test-results/gradle-thread-diagnostic.txt
+/research/test-results/screenshots/
+/research/test-results/example-pack/
+/research/runtime-biomes.json
+
+# Local game profile, worlds, saves and credentials must never be committed.
+/saves/
+/mods/
+/config/
+/*.pdf
+.env
+*.pem
+*.key
+
+# Editors and operating systems.
 .idea/
 .vscode/
 .DS_Store
 Thumbs.db
-
-# Generated worklist quoting Battle_AI.rb branch bodies verbatim (local review aid; source is not redistributed).
-/research/ai-source-worklist.txt

@@ -1,0 +1,82 @@
+{{Quote | ''From darkness, from stardust, from memories of eons past and visions yet to come...''}}
+[[File:NewWorld.png|thumb]]
+
+New World is one of the fields present in Rejuvenation. It is categorized as a Magical field. 
+
+==General Effects==
+
+* Dark-type moves increase in base power by 1.5x.
+** ''Infinity boosted the attack!''
+* Grounded Pokémon's Speed is reduced to 0.75x.
+* Airborne Pokémon's Defense and Special Defense are reduced to 0.9x.
+* Fields cannot be generated.
+** ''The terrain had no solid ground to attach...''
+* No weather can be generated.
+** ''The weather disappeared into space!''
+** ''The weather drifted off into space...''
+
+==Abilities Affected==
+
+* Mimicry changes the user's type to to a random type.
+* Multitype and RKS-System cause the bearer to randomly become a different type on switch-in and at the end of each turn.
+* Shadow Shield additionally reduces damage taken to 0.75x.
+* Victory Star additionally boosts damage dealt by the bearer and its allies by 1.5x.
+* [[World of Nightmares]]' damage is doubled.
+** As of v13.5.6, the field effect manual does not mention this effect.
+
+==Moves Affected== 
+
+===Moves which receive an attack buff===
+
+* Doom Desire → 4x boost, Fire sub-typing.
+** ''A star came crashing down on [Pokémon]!''
+* Ancient Power, Black Hole Eclipse, Comet Punch, Draco Meteor, Future Sight, Hyperspace Fury, Hyperspace Hole, Light That Burns the Sky, Meteor Beam, Meteor Mash, Moonblast, Spacial Rend, Swift, Vacuum Wave → 2x boost.
+** ''The astral energy boosted the attack!''
+** ''[Pokémon] was swallowed up by the void!''
+** ''The light shone through the infinite darkness!''
+* Aeroblast, Aurora Beam, Blue Flare, Bolt Strike, Continental Crush, Core Enforcer, Crush Grip, Dazzling Gleam, Diamond Storm, Dragon Ascent, Earth Power, Eruption, Flash Cannon, Fleur Cannon, Freeze Shock, Fusion Bolt, Fusion Flare, Genesis Supernova, Ice Burn, Judgment, Land's Wrath, Luster Purge, Magma Storm, Menacing Moonraze Maelstrom, Mind Blown, Mirror Beam, Mirror Shot, Mist Ball, Moongeist Beam, Multi-Attack, Oblivion Wing, Origin Pulse, Photon Geyser, Plasma Fists, Power Gem, Precipice Blades, Prismatic Laser, Psycho Boost, Psystrike, Relic Song, Roar of Time, Sacred Fire, Sacred Sword, Searing Shot, Searing Sunraze Smash, Secret Sword, Seed Flare, Shadow Force, Signal Beam, Soul-Stealing 7-Star Strike, Spectral Thief, Steam Eruption, Sunsteel Strike, Techno Blast, Thousand Arrows, Thousand Waves, V-Create → 1.5x boost.
+** ''The ethereal energy strengthened the attack!''
+** ''The light shone through the infinite darkness!''
+** ''The germinal matter amassed in the attack!''
+** As of v13.5.6, despite what the field effect manual says, Glaciate does not receive a damage boost.
+
+===Moves which receive an attack nerf===
+
+* Bulldoze, Magnitude, Earthquake → 0.25x decrease.
+* Fissure → Fails on use.
+
+===Other moves===
+
+* Cosmic Power boosts the user's Defense and Special Defense by 2 stages. 
+* Dark Void's accuracy is increased to 100%.
+* Flash lowers the target's Accuracy by 2 stages.
+* Heart Swap additionally applies the effect of Pain Split.
+* Lunar Dance additionally boosts all of the recipient's stats by 1 stage.
+* Lunar Blessing now restores 33% of the target's max HP.
+* Magic Room, Trick Room, and Wonder Room last 8 turns.
+* Meteor Beam only takes 1 turn to use.
+* Moonlight now restores 75% of the user's max HP.
+* Nature's Madness now deals 75% HP damage.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to to a random type.
+* Nature Power becomes Spacial Rend.
+* Secret Power may lower all stats by 1 stage.
+* Shelter halves damage from Dark-type moves.
+* Terrain Pulse's type becomes a random type.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into [[Starlight Arena]] if the move Geomancy is used, or while the effect of Gravity is active.
+** ''The world was regenerated!''
+** ''The world's matter reformed!''
+
+==Items==
+
+* [[Magical Seed]] boosts all stats by 1 stage, but forces the user to recharge for 1 turn.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

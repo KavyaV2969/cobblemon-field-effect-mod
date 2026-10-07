@@ -1,0 +1,721 @@
+{
+ "specificationHashes": {
+  "Crimson_Forest_Field.md": "deb1d4f0dbc35b65e35dd0086ce9e2d8a23d92d35b3e7646f6153df3b30d9984",
+  "Deep_Dark_Field.md": "f01dca035c8c904ebd704207bb8694703b11604d2e34f89bc003b4a19df279c1",
+  "Pale_Garden_Field.md": "0ca1a70615042e99d952166ff90b896ca4995312092a12a5527160f73ea7a3e7",
+  "Warped_Forest_Field.md": "efd0b48527697580e7411c21795790c9c1c5b3a45dad6344e4ae421ac2627b61"
+ },
+ "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
+ "suite": {
+  "passed": 656,
+  "failed": false
+ },
+ "summary": {
+  "pass": 64,
+  "fail": 0,
+  "unavailable": 1,
+  "graal": 1,
+  "not-executed": 0
+ },
+ "rows": [
+  {
+   "id": "CF-001",
+   "field": "Deep Dark",
+   "statement": "Biome `minecraft:deep_dark` selects the field",
+   "implementation": "research/custom-fields/deep_dark.json biomes; datapack mappings",
+   "tests": [
+    "the four biomes and the required structures map to their fields; Pale Garden exists at runtime"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-002",
+   "field": "Deep Dark",
+   "statement": "Ancient City structures (vanilla and Repurposed Structures variants) select the field before every other structure",
+   "implementation": "research/custom-fields/deep_dark.json structures; structure rows are checked first (Java StructureVerification covers the resolver)",
+   "tests": [
+    "the four biomes and the required structures map to their fields; Pale Garden exists at runtime"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-003",
+   "field": "Deep Dark",
+   "statement": "Dark and Ghost damaging moves 1.5x, with the Deep Dark message",
+   "implementation": "research/custom-fields/deep_dark.json types",
+   "tests": [
+    "Deep Dark type multipliers, hooks and Terrain Pulse follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-004",
+   "field": "Deep Dark",
+   "statement": "Fairy 0.5x; Rock and Ground 1.3x, with their messages",
+   "implementation": "research/custom-fields/deep_dark.json types",
+   "tests": [
+    "Deep Dark type multipliers, hooks and Terrain Pulse follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-005",
+   "field": "Deep Dark",
+   "statement": "Mimicry / Camouflage / Terrain Pulse are Dark; Nature Power is Dark Pulse",
+   "implementation": "research/custom-fields/deep_dark.json hooks, terrainPulse",
+   "tests": [
+    "Deep Dark type multipliers, hooks and Terrain Pulse follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-006",
+   "field": "Deep Dark",
+   "statement": "Secret Power may lower Accuracy with the darkness message",
+   "implementation": "research/custom-fields/deep_dark.json hooks.secretPowerEffects",
+   "tests": [
+    "Deep Dark type multipliers, hooks and Terrain Pulse follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-007",
+   "field": "Deep Dark",
+   "statement": "Sculk Warning is one shared 0-4 counter",
+   "implementation": "engine mechanics.sculkWarning (public counter 0)",
+   "tests": [
+    "public Warning is synchronized without any team information",
+    "Warning is battlefield state: switching and fainting never reset it"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-008",
+   "field": "Deep Dark",
+   "statement": "Base Power classes: below 90 +0, 90-149 +1, 150+ +2 (exact boundaries 89/90/149/150)",
+   "implementation": "engine sculkWarning thresholds (resolved Base Power event value)",
+   "tests": [
+    "playtest Deep Dark: Base Power classes at the exact boundaries 89, 90, 149 and 150",
+    "Deep Dark Warning sources are exclusive classes: calming, explicit, sound, seismic, then resolved power"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-009",
+   "field": "Deep Dark",
+   "statement": "Sound-based moves +2; explicit seismic/explosive moves +2 (Earthquake, Boomburst, Uproar, Explosion, Self-Destruct, Clanging Scales, Clangorous Soulblaze, ...)",
+   "implementation": "research/custom-fields/deep_dark.json mechanics.sculkWarning.overrides",
+   "tests": [
+    "Deep Dark Warning sources are exclusive classes: calming, explicit, sound, seismic, then resolved power"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-010",
+   "field": "Deep Dark",
+   "statement": "Warning sources from one move are exclusive, never additive; multi-hit and spread moves count once",
+   "implementation": "engine sculkWarning classification",
+   "tests": [
+    "Deep Dark Warning sources are exclusive classes: calming, explicit, sound, seismic, then resolved power",
+    "Z-Moves and Max Moves classify by their own resolved power, with the impact text"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-011",
+   "field": "Deep Dark",
+   "statement": "Each side may change the Warning once per turn; raising and calming share the allowance; a no-op does not consume it",
+   "implementation": "engine custom.allow",
+   "tests": [
+    "each side changes Warning once per turn; raising and calming share it; a clamped no-op does not consume it"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-012",
+   "field": "Deep Dark",
+   "statement": "Calming moves (Calm Mind, Meditate, others) lower by 1 to a minimum of 0; Flash also lowers by 1",
+   "implementation": "research/custom-fields/deep_dark.json mechanics.sculkWarning",
+   "tests": [
+    "Deep Dark Warning sources are exclusive classes: calming, explicit, sound, seismic, then resolved power",
+    "each side changes Warning once per turn; raising and calming share it; a clamped no-op does not consume it"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-013",
+   "field": "Deep Dark",
+   "statement": "Execution semantics: a miss, Protect, immunity or absorption still generates Warning; sleep, paralysis, flinch and charging turns do not",
+   "implementation": "engine TryMove attribution",
+   "tests": [
+    "execution, not outcome, generates Warning: Protect, immunity, absorption and misses count; prevented and charging actions do not",
+    "a called move classifies by the move that was executed",
+    "playtest Deep Dark: a move that passes TryMove then fails still executed; one rejected in TryMove did not"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-014",
+   "field": "Deep Dark",
+   "statement": "Magical Seed grants Soundproof, then attempts Warning +1 within the allowance, with both messages",
+   "implementation": "research/custom-fields/deep_dark.json seedActions",
+   "tests": [
+    "Magical Seed gives Soundproof in place of the original ability, then attempts +1 Warning within the side allowance",
+    "a seed that raises Warning to 4 strikes through the same pipeline"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-015",
+   "field": "Deep Dark",
+   "statement": "Stage messages 1 and 2, then 3 (shriek + darkness) and 4 (tremble + struck back); reset text; darkness receded text",
+   "implementation": "research/custom-fields/deep_dark.json mechanics.sculkWarning.stages",
+   "tests": [
+    "milestones are announced in order; Rattled reacts to genuine crossings only; Darkness follows Warning 3",
+    "Warning 4 strikes every active non-immune Pokémon for 20% maximum HP, once, then resets to 1",
+    "Deep Dark Warning sources are exclusive classes: calming, explicit, sound, seismic, then resolved power"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-016",
+   "field": "Deep Dark",
+   "statement": "At Warning >= 3 every accuracy check is x0.9 as a modifier; Keen Eye, Compound Eyes and Illuminate ignore it",
+   "implementation": "research/custom-fields/deep_dark.json rules (accuracy)",
+   "tests": [
+    "Darkness multiplies accuracy by 0.9 as a modifier, not a stat stage, with the ability exemptions",
+    "milestones are announced in order; Rattled reacts to genuine crossings only; Darkness follows Warning 3"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-017",
+   "field": "Deep Dark",
+   "statement": "Rattled gains Speed +1 when the Warning genuinely crosses into 3",
+   "implementation": "engine sculkWarning (Rattled crossing)",
+   "tests": [
+    "milestones are announced in order; Rattled reacts to genuine crossings only; Darkness follows Warning 3"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-018",
+   "field": "Deep Dark",
+   "statement": "At Warning 4 every active non-immune Pokemon loses 20% max HP once per turn, then the Warning resets to 1",
+   "implementation": "engine sculkWarning retaliation (directDamage)",
+   "tests": [
+    "Warning 4 strikes every active non-immune Pokémon for 20% maximum HP, once, then resets to 1",
+    "retaliation bypasses Substitute, Protect, Endure and Focus Sash, and can be fatal",
+    "retaliation resolves with the action: faints share one queue, and it fires once per turn",
+    "a capped Warning waits for the next valid processing point instead of striking twice in one turn"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-019",
+   "field": "Deep Dark",
+   "statement": "Retaliation immunities: Soundproof, Punk Rock, Solid Rock and current Ghost typing, with messages; immunity never prevents the Pokemon's own Warning",
+   "implementation": "research/custom-fields/deep_dark.json mechanics.sculkWarning.exempt",
+   "tests": [
+    "retaliation immunities: Soundproof, Punk Rock, Solid Rock and current Ghost typing, never preventing their own Warning"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-020",
+   "field": "Deep Dark",
+   "statement": "Fainted and hidden (Commander) battlers are not struck",
+   "implementation": "engine active-battler iteration",
+   "tests": [
+    "playtest Deep Dark: a Commander-hidden battler is not struck by the retaliation; the Pokemon around it are",
+    "retaliation bypasses Substitute, Protect, Endure and Focus Sash, and can be fatal"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-021",
+   "field": "Deep Dark",
+   "statement": "Switching and fainting never reset the Warning; leaving the field zeroes it",
+   "implementation": "engine custom state lifecycle",
+   "tests": [
+    "Warning is battlefield state: switching and fainting never reset it",
+    "playtest: switching and fainting clean per-side counters correctly, and a new field starts with zeroed counters"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-022",
+   "field": "Deep Dark",
+   "statement": "Retaliation and Warning damage are environmental and never part of the move's preview or KO estimate",
+   "implementation": "engine evaluator fieldStrike",
+   "tests": [
+    "retaliation, Creaking and Bloodlust damage is never reported as move damage by the evaluator"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-023",
+   "field": "Deep Dark",
+   "statement": "Mega Evolution, Terastallization and Z/Max Moves work with the Warning rules",
+   "implementation": "engine hooks are move-resolution based",
+   "tests": [
+    "playtest Deep Dark: Mega Evolution, Terastallization and Z-Moves keep the Warning rules (classified after the transformation, once)",
+    "Z-Moves and Max Moves classify by their own resolved power, with the impact text",
+    "field and gimmick preview ranges match native hit pipelines on the new fields at both damage-roll endpoints"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-024",
+   "field": "Crimson Forest",
+   "statement": "Biome `minecraft:crimson_forest` selects the field",
+   "implementation": "research/custom-fields/crimson_forest.json biomes",
+   "tests": [
+    "the four biomes and the required structures map to their fields; Pale Garden exists at runtime"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-025",
+   "field": "Crimson Forest",
+   "statement": "Fire, Grass, Poison 1.3x; special Bug 1.2x; Water 0.8x; Ice 0.5x with their messages",
+   "implementation": "research/custom-fields/crimson_forest.json types",
+   "tests": [
+    "Crimson Forest type multipliers, move rows and accuracy rows follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-026",
+   "field": "Crimson Forest",
+   "statement": "Special Flying moves gain Poison sub-typing for effectiveness only (no extra same-type bonus)",
+   "implementation": "research/custom-fields/crimson_forest.json typeComposition",
+   "tests": [
+    "Crimson Forest sub-typing: special Flying gains Poison, Power Whip and Vine Whip gain Fire, cutters keep Grass",
+    "playtest Crimson Forest: added Poison and Fire components never add same-type bonus (Power Whip, Vine Whip, Hurricane)"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-027",
+   "field": "Crimson Forest",
+   "statement": "Power Whip / Vine Whip 1.5x and gain Fire sub-typing (Grass + Fire composition, one STAB)",
+   "implementation": "research/custom-fields/crimson_forest.json moves, typeComposition",
+   "tests": [
+    "Crimson Forest sub-typing: special Flying gains Poison, Power Whip and Vine Whip gain Fire, cutters keep Grass",
+    "playtest Crimson Forest: added Poison and Fire components never add same-type bonus (Power Whip, Vine Whip, Hurricane)",
+    "Crimson Forest type multipliers, move rows and accuracy rows follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-028",
+   "field": "Crimson Forest",
+   "statement": "Forest cutting/slashing moves that gain Grass keep those interactions",
+   "implementation": "inherited Forest move rows",
+   "tests": [
+    "Crimson Forest sub-typing: special Flying gains Poison, Power Whip and Vine Whip gain Fire, cutters keep Grass"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-029",
+   "field": "Crimson Forest",
+   "statement": "Pokemon cannot be frozen; Snow (and Hail) end when established",
+   "implementation": "research/custom-fields/crimson_forest.json inherit Volcanic setStatus",
+   "tests": [
+    "Crimson Forest Fire Spin deals 1/6, Snow and Hail end, freezing is impossible, and Elemental Seed boosts then taunts"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-030",
+   "field": "Crimson Forest",
+   "statement": "Piglin Bloodlust: +1 Attack on a direct opposing KO, stacks with Moxie, multiple KOs, no ally/recoil/status/weather KOs",
+   "implementation": "engine mechanics.bloodlust",
+   "tests": [
+    "Piglin Bloodlust: +1 Attack per direct opposing knockout, stacking with Moxie, and nothing else counts",
+    "playtest Crimson Forest: Bloodlust ignores recoil, weather and status knockouts, counts a move's binding damage exactly as Moxie does, and pays the opposing side symmetrically"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-031",
+   "field": "Crimson Forest",
+   "statement": "Good as Gold: Speed +1 and Special Attack +1 on entry, with the message",
+   "implementation": "research/custom-fields/crimson_forest.json rules",
+   "tests": [
+    "Good as Gold gains +1 Speed and +1 Special Attack on entry through normal boost handling"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-032",
+   "field": "Crimson Forest",
+   "statement": "Pay Day 1.5x and Make It Rain 1.3x with their messages",
+   "implementation": "research/custom-fields/crimson_forest.json moves",
+   "tests": [
+    "Crimson Forest type multipliers, move rows and accuracy rows follow the specification",
+    "playtest Crimson Forest: every flavor line of the specification is announced by its mechanic"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-033",
+   "field": "Crimson Forest",
+   "statement": "Crimson Vines: positive-priority damaging moves have final accuracy x0.8 (actual resolved priority; never-miss moves exempt)",
+   "implementation": "research/custom-fields/crimson_forest.json rules (finalAccuracy)",
+   "tests": [
+    "Crimson Vines scale the final accuracy of positive-priority damaging moves by 0.8 using the actual effective priority"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-034",
+   "field": "Crimson Forest",
+   "statement": "A miss caused only by the penalty crashes the user like High Jump Kick; ordinary misses, Protect, immunity and native crash moves never do",
+   "implementation": "engine accuracyCrash (native probe)",
+   "tests": [
+    "a Crimson Vines crash happens only when the penalty itself caused the miss"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-035",
+   "field": "Crimson Forest",
+   "statement": "Inherited abilities: Grass Pelt, Leaf Guard, Overgrow, Swarm; Effect Spore; Merciless, Poison Heal, Toxic Boost; Flash Fire, Well-Baked Body, Steam Engine; Magma Armor",
+   "implementation": "inherited Forest, Corrosive Mist and Volcanic rows",
+   "tests": [
+    "Crimson Forest inherits the specified Forest, Corrosive Mist and Volcanic rows",
+    "Crimson Forest ability effects: Magma Armor, Well-Baked Body, Flash Fire, Steam Engine, Merciless, Poison Heal, Toxic Boost"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-036",
+   "field": "Crimson Forest",
+   "statement": "Acid Spray / Clear Smog / Smog 1.5x; Barb Barrage / Venoshock double; Toxic and Will-O-Wisp 100% accuracy; Fire Spin 1/6",
+   "implementation": "research/custom-fields/crimson_forest.json moves",
+   "tests": [
+    "Crimson Forest type multipliers, move rows and accuracy rows follow the specification",
+    "Crimson Forest Fire Spin deals 1/6, Snow and Hail end, freezing is impossible, and Elemental Seed boosts then taunts"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-037",
+   "field": "Crimson Forest",
+   "statement": "Mimicry / Camouflage / Terrain Pulse Fire; Nature Power Power Whip; Secret Power may burn; Shelter halves Fire damage",
+   "implementation": "research/custom-fields/crimson_forest.json hooks, customVolatiles",
+   "tests": [
+    "Crimson Forest type multipliers, move rows and accuracy rows follow the specification",
+    "Shelter halves the field mimicry type: Dark in Warped Forest, Fire in Crimson Forest, and only for its user"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-038",
+   "field": "Crimson Forest",
+   "statement": "Elemental Seed: Attack +1, Special Attack +1, Speed +1, then Taunt on the holder",
+   "implementation": "research/custom-fields/crimson_forest.json seed",
+   "tests": [
+    "Crimson Forest Fire Spin deals 1/6, Snow and Hail end, freezing is impossible, and Elemental Seed boosts then taunts"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-039",
+   "field": "Crimson Forest",
+   "statement": "Flavor text pool (14 lines)",
+   "implementation": "research/custom-fields/crimson_forest.json messages",
+   "tests": [
+    "playtest: every flavor-text string of the Warped Forest and Crimson Forest specification pools is present in the field data",
+    "playtest Crimson Forest: every flavor line of the specification is announced by its mechanic"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-040",
+   "field": "Warped Forest",
+   "statement": "Biome `minecraft:warped_forest` selects the field",
+   "implementation": "research/custom-fields/warped_forest.json biomes",
+   "tests": [
+    "the four biomes and the required structures map to their fields; Pale Garden exists at runtime"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-041",
+   "field": "Warped Forest",
+   "statement": "Grass 1.5x, special Bug 1.5x, Dark 1.5x, Ghost 1.2x, Fairy 0.5x, Fire 1.3x, Ice 0.5x, Water 0.8x with messages",
+   "implementation": "research/custom-fields/warped_forest.json types",
+   "tests": [
+    "Warped Forest type multipliers, move rows and hooks follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-042",
+   "field": "Warped Forest",
+   "statement": "Damaging Grass moves gain Dark sub-typing for effectiveness, composed once with the Forest cutters' Grass; no extra STAB",
+   "implementation": "research/custom-fields/warped_forest.json typeComposition",
+   "tests": [
+    "damaging Grass moves gain Dark typing for effectiveness only, composed once from the move and the Forest cutters"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-043",
+   "field": "Warped Forest",
+   "statement": "Pokemon cannot be frozen; Snow ends when established; weather effects fail",
+   "implementation": "inherited Volcanic setStatus + Warped weather rules",
+   "tests": [
+    "weather fails in Warped Forest: attempts fail, weather on entry is cleared, and nothing freezes",
+    "playtest Warped Forest: a temporary replacement restores it, with weather still failing and its Leech Seed rule intact"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-044",
+   "field": "Warped Forest",
+   "statement": "Ability effects: Grass Pelt, Leaf Guard, Overgrow, Swarm, Effect Spore, Sap Sipper, Rattled, Unnerve, Poison Heal, Toxic Boost",
+   "implementation": "inherited Forest, Dimensional and Wasteland rows",
+   "tests": [
+    "Warped Forest inherits the specified Forest, Dimensional and Wasteland rows, and nothing else",
+    "Warped Forest ability effects: Rattled, Unnerve, Poison Heal, Toxic Boost, Sap Sipper, Grass Pelt, Overgrow, Swarm"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-045",
+   "field": "Warped Forest",
+   "statement": "Power Whip / Vine Whip 1.5x; Dark Pulse / Night Daze 1.2x and never miss; Hyperspace Fury/Hole, Shadow Force, Spacial Rend 1.5x",
+   "implementation": "research/custom-fields/warped_forest.json moves",
+   "tests": [
+    "Warped Forest type multipliers, move rows and hooks follow the specification"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-046",
+   "field": "Warped Forest",
+   "statement": "Leech Seed drains 1/4 max HP each turn (documented resolution: twice the native eighth, within 1 HP of a literal quarter)",
+   "implementation": "research/custom-fields/warped_forest.json rules (receivedDamage)",
+   "tests": [
+    "Warped Forest Leech Seed drains 1/4 of maximum HP with its message",
+    "playtest Warped Forest: a temporary replacement restores it, with weather still failing and its Leech Seed rule intact"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-047",
+   "field": "Warped Forest",
+   "statement": "Gravity, Magic Room, Trick Room and Wonder Room last a random 3-8 turns; Amplifield Rock does not extend them",
+   "implementation": "inherited Dimensional conditionDurations",
+   "tests": [
+    "Warped Forest rooms and Gravity last 3 to 8 turns, not the ordinary five",
+    "playtest Warped Forest: Trick Room, Magic Room, Wonder Room and Gravity last 3 to 8 turns, and an Amplifield Rock does not extend them"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-048",
+   "field": "Warped Forest",
+   "statement": "Mimicry / Camouflage / Terrain Pulse Dark; Nature Power Wood Hammer; Secret Power may flinch; Shelter halves Dark damage",
+   "implementation": "research/custom-fields/warped_forest.json hooks",
+   "tests": [
+    "Warped Forest type multipliers, move rows and hooks follow the specification",
+    "Shelter halves the field mimicry type: Dark in Warped Forest, Fire in Crimson Forest, and only for its user"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-049",
+   "field": "Warped Forest",
+   "statement": "Magical Seed: Defense +1, Special Defense +1, Speed -1 and Ingrain",
+   "implementation": "research/custom-fields/warped_forest.json seed",
+   "tests": [
+    "Warped Forest Magical Seed: Defense +1, Special Defense +1, Speed −1 and Ingrain"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-050",
+   "field": "Warped Forest",
+   "statement": "Field replacement and restoration; flavor text pool",
+   "implementation": "engine field lifecycle",
+   "tests": [
+    "playtest Warped Forest: a temporary replacement restores it, with weather still failing and its Leech Seed rule intact",
+    "playtest: every flavor-text string of the Warped Forest and Crimson Forest specification pools is present in the field data"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-051",
+   "field": "Pale Garden",
+   "statement": "Biome `minecraft:pale_garden` selects the field (the biome is provided by VanillaBackport, not vanilla 1.21.1)",
+   "implementation": "research/custom-fields/pale_garden.json biomes",
+   "tests": [
+    "the four biomes and the required structures map to their fields; Pale Garden exists at runtime"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-052",
+   "field": "Pale Garden",
+   "statement": "Bewitched Woods baseline with every parent self-reference retargeted to Pale Garden",
+   "implementation": "research/custom-fields/pale_garden.json base BEWITCHED",
+   "tests": [
+    "Pale Garden is Bewitched Woods plus only its explicit overrides, with self references retargeted",
+    "inherited Bewitched rules work under the new ID, including those keyed to the parent field"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-053",
+   "field": "Pale Garden",
+   "statement": "Fairy 1.5x and super effective on Steel / neutral on Dark; Grass 1.5x; Dark 1.3x and neutral on Fairy; Poison neutral on Grass",
+   "implementation": "inherited Bewitched types and typeChart",
+   "tests": [
+    "inherited Bewitched rules work under the new ID, including those keyed to the parent field"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-054",
+   "field": "Pale Garden",
+   "statement": "Grounded Grass heal 1/16; sleeping Pokemon lose 1/16 (rule keyed to the field ID)",
+   "implementation": "inherited Bewitched healing and residual rules",
+   "tests": [
+    "inherited Bewitched rules work under the new ID, including those keyed to the parent field"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-055",
+   "field": "Pale Garden",
+   "statement": "Effect Spore 60%, Flower Gift always active, Flower Veil affects everyone, Natural Cure heals at end of turn, Pastel Veil, Power Spot 1.5x, Prankster affects Dark",
+   "implementation": "inherited Bewitched abilityHandlers",
+   "tests": [
+    "playtest Pale Garden: Bewitched abilities under the new ID: Prankster, Natural Cure, Pastel Veil, Power Spot, Flower Gift, Flower Veil, Effect Spore 60%"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-056",
+   "field": "Pale Garden",
+   "statement": "Hex, Mystical Fire, Spirit Break 1.5x; the beam moves 1.4x; Dark Pulse, Moonblast, Night Daze 1.2x; Forest's Curse, Grass/Poison/Sleep/Stun powders, Magic Powder, Moonlight 75%, Strength Sap",
+   "implementation": "inherited Bewitched move rows",
+   "tests": [
+    "inherited Bewitched rules work under the new ID, including those keyed to the parent field",
+    "Pale Garden is Bewitched Woods plus only its explicit overrides, with self references retargeted"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-057",
+   "field": "Pale Garden",
+   "statement": "Mirror Beam 1.4x (a Rejuvenation-only move)",
+   "implementation": "inherited Bewitched move row `mirrorbeam`",
+   "tests": [
+    "playtest: Mirror Beam is part of the retained Bewitched move rows but absent from the installed simulator (unavailable content, not a pass)"
+   ],
+   "status": "unavailable",
+   "note": "The installed Showdown has no Mirror Beam, so its effect cannot be exercised; the data row is retained and verified."
+  },
+  {
+   "id": "CF-058",
+   "field": "Pale Garden",
+   "statement": "Creaking Distraction is a per-side 0-3 counter; a damaging move that connects ticks once per side per turn (doubles included)",
+   "implementation": "engine mechanics.creakingDistraction",
+   "tests": [
+    "Creaking Distraction is per side: one damaging tick per turn, a status reset never renews it, and both doubles orders agree",
+    "playtest Pale Garden: the Creaking counts a damaging move that connects; misses, Protect, immunity, absorption, flinch, sleep and charging do not"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-059",
+   "field": "Pale Garden",
+   "statement": "A successfully executed status move fully resets the side's counter and keeps its normal effects; the reset never renews the tick",
+   "implementation": "engine mechanics.creakingDistraction",
+   "tests": [
+    "Creaking Distraction is per side: one damaging tick per turn, a status reset never renews it, and both doubles orders agree"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-060",
+   "field": "Pale Garden",
+   "statement": "At 3 every active Pokemon of that side loses 40% max HP as environmental damage, then the counter resets; stage and reset messages",
+   "implementation": "engine creakingDistraction (directDamage)",
+   "tests": [
+    "the Creaking strikes the side at 3 for 40% maximum HP and resets only that side",
+    "the Creaking strike ignores Substitute and faints Pokémon through the normal pipeline"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-061",
+   "field": "Pale Garden",
+   "statement": "Counters are side-specific and public; Shelter halves Fairy damage",
+   "implementation": "engine custom state; customVolatiles",
+   "tests": [
+    "Pale Garden synchronizes both public counters and Shelter halves Fairy damage to its user",
+    "playtest: switching and fainting clean per-side counters correctly, and a new field starts with zeroed counters"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-062",
+   "field": "Pale Garden",
+   "statement": "Magical Seed: +6 Defense and petrification (the final explicit statement; Bewitched's Special Defense / Ingrain is not applied)",
+   "implementation": "research/custom-fields/pale_garden.json seed, seedActions",
+   "tests": [
+    "Pale Garden Magical Seed: Defense +6 and petrification only; no Special Defense, no Ingrain"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-063",
+   "field": "All four",
+   "statement": "Cached previews and strategy queries spend nothing: no seed, resource or RNG draw; identical to an untouched twin",
+   "implementation": "engine evaluate/strategy transactions",
+   "tests": [
+    "playtest: cached repeated previews and strategy queries leave a battle identical to an untouched twin over the following turns (no seed, resource or RNG spent)"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-064",
+   "field": "All four",
+   "statement": "Simultaneous battles keep separate custom state; reloads leave running battles on their snapshot",
+   "implementation": "per-battle catalog snapshot and custom state",
+   "tests": [
+    "playtest: simultaneous custom-field battles keep separate counters, allowances and cleanup",
+    "playtest: a catalog reload leaves running custom-field battles on their own snapshot and mid-battle counters intact"
+   ],
+   "status": "pass"
+  },
+  {
+   "id": "CF-065",
+   "field": "All four",
+   "statement": "Custom fields attach, run their mechanics and clean up in Cobblemon's shaded Graal runtime",
+   "implementation": "GraalVerification / graal-regression.js (110 assertions)",
+   "tests": [],
+   "status": "graal",
+   "note": "Executed by the graalTest Gradle task; see research/test-results/graal-performance.json"
+  },
+  {
+   "id": "CF-066",
+   "field": "All four",
+   "statement": "Planning (Run & Bun style) prices standing risks and leaves the battle untouched",
+   "implementation": "engine strategy",
+   "tests": [
+    "Deep Dark: calming prices the pending retaliation by who is exempt from it",
+    "every custom field plans singles, doubles and all gimmick-bearing candidates without error or leakage"
+   ],
+   "status": "pass"
+  }
+ ]
+}

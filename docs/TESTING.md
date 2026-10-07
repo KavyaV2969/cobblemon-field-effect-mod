@@ -1,48 +1,49 @@
 # Verification results and scope
 
-The latest build targets the actual installed Minecraft 1.21.1, Fabric Loader 0.18.4 and Cobblemon 1.7.3 ABI. Gradle's `build` and `integrationFixtureJar` tasks passed on branch `field-audit-battle-rb` with the 0.2.0 working-tree changes (2026-10-05). `research/test-results/build.log` records the result; `dist/manifest.json` fingerprints the built artifacts and, separately, the jar the last live check ran against.
+Rejuvenation Fields 0.1 is verified **offline**: the installed Pokémon Showdown simulator, Cobblemon's shaded Graal runtime, Minecraft 1.21.1's own recipe and codec classes, and the built jars and packs themselves. Nothing in this document claims a live rendered Minecraft or two-client multiplayer run for 0.1; the live checks listed under "Historical live evidence" were made on the 0.2.0 single-jar build, before the split, and have not been repeated.
 
-| Verification | Result | Boundary |
-|---|---|---|
-| Closed datapack schema, references and transitions | Passed: 57 fields, 2,997 additional rule rows, 1,647 core move entries, 517 transitions | Reports 27 absent moves; no absent abilities or held items |
-| Compiled source definition comparison | Passed: 4,494 properties, zero differences across 57 fields, including Mimicry, Burmy cloak, seeds, status highlights and change targets | Definition data only; runtime handlers are covered by the semantic register |
-| Executed local Ruby method oracle | 171,396 defense contexts and 120 difficulty/Frenzy contexts match | Loads the original `Battle_Field.rb`; tests two methods with bounded type/ability/weather inputs, not complete fields |
-| Installed simulator regression suite | 564 checks passed | Named regression test for every implemented source lead, plus strategy, preview, singles/doubles, complete turns, simultaneous state and cleanup |
-| Semantic source-lead register | 1,736 leads reviewed, zero pending | 905 implemented and tested; AI, presentation, custom-move, Crest, unreachable and unsupported leads recorded individually. `when` clauses inside `case true` are not AST leads; see REMAINING_WORK.md |
-| Cobblemon shaded Graal | All 57 fields attach/destroy; 42 battle-runtime assertions and declared-ability registry restoration passed | Includes Growth, room/weather timing, Stance Change, forbidden-type flavor, Mimicry, Glitch Rest and Haunted Destiny Bond |
-| Java verification | Passed | Parser, malformed data, duplicate keys, priorities, opt-in boundary, pending options, late packets, held-item packing and capture snapshots/rounding |
-| Environment resolution | 26,948 Java checks passed | Indexed biome rules equal the ordered resolver; explicit/trainer/arena > underwater > mapped structure > biome > Indoor; malformed structure rows rejected |
-| Shared evaluation and adapters | 42 shaded-Graal adapter checks passed | Production candidate scoring for all five gimmicks; AI and preview corrections, effectiveness certification and random-type suppression on real evaluations |
-| Graal performance | Publication loads three dexes; cold and warm timings recorded in `research/test-results/graal-performance.json` | Interpreter-only benchmark; world-start publication and real battle-start timings are verified separately by the live integration receipt |
-| Live 0.2.0 environment, adapters and field panel | Seven battles and 25 checks passed (2026-10-05), zero skips and zero field-integration log errors; `research/test-results/live-mode-integration.json` and `live-integration.json` | Plains → Grassy Terrain, mushroom → Fairy Tale, generated village → City, Ion Deluge overlay, Thief → Back Alley, submerged village → Underwater, unmapped ruined portal → biome/depth row, mansion → Back Alley; four screenshots visually inspected |
-| Live performance (historical) | Catalog published at server start in 864 ms; worst field start work 13.4242 ms across seven battles; no battle published the catalog. Brock reached turn three; Run & Bun issued 60 queries in 1,867 ms. Battle Extras Leaf Blade max preview rose from 37% to 54% (measured field/native factor 1.48684) | Historical receipt from an earlier jar; it predates the AI review and strategy integration. Current decision latency: [INTEGRATIONS.md](INTEGRATIONS.md#decision-performance) |
-| Actual Fabric/Cobblemon regressions | All requested modes passed on the current 0.2.0 jar (2026-10-05): `--battle`: 7 battles / 23 checks; `--abilities`: 3 battles / 10 checks; `--extended`: 6 battles / 19 checks. Each has a separate `research/test-results/live-mode-<mode>.json` receipt with `success: true`, the matching artifact hash and zero field-integration log errors | Natural/explicit fields, items, capture, Petrification/Purify, Haunted Magic Powder, declared abilities, reload restoration, weather/hazards, Revival Blessing, Genesis Supernova, RCT Brock and cleanup; single client only |
-| Runtime biome registry | 70 entries, 70 explicitly mapped, zero fallback | Optional disabled Terralith content has 95 additional candidate entries |
-| Field implementation audit | All 57 fields source-audit closed; per-field record in FIELD_COVERAGE.md | Not exhaustive live or multiplayer certification |
-| Two-client multiplayer/disconnect verification | Not executed | Simulator doubles/concurrency and single-client integrated-server checks do not replace this |
+## What each gate proves
 
-The live battles use a separate fixture mod, guarded to `rejuvenation/integration/game`, and generated fresh test chunks. The runner resets only its owned verification world before each run; this prevents reuse of an older elevated arena. A failed check returns a nonzero runner exit code, and each receipt must also report `success: true`. The original world's region files are not copied or changed. Capture checks invoke the actual Cobblemon catch-rate event during active battles and verify floored 3.5x bonuses without stacking native bonuses; they do not assert a random capture succeeds. The anonymous test player does not use account credentials. The fixture registers spawned wild Pokemon with an active state and sends out player leads before initialization; native distance fleeing is disabled for unattended wild tests. The isolated runner disables shaders, fullscreen and VSync without changing the real profile settings. The runner terminates only its owned process after verification; its termination exit code is not a crash assertion.
+| Gate | Command | Proves | Does not prove |
+|---|---|---|---|
+| Closed schema, references, notes | `python research/validate.py` (add `--packs base` for the base alone) | Every field, rule, mapping, structure, trainer binding and note is valid; each mapping row is in the pack of the mod that provides it; the base alone names no third-party biome, structure or tag | That a rule's behaviour is right |
+| Source-definition comparison | `python research/compare.py` | 4,494 compiled properties of the 57 original fields equal the original game's definitions | Handler behaviour |
+| Simulator regression suite | `node verification/src/test/js/engine.test.cjs` | 656 named checks in the installed simulator: all 57 originals' reviewed behaviour, strategy and previews, the four custom fields, the five items | Anything the simulator does not model |
+| Custom-field playtests | the same suite (`custom-playtest-regression.cjs`, `custom-field-regression.cjs`, `custom-fusion-regression.cjs`, `custom-strategy-regression.cjs`) and Graal | Every specification statement, with fixed seeds and explicit state assertions ([traceability matrix](reports/custom-field-validation.md)) | Live rendering, multiplayer |
+| Java and Graal | `gradlew check` | Parsers, environment/structure selection, notes, packets, mixin ABI against the installed jars, recipes, installation combinations, the shaded runtime | A running game |
+| Pack equivalence | `python research/compare_split.py` | The base + COBBLEVERSE packs resolve exactly like the former single pack over 1.36 million environment snapshots and every structure overlap, whatever the file listing order | Live registries |
+| Jar differential | `python research/compare_jars.py --old <0.2.0 jar>` | The split moved code without changing it | |
+| Package | `python research/package.py` | Archive layout, versions, dependencies, duplicate resources, no bundled third-party classes, dedicated-server class safety, reproducible bytes | |
 
-Run `rejuvenation/build.ps1` to regenerate, validate, compare, compile and run the simulator/Java/Graal checks. Build the additional `integrationFixtureJar` Gradle task and run `python rejuvenation/research/live_check.py --battle`, `--abilities`, `--extended` and `--integration` for the isolated Minecraft checks (`--status` runs only the Petrification/Magic Powder subset of `--battle`). Read `README.md` for installation and the dependency cache requirements. Gradle `check` regenerates the AI review (`ai_review.py`) and validates the semantic register (`review_registry.py`) after the simulator suite.
+`gradlew check` runs every gate; `build.ps1` runs the whole pipeline including generation. The Ruby oracles (`research/runtime_oracle.py` and the AI oracle inside the simulator suite) need Ruby and the original game's scripts (`REJUVENATION_REFERENCE`); set `RUBY` to the executable if it is not on `PATH`. If Ruby cannot be launched, that suite reports the failure rather than skipping it.
 
-During the 2026-10-04 run (possibly a sandbox artifact), truncating an existing output file failed with `EINVAL`. Creating, appending and read-write opens still work. If `:jar`, `:simulatorTest` or `package.py` fails with "Could not create ZIP", `Invalid argument` or `UNKNOWN: unknown error, open`, delete that output (`dist/*.jar`, `dist/*.zip`, `research/test-results/simulator.json`) and rerun.
+## Historical live evidence (0.2.0 single jar, not repeated for 0.1)
 
-The explicit Gradle `sourceOracleTest` task requires Ruby and the local reference path in `research/source-location.json`. `build.ps1` also invokes it. The oracle executes original method bodies without packaging them. Its battler/battle stubs supply the methods' type, ability, airborne and weather inputs; dependency semantics outside those methods remain separately reviewable. It found and corrected Mega Sol's attacker-relative weather behavior in the icy defense and Deux Finalis defense predicates. Source-only Crests, Shadow/Stellar types, boss immunities and compound ability suppression are outside this bounded comparison. Defense checks exercise the same condition/action interpreter used by live stat events; difficulty checks execute real Showdown power events with native fixed-point rounding. `runtime-oracle.json` fingerprints the exact original file and records the scope.
+Eight battles and 33 checks passed in an isolated Fabric client with a verification fixture mod (field selection on real terrain and structures, the field panel and Field Notes overlay, move previews, a Run & Bun trainer battle, capture rules, Petrification, weather and hazards, reload restoration), each with a fingerprinted receipt and zero field-integration log errors. That fixture (`verification/src/integration`, `research/live_check.py`) is not distributed and refuses to run outside its isolated game directory. The two-client multiplayer and disconnect cases were never executed.
 
-The Git repository is rooted at `rejuvenation/`, so its diff covers the authored project. `research/audit_protected.py` separately compares 1,254 original profile files against initial hashes. The continuation found ten pre-existing settings/data differences, recorded in `research/test-results/protected-before-continuation.json`; none are trainer teams or content archives. These differences are preserved. The authorized field jar/datapack installation is recorded as additions; the final surrounding-profile audit is `research/protected-integrity.json`. Trainer, Gym, Elite Four, League and progression definitions remain untouched.
+## Operational note
+
+If a build step fails with `EINVAL` or "Could not create ZIP" while overwriting an existing output, delete that output (`dist/*`, `research/test-results/*.json`) and rerun; it was a transient file-lock behaviour on one Windows machine.
 
 ## Current offline receipts
 
-Generated by `research/write_integration_report.py` from the receipts that fingerprint engine `1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b`.
+Generated by `research/write_integration_report.py` from the receipts that fingerprint engine `3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad`.
 
 | Receipt | Result |
 |---|---|
-| Simulator (`simulator.json`) | 564 passed, 51 named AI/strategy tests |
+| Simulator (`simulator.json`) | 656 passed, 51 named AI/strategy tests |
 | AI review (`ai-coverage.json`) | 762 leads; implemented_strategy 53, ai_rollout_consequence 318, ai_source_weights_ported 72, excluded_custom_move 3, unreachable_in_build 3, ai_mechanic_measured 313 |
 | AI prediction audit | 334 rows: match 314, unreachable 1, ai_prediction_differs_from_source_mechanic 18, unavailable 1 |
 | AI Ruby oracle | 10,000 disruption / 6,000 affinity cases, 0 differences |
 | Mechanic Ruby oracle | 171,396 defense / 120 difficulty contexts, 0 differences |
 | Definitions | 4,494 properties, 0 differences |
-| Java | 933 client, 26,948 environment, 12 packet codec, 35 mixin ABI, 30 request/decision/optional-mod checks |
-| Graal | 57 fields, 42 runtime assertions, 42 adapter checks, publication warm-up 813 ms |
+| Java | 2080 client (including the notes overlay), 145 notes (server), 120 structure selection, 26,949 environment, 16 packet codec, 40 mixin ABI, 30 request/decision/optional-mod checks |
+| Graal | 61 fields, 110 runtime assertions, 42 adapter checks, publication warm-up 2025 ms |
 | Decision benchmark | see [INTEGRATIONS.md](INTEGRATIONS.md#decision-performance) |
+| Item recipes and textures | 5 recipes through Minecraft's real recipe codec and matcher: 20 craft combinations, 170 rejected cases, PNG pixel equality with the converted source icons |
+| Installation combinations | 1036 checks over 5 classpath combinations of the two jars and 88 mixin gate evaluations (offline linkage, not a live game) |
+| Base + COBBLEVERSE packs versus the former single pack | 1,362,720 environment snapshots and 968 structure overlaps resolve identically; 200 shuffled merges; 0 differences |
+| Jar differential (0.2.0 monolith vs core + compat) | 105 classes with identical disassembly, 65 resources byte-identical, 6 moved, 16 intentional changes, 0 unexplained |
+| Authoring kit | 14 checks: example behaviour, template acceptance, engine rejection cases, shipped count stays 61 |
+| Custom-field traceability | 66 specification statements: {'pass': 64, 'fail': 0, 'unavailable': 1, 'graal': 1, 'not-executed': 0} ([report](reports/custom-field-validation.md)) |
+| Latency, baseline vs candidate | warm-median change -31.2% to -19.9% versus the baseline on the same pinned cores (0xFFF); no fixture slower by more than 15%: True. The engine is byte-identical, so a difference reflects machine load, not code |

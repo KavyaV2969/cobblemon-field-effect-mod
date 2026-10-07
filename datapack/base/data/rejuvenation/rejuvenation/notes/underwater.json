@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:underwater",
+  "title": "Underwater",
+  "summary": "“Blub blub...”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Underwater is one of the Field Effects present in Rejuvenation. It is classified as an Elemental field and can be found in any diving area."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Water Surface will transform into this field if the moves Anchor Shot, Dive, Grav Apple, Gravity or Triple Dive are used.",
+        "“The battle was pulled underwater!”",
+        "“The battle sank into the depths!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Electric-type moves → 2x boost, never miss.",
+        "“The water super-conducted the attack!”",
+        "Water-type moves → 1.5x boost, deals neutral damage against the Water-type.",
+        "“The water strengthened the attack!”",
+        "Fire-type moves always fail.",
+        "“...But the attack was doused instantly!”",
+        "Ground-type moves gain a Water sub-type.",
+        "Physical moves → 0.5x decrease.",
+        "Does not apply to Water-type moves or moves used by Water-type Pokémon",
+        "Non-Water-type Pokémon have their Speed halved.",
+        "Pokémon with the abilities Eelevate, Surge Surfer or Swift Swim are immune to this effect.",
+        "All weather and Terrains are terminated, and cannot be generated.",
+        "“You're too deep to notice the weather!”",
+        "“The terrain disappeared in the water!”",
+        "Field damage:",
+        "Pokémon weak to the Water type take type-scaling damage each turn (1/4 max HP if 2x weak, 1/2 max HP if 4x weak).",
+        "“[Pokémon] struggled in the water!”",
+        "Pokémon take no damage if they have the abilities Dry Skin, Magic Guard, Storm Drain or Swift Swim.",
+        "Pokémon take 2x damage if they have the abilities Flame Body or Magma Armor."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Activated Abilities:",
+        "Hydration",
+        "Schooling",
+        "Applies even when the user is level 19 or less.",
+        "Swift Swim",
+        "Torrent",
+        "Buffed Abilities:",
+        "Dry Skin & Water Absorb restore 1/16 of the bearer's max HP at the end of each turn",
+        "“[Pokémon] absorbed some of the water!”",
+        "Propeller Tail boosts the damage of the bearer's priority moves by 1.5x.",
+        "This does not apply to moves that gain priority (Example: Grassy Glide, Gale Wings).",
+        "Steam Engine raises the bearer's Speed by 1 stage at the end of each turn.",
+        "Water Compaction activates at the end of each turn.",
+        "Water Veil prevents the bearer from being affected with non-volatile status condition.",
+        "A Pokémon with this Ability will be cured of status at the end of the turn.",
+        "Other Ability Changes:",
+        "Gulp Missile will always pick up Arrokuda, which deals type-scaling Water damage."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Dragon Darts → 2x boost, Water sub-type.",
+        "“From the depths!”",
+        "Anchor Shot → 2x boost.",
+        "“From the depths!”",
+        "Jet Punch, Water Pulse → 1.5x boost.",
+        "“Jet-streamed!”",
+        "Other moves:",
+        "Aqua Ring restores 1/8 max HP at the end of each turn.",
+        "Dive lasts only 1 turn.",
+        "Grav Apple gain a Water sub-type.",
+        "Octolock lowers Defense and Speciald Defense by 2 stages each.",
+        "Spicy Extract & Tar Shot fails on use.",
+        "“The extract washed away!”",
+        "“The tar washed off instantly!”",
+        "As of V14.0.22, the in-game Field Notes do not mention that Tar Shot also gets removed at the end of the turn.",
+        "Take Heart raises the user's Special Attack and Special Defense by 2 stages.",
+        "Wave Crash's recoil is reduced to 25%.",
+        "Whirlpool deals 1/6 max HP damage and confuses the target.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Water.",
+        "Nature Power becomes Water Pulse.",
+        "Secret Power may lower Attack by 1 stage.",
+        "Shelter halves damage from Water-type moves.",
+        "Terrain Pulse's type becomes Water."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.",
+        "This field will transform into Water Surface if the moves Bounce, Dive, Fly, Shore up, Sky Drop or Triple Dive are used.",
+        "“The battle resurfaced!”",
+        "This field will transform into Murkwater Surface if the move Sludge Wave is used 2 times or the Z-Move Acid Downpour is used 1 time, causing all non-Poison-type and non-Steel-type Pokémon on the field to faint.",
+        "“The grime sank beneath the battlers!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Elemental Seed raises the user's Speed by 1 stage and changes their type to Water.",
+        "“[Pokémon] transformed into the Water type!”",
+        "The Dive Ball's catch rate buff is enabled.",
+        "The Dusk Ball's catch rate buff is enabled."
+      ]
+    },
+    {
+      "heading": "Notes",
+      "lines": [
+        "Neved's Jurisdiction fails on this field.",
+        "“The cannonfire missed the underwater battlers entirely!”"
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Underwater”, revision 48756: https://rejuvenation.wiki.gg/wiki/Underwater",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

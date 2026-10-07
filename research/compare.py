@@ -14,7 +14,7 @@ def compare(sym,at,a,b):
     comparisons.append({'field':sym,'property':at,'equal':a==b})
     if a!=b:differences.append({'field':sym,'property':at,'compiled':a,'generated':b})
 for sym,compiled in original.items():
-    f=read(ROOT/f'datapack/data/rejuvenation/rejuvenation/fields/{ids[sym].split(":")[1]}.json')
+    f=read(ROOT/f'datapack/base/data/rejuvenation/rejuvenation/fields/{ids[sym].split(":")[1]}.json')
     for k in ['naturePower','secretPower']:compare(sym,k,norm(compiled[k]),f[k])
     compare(sym,'entryMessage',compiled['message'],f['entryMessage'])
     compare(sym,'name',compiled['name'] or 'No Field',f['name'])

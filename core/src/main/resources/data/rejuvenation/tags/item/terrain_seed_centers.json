@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cobblemon:grassy_seed",
+    "cobblemon:misty_seed",
+    "cobblemon:electric_seed",
+    "cobblemon:psychic_seed"
+  ]
+}

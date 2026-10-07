@@ -1,0 +1,115 @@
+{{Quote | ''The field is corrupted!''}}
+[[File:BattlebgCorrosive.png|thumb]]
+
+Corrosive Field is one of the [[Field Effects]] present in Rejuvenation. It is classified as a Telluric field.
+
+==Transitions From Other Fields==
+
+* [[Grassy Terrain]] will transform into this field if the move Sludge Wave or the Z-Move Acid Downpour is used.
+** ''"The grassy terrain was corroded!"''
+* [[Corrosive Mist Field]] will transform into this field if the move Gravity is used.
+** ''"The toxic mist collected on the ground!"''
+
+==General Effects==
+
+* Grass-type moves gain a Poison sub-type.
+
+===Field Damage===
+
+'''This field has two sources of damage. Both are avoided by the following:'''
+* '''Airborne Pokémon.'''
+* '''Zangoose wielding the [[Zangoose Crest]].'''
+* '''Poison-type and Steel-type Pokémon.'''
+* '''Pokémon with the abilities Immunity, Magic Guard, Pastel Veil, Poison Heal, Toxic Boost or Wonder Guard.'''
+** '''As of V14.0.22, Magic Guard isn't listed in the in-game Field Notes.'''
+
+
+* Pokémon take type-scaling Poison damage on switch-in, with normal damage equal to 1/4 max HP.
+** ''"[Pokémon] was seared by the corrosion!"''
+*** In this instance, Pokémon also take no field damage if they hold Heavy-Duty Boots.
+* Sleeping Pokémon lose 1/16 of their max HP each turn.
+** ''"[Pokémon] is seared by the corrosion!"''
+
+==Abilities Affected==
+
+===Activated Abilities===
+
+* Merciless
+* Poison Heal
+** ''"[Pokémon] was healed by the poison!"''
+* Toxic Boost
+** All three only activate if the user is grounded.
+
+===Buffed Abilities===
+
+* Corrosion boosts damage dealt by the user by 1.5x.
+* Toxic chain can poison Steel-type and Poison-type Pokémon.
+
+===Nerfed Abilities===
+
+* Grass Pelt causes the bearer to lose 1/8 max HP each turn.
+** ''"[Pokémon]'s pelt is withering!"''
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which receive an attack buff====
+
+* Acid, Acid Spray, Grass Knot, Snap Trap → 2x boost.
+** ''"The corrosion strengthened the attack!"''
+* Apple Acid, Mud Bomb, Mud Slap, Mud Shot, Muddy Water, Smack Down, Thousand Arrows, Whirlpool → 1.5x boost, Poison sub-typing.
+** ''"The corrosion strengthened the attack!"''
+
+===Other Moves===
+
+====Buffed Moves====
+
+* Acid Armor boosts the user's Defense by 3 stages.
+* Barb Barrage and Venoshock double in power regardless of status.
+* Poison Powder, Sleep Powder, Stun Spore and Toxic's accuracy are increased to 100%.
+* Toxic Spikes cannot be absorbed by Poison-type Pokémon.
+* Venom Drench can be activated regardless of status.
+
+====Nerfed Moves====
+
+* Ingrain damages the user for 1/16 max HP each turn instead of restoring it.
+** ''"Pokémon absorbed foul nutrients with its roots!"''
+*** Poison-type and Steel-type  Pokémon still heal 1/16 max HP each turn as normal.
+*** Pokémon with the Magic Guard ability are not damaged, but they do not heal.
+
+====Other Move Changes====
+
+* Floral Healing additionally poisons its target when healing it.
+
+===Field-dependent moves & Abilities===
+
+* Mimicry changes the bearer's type to Poison.
+* Camouflage changes the user's type to Poison.
+* Nature Power becomes Acid Spray.
+* Secret Power may inflict Poison.
+* Shelter halves damage from Poison-type moves.
+* Terrain Pulse becomes Poison-type.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.'''
+
+* This field will transform into [[Grassy Terrain]] if the moves Purify or Seed Flare are used.
+** ''"The polluted field was purified!"''
+
+==Items==
+
+* [[Telluric Seed]] applies Baneful Bunker to the user.
+** ''"The Telluric Seed shielded [Pokémon] against damage!"''
+* [[Zangoose Crest]] heals Zangoose if it's grounded, even if it's not poisoned.
+
+==Notes==
+
+* Prior to V14, some effects were different:
+** Nature Power became Acid instead of Acid Spray.
+** Grass Pelt did not damage the user if they were a Poison-type or a Steel-type.
+* Poison Heal recovers 1/16 of the user's max HP at the end of each turn if it's grounded.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

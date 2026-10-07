@@ -1,7 +1,7 @@
 """Write the integration documentation from current, passing, engine-fingerprinted offline receipts.
 
 Refuses to write when a receipt failed, predates the current engine, or the AI review has pending/ordinary-gap leads.
-Outputs: docs/INTEGRATIONS.md (+ dated INTEGRATION_COMPLETION_REPORT.md / FINAL_REPORT.md copies), REMAINING_WORK.md,
+Outputs: docs/INTEGRATIONS.md , REMAINING_WORK.md,
 the generated sections of LIMITATIONS.md, TESTING.md and PERFORMANCE.md, and research/test-results/integration-completion.json.
 """
 from pathlib import Path
@@ -22,7 +22,7 @@ ai = read('ai-coverage.json'); tests = read('test-results/simulator.json'); java
 graal = read('test-results/graal-performance.json'); benchmark = read('test-results/strategy-benchmark.json')
 oracle = read('test-results/runtime-oracle.json'); audit = read('test-results/ai-prediction-audit.json'); source = read('test-results/ai-source-oracle.json')
 comparison = read('source-comparison.json'); abi = read('test-results/mixin-abi.json')
-engine_sha = hashlib.sha256((ROOT / 'mod/src/main/resources/rejuvenation-engine.js').read_bytes()).hexdigest()
+engine_sha = hashlib.sha256((ROOT / 'core/src/main/resources/rejuvenation-engine.js').read_bytes()).hexdigest()
 d = ai['dispositions']
 assert not tests['failed'] and not d.get('ai_strategy_gap') and not d.get('ai_review_pending'), 'Failing tests or open AI leads'
 assert tests.get('engineSha256') == engine_sha, 'Simulator receipt predates the engine'
@@ -32,7 +32,7 @@ assert not oracle['differences'] and not source['differences'] and not compariso
 
 counts = '\n'.join(f'| `{k}` | {v} |' for k, v in sorted(d.items(), key=lambda kv: -kv[1]))
 strategic = []
-for file in (ROOT / 'mod/src/test/js').glob('*.cjs'):
+for file in (ROOT / 'verification/src/test/js').glob('*.cjs'):
     if file.name.startswith(('strategy-', 'ai-')):
         strategic.extend(re.findall(r"test\('([^']+)'", file.read_text(encoding='utf-8')))
 strategic_count = sum(n in tests['passedTests'] for n in strategic)
@@ -193,9 +193,21 @@ Its "Immune / Not very / Super effective" label and its decision to request a da
 
 All {java['mixinAbiChecks']} injector/shadow ABI checks pass. This certifies bytecode compatibility, not a full rendered-client run.
 
+## Environment layers, custom fields and Field Notes in the strategy
+
+The strategy values what the rollout cannot see. The rollout itself runs the real turn, so a Deep Dark retaliation or a Pale Garden strike that happens this turn is priced as the HP it costs. On top of that:
+
+- **Standing counter risk.** For fields with a public counter (Deep Dark Warning, Pale Garden Distraction) the lasting value includes what the next strike would cost each side's present Pokémon (exempt Pokémon decided by the simulator's own immunity rule), times the chance the counter gets there. Calming the Warning, resetting a Distraction, or taking a strike on an exempt Pokémon therefore changes a candidate's value, and the sign depends on who is exposed.
+- **Dormant substrate.** A layered field keeps 30% of its affinity for the team, so preserving or exposing a favourable substrate counts.
+- **Crimson crash risk.** The evaluator reports the chance a priority move misses because of the field's accuracy penalty; the strategy adds that chance times the crash fraction to the deciding move's cost, once, outside the miss branch (which is a plain miss).
+- **Declared affinity.** Custom fields have no source party rule, so their affinity comes from their own data: the always-on type multipliers for a Pokémon's types and exemption from the strike. The Ruby-oracle export of the original affinity table is unchanged.
+- Previews show only the move's own damage; environmental strikes are recorded separately (`fieldStrike`) and never counted into a displayed range or KO label.
+
+Decision latency with these additions, pinned to the performance cores as above, against the previous receipt (0.48 s for 1v1, 0.69-0.78 s for 6v6, 2.7 s for doubles): see the table below. An A/B run of the shipped engine against a copy without these valuations showed no systematic difference between them; run-to-run noise on this machine is larger than any difference.
+
 ## Panel and multiplayer boundary
 
-The existing 57 attributed backdrops and the panel layout are unchanged.
+The 57 attributed backdrops are unchanged; four custom backdrops were added (see [FIELD_PANEL.md](FIELD_PANEL.md)). The panel also opens the clickable [Field Notes](FIELD_NOTES.md) overlay.
 
 - **Lifecycle:** isolated client checks cover entry, replacement, overlay expiry and restoration, destruction, progression, clocks, battle end, late messages and decision invalidation.
 - **Layout:** geometry fixtures cover GUI scales, resizing and enhanced, classic and native log bounds.
@@ -257,8 +269,6 @@ Receipts:
 The simulator, Java, Graal and benchmark receipts all fingerprint this engine: `{engine_sha}`.
 '''
 write('INTEGRATIONS.md', integration)
-write('INTEGRATION_COMPLETION_REPORT.md', integration.replace('# Field-aware battle integrations', '# Integration report — 2026-10-05', 1))
-write('FINAL_REPORT.md', integration.replace('# Field-aware battle integrations', '# Implementation report — 2026-10-05', 1))
 write('REMAINING_WORK.md', f'''# Remaining QA and extensions
 
 The ordinary field runtime and all {ai['leads']} AI source leads have evidence-backed dispositions, with zero ordinary applicable strategy pending. The offline build runs:
@@ -279,7 +289,7 @@ Open items, none blocking the ordinary integration:
 5. **Separate features.** A field details screen, and league extensions beyond the mapped Kanto trainers.
 6. **Stronger AI.** Full minimax or opponent-belief modelling would be an optional enhancement over the bounded strategy.
 
-Reproduce everything with `build.ps1`. Pass `-AffinityMask` to take latency receipts on performance cores.
+Reproduce everything with `build.ps1` (see [BUILDING.md](BUILDING.md)). Pass `-AffinityMask` to take latency receipts on performance cores.
 ''')
 
 limits = ROOT / 'docs/LIMITATIONS.md'; text = limits.read_text(encoding='utf-8')
@@ -292,6 +302,26 @@ text = text.replace('An isolated Fabric integrated-server session applies', 'A h
 text = text.replace('PokÃƒÂ©mon', 'Pokémon').replace('PokÃ©mon', 'Pokémon')
 limits.write_text(text, encoding='utf-8')
 
+
+def _receipt(name):
+    path = ROOT / 'research/test-results' / name
+    return json.loads(path.read_text(encoding='utf-8')) if path.exists() else None
+_rows = []
+_r = _receipt('recipe-verification.json')
+if _r: _rows.append(f"| Item recipes and textures | {_r['recipes']} recipes through Minecraft's real recipe codec and matcher: {_r['positiveCombinations']} craft combinations, {_r['negativeCases']} rejected cases, PNG pixel equality with the converted source icons |")
+_r = _receipt('installation-matrix.json')
+if _r: _rows.append(f"| Installation combinations | {_r['checks']} checks over {len(_r['combinations'])} classpath combinations of the two jars and {_r['mixinGateEvaluations']} mixin gate evaluations (offline linkage, not a live game) |")
+_r = _receipt('pack-equivalence.json')
+if _r: _rows.append(f"| Base + COBBLEVERSE packs versus the former single pack | {_r['environmentSnapshots']:,} environment snapshots and {_r['structureOverlapCases']} structure overlaps resolve identically; {_r['shuffledMerges']} shuffled merges; {len(_r['differences'])} differences |")
+_r = _receipt('jar-differential.json')
+if _r: _rows.append(f"| Jar differential (0.2.0 monolith vs core + compat) | {_r['classesWithIdenticalDisassembly']} classes with identical disassembly, {_r['resourcesByteIdentical']} resources byte-identical, {_r['moved']} moved, {len(_r['intendedChanges'])} intentional changes, {len(_r['problems'])} unexplained |")
+_r = _receipt('authoring-kit.json')
+if _r: _rows.append(f"| Authoring kit | {_r['passed']} checks: example behaviour, template acceptance, engine rejection cases, shipped count stays 61 |")
+_r = _receipt('custom-field-traceability.json')
+if _r: _rows.append(f"| Custom-field traceability | {len(_r['rows'])} specification statements: {_r['summary']} ([report](reports/custom-field-validation.md)) |")
+_r = _receipt('latency-comparison.json')
+if _r: _rows.append(f"| Latency, baseline vs candidate | warm-median change {min(x['warmChangePercent'] for x in _r['fixtures']):+.1f}% to {max(x['warmChangePercent'] for x in _r['fixtures']):+.1f}% versus the baseline on the same pinned cores ({_r['candidateAffinity']}); no fixture slower by more than 15%: {not _r['flaggedOver15Percent']}. The engine is byte-identical, so a difference reflects machine load, not code |")
+extra_rows = chr(10).join(_rows)
 testing = ROOT / 'docs/TESTING.md'; text = testing.read_text(encoding='utf-8')
 text = re.sub(r"\| Installed simulator regression suite \|[^\n]*", f"| Installed simulator regression suite | {tests['passed']} checks passed | Named regression test for every implemented source lead, plus strategy, preview, singles/doubles, complete turns, simultaneous state and cleanup |", text)
 text = re.sub(r"\| Shared evaluation and adapters \|[^\n]*", f"| Shared evaluation and adapters | {graal['adapterChecks']} shaded-Graal adapter checks passed | Production candidate scoring for all five gimmicks; AI and preview corrections, effectiveness certification and random-type suppression on real evaluations |", text)
@@ -309,9 +339,10 @@ replace_section(testing, '## Current offline receipts', f'''Generated by `resear
 | AI Ruby oracle | {source['disruptionCases']:,} disruption / {source['affinityCases']:,} affinity cases, {source['differences']} differences |
 | Mechanic Ruby oracle | {oracle['defenseCases']:,} defense / {oracle['multiplierCases']} difficulty contexts, {len(oracle['differences'])} differences |
 | Definitions | {comparison['comparisons']:,} properties, {len(comparison['differences'])} differences |
-| Java | {java['clientChecks']} client, {java['environmentChecks']:,} environment, {java['packetCodecChecks']} packet codec, {java['mixinAbiChecks']} mixin ABI, {java['requestLegalityChecks'] + java['decisionIdentityChecks'] + java['optionalModChecks']} request/decision/optional-mod checks |
+| Java | {java['clientChecks']} client (including the notes overlay), {java['notesServerChecks']} notes (server), {java['structureChecks']} structure selection, {java['environmentChecks']:,} environment, {java['packetCodecChecks']} packet codec, {java['mixinAbiChecks']} mixin ABI, {java['requestLegalityChecks'] + java['decisionIdentityChecks'] + java['optionalModChecks']} request/decision/optional-mod checks |
 | Graal | {graal['fieldsAttached']} fields, {graal['runtimeAssertions']} runtime assertions, {graal['adapterChecks']} adapter checks, publication warm-up {graal.get('publicationWarmupMillis', '?')} ms |
-| Decision benchmark | see [INTEGRATIONS.md](INTEGRATIONS.md#decision-performance) |''')
+| Decision benchmark | see [INTEGRATIONS.md](INTEGRATIONS.md#decision-performance) |
+{extra_rows}''')
 
 performance = ROOT / 'docs/PERFORMANCE.md'
 replace_section(performance, '## Current strategic decision benchmark', f'''The `strategyBenchmark` receipt measures complete strategy decisions, including opponent utility forecasts and a production-shaped worst-case doubles lead. Historical startup measurements above are separate workloads. Cold: {benchmark.get('coldMeaning', 'first decision in a fresh context')}; publication warm-up {benchmark.get('publicationWarmupMillis', '?')} ms. {pinned}
@@ -325,6 +356,6 @@ replace_section(performance, '## Current strategic decision benchmark', f'''The 
 summary = {'engineSha256': engine_sha, 'aiLeads': ai['leads'], 'aiDispositions': d, 'ordinaryAiPending': 0, 'aiExclusions': [{k: r[k] for k in ('line', 'disposition', 'decision')} for r in excluded],
            'namedAiStrategyTests': strategic_count, 'simulatorTests': tests['passed'], 'predictionAudit': dict(audit_counts), 'aiSourceOracle': source,
            'mechanicOracle': {k: oracle[k] for k in ('defenseCases', 'multiplierCases')}, 'definitionComparisons': comparison['comparisons'],
-           'java': java, 'mixinMergedTargets': abi.get('mergedTargets', abi.get('merged')), 'graal': graal, 'benchmark': benchmark, 'minecraftLaunches': 0}
+           'java': java, 'mixinMergedTargets': abi.get('mergedTargets', abi.get('merged')), 'graal': graal, 'benchmark': benchmark, 'liveIntegrationReceiptMatchesJar': (lambda r: r.exists() and read('test-results/live-mode-integration.json').get('jarSha256') == hashlib.sha256(next((ROOT / 'dist').glob('rejuvenation-fields-[0-9]*.jar')).read_bytes()).hexdigest())(ROOT / 'research/test-results/live-mode-integration.json')}
 (ROOT / 'research/test-results/integration-completion.json').write_text(json.dumps(summary, indent=2) + '\n', encoding='utf-8')
 print('Wrote integration reports:', tests['passed'], 'simulator checks;', strategic_count, 'named AI/strategy tests; zero ordinary AI pending; engine', engine_sha[:12])

@@ -1,0 +1,130 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:dragons_den",
+  "title": "Dragon's Den",
+  "summary": "“If you wish to slay a dragon...”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Dragon's Den is one of the field effects present in Rejuvenation. It is classified as an Elemental field and can be found in the Grand Dream Stadium during the tournament, as well as during the trial for the Earth Relic in Magrodar Crater."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Cave will transform into this field if Dragon Pulse is used 2 times, or either Devastating Drake or Draco Meteor is used 1 time.",
+        "“Draconic energy seeps in...”",
+        "“The draconic energy mutated the field!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Dragon-type moves increase in base power by 1.5x.",
+        "“The draconic energy boosted the attack!”",
+        "Fire-type moves increase in base power by 1.5x.",
+        "“The lava's heat boosted the flame!”",
+        "Rock-type moves increase in base power by 1.3x.",
+        "Water-type moves decrease in base power by 0.5x.",
+        "“The lava's heat softened the attack...”",
+        "Ice-type moves decrease in base power by 0.5x.",
+        "“The lava's heat softened the attack...”",
+        "Dragon-type Pokémon's Defense and Special Defense increase by 1.3x.",
+        "Fields cannot be generated.",
+        "“The draconic power blocked the terrain...”",
+        "Hail and snow are terminated.",
+        "“The hail is melting in the heat...”"
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Berserk boosts the user's Special Attack by 2 stages when activated.",
+        "Dragonize's power boost is increased to 1.5x",
+        "Dragon's Maw's power boost is increased to 2x.",
+        "Magma Armor additionally boosts the user's Defense and Special Defense by 1 stage on switch-in and makes the bearer immune to Fire-type moves.",
+        "Marvel Scale is activated.",
+        "Mimicry changes the user's type to Dragon.",
+        "Good as Gold additionally negates the user's Steel-type weaknesses.",
+        "Multiscale additionally negates the user's Dragon-type weaknesses, regardless of HP.",
+        "Shed Skin now activates each turn and additionally restores 25% of the bearer's maximum HP, raises its Special Attack and Speed by 1 stage, and lowers its Defense and Special Defense by 1 stage when curing a status.",
+        "“[Pokémon]'s scaled sheen glimmers brightly!”",
+        "Shell Armor additionally boosts the user's Defense by 1 stage on switch-in."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Smack Down, Thousand Arrows → 2x boost, Fire sub-typing.",
+        "“[Pokémon] was knocked into the lava!”",
+        "Pay Day, Make it Rain → 1.5x boost, increases money given at the end of the battle by 100x.",
+        "“Sparkling treasure!”",
+        "Dragon Ascent, Luster Purge, Mist Ball → 2x boost.",
+        "“The draconic energy boosted the attack!”",
+        "Rock Climb, Strength → 1.5x boost, become Rock-type, Fire sub-typing.",
+        "“Unrivaled Power!”",
+        "Diamond Storm, Matrix Shot, Power Gem → 1.5x boost.",
+        "“Sparkling treasure!”",
+        "Earth Power, Lava Plume, Magma Drift, Magma Storm, Shell Trap, Tera Starstorm → 1.5x boost.",
+        "“The lava strengthened the attack!”",
+        "Mega Kick → 1.5x boost.",
+        "“Trial of the Dragon!!!”",
+        "Stomping Tantrum → 1.5x boost.",
+        "“Wrath of the Dragon!!!”",
+        "Other moves:",
+        "Bounce and Fly only last 1 turn.",
+        "Dragon Dance boosts the user's Attack and Speed by 2 stages.",
+        "Dragon Rush's accuracy is increased to 100%.",
+        "Clangorous Soul boosts the user's Attack, Defense, Special Attack, Special Defense and Speed by two stages, but now costs 50% HP.",
+        "Coil boosts the user's Attack, Defense, and Accuracy by 2 stages.",
+        "Earthquake gains a Fire sub-typing.",
+        "Fickle Beam's effect chance is raised to 50%",
+        "Magma Storm deals 1/6 max HP damage at the end of each turn.",
+        "Noble Roar lowers the target's Attack and Special Attack by 2 stages.",
+        "Scale Shot does not reduce defense",
+        "Stealth Rock deals Fire type-scaling damage instead.",
+        "“[Pokémon] was hurt by the molten stealth rocks!”",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Dragon.",
+        "Nature Power becomes Dragon Pulse.",
+        "Secret Power may inflict Burn.",
+        "Shelter halves damage from Dragon-type moves.",
+        "Terrain Pulse's type becomes Dragon."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.",
+        "This field will transform into Fairy Tale Field if Mist Ball is used.",
+        "“The mist-ical energy altered the surroundings!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Elemental Seed boosts Special Attack by 1 stage and applies Flash Fire's boost to the user.",
+        "Amulet Coin additionally prevents all status effects on the holder",
+        "“Amulet Coin prevents [Pokémon] from being inflicted by status on Dragon's Den!”"
+      ]
+    },
+    {
+      "heading": "Other Notes",
+      "lines": [
+        "As of v13.5.6, despite what the field effect manual says, Dragon's Den cannot transform into Cave due to a bug. Below is the intended transformation:",
+        "This field will transform into Cave if any of the moves Glaciate, Hydro Vortex, Oceanic Operetta, or Subzero Slammer is used.",
+        "“The lava was frozen solid!”",
+        "“The lava solidified!”"
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Dragon's Den”, revision 37230: https://rejuvenation.wiki.gg/wiki/Dragon%27s_Den",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

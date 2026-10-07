@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "cobblemon:damp_rock",
+    "cobblemon:icy_rock",
+    "cobblemon:smooth_rock",
+    "cobblemon:heat_rock"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "order": 250,
+  "rules": [
+    {
+      "tag": "repurposed_structures:collections/bastions",
+      "field": "rejuvenation:colosseum",
+      "reason": "Bastion variant"
+    },
+    {
+      "tag": "repurposed_structures:collections/fortresses",
+      "field": "rejuvenation:colosseum",
+      "reason": "Fortress variant"
+    }
+  ]
+}

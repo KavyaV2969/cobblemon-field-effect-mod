@@ -1,0 +1,147 @@
+{
+  "runtime": "Cobblemon 1.7.3 shaded Graal, interpreter only",
+  "engine": "shipped",
+  "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
+  "warmRepetitions": 5,
+  "publicationWarmupMillis": 1627,
+  "processorAffinity": "0xFFF",
+  "coldMeaning": "first decision after the publication warm-up, as in production",
+  "strategy": [
+    {
+      "teamSize": 1,
+      "candidates": 8,
+      "damageCalls": 32,
+      "cacheHits": 17,
+      "damageMillis": 270,
+      "damageMechanicsMillis": 227,
+      "screened": 2,
+      "phases": {
+        "setup": 53,
+        "screening": 35,
+        "rollouts": 524,
+        "matchups": 327,
+        "branches": 133,
+        "resources": 0,
+        "policies": 74,
+        "rollouts_count": 8
+      },
+      "coldMillis": 693,
+      "warmMedianMillis": 495,
+      "warmMaxMillis": 544
+    },
+    {
+      "teamSize": 6,
+      "candidates": 13,
+      "damageCalls": 40,
+      "cacheHits": 30,
+      "damageMillis": 287,
+      "damageMechanicsMillis": 245,
+      "screened": 5,
+      "phases": {
+        "setup": 49,
+        "screening": 50,
+        "rollouts": 584,
+        "matchups": 322,
+        "branches": 124,
+        "resources": 78,
+        "policies": 76,
+        "rollouts_count": 10
+      },
+      "coldMillis": 852,
+      "warmMedianMillis": 701,
+      "warmMaxMillis": 773
+    },
+    {
+      "teamSize": 6,
+      "turn": 1,
+      "candidates": 13,
+      "damageCalls": 40,
+      "cacheHits": 30,
+      "damageMillis": 300,
+      "damageMechanicsMillis": 256,
+      "screened": 5,
+      "phases": {
+        "setup": 41,
+        "screening": 36,
+        "rollouts": 628,
+        "matchups": 321,
+        "branches": 124,
+        "resources": 58,
+        "policies": 77,
+        "rollouts_count": 10
+      },
+      "coldMillis": 856,
+      "warmMedianMillis": 719,
+      "warmMaxMillis": 874
+    },
+    {
+      "teamSize": 6,
+      "turn": 2,
+      "candidates": 13,
+      "damageCalls": 50,
+      "cacheHits": 25,
+      "damageMillis": 333,
+      "damageMechanicsMillis": 278,
+      "screened": 5,
+      "phases": {
+        "setup": 43,
+        "screening": 53,
+        "rollouts": 554,
+        "matchups": 323,
+        "branches": 91,
+        "resources": 57,
+        "policies": 107,
+        "rollouts_count": 10
+      },
+      "coldMillis": 826,
+      "warmMedianMillis": 774,
+      "warmMaxMillis": 944
+    },
+    {
+      "teamSize": 6,
+      "turn": 3,
+      "candidates": 13,
+      "damageCalls": 50,
+      "cacheHits": 25,
+      "damageMillis": 312,
+      "damageMechanicsMillis": 267,
+      "screened": 5,
+      "phases": {
+        "setup": 34,
+        "screening": 41,
+        "rollouts": 514,
+        "matchups": 318,
+        "branches": 57,
+        "resources": 57,
+        "policies": 106,
+        "rollouts_count": 10
+      },
+      "coldMillis": 762,
+      "warmMedianMillis": 759,
+      "warmMaxMillis": 866
+    },
+    {
+      "teamSize": 6,
+      "doubles": true,
+      "candidates": 24,
+      "damageCalls": 105,
+      "cacheHits": 77,
+      "damageMillis": 903,
+      "damageMechanicsMillis": 742,
+      "screened": 16,
+      "phases": {
+        "setup": 69,
+        "screening": 214,
+        "rollouts": 2224,
+        "matchups": 577,
+        "branches": 923,
+        "resources": 50,
+        "policies": 146,
+        "rollouts_count": 17
+      },
+      "coldMillis": 2714,
+      "warmMedianMillis": 2690,
+      "warmMaxMillis": 2771
+    }
+  ]
+}

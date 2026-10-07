@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:short_circuit",
+  "title": "Short-Circuit Field",
+  "summary": "“Bzzt!”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Short-Circuit Field is one of the Field Effects present in Rejuvenation. It is classified as a Synthetic field."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Factory Field will transform into this field if the moves Aura Wheel, Bulldoze, Discharge, Earthquake, Explosion, Fissure, Ion Deluge, Magnitude, Overdrive, Self-Destruct, Super U.M.D. Move (Physical attack), or the the Z-Moves Gigavolt Havoc, Light That Burns the Sky, or Tectonic Rage are used.",
+        "“The field shorted out!”",
+        "“The field was broken!”",
+        "“All the light was consumed!”",
+        "Aura Wheel, Discharge, Gigavolt Havoc, Ion Deluge, Overdrive & Super U.M.D. Move also change Short-Circuit Field back to Factory Field, allowing to alternate between both fields."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Field Rolls:",
+        "This field has a cycling modifier that changes each time a Physical or Special Electric-type move is used.",
+        "The current Roll is only updated after all effects caused by the move (damage, abilities...) happen.",
+        "This modifier affects the damage of Electric-type moves and the effects of the abilities Lightning Rod, Motor Drive & Volt Absorb.",
+        "Volt Absorb's terrain specific effects are not buffed.",
+        "From weakest to strongest, the rolls are 3 → 1 → 4 → 2 → 5.",
+        "If the Electric Terrain is overlayed on top of this field, the Roll will always be the 5th one.",
+        "In this situation, the overlayed Electric Terrain's 1.3x boost to Electric-type moves is disabled.",
+        "Changing the field prevents the Roll from changing until the Short-Circuit Field comes back, but does not reset the roll.",
+        "1st Roll:",
+        "Electric-type moves → 0.8x decrease.",
+        "“Bzzt.”",
+        "Volt Absorb restores 20% of the bearer's Max HP on activation instead of 25%.",
+        "2nd Roll:",
+        "Electric-type moves → 1.5x boost.",
+        "“Bzzapp!”",
+        "Lightning Rod raises the bearer's Special Attack by 2 stages on activation.",
+        "Motor Drive raises the bearer's Speed by 2 Stages on activation.",
+        "Volt Absorb restores 37.5% of the bearer's Max HP on activation instead of 25%.",
+        "3rd Roll:",
+        "Electric-type moves → 0.5x decrease.",
+        "“Bzt...”",
+        "Lightning Rod does not raise the bearer's Special Attack on activation.",
+        "Motor Drive does not raise the bearer's Speed on activation.",
+        "Volt Absorb restores 12.5% of the bearer's Max HP on activation instead of 25%.",
+        "4th Roll:",
+        "Electric-type moves → 1.2x boost.",
+        "“Bzap!”",
+        "Volt Absorb restores 30% of the bearer's Max HP on activation instead of 25%.",
+        "5th Roll:",
+        "Electric-type moves → 2x boost.",
+        "“BZZZAPP!”",
+        "Lightning Rod raises the bearer's Special Attack by 3 stages on activation.",
+        "Motor Drive raises the bearer's Speed by 3 Stages on activation.",
+        "Volt Absorb restores 50% of the bearer's Max HP on activation instead of 25%."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Activated Abilities:",
+        "Minus",
+        "Plus",
+        "Surge Surfer",
+        "Buffed Abilities:",
+        "Defragment raises both the user's Defense and Special Defense by 1 stage on activation.",
+        "“[Pokémon] is glitching out!”",
+        "Download raises both the user's Attack and Special Attack by 1 stage on activation.",
+        "“[Pokémon] is glitching out!”",
+        "Galvanize increases base power by 2x for affected moves instead of 1.2x.",
+        "Static has a doubled chance to activate (60%).",
+        "Volt Absorb restores 1/16 of the bearer's Max HP at the end of each turn.",
+        "“[Pokémon] absorbed stray electricity!”",
+        "This healing or the one caused by an Electric Terrain overlay are not buffed by the Roll modifier.",
+        "Other Ability Changes:",
+        "Gulp Missile will always pick up Pikachu.",
+        "Steelworker gives the bearer's Steel-type moves an Electric sub-typing."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Damage Modifiers: Moves which receive an attack buff:",
+        "Steel Beam → 1.667x boost, Electric sub-typing and causes the user to faint.",
+        "As of V14.0.22, the in-game Field Notes incorrectly states that the modifier is 2x.",
+        "Flash Cannon, Gear Grind, Gyro Ball, Magnet Bomb, Muddy Water, Surf → 1.5x boost, Electric sub-typing.",
+        "“Blinding!”",
+        "“The attack picked up electricity!”",
+        "Dazzling Gleam, Hydro Vortex, Lumina Crash, Super U.M.D. Move → 1.5x boost.",
+        "“Blinding!”",
+        "“The attack picked up electricity!”",
+        "“CHARGING UP!”",
+        "Phantom Force, Shadow force → 1.3x boost, lasts 1 turn.",
+        "“The darkness strengthened the attack!”",
+        "Dark Pulse, Night Daze, Night Slash, Shadow Ball, Shadow Bone, Shadow Claw, Shadow Force, Shadow Punch, Shadow Sneak → 1.3x boost.",
+        "“The darkness strengthened the attack!”",
+        "Moves which receive an attack nerf:",
+        "Light That Burns the Sky → 0.5x decrease.",
+        "“[Pokémon] couldn't consume much light...”",
+        "Other Moves: Buffed Moves:",
+        "Flash lowers the target's Accuracy by 2 stages.",
+        "Magnet Rise lasts for 8 turns.",
+        "Metal Sound lowers the target's Special Defense by 3 stages.",
+        "Zap Cannon's accuracy is increased to 80%.",
+        "Field-dependent moves & Abilities:",
+        "Mimicry changes the bearer's type to Electric.",
+        "Camouflage changes the user's type to Electric.",
+        "Nature Power becomes Discharge.",
+        "Secret Power may Paralyze.",
+        "Shelter halves damage from Electric-type moves.",
+        "Terrain Pulse's type becomes Electric."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.",
+        "This field will transform into Factory Field if the moves Aura Wheel, Charge Beam, Discharge, Ion Deluge, Overdrive, Parabolic Charge, Super U.M.D. Move (Special attack), Wild Charge, or the Z-Move Gigavolt Havoc are used once, of if the move Tidy Up is used twice.",
+        "“SYSTEM ONLINE.”",
+        "“Some junk was cleaned up!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Synthetic Seed boosts Special Defense and applies Magnet Rise to the user.",
+        "The Dusk Ball's catch rate buff is enabled."
+      ]
+    },
+    {
+      "heading": "Notes",
+      "lines": [
+        "Prior to V14, Hydro Vortex gained an Electric sub-typing on this field."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Short-Circuit Field”, revision 48746: https://rejuvenation.wiki.gg/wiki/Short-Circuit_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

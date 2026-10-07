@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "custom-field.schema.json",
+  "title": "Canonical custom field input",
+  "description": "The authored input that research/custom_fields.py builds a runtime field definition from. This is NOT the runtime schema (datapack/.../fields/<field>.json, validated by CatalogValidator and the engine). Nothing here can introduce a new event, operator or condition: rules use the engine's existing vocabulary and are checked by the engine when the pack loads.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "originalId", "name", "entryMessage", "specification", "base", "hooks", "seed", "seedActions", "biomes", "structures", "notes"],
+  "$defs": {
+    "resourceId": {"type": "string", "pattern": "^[a-z0-9_.-]+:[a-z0-9_./-]+$"},
+    "moveId": {"type": "string", "pattern": "^[a-z0-9]+$"},
+    "pokemonType": {"enum": ["Normal", "Fire", "Water", "Electric", "Grass", "Ice", "Fighting", "Poison", "Ground", "Flying", "Psychic", "Bug", "Rock", "Ghost", "Dragon", "Dark", "Steel", "Fairy"]},
+    "condition": {"type": "object", "description": "A condition of the engine's closed algebra (all/any/not, move, moveType, category, type, grounded, ability, item, counter, ...). Unknown keys are rejected when the pack loads."},
+    "action": {"type": "object", "required": ["op"], "properties": {"op": {"type": "string"}}, "description": "An operator of the engine's closed set (heal, boost, multiply, message, status, volatile, ...). Unknown operators are rejected when the pack loads."},
+    "rule": {
+      "type": "object", "additionalProperties": false, "required": ["event", "condition", "actions", "source"],
+      "properties": {"event": {"type": "string"}, "condition": {"$ref": "#/$defs/condition"}, "actions": {"type": "array", "items": {"$ref": "#/$defs/action"}}, "source": {"type": "string", "minLength": 1}}
+    },
+    "counter": {
+      "type": "object", "additionalProperties": false, "required": ["index", "amount", "maximum", "message"],
+      "properties": {"index": {"type": "integer", "minimum": 1, "maximum": 5}, "amount": {"type": "integer"}, "maximum": {"type": "integer", "minimum": 1}, "message": {"type": "string"}}
+    },
+    "transition": {
+      "type": "object", "additionalProperties": false, "required": ["field", "condition", "push", "message"],
+      "properties": {"field": {"$ref": "#/$defs/resourceId"}, "condition": {"$ref": "#/$defs/condition"}, "push": {"type": "boolean"}, "message": {"type": "string"},
+        "after": {"type": "integer"}, "removesSurface": {"type": "boolean"}}
+    },
+    "moveRow": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"multiplier": {"type": "number", "exclusiveMinimum": 0}, "message": {"type": "string"}, "accuracy": {"type": "number"},
+        "additionalType": {"$ref": "#/$defs/pokemonType"}, "after": {"type": "integer"}, "counter": {"$ref": "#/$defs/counter"}, "transition": {"$ref": "#/$defs/transition"}}
+    }
+  },
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "id": {"$ref": "#/$defs/resourceId", "description": "Stable namespaced ID. The file name must equal the path part (mypack:my_field is my_field.json)."},
+    "originalId": {"type": "string", "pattern": "^[A-Z0-9_]+$", "description": "Internal key (the Ruby symbol for shipped fields); unique across all inputs."},
+    "name": {"type": "string", "minLength": 1},
+    "entryMessage": {"type": "string"},
+    "specification": {"type": "string", "pattern": "_Field\\.md$", "description": "The specification document this field implements."},
+    "base": {"type": "string", "description": "originalId of the generated field this one is built on: INDOOR (empty slate) or, for example, BEWITCHED."},
+    "baseExpect": {"type": "object", "description": "Expected values of the base field's keys; generation stops if the base drifts."},
+    "hooks": {
+      "type": "object", "additionalProperties": false,
+      "properties": {"naturePower": {"$ref": "#/$defs/moveId"}, "secretPower": {"$ref": "#/$defs/moveId"}, "mimicry": {"$ref": "#/$defs/pokemonType"},
+        "secretPowerEffects": {"type": "array", "items": {"type": "object"}}}
+    },
+    "types": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["type", "multiplier", "message"],
+      "properties": {"type": {"$ref": "#/$defs/pokemonType"}, "category": {"enum": ["Physical", "Special"]}, "multiplier": {"type": "number", "exclusiveMinimum": 0}, "message": {"type": "string"}}}},
+    "moves": {"type": "object", "propertyNames": {"$ref": "#/$defs/moveId"}, "additionalProperties": {"$ref": "#/$defs/moveRow"}},
+    "typeComposition": {"type": "array", "maxItems": 16, "items": {"type": "object", "additionalProperties": false, "required": ["whenTypes", "add", "condition", "message"],
+      "properties": {"whenTypes": {"type": "array", "items": {"$ref": "#/$defs/pokemonType"}, "minItems": 1}, "add": {"$ref": "#/$defs/pokemonType"}, "condition": {"$ref": "#/$defs/condition"}, "message": {"type": "string"}}}},
+    "terrainPulse": {"type": "object", "additionalProperties": false, "required": ["type"], "properties": {"type": {"$ref": "#/$defs/pokemonType"}}},
+    "accuracyCrash": {"type": "object", "additionalProperties": false, "required": ["fraction", "messages"],
+      "properties": {"fraction": {"type": "number", "exclusiveMinimum": 0, "maximum": 1}, "messages": {"type": "array", "items": {"type": "string"}, "minItems": 1, "maxItems": 2}}},
+    "customVolatiles": {"type": "object", "propertyNames": {"pattern": "^rejuvenation[a-z0-9]+$"}, "additionalProperties": {"type": "object", "required": ["actions", "source"],
+      "properties": {"actions": {"type": "array", "items": {"$ref": "#/$defs/action"}}, "source": {"type": "string"}}}},
+    "inherit": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["from"],
+      "properties": {"from": {"type": "string"},
+        "rules": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["event", "contains", "expect"],
+          "properties": {"event": {"type": "string"}, "contains": {"type": "array", "items": {"type": "string"}, "minItems": 1}, "expect": {"type": "integer", "minimum": 1},
+            "requireGrounded": {"type": "boolean"}, "keepParentReferences": {"type": "integer", "minimum": 0}}}},
+        "abilityHandlers": {"type": "array", "items": {"type": "string"}}, "keys": {"type": "array", "items": {"type": "string"}},
+        "moveRows": {"type": "object", "additionalProperties": false, "required": ["moves", "keys"], "properties": {"moves": {"type": "array", "items": {"$ref": "#/$defs/moveId"}}, "keys": {"type": "array", "items": {"type": "string"}}}}}}},
+    "rules": {"type": "array", "items": {"$ref": "#/$defs/rule"}},
+    "seed": {"type": "object", "additionalProperties": false, "required": ["item", "effect", "duration", "message", "stats"],
+      "properties": {"item": {"enum": ["magicalseed", "telluricseed", "syntheticseed", "elementalseed"]}, "effect": {"type": ["string", "null"]}, "duration": {"type": ["integer", "string", "boolean", "null"]},
+        "message": {"type": ["string", "null"]}, "stats": {"type": "object", "propertyNames": {"enum": ["atk", "def", "spa", "spd", "spe", "accuracy", "evasion"]}, "additionalProperties": {"type": "integer", "minimum": -6, "maximum": 6}}}},
+    "seedActions": {"type": "array", "items": {"$ref": "#/$defs/action"}},
+    "mechanics": {"type": "object", "additionalProperties": false, "description": "Existing configurable mechanics only; a new mechanic needs engine code and is out of scope for data-only authoring.",
+      "properties": {"sculkWarning": {"type": "object"}, "creakingDistraction": {"type": "object"}, "bloodlust": {"type": "object"}}},
+    "artwork": {"type": "object", "additionalProperties": false, "required": ["file", "description"], "properties": {"file": {"type": "string"}, "description": {"type": "string"}}},
+    "biomes": {"type": "array", "items": {"$ref": "#/$defs/resourceId"}, "uniqueItems": true},
+    "structures": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["reason"],
+      "oneOf": [{"required": ["structure"]}, {"required": ["tag"]}],
+      "properties": {"structure": {"$ref": "#/$defs/resourceId"}, "tag": {"$ref": "#/$defs/resourceId"}, "reason": {"type": "string"},
+        "containment": {"oneOf": [{"type": "object", "additionalProperties": false, "required": ["mode"], "properties": {"mode": {"const": "pieces"}}},
+          {"type": "object", "additionalProperties": false, "required": ["mode", "horizontal", "above", "below"], "properties": {"mode": {"const": "footprint"},
+            "horizontal": {"type": "integer", "minimum": 0}, "above": {"type": "integer", "minimum": 0}, "below": {"type": "integer", "minimum": 0}}}]}}}},
+    "notes": {"type": "object", "additionalProperties": false, "required": ["summary", "sections"],
+      "properties": {"summary": {"type": "string"}, "sections": {"type": "array", "maxItems": 14, "items": {"type": "object", "additionalProperties": false, "required": ["heading", "lines"],
+          "properties": {"heading": {"type": "string"}, "lines": {"type": "array", "maxItems": 40, "items": {"type": "string", "maxLength": 4000}}}}},
+        "counters": {"type": "array", "maxItems": 3, "items": {"type": "object", "additionalProperties": false, "required": ["id", "label", "scope", "maximum"],
+          "properties": {"id": {"enum": ["warning", "distraction"]}, "label": {"type": "string"}, "scope": {"enum": ["shared", "perSide"]}, "maximum": {"type": "integer", "minimum": 1, "maximum": 8},
+            "thresholds": {"type": "array", "maxItems": 4, "items": {"type": "object", "additionalProperties": false, "required": ["at", "text"], "properties": {"at": {"type": "integer", "minimum": 1, "maximum": 8}, "text": {"type": "string", "maxLength": 240}}}}}}}}}
+  }
+}

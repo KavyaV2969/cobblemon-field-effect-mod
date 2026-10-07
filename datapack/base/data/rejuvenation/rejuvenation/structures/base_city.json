@@ -1,0 +1,72 @@
+{
+  "schemaVersion": 1,
+  "order": 400,
+  "rules": [
+    {
+      "structure": "minecraft:village_plains",
+      "field": "rejuvenation:city",
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "minecraft:village_desert",
+      "field": "rejuvenation:city",
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "minecraft:village_savanna",
+      "field": "rejuvenation:city",
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "minecraft:village_snowy",
+      "field": "rejuvenation:city",
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "minecraft:village_taiga",
+      "field": "rejuvenation:city",
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "tag": "minecraft:village",
+      "field": "rejuvenation:city",
+      "reason": "Village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    }
+  ]
+}

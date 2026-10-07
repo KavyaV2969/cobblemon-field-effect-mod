@@ -19,7 +19,7 @@ for a in json.load(open('research/interaction-audit.json',encoding='utf-8')): co
 for a in json.load(open('research/semantic-reviews.json',encoding='utf-8')): cov[a['file'].lower()].append((a['line'],a.get('endLine',a['line'])))
 cite=re.compile(r'([A-Za-z_]+\.rb):(\d+)(?:-(\d+))?')
 cited=collections.defaultdict(list)
-for p in glob.glob('datapack/**/*.json',recursive=True)+glob.glob('research/*.py')+glob.glob('mod/src/**/*.*',recursive=True):
+for p in glob.glob('datapack/**/*.json',recursive=True)+glob.glob('research/*.py')+glob.glob('core/src/**/*.*',recursive=True)+glob.glob('compat/src/**/*.*',recursive=True):
     try: txt=open(p,encoding='utf-8').read()
     except Exception: continue
     for m in cite.finditer(txt):

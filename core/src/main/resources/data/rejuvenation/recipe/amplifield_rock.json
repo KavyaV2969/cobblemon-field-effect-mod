@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "ASA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "cobblemon:everstone"
+    },
+    "S": {
+      "tag": "rejuvenation:field_rock_centers"
+    }
+  },
+  "result": {
+    "id": "rejuvenation:amplifield_rock",
+    "count": 1
+  }
+}

@@ -150,11 +150,23 @@ Its "Immune / Not very / Super effective" label and its decision to request a da
 - `calculateAdjustedAccuracy` and `renderTooltipAtPosition`, which Battle Extras adds to Cobblemon's move tile;
 - its `TypeChart` effectiveness methods.
 
-All 35 injector/shadow ABI checks pass. This certifies bytecode compatibility, not a full rendered-client run.
+All 40 injector/shadow ABI checks pass. This certifies bytecode compatibility, not a full rendered-client run.
+
+## Environment layers, custom fields and Field Notes in the strategy
+
+The strategy values what the rollout cannot see. The rollout itself runs the real turn, so a Deep Dark retaliation or a Pale Garden strike that happens this turn is priced as the HP it costs. On top of that:
+
+- **Standing counter risk.** For fields with a public counter (Deep Dark Warning, Pale Garden Distraction) the lasting value includes what the next strike would cost each side's present Pokémon (exempt Pokémon decided by the simulator's own immunity rule), times the chance the counter gets there. Calming the Warning, resetting a Distraction, or taking a strike on an exempt Pokémon therefore changes a candidate's value, and the sign depends on who is exposed.
+- **Dormant substrate.** A layered field keeps 30% of its affinity for the team, so preserving or exposing a favourable substrate counts.
+- **Crimson crash risk.** The evaluator reports the chance a priority move misses because of the field's accuracy penalty; the strategy adds that chance times the crash fraction to the deciding move's cost, once, outside the miss branch (which is a plain miss).
+- **Declared affinity.** Custom fields have no source party rule, so their affinity comes from their own data: the always-on type multipliers for a Pokémon's types and exemption from the strike. The Ruby-oracle export of the original affinity table is unchanged.
+- Previews show only the move's own damage; environmental strikes are recorded separately (`fieldStrike`) and never counted into a displayed range or KO label.
+
+Decision latency with these additions, pinned to the performance cores as above, against the previous receipt (0.48 s for 1v1, 0.69-0.78 s for 6v6, 2.7 s for doubles): see the table below. An A/B run of the shipped engine against a copy without these valuations showed no systematic difference between them; run-to-run noise on this machine is larger than any difference.
 
 ## Panel and multiplayer boundary
 
-The existing 57 attributed backdrops and the panel layout are unchanged.
+The 57 attributed backdrops are unchanged; four custom backdrops were added (see [FIELD_PANEL.md](FIELD_PANEL.md)). The panel also opens the clickable [Field Notes](FIELD_NOTES.md) overlay.
 
 - **Lifecycle:** isolated client checks cover entry, replacement, overlay expiry and restoration, destruction, progression, clocks, battle end, late messages and decision invalidation.
 - **Layout:** geometry fixtures cover GUI scales, resizing and enhanced, classic and native log bounds.
@@ -166,14 +178,14 @@ Full two-client disconnect/rejoin and rendered HUD checks remain separate QA. Th
 
 ## Current verification
 
-- **Simulator:** **564/564** passing, including **51 named AI/strategy tests** plus the source prediction and oracle matrices.
+- **Simulator:** **656/656** passing, including **51 named AI/strategy tests** plus the source prediction and oracle matrices.
 - **Java:**
-  - **933** client/preview/panel checks;
-  - **26,948** environment checks;
+  - **2080** client/preview/panel checks;
+  - **26,949** environment checks;
   - **12** request-legality, **6** decision-identity and **12** optional-mod checks;
-  - **12** checks of the installed packet codecs, run offline on the Minecraft 1.21.1 profile's own libraries;
-  - **35** mixin ABI checks.
-- **Graal:** all **57** fields, **42** runtime assertions and **42** adapter checks on real evaluations; declared abilities restore and the three-dex guard passes.
+  - **16** checks of the installed packet codecs, run offline on the Minecraft 1.21.1 profile's own libraries;
+  - **40** mixin ABI checks.
+- **Graal:** all **61** fields, **110** runtime assertions and **42** adapter checks on real evaluations; declared abilities restore and the three-dex guard passes.
 - **Definitions and Ruby oracle:**
   - definitions: **4,494** properties, zero differences;
   - Ruby mechanic oracle: **171,396** defense and **120** difficulty contexts, zero differences.
@@ -189,17 +201,17 @@ Mechanics corrected in this continuation:
 The receipt measures complete synchronous decisions in Cobblemon's shaded, interpreter-only Graal runtime: three single-battle states and a production-shaped worst-case doubles lead, with 5 warm repetitions.
 
 - **Cold column:** first decision after the publication warm-up, as in production.
-- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1177 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
+- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1482 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
 - **Pinning:** The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
 
 | Decision | Candidates / screened | Rollouts | Cold ms | Warm median ms | Warm max ms |
 |---|---:|---:|---:|---:|---:|
-| 1 fresh | 8 / 2 | 8 | 591 | 479 | 588 |
-| 6 fresh | 13 / 5 | 10 | 771 | 736 | 872 |
-| 6 turn 1 | 13 / 5 | 10 | 702 | 687 | 868 |
-| 6 turn 2 | 13 / 5 | 10 | 834 | 762 | 987 |
-| 6 turn 3 | 13 / 5 | 10 | 906 | 776 | 823 |
-| 6v6 doubles fresh | 24 / 16 | 17 | 2941 | 2730 | 2841 |
+| 1 fresh | 8 / 2 | 8 | 635 | 389 | 440 |
+| 6 fresh | 13 / 5 | 10 | 619 | 546 | 686 |
+| 6 turn 1 | 13 / 5 | 10 | 591 | 495 | 826 |
+| 6 turn 2 | 13 / 5 | 10 | 665 | 602 | 651 |
+| 6 turn 3 | 13 / 5 | 10 | 546 | 608 | 617 |
+| 6v6 doubles fresh | 24 / 16 | 17 | 2085 | 2110 | 2216 |
 
 The singles optimizations are exact: candidate scores are bit-identical to the engine before them on 315 candidate rows across five fields, including history-reading moves. They include:
 
@@ -218,4 +230,4 @@ Receipts:
 - `research/ai-coverage.json` and `ai-review-decisions.json`;
 - in `test-results/`: `simulator.json`, `ai-prediction-audit.json`, `ai-source-oracle.json`, `java-verification.json`, `mixin-abi.json`, `graal-performance.json`, `strategy-benchmark.json`, `build.log`.
 
-The simulator, Java, Graal and benchmark receipts all fingerprint this engine: `1f9494870e9affd4b7194c54e087d15f04929f4e5841ad9c6c55b01bf0d6e26b`.
+The simulator, Java, Graal and benchmark receipts all fingerprint this engine: `3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad`.

@@ -1,0 +1,46 @@
+{
+  "crimsonforest.jpg": {
+    "sha256": "f0fdc1c22a15d6063553c1990345053b72be18fb18f211466aaa9a177b08fb34",
+    "bytes": 5652488,
+    "format": "PNG",
+    "size": [
+      3200,
+      2000
+    ],
+    "description": "Minecraft Crimson Forest screenshot (user-provided)",
+    "provenance": "user-provided artwork (a Minecraft screenshot supplied by the project owner)"
+  },
+  "deepdark.jpg": {
+    "sha256": "49484fb8bdb4953521295cf4b541ff4efd7cb96c990b5329ad476dec5c011276",
+    "bytes": 20460,
+    "format": "WEBP",
+    "size": [
+      640,
+      350
+    ],
+    "description": "Minecraft Deep Dark cave screenshot (user-provided)",
+    "provenance": "user-provided artwork (a Minecraft screenshot supplied by the project owner)"
+  },
+  "palegarden.jpg": {
+    "sha256": "c1c828730b7e148ec1ac1300a446d14280a233454f795fd77ad57a4a6075b4d3",
+    "bytes": 36006,
+    "format": "WEBP",
+    "size": [
+      860,
+      484
+    ],
+    "description": "Minecraft Pale Garden screenshot (user-provided)",
+    "provenance": "user-provided artwork (a Minecraft screenshot supplied by the project owner)"
+  },
+  "warpedforest.jpg": {
+    "sha256": "9d5c39c5426a5dad1bd3bc7b5c5a0b63e0ca54e8c9fb69f701cdefdf8407d5bf",
+    "bytes": 1281414,
+    "format": "WEBP",
+    "size": [
+      1200,
+      675
+    ],
+    "description": "Minecraft Warped Forest screenshot (user-provided)",
+    "provenance": "user-provided artwork (a Minecraft screenshot supplied by the project owner)"
+  }
+}

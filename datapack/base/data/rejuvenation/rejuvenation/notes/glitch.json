@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:glitch",
+  "title": "Glitch Field",
+  "summary": "“1n!taliz3 .b//////attl3”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Glitch Field is one of the field effects present in Rejuvenation. It is classified as a Synthetic field and can be found during the Johto Virtual League battles and against Saki and Venam at Terajuma Beach"
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "This field is generated if the moves Conversion and Conversion 2 are used one after the other in a battle if none of the users is holding an Everstone. The two moves can be any number of turns apart, as long the active field is not changed in those turns. The field lasts for 5 turns (8 turns if the user of the second move holds an Amplifield Rock).",
+        "“Some rogue data remains...”",
+        "“TH~ R0GUE DAa/ta cor$upt?@####”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "The physical/special move split is undone.",
+        "During damage calculation, both the Special Attack and Special Defense of a Pokémon are taken as equal to whichever of the two is higher (with stat stage/item modifiers taken into account).",
+        "Fairy-type attacks become Normal-type.",
+        "Critical hit rate is boosted by 1 stage if the attacker's unmodified speed stat is higher than its target's.",
+        "Psychic-type moves increase in base power by 1.2x.",
+        "“.0P pl$ nerf!-//”",
+        "Type chart alterations:",
+        "Dragon-type moves always deal neutral damage.",
+        "Bug-type moves hit Poison-types super-effectively.",
+        "Poison-type moves hit Bug-types super-effectively.",
+        "Ice-type moves hit Fire-types neutrally.",
+        "Psychic-types are immune to Ghost-type moves.",
+        "Steel-types are resistant to Ghost and Dark-type moves."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Download boosts both Attack and Special Attack on activation.",
+        "Mimicry changes the users type to ??? (typeless).",
+        "RKS System's type is always ??? (typeless).",
+        "“[Pokémon] was corrupted by the rogue data!”",
+        "Quark Drive is activated and makes the user ??? type."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves with a recharge turn do not need to recharge if they KO the target.",
+        "Blizzard's accuracy is increased to 90%.",
+        "Explosion and Self-Destruct additionally halve the target's Defense when calculating damage.",
+        "Metronome never calls moves with less than 70 base power.",
+        "Rage locks the user into the move indefinitely.",
+        "Rest works normally when called by Sleep Talk.",
+        "Roar and Whirlwind fail on use.",
+        "“ERROR! MOVE NOT FOUND!”",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to ??? (typeless).",
+        "Nature Power becomes Metronome.",
+        "Secret Power may lower Speed.",
+        "Shelter halves damage from ???-type moves.",
+        "Terrain Pulse's type becomes ???-type."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Synthetic Seed boosts Defense by 1 stage and causes the user to become ???-type.",
+        "As of v13.5.6, the field effect manual incorrectly states that Special Defense is also boosted.",
+        "When holding a Drive, Genesect will gain one of the following abilities:",
+        "Douse Drive grants Water Absorb.",
+        "Chill Drive will absorb Ice-type moves, in the same manner as Water Absorb.",
+        "Shock Drive grants Motor Drive.",
+        "Burn Drive grants Flash Fire."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Glitch Field”, revision 37177: https://rejuvenation.wiki.gg/wiki/Glitch_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

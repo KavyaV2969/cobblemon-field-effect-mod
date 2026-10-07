@@ -1,0 +1,255 @@
+{
+  "name": {
+    "literal": "Lt. Surge"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "magnezone",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "raichu",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "surgesurfer",
+      "heldItem": [
+        "cobblemon:wise_glasses"
+      ],
+      "moveset": [
+        "thunderbolt",
+        "psychic",
+        "voltswitch",
+        "focusblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "aspects": [
+        "alolan"
+      ],
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "magnezone",
+      "gender": "GENDERLESS",
+      "level": 36,
+      "nature": "modest",
+      "ability": "sturdy",
+      "heldItem": [
+        "cobblemon:choice_specs"
+      ],
+      "moveset": [
+        "thunderbolt",
+        "flashcannon",
+        "voltswitch",
+        "terablast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": "flying",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "ironhands",
+      "gender": "GENDERLESS",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "quarkdrive",
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "moveset": [
+        "swordsdance",
+        "drainpunch",
+        "thunderpunch",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "archaludon",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "modest",
+      "ability": "stamina",
+      "heldItem": [
+        "cobblemon:power_herb"
+      ],
+      "moveset": [
+        "electroshot",
+        "flashcannon",
+        "dracometeor",
+        "bodypress"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "rotom",
+      "gender": "GENDERLESS",
+      "level": 35,
+      "nature": "modest",
+      "ability": "levitate",
+      "heldItem": [
+        "cobblemon:rindo_berry"
+      ],
+      "moveset": [
+        "hydropump",
+        "voltswitch",
+        "willowisp",
+        "thunderbolt"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "wash-appliance"
+      ],
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "eelektross",
+      "gender": "MALE",
+      "level": 36,
+      "nature": "adamant",
+      "ability": "levitate",
+      "heldItem": [
+        "zamega:eelektrossite"
+      ],
+      "moveset": [
+        "wildcharge",
+        "drainpunch",
+        "knockoff",
+        "coil"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

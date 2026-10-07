@@ -5,30 +5,32 @@
   "originalWorldCopied": false,
   "freshChunks": true,
   "success": true,
-  "jarSha256": "20209f31ede40e52c0b238bbda7365c6606bd59c534ad653e479d069e09564c6",
-  "processId": 7252,
+  "jarSha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7",
+  "processId": 34896,
   "liveBiomes": 70,
   "catalogRevision": 1,
   "battleChecks": {
-    "serverStartPublishMillis": 864,
+    "serverStartPublishMillis": 913,
     "battleExtrasAccuracyHookApplied": true,
     "battleExtrasNativeMaxPercent": 37,
-    "battleExtrasFieldMaxPercent": 54,
-    "battleExtrasFieldFactor": 1.486842105263158,
-    "runBunEvaluationCalls": 51,
-    "runBunEvaluatedQueries": 60,
-    "runBunEvaluationMillis": 1867,
-    "worstBattleStartFieldMillis": 13.4242,
+    "battleExtrasFieldMaxPercent": 37,
+    "battleExtrasFieldFactor": 1.4923076923076923,
+    "battleExtrasExactMaxPercent": 37,
+    "villageGap": "18778 102 19411 (2 blocks outside the nearest piece box)",
+    "runBunEvaluationCalls": 67,
+    "runBunEvaluatedQueries": 88,
+    "runBunEvaluationMillis": 2405,
+    "worstBattleStartFieldMillis": 18.5166,
     "evaluationTotals": {
       "Run & Bun AI": {
-        "calls": 51,
-        "queries": 60,
-        "millis": 1867
+        "calls": 67,
+        "queries": 88,
+        "millis": 2405
       },
       "move preview": {
-        "calls": 10,
-        "queries": 40,
-        "millis": 1196
+        "calls": 12,
+        "queries": 48,
+        "millis": 1780
       }
     },
     "success": true,
@@ -42,72 +44,87 @@
       "Client field panel state for the battle: rejuvenation:grassy_terrain|Grassy Terrain",
       "Battle Extras preview through its own calculator scales with the field: true",
       "Mushroom Fields battle opens on Fairy Tale Field via the biome mapping [rejuvenation:fairytale via biome: Mushroom biome]",
-      "Battle inside a generated village opens on City Field via the structure mapping [rejuvenation:city via structure: Village (repurposed_structures:village_birch)]",
+      "Battle inside a generated village opens on City Field via the structure mapping [rejuvenation:city via structure: Village (repurposed_structures:village_birch; anchor 18787,93,19408 inside footprint(8/12/4) of piece 0 [18779,95,19403..18788,101,19412])]",
       "Ion Deluge creates the Electric Terrain overlay over City",
+      "A mouse-enabled screen hosts the notes overlay: ok",
+      "A real mouse click on the HUD field panel opens the Field Notes overlay: open",
+      "Escape closes the overlay and is consumed, the hosting screen stays: closed|hosted",
+      "The overlay re-opens from the panel: open",
       "Thief turns City into Back Alley; the client panel follows: rejuvenation:back_alley",
+      "The notes overlay stays open and follows the field transformation: open|hosted",
+      "Escape closes the overlay: closed|hosted",
       "Submerged battle inside a village opens on Underwater (underwater beats structure) [rejuvenation:underwater via underwater: Battle submerged in water]",
+      "Battle in a village street gap 2 blocks outside every piece box opens on City via the footprint containment [rejuvenation:city via structure: Village (repurposed_structures:village_birch; anchor 18781,102,19411 inside footprint(8/12/4) of piece 0 [18779,95,19403..18788,101,19412])]",
       "Battle inside a ruined portal (no structure mapping) falls through to its biome [rejuvenation:cave via biome: Battle at least 12 blocks below solid surface in a surface biome]",
-      "Battle inside a generated Woodland Mansion opens on Back Alley via the structure mapping [rejuvenation:back_alley via structure: Woodland Mansion (minecraft:mansion)]",
-      "Run & Bun AI decisions in a live RCT Brock battle query the field engine (60 queries, 1867 ms)",
+      "Battle inside a generated Woodland Mansion opens on Back Alley via the structure mapping [rejuvenation:back_alley via structure: Woodland Mansion (minecraft:mansion; anchor 19337,75,22144 inside pieces of piece 0 [19324,66,22136..19344,84,22151])]",
+      "Run & Bun AI decisions in a live RCT Brock battle query the field engine (88 queries, 2405 ms)",
       "Live AI battle keeps running with field-aware decisions",
       "Battle rejuvenation:grassy_terrain did not publish the catalog at battle start",
       "Battle rejuvenation:fairytale did not publish the catalog at battle start",
       "Battle rejuvenation:city did not publish the catalog at battle start",
       "Battle rejuvenation:underwater did not publish the catalog at battle start",
+      "Battle rejuvenation:city did not publish the catalog at battle start",
       "Battle rejuvenation:cave did not publish the catalog at battle start",
       "Battle rejuvenation:back_alley did not publish the catalog at battle start",
       "Battle rejuvenation:crystal_cavern did not publish the catalog at battle start",
-      "Field work at battle start stays below 0.5 s (worst 13.4242 ms)"
+      "Field work at battle start stays below 0.5 s (worst 18.5166 ms)"
     ],
     "skipped": [],
     "battleStartTimings": [
       {
         "field": "rejuvenation:grassy_terrain",
         "source": "biome",
-        "environmentMillis": 8.6166,
-        "simulatorHookMillis": 4.8076,
+        "environmentMillis": 12.8455,
+        "simulatorHookMillis": 5.6711,
         "catalogPublishedAtStart": false
       },
       {
         "field": "rejuvenation:fairytale",
         "source": "biome",
-        "environmentMillis": 0.2136,
-        "simulatorHookMillis": 0.4642,
+        "environmentMillis": 0.1756,
+        "simulatorHookMillis": 0.4275,
         "catalogPublishedAtStart": false
       },
       {
         "field": "rejuvenation:city",
         "source": "structure",
-        "environmentMillis": 0.3293,
-        "simulatorHookMillis": 0.4149,
+        "environmentMillis": 5.5172,
+        "simulatorHookMillis": 0.3846,
         "catalogPublishedAtStart": false
       },
       {
         "field": "rejuvenation:underwater",
         "source": "underwater",
-        "environmentMillis": 0.8265,
-        "simulatorHookMillis": 0.2366,
+        "environmentMillis": 0.3221,
+        "simulatorHookMillis": 0.3813,
+        "catalogPublishedAtStart": false
+      },
+      {
+        "field": "rejuvenation:city",
+        "source": "structure",
+        "environmentMillis": 0.267,
+        "simulatorHookMillis": 0.3433,
         "catalogPublishedAtStart": false
       },
       {
         "field": "rejuvenation:cave",
         "source": "biome",
-        "environmentMillis": 0.1371,
-        "simulatorHookMillis": 0.2957,
+        "environmentMillis": 0.3399,
+        "simulatorHookMillis": 0.347,
         "catalogPublishedAtStart": false
       },
       {
         "field": "rejuvenation:back_alley",
         "source": "structure",
-        "environmentMillis": 0.3356,
-        "simulatorHookMillis": 0.2677,
+        "environmentMillis": 0.3359,
+        "simulatorHookMillis": 0.3841,
         "catalogPublishedAtStart": false
       },
       {
         "field": "rejuvenation:crystal_cavern",
         "source": "trainer",
         "environmentMillis": 0.0,
-        "simulatorHookMillis": 0.215,
+        "simulatorHookMillis": 0.3337,
         "catalogPublishedAtStart": false
       }
     ],
@@ -115,12 +132,15 @@
       "screenshots/rejuvenation-panel-grassy-terrain.png",
       "screenshots/rejuvenation-panel-city.png",
       "screenshots/rejuvenation-panel-city-electric-overlay.png",
-      "screenshots/rejuvenation-panel-back-alley.png"
+      "screenshots/rejuvenation-notes-city-electric-overlay.png",
+      "screenshots/rejuvenation-panel-back-alley.png",
+      "screenshots/rejuvenation-notes-back-alley.png",
+      "screenshots/rejuvenation-panel-city-village-gap.png"
     ],
-    "battles": 7
+    "battles": 8
   },
   "exitCode": 1,
-  "elapsedSeconds": 226.9,
+  "elapsedSeconds": 272.6,
   "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion",
   "fieldIntegrationErrors": [],
   "log": "research/test-results/live-mode-integration.log"

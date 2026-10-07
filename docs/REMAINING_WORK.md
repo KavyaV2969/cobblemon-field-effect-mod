@@ -18,4 +18,4 @@ Open items, none blocking the ordinary integration:
 5. **Separate features.** A field details screen, and league extensions beyond the mapped Kanto trainers.
 6. **Stronger AI.** Full minimax or opponent-belief modelling would be an optional enhancement over the bounded strategy.
 
-Reproduce everything with `build.ps1`. Pass `-AffinityMask` to take latency receipts on performance cores.
+Reproduce everything with `build.ps1` (see [BUILDING.md](BUILDING.md)). Pass `-AffinityMask` to take latency receipts on performance cores.

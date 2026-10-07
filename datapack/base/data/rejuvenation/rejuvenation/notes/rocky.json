@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:rocky",
+  "title": "Rocky Field",
+  "summary": "“The field is littered with rocks.”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Rocky Field is one of the Field Effects present in Rejuvenation. It is classified as a Telluric field and can be randomly found in the Grand Dream Stadium during the tournament."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Rock-type moves → 1.5x boost.",
+        "“The field strengthened the attack!”",
+        "Pokémon with raised Defense cannot flinch and gain the effects of Bulletproof. Pokémon hiding behind a Substitute gain the effects of Bulletproof as well.",
+        "“[Pokémon] won't flinch because of its bolstered Defenses!”",
+        "“[Pokémon] hid behind a rock to dodge the attack!”",
+        "Pokémon with the Hotshot ability bypass the Bulletproof effect granted by this field, although as of V14.0.22, this interaction isn't listed in the in-game Field Notes.",
+        "If a Pokémon misses a physical contact move, it takes damage equal to 1/8 max HP.",
+        "“[Pokémon] hit a rock instead!”",
+        "Rock Head protects the bearer from this damage.",
+        "Gorilla Tactics double this damage to 1/4 Max HP.",
+        "If a Pokémon flinches, it takes damage equal to 1/4 max HP, unless it has one of the abilities Magic Guard, Steadfast or Sturdy.",
+        "“[Pokémon] was knocked into a rock!”",
+        "As of V14.0.22, Magic Guard isn't listed in the in-game Field Notes."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Buffed Abilities:",
+        "Coal Furnace activates and raises the user's Speed by 1 stage at the end of each turn.",
+        "As of V14.0.22, this interaction isn't listed in the in-game Field Notes.",
+        "Rocky Payload increases damage of the user's Rock-type moves by 2x instead of 1.5x.",
+        "Nerfed Abilities:",
+        "Long Reach decreases the bearer's Accuracy by 0.9x."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Damage Modifiers: Moves which receive an attack buff:",
+        "Rock Smash → 2x boost.",
+        "“SMASH'D!”",
+        "Bulldoze, Earthquake, Magnitude, Rock Climb, Strength → 1.5x boost, Rock sub-typing.",
+        "“The rocks strengthened the attack!”",
+        "Accelerock → 1.5x boost.",
+        "“The rocks strengthened the attack!”",
+        "Other moves: Buffed Moves:",
+        "Arenite Wall always lasts 8 turns and can be set regardless of weather.",
+        "Rock Polish boosts the user's Speed by 3 stages.",
+        "Stealth Rock damage is doubled.",
+        "Field-dependent moves & Abilities:",
+        "Mimicry changes the bearer's type to Rock.",
+        "Camouflage changes the user's type to Rock.",
+        "Nature Power becomes Rock Smash.",
+        "Secret Power may cause the target to Flinch.",
+        "Shelter halves damage from Rock-type moves.",
+        "Terrain Pulse's type becomes Rock."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Telluric Seed raises the user's Defense and Special Defense by 1 stage but damages them with Stealth Rocks."
+      ]
+    },
+    {
+      "heading": "Notes",
+      "lines": [
+        "Prior to V14, the move Splintered Stormshards generated this field for 2 turns.",
+        "“The field was devastated!”"
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Rocky Field”, revision 48738: https://rejuvenation.wiki.gg/wiki/Rocky_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

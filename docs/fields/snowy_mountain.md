@@ -67,16 +67,16 @@ Fields persist for the battle unless transformed/destroyed. Move/ability terrain
 | `hydrosteam` | {"multiplier":0.5,"message":"The cold softened the attack..."} |
 | `icywind` | {"multiplier":2.0,"message":"The frigid wind strengthened the attack!"} |
 | `thunder` | {"accuracy":0} |
-| `heatwave` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `searingshot` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `flameburst` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `lavaplume` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `firepledge` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `mindblown` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `incinerate` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `infernooverdrive` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `burningjealousy` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
-| `ragingfury` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!"}} |
+| `heatwave` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `searingshot` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `flameburst` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `lavaplume` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `firepledge` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `mindblown` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `incinerate` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `infernooverdrive` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `burningjealousy` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
+| `ragingfury` | {"transition":{"field":"rejuvenation:mountain","condition":{"always":true},"push":false,"message":"The snow melted away!","removesSurface":true}} |
 | `eruption` | {"transition":{"field":"rejuvenation:volcanic_top","condition":{"always":true},"push":false,"message":"The mountain erupted!"}} |
 | `magmadrift` | {"transition":{"field":"rejuvenation:volcanic_top","condition":{"always":true},"push":false,"message":"The mountain erupted!"}} |
 | `fly` | {"transition":{"field":"rejuvenation:sky","condition":{"always":true},"push":false,"message":"The battle was taken to the skies!"}} |

@@ -1,0 +1,81 @@
+{{Quote | ''Corruption seeps from every crevice!''}}
+[[File:BattlebgCorrupted.png|thumb]]
+
+Corrupted Cave is a field effect exclusive to Rejuvenation. It is categorized as a Synthetic field and can be found in the [[Corrupted Cave (Location)|Corrupted Cave]] (near Carotos Mountain), and while fighting [[Rift Garbodor]] in [[West Gearen Sewage Management]].
+
+==Transitions From Other Fields==
+
+* [[Cave]] will transform into this field if either Acid Downpour or Sludge Wave is used.
+** ''The cave was corrupted!''
+
+==General Effects==
+
+* Poison-type moves increase in base power by 1.5x.
+** ''The chemicals strengthened the attack.''
+* Grass-type moves increase in base power by 1.2x.
+** ''The corruption morphed the attack!''
+* Rock-type moves increase in base power by 1.2x.
+** ''The corruption morphed the attack!''
+* Fairy-type moves decrease in base power by 0.5x.
+** ''The corruption weakened the attack.''
+* Non-contact Flying-type moves decrease in base power by 0.5x.
+** ''The cave choked out the air!''
+* All grounded non-Poison or Steel-type Pokémon on the field are poisoned at the end of each turn.
+** Pokémon with one of the abilities Immunity, Pastel Veil, or Wonder Skin are immune.
+
+==Abilities Affected==
+
+* Corrosion additionally boosts damage dealt by 1.5x.
+* Dry Skin causes the bearer to lose 1/8 max HP each turn if it isn't Poison or Steel-type, and recover 1/8 of its maximum HP each turn if it is Poison-type.
+* Flower Veil, Grass Pelt, and Leaf Guard additionally damage the bearer for 1/8 max HP at the end of each turn.
+** ''[Pokémon]'s foliage caused harm!''
+* Liquid Ooze does double damage on activation.
+* Mimicry changes the user's type to Poison.
+* Poison Heal additionally heals the bearer for 1/8 max HP at the end of each turn.
+** ''[Pokémon] was healed in the corruption!''
+* Poison Point and Poison Touch have their activation rate doubled to 60%.
+* Toxic Boost's damage boost increases to 2x.
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Apple Acid, Seed Flare → 1.5x boost.
+** ''The move absorbed the filth!''
+
+===Other moves===
+
+* Diamond Storm, Rock Slide, Rock Tomb, Smack Down, and Stone Edge gain a Poison sub-typing.
+** As of v13.5.6, the field effect manual incorrectly states that Apple Acid gains a Poison sub-typing.
+* Gunk Shot and Sludge Wave gain a Rock sub-typing.
+* Ingrain damages the user instead, unless they are Poison or Steel-type.
+* Stealth Rock deals Poison-type scaling damage instead.
+** ''[Pokémon] was hurt by the corrupted stealth rocks!''
+* Tar Shot additionally inflicts Poison.
+* Toxic Thread inflicts Bad Poison instead.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Poison.
+* Nature Power becomes Gunk Shot.
+* Secret Power may inflict Poison.
+* Shelter halves damage from Poison-type moves.
+* Terrain Pulse's type becomes Poison.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into [[Cave]] if any of the moves Purify, Seed Flare, Solar Beam, or Solar Blade are used.
+** ''The cave was purified!''
+* This field will transform into [[Volcanic Field]] if any of the following moves are used, damaging all active Pokémon by 50% of their max HP.
+** Blast Burn, Eruption, Heat Wave, Inferno Overdrive, Lava Plume
+*** ''The cave's corruption combusted!''
+
+==Items==
+
+* [[Synthetic Seed]] boosts Defense by 2 stages but Badly Poisons the user.
+* Black Sludge's effect is doubled.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

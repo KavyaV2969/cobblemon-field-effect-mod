@@ -1,0 +1,17 @@
+{
+ "fields": "9b6b4235446130dc269e8a8ff28b7d677884c2165bbee9d3870075f6d2b7988f",
+ "mappings": "884b31d22368586d5d1d39f3734ba0123aac02cb59dcdfd755883b54a6b7e60a",
+ "structures": "b1968d16b4013c84a36de3f386ac6986e6ca8ff0231447f0df5ca6064051c94c",
+ "items": "dcc8d7883665ffefeecd0ea9d313fc09bb84343707f3d4fdb31021c2fac1bd4e",
+ "abilities": "556f7e617a43db309c12d232e5e3d8ffea1e2f7b3ba35fd1ca2c374478d9ada6",
+ "trainers": "b3b863ba357e3135f7b821db34e5ebbe6fc2091bb60ea082404f763a514830da",
+ "default": "d7a5588b7ff3f777211056c5deea58ca1477f43b97fb8eb768539511be96505d",
+ "counts": {
+  "fields": 61,
+  "mappings": 286,
+  "structures": 22,
+  "items": 7,
+  "abilities": 17,
+  "trainers": 13
+ }
+}

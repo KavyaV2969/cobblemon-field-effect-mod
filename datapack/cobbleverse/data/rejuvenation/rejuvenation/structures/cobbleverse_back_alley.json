@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "order": 350,
+  "rules": [
+    {
+      "tag": "repurposed_structures:collections/mansions",
+      "field": "rejuvenation:back_alley",
+      "reason": "Woodland Mansion variant"
+    }
+  ]
+}

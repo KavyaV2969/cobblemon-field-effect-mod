@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "order": 200,
+  "rules": [
+    {
+      "structure": "minecraft:bastion_remnant",
+      "field": "rejuvenation:colosseum",
+      "reason": "Bastion Remnant"
+    },
+    {
+      "structure": "minecraft:fortress",
+      "field": "rejuvenation:colosseum",
+      "reason": "Nether Fortress"
+    }
+  ]
+}

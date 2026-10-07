@@ -1,0 +1,107 @@
+{{Quote | ''The field is swamped.''}}
+[[File:BattlebgSwamp.png|thumb]]
+
+Swamp Field is one of the [[Field Effects]] present in Rejuvenation. It is classified as a Telluric field and can be found in [[Honec Woods]].
+
+==Transitions From Other Fields==
+
+'''This field can be generated while another field is active. The original field's effects are suppressed while Swamp Field is active. Once Swamp Field expires, the original field returns.'''
+
+'''Swamp Field cannot be generated while [[Frozen Dimensional Field]] or [[Underwater Field]] is active.'''
+
+* This field is generated if the moves Grass Pledge and Water Pledge are used one after the other in a battle (any number of turns apart, as long as the active field is not changed in those turns). The field lasts for 4 turns normally and 7 turns if the user of the second move holds an [[Amplifield Rock]]. If either move is used again while the field is active, the duration of the field will be refreshed.
+** ''"The pledges combined and formed a swamp!"''
+**''"The pledges combined and reinforced the swamp!"''
+* [[Grassy Terrain]] and [[Forest Field]] will transform into this field if Surf is used 3 times or Muddy Water is used 2 times.
+** ''"The grassy terrain became marshy!"''
+** ''"The forest became marshy!"''
+*** Specifically, using Surf increments the counter by +1 and using Muddy Water increments it by +2. The field changes to Swamp Field when the counter reaches 3.
+
+==General Effects==
+
+* Bug, Grass, Water-type moves → 1.3x boost.
+** ''"Bugs are swarming everywhere!"''
+** ''"Thick mangroves line the area!"''
+** ''"The dampness strengthened the attack!"''
+* Fire-type moves → 0.8x decrease.
+** ''"The dampness weakened the flame..."''
+* Grounded Pokémon have their Speed reduced by 1 stage at the end of the turn.
+** ''"[Pokémon]'s Speed sank...!"''
+*** Pokémon under the effect of a trapping move have their Speed lowered by 2 stages instead.
+*** Pokémon are immune to this effect if they hold Heavy-Duty Boots or a Clear Amulet, or have the abilities Clear Body, Propeller Tail, Quick Feet, Swift Swim or White Smoke.
+*** As of V14.0.22, Clear Body and White Smoke aren't listed in the in-game Field Notes.
+* Sleeping Pokémon lose 1/16 of their max HP each turn.
+** ''"[Pokémon]'s strength is sapped by the swamp!"''
+*** Pokémon under the effect of a trapping move lose 1/8 of their max HP instead.
+* Draining HP from a Pokémon, including with Strength Sap, randomly lowers one of its stats.
+** This does not include the item Shell Bell.
+** Leech Seed only lowers its target's stat at the end of each turn, and only when restoring HP.
+
+==Abilities Affected==
+
+===Buffed Abilities===
+
+* Dry Skin recovers 1/16 of the user's max HP at the end of each turn.
+** ''"[Pokémon]'s Dry Skin was healed by the murk!"''
+* [[Foam Spray]] lowers Defense by 2 stages on activation.
+* Gooey lowers Speed by 2 stages on activation.
+* Rattled raises the user's Speed by 1 stage on switch-in.
+* Water Compaction is activated at the end of each turn if the user is grounded.
+
+===Other Ability Changes===
+
+* Gulp Missile will always pick up a Arrokuda.
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which receive an attack buff====
+
+* Smack Down, Thousand Arrows → 1.5x boost, Water sub-typing.
+** ''"The murk strengthened the attack!"''
+* Brine, Gunk Shot, Hydro Vortex, Mud Barrage, Mud Bomb, Mud Shot, Mud Slap, Muddy Water, Savage Spin-Out, Sludge Wave → 1.5x boost.
+** ''"The murk strengthened the attack!"''
+** ''"There are bugs EVERYWHERE!"''
+
+====Moves which receive an attack nerf====
+
+* Bulldoze, Earthquake, Magnitude → 0.25x decrease.
+** ''"The attack dissipated in the soggy ground..."''
+* Explosion, Mind Blown, Self-Destruct → Fail on use.
+** ''"The dampness prevents the explosion!"''
+
+===Other moves===
+
+====Buffed Moves====
+
+* Aqua Ring restores 1/8 max HP each turn instead of 1/16.
+* Attack Order and String Shot randomly lower one of the target's stats by 1 stage.
+* Infestation, Snap Trap and Spider Web randomly lower one of the target's stats by 1 stage at the end of each turn they're active.
+* Mud Shot lowers the target's Speed by 2 stages.
+* Poison Powder, Sleep Powder and Stun Spore's accuracy is increased to 100%.
+* Roar displays a different message. There is no other additional effect.
+** ''"What are ya doin' in my swamp?!"''
+* Shelter raises the user's Defense by 3 stages.
+* Struggle Bug lowers the target's Special Attack by 2 stages.
+
+===Field-dependent moves & Abilities===
+
+* Mimicry changes the user's type to Water.
+* Camouflage changes the user's type to Water.
+* Nature Power becomes Muddy Water.
+* Secret Power may lower Speed by 1 stage.
+* Shelter halves damage from Water-type moves.
+* Terrain Pulse becomes Water-type.
+
+==Items==
+
+* [[Telluric Seed]] raises the user's Defense by 1 stage and changes their ability to Clear Body.
+** ''"[Pokémon]'s body became clear!"''
+
+==Other Notes==
+
+* Prior to V14, Steam Engine protected the user from the field's Speed drop.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "id": "rejuvenation:warped_forest",
+  "originalId": "WARPEDFOREST",
+  "name": "Warped Forest",
+  "entryMessage": "The forest twitches grotesquely...",
+  "specification": "Warped_Forest_Field.md",
+  "base": "INDOOR",
+  "hooks": {
+    "naturePower": "woodhammer",
+    "secretPower": "woodhammer",
+    "mimicry": "Dark",
+    "secretPowerEffects": [{"volatileStatus": "flinch"}]
+  },
+  "types": [
+    {"type": "Grass", "multiplier": 1.5, "message": "The forestry strengthened the attack!"},
+    {"type": "Bug", "category": "Special", "multiplier": 1.5, "message": "The attack spread throughout the forest!"},
+    {"type": "Dark", "multiplier": 1.5, "message": "The darkness is here..."},
+    {"type": "Ghost", "multiplier": 1.2, "message": "The evil aura powered up the attack..."},
+    {"type": "Fairy", "multiplier": 0.5, "message": "The evil aura depleted the attack!"},
+    {"type": "Fire", "multiplier": 1.3, "message": "The Nether's heat strengthened the attack!"},
+    {"type": "Ice", "multiplier": 0.5, "message": "The Nether's heat softened the attack..."},
+    {"type": "Water", "multiplier": 0.8, "message": "The Nether's heat weakened the attack..."}
+  ],
+  "moves": {
+    "powerwhip": {"multiplier": 1.5, "message": "The warped roots lashed out!"},
+    "vinewhip": {"multiplier": 1.5, "message": "The warped roots lashed out!"},
+    "hyperspacefury": {"multiplier": 1.5, "message": "Space warped between the twisting trees!"},
+    "hyperspacehole": {"multiplier": 1.5, "message": "Space warped between the twisting trees!"},
+    "shadowforce": {"multiplier": 1.5, "message": "Space warped between the twisting trees!"},
+    "spacialrend": {"multiplier": 1.5, "message": "Space warped between the twisting trees!"},
+    "darkpulse": {"multiplier": 1.2, "accuracy": 0, "message": "The warped forest folded around the attack!"},
+    "nightdaze": {"multiplier": 1.2, "accuracy": 0, "message": "The warped forest folded around the attack!"}
+  },
+  "typeComposition": [
+    {"whenTypes": ["Grass"], "add": "Dark", "condition": {"not": {"category": "Status"}}, "message": "The warped flora twisted the attack!"}
+  ],
+  "terrainPulse": {"type": "Dark"},
+  "inherit": [
+    {"from": "FOREST", "moveRows": {"moves": ["slash", "airslash", "furycutter", "aircutter", "psychocut", "breakingswipe", "cut"], "keys": ["additionalType"]}},
+    {"from": "FOREST", "rules": [
+      {"event": "residual", "contains": ["sapsipper"], "expect": 1},
+      {"event": "setStatus", "contains": ["leafguard"], "expect": 1}
+    ], "abilityHandlers": ["overgrow", "swarm", "grasspelt", "effectspore"]},
+    {"from": "DIMENSIONAL", "rules": [
+      {"event": "switchIn", "contains": ["\"rattled\""], "expect": 1},
+      {"event": "switchIn", "contains": ["\"unnerve\""], "expect": 1}
+    ], "keys": ["conditionDurations"]},
+    {"from": "WASTELAND", "rules": [
+      {"event": "residual", "contains": ["poisonheal"], "expect": 1}
+    ], "abilityHandlers": ["toxicboost"]},
+    {"from": "VOLCANIC", "rules": [
+      {"event": "setStatus", "contains": ["\"frz\""], "expect": 1}
+    ]}
+  ],
+  "rules": [
+    {
+      "event": "receivedDamage",
+      "condition": {"move": "leechseed"},
+      "actions": [{"op": "multiply", "value": 2}, {"op": "message", "text": "The warped roots burrowed deeper!"}],
+      "source": "Warped_Forest_Field.md: Warped Flora (Leech Seed 1/4); Wasteland Leech Seed rule"
+    },
+    {
+      "event": "setWeather",
+      "condition": {"always": true},
+      "actions": [{"op": "message", "text": "The weather faded into the warped forest..."}, {"op": "reject"}],
+      "source": "Warped_Forest_Field.md: Weather effects fail while the field is active"
+    },
+    {
+      "event": "activate",
+      "condition": {"all": [{"weatherActive": true}, {"not": {"globalAbility": ["tempest"]}}]},
+      "actions": [{"op": "clearWeather", "message": "The weather faded into the warped forest..."}],
+      "source": "Warped_Forest_Field.md: Weather effects fail while the field is active (weather present on entry)"
+    },
+    {
+      "event": "weatherChange",
+      "condition": {"all": [{"weatherActive": true}, {"not": {"globalAbility": ["tempest"]}}]},
+      "actions": [{"op": "clearWeather", "message": "The weather faded into the warped forest..."}],
+      "source": "Warped_Forest_Field.md: Weather effects fail while the field is active"
+    },
+    {
+      "event": "weatherReconcile",
+      "condition": {"all": [{"weatherActive": true}, {"not": {"globalAbility": ["tempest"]}}]},
+      "actions": [{"op": "clearWeather", "message": "The weather faded into the warped forest..."}],
+      "source": "Warped_Forest_Field.md: Weather effects fail while the field is active"
+    },
+    {
+      "event": "modifyMove",
+      "condition": {"move": "shelter"},
+      "actions": [{"op": "moveBehavior", "recipe": "appendHitActions", "actions": [
+        {"op": "volatile", "id": "rejuvenationshelter", "message": "{1} is sheltering itself from the surroundings!"}
+      ]}],
+      "source": "Warped_Forest_Field.md: Standard Field Hooks (Shelter); Battle_MoveEffects.rb:1071-1074"
+    },
+    {
+      "event": "damage",
+      "condition": {"all": [
+        {"volatile": {"who": "target", "id": "rejuvenationshelter"}},
+        {"attackType": "Dark"}
+      ]},
+      "actions": [{"op": "multiply", "value": 0.5}],
+      "source": "Warped_Forest_Field.md: Standard Field Hooks (Shelter halves Dark damage); Battle_Move.rb:1845-1848"
+    }
+  ],
+  "customVolatiles": {
+    "rejuvenationshelter": {"actions": [], "source": "Warped_Forest_Field.md: Standard Field Hooks (Shelter)"}
+  },
+  "seed": {"item": "magicalseed", "effect": "ingrain", "duration": true, "message": "{1} planted its roots.", "stats": {"def": 1, "spd": 1, "spe": -1}},
+  "seedActions": [],
+  "artwork": {"file": "warpedforest.jpg", "description": "Minecraft Warped Forest screenshot (user-provided)"},
+  "biomes": ["minecraft:warped_forest"],
+  "structures": [],
+  "notes": {
+    "summary": "“The forest twitches grotesquely...”",
+    "sections": [
+      {"heading": "Description", "lines": [
+        "Warped Forest is a custom field effect that does not appear in Pokémon Rejuvenation. It is based on the Nether biome of the same name and is found in the Warped Forest biome.",
+        "The field combines parts of Forest Field, Dimensional Field, Wasteland and Volcanic Field. Weather cannot last here and nothing can be frozen."]},
+      {"heading": "General Effects", "lines": [
+        "Grass-type, Dark-type and special Bug-type moves increase in base power by 1.5x.",
+        "Ghost-type moves increase in base power by 1.2x.",
+        "Fire-type moves increase in base power by 1.3x.",
+        "Water-type moves decrease in base power to 0.8x.",
+        "Ice-type and Fairy-type moves decrease in base power to 0.5x.",
+        "Damaging Grass-type moves also count as Dark-type when type effectiveness is calculated. The extra type changes damage only; it never adds same-type attack bonus."]},
+      {"heading": "Abilities Affected", "lines": [
+        "Effect Spore's activation rate is doubled to 60%.",
+        "Grass Pelt, Leaf Guard, Overgrow and Swarm are active as in Forest Field.",
+        "Mimicry changes the bearer's type to Dark.",
+        "Poison Heal and Toxic Boost work for grounded Pokémon.",
+        "Rattled raises Speed by 1 stage when the bearer enters.",
+        "Sap Sipper restores 1/16 of its max HP at the end of each turn.",
+        "Unnerve lowers the opposing Pokémon's Speed by 1 stage when the bearer enters."]},
+      {"heading": "Moves Affected", "lines": [
+        "Moves which receive an attack buff:",
+        "Power Whip, Vine Whip → 1.5x boost on top of the Grass-type bonus (2.25x in total).",
+        "Dark Pulse, Night Daze → 1.2x boost on top of the Dark-type bonus (1.8x in total). These moves never miss.",
+        "Hyperspace Fury, Hyperspace Hole, Shadow Force, Spacial Rend → 1.5x boost.",
+        "Other moves:",
+        "Slash, Air Slash, Fury Cutter, Air Cutter, Psycho Cut, Breaking Swipe and Cut gain the Grass type, as in Forest Field.",
+        "Leech Seed drains 1/4 of the target's max HP each turn instead of 1/8.",
+        "Gravity, Magic Room, Trick Room and Wonder Room last a random 3 to 8 turns.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Dark.",
+        "Nature Power becomes Wood Hammer.",
+        "Secret Power may cause the target to flinch.",
+        "Shelter halves damage from Dark-type moves.",
+        "Terrain Pulse's type becomes Dark."]},
+      {"heading": "Weather and Status", "lines": [
+        "Weather cannot be started here, and weather already in effect disappears when the field begins.",
+        "Pokémon cannot be frozen."]},
+      {"heading": "Items", "lines": [
+        "Magical Seed raises Defense and Special Defense by 1 stage each, lowers Speed by 1 stage and applies Ingrain to the user."]},
+      {"heading": "Source", "lines": [
+        "Custom field written for this mod, in the layout of the field entries of the Pokémon Rejuvenation Wiki (https://rejuvenation.wiki.gg/wiki/Field_Effects), whose text is licensed under Creative Commons Attribution-ShareAlike 4.0."]}
+    ],
+    "counters": []
+  }
+}

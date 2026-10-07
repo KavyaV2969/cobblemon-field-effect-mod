@@ -1,0 +1,632 @@
+{
+  "schemaVersion": 1,
+  "order": 100,
+  "rules": [
+    {
+      "submerged": true,
+      "field": "rejuvenation:underwater",
+      "reason": "Battle submerged in water"
+    },
+    {
+      "biome": "minecraft:badlands",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:badlands",
+      "field": "rejuvenation:desert",
+      "reason": "Arid sand/mesa terrain"
+    },
+    {
+      "biome": "minecraft:bamboo_jungle",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:bamboo_jungle",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:basalt_deltas",
+      "field": "rejuvenation:volcanic",
+      "reason": "Hot volcanic environment"
+    },
+    {
+      "biome": "minecraft:beach",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:beach",
+      "field": "rejuvenation:beach",
+      "reason": "Coastal sand/rock"
+    },
+    {
+      "biome": "minecraft:birch_forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:birch_forest",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:cherry_grove",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:cherry_grove",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:cold_ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:crimson_forest",
+      "field": "rejuvenation:crimson_forest",
+      "reason": "Crimson Forest biome"
+    },
+    {
+      "biome": "minecraft:dark_forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:dark_forest",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:deep_cold_ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:deep_dark",
+      "field": "rejuvenation:deep_dark",
+      "reason": "Deep Dark biome"
+    },
+    {
+      "biome": "minecraft:deep_frozen_ocean",
+      "field": "rejuvenation:icy",
+      "reason": "Ice sheet over deep ocean water",
+      "substrate": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:deep_lukewarm_ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:deep_ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:desert",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:desert",
+      "field": "rejuvenation:desert",
+      "reason": "Arid sand/mesa terrain"
+    },
+    {
+      "biome": "minecraft:dripstone_caves",
+      "field": "rejuvenation:cave",
+      "reason": "Subterranean environment"
+    },
+    {
+      "biome": "minecraft:end_barrens",
+      "field": "rejuvenation:new_world",
+      "reason": "Fragmented void-world"
+    },
+    {
+      "biome": "minecraft:end_highlands",
+      "field": "rejuvenation:new_world",
+      "reason": "Fragmented void-world"
+    },
+    {
+      "biome": "minecraft:end_midlands",
+      "field": "rejuvenation:new_world",
+      "reason": "Fragmented void-world"
+    },
+    {
+      "biome": "minecraft:eroded_badlands",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:eroded_badlands",
+      "field": "rejuvenation:desert",
+      "reason": "Arid sand/mesa terrain"
+    },
+    {
+      "biome": "minecraft:flower_forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:flower_forest",
+      "field": "rejuvenation:flower_garden_2",
+      "reason": "Flower-rich vegetation"
+    },
+    {
+      "biome": "minecraft:forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:forest",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:frozen_ocean",
+      "field": "rejuvenation:icy",
+      "reason": "Ice sheet over open ocean water",
+      "substrate": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:frozen_peaks",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:snowy_mountain",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "minecraft:frozen_peaks",
+      "field": "rejuvenation:snowy_mountain",
+      "reason": "Snow-covered mountain",
+      "substrate": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:frozen_river",
+      "field": "rejuvenation:icy",
+      "reason": "Ice over river water",
+      "substrate": "rejuvenation:water_surface"
+    },
+    {
+      "biome": "minecraft:grove",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:grove",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:ice_spikes",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment"
+    },
+    {
+      "biome": "minecraft:jagged_peaks",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:jagged_peaks",
+      "field": "rejuvenation:mountain",
+      "reason": "Elevated mountain terrain"
+    },
+    {
+      "biome": "minecraft:jungle",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:jungle",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:lukewarm_ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:lush_caves",
+      "field": "rejuvenation:cave",
+      "reason": "Subterranean environment"
+    },
+    {
+      "biome": "minecraft:mangrove_swamp",
+      "field": "rejuvenation:swamp",
+      "reason": "Wet swamp"
+    },
+    {
+      "biome": "minecraft:meadow",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:meadow",
+      "field": "rejuvenation:grassy_terrain",
+      "reason": "Open vegetated land"
+    },
+    {
+      "biome": "minecraft:mushroom_fields",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:mushroom_fields",
+      "field": "rejuvenation:fairytale",
+      "reason": "Mushroom biome"
+    },
+    {
+      "biome": "minecraft:nether_wastes",
+      "field": "rejuvenation:volcanic",
+      "reason": "Hot volcanic environment"
+    },
+    {
+      "biome": "minecraft:ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:old_growth_birch_forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:old_growth_birch_forest",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:old_growth_pine_taiga",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:old_growth_pine_taiga",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:old_growth_spruce_taiga",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:old_growth_spruce_taiga",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:plains",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:plains",
+      "field": "rejuvenation:grassy_terrain",
+      "reason": "Open vegetated land"
+    },
+    {
+      "biome": "minecraft:river",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:savanna",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:savanna",
+      "field": "rejuvenation:grassy_terrain",
+      "reason": "Open vegetated land"
+    },
+    {
+      "biome": "minecraft:savanna_plateau",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:savanna_plateau",
+      "field": "rejuvenation:mountain",
+      "reason": "Elevated mountain terrain"
+    },
+    {
+      "biome": "minecraft:small_end_islands",
+      "field": "rejuvenation:new_world",
+      "reason": "Fragmented void-world"
+    },
+    {
+      "biome": "minecraft:snowy_beach",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "minecraft:snowy_beach",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:beach"
+    },
+    {
+      "biome": "minecraft:snowy_plains",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "minecraft:snowy_plains",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:grassy_terrain"
+    },
+    {
+      "biome": "minecraft:snowy_slopes",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:snowy_mountain",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "minecraft:snowy_slopes",
+      "field": "rejuvenation:snowy_mountain",
+      "reason": "Snow-covered mountain",
+      "substrate": "rejuvenation:mountain"
+    },
+    {
+      "biome": "minecraft:snowy_taiga",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:icy",
+      "substrate": "rejuvenation:cave",
+      "reason": "Frozen underground: Cave rock under a frozen underground"
+    },
+    {
+      "biome": "minecraft:snowy_taiga",
+      "field": "rejuvenation:icy",
+      "reason": "Ice/snow environment",
+      "substrate": "rejuvenation:forest"
+    },
+    {
+      "biome": "minecraft:soul_sand_valley",
+      "field": "rejuvenation:infernal",
+      "reason": "Tormented soul environment"
+    },
+    {
+      "biome": "minecraft:sparse_jungle",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:sparse_jungle",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:stony_peaks",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:stony_peaks",
+      "field": "rejuvenation:mountain",
+      "reason": "Elevated mountain terrain"
+    },
+    {
+      "biome": "minecraft:stony_shore",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:stony_shore",
+      "field": "rejuvenation:beach",
+      "reason": "Coastal sand/rock"
+    },
+    {
+      "biome": "minecraft:sunflower_plains",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:sunflower_plains",
+      "field": "rejuvenation:grassy_terrain",
+      "reason": "Plains biome variant"
+    },
+    {
+      "biome": "minecraft:swamp",
+      "field": "rejuvenation:swamp",
+      "reason": "Wet swamp"
+    },
+    {
+      "biome": "minecraft:taiga",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:taiga",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:the_end",
+      "field": "rejuvenation:new_world",
+      "reason": "Fragmented void-world"
+    },
+    {
+      "biome": "minecraft:the_void",
+      "field": "rejuvenation:new_world",
+      "reason": "Fragmented void-world"
+    },
+    {
+      "biome": "minecraft:warm_ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Open surface water"
+    },
+    {
+      "biome": "minecraft:warped_forest",
+      "field": "rejuvenation:warped_forest",
+      "reason": "Warped Forest biome"
+    },
+    {
+      "biome": "minecraft:windswept_forest",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:windswept_forest",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    },
+    {
+      "biome": "minecraft:windswept_gravelly_hills",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:windswept_gravelly_hills",
+      "field": "rejuvenation:mountain",
+      "reason": "Elevated mountain terrain"
+    },
+    {
+      "biome": "minecraft:windswept_hills",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:windswept_hills",
+      "field": "rejuvenation:mountain",
+      "reason": "Elevated mountain terrain"
+    },
+    {
+      "biome": "minecraft:windswept_savanna",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:windswept_savanna",
+      "field": "rejuvenation:mountain",
+      "reason": "Elevated mountain terrain"
+    },
+    {
+      "biome": "minecraft:wooded_badlands",
+      "dimension": "minecraft:overworld",
+      "minDepth": 12,
+      "skyVisible": false,
+      "field": "rejuvenation:cave",
+      "reason": "Battle at least 12 blocks below solid surface in a surface biome"
+    },
+    {
+      "biome": "minecraft:wooded_badlands",
+      "field": "rejuvenation:forest",
+      "reason": "Dense woodland"
+    }
+  ]
+}

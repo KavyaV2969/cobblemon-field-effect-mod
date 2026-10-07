@@ -1,0 +1,113 @@
+{{Quote | ''The cave echoes dully...''}}
+[[File:BattlebgCave.png|thumb]]
+
+Cave is one of the field effects present in Rejuvenation. It is classified as a Telluric field and can be found in [[Goldenwood Cave]],  and [[Valor Mountain]] (Neutral Emotion).
+
+==Transitions From Other Fields==
+
+* [[Corrupted Cave]] will transform into this field if any of the moves Solar Beam, Solar Blade, Purify, or Seed Flare are used.
+** ''The cave was purified!''
+* [[Crystal Cavern]] will transform into this field if any of the moves Bulldoze, Earthquake, Fissure, or Magnitude are used 2 times, or Tectonic Rage is used 1 time.
+** ''The crystals are starting to crack...''
+** ''The crystals were broken up!''
+* [[Dragon's Den Field]] will transform into this field if of the moves Glaciate or the Z-Moves Hydro Vortex, Oceanic Operetta, or Subzero Slammer are used.
+**''The lava was frozen solid!''
+**''The lava solidified!''
+* [[Icy Field]] will transform into this field if Cave is below the field and any of the following moves are used: 
+** Eruption, Fire Pledge, Flame Burst, Heat Wave, Incinerate, Inferno Overdrive, Lava Plume, [[Magma Drift]], Mind Blown, Raging Fury, Scald (x2), Searing Shot, Steam Eruption
+*** ''The ice melted away!''
+*** ''The hot water melted the ice!''
+* [[Volcanic Field]] will transform into this field if Rain or Sandstorm weather is active at the end of the turn, or any of the following moves are used:
+** Continental Crush, Defog, Gust, Hurricane, Hydro Vortex, Muddy Water, Oceanic Operetta, Razor Wind, Sand Tomb, Sparkling Aria, Supersonic Skystrike, Sludge Wave, Surf, Tailwind, Twister, Water Pledge, Water Sport, Water Spout, Whirlwind
+*** ''The rain snuffed out the flame!''
+*** ''The sand snuffed out the flame!''
+*** ''The wind snuffed out the flame!''
+*** ''The water snuffed out the flame!''
+*** ''The grime snuffed out the flame!''
+
+==General Effects==
+
+* Rock-type moves increase in base power by 1.5x.
+** ''The cavern strengthened the attack!''
+* Sound-based moves increase in base power by 1.5x.
+** ''ECHO-Echo-echo!''
+* Non-contact Flying-type moves decrease in base power by 0.5x.
+** ''The cave choked out the air!''
+* Ground-type moves can now hit airborne Pokémon.
+
+===Cave collapse===
+
+* Using any of the following moves 2 times will cause the cave to collapse, KO-ing all active Pokémon:
+** Bulldoze, Continental Crush, Earthquake, Fissure, Magnitude, Tectonic Rage
+*** ''Bits of rock fell from the crumbling ceiling!''
+*** ''The quake collapsed the ceiling!''
+* Pokémon behind a Protection move (including Wide Guard), or with the abilities Bulletproof, Earth Eater or Rock Head take no damage.
+* Pokémon with the abilities Prism Armor or Solid Rock take 33% max HP damage.
+* Pokémon with the abilities Battle Armor or Shell Armor take 50% max HP damage.
+* Pokémon using Endure, or with the abilities Stalwart or Sturdy (at full HP) will survive with 1 HP.
+
+==Abilities Affected==
+
+* Mimicry changes the user's type to Rock.
+* Punk Rock increases the power of sound-based moves by 50%.
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Rock Tomb, Hyper Drill, Drill Run, Drum Beating → 1.5x boost.
+** ''...Piled on!''
+** '' Tunneled through!''
+** ''ECHO-Echo-echo!''
+
+===Moves which receive an attack nerf===
+
+* Sky Drop → Fails on use.
+** ''The cave's low ceiling makes flying high impossible...''
+
+===Other moves===
+
+* Bounce and Fly last only 1 turn.
+* Stealth Rock damaged is doubled.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Rock.
+* Nature Power becomes Rock Tomb.
+* Secret Power may flinch.
+* Shelter halves damage from Rock-type moves.
+* Terrain Pulse's type becomes Rock.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into [[Crystal Cavern]] if either Diamond Storm or Power Gem is used.
+** ''The cave was littered with crystals!''
+* This field will transform into [[Corrupted Cave]] if either Acid Downpour or Sludge Wave is used.
+** ''The cave was corrupted!''
+* This field will transform into [[Deep Earth]] if Gravity is used 2 times.
+** ''Intense gravity is pulling from deep below...''
+** ''The battle was pulled deeper into the earth!''
+* This field will transform into [[Dragon's Den]] if Dragon Pulse is used 2 times, or either Devastating Drake or Draco Meteor is used 1 time.
+** ''Draconic energy seeps in...''
+** ''The draconic energy mutated the field!''
+* This field will transform into [[Icy Field]] if either Blizzard or Subzero Slammer is used.
+** ''The cavern froze over!''
+* This field will transform into [[Volcanic Field]] if any of the following moves are used 2 times:
+** Eruption, [[Fever Pitch]], Fusion Flare, Heat Wave, Lava Plume, [[Magma Drift]], Overheat 
+*** ''The cave is heating up...''
+*** ''The flame ignited the cave!''
+
+==Items==
+
+* [[Telluric Seed]] sharply boosts Defense but damages the user with Stealth Rocks.
+
+==Other Notes==
+
+* As of v14.0.22, despite what the field effect manual says, [[Dark Crystal Cavern]] cannot directly transform into Cave due to a bug. The field must first be transformed into [[Crystal Cavern]] in order to transform into Cave. Below is the intended transformation:
+** [[Dark Crystal Cavern]] will transform into this field if any of the moves Bulldoze, Earthquake, Fissure, or Magnitude are used 2 times, or Tectonic Rage is used 1 time.
+*** ''The dark crystals were shattered!''
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

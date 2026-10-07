@@ -22,8 +22,8 @@ def walk(v,where):
         for x in v.values():walk(x,where)
     elif isinstance(v,list):
         for x in v:walk(x,where)
-for p in sorted((ROOT/'datapack/data/rejuvenation/rejuvenation/fields').glob('*.json')):walk(json.loads(p.read_text(encoding='utf-8')),p.stem)
-for p in sorted((ROOT/'datapack/data/rejuvenation/rejuvenation/abilities').glob('*.json')):walk(json.loads(p.read_text(encoding='utf-8')),'abilities')
+for p in sorted((ROOT/'datapack/base/data/rejuvenation/rejuvenation/fields').glob('*.json')):walk(json.loads(p.read_text(encoding='utf-8')),p.stem)
+for p in sorted((ROOT/'datapack/base/data/rejuvenation/rejuvenation/abilities').glob('*.json')):walk(json.loads(p.read_text(encoding='utf-8')),'abilities')
 want=sys.argv[1] if len(sys.argv)>1 else None
 for l in audit:
     if l['file']=='Battle_AI.rb' or (want and l['file']!=want):continue

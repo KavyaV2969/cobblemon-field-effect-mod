@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "order": 500,
+  "rules": [
+    {
+      "maxY": 0,
+      "skyVisible": false,
+      "field": "rejuvenation:deep_earth",
+      "reason": "Unknown deep underground biome"
+    }
+  ]
+}

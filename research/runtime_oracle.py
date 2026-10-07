@@ -25,10 +25,10 @@ for field in field_ids:
         defense.append([field, ts, ability, airborne, weather, attacker, suppressed, category])
 multipliers = list(itertools.product([0, .25, .5, .75, 1, 1.2, 1.33, 1.5, 2, 3], [0, 1, 2], [False, True], [False, True]))
 cases = {'defense': defense, 'multipliers': multipliers}
-ruby = subprocess.run(['ruby', str(ROOT/'research/runtime_oracle.rb'), str(source)],
+ruby = subprocess.run([__import__('os').environ.get('RUBY','ruby'), str(ROOT/'research/runtime_oracle.rb'), str(source)],
                       input=json.dumps(cases), text=True, capture_output=True, check=True)
 expected = json.loads(ruby.stdout)
-node = subprocess.run(['node', str(ROOT/'mod/src/test/js/source-oracle.cjs')],
+node = subprocess.run(['node', str(ROOT/'verification/src/test/js/source-oracle.cjs')],
                       input=json.dumps({'cases': cases, 'expected': expected}),
                       text=True, capture_output=True)
 if node.returncode:

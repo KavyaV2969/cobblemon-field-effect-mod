@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:city",
+  "title": "City",
+  "summary": "“The streets are busy...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Battles inside generated villages (vanilla and modded variants)."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "City is a field effect exclusive to Rejuvenation. It is categorized as a Synthetic field and can be found in most major city areas, such as East Gearen City, West Gearen City, and Grand Dream City."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Back Alley will transform into this field if any of the moves Boomburst, Echoed Voice, Hyper Voice, or Uproar are used.",
+        "“Cops! Everyone scatter!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Physical Normal-type moves increase in base power by 1.5x.",
+        "“The hustle and bustle of the city!”",
+        "Bug-type moves increase in base power by 1.3x.",
+        "“In the cracks and the walls!”",
+        "Poison-type moves increase in base power by 1.3x.",
+        "“All kinds of pollution strengthened the attack!”",
+        "Steel-type moves increase in base power by 1.3x.",
+        "“The right tool for the job!”",
+        "Fairy-type moves decrease in base power to 0.7x.",
+        "“This is no place for fairytales...”"
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Big Pecks additionally boosts the user's Defense by 1 stage on switch in.",
+        "“[Pokémon]'s Big Pecks raise its Defense!”",
+        "Competitive boosts the bearer's Special Attack by 3 stages when activated.",
+        "Download boosts bearer's user's Attack or Special Attack by 2 stages when activated.",
+        "Early Bird additionally boosts the bearer's Attack by 1 stage on switch-in.",
+        "“The early bird catches the worm!”",
+        "Frisk additionally lowers the target's Special Defense by 1 stage.",
+        "“Just a routine inspection.”",
+        "Hustle now boosts damage by 75%, but lowers accuracy by 33%.",
+        "Mimicry changes the bearer's type to Normal.",
+        "Pickup and Rattled additionally boost the bearer's Speed by 1 stage on switch in.",
+        "“The busy city is rattling [Pokémon]!”",
+        "“[Pokémon] is picking up Speed!”",
+        "Stench's activation chance is doubled to 20%."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "First Impression → 1.5x boost, Normal sub-typing.",
+        "“An overwhelming first impression!”",
+        "Beat Up, Pay Day, Smog, Steamroller, Techno Blast → 1.5x boost.",
+        "“A crowd is gathering!”",
+        "“Working 9 to 5 for this!”",
+        "“The city smog is suffocating!”",
+        "“Careful on the street!”",
+        "“The power of science is amazing!”",
+        "Other moves:",
+        "Autotomize boosts the user's Speed by 3 stages.",
+        "Corrosive Gas additionally lowers all of the target's stats by 1 stage.",
+        "Poison Gas and Smog never miss and inflict Bad Poison to the target.",
+        "Recycle additionally boosts a random stat of the user by 1 stage if successful.",
+        "“Reduce, reuse, recycle!”",
+        "Shift Gear boosts the user's Attack and Speed by 2 stages.",
+        "Smokescreen lowers the target's Accuracy by 2 stages.",
+        "Work Up boosts the user's Attack and Special Attack by 2 stages.",
+        "Z-Celebrate, Z-Conversion, and Z-Happy Hour boost all of the user's stats by 2 stages.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Normal.",
+        "Nature Power becomes Smog.",
+        "Secret Power can inflict Poison.",
+        "Shelter halves damage from Normal-type moves.",
+        "Terrain Pulse's type becomes Normal."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.",
+        "This field will transform into Back Alley if any of the moves Covet, Pursuit, or Thief are used.",
+        "“The criminal ran into a backalley!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Synthetic Seed boosts the user's Attack and Accuracy by 1 stage."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “City”, revision 32482: https://rejuvenation.wiki.gg/wiki/City",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

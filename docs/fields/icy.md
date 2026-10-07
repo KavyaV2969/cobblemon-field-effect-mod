@@ -48,28 +48,28 @@ Fields persist for the battle unless transformed/destroyed. Move/ability terrain
 |---|---|
 | `bittermalice` | {"multiplier":1.5,"message":"The cold strengthened the attack!"} |
 | `chillingwater` | {"multiplier":1.5,"message":"The cold strengthened the attack!"} |
-| `scald` | {"multiplier":0.5,"message":"The cold softened the attack...","counter":{"index":1,"amount":1,"maximum":2,"message":"Parts of the ice melted!"},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot water melted the ice!"}} |
-| `steameruption` | {"multiplier":0.5,"message":"The cold softened the attack...","counter":{"index":1,"amount":2,"maximum":2,"message":null},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot water melted the ice!"}} |
-| `hydrosteam` | {"multiplier":0.5,"message":"The cold softened the attack...","counter":{"index":1,"amount":1,"maximum":2,"message":"Parts of the ice melted!"},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot water melted the ice!"}} |
+| `scald` | {"multiplier":0.5,"message":"The cold softened the attack...","counter":{"index":1,"amount":1,"maximum":2,"message":"Parts of the ice melted!"},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot water melted the ice!","removesSurface":true}} |
+| `steameruption` | {"multiplier":0.5,"message":"The cold softened the attack...","counter":{"index":1,"amount":2,"maximum":2,"message":null},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot water melted the ice!","removesSurface":true}} |
+| `hydrosteam` | {"multiplier":0.5,"message":"The cold softened the attack...","counter":{"index":1,"amount":1,"maximum":2,"message":"Parts of the ice melted!"},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot water melted the ice!","removesSurface":true}} |
 | `earthquake` | {"after":[{"op":"ice_spikes"}],"transition":{"field":"rejuvenation:indoor","condition":{"all":[{"any":[{"backup":"rejuvenation:water_surface"},{"backup":"rejuvenation:murkwater_surface"}]},{"any":[{"not":{"move":"dive"}},{"counter":{"index":1,"op":"==","value":3}}]}]},"push":false,"message":"The quake broke up the ice and revealed the water beneath!"}} |
 | `bulldoze` | {"after":[{"op":"ice_spikes"}],"transition":{"field":"rejuvenation:indoor","condition":{"all":[{"any":[{"backup":"rejuvenation:water_surface"},{"backup":"rejuvenation:murkwater_surface"}]},{"any":[{"not":{"move":"dive"}},{"counter":{"index":1,"op":"==","value":3}}]}]},"push":false,"message":"The quake broke up the ice and revealed the water beneath!"}} |
 | `magnitude` | {"after":[{"op":"ice_spikes"}],"transition":{"field":"rejuvenation:indoor","condition":{"all":[{"any":[{"backup":"rejuvenation:water_surface"},{"backup":"rejuvenation:murkwater_surface"}]},{"any":[{"not":{"move":"dive"}},{"counter":{"index":1,"op":"==","value":3}}]}]},"push":false,"message":"The quake broke up the ice and revealed the water beneath!"}} |
 | `fissure` | {"after":[{"op":"ice_spikes"}],"transition":{"field":"rejuvenation:indoor","condition":{"all":[{"any":[{"backup":"rejuvenation:water_surface"},{"backup":"rejuvenation:murkwater_surface"}]},{"any":[{"not":{"move":"dive"}},{"counter":{"index":1,"op":"==","value":3}}]}]},"push":false,"message":"The quake broke up the ice and revealed the water beneath!"}} |
 | `tectonicrage` | {"after":[{"op":"ice_spikes"}],"transition":{"field":"rejuvenation:indoor","condition":{"all":[{"any":[{"backup":"rejuvenation:water_surface"},{"backup":"rejuvenation:murkwater_surface"}]},{"any":[{"not":{"move":"dive"}},{"counter":{"index":1,"op":"==","value":3}}]}]},"push":false,"message":"The quake broke up the ice and revealed the water beneath!"}} |
-| `matchagotcha` | {"counter":{"index":1,"amount":1,"maximum":2,"message":"Parts of the ice melted!"},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot tea melted the ice!"}} |
+| `matchagotcha` | {"counter":{"index":1,"amount":1,"maximum":2,"message":"Parts of the ice melted!"},"transition":{"field":"rejuvenation:water_surface","condition":{"counter":{"index":1,"op":">","value":1}},"push":false,"message":"The hot tea melted the ice!","removesSurface":true}} |
 | `dive` | {"transition":{"field":"rejuvenation:indoor","condition":{"all":[{"any":[{"backup":"rejuvenation:water_surface"},{"backup":"rejuvenation:murkwater_surface"}]},{"connected":true}]},"push":false,"message":"The ice was broken from underneath!"}} |
-| `heatwave` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `eruption` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `searingshot` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `flameburst` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `lavaplume` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `firepledge` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `mindblown` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `incinerate` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `infernooverdrive` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `burningjealousy` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `magmadrift` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
-| `ragingfury` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!"}} |
+| `heatwave` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `eruption` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `searingshot` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `flameburst` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `lavaplume` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `firepledge` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `mindblown` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `incinerate` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `infernooverdrive` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `burningjealousy` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `magmadrift` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
+| `ragingfury` | {"transition":{"field":"rejuvenation:cave","condition":{"always":true},"push":false,"message":"The ice melted away!","removesSurface":true}} |
 
 ## Core type and move-tag rules
 

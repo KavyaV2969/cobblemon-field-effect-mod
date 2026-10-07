@@ -1,8 +1,10 @@
 """Read-only inventory of profile archives and local game source; outputs only here."""
 from pathlib import Path
 import hashlib, io, json, re, sys, zipfile
-ROOT = Path(__file__).resolve().parents[2]
-OUT = ROOT / 'rejuvenation/research'
+REPO = Path(__file__).resolve().parents[1]
+import os
+ROOT = Path(os.environ.get('REJUVENATION_PROFILE') or REPO.parent)  # the game profile that is inventoried
+OUT = REPO / 'research'
 SOURCE = Path(sys.argv[1])
 def save(name, data):
     (OUT/name).write_text(json.dumps(data, indent=2, ensure_ascii=False), encoding='utf-8')

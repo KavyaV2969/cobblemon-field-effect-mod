@@ -1,0 +1,99 @@
+{{Quote | ''Darkness radiates.''}}
+[[File:BattleBgDimensional.png|thumb]]
+
+Dimensional Field is a field effect exclusive to Rejuvenation. It is categorized as a Magical field and can be found in any Dimensional Rift battle and inside the [[Voidal Chasm]].
+
+==Transitions From Other Fields==
+
+* [[Frozen Dimensional Field]] will transform into this field if any of the following moves are used:
+** Eruption, Fire Pledge, Flame Burst, Heat Wave, Incinerate, Inferno Overdrive, Lava Plume, Mind Blown, Raging Fury, Searing Shot
+*** ''The dimension thawed away!''
+** As of v13.5.6, the field effect manual incorrectly states that Blast Burn, Burn Up, and Inferno change the field and does not mention that Fire Pledge, Incinerate, Inferno Overdrive, Mind Blown, or Searing Shot change the field.
+* [[Infernal Field]] will transform into this field if the move Glaciate is used.
+** ''The hellish landscape was doused of its fire!''
+** As of v13.5.6, the field effect manual incorrectly states that Infernal Field will transform into [[Frozen Dimensional Field]].
+
+==General Effects==
+
+* Dark-type attacks increase in base power by 1.5x.
+** ''The darkness is here...''
+* Shadow-type attacks increase in base power by 1.5x.
+** ''The shadow is strengthened...''
+* Ghost-type attacks increase in base power by 1.2x.
+** ''The evil aura powered up the attack...''
+* Fairy-type attacks decrease in base power by 0.5x.
+** ''The evil aura depleted the attack!''
+* Ghost-type Pokémon's Defense and Special Defense increase by 1.5x.
+* Sleeping Pokémon take 1/16 max HP damage at the end of each turn.
+** ''[Pokémon]'s dream is corrupted by the dimension!''
+* All weather effects fail except for Shadow Sky.
+* Shadow Sky's end of turn damage is doubled to 1/8 max HP.
+
+==Abilities Affected==
+
+* Anger Point and Justified additionally boost the bearer's Attack by 1 stage on switch-in.
+* Beast Boost now boosts the user's highest stat by 2 stages.
+* Berserk additionally boosts the bearer's Special Attack by 1 stage on switch-in.
+* Download additionally changes the bearer's type to a random type on switch-in and at the end of each turn.
+* Mimicry changes the user's type to Dark.
+* Perish Body additionally traps the opponent when activated.
+* Pressure increases PP usage to 3 PP, and additionally lowers all opponents' Defense and Special Defense by 1 stage on switch-in.
+* Rattled additionally boosts the bearer's Speed by 1 stage on switch-in.
+* Unnerve additionally lowers all opponents' Speed by 1 stage on switch-in.
+* Shadow Shield now always halves damage regardless of HP.
+* Shadow Tag now traps Ghost-type Pokémon.
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Dynamax Cannon, Eternabeam, Hyperspace Fury, Hyperspace Hole, Roar of Time, Shadow Force, Spacial Rend → 1.5x boost.
+** ''The attack has been corrupted.''
+* Fiery Wrath, Freezing Glare, Lash Out, Outrage, Raging Fury, Stomping Tantrum, Thrash → 1.5x boost.
+** ''The rage continues.''
+* Dark Pulse, Night Daze → 1.2x boost, never miss.
+** ''The attack has been corrupted.''
+
+=== Moves which receive an attack nerf ===
+
+* Bounce, Dig, Dive, Fly → Fail on use, instantly KO-ing the user.
+** ''The corrupted field damaged [Pokémon]!''
+
+===Other moves===
+
+* Dark Void never misses.
+* Dragon Rage deals 140 flat HP damage.
+** ''Unstoppable Rage!''
+* Embargo additionally traps the target.
+* Gravity, Magic Room, Trick Room, and Wonder Room now randomly last from 3 to 8 turns.
+* Heal Block additionally deals 1/16 max HP damage at the end of each turn.
+* Lucky Chant and Teatime fail on use.
+* Obstruct additionally protects against status moves.
+* Quash gains +1 priority.
+* Rage becomes a 60 BP Dark-type physical attack that always raises Attack by 1 stage.
+
+=== Field-dependent moves ===
+
+* Camouflage changes the user's type to Dark.
+* Nature Power becomes Dark Pulse.
+* Secret Power may flinch.
+* Shelter halves damage from Dark-type moves.
+* Terrain Pulse's type becomes Dark.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into [[Frozen Dimensional Field]] if the moves Blizzard, [[Cold Truth]], or Sheer Cold are used 2 times, or if the moves Freeze Shock, Glaciate, or Ice Burn are used 1 time.
+** ''The dimension froze up!''
+* This field will transform into [[Infernal Field]] if the move Precipice Blades is used.
+** ''The field went up in flames!''
+* This field will be terminated if either of the moves Purify or Seed Flare are used.
+** ''The dimension was purified!''
+
+==Items==
+
+* [[Magical Seed]] boosts Defense and sets Trick Room.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

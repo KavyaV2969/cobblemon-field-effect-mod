@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:flower_garden_1",
+  "title": "Flower Garden",
+  "summary": "“Seeds line the field.”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Flower Garden is one of the fields present in Rejuvenation. It is classified as a Synthetic field can be found in the Grand Dream Stadium during the tournament and in Castle of Goomidra's garden, during Goomink's sidequest."
+      ]
+    },
+    {
+      "heading": "Field Stages",
+      "lines": [
+        "This field has 5 stages that it can transform between, with higher stages having more potent effects. The field's stage can be changed via the following methods:",
+        "The field grows by 1 stage if one of the following moves is used:",
+        "Bloom Doom, Flower Shield, Grassy Terrain, Growth, Ingrain, Rain Dance, Rototiller, Sunny Day, Water Sport",
+        "“The garden grew a little!”",
+        "Pokémon with the ability Ripen grow the field by 2 stages instead.",
+        "The field grows by 1 stage if a Pokémon with one of the following abilities switches in:",
+        "Drought, Drizzle, Flower Gift, Flower Veil",
+        "“[Pokémon]'s [Ability] grew the garden!”",
+        "As of v13.5.6, the field manual incorrectly states that Grassy Surge also increases the field stage.",
+        "The field grows by 1 stage if a Synthetic Seed is activated.",
+        "“The synthetic seed grew the garden!”",
+        "The field is reduced by 1 stage if one of the following moves is used:",
+        "Cut, X-Scissor",
+        "“The garden was cut down a bit!”",
+        "At Stages 3 and above, the field is reduced by 2 stages if one of the following moves is used:",
+        "Eruption, Fire Pledge, Flame Burst, Heat Wave, Inferno Overdrive, Lava Plume, Mind Blown, Searing Shot",
+        "“The garden caught fire!”",
+        "As of v13.5.6, despite what the field effect manual says, Water Sport and Rain being active do not prevent the stage from being reduced due to a bug.",
+        "The move Acid Downpour resets the field to Stage 1.",
+        "“The acid melted the bloom!”"
+      ]
+    },
+    {
+      "heading": "Stage Details",
+      "lines": [
+        "If an effect/move is trailed by an asterisk (*), either it's a new effect or its effect changed from the previous stage."
+      ]
+    },
+    {
+      "heading": "Stage 1",
+      "lines": [
+        "Abilities Affected:",
+        "Flower Gift and Swarm are always activated.",
+        "Mimicry changes the user's type to Grass.",
+        "Moves Affected: Other moves:",
+        "Growth boosts the user's Attack and Special Attack by 2 stages (does not stack with Sun boost).",
+        "Rototiller boosts the Attack and Special Attack of affected Pokémon by 2 stages, and additionally affects the user regardless of type.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Grass.",
+        "Nature Power becomes Growth.",
+        "Secret Power may lower Evasion by 1 stage.",
+        "Shelter halves damage from Grass-type moves.",
+        "Terrain Pulse's type becomes Grass."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Synthetic Seed boosts Special Defense and applies Ingrain to the user."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Flower Garden” (the text of this stage), revision 32690: https://rejuvenation.wiki.gg/wiki/Flower_Garden",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "order": 100,
+  "rules": [
+    {
+      "structure": "minecraft:ancient_city",
+      "reason": "Ancient City",
+      "field": "rejuvenation:deep_dark"
+    }
+  ]
+}

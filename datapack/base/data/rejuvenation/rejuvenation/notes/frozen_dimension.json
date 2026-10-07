@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:frozen_dimension",
+  "title": "Frozen Dimensional Field",
+  "summary": "“Hate and anger radiates.”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Frozen Dimensional Field is a field effect exclusive to Rejuvenation. It is categorized as an Elemental field and can be found in the battle against Angie. A modified version is used during the battle against Deagan in Where Love Lies."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Dimensional Field will transform into this field if the moves Blizzard, Cold Truth, or Sheer Cold are used 2 times, or if the moves Freeze Shock, Glaciate, or Ice Burn are used 1 time.",
+        "“The dimension froze up!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Dark-type attacks increase in base power by 1.5x.",
+        "“The darkness is here...”",
+        "Ice-type attacks increase in base power by 1.2x.",
+        "“The dimension mutated the ice!”",
+        "Ice and Ghost-type Pokémon's Defense and Special Defense increase by 1.2x.",
+        "Fire-type Pokémon's Defense and Special Defense decrease to 0.8x.",
+        "The following moves/effects fail on use. If these effects were already active when the previous field transformed into this field, the effects will never end.",
+        "Electric Terrain, Grassy Terrain, Gravity, Magic Room, Misty Terrain, Psychic Terrain, Trick Room, Wonder Room",
+        "“The frozen dimensions remain unchanged.”",
+        "Hail weather lasts for 8 turns.",
+        "Hail and Shadow Sky end of turn damage is doubled to 1/8 max HP."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Anger Point and Justified additionally boost the bearer's Attack by 1 stage on switch-in.",
+        "Berserk additionally boosts the bearer's Special Attack by 1 stage on switch-in.",
+        "Blaze, Flame Body, Flare Boost, Flash Fire, Magma Armor, and Solar Power are disabled.",
+        "Hunger Switch sets the user to always be in Hangry Mode.",
+        "Ice Body, Slush Rush, and Snow Cloak are activated.",
+        "Ice Face now protects against all moves.",
+        "Mimicry changes the user's type to Ice.",
+        "Pressure additionally lowers all opponents' Defense and Special Defense by 1 stage on switch-in.",
+        "Rattled additionally boosts the bearer's Speed by 1 stage on switch-in.",
+        "Refrigerate's damage boost increases to 1.5x.",
+        "Unnerve additionally lowers all opponents' Speed by 1 stage on switch-in."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Fiery Wrath, Freezing Glare, Lash Out, Outrage, Raging Fury, Rage, Roar of Time, Stomping Tantrum, Thrash → 1.5x boost.",
+        "“The rage continues.”",
+        "Dark Pulse, Hydro Pump, Muddy Water, Night Slash, Surf, Water Pulse → 1.2x boost, Ice sub-typing.",
+        "“The ice warped the attack.”",
+        "Hyperspace Fury, Hyperspace Hole → 1.2x boost.",
+        "“The ice warped the attack.”",
+        "Other moves:",
+        "Aurora Veil can be activated regardless of weather.",
+        "Court Change and Teatime fail on use.",
+        "Dark Void's accuracy increases to 100%.",
+        "Dragon Rage deals 140 flat HP damage.",
+        "“Unstoppable Rage!”",
+        "Freeze Shock and Ice Burn only take 1 turn to use.",
+        "Parting Shot additionally lowers the target's Speed by 1 stage.",
+        "Power Trip now receives 40 BP for each boost.",
+        "Rage becomes a 60 BP Dark-type physical attack that always raises Attack by 1 stage.",
+        "Snarl lowers the target's Special Attack by 2 stages.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Ice.",
+        "Nature Power becomes Ice Beam.",
+        "Secret Power may Freeze.",
+        "Shelter halves damage from Ice-type moves.",
+        "Terrain Pulse's type becomes Ice."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.",
+        "This field will transform into Dimensional Field if any of the following moves are used:",
+        "Eruption, Fire Pledge, Flame Burst, Heat Wave, Incinerate, Inferno Overdrive, Lava Plume, Mind Blown, Raging Fury, Searing Shot",
+        "“The dimension thawed away!”",
+        "As of v13.5.6, the field effect manual incorrectly states that Blast Burn, Burn Up, and Inferno change the field and does not mention that Fire Pledge, Incinerate, Inferno Overdrive, Mind Blown, or Searing Shot change the field.",
+        "This field will transform into Icy Field if the move Purify is used.",
+        "“The dimension was purified!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Elemental Seed boosts Speed by 2 stages, but Torments the user.",
+        "As of v13.5.6, the field effect manual incorrectly states that the user is also Confused and Taunted.",
+        "Rift Seed (unavailable) gives a +1 boost to the Pokémon's highest stat."
+      ]
+    },
+    {
+      "heading": "Other Notes",
+      "lines": [
+        "As of v13.5.6, the field effect manual incorrectly states that Infernal Field transforms into Frozen Dimensional Field when it actually transforms into Dimensional Field.",
+        "Deagan uses a Alternated Verison of the Frozen Dimensional Field."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Frozen Dimensional Field”, revision 32710: https://rejuvenation.wiki.gg/wiki/Frozen_Dimensional_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

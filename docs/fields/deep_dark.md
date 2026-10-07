@@ -1,4 +1,4 @@
-# Deep Dark Field
+# Deep Dark
 
 Original ID: `DEEPDARK`; datapack ID: `rejuvenation:deep_dark`.
 

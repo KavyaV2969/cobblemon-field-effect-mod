@@ -1,0 +1,108 @@
+{{Quote | ''The core is pulling you in...''}}
+[[File:battlebgDeepEarth.png|thumb]]
+
+Deep Earth is one of the field effects present in Rejuvenation. It can be found in the [[Garufa Sanctuary]] and is classified as a Telluric Field.
+
+==Transitions From Other Fields==
+
+* [[Cave]] will transform into this field if Gravity is used 2 times.
+** ''Intense gravity is pulling from deep below...''
+** ''The battle was pulled deeper into the earth!''
+
+==General Effects==
+
+* Ground-type attacks increase in base power by 1.5x against non Ground-types.
+** ''The earth empowered the attack!''
+* Ground-type attacks decrease in base power by 0.5x against Ground-types.
+** ''The dense earth is difficult to mold...''
+* Rock-type attacks increase in base power by 1.3x.
+** ''The earth empowered the attack!''
+* Psychic-type attacks increase in base power by 1.3x.
+** ''The core's magical forces are immense!''
+* Negative priority attacks increase in base power by 1.3x.
+** ''Slow and heavy!''
+* Positive priority attacks decrease in base power to 0.7x.
+** ''The intense pull slowed the attack...''
+* Gravity is always active, and cannot be disabled.
+
+==Abilities Affected==
+
+* Contrary, Magnet Pull, Oblivious, and Unaware additionally cause the bearers to Levitate. This overrides the Gravity effect from the field.
+** ''Gravity's just a theory, after all...''
+** ''The strong magnetism causes [Pokémon] to float!''
+** ''[Pokémon] fails to notice the intense gravity...''
+* Heavy Metal boosts the user's Defense by 1 stage, but lowers Speed by 1 stage on switch-in.
+** ''[Pokémon]'s weight makes it harder to be moved!''
+* Light Metal boosts the bearer's Speed by 1 stage on switch-in.
+** ''[Pokémon]'s Light Metal allows it to move faster!''
+* Mimicry changes the user's type to Ground.
+* Power Construct boosts all stats by 1 stage on activation.
+** ''The core's energy empowered [Pokémon]!''
+* Power Spot increases the power of partner's moves by 1.5x.
+* Pressure increases PP usage to 3 PP.
+* Slow Start now lowers the bearer's Speed and Evasion by 6 stages, but increases Attack, Defense, and Special Defense by 1 stage on switch-in. The normal effect is negated.
+** ''The ancient giant is slow but powerful!''
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Core Enforcer → 2x boost, -1 priority.
+** ''The power of the core obliterates all!''
+* Crush Grip → 2x boost.
+** ''CRUSHED!''
+* Land's Wrath, Precipice Blades, Tectonic Rage → 2x boost.
+** ''The power of the earth is utterly overwhelming!''
+* Magnet Bomb → 2x boost.
+** ''The magnetic field is strengthened!''
+* Smack Down → 2x boost.
+** ''Slammed into the ground!''
+* Ancient Power → 1.5x boost.
+** ''The power of ages gone by...''
+* Body Press, Body Slam, Dragon Rush, Fling, Grav Apple, Heat Crash, Heavy Slam, Icicle Crash, Steamroller, Stomp → 1.5x boost.
+** ''The attack came crashing down!''
+* Circle Throw, Storm Throw, Submission, Vital Throw → 1.5x boost.
+** ''Slammed into the ground!''
+* Crabhammer, Hammer Arm, Ice Hammer → 1.5x boost.
+** ''[Pokémon] threw their whole weight into it!''
+* Low Kick, Grass Knot → 1.5x boost.
+** ''Enjoy the trip!''
+* Spacial Rend → 1.5x boost.
+** ''The intense gravity is ruptured!''
+* Thousand Arrows, Thousand Waves → 1.5x boost.
+** ''The power of the earth is utterly overwhelming!''
+
+===Other moves===
+
+* Autotomize boosts the user's Speed by 3 stages.
+* Crush Grip and Gyro Ball always deal max BP.
+* Eerie Impulse lower's the target's Special Attack by 3 stages.
+* Geomancy only takes 1 turn to use.
+* Gravity damages all opposing Pokémon for 50% of their current HP instead of its usual effect.
+* Heat Crash and Heavy Slam double the user's weight for base power calculation.
+* Low Kick and Grass Knot double the target's weight for base power calculation.
+* Magnet Rise boosts the user's Speed by 2 stages instead of its usual effect.
+* Magnetic Flux boosts all Plus or Minus Pokémon's Defense and Special Defense by 2 stages.
+* Psywave now deals damage between 1x and 1.5x the user's level.
+* Rototiller boosts all Grass-type Pokémon's Attack and Special Attack by 2 stages.
+* Seismic Toss now deals damage equal to 1.5x the user's level.
+* Topsy-Turvy additionally deals weight-based Ground-type damage (similar to Grass Knot) to all other Pokémon on the field. Weight of all Pokémon is doubled for this move. Does not negate its normal effect.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Ground.
+* Nature Power becomes Gravity.
+* Secret Power may flinch.
+* Shelter halves damage from Ground-type moves.
+* Terrain Pulse's type becomes Ground.
+
+==Items==
+
+* [[Telluric Seed]] boosts Defense by 1 stage and doubles the user's weight.
+* Float Stone additionally increases the holder's Speed by 1.2x.
+* Iron Ball lowers the holder's Speed by 2 stages on switch-in instead of its usual effect.
+* Magnet additionally boosts the holder's Special Attack by 1 stage, but lowers Speed by 1 stage on switch-in.
+** ''[Pokémon]'s Magnet is affected by the magnetic field!''
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

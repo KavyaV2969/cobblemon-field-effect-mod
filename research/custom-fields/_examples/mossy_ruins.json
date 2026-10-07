@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "id": "example:mossy_ruins",
+  "originalId": "EXAMPLEMOSSYRUINS",
+  "name": "Mossy Ruins Field",
+  "entryMessage": "Moss creeps over the ancient stones...",
+  "specification": "Mossy_Ruins_Field.md",
+  "base": "INDOOR",
+  "baseExpect": {},
+  "hooks": {
+    "naturePower": "powerwhip",
+    "secretPower": "powerwhip",
+    "mimicry": "Rock",
+    "secretPowerEffects": [{"volatileStatus": "flinch"}]
+  },
+  "types": [
+    {"type": "Grass", "multiplier": 1.3, "message": "The moss strengthened the attack!"},
+    {"type": "Rock", "category": "Physical", "multiplier": 1.2, "message": "The old stones lent weight to the attack!"},
+    {"type": "Fire", "multiplier": 0.8, "message": "The damp stone smothered the flames..."}
+  ],
+  "moves": {
+    "powerwhip": {"multiplier": 1.5, "message": "Creeping vines joined the attack!"},
+    "surf": {
+      "multiplier": 0.8,
+      "message": "The ruins soaked up the water...",
+      "counter": {"index": 1, "amount": 1, "maximum": 3, "message": "Water seeped between the stones..."},
+      "transition": {
+        "field": "rejuvenation:swamp",
+        "condition": {"counter": {"index": 1, "op": ">", "value": 2}},
+        "push": false,
+        "message": "The ruins sank into the marsh!"
+      }
+    }
+  },
+  "typeComposition": [
+    {"whenTypes": ["Rock"], "add": "Grass", "condition": {"not": {"category": "Status"}}, "message": "Moss clung to the stone attack!"}
+  ],
+  "terrainPulse": {"type": "Rock"},
+  "inherit": [
+    {
+      "from": "FOREST",
+      "rules": [{"event": "residual", "contains": ["sapsipper"], "expect": 1}],
+      "abilityHandlers": ["effectspore"]
+    }
+  ],
+  "rules": [
+    {
+      "event": "residual",
+      "condition": {"all": [{"grounded": {"who": "user", "value": true}}, {"type": {"who": "user", "value": "Grass"}}]},
+      "actions": [{"op": "heal", "fraction": 0.0625, "message": "{1} soaked up the moss and recovered!"}],
+      "source": "Mossy_Ruins_Field.md: Moss (grounded Grass Pokémon recover 1/16 each turn)"
+    }
+  ],
+  "seed": {"item": "telluricseed", "effect": null, "duration": null, "message": "The Telluric Seed's moss wrapped around {1}!", "stats": {"def": 1}},
+  "seedActions": [],
+  "biomes": ["minecraft:lush_caves"],
+  "structures": [
+    {"structure": "minecraft:trail_ruins", "reason": "Trail Ruins", "containment": {"mode": "pieces"}}
+  ],
+  "notes": {
+    "summary": "A worked example of a custom field: moss-covered ruins where Grass and Rock hit harder and Fire is smothered.",
+    "sections": [
+      {"heading": "Type power", "lines": [
+        "Grass moves are 1.3× stronger. Physical Rock moves are 1.2× stronger. Fire moves are 0.8× as strong.",
+        "Power Whip is 1.5× stronger. Rock moves also count as Grass for type effectiveness (no extra same-type bonus).",
+        "Mimicry, Camouflage and Terrain Pulse use the Rock type. Nature Power becomes Power Whip."]},
+      {"heading": "Moss", "lines": [
+        "Grounded Grass Pokémon recover 1/16 of their HP each turn.",
+        "Repeatedly using Surf floods the ruins and turns the field into a swamp."]},
+      {"heading": "Seed", "lines": ["The Telluric Seed raises Defense by 1 stage."]}
+    ],
+    "counters": []
+  }
+}

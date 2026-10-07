@@ -1,0 +1,120 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:forest",
+  "title": "Forest Field",
+  "summary": "“The field is abound with trees.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Bamboo Jungle, Birch Forest, Cherry Grove, Dark Forest, Forest, Grove, Jungle, and Old Growth Birch Forest and 6 more biomes."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Forest Field is one of the Field Effects present in Rejuvenation. It is classified as a Telluric field and can be found in Route 1, Goldenwood Forest, Sheridan Village, Route 3 (and nearby areas), Terajuma Jungle, and Kakori Village. Notable battles involving this field include Zetta's battle in Goldenwood Forest and Keta's battle in Sheridan Village."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Grass-type moves → 1.5x boost.",
+        "“The forestry strengthened the attack!”",
+        "Special Bug-type moves → 1.5x boost.",
+        "“The attack spread throughout the forest!”",
+        "When overlayed, Grassy Terrain lasts 8 turns."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Activated Abilities:",
+        "Grass Pelt",
+        "Leaf Guard",
+        "Overgrow",
+        "Swarm",
+        "Buffed Abilities:",
+        "Effect Spore's activation chance is doubled to 60%.",
+        "Honey Gather will always find Honey. Yummers.",
+        "Jungle Beat boosts the power of the Pokémon's sound-based moves by 50%.",
+        "As of V14.0.22, this effect isn't listed in the in-game Field Notes.",
+        "Sap Sipper restores 1/16 of the bearer's Max HP at the end of each turn.",
+        "“[Pokémon] drank tree sap to recover!”",
+        "Wildfire inflicts 1/6 of the foes' Max HP as damage per turn.",
+        "This damage isn't doubled if the target is burned, making it 1/6th regardless of status.",
+        "As of V14.0.22, this effect isn't listed in the in-game Field Notes."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Damage Modifiers: Moves which receive an attack buff:",
+        "Cut → 2x boost, Grass sub-typing.",
+        "“A tree slammed down!”",
+        "Air Cutter, Air Slash, Breaking Swipe, Fury Cutter, Gale Strike, Psycho Cut, Slash → 1.5x boost, Grass sub-typing.",
+        "“A tree slammed down!”",
+        "Attack Order, Branch Poke, Electroweb, Grav Apple → 1.5x boost.",
+        "“They're coming out of the woodwork!”",
+        "“Straight from the tree!”",
+        "“Gossamer and arbor strengthened the attack!”",
+        "“The apple did not fall far from the tree!”",
+        "Moves which receive an attack nerf:",
+        "Muddy Water, Surf → 0.5x decrease.",
+        "“The forest softened the attack...”",
+        "Other Moves: Buffed Moves:",
+        "Chloroblast's recoil is 25% of the user's Max HP.",
+        "Defend Order raises the user's Defense and Special Defense by 2 stages.",
+        "Forest's Curse places a Curse on the target.",
+        "“[Pokémon] put a curse on [Target]!”",
+        "Growth raises the user's Attack and Special Attack by 2 stages.",
+        "This does not stack with this move's existing boost in Harsh Sunlight.",
+        "Heal Order restores 66% of the user's max HP.",
+        "Infestation inflicts 1/6 of the target's Max HP as damage per turn.",
+        "Ingrain restores 1/8 of the user's Max HP at the end of each turn.",
+        "Jungle Healing restores the HP of the user and its allies by 33% of their Max HP.",
+        "Nature's Madness deals damage equal to 75% of the opponent's remaining HP.",
+        "Silk Trap protects the user from status moves",
+        "Sticky Web lowers affected Pokémon's Speed by 2 stages on switch-in.",
+        "Strength Sap's recovery is increased by 30%.",
+        "Field-dependent moves & Abilities:",
+        "Mimicry changes the bearer's type to Bug.",
+        "Camouflage changes the user's type to Bug.",
+        "Nature Power becomes Wood Hammer.",
+        "Secret Power may induce Sleep.",
+        "Shelter halves damage from Bug-type moves.",
+        "Terrain Pulse's type becomes Bug."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.",
+        "This field will transform into Swamp Field if Surf is used 3 times or Muddy Water is used 2 times.",
+        "“The ground became waterlogged...”",
+        "“The forest became marshy!”",
+        "Specifically, using Surf increments the counter by +1 and using Muddy Water increments it by +2. The field changes to Swamp Field when the counter reaches 3."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Telluric Seed applies Spiky Shield to the user.",
+        "“The Telluric Seed shielded [Pokémon] against damage!”"
+      ]
+    },
+    {
+      "heading": "Notes",
+      "lines": [
+        "As of V14.0.22, despite what the in-game Field Notes and the inspection screen say, Long Reach does not decrease the bearer's Accuracy on this field. This effect is exclusive to Pokémon Reborn."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Forest Field”, revision 48739: https://rejuvenation.wiki.gg/wiki/Forest_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

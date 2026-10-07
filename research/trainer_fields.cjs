@@ -13,16 +13,15 @@
 // the mean log damage ratio breaks ties. No team, AI or trainer file is read for writing.
 'use strict';
 const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const root=path.resolve(__dirname,'..'),simulator=path.resolve(root,'..','showdown');
+const root=path.resolve(__dirname,'..'),simulator=path.join(process.env.REJUVENATION_PROFILE||path.resolve(root,'..'),'showdown');
 const req=require('node:module').createRequire(path.join(simulator,'index.js'));
 const {Battle}=req('./sim/battle');const {Dex,toID}=req('./sim/dex');
-const pack=path.join(root,'datapack/data/rejuvenation/rejuvenation');
-const fields={};for(const f of fs.readdirSync(path.join(pack,'fields'))){const d=JSON.parse(fs.readFileSync(path.join(pack,'fields',f)));fields[d.id]=d;}
+// Field definitions are in the base pack; the trainer bindings this tool writes live in the COBBLEVERSE extension.
+const base=require('./catalog_io.cjs').load(root,['base']);const fields=base.fields;
 const sandbox={require:req,REJUVENATION_SHOWDOWN_ROOT:'./',console};vm.createContext(sandbox);
-vm.runInContext(fs.readFileSync(path.join(root,'mod/src/main/resources/rejuvenation-engine.js'),'utf8'),sandbox);
+vm.runInContext(fs.readFileSync(path.join(root,'core/src/main/resources/rejuvenation-engine.js'),'utf8'),sandbox);
 const E=sandbox.RejuvenationEngine;
-E.load(JSON.stringify({fields,mappings:JSON.parse(fs.readFileSync(path.join(pack,'mappings/modpack.json'))).rules,
-  items:JSON.parse(fs.readFileSync(path.join(pack,'items/seeds.json'))).items,abilities:JSON.parse(fs.readFileSync(path.join(pack,'abilities/source.json'))).abilities,default:'rejuvenation:indoor'}));
+E.load(JSON.stringify({fields,mappings:base.mappings,items:base.items,abilities:base.abilities,default:'rejuvenation:indoor'}));
 const teams=JSON.parse(fs.readFileSync(path.join(root,'research/kanto-league-teams.json'))).trainers;
 const TYPES=['Normal','Fire','Water','Electric','Grass','Ice','Fighting','Poison','Ground','Flying','Psychic','Bug','Rock','Ghost','Dragon','Dark','Steel','Fairy'];
 // Reference attacks are re-typed Tackle; no field references it, so only type-level rules apply.

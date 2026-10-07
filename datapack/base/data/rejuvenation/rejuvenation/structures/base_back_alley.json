@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "order": 300,
+  "rules": [
+    {
+      "structure": "minecraft:mansion",
+      "field": "rejuvenation:back_alley",
+      "reason": "Woodland Mansion"
+    }
+  ]
+}

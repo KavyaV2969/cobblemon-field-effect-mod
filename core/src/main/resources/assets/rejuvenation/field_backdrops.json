@@ -1,0 +1,670 @@
+{
+  "description": "Field panel backdrops copied unmodified from Pokémon Rejuvenation 14 (client-side UI artwork only).",
+  "credit": "Field backdrops from Pokémon Rejuvenation V14 (Graphics/Battlebacks), a fan game by Janichroma (lead developer) and the Rejuvenation team; art credited in the game's ReadMe_Credits.txt to Zumi (Honnojis), Janichroma, Crimson, CeriseBlossome, Winter, Azeria, Dallas, Soulja, IronicOmens and MoonPaw. Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc. Used unmodified as client-side UI artwork for this non-commercial field port; not part of the datapack or the server logic. Basis: the project owner states this fan mod may use them; no written permission from the Rejuvenation team is on file (see THIRD_PARTY.md).",
+  "selection": "graphic[0] of each field definition; Battle_Field.rb backdrop, Battle.rb pbChangeBGSprite",
+  "fields": {
+    "rejuvenation:back_alley": {
+      "texture": "rejuvenation:textures/gui/field/back_alley.png",
+      "source": "Graphics/Battlebacks/battlebgUnder.png",
+      "sha256": "12d8895d2fe55f61700116e1a802f290bb961836a116e14cb10eae8ba4cbbc12",
+      "bytes": 14588,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:beach": {
+      "texture": "rejuvenation:textures/gui/field/beach.png",
+      "source": "Graphics/Battlebacks/battlebgBeach.png",
+      "sha256": "ab8ea4ec00eb839f50256524e8937be1ee954f51020fdc0a293d10718d8212d4",
+      "bytes": 11429,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:bewitched": {
+      "texture": "rejuvenation:textures/gui/field/bewitched.png",
+      "source": "Graphics/Battlebacks/battlebgDarchlight.png",
+      "sha256": "fba5e3396cd59c5a7e611bce4eb52593256c470df9a1c17c719b13003e062d1e",
+      "bytes": 10498,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:big_top": {
+      "texture": "rejuvenation:textures/gui/field/big_top.png",
+      "source": "Graphics/Battlebacks/battlebgBigTop.png",
+      "sha256": "3d365781fbd0416c8be4d9ec4c163a9e9d334f5191a169acb237749f63212477",
+      "bytes": 10693,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:cave": {
+      "texture": "rejuvenation:textures/gui/field/cave.png",
+      "source": "Graphics/Battlebacks/battlebgCave.png",
+      "sha256": "7a9a0ba22b14c7235152c3ef5d637e37105b07b9f93226fa76b09a686d3985b3",
+      "bytes": 8985,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:chess_board": {
+      "texture": "rejuvenation:textures/gui/field/chess_board.png",
+      "source": "Graphics/Battlebacks/battlebgChess.png",
+      "sha256": "02ebb628d0128ba89eaf549f03dfcc43ec2dd281ba3443906802eb95a328f810",
+      "bytes": 11439,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:city": {
+      "texture": "rejuvenation:textures/gui/field/city.png",
+      "source": "Graphics/Battlebacks/battlebgGDCCentralSquare.png",
+      "sha256": "3f3a77d561a32b83eb5880cbde520484c3e61ca666c243ccf5975751c6ed8dd7",
+      "bytes": 55244,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:colosseum": {
+      "texture": "rejuvenation:textures/gui/field/colosseum.png",
+      "source": "Graphics/Battlebacks/battlebgColosseum.png",
+      "sha256": "538131547247f7fc2864cea5e72c6b7280922d36cc6003417a5e8fbba3eb8f4f",
+      "bytes": 10734,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:concert_1": {
+      "texture": "rejuvenation:textures/gui/field/concert_1.png",
+      "source": "Graphics/Battlebacks/battlebgConcert1.png",
+      "sha256": "40f7075aef499ccf1f5b74466f1d5275b054d96125dc9b6d25e2e9badd2e8df6",
+      "bytes": 16430,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:concert_2": {
+      "texture": "rejuvenation:textures/gui/field/concert_2.png",
+      "source": "Graphics/Battlebacks/battlebgConcert2.png",
+      "sha256": "002d47c3f35388278fc9004ecbe823b465d07f0bb3cfd02ebb9e65f699d329bf",
+      "bytes": 20564,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:concert_3": {
+      "texture": "rejuvenation:textures/gui/field/concert_3.png",
+      "source": "Graphics/Battlebacks/battlebgConcert3.png",
+      "sha256": "255ef29118a6ca891d6cc11f197a5899c22ed923bf64fb04d3d66930aa156cfe",
+      "bytes": 24375,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:concert_4": {
+      "texture": "rejuvenation:textures/gui/field/concert_4.png",
+      "source": "Graphics/Battlebacks/battlebgConcert4.png",
+      "sha256": "15afcc66f4b7c9ffd14549320907f5dbcc0827b741dbe7914290574f1f93e0a8",
+      "bytes": 31937,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:corrosive": {
+      "texture": "rejuvenation:textures/gui/field/corrosive.png",
+      "source": "Graphics/Battlebacks/battlebgPoison.png",
+      "sha256": "1413556a9446dc8c1408a7523f7e18eb0dd5fdcada037b4a331d7d4b0da783b9",
+      "bytes": 74394,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:corrosive_mist": {
+      "texture": "rejuvenation:textures/gui/field/corrosive_mist.png",
+      "source": "Graphics/Battlebacks/battlebgCorrosiveMist.png",
+      "sha256": "5d7c425b121cbee78b4ed5a7af260825ec75f299ee1a175672f623e460f0d37c",
+      "bytes": 9264,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:corrupted": {
+      "texture": "rejuvenation:textures/gui/field/corrupted.png",
+      "source": "Graphics/Battlebacks/battlebgCorrupted.png",
+      "sha256": "e257d602c9eae470c9966cfd9da94c41d562d45b00972ad0def531b99df2f34a",
+      "bytes": 10711,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:crystal_cavern": {
+      "texture": "rejuvenation:textures/gui/field/crystal_cavern.png",
+      "source": "Graphics/Battlebacks/battlebgCrystalCavern.png",
+      "sha256": "2ec776f5d451dcf30ecdb3ae4e663452b652d2e487e87aff3d929a21192bdabf",
+      "bytes": 11605,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:dark_crystal_cavern": {
+      "texture": "rejuvenation:textures/gui/field/dark_crystal_cavern.png",
+      "source": "Graphics/Battlebacks/battlebgDarkCrystalCavern.png",
+      "sha256": "afe26434990b3d53d17de04d1a20a35115bb6888076de3e4c407055781f376a4",
+      "bytes": 11116,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:deep_earth": {
+      "texture": "rejuvenation:textures/gui/field/deep_earth.png",
+      "source": "Graphics/Battlebacks/battlebgDeepEarth.png",
+      "sha256": "8d352ac17856cd493624b74150043c2d23da9f610acaa69dd564f9d825f3bc0a",
+      "bytes": 15210,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:desert": {
+      "texture": "rejuvenation:textures/gui/field/desert.png",
+      "source": "Graphics/Battlebacks/battlebgDesert.png",
+      "sha256": "d4c9eb25c871feb96fb2ea895156e0c8541d347241e832ac0e6d7929c63e4bc3",
+      "bytes": 14603,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:deux_finalis": {
+      "texture": "rejuvenation:textures/gui/field/deux_finalis.png",
+      "source": "Graphics/Battlebacks/battlebgConsecrated.png",
+      "sha256": "6092e7c3cbdd535fc242b1b9105a8bb2917fb62e3aebcb9580b370919ba423bd",
+      "bytes": 22431,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:dimensional": {
+      "texture": "rejuvenation:textures/gui/field/dimensional.png",
+      "source": "Graphics/Battlebacks/battlebgDimensional.png",
+      "sha256": "e7c6953457cdca3a6d38f033f3a968f86e27deed1f4656629f937ba60d20f245",
+      "bytes": 17325,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:dragons_den": {
+      "texture": "rejuvenation:textures/gui/field/dragons_den.png",
+      "source": "Graphics/Battlebacks/battlebgDragonsDen.png",
+      "sha256": "ee92168eaed826a39373b86a01dadd4c7f3979d15b65bec80360355be0aaa52d",
+      "bytes": 4591,
+      "size": [
+        512,
+        290
+      ]
+    },
+    "rejuvenation:electric_terrain": {
+      "texture": "rejuvenation:textures/gui/field/electric_terrain.png",
+      "source": "Graphics/Battlebacks/battlebgElectric.png",
+      "sha256": "21a2c6d56b85a241c25b7d2b7ca8fc87e8fc25ed02c42a73c5bc2ab7d4ba11b3",
+      "bytes": 5290,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:factory": {
+      "texture": "rejuvenation:textures/gui/field/factory.png",
+      "source": "Graphics/Battlebacks/battlebgFactory.png",
+      "sha256": "c27e23cf3d701ed15131bc4a7b35da98773ab204d2fa90f241f52129c0fd62e3",
+      "bytes": 19125,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:fairytale": {
+      "texture": "rejuvenation:textures/gui/field/fairytale.png",
+      "source": "Graphics/Battlebacks/battlebgFairyTale.png",
+      "sha256": "14e786079b708ed37c8e7db19a6debb94fe91ec1887d6a24814a5ce2e6ec92c7",
+      "bytes": 10362,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:flower_garden_1": {
+      "texture": "rejuvenation:textures/gui/field/flower_garden_1.png",
+      "source": "Graphics/Battlebacks/battlebgFlowerGarden0.png",
+      "sha256": "cff7a823202c7413eaeabfad2b53d7de11ee9a8bc5d5459a9df8a361abc24367",
+      "bytes": 30992,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:flower_garden_2": {
+      "texture": "rejuvenation:textures/gui/field/flower_garden_2.png",
+      "source": "Graphics/Battlebacks/battlebgFlowerGarden1.png",
+      "sha256": "dc15822e128b5a652c10af7f59e36a7f67131f5e165467945cdfa398976567a0",
+      "bytes": 8937,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:flower_garden_3": {
+      "texture": "rejuvenation:textures/gui/field/flower_garden_3.png",
+      "source": "Graphics/Battlebacks/battlebgFlowerGarden2.png",
+      "sha256": "b3b7ed4d020f437ee28f3fe7c8cd0fd551efeda301bfdf70e97278f1d788f2cd",
+      "bytes": 13574,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:flower_garden_4": {
+      "texture": "rejuvenation:textures/gui/field/flower_garden_4.png",
+      "source": "Graphics/Battlebacks/battlebgFlowerGarden3.png",
+      "sha256": "4d87ab31445785088f02b8edc9bd35aec7aefea24fb83d11c4c03fab4d1fd1a9",
+      "bytes": 19464,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:flower_garden_5": {
+      "texture": "rejuvenation:textures/gui/field/flower_garden_5.png",
+      "source": "Graphics/Battlebacks/battlebgFlowerGarden4.png",
+      "sha256": "a623150db314f112ba15a9d06e054c49faaf2611daffe6786b08e591aebd19e3",
+      "bytes": 19838,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:forest": {
+      "texture": "rejuvenation:textures/gui/field/forest.png",
+      "source": "Graphics/Battlebacks/battlebgForest.png",
+      "sha256": "b41cc0fd369e5c48f7be4edbcfa9b412e91b0b6d411d804c3365f3cd90d7168d",
+      "bytes": 19543,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:frozen_dimension": {
+      "texture": "rejuvenation:textures/gui/field/frozen_dimension.png",
+      "source": "Graphics/Battlebacks/battlebgAngie.png",
+      "sha256": "3d5d3ea77346d91fa6ad52f2b10ef546956f20cea78f5c0239056bdff3c27c8d",
+      "bytes": 120815,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:glitch": {
+      "texture": "rejuvenation:textures/gui/field/glitch.png",
+      "source": "Graphics/Battlebacks/battlebgGlitch.png",
+      "sha256": "7599b9d2fc7324f8bdcb8d3d5df82f1dceaed9424ab400e5f172c7d828a7dd28",
+      "bytes": 12478,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:grassy_terrain": {
+      "texture": "rejuvenation:textures/gui/field/grassy_terrain.png",
+      "source": "Graphics/Battlebacks/battlebgGrassy.png",
+      "sha256": "984f39d02db469e056f4e6d8dc6c692dedf0507cfcac42cd866af5a847200305",
+      "bytes": 11023,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:haunted": {
+      "texture": "rejuvenation:textures/gui/field/haunted.png",
+      "source": "Graphics/Battlebacks/battlebgHaunted.png",
+      "sha256": "eba29a3de628e644d34675b9840797900fb8d20db983bf8ef113a412219c7cb3",
+      "bytes": 56918,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:holy": {
+      "texture": "rejuvenation:textures/gui/field/holy.png",
+      "source": "Graphics/Battlebacks/battlebgRuin.png",
+      "sha256": "81a688139af4c5c0b4905f7ce204195f761bbeaeb4c174dfbbf437026c5b09ee",
+      "bytes": 18591,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:icy": {
+      "texture": "rejuvenation:textures/gui/field/icy.png",
+      "source": "Graphics/Battlebacks/battlebgIcy.png",
+      "sha256": "67772cedf29f98647780a9fb40b952f0031772d3ee9f0dcf775fd39f16851ed2",
+      "bytes": 11096,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:indoor": {
+      "texture": "rejuvenation:textures/gui/field/indoor.png",
+      "source": "Graphics/Battlebacks/battlebgIndoor.png",
+      "sha256": "ca3f3e96aa6aa594903c2b1a04cf686c0d17504cf996da8de50327aeb9ec2409",
+      "bytes": 14180,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:infernal": {
+      "texture": "rejuvenation:textures/gui/field/infernal.png",
+      "source": "Graphics/Battlebacks/battlebgInfernal.png",
+      "sha256": "fa6c12aa2727704663a6b0b8e8bedf2ca4b9d61a2815d10c70b119a6da4cf0aa",
+      "bytes": 69712,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:inverse": {
+      "texture": "rejuvenation:textures/gui/field/inverse.png",
+      "source": "Graphics/Battlebacks/battlebgInverse.png",
+      "sha256": "30bf7b541d5e7c90dace867ee714819e539da15075daf747e56da4b09fd0b2f5",
+      "bytes": 7210,
+      "size": [
+        512,
+        290
+      ]
+    },
+    "rejuvenation:misty_terrain": {
+      "texture": "rejuvenation:textures/gui/field/misty_terrain.png",
+      "source": "Graphics/Battlebacks/battlebgMisty.png",
+      "sha256": "3b909ef2792995ce15bf54f51a2f87426f6076ac0bedcd54639c146b7a279434",
+      "bytes": 10989,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:mountain": {
+      "texture": "rejuvenation:textures/gui/field/mountain.png",
+      "source": "Graphics/Battlebacks/battlebgMountain.png",
+      "sha256": "1a07dbc40cec9cbbbc899eadd59d63ee6dc2fdc4ae21daf1d6bdca6661fd48bf",
+      "bytes": 10988,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:murkwater_surface": {
+      "texture": "rejuvenation:textures/gui/field/murkwater_surface.png",
+      "source": "Graphics/Battlebacks/battlebgMurkwaterSurface.png",
+      "sha256": "fe2bb914a6a657dbc4f4594a47ab656630bd64bc008a0ee8fbc13b693b3269c0",
+      "bytes": 10020,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:new_world": {
+      "texture": "rejuvenation:textures/gui/field/new_world.png",
+      "source": "Graphics/Battlebacks/battlebgNewWorld.png",
+      "sha256": "7224d06f9a8ddeaa84a962b591002a677446f9d9475b8ccccb82fc8b2a7251ba",
+      "bytes": 19556,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:psychic_terrain": {
+      "texture": "rejuvenation:textures/gui/field/psychic_terrain.png",
+      "source": "Graphics/Battlebacks/battlebgPsychic.png",
+      "sha256": "5bc2d1c85d4b7635eb291fcf7e12d293d828c97d5400806fb8d84960c911740a",
+      "bytes": 58187,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:rainbow": {
+      "texture": "rejuvenation:textures/gui/field/rainbow.png",
+      "source": "Graphics/Battlebacks/battlebgRainbow.png",
+      "sha256": "ffc91be23e7eaef5cc891a1dd30f3d4a8c00651ad1aa5f5d9c27a6dd19545c82",
+      "bytes": 25728,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:rocky": {
+      "texture": "rejuvenation:textures/gui/field/rocky.png",
+      "source": "Graphics/Battlebacks/battlebgRocky.png",
+      "sha256": "eae921d13e51cc4fe4d0945f39bbd0f81eb043f4f7589e2b841d03ffdbe3578c",
+      "bytes": 17125,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:short_circuit": {
+      "texture": "rejuvenation:textures/gui/field/short_circuit.png",
+      "source": "Graphics/Battlebacks/battlebgShortCircuit.png",
+      "sha256": "090cd574750e641cacd5d6d3e510440edcae2fc2693305efc2980b198d5472aa",
+      "bytes": 8310,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:sky": {
+      "texture": "rejuvenation:textures/gui/field/sky.png",
+      "source": "Graphics/Battlebacks/battlebgGoldenArena.png",
+      "sha256": "d6a89fa3ac4c21149c128284f8caed36070b4e923b21f751b9fcda45d20195fb",
+      "bytes": 164716,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:snowy_mountain": {
+      "texture": "rejuvenation:textures/gui/field/snowy_mountain.png",
+      "source": "Graphics/Battlebacks/battlebgSnowyMountain.png",
+      "sha256": "5835f2dbca28270a6ef8d46013b30515ec6e954b5c2a543bd2d8864f80be4d43",
+      "bytes": 6347,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:starlight": {
+      "texture": "rejuvenation:textures/gui/field/starlight.png",
+      "source": "Graphics/Battlebacks/battlebgStarlight.png",
+      "sha256": "8a2ee8edf37acdd6240c6ed4682cb9bce6265ffb4645f0fe3d6a9ae698b95d14",
+      "bytes": 41719,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:swamp": {
+      "texture": "rejuvenation:textures/gui/field/swamp.png",
+      "source": "Graphics/Battlebacks/battlebgSwamp.png",
+      "sha256": "40f3d1c12a9f6c79284bd660c5252169dc00bd78e320a16ffdcbc5f53ca78f9d",
+      "bytes": 4603,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:underwater": {
+      "texture": "rejuvenation:textures/gui/field/underwater.png",
+      "source": "Graphics/Battlebacks/battlebgUnderwater.png",
+      "sha256": "179e2c03eaad42be07c1b622c91a821d9dcc46acac2abf224fa373be07b9c9b4",
+      "bytes": 6372,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:volcanic": {
+      "texture": "rejuvenation:textures/gui/field/volcanic.png",
+      "source": "Graphics/Battlebacks/battlebgVolcano.png",
+      "sha256": "8901f1129207037974e887ef5275cb474a568158fef01a9d47e69615cf4aeb54",
+      "bytes": 7680,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:volcanic_top": {
+      "texture": "rejuvenation:textures/gui/field/volcanic_top.png",
+      "source": "Graphics/Battlebacks/battlebgVoltop.png",
+      "sha256": "df43e7e22ac261aa8436633f93bb72db7f68021b55669d272b287e8cc0c8f16d",
+      "bytes": 33112,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:wasteland": {
+      "texture": "rejuvenation:textures/gui/field/wasteland.png",
+      "source": "Graphics/Battlebacks/battlebgWasteland.png",
+      "sha256": "40ff9c799f9401cc0b14974b7d9a09333e82f2bab540dbe3de81e46e37fd7d51",
+      "bytes": 27151,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:water_surface": {
+      "texture": "rejuvenation:textures/gui/field/water_surface.png",
+      "source": "Graphics/Battlebacks/battlebgWater.png",
+      "sha256": "26bfb6ce486d7fe1b86aa95bd6845fc64e941b314e71d4de2fda7d53763d9d18",
+      "bytes": 11487,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:crimson_forest": {
+      "texture": "rejuvenation:textures/gui/field/crimson_forest.png",
+      "source": "user-provided artwork: crimsonforest.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "f0fdc1c22a15d6063553c1990345053b72be18fb18f211466aaa9a177b08fb34",
+      "originalFormat": "PNG",
+      "originalSize": [
+        3200,
+        2000
+      ],
+      "crop": [
+        0,
+        100,
+        3200,
+        1900
+      ],
+      "sha256": "253a8deb385a8fdde125025b1189b56aaaeaf6543b029c0a603185ac6d3e0a9f",
+      "bytes": 205028,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:deep_dark": {
+      "texture": "rejuvenation:textures/gui/field/deep_dark.png",
+      "source": "user-provided artwork: deepdark.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "49484fb8bdb4953521295cf4b541ff4efd7cb96c990b5329ad476dec5c011276",
+      "originalFormat": "WEBP",
+      "originalSize": [
+        640,
+        350
+      ],
+      "crop": [
+        9,
+        0,
+        631,
+        350
+      ],
+      "sha256": "c14a60bc67e36ba4700eb695ebbd68633f8070376e7048314ad3d4d382e6f7a1",
+      "bytes": 177642,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:pale_garden": {
+      "texture": "rejuvenation:textures/gui/field/pale_garden.png",
+      "source": "user-provided artwork: palegarden.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "c1c828730b7e148ec1ac1300a446d14280a233454f795fd77ad57a4a6075b4d3",
+      "originalFormat": "WEBP",
+      "originalSize": [
+        860,
+        484
+      ],
+      "crop": [
+        0,
+        0,
+        860,
+        484
+      ],
+      "sha256": "d8f9a2ebfd459b6d887269776d57290097cabcff13c0506bf4de56f0933c33ca",
+      "bytes": 192950,
+      "size": [
+        512,
+        288
+      ]
+    },
+    "rejuvenation:warped_forest": {
+      "texture": "rejuvenation:textures/gui/field/warped_forest.png",
+      "source": "user-provided artwork: warpedforest.jpg",
+      "provenance": "user-provided",
+      "originalSha256": "9d5c39c5426a5dad1bd3bc7b5c5a0b63e0ca54e8c9fb69f701cdefdf8407d5bf",
+      "originalFormat": "WEBP",
+      "originalSize": [
+        1200,
+        675
+      ],
+      "crop": [
+        0,
+        0,
+        1200,
+        675
+      ],
+      "sha256": "57b7f49640642fe1effa887695b8a479e761ae4debf246d34aba3b14dd1cedd3",
+      "bytes": 291937,
+      "size": [
+        512,
+        288
+      ]
+    }
+  },
+  "customArtwork": "Four custom-field backdrops are user-provided Minecraft screenshots, centre-cropped to 16:9 and resized to 512x288 (research/custom_artwork.py); originals are kept unmodified in research/custom-artwork/originals."
+}

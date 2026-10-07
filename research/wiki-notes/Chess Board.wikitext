@@ -1,0 +1,123 @@
+{{Quote | ''Opening variation set.''}}
+[[File:BattlebgChess.png|thumb]]
+
+Chess Board is one is one of the [[Field Effects]] present in Rejuvenation. It is classified as a Synthetic field and can be found in all battles at [[Blacksteeple Island (Alternate)]] and randomly in [[Grand Dream Stadium]] during the tournament.
+
+==General Effects==
+
+===Chess Pieces===
+
+All Pokémon in each team are assigned roles as "Chess Pieces" based on certain criteria.
+* Each Pokémon can only have one role.
+* If there are two teams on one side, roles are assigned separately for the two teams.
+* In the table below, every role overrides all roles below it. Therefore, the roles take precedence in the following order: Queen > Pawn > King > Rook > Bishop > Knight.
+* Not every role needs to be filled in a single party.
+
+{| class="wikitable"
+! Role !! Criteria !! Effect !! Quote
+
+|-
+| Queen || The Pokémon is in the final slot of the team. This role is limited to one per team. || Defense and Special Defense are raised by 1 stage on switch-in, and all damage dealt by the Pokémon increases by 1.5x. || ''"[Pokémon] became a Queen and was placed on the center of the board!"''
+|-
+| Pawn || The Pokémon is sent out on the first turn of the battle. || The Pokémon gains the effect of a Focus Sash and immunity to OHKO moves. || ''"[Pokémon] became a Pawn and stormed up the board!"''
+|-
+| King || The Pokémon holds has the Supreme Overlord ability, holds a King's Rock, or has the lowest maximum HP among team members. This role is limited to one per team (priority goes Supreme Overlord > King's Rock > Lowest HP). || The priority of any move used by the Pokémon is increased by 1 and their priority moves work on Psychic Terrain. || ''"[Pokémon] became a King and exposed itself!"''
+|-
+| Rook || The Pokémon's highest stat is its Defense or Special Defense. || Defense and Special Defense are raised by 1 stage on switch-in. || ''"[Pokémon] became a Rook and took the open file!"''
+|-
+| Bishop || The Pokémon's highest stat is its Attack or Special Attack. || Attack and Special Attack are raised by 1 stage on switch-in. || ''"[Pokémon] became a Bishop and took the diagonal!"''
+|-
+| Knight || The Pokémon's highest stat is its Speed. || Damage dealt by the Pokémon increases by 3x when the target is a Queen, and by 1.25x when using a move in a double battle that targets both opponents. These moves do not see their damage reduced by 25%. || ''"[Pokémon] became a Knight and readied its position!"''
+|}
+
+===Chess Moves===
+
+'''All moves in this section become Chess Moves, and deal 2x damage to confused Pokémon (this boost interacts with specific abilities, see "Chess Abilities" section).'''
+
+* Barrage → 2x boost, Rock sub-typing.
+* Ancient Power, Barrage, Continental Crush, Psychic, Secret Power, Shattered Psyche, Strength → 1.5x boost, Rock sub-type.
+** ''"The chess piece slammed forward!"''
+
+===Chess Abilities===
+
+* Adaptability, Anticipation, Synchronize & Telepathy cause the user to take 0.5x damage from Chess Moves.
+** Canceled out by Confusion.
+* Defeatist, Klutz, Oblivious, Simple, & Unaware cause the user to take 2x damage from Chess Moves.
+** Does not stack with Confusion.
+* Klutz causes the user's Chess Moves to fail.
+** ''"It was too much of a klutz to move the chess piece."''
+
+==Abilities Affected==
+
+===Buffed Abilities===
+
+* Illusion boosts the user's damage by 1.2x while Illusion is active.
+* Merciless boosts the user's critical hit rate by 1 stage against targets below 80% HP, 2 stages against targets below 60%, and 3 stages against targets below 40% HP.
+** A +3 crit rate translates to a guaranteed critical hit.
+* Queenly Majesty boosts the user's damage by 1.5x.
+** ''"The Queen is dominating the board!"''
+*** This does not stack with the Queen Piece boost.
+* Stall boosts the user's Defense by 1 stage on switch-in.
+** ''"[Pokémon] is playing defensively!"''
+* Stance Change boosts the user's Defense by 1 stage on switch-in. This boost will swap between Attack & Defense depending on the user's form.
+
+===Other Ability Changes===
+
+* Competitive instead boosts the user's damage the less HP the user has up to a maximum of x2 damage when at 20% or lower.
+** This is a linear increase (example: 1.5x increase at 60% max HP).
+* Gorilla Tactics and Reckless additionally boost the user's damage by 1.2x, but increase critical hit rate against the user by 1 stage.
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which receive an attack buff====
+
+* Fake Out, Feint, Feint Attack, First Impression, Kowtow Cleave, Shadow Sneak, Smart Strike, Sucker Punch, Thunderclap, Upper Hand → 1.5x boost.
+** ''"En passant!"''
+
+===Other moves===
+
+====Buffed Moves====
+
+* Ally Switch boosts the user's Defense and Special Defense by 1 stage, and the target's Attack and Special Attack by 1 stage.
+** ''"[Pokémon 1] castled with [Pokémon 2]!"''
+*** Once per team per game.
+* Calm Mind boosts the user's Special Attack and Special Defense by 2 stages.
+* False Surrender applies Taunt to the target.
+* King's Shield and Obstruct protect the user from non-damaging moves.
+* King's Shield lowers attackers' Special Attack by 1 stage on contact.
+* Kowtow Cleave bypasses protection moves, dealing 1/4th of the initial damage.
+* Nasty Plot boosts the user's Special Attack by 3 stages.
+* Poltergeist can be used regardless of its target's item.
+** ''"The Chess piece came to life!"''
+* Trick Room lasts for 8 turns.
+
+====Nerfed Moves====
+
+* Outrage, Raging Fury, Stomping Tantrum, and Thrash increase critical hit rate against the user by 1 stage until a different move is used.
+
+====Other move changes====
+
+* No Retreat instead boosts the user's Attack, Special Attack and Speed by 2 stages, but lowers Defense and Special Defense by 1 stage.
+** This effect is identical to the move Shell Smash.
+
+===Field-dependent moves & Abilities===
+
+* Mimicry changes the user's type to Psychic.
+* Camouflage changes the user's type to Psychic.
+* Nature Power becomes Ancient Power.
+* Secret Power may lower Defense by 1 stage.
+* Shelter halves damage from Psychic-type moves.
+* Terrain Pulse becomes Psychic-type.
+
+==Items==
+
+* [[Synthetic Seed]] boosts Special Attack by one stage and applies Magic Coat to the user.
+
+==Notes==
+
+* Prior to V14, Rock Throw was a Chess Move.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

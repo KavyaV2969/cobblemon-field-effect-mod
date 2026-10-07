@@ -1,0 +1,7 @@
+{
+  "recipes": 5,
+  "positiveCombinations": 20,
+  "negativeCases": 170,
+  "checks": 1355,
+  "scope": "Real Minecraft 1.21.1 shaped-recipe codec, ingredient/tag resolution, matches/assemble. Items from other mods are same-ID stand-ins; their existence is checked against the installed Cobblemon jar. Not a live game crafting-table run."
+}

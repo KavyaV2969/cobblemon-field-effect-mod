@@ -1,0 +1,80 @@
+{{Quote | ''Starlight fills the battlefield.''}}
+[[File:BattlebgStarlight.png|thumb]]
+
+Starlight Arena is one of the fields present in Rejuvenation. It is categorized as a Magical field. 
+
+==Transitions From Other Fields==
+
+* [[New World]] will transform into this field if the move Geomancy is used, or while the effect of Gravity is active.
+** ''The world was regenerated!''
+** ''The world's matter reformed!''
+
+==General Effects==
+
+* Dark-type attacks increase in base power by 1.5x and gain a Fairy sub-typing.
+** ''The night sky boosted the attack!''
+* Psychic-type attacks increase in base power by 1.5x.
+** ''The astral energy boosted the attack!''
+* Fairy-type attacks increase in base power by 1.3x.
+** ''Starlight supercharged the attack!''
+* Damage boosts granted by the field are disabled while any weather is active (except Strong Winds).
+** ''The weather blocked out the starry sky!''
+
+==Abilities Affected==
+
+* Illuminate additionally boosts the bearer's Special Attack by 2 stages on switch-in, and applies Spotlight on its partner if it has Mirror Armor.
+** ''[Pokémon]'s Illuminate flared up with starlight!''
+** ''[Pokémon]'s dazzling shine put a spotlight on its partner!''
+* Marvel Scale is activated.
+* Mimicry changes the user's type to Dark.
+* Mirror Armor additionally protects the bearer and its allies from priority moves.
+* Shadow Shield additionally reduces damage taken to 0.75x.
+* Victory Star additionally boosts damage dealt by the bearer and its allies by 1.5x.
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Doom Desire → 4x boost, Fire sub-typing.
+** ''A star came crashing down!''
+* Black Hole Eclipse, Comet Punch, Draco Meteor, Hyperspace Fury, Hyperspace Hole, Light that Burns the Sky, Menacing Moonraze Maelstrom, Meteor Assault, Meteor Beam, Meteor Mash, Moongeist Beam, Spacial Rend, Searing Sunraze Smash, Sunsteel Strike, Swift → 2x boost.
+** ''The astral energy boosted the attack!''
+** ''The astral vortex accelerated the attack!''
+* Aurora Beam, Dazzling Gleam, Flash Cannon, Luster Purge, Mirror Beam, Mirror Shot, Moonblast, Night Daze, Night Slash, Photon Geyser, Prismatic Laser, Signal Beam, Techno Blast, Solar Beam → 1.5x boost
+** ''Starlight surged through the attack!''
+** ''Lunar energy surged through the attack!''
+
+===Other moves===
+
+* Aurora Veil can be activated regardless of weather.
+* Cosmic Power boosts the user's Defense and Special Defense by 2 stages. 
+* Flash lowers the target's Accuracy by 2 stages.
+* Geomancy and Meteor Beam only take 1 turn to use.
+* Healing Wish and Lunar Dance additionally boost the recipient's Attack and Special Attack by 1 stage.
+* Lunar Blessing now restores 33% of the target's max HP.
+* Meteor Assault requires no recharge turn.
+* Magic Room, Trick Room, and Wonder Room last for 8 turns.
+* Moonlight and Wish now restore 75% of the user's max HP.
+* Solar Beam and Solar Blade gain a Fairy sub-typing.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Dark.
+* Nature Power becomes Moonblast.
+* Secret Power may lower Special Defense.
+* Shelter halves damage from Dark-type moves.
+* Terrain Pulse's type becomes Dark.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* The move Light That Burns the Sky will terminate this field.
+** ''The cosmic light was consumed!''
+
+==Items==
+
+* [[Magical Seed]] boosts Special Attack and applies Wish to the user.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

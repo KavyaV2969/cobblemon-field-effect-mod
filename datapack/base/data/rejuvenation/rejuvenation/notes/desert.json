@@ -1,0 +1,109 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:desert",
+  "title": "Desert Field",
+  "summary": "“The field is rife with sand.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Badlands, Desert, and Eroded Badlands."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Desert Field is one of the Field Effects present in Rejuvenation. It is classified as a Telluric field can be found in the entirety of the Badlands, including Zone Zero, Alamissa Urben and Zorrialyn Desert."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Grassy Terrain will transform into this field when the Desolate Land ability first activates.",
+        "“The extremely harsh sunlight dried out the meadow!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Water-type moves from grounded Pokémon recieve a 0.5x decrease in power.",
+        "“The desert softened the attack...”",
+        "Hydro Steam, Scald & Steam Eruption are exempt from this effect.",
+        "Electric-type moves against grounded Pokémon recieve a 0.5x decrease in power.",
+        "“The desert softened the attack...”",
+        "Ground-type Pokémon's Special Defense increases by 1.5x.",
+        "The Harsh Sunlight and Sandstorm weathers last for 8 turns.",
+        "Sandstorm deals 1/8 max HP damage each turn instead of 1/16.",
+        "During Harsh Sunlight, Grass-type and Water-type Pokémon that do not hold a Utility Umbrella:",
+        "Lose 1/8 max HP damage at the end of each turn if Harsh Sunlight does not end that turn. Chlorophyll, Mega Sol & Solar Power protect their bearer from this effect.",
+        "“[Pokémon] was hurt by the sunlight!”",
+        "As of V14.0.22, Mega Sol isn't listed in the in-game Field Notes.",
+        "Restore 1/4 max HP when targeted by a Water-tpe moves (identical to Water Absorb's regular effect).",
+        "“[Pokémon] had its HP restored.”"
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Activated Abilities:",
+        "Sand Force",
+        "Sand Rush",
+        "Sand Veil",
+        "Buffed Abilities:",
+        "Earth Eater restores 1/16 of its bearer's max HP at the end of each turn.",
+        "“[Pokémon] ate sand to recover!”",
+        "Sand Spit lowers attackers' accuracy by 1 stage upon activation.",
+        "Nerfed Abilities:",
+        "Dry Skin causes the bearer lose 1/8 max HP at the end of each turn.",
+        "“[Pokémon] was hurt by the desert air!”",
+        "Other Ability Changes:",
+        "Wandering Spirit lowers the bearer's Speed by 1 stage at the end of each turn."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Damage Modifiers: Moves which receive an attack buff:",
+        "Bone Club, Bone Rush, Bonemerang, Burn Up, Dig, Heat Wave, Hydro Steam, Needle Arm, Pin Missile, Sand Tomb, Sandsear Storm, Scald, Scorching Sands, Searing Sunraze Smash, Shadow Bone, Solar Beam, Solar Blade, Steam Eruption, Thousand Waves → 1.5x boost.",
+        "“The lifeless desert strengthened the attack!”",
+        "“The desert strengthened the attack!”",
+        "Other Moves: Buffed Moves:",
+        "Arenite Wall always lasts 8 turns and can be used regardless of weather.",
+        "Dig only lasts 1 turn.",
+        "Sand Attack lowers the target's Accuracy by 2 stages.",
+        "Sand Tomb deals 1/6 max HP per turn instead of 1/8 max HP.",
+        "Shore Up restores 66.7% of its user's HP.",
+        "Nerfed Moves:",
+        "Aqua Ring, Life Dew, and Soak fail on use.",
+        "“The desert is too dry...”",
+        "Field-dependent moves & Abilities:",
+        "Mimicry changes the bearer's type to Ground.",
+        "Camouflage changes the user's type to Ground.",
+        "Nature Power becomes Sand Tomb.",
+        "Secret Power may lower Accuracy.",
+        "Shelter halves damage from Ground-type moves.",
+        "Terrain Pulse's type becomes Ground."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Telluric Seed boosts the user's Defense, Special Defense and Speed by 1 stage but applies Sand Tomb to the user for 4 turns.",
+        "“[Pokémon] was trapped by Sand Tomb!”"
+      ]
+    },
+    {
+      "heading": "Notes",
+      "lines": [
+        "Prior to V14, Sand Spit lowered accuracy for all foes."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Desert Field”, revision 48743: https://rejuvenation.wiki.gg/wiki/Desert_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

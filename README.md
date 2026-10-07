@@ -1,41 +1,61 @@
-# Rejuvenation Fields for this Cobbleverse profile
+# Rejuvenation Fields
 
-**All 57 Rejuvenation 14.0.14 fields are implemented and the source audit is closed, and four custom Minecraft-inspired fields (Deep Dark, Pale Garden, Warped Forest, Crimson Forest) sit beside them: 61 fields in all.** Every ordinary field-dependent battle branch in the local Rejuvenation scripts is implemented with a passing regression test, or recorded per field as a custom-move/Crest exclusion, unreachable, unsupported or presentation-only ([coverage](docs/FIELD_COVERAGE.md)). Exhaustive live/multiplayer verification is future work ([remaining work](docs/REMAINING_WORK.md)). Use a test profile first.
+Data-driven **battle fields** for [Cobblemon](https://cobblemon.com) 1.7.3 on Minecraft 1.21.1 (Fabric), after the field system of the fan game *Pokémon Rejuvenation*. Where a wild battle happens (a forest, a cave, underwater, inside a village or an Ancient City) decides a field that changes type power, moves, abilities, weather, terrain and status for that battle, with the original messages. **Version 0.1** is the first public release.
 
-This revision (still packaged as 0.2.0) adds:
+**Scope: 57 original fields + 4 custom fields = 61.** All 57 Rejuvenation 14.0.14 fields are implemented and source-audited, and four Minecraft-inspired custom fields (Deep Dark, Pale Garden, Warped Forest, Crimson Forest) sit beside them. Every ordinary field-dependent branch in the original scripts is implemented with a passing regression test, or recorded as a custom-move, Crest, unreachable, unsupported or presentation-only exclusion ([coverage](docs/FIELD_COVERAGE.md)). Exhaustive live and multiplayer verification is **not** claimed ([limitations](docs/LIMITATIONS.md), [testing](docs/TESTING.md)).
 
-- **environment layers:** frozen oceans and rivers start as Icy over Water Surface, Snowy Plains as Icy over Grassy Terrain, and so on; melting or breaking the surface restores the substrate ([layers](docs/ENVIRONMENT_LAYERS.md));
-- **Field Notes:** click the field panel to open a framed overlay with the field's rules in plain language and its public counters, for all 61 fields, editable by datapack ([notes](docs/FIELD_NOTES.md));
-- **village fix:** battles anywhere in a village (streets and plazas, not only inside buildings) select City; bastions and nether fortresses select Colosseum; Ancient Cities select Deep Dark ([field selection](docs/FIELD_SELECTION.md));
-- **four custom fields** with full mechanics, biome mappings and artwork ([custom fields](docs/CUSTOM_FIELDS.md)); the Run & Bun strategy prices their standing risks, and previews never count environmental strikes as move damage.
+![The field panel above the battle log](docs/images/field-panel-city.png)
 
-Version 0.2.0 added:
+*The field panel (captured from the 0.2.0 development build): the active field's backdrop and name above the battle log. Click it to open the Field Notes.*
 
-- no battle-start stall: the field catalog reaches the simulator when the world loads, and publishing it no longer loads ~40 unused simulator dex mods ([performance](docs/PERFORMANCE.md));
-- field selection by precedence RCT/explicit field > underwater > configured structure (villages → City, Woodland Mansions → Back Alley) > biome (Plains → Grassy Terrain, mushroom biomes → Fairy Tale) > default ([field selection](docs/FIELD_SELECTION.md));
-- a read-only, field-aware move evaluation used by the Run & Bun AI and by Cobblemon Battle Extras' move damage/KO tooltip ([integrations](docs/INTEGRATIONS.md));
-- a field panel above the battle log with the field's Rejuvenation backdrop and name ([field panel](docs/FIELD_PANEL.md)).
+![Field Notes](docs/images/field-notes-back-alley.png)
 
-Outputs:
+## What you get
 
-- `mod/`: Java 21/Fabric source project, targeting the installed Cobblemon 1.7.3 and Minecraft 1.21.1 ABI.
-- `dist/rejuvenation-fields-0.2.0.jar`: compiled mod.
-- `datapack/`: editable field content and environment mappings.
-- `dist/rejuvenation-fields-datapack-0.2.0.zip`: packaged datapack.
-- `docs/`: architecture, per-field specifications, biome tables, source provenance, compatibility and future trainer integration.
-- `research/`: extracted mechanical specifications, generators, audits and test results.
-- `dist/manifest.json`: hashes, per-field audit status and verification scope.
+* **Field selection** by precedence: explicit/trainer field > underwater > configured structure (villages, Woodland Mansions, Bastions and Fortresses, Ancient Cities) > biome > default ([details](docs/FIELD_SELECTION.md), [mapping tables](docs/BIOME_MAPPING.md)). Frozen oceans, rivers and snowy plains are *layered* fields whose surface can melt to reveal the ground beneath ([layers](docs/ENVIRONMENT_LAYERS.md)).
+* **A field panel and Field Notes**: the field's Rejuvenation backdrop and name above the battle log, and a formal rules overlay with public counters, whose text for the 57 original fields is taken from the Pokémon Rejuvenation Wiki under CC BY-SA 4.0 ([panel](docs/FIELD_PANEL.md), [how notes work](docs/FIELD_NOTES.md), [the full text of every note](field-notes/FIELD_NOTES.md)).
+* **Exact, read-only previews**: the server measures a move with the field engine inside a transaction that restores everything (RNG, HP, statuses, items, counters); Cobblemon Battle Extras shows those exact ranges when the compat mod is installed ([integrations](docs/INTEGRATIONS.md)).
+* **Trainer AI integration** (compat mod): Run & Bun and RCT trainers score moves with the field engine; a global NPC gimmick policy lets only declared Tera/Dynamax initiate and activates eligible Mega on the first legal move ([policy](docs/BATTLE_AI_POLICY.md), [trainer fields](docs/TRAINER_INTEGRATION.md)).
+* **Five held items** with the original Rejuvenation icons and crafting recipes: Magical, Telluric, Synthetic and Elemental Seed and the Amplifield Rock (cross recipe `[" A ","ASA"," A "]` around a Cobblemon Grassy/Misty/Electric/Psychic Seed or Damp/Icy/Smooth/Heat Rock). Amulet Coin is unchanged.
+* **Four custom fields** with full mechanics and a [validation report](docs/reports/custom-field-validation.md) tracing every specification statement to a test ([custom fields](docs/CUSTOM_FIELDS.md)).
+* **An authoring kit**: add your own fields with data only, no engine edits ([guide](docs/CUSTOM_FIELD_AUTHORING.md)).
+
+## Two mods, two data packs
+
+| Artifact | Role | Required |
+|---|---|---|
+| `rejuvenation-fields-0.1.jar` | core mod: engine, selection, UI, items, recipes | yes |
+| `rejuvenation-fields-base-0.1.zip` | portable data pack: all 61 fields and every vanilla/Cobblemon-supported mapping | yes |
+| `rejuvenation-fields-compat-0.1.jar` | Run & Bun / RCT / Battle Extras integrations and the global NPC policy | optional |
+| `rejuvenation-fields-cobbleverse-0.1.zip` | mappings for COBBLEVERSE's other mods and backports, the Kanto trainer fields and the Lt. Surge gym | optional, needs the base |
+
+Supported combinations, pack order, what is missing without each optional piece, migration from the private 0.2.0 build and rollback: [docs/MIGRATION.md](docs/MIGRATION.md). The core never depends on the compat mod; the compat mod's three integrations load only when their mod is installed.
+
+## Requirements
+
+Minecraft 1.21.1, Fabric Loader ≥ 0.17.2, Fabric API ≥ 0.116.6, Cobblemon 1.7.3+1.21.1, Java 21. Optional integrations (compat mod): Run & Bun (`rbrctai`), RCT API (`rctapi`), Cobblemon Battle Extras. The COBBLEVERSE extension targets the COBBLEVERSE modpack's content (Terralith, VanillaBackport, Repurposed Structures, Cobblemon Additions, LumyMon, Legendary Monuments, Cobblemon Raid Dens). No game files are bundled and nothing from the original game is needed at runtime.
 
 ## Installation
 
-Use a separate test profile first. Install the jar in `mods/` on the server and clients, because it registers six held items. Install and enable the datapack in that world's `datapacks/`, or in the modpack's required Global Packs directory. Start/reload the world; look for `Loaded 61 fields` in the log. The jar requires the datapack's `rejuvenation:indoor` definition. No Rejuvenation game installation is needed at runtime.
+1. Put `rejuvenation-fields-0.1.jar` (and optionally `rejuvenation-fields-compat-0.1.jar`) in `mods/` on the server and every client.
+2. Put `rejuvenation-fields-base-0.1.zip` (and optionally `rejuvenation-fields-cobbleverse-0.1.zip`) in the world's `datapacks/`, or the required Global Packs data-pack folder, and load the world. The log shows `Loaded 61 fields`.
+3. Natural wild battles now select a field; other trainer and player battles stay opt-in through `FieldApi`. Use a test profile first.
 
-Natural wild battles select a field from their environment ([field selection](docs/FIELD_SELECTION.md)). The Kanto league (eight Gym Leaders, Elite Four, Champion) battles on fields chosen to favor each trainer's team ([Kanto league fields](docs/KANTO_LEAGUE_FIELDS.md)); other trainer and player battles remain opt-in through `FieldApi`. No trainer definitions, teams or AI settings have been edited. The Run & Bun jar is unchanged; an optional adapter in this mod corrects its estimates with the field engine's measurements. Read [trainer integration](docs/TRAINER_INTEGRATION.md) before opting a trainer battle into fields.
+## Custom fields
 
-The only original game graphics included are the 57 field battle backgrounds used by the field panel (the four custom backdrops are user-supplied Minecraft screenshots), copied unmodified as client resources with attribution (`assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt`); no animations, audio or complete Ruby scripts are included. Seed items use vanilla wheat-seed visuals; Amulet Coin uses the vanilla gold-nugget visual, and Amplifield Rock uses cobblestone. Existing Cobblemon Everstones are bridged into opted-in battle teams. Original field mechanics and required battle text are stored as data.
+Copy `research/custom-fields/_template/my_field.json`, change the documented fields, build a pack with `python research/build_custom_pack.py`, and load it: [docs/CUSTOM_FIELD_AUTHORING.md](docs/CUSTOM_FIELD_AUTHORING.md) walks through IDs, parent rules, secondary types, seeds, notes, mappings, precedence, testing and troubleshooting with a worked example.
 
-## Rebuilding and checks
+## Building and testing
 
-Run `./rejuvenation/build.ps1` from this profile with Java 21, Python, Node, Ruby and cached Gradle 8.13 available. The script prepares compile-only dependencies from the installed profile, regenerates and validates content, compares compiled source definitions, executes the bounded original-Ruby method oracle, writes documentation, builds/tests the mod and packages the datapack. The oracle requires the recorded local reference installation. A direct Gradle `build` runs simulator/Java/Graal checks without requiring that installation; the separate `sourceOracleTest` task runs the original-source check. Dependencies are not bundled into the jar or zip. `-RefreshSource` additionally reruns the Ruby extraction/audit against the recorded local source.
+`./build.ps1` or `./gradlew check` plus `python research/package.py`; prerequisites, the environment variables that replace machine-specific paths, the layout (`core/`, `compat/`, `verification/`) and reproducibility notes are in [docs/BUILDING.md](docs/BUILDING.md). The architecture is described in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
-`research/live_check.py` runs an isolated cached Minecraft client with copied configuration and fresh chunks using the existing world's level metadata. Its temporary dependencies stay under `integration/` and are not distributable output. It does not use account credentials or modify the original save. Simulator and shaded-Graal checks run during the normal Gradle build. Build the separate `integrationFixtureJar` task and run `research/live_check.py --battle` to exercise real battles, including the Dive/Dusk capture events, or `--integration` for field selection on real terrain and structures, the field panel (with screenshots), move previews and a Run & Bun trainer battle. The fixture is excluded from distributable artifacts and refuses to run outside its isolated game directory. Two-client multiplayer remains separate verification work.
+## Known limitations
+
+* Verified **offline** (the installed simulator, Cobblemon's shaded Graal runtime, Minecraft's recipe classes, the built jars). The 0.1 split and the new items have not been exercised in a live rendered game; earlier live checks were on the 0.2.0 build. Two-client multiplayer has never been tested.
+* Global Packs load ordering of the COBBLEVERSE extension against the original COBBLEVERSE packs is relied on, not verified in a running game ([migration](docs/MIGRATION.md)).
+* Custom Rejuvenation moves, Crests and other source-only content are excluded or reported as unavailable, never aliased ([limitations](docs/LIMITATIONS.md)).
+* Several documented rounding resolutions (for example Warped Forest's Leech Seed) are within one HP of a literal reading ([custom fields](docs/CUSTOM_FIELDS.md)).
+
+## License and credits
+
+**No license has been chosen for this project's own code yet**, so all rights are reserved until the owner picks one ([LICENSE-STATUS.md](LICENSE-STATUS.md)). Third-party material, including the Pokémon Rejuvenation artwork this fan project reuses with credit, and its redistribution status, is listed in [THIRD_PARTY.md](THIRD_PARTY.md). *Pokémon* is © Nintendo, Creatures Inc. and GAME FREAK inc.; this is an unofficial, non-commercial fan project. See [CHANGELOG.md](CHANGELOG.md) and [CONTRIBUTING.md](CONTRIBUTING.md).

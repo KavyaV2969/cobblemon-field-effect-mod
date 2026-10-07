@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:concert_4",
+  "title": "Concert Venue",
+  "summary": "“Let's get HYPED!”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Concert Venue is a field effect exclusive to Rejuvenation. It is categorized as a Synthetic field and can be found in Venam's and Amber's gyms."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "This field has 4 different stages based on \"Hype\".",
+        "No Hype → Moves always hit the minimum damage roll, and moves with variable BP always hit with the lowest BP.",
+        "Low Hype",
+        "Hyped → Pokémon are unable to fall asleep. Any Pokémon inflicted with Sleep or with the ability Comatose are woken up and take 1/4 max HP damage.",
+        "“The Concert's noise could wake up even the dead!”",
+        "Super Hyped! → Moves always hit the maximum damage roll. Additionally, Pokémon gain the Metronome hold item effect.",
+        "Increasing Hype:",
+        "Critical hits increase Hype by 1 stage.",
+        "“The critical hit is getting the crowd hyped!”",
+        "Spread moves used in Double Battles increase Hype by 1 stage.",
+        "“The wide area attack is getting the crowd hyped!”",
+        "All Sound-based moves with the exception of Confide, Eerie Spell, Grass Whistle, Heal Bell, Perish Song, and Snore increase Hype by 1 stage.",
+        "“The song is getting the audience hyped!”",
+        "The moves Aquabatics, Dragon Dance, Drum Beating, Feather Dance, Fiery Dance, First Impression, Petal Dance, Quiver Dance, Revelation Dance, Rollout, Swagger, Swords Dance, and Work Up increase Hype by 1 stage.",
+        "“The stunning dance makes the audience go wild!”",
+        "“The crowd is getting hyped!”",
+        "Pokémon with the abilities Galvanize, Heavy Metal, Plus, Punk Rock, or Solid Rock increase Hype by 1 stage on switch-in.",
+        "“[Pokémon]'s [Ability] is getting the crowd hyped!”",
+        "The moves Focus Energy, Follow Me, Laser Focus, Lucky Chant, and Spotlight increase Hype by 2 stages.",
+        "“The audience's full attention is on the stage!”",
+        "The moves Explosion and Self-Destruct instantly change the stage to Super Hyped!.",
+        "“The audience cheers for the explosive finish!!”",
+        "Decreasing Hype:",
+        "Missing a move, boosting Evasion, or lowering Evasion or Accuracy decrease Hype by 1 stage.",
+        "“The crowd is booing!”",
+        "The moves Baby Doll Eyes, Embargo, Play Nice, Quash, Slack Off, Throat Chop, Tickle, and Yawn decrease Hype by 1 stage.",
+        "“The audience is not a fan of this friendly touchy-feely stuff...”",
+        "“The bar is closed and the crowd does NOT like it...”",
+        "“The crowd is booing, they want action!”",
+        "“The leadsingers voice fails...”",
+        "Pokémon with the abilities Klutz or Minus decrease Hype by 1 stage on switch-in.",
+        "“The crowd is booing!”",
+        "The moves Cold Truth and Sheer Cold instantly change the stage to No Hype.",
+        "“Bitter cold AND preaching? I am out of here!”",
+        "“The freezing cold drives the audience away...”"
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "At Low Hype and above, Emergency Exit and Run Away additionally boost the bearer's Speed by 1 stage on switch-in.",
+        "“[Pokémon] wants to get away from the noise!”",
+        "Heavy Metal, Punk Rock, Rock Head, Solid Rock, Soundproof additionally boost the bearer's Defense by 1 stage in switch-in.",
+        "“[Pokémon] is accustomed to the music due to [Ability]!”",
+        "Mimicry changes the bearer's type to Normal.",
+        "At Hyped and above, Rattled additionally boosts the bearer's Speed by 2 stages on switch-in.",
+        "“[Pokémon] wants to get away from the noise!”",
+        "Technician now boosts moves at 80 BP and below."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Sound-based moves → 1.5x boost.",
+        "Loud and clear!",
+        "Acid, Acid Spray, Circle Throw, Dragon Tail, Drum Beating, Fake Out, First Impression, Rollout → 1.5x boost",
+        "“Face melting!”",
+        "“MOSHPIT!!!”",
+        "“An amazing drum solo!”",
+        "“What an opening act!”",
+        "“Rock and roll!”",
+        "As of v13.5.6, Apple Acid does not receive a damage boost due to a typo.",
+        "Rage, Thrash, Frustration, Outrage, Stomping Tantrum → 1.5x boost (Low Hype and below).",
+        "The outraged audience is rioting! (No Hype)",
+        "The outraged Audience is rioting! (Low Hype)",
+        "Other moves:",
+        "Crush Grip, Dragon Energy, Electro Ball, Eruption, Fever Pitch, Flail, Fling, Frustration, Grass Knot, Gyro Ball, Heat Crash, Heavy Slam, Low Kick, Magnitude, Natural Gift, Return, Reversal, Spit Up, Trump Card, Water Spout and Wring Out will always have the maximum Base Power possible at Super Hyped!",
+        "Acid Armor boosts the user's Defense by 3 stages.",
+        "Magnitude will always use the lowest Base Power possible at No Hype.",
+        "Clangorous Soul boosts all of the user's stats by 2 stages, but the user loses 1/2 max HP instead.",
+        "As of v13.5.6, the field effect manual incorrectly states that the user loses 1/2 remaining HP.",
+        "Encore's effect length is doubled to 6 turns.",
+        "Growl lowers the target's Attack by 2 stages.",
+        "Metal Sound lowers the target's Special Defense by 3 stages.",
+        "Howl and Roar boost the user's Attack by 2 stages.",
+        "Parting Shot lowers the target's Attack and Special Attack by 2 stages.",
+        "Screech lowers the target's Defense by 3 stages.",
+        "Sing's Accuracy is increased to 100%.",
+        "Work Up boosts the user's Attack and Special Attack by 2 stages.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Normal.",
+        "Nature Power becomes Hyper Voice.",
+        "Secret Power may flinch.",
+        "Shelter halves damage from Normal-type moves.",
+        "Terrain Pulse's type becomes Normal."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Synthetic Seed boosts Special Attack by 1 stage and applies Helping Hand to the user."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Concert Venue”, revision 34394: https://rejuvenation.wiki.gg/wiki/Concert_Venue",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

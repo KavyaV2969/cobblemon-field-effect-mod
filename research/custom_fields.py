@@ -23,9 +23,14 @@ def compact(x):
     return json.dumps(x, separators=(',', ':'), ensure_ascii=False)
 
 
-def load_inputs():
+def load_inputs(directory=None):
+    """Canonical inputs, one JSON file per field, read in file-name order (that order is the deterministic build order).
+
+    `directory` defaults to research/custom-fields (the shipped fields). Only that directory's top-level *.json files are read, so the
+    authoring kit under custom-fields/_template and _examples never joins the production catalog.
+    """
     specs = []
-    for path in sorted(CUSTOM.glob('*.json')):
+    for path in sorted(Path(directory or CUSTOM).glob('*.json')):
         spec = json.loads(path.read_text(encoding='utf-8'))
         unknown = set(spec) - INPUT_KEYS
         if unknown: raise SystemExit(f'{path.name}: unknown custom field input keys {sorted(unknown)}')
@@ -33,6 +38,8 @@ def load_inputs():
         if path.stem != spec['id'].split(':')[1]: raise SystemExit(f'{path.name}: file name must equal the field id path')
         specs.append(spec)
     if not specs: raise SystemExit('No custom field inputs found')
+    ids = [s['id'] for s in specs]
+    if len(set(ids)) != len(ids): raise SystemExit(f'Duplicate custom field ids: {sorted({i for i in ids if ids.count(i) > 1})}')
     return specs
 
 
@@ -43,11 +50,47 @@ def retarget(value, old, new):
     return new if value == old else value
 
 
-def select_rules(parent, selector, label):
+def retarget_guards(condition, old, new):
+    """Rewrite only `field` guards of a rule condition (the field the rule is active in) from the parent's ID to the copy's ID.
+
+    Action targets, transition destinations and overlay IDs are deliberately left alone: a copied rule that changes *to* its parent must
+    keep doing so. A guard written as {"field": "<id>"} or {"field": ["<id>", ...]} is followed through all/any/not groups.
+    """
+    if isinstance(condition, dict):
+        out = {}
+        for key, value in condition.items():
+            if key == 'field' and isinstance(value, str): out[key] = new if value == old else value
+            elif key == 'field' and isinstance(value, list): out[key] = [new if v == old else v for v in value]
+            else: out[key] = retarget_guards(value, old, new)
+        return out
+    if isinstance(condition, list): return [retarget_guards(c, old, new) for c in condition]
+    return condition
+
+
+def parent_references(value, parent_id):
+    """Number of places the (retargeted) rows still mention the parent's ID, so a drifting or unintended reference is visible."""
+    if isinstance(value, dict): return sum(parent_references(v, parent_id) for v in value.values())
+    if isinstance(value, list): return sum(parent_references(v, parent_id) for v in value)
+    return 1 if value == parent_id else 0
+
+
+def select_rules(parent, selector, label, new_id=None):
+    """Copy the parent's rules for one event whose compact JSON contains every `contains` text, in the parent's own order.
+
+    `expect` is mandatory and exact: if the parent gains or loses a matching rule, generation stops instead of silently changing the
+    inherited behaviour. Guards on the parent's own field ID are retargeted to `new_id` (the new field); any remaining mention of the parent
+    ID (for example a transition back to it) must be declared with `keepParentReferences` and its exact count, so it is a decision, not an accident.
+    """
     rows = [r for r in parent['rules'] if r['event'] == selector['event'] and all(s in compact(r) for s in selector['contains'])]
     if len(rows) != selector['expect']:
         raise SystemExit(f"{label}: selector {selector} matched {len(rows)} {parent['originalId']} rules, expected {selector['expect']}")
     out = copy.deepcopy(rows)
+    if new_id:
+        for row in out: row['condition'] = retarget_guards(row['condition'], parent['id'], new_id)
+        left = parent_references(out, parent['id'])
+        if left != selector.get('keepParentReferences', 0):
+            raise SystemExit(f"{label}: selected {parent['originalId']} rules still mention {parent['id']} {left} time(s) after retargeting guards; "
+                             f"set keepParentReferences to {left} if that is intended")
     if selector.get('requireGrounded'):
         for row in out:
             row['condition'] = {'all': [row['condition'], {'grounded': {'who': 'user', 'value': True}}]}
@@ -60,7 +103,7 @@ def inherit(field, spec, parents):
     for block in spec.get('inherit', []):
         parent = parents[block['from']]
         for selector in block.get('rules', []):
-            field['rules'].extend(select_rules(parent, selector, label))
+            field['rules'].extend(select_rules(parent, selector, label, field['id']))
         for ability in block.get('abilityHandlers', []):
             if ability not in parent.get('abilityHandlers', {}): raise SystemExit(f'{label}: {parent["originalId"]} has no {ability} handler')
             field.setdefault('abilityHandlers', {})[ability] = copy.deepcopy(parent['abilityHandlers'][ability])
@@ -112,9 +155,11 @@ def build_one(spec, fields):
     return base
 
 
-def build(fields):
-    """fields: the generated original fields keyed by Ruby symbol (read only). Returns the custom fields keyed by original ID."""
-    specs = load_inputs()
+def build(fields, specs=None):
+    """fields: the generated original fields keyed by Ruby symbol (read only). Returns the custom fields keyed by original ID.
+
+    `specs` are canonical inputs from load_inputs(); by default the shipped research/custom-fields/*.json."""
+    specs = specs if specs is not None else load_inputs()
     out = {}
     for spec in specs:
         field = build_one(spec, fields)

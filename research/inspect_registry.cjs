@@ -1,5 +1,5 @@
 const path=require('node:path'),fs=require('node:fs');
-const root=path.resolve(__dirname,'../..');
+const root=process.env.REJUVENATION_PROFILE||path.resolve(__dirname,'../..');
 const {Dex}=require(path.join(root,'showdown/sim/dex'));
 const dex=Dex.mod('cobblemon');
 const ids=kind=>dex[kind].all().filter(x=>x.exists).map(x=>x.id).sort();

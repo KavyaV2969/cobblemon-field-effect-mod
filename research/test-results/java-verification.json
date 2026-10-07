@@ -7,6 +7,8 @@
   "decisionIdentityChecks": 6,
   "optionalModChecks": 12,
   "packetCodecChecks": 16,
-  "mixinAbiChecks": 35,
+  "ruleDocumentChecks": 209,
+  "authoringKitChecks": 18,
+  "mixinAbiChecks": 40,
   "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad"
 }

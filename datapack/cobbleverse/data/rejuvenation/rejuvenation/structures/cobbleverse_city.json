@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "order": 450,
+  "rules": [
+    {
+      "structure": "bca:village/default_small",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/default_mid",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/default_large",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/dark_small",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/dark_mid",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/fighting_small",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/fighting_mid",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    },
+    {
+      "structure": "bca:village/fighting_large",
+      "field": "rejuvenation:city",
+      "reason": "Cobblemon Additions village",
+      "containment": {
+        "mode": "footprint",
+        "horizontal": 8,
+        "above": 12,
+        "below": 4
+      }
+    }
+  ]
+}

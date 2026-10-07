@@ -1,0 +1,7 @@
+Item icons from Pokémon Rejuvenation V14 (Graphics/Icons/Item), a fan game by Janichroma (lead developer) and the Rejuvenation team; art credited in the game's ReadMe_Credits.txt to Zumi (Honnojis), Janichroma, Crimson, CeriseBlossome, Winter, Azeria, Dallas, Soulja, IronicOmens and MoonPaw. Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc.
+
+Redistribution basis: the project owner states this is a non-commercial fan mod for the game and that its use of these game icons is allowed as such. No written permission from the Rejuvenation team is on file; see THIRD_PARTY.md. Remove the five files if that basis is withdrawn.
+
+Decoded the BMP pixel data exactly (channel masks honoured, bottom-up rows flipped) and re-encoded them as 8-bit RGBA PNG; no resampling, recolouring or redrawing. Reproduce with research/convert_item_icons.py.
+
+See ../../item_icons.json for each source file, SHA-256 and output hash.

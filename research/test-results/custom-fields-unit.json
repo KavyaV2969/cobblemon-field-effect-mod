@@ -1,0 +1,15 @@
+{
+ "passed": [
+  "retarget_guards_follows_only_conditions",
+  "selecting_a_parent_rule_retargets_its_guard_and_keeps_order",
+  "parent_id_left_in_actions_must_be_declared",
+  "parent_drift_is_detected_by_exact_counts",
+  "whole_field_base_copies_retarget_self_guards",
+  "production_inputs_are_exactly_the_four_fields_and_kit_files_are_excluded",
+  "template_builds_a_loadable_pack_without_engine_changes",
+  "example_pack_is_generated_with_biome_and_structure_documents",
+  "shipped_custom_fields_rebuild_byte_identically",
+  "canonical_schema_accepts_shipped_inputs_template_and_example_and_rejects_bad_ones"
+ ],
+ "failed": []
+}

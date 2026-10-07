@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "mypack:my_field",
+  "originalId": "MYPACKMYFIELD",
+  "name": "My Field",
+  "entryMessage": "Something stirs in the field...",
+  "specification": "My_Field.md",
+  "base": "INDOOR",
+  "baseExpect": {},
+  "hooks": {
+    "naturePower": "tackle",
+    "secretPower": "tackle",
+    "mimicry": "Normal",
+    "secretPowerEffects": [{"boosts": {"accuracy": -1}, "message": "The field obscured {1}'s vision!"}]
+  },
+  "types": [
+    {"type": "Grass", "multiplier": 1.2, "message": "The field strengthened the attack!"}
+  ],
+  "moves": {
+    "tackle": {"multiplier": 1.1, "message": "The field lent weight to the tackle!"}
+  },
+  "rules": [
+    {
+      "event": "residual",
+      "condition": {"all": [{"grounded": {"who": "user", "value": true}}, {"type": {"who": "user", "value": "Grass"}}]},
+      "actions": [{"op": "heal", "fraction": 0.0625, "message": "{1} drew strength from the field!"}],
+      "source": "My_Field.md: Each turn, grounded Grass Pokémon recover 1/16 of their HP"
+    }
+  ],
+  "seed": {"item": "magicalseed", "effect": null, "duration": null, "message": null, "stats": {"def": 1}},
+  "seedActions": [],
+  "biomes": [],
+  "structures": [],
+  "notes": {
+    "summary": "A starting point: copy this file, rename it to your field's path, and change the documented fields.",
+    "sections": [
+      {"heading": "Type power", "lines": ["Grass moves are 1.2× stronger. Tackle is 1.1× stronger."]},
+      {"heading": "Each turn", "lines": ["Grounded Grass Pokémon recover 1/16 of their HP."]},
+      {"heading": "Seed", "lines": ["The Magical Seed raises Defense by 1 stage."]}
+    ],
+    "counters": []
+  }
+}

@@ -1,0 +1,86 @@
+{{Quote | ''Darkness is gathering...''}}
+[[File:Dark Crystal Cavern.png|thumb]]
+
+Dark Crystal Cavern is one of the [[Field Effects]] present in Rejuvenation. It is classified as a Magical field and can be found in [[Darchlight Caves]].
+
+==Transitions From Other Fields==
+
+* [[Crystal Cavern]] will transform into this field if any of the moves Dark Pulse, Dark Void, Night Daze, or Light That Burns the Sky is used.
+
+==General Effects==
+
+* Dark and Ghost-type Pokémon's Defense and Special Defense are boosted by 1.5x.
+
+==Abilities Affected==
+
+===Buffed Abilities===
+
+* Prism Armor reduces all damage to the user by 25%.
+** Specifically, it raises the user's Defense and Special Defense by 33%.
+* Shadow Shield reduces incoming super effective damage by 25%.
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which recieve an attack buff====
+
+* Prismatic Laser → 2x boost.
+** ''"The crystal split the attack!"''
+
+* Tera Starstorm → 1.5x boost, Dark sub-typing.
+** ''"The crystals' light strengthened the attack!"''
+
+* Aurora Beam, Black Hole Eclipse, Dark Pulse, Dazzling Gleam, Diamond Storm, Doom Desire, Flash Cannon, Lumina Crash, Luster Purge, Menacing Moonraze Maelstrom, Mirror Beam, Mirror Shot, Moongeist Beam, Night Daze, Night Slash, Photon Geyser, Power Gem, Shadow Ball, Shadow Bone, Shadow Claw, Shadow Force, Shadow Punch, Shadow Sneak, Signal Beam, Techno Blast → 1.5x boost.
+** ''"The crystals' light strengthened the attack!"''
+** ''"The consuming darkness fed the attack!"''
+** ''"The darkness began to gather...!"''
+** ''"The darkness strengthened the attack!"''
+
+====Moves which receive an attack nerf====
+
+* Light That Burns The Sky → 0.5x decrease.
+** ''"[Pokémon] couldn't consume much light..."''
+* Solar Beam and Solar Blade → Fail upon use.
+** Do not fail if Harsh Sunlight or Extremely Harsh Sunlight is active.
+
+===Other moves===
+
+====Buffed Moves====
+
+* Aurora Veil can be activated regardless of weather.
+* Dark Void's accuracy is increased to 100%.
+* Flash lowers the target's Accuracy by 2 stages.
+* Moonlight's restores 75% max HP.
+
+====Nerfed Moves====
+
+* Morning Sun and Synthesis restore 25% max HP.
+
+===Field-dependent moves & abilities===
+
+* Mimicry changes the user's type to Dark.
+* Camouflage changes the user's type to Dark.
+* Nature Power becomes Dark Pulse.
+* Secret Power may lower Accuracy.
+* Shelter halves damage from Dark-type moves.
+* Terrain Pulse becomes Dark-type.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.'''
+
+* This field will transform into [[Crystal Cavern]] if Harsh Sunlight or Extremely Harsh Sunlight is active at the end of the turn, and will transform back when it isn't.
+** ''"The sun lit up the crystal cavern!"''
+
+==Items==
+
+* [[Magical Seed]] boosts Special Defense by 1 stage and applies Magic Coat to the user.
+* The Dusk Ball's catch rate buff is enabled.
+
+==Other Notes==
+
+* As of V14.0.24, despite what the in-game Field Notes state, this field will not transform into [[Cave Field]] if the moves Bulldoze, Earthquake, Fissure, Magnitude, or the Z-Move Tectonic Rage are used.
+** ''"The dark crystals were shattered!"''
+{{Field Effects Nav}}
+[[Category:Field Effects]]

@@ -1,0 +1,122 @@
+ {{CurrentSpoilers}} 
+:''For the location, see ''[[Deux Finalis]]''.''
+{{Quote |quote=''Purifying mediums line the arena...''}}
+[[File:BattlebgConsecrated.png|thumb]]
+
+Deux Finalis is one of the [[Field Effects]] in Rejuvenation. It is classified as an Magical field, and is primarily found in its namesake area.
+
+==General Effects==
+* Dark, Dragon & Normal-type moves increase in base power by 1.5x.
+** ''"The darkness is here..."''
+** ''"The legendary energy resonated with the attack!"''
+** ''"The purifying mediums merged with the attack!"''
+*** Normal-type moves do not increase in power against Yveltal's Salt Form.
+* Rock-type moves increase in base power by 1.5x against Steel or Water-type Pokémon.
+** ''"The salt wears away at what it touches!"''
+* Water-type moves increase in base power by 1.5x against targets at or below 50% max HP.
+** ''"Doused for the grand-finale!"''
+* Special Fairy type moves increase in base power by 1.5x
+* Fairy-type moves deal neutral damage to every type.
+** ''"The purifying mediums merged with the attack!"''
+* Ghost-type moves against Rock-type Pokémon deal 0.5x damage.
+
+* [[Petrification]] reduces the Speed of affected Pokémon by 1 stage each turn.
+** ''"[Pokémon]'s speed sank..."''
+* Dark, Dragon & Normal-type Pokémon's defenses increase by 1.3x in the absence of Rain or the Ability Damp.
+
+==Abilities Affected==
+
+===Activated Abilities===
+* Marvel Scale
+
+===Buffed Abilities===
+* Aura Break, Dark Aura, Fairy Aura & Purifying Salt increase their user's defenses by 1.3x in the absence of Rain or the Ability Damp.
+** This does not stack with the field's inherent defense boost to Normal, Dragon and Dark-types.
+* Aura Break, Dark Aura & Fairy Aura only affect moves from their own side.
+* Dark Aura lets its user recover 1/3rd of the damage they deal with attacks, and their moves never miss.
+** ''"[Pokémon] restored a little HP using its Dark Aura!"''
+* Fairy Aura negates allies' loss of Speed due to [[Petrification]]
+
+* Beads of Ruin, Sword of Ruin, Tablets of Ruin & Vessel of ruin do not reduce allies' stats.
+** Beads of Ruin lets its user ignore the field's defense boost and deal 1.3x damage against petrified Pokémon.
+** Tablets of Ruin additionally boosts its user's Special Defense by 1.3x when attacked by petrified Pokémon.
+** Vessel of Ruin additionally boosts its user's Defense by 1.3x when attacked by petrified Pokémon.
+** Sword of Ruin allows its user to ignore the field's defense boost and lets its moves petrify their target.
+
+* Chilling Neigh, Grim Neigh and their As One counterparts raise the corresponding stat by 2 stages on activation.
+** As of V14.0.22, this effect isn't listed in the in-game Field Notes.
+* Gluttony, Purifying Salt & [[Soul Eater]] heal 1/16th of their user's max HP at the end of the turn.
+** ''"[Pokémon] started devouring its surroundings!"''
+** ''"[Pokémon] repaired itself using the surrounding salt!"'
+** ''"[Pokémon] devoured spirits to recover!"'''
+* Neutralizing Gas resets all stat changes on entry.
+** ''"All stat changes have been cleared!"''
+* Perish Body petrifies its target.
+* Power Spot boosts allies' damage by 1.5x instead of 1.3x.
+* Rattled boosts the user's Speed by 1 stage on switch-in.
+* Unnerve lowers all opponents' Speed by 1 stage on switch-in.
+* Pressure lowers all opponents' defenses by 1 stage on switch-in.
+* Soul-Heart boosts the user's Attack by 1 stage upon activation.
+
+==Moves Affected==
+
+===Damage modifiers===
+
+====Moves which receive an attack buff====
+* Doom Desire, Light of Ruin, Oblivion Wing, Salt Cure → 2x boost.
+** ''"All shall end..."''
+** ''"The salt assimilated the target!"''
+* Ancient Power, Bitter Blade, Bitter Malice, [[Cold Truth]], Diamond Storm, Dynamax Cannon, Eternabeam, Flash Cannon, Hydro Vortex, Hyperspace Fury, Hyperspace Hole, Judgement, Luster Purge,  Phantom Force, Roar of Time, Shadow Ball, Shadow Claw, Shadow Force, Shadow Sneak, Spacial Rend, Tera Starstorm → 1.5x boost.
+** ''"The purifying mediums merged with the attack!"''
+** ''"The distortion above strengthened the attack!"''
+** ''"The Lord's judgment is swift and merciless!"''
+** ''"The dimensions' barrier was torn apart!"''
+** ''"The world was flooded!"''
+* Brine, Dark Pulse, Night Daze, [[Radiant Claw]] → 1.2x boost.
+** ''"The purifying mediums merged with the attack!"''
+** ''"The distortion above strengthened the attack!"''
+
+===Other effects===
+
+====Moves which are buffed====
+
+* Cold Truth, Dark Pulse, Dark Void, Diamond Storm & Night Daze → Never miss.
+* Ruination & Scale Shot → Accuracy increased to 100%.
+
+* Arenite Wall is enabled.
+* Bitter Blade, Bitter Malice, Freezing Glare, Glare, Oblivion Wing & Ruination [[petrification|petrify]] damaged targets.
+** As of V14.0.22, Bitter Blade isn't listed in the in-game Field Notes.
+** Glare's petrification replaces its normal effect.
+* Brine's damage is doubled regardless of the target's HP.
+* Clanging Scale & Scale Shot do not reduce the user's defenses.
+* Clangorous Soul's recoil is 1/4th of its user's max HP instead of 1/3rd.
+* Dragon Cheer raises the target's critical hit ratio by 2 stages, and 3 stages if they're a Dragon-type.
+* Judgement, [[Multipulse]], Multi-Attack and Techno Blast will switch between being Physical and Special, depending on which will deal more damage.
+* Lucky Chant applies Mist.
+* Obstruct protects its user from status moves.
+* Phantom Force & Shadow Force last 1 turn.
+* Purify always heals its user, and boosts its defenses by 1 stage when it cures a non-volatile status.
+* Salt Cure inflicts 1/4th of the target's maximum HP as damage per turn instead of 1/8th.
+* Smelling Salt's damage is doubled regardless of the target's status.
+
+==Field-dependent moves & abilities==
+
+* Camouflage changes the user's type to Rock.
+* Nature Power becomes Smelling Salts.
+* Secret Power [[Petrification|petrifies]] its target.
+* Shelter halves damage from Rock-type moves.
+* Terrain Pulse becomes Rock-type.
+
+==Transitions to Other Fields==
+
+* The field will turn into [[Dimensional Field]] when the Primordial Sea ability first activates.
+** ''"The salt world was flooded!"''
+
+==Items==
+* Amulet Coin protects the user's side from the damage increase of critical hits. Other effects still apply.
+* [[Magical Seed]] boost's the user's defenses and Speed by one stage, but applies Perish Song to them.
+* When held by Latios or Latias, Soul Dew allows it to resist Dark and Ghost-type moves and raises the power of its Dark-type moves by 1.5x.
+** This effect is shared with all Dimensional Fields ([[Dimensional Field]], [[Frozen Dimensional Field]], [[Infernal Field]]).
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

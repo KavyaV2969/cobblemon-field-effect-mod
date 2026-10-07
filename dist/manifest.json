@@ -1,287 +1,64 @@
 {
-  "version": "0.2.0",
-  "releaseStatus": "source-audit-complete-preview",
+  "version": "0.1",
+  "releaseStatus": "first-public-release-candidate",
   "minecraft": "1.21.1",
-  "loader": "Fabric 0.18.4",
+  "loader": "Fabric Loader >=0.17.2 (built against 0.18.4)",
+  "fabricApi": ">=0.116.6 (built against 0.116.14+1.21.1)",
   "cobblemon": "1.7.3+1.21.1",
+  "java": ">=21",
   "artifacts": [
     {
-      "path": "rejuvenation-fields-0.2.0.jar",
-      "bytes": 2549366,
-      "sha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7"
+      "path": "rejuvenation-fields-0.1.jar",
+      "bytes": 2520580,
+      "sha256": "e24db94f54f995588c4d16994c34f1c07077b1652996cf1b4af6f4d696749161"
     },
     {
-      "path": "rejuvenation-fields-datapack-0.2.0.zip",
-      "bytes": 588760,
-      "sha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d"
+      "path": "rejuvenation-fields-compat-0.1.jar",
+      "bytes": 60518,
+      "sha256": "94257abf09b3d61a28e79043259ef486f958039b4705c24a27c610352554edd6"
+    },
+    {
+      "path": "rejuvenation-fields-base-0.1.zip",
+      "bytes": 649899,
+      "sha256": "03581e6d6ec19e9c1dbacf672c459d0295be3b42c76338cbaccbb336037e1946"
+    },
+    {
+      "path": "rejuvenation-fields-cobbleverse-0.1.zip",
+      "bytes": 16761,
+      "sha256": "51246fb39826096f7cd2edaf38b9bfa0ff59f62778173d4b0b94a70bdf0c6c5c"
     }
   ],
-  "fieldsDiscovered": 57,
-  "definitionsLoaded": 61,
-  "originalFields": 57,
-  "customFields": 4,
-  "totalFields": 61,
-  "fieldNotes": 61,
-  "sourceAuditClosedFields": 57,
-  "partiallyImplemented": 0,
-  "fullyBehaviorallyVerified": 0,
-  "behaviorVerificationScope": "Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification",
-  "compiledDefinitionPropertiesCompared": 4494,
-  "compiledDefinitionDifferences": 0,
-  "simulatorTestsPassed": 631,
-  "candidateBiomes": 165,
-  "explicitlyMappedCandidates": 165,
-  "candidateFallbacks": 0,
-  "unavailableReferences": {
-    "moves": 27,
-    "abilities": 0,
-    "items": 0
-  },
-  "clientAssets": {
-    "fieldBackdrops": 61,
-    "customBackdropsFrom": "user-supplied reference images (see assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt)",
-    "source": "Pok\u00e9mon Rejuvenation V14 Graphics/Battlebacks (see assets/rejuvenation/field_backdrops.json)",
-    "clientOnly": true
-  },
-  "integrations": {
-    "rbrctai": "adapter mixins (optional, applied only when installed)",
-    "cobblemon-battle-extras": "client adapter mixins (optional, applied only when installed)"
-  },
-  "remainingWork": "../docs/REMAINING_WORK.md",
-  "protectedFiles": "../research/protected-integrity.json",
-  "sourceMethodOracle": {
-    "defenseCases": 171396,
-    "multiplierCases": 120,
-    "differences": 0,
-    "methods": [
-      "PokeBattle_Battler.fieldDefenseBoost",
-      "PokeBattle_Move.calculateFieldMultiplier"
-    ],
-    "receipt": "../research/test-results/runtime-oracle.json",
-    "scope": "Two methods only; not full field certification"
-  },
-  "liveVerification": {
-    "historical": true,
-    "artifactMatches": true,
-    "success": true,
-    "battles": 8,
-    "registeredBiomes": 70,
-    "receipt": "../research/test-results/live-startup.json"
-  },
-  "liveModes": {
-    "abilities": {
-      "artifactMatches": false,
-      "success": true,
-      "battles": 3,
-      "checks": 10,
-      "receipt": "../research/test-results/live-mode-abilities.json"
+  "mods": {
+    "rejuvenation_fields": {
+      "version": "0.1",
+      "role": "core"
     },
-    "battle": {
-      "artifactMatches": false,
-      "success": true,
-      "battles": 7,
-      "checks": 23,
-      "receipt": "../research/test-results/live-mode-battle.json"
-    },
-    "extended": {
-      "artifactMatches": false,
-      "success": true,
-      "battles": 6,
-      "checks": 19,
-      "receipt": "../research/test-results/live-mode-extended.json"
-    },
-    "integration": {
-      "artifactMatches": true,
-      "success": true,
-      "battles": 8,
-      "checks": 33,
-      "receipt": "../research/test-results/live-mode-integration.json"
+    "rejuvenation_fields_compat": {
+      "version": "0.1",
+      "requires": ">=0.1 <0.2"
     }
   },
-  "liveBiomeRegistry": {
-    "count": 70,
-    "receipt": "../research/runtime-biomes.json"
+  "fields": {
+    "original": 57,
+    "custom": 4,
+    "total": 61
   },
-  "performance": {
-    "runtime": "Cobblemon 1.7.3 shaded Graal, interpreter only",
-    "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
-    "fieldsAttached": 61,
-    "runtimeAssertions": 55,
-    "adapterChecks": 42,
-    "firstCatalogPublishMillis": 2977,
-    "warmCatalogPublishMillis": 532,
-    "publicationWarmupMillis": 634,
-    "simulatorDexesLoadedBeforePublish": 0,
-    "simulatorDexesLoadedAfterPublish": 3,
-    "evaluate4QueriesMillis": 53,
-    "strategy": [
-      {
-        "teamSize": 1,
-        "candidates": 8,
-        "millis": 568,
-        "damageCalls": 32,
-        "cacheHits": 17,
-        "damageMillis": 225,
-        "damageMechanicsMillis": 189,
-        "screened": 2,
-        "phases": {
-          "setup": 27,
-          "screening": 17,
-          "rollouts": 481,
-          "matchups": 277,
-          "branches": 180,
-          "resources": 0,
-          "policies": 40,
-          "rollouts_count": 8
-        }
-      },
-      {
-        "teamSize": 6,
-        "candidates": 13,
-        "millis": 1051,
-        "damageCalls": 40,
-        "cacheHits": 30,
-        "damageMillis": 395,
-        "damageMechanicsMillis": 326,
-        "screened": 5,
-        "phases": {
-          "setup": 28,
-          "screening": 28,
-          "rollouts": 867,
-          "matchups": 411,
-          "branches": 207,
-          "resources": 68,
-          "policies": 53,
-          "rollouts_count": 10
-        }
-      },
-      {
-        "teamSize": 6,
-        "turn": 1,
-        "candidates": 13,
-        "millis": 1010,
-        "damageCalls": 40,
-        "cacheHits": 30,
-        "damageMillis": 338,
-        "damageMechanicsMillis": 280,
-        "screened": 5,
-        "phases": {
-          "setup": 40,
-          "screening": 30,
-          "rollouts": 749,
-          "matchups": 366,
-          "branches": 212,
-          "resources": 111,
-          "policies": 68,
-          "rollouts_count": 10
-        }
-      },
-      {
-        "teamSize": 6,
-        "turn": 2,
-        "candidates": 13,
-        "millis": 789,
-        "damageCalls": 50,
-        "cacheHits": 25,
-        "damageMillis": 287,
-        "damageMechanicsMillis": 241,
-        "screened": 5,
-        "phases": {
-          "setup": 31,
-          "screening": 38,
-          "rollouts": 501,
-          "matchups": 285,
-          "branches": 76,
-          "resources": 109,
-          "policies": 95,
-          "rollouts_count": 10
-        }
-      },
-      {
-        "teamSize": 6,
-        "turn": 3,
-        "candidates": 13,
-        "millis": 1178,
-        "damageCalls": 50,
-        "cacheHits": 25,
-        "damageMillis": 504,
-        "damageMechanicsMillis": 418,
-        "screened": 5,
-        "phases": {
-          "setup": 80,
-          "screening": 54,
-          "rollouts": 729,
-          "matchups": 494,
-          "branches": 106,
-          "resources": 95,
-          "policies": 204,
-          "rollouts_count": 10
-        }
-      },
-      {
-        "teamSize": 6,
-        "doubles": true,
-        "candidates": 24,
-        "millis": 3198,
-        "damageCalls": 105,
-        "cacheHits": 77,
-        "damageMillis": 1153,
-        "damageMechanicsMillis": 952,
-        "screened": 16,
-        "phases": {
-          "setup": 65,
-          "screening": 255,
-          "rollouts": 2603,
-          "matchups": 667,
-          "branches": 864,
-          "resources": 49,
-          "policies": 214,
-          "rollouts_count": 17
-        }
-      }
-    ],
-    "note": "Catalog publication happens at server start and datapack reload, not at battle start (SimulatorCatalog)."
+  "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
+  "verification": {
+    "simulator": true,
+    "java": true,
+    "graal": true,
+    "recipes": true,
+    "installationMatrix": true,
+    "packEquivalence": true,
+    "customFieldUnit": true,
+    "authoringKit": true
   },
-  "buildLog": {
-    "successful": true,
-    "sha256": "48779716da72501b5d59fcb2adc818f2dd7fd92d7112bfaf0ca98a661fc79f5c",
-    "path": "../research/test-results/build.log"
-  },
-  "integrationEvidence": {
-    "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
-    "aiLeads": 762,
-    "aiDispositions": {
-      "implemented_strategy": 53,
-      "ai_rollout_consequence": 318,
-      "ai_source_weights_ported": 72,
-      "excluded_custom_move": 3,
-      "unreachable_in_build": 3,
-      "ai_mechanic_measured": 313
-    },
-    "aiOpenLeads": 0,
-    "receiptsMatchEngine": {
-      "simulator": true,
-      "java": true,
-      "graal": true,
-      "benchmark": true,
-      "integrationReport": true
-    },
-    "buildSuccessful": true,
-    "report": "../docs/INTEGRATIONS.md",
-    "receipt": "../research/test-results/integration-completion.json",
-    "scope": "Bounded field-aware strategy over Run & Bun scoring and exact field previews; not a claim of source-equivalent AI play",
-    "decisionLatency": {
-      "warmMedianMillis": {
-        "1": 747,
-        "6": 887,
-        "6-turn1": 862,
-        "6-turn2": 1022,
-        "6-turn3": 912,
-        "doubles": 3211
-      },
-      "processorAffinity": null,
-      "publicationWarmupMillis": 1326
-    }
-  },
-  "implementationCompletionStandardMet": true
+  "verificationSkipped": [],
+  "verified": true,
+  "optionalIntegrations": {
+    "rbrctai": "Run & Bun AI scoring (compat)",
+    "rctapi": "RCT trainer gimmick declarations (compat)",
+    "cobblemon-battle-extras": "exact move previews and tooltips (compat, client)"
+  }
 }

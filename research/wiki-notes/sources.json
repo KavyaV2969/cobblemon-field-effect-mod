@@ -1,0 +1,257 @@
+{
+ "license": "Creative Commons Attribution-ShareAlike 4.0",
+ "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+ "site": "Pokémon Rejuvenation Wiki (rejuvenation.wiki.gg)",
+ "pages": {
+  "Back Alley": {
+   "title": "Back Alley Field",
+   "revid": 33971,
+   "url": "https://rejuvenation.wiki.gg/wiki/Back_Alley"
+  },
+  "Beach": {
+   "title": "Beach Field",
+   "revid": 48744,
+   "url": "https://rejuvenation.wiki.gg/wiki/Beach"
+  },
+  "Bewitched Woods": {
+   "title": "Bewitched Woods Field",
+   "revid": 33636,
+   "url": "https://rejuvenation.wiki.gg/wiki/Bewitched_Woods"
+  },
+  "Big Top Arena": {
+   "title": "Big Top Arena Field",
+   "revid": 44211,
+   "url": "https://rejuvenation.wiki.gg/wiki/Big_Top_Arena"
+  },
+  "Blessed Field": {
+   "title": "Blessed Field",
+   "revid": 33634,
+   "url": "https://rejuvenation.wiki.gg/wiki/Blessed_Field"
+  },
+  "Cave": {
+   "title": "Cave Field",
+   "revid": 49732,
+   "url": "https://rejuvenation.wiki.gg/wiki/Cave"
+  },
+  "Chess Board": {
+   "title": "Chess Board Field",
+   "revid": 46784,
+   "url": "https://rejuvenation.wiki.gg/wiki/Chess_Board"
+  },
+  "City": {
+   "title": "City Field",
+   "revid": 32482,
+   "url": "https://rejuvenation.wiki.gg/wiki/City"
+  },
+  "Colosseum Field": {
+   "title": "Colosseum Field",
+   "revid": 48632,
+   "url": "https://rejuvenation.wiki.gg/wiki/Colosseum_Field"
+  },
+  "Concert Venue": {
+   "title": "Concert Venue Field",
+   "revid": 34394,
+   "url": "https://rejuvenation.wiki.gg/wiki/Concert_Venue"
+  },
+  "Corrosive Field": {
+   "title": "Corrosive Field",
+   "revid": 48748,
+   "url": "https://rejuvenation.wiki.gg/wiki/Corrosive_Field"
+  },
+  "Corrosive Mist Field": {
+   "title": "Corrosive Mist Field",
+   "revid": 44209,
+   "url": "https://rejuvenation.wiki.gg/wiki/Corrosive_Mist_Field"
+  },
+  "Corrupted Cave": {
+   "title": "Corrupted Cave Field",
+   "revid": 32476,
+   "url": "https://rejuvenation.wiki.gg/wiki/Corrupted_Cave"
+  },
+  "Crystal Cavern": {
+   "title": "Crystal Cavern Field",
+   "revid": 32460,
+   "url": "https://rejuvenation.wiki.gg/wiki/Crystal_Cavern"
+  },
+  "Dark Crystal Cavern": {
+   "title": "Dark Crystal Cavern Field",
+   "revid": 49605,
+   "url": "https://rejuvenation.wiki.gg/wiki/Dark_Crystal_Cavern"
+  },
+  "Deep Earth": {
+   "title": "Deep Earth Field",
+   "revid": 35284,
+   "url": "https://rejuvenation.wiki.gg/wiki/Deep_Earth"
+  },
+  "Desert Field": {
+   "title": "Desert Field",
+   "revid": 48743,
+   "url": "https://rejuvenation.wiki.gg/wiki/Desert_Field"
+  },
+  "Deux_Finalis_(Field)": {
+   "title": "Deux Finalis (Field)",
+   "revid": 49065,
+   "url": "https://rejuvenation.wiki.gg/wiki/Deux_Finalis_%28Field%29"
+  },
+  "Dimensional Field": {
+   "title": "Dimensional Field",
+   "revid": 29672,
+   "url": "https://rejuvenation.wiki.gg/wiki/Dimensional_Field"
+  },
+  "Dragon's Den": {
+   "title": "Dragon's Den Field",
+   "revid": 37230,
+   "url": "https://rejuvenation.wiki.gg/wiki/Dragon%27s_Den"
+  },
+  "Electric Terrain": {
+   "title": "Electric Terrain",
+   "revid": 48751,
+   "url": "https://rejuvenation.wiki.gg/wiki/Electric_Terrain"
+  },
+  "Factory Field": {
+   "title": "Factory Field",
+   "revid": 49608,
+   "url": "https://rejuvenation.wiki.gg/wiki/Factory_Field"
+  },
+  "Fairy Tale Field": {
+   "title": "Fairy Tale Field",
+   "revid": 36435,
+   "url": "https://rejuvenation.wiki.gg/wiki/Fairy_Tale_Field"
+  },
+  "Field_Effects": {
+   "title": "Field Effects",
+   "revid": 46957,
+   "url": "https://rejuvenation.wiki.gg/wiki/Field_Effects"
+  },
+  "Flower Garden": {
+   "title": "Flower Garden Field",
+   "revid": 32690,
+   "url": "https://rejuvenation.wiki.gg/wiki/Flower_Garden"
+  },
+  "Forest Field": {
+   "title": "Forest Field",
+   "revid": 48739,
+   "url": "https://rejuvenation.wiki.gg/wiki/Forest_Field"
+  },
+  "Frozen Dimensional Field": {
+   "title": "Frozen Dimensional Field",
+   "revid": 32710,
+   "url": "https://rejuvenation.wiki.gg/wiki/Frozen_Dimensional_Field"
+  },
+  "Glitch Field": {
+   "title": "Glitch Field",
+   "revid": 37177,
+   "url": "https://rejuvenation.wiki.gg/wiki/Glitch_Field"
+  },
+  "Grassy Terrain": {
+   "title": "Grassy Terrain",
+   "revid": 48749,
+   "url": "https://rejuvenation.wiki.gg/wiki/Grassy_Terrain"
+  },
+  "Haunted Field": {
+   "title": "Haunted Field",
+   "revid": 33635,
+   "url": "https://rejuvenation.wiki.gg/wiki/Haunted_Field"
+  },
+  "Icy Field": {
+   "title": "Icy Field",
+   "revid": 49606,
+   "url": "https://rejuvenation.wiki.gg/wiki/Icy_Field"
+  },
+  "Infernal Field": {
+   "title": "Infernal Field",
+   "revid": 35531,
+   "url": "https://rejuvenation.wiki.gg/wiki/Infernal_Field"
+  },
+  "Inverse Field": {
+   "title": "Inverse Field",
+   "revid": 44206,
+   "url": "https://rejuvenation.wiki.gg/wiki/Inverse_Field"
+  },
+  "Misty Terrain": {
+   "title": "Misty Terrain",
+   "revid": 48750,
+   "url": "https://rejuvenation.wiki.gg/wiki/Misty_Terrain"
+  },
+  "Mountain": {
+   "title": "Mountain Field",
+   "revid": 32488,
+   "url": "https://rejuvenation.wiki.gg/wiki/Mountain"
+  },
+  "Murkwater Surface": {
+   "title": "Murkwater Surface Field",
+   "revid": 32454,
+   "url": "https://rejuvenation.wiki.gg/wiki/Murkwater_Surface"
+  },
+  "New World": {
+   "title": "New World Field",
+   "revid": 48707,
+   "url": "https://rejuvenation.wiki.gg/wiki/New_World"
+  },
+  "Psychic Terrain": {
+   "title": "Psychic Terrain",
+   "revid": 35217,
+   "url": "https://rejuvenation.wiki.gg/wiki/Psychic_Terrain"
+  },
+  "Rainbow Field": {
+   "title": "Rainbow Field",
+   "revid": 47217,
+   "url": "https://rejuvenation.wiki.gg/wiki/Rainbow_Field"
+  },
+  "Rocky Field": {
+   "title": "Rocky Field",
+   "revid": 48738,
+   "url": "https://rejuvenation.wiki.gg/wiki/Rocky_Field"
+  },
+  "Short-Circuit Field": {
+   "title": "Short-Circuit Field",
+   "revid": 48746,
+   "url": "https://rejuvenation.wiki.gg/wiki/Short-Circuit_Field"
+  },
+  "Sky Field": {
+   "title": "Sky Field",
+   "revid": 33563,
+   "url": "https://rejuvenation.wiki.gg/wiki/Sky_Field"
+  },
+  "Snowy Mountain": {
+   "title": "Snowy Mountain Field",
+   "revid": 32490,
+   "url": "https://rejuvenation.wiki.gg/wiki/Snowy_Mountain"
+  },
+  "Starlight Arena": {
+   "title": "Starlight Arena Field",
+   "revid": 48706,
+   "url": "https://rejuvenation.wiki.gg/wiki/Starlight_Arena"
+  },
+  "Swamp Field": {
+   "title": "Swamp Field",
+   "revid": 48747,
+   "url": "https://rejuvenation.wiki.gg/wiki/Swamp_Field"
+  },
+  "Underwater": {
+   "title": "Underwater Field",
+   "revid": 48756,
+   "url": "https://rejuvenation.wiki.gg/wiki/Underwater"
+  },
+  "Volcanic Field": {
+   "title": "Volcanic Field",
+   "revid": 46978,
+   "url": "https://rejuvenation.wiki.gg/wiki/Volcanic_Field"
+  },
+  "Volcanic Top Field": {
+   "title": "Volcanic Top Field",
+   "revid": 49736,
+   "url": "https://rejuvenation.wiki.gg/wiki/Volcanic_Top_Field"
+  },
+  "Wasteland": {
+   "title": "Wasteland Field",
+   "revid": 44210,
+   "url": "https://rejuvenation.wiki.gg/wiki/Wasteland"
+  },
+  "Water Surface": {
+   "title": "Water Surface Field",
+   "revid": 46970,
+   "url": "https://rejuvenation.wiki.gg/wiki/Water_Surface"
+  }
+ }
+}

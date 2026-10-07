@@ -1,0 +1,111 @@
+// Rejuvenation Fields: two Fabric mods (core, compat) and the verification project that tests them together.
+//
+// Compile-time dependencies are the installed intermediary jars of the target profile, copied to build/deps by
+// `python research/prepare_build.py` (see docs/BUILDING.md). They are never redistributed and never bundled into a jar.
+subprojects {
+    apply plugin: 'java'
+    group = 'dev.rejuvenation'
+    version = rootProject.version
+    java { toolchain { languageVersion = JavaLanguageVersion.of(21) } }
+    tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8'; options.compilerArgs += ['-proc:none'] }
+    dependencies { compileOnly fileTree(rootProject.file('build/deps')) { include '*.jar' } }
+    // Reproducible archives: no timestamps, stable order, so the same sources give the same bytes.
+    tasks.withType(AbstractArchiveTask).configureEach { preserveFileTimestamps = false; reproducibleFileOrder = true }
+}
+
+// The original Pokémon Rejuvenation scripts are optional: the source-lead review needs them; without them it is skipped and reported as skipped.
+def referenceAvailable = [System.getenv('REJUVENATION_SCRIPTS'), System.getenv('REJUVENATION_REFERENCE') ? System.getenv('REJUVENATION_REFERENCE') + '/Scripts' : null,
+    new File(rootDir, 'Rejuvenation 14 copy/Scripts').path, new File(rootDir.parentFile, 'Rejuvenation 14 copy/Scripts').path].any { it && new File(it, 'Battle_AI.rb').exists() }
+def pythonExe = project.findProperty('python') ?: 'python'
+def nodeExe = project.findProperty('node') ?: 'node'
+
+project(':core') {
+    processResources { inputs.property('version', version); filesMatching('fabric.mod.json') { expand(version: version) } }
+    jar { archiveBaseName = 'rejuvenation-fields'; destinationDirectory = rootProject.file('dist') }
+}
+
+project(':compat') {
+    dependencies { compileOnly project(':core') }
+    processResources { inputs.property('version', version); filesMatching('fabric.mod.json') { expand(version: version) } }
+    jar { archiveBaseName = 'rejuvenation-fields-compat'; destinationDirectory = rootProject.file('dist') }
+}
+
+project(':verification') {
+    sourceSets {
+        // Live-game fixture (never distributed): refuses to run outside its isolated game directory.
+        integration { compileClasspath += sourceSets.main.output + sourceSets.test.compileClasspath }
+    }
+    dependencies {
+        testImplementation fileTree(rootProject.file('build/deps')) { include '*.jar' }
+        testImplementation project(':core')
+        testImplementation project(':compat')
+    }
+    def repo = rootProject.projectDir
+    def results = rootProject.file('research/test-results')
+    def javaTest = { String taskName, String main, List<String> programArgs ->
+        tasks.register(taskName, JavaExec) {
+            dependsOn testClasses
+            classpath = sourceSets.test.runtimeClasspath
+            mainClass = main
+            workingDir repo
+            systemProperty 'rejuvenation.repo', repo.absolutePath
+            args programArgs
+        }
+    }
+    tasks.register('simulatorTest', Exec) {
+        workingDir repo
+        commandLine nodeExe, 'verification/src/test/js/engine.test.cjs'
+    }
+    tasks.register('validateDatapack', Exec) {
+        workingDir repo
+        commandLine pythonExe, 'research/validate.py'
+    }
+    tasks.register('customFieldUnitTest', Exec) {
+        workingDir repo
+        commandLine pythonExe, 'research/test_custom_fields.py'
+    }
+    tasks.register('aiReview', Exec) {
+        dependsOn simulatorTest
+        onlyIf { referenceAvailable }   // needs the original Battle_AI.rb; skipped (and shown as SKIPPED) without REJUVENATION_REFERENCE
+        workingDir repo
+        commandLine pythonExe, 'research/ai_review.py'
+    }
+    tasks.register('reviewEvidence', Exec) {
+        dependsOn aiReview
+        onlyIf { referenceAvailable }
+        workingDir repo
+        commandLine pythonExe, 'research/review_registry.py'
+    }
+    tasks.register('buildExamplePack', Exec) {
+        workingDir repo
+        commandLine pythonExe, 'research/build_custom_pack.py', 'research/custom-fields/_examples', 'research/test-results/example-pack'
+    }
+    tasks.register('authoringKitTest', Exec) {
+        dependsOn buildExamplePack
+        workingDir repo
+        commandLine nodeExe, 'verification/src/test/js/authoring-kit.test.cjs'
+    }
+    javaTest('graalTest', 'dev.rejuvenation.GraalVerification', [])
+    tasks.named('graalTest') { dependsOn validateDatapack }
+    // Decision latency in the shaded interpreter: cold first call plus warm repetitions.
+    // -PbenchmarkEngine=<file> measures an alternative engine under the same machine load (no receipt written).
+    javaTest('strategyBenchmark', 'dev.rejuvenation.StrategyBenchmark', [repo.absolutePath, project.findProperty('benchmarkEngine') ?: '', project.findProperty('benchmarkRepetitions') ?: '5'])
+    javaTest('javaVerification', 'dev.rejuvenation.JavaVerification', [new File(results, '../catalog.json').canonicalPath])
+    tasks.named('javaVerification') { dependsOn validateDatapack, buildExamplePack }
+    javaTest('gimmickPolicyTest', 'dev.rejuvenation.RunBunGimmickVerification', [rootProject.file('datapack/cobbleverse/data/rctmod/trainers/kanto_ltsurge.json').absolutePath])
+    javaTest('installationMatrix', 'dev.rejuvenation.InstallationMatrixVerification', [new File(results, 'installation-matrix.json').absolutePath])
+    tasks.named('installationMatrix') { dependsOn ':core:jar', ':compat:jar' }
+    javaTest('recipeTest', 'dev.rejuvenation.RecipeVerification', [new File(results, 'recipe-verification.json').absolutePath])
+    // Developer source certification requires the original Rejuvenation scripts (REJUVENATION_REFERENCE / REJUVENATION_SCRIPTS) and Ruby.
+    tasks.register('sourceOracleTest', Exec) {
+        workingDir repo
+        commandLine pythonExe, 'research/runtime_oracle.py'
+    }
+    tasks.register('integrationFixtureJar', Jar) {
+        dependsOn integrationClasses
+        from sourceSets.integration.output
+        archiveBaseName = 'rejuvenation-verification-fixture'
+        destinationDirectory = rootProject.file('integration')
+    }
+    tasks.named('check') { dependsOn 'simulatorTest', 'validateDatapack', 'customFieldUnitTest', 'reviewEvidence', 'authoringKitTest', 'graalTest', 'javaVerification', 'gimmickPolicyTest', 'recipeTest', 'installationMatrix' }
+}

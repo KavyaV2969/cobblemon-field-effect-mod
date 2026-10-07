@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:deep_dark",
+  "title": "Deep Dark",
+  "summary": "“The Deep Dark is listening...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Deep Dark. Battles inside Ancient Cities."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Deep Dark is a custom field effect that does not appear in Pokémon Rejuvenation. It is based on the Deep Dark biome and the Ancient Cities of Minecraft, and is found in the Deep Dark biome and inside Ancient Cities.",
+        "The field keeps one Sculk Warning counter, from 0 to 4, shared by the whole battlefield. Loud or violent moves raise it, calm moves lower it, and at Warning 4 the sculk strikes every Pokémon on the field."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Dark-type and Ghost-type moves increase in base power by 1.5x.",
+        "Rock-type and Ground-type moves increase in base power by 1.3x.",
+        "Fairy-type moves decrease in base power to 0.5x."
+      ]
+    },
+    {
+      "heading": "Sculk Warning",
+      "lines": [
+        "The Warning is a single value from 0 to 4 for both sides. Switching and fainting never reset it.",
+        "Each side can change the Warning once per turn. Raising and calming it share that one change. A change that would do nothing, such as calming at Warning 0, is not used up.",
+        "A move changes the Warning by the first group below that applies:",
+        "Calming moves lower the Warning by 1.",
+        "Moves with their own entry (Earthquake, Boomburst, Uproar, Explosion and similar), sound-based moves, and the Earthquake-style moves (Earth Power, Bulldoze, Rock Slide, Stone Edge and others) raise the Warning by 2.",
+        "Any other damaging move is decided by its base power: 90 to 149 raises the Warning by 1, and 150 or more raises it by 2.",
+        "The base power counted is the move's own, before type, same-type, item and ability boosts. Spread and multi-hit moves count once, by their strongest hit.",
+        "The move only has to be carried out: a miss, Protect, an immunity or an absorbing ability still wakes the sculk. A move that is stopped before it starts (sleep, paralysis, flinching) or a charging turn does not."
+      ]
+    },
+    {
+      "heading": "Warning Stages",
+      "lines": [
+        "Warning 1 and 2 only announce that the sculk is stirring.",
+        "Warning 3 (Darkness): every accuracy check is multiplied by 0.9. This is not a stat drop. The Darkness lifts as soon as the Warning falls below 3.",
+        "Warning 4 (the Deep Dark strikes back): every active Pokémon that is not immune loses 20% of its maximum HP, even through Protect or a Substitute. This happens once per turn, after the move that caused it, and the Warning then drops to 1, ending the Darkness.",
+        "Immune to the strike: Pokémon with Soundproof, Punk Rock or Solid Rock, and Ghost-type Pokémon. Being immune does not stop their own moves from raising the Warning."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Keen Eye, Compound Eyes and Illuminate ignore the accuracy penalty of Warning 3.",
+        "Mimicry changes the bearer's type to Dark.",
+        "Rattled raises Speed by 1 stage when the Warning rises to 3.",
+        "Soundproof, Punk Rock and Solid Rock protect against the strike at Warning 4."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which lower the Warning by 1:",
+        "Calm Mind, Meditate, Flash, Rest, Aromatherapy, Lunar Blessing.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Dark.",
+        "Nature Power becomes Dark Pulse.",
+        "Secret Power may lower the target's accuracy by 1 stage.",
+        "Terrain Pulse's type becomes Dark."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Magical Seed changes the holder's ability to Soundproof for the rest of its time on the field, then tries to raise the Warning by 1. This counts as the holder's side change for the turn."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Custom field written for this mod, in the layout of the field entries of the Pokémon Rejuvenation Wiki (https://rejuvenation.wiki.gg/wiki/Field_Effects), whose text is licensed under Creative Commons Attribution-ShareAlike 4.0."
+      ]
+    }
+  ],
+  "counters": [
+    {
+      "id": "warning",
+      "label": "Sculk Warning",
+      "scope": "shared",
+      "maximum": 4,
+      "thresholds": [
+        {
+          "at": 3,
+          "text": "Darkness: accuracy ×0.9"
+        },
+        {
+          "at": 4,
+          "text": "The Deep Dark strikes back"
+        }
+      ]
+    }
+  ]
+}

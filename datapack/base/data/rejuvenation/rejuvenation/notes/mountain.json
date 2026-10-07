@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:mountain",
+  "title": "Mountain",
+  "summary": "“High up!”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Jagged Peaks, Savanna Plateau, Stony Peaks, Windswept Gravelly Hills, Windswept Hills, and Windswept Savanna."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Mountain is one of the field effects present in Rejuvenation. It is classified as a Telluric field and can be found on Valor Cliffside, during the battle against Eli and Sharon."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Volcanic Top Field will transform into this field if one of the moves Blizzard, Glaciate, or Subzero Slammer is used.",
+        "“The field cooled off!”",
+        "Snowy Mountain will transform into this field if Sunny weather has been active for 3 turns, or if one of the following moves is used:",
+        "Fire Pledge, Flame Burst, Heat Wave, Incinerate, Inferno Overdrive, Lava Plume, Mind Blown, Raging Fury, Searing Shot",
+        "“The snow melted away!”",
+        "Sky Field will transform into this field if one of the moves Grav Apple, Gravity, Ingrain, Smack Down, or Thousand Arrows is used.",
+        "“The battle has been brought down to the mountains!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Rock-type attacks increase in base power by 1.5x.",
+        "“The mountain strengthened the attack!”",
+        "Flying-type attacks increase in base power by 1.5x.",
+        "“The open air strengthened the attack!”",
+        "Special Flying-type attacks increase in base power by 1.5x when Strong Winds is active.",
+        "Sunny weather lasts for 8 turns."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Aerilate's base power boost becomes x1.5.",
+        "Gale Wings is always active during Strong Winds.",
+        "Long Reach increases the bearer's damage by 1.5x.",
+        "Mimicry changes the user's type to Rock."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Avalanche, Eruption, Thunder → 1.5x boost.",
+        "“The mountain strengthened the attack!”",
+        "Circle Throw, Storm Throw, Vital Throw → 1.5x boost.",
+        "“[Pokémon] was thrown down partway the mountain!”",
+        "Fairy Wind, Icy Wind, Mountain Gale, Ominous Wind, Razor Wind, Silver Wind, Twister → 1.5x boost.",
+        "“The wind strengthened the attack!”",
+        "Hyper Voice → 1.5x boost.",
+        "“Yodelayheehoo~”",
+        "Fairy Wind, Gust, Icy Wind, Ominous Wind, Razor Wind, Silver Wind, Twister → Additional 1.5x boost when Strong Winds is active.",
+        "“The wind strengthened the attack!”",
+        "Other moves:",
+        "Tailwind lasts for 6 turns and creates Strong Winds while active.",
+        "Thunder never misses.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Rock.",
+        "Nature Power becomes Rock Slide.",
+        "Secret Power may flinch.",
+        "Shelter halves damage from Rock-type moves.",
+        "Terrain Pulse's type becomes Rock."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.",
+        "This field will transform into Sky Field if either Bounce or Fly is used.",
+        "“The battle was taken to the skies!”",
+        "This field will transform into Snowy Mountain if Hail weather has been active for 3 turns, or if one of the following moves is used:",
+        "Blizzard, Glaciate, Mountain Gale, Subzero Slammer",
+        "“The mountain was covered in snow!”",
+        "This field will transform into Volcanic Top Field if one of the moves Eruption, Inferno Overdrive, Lava Plume, or Magma Drift is used.",
+        "“The mountain erupted!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Telluric Seed boosts Attack by 2 stages but lowers Accuracy by 1 stage."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Mountain”, revision 32488: https://rejuvenation.wiki.gg/wiki/Mountain",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{{Quote | ''Machines whir in the background.''}}
+[[File:BattlebgFactory.png|thumb]]
+
+Factory Field is one of the [[Field Effects]] present in Rejuvenation. It is classified as a Synthetic field and can be found in the [[Xen Battleship]] during the battle against [[Melia]], in the Xen Battleships of Route 6 and during the Bladestar Gauntlet.
+
+==Transitions From Other Fields==
+
+* [[Short-Circuit Field]] will transform into this field if the moves Aura Wheel, Charge Beam, Discharge, Ion Deluge, Overdrive, Parabolic Charge, [[Super U.M.D. Move]] (Special attack), Wild Charge, or the Z-Move Gigavolt Havoc are used once, of if the move Tidy Up is used twice.
+** ''"SYSTEM ONLINE."''
+** ''"Some junk was cleaned up!"''
+*** Aura Wheel, Discharge, Gigavolt Havoc, Ion Deluge, Overdrive & Super U.M.D. Move also change Factory Field back to Short-Circuit Field, allowing to alternate between both fields.
+
+==General Effects==
+
+* Electric-type moves → 1.2x boost.
+** ''The attack took energy from the field!''
+*** As of V14.0.22, the in-game Field Notes incorrectly state that the boost is 1.5x.
+
+==Abilities Affected==
+
+===Buffed Abilities===
+
+* Defragment raises Defense or Special Defense by 2 stages on activation.
+* Download raises Attack or Special Attack by 2 stages on activation.
+* Galvanize increases base power by 1.5x for affected moves instead of 1.2x.
+* Light Metal raises the bearer's Speed by 1 stage on switch-in.
+** ''"[Pokémon]'s light body makes it nimble!"''
+* Motor Drive raises Speed by 2 stages on activation.
+* Steelworker increases the power of affected moves by 2x instead of 1.5x.
+* Technician applies to moves of up to 80 base power.
+** This also applies to the [[Dusknoir Crest]].
+
+===Other Ability Changes===
+
+* Gulp Missile will always pick up Pikachu.
+* Heavy Metal raises the bearer's Defense by 1 stage and lowers their Speed by 1 stage on switch-in.
+** ''"[Pokémon]'s heavy body is sturdy and unmoving!"''
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which receive an attack buff====
+
+* Double Iron Bash, Flash Cannon, Gear Grind, Gyro Ball, Magnet Bomb → 2x boost.
+** ''"ATTACK SEQUENCE INITIATE."''
+* Spin Out, Steamroller, [[Super U.M.D. Move]], Techno Blast → 1.5x boost.
+** ''"ATTACK SEQUENCE UPDATE."''
+
+===Other moves===
+
+====Buffed Moves====
+
+* Autotomize raises the user's Speed by 3 stages.
+* Gear Up raises the Attack and Special Attack of any affected Pokémon by 2 stages.
+* Iron Defense raises the user's Defense by 3 stages.
+* Magnet Rise lasts for 8 turns.
+* Metal Sound lowers the target's Special Defense by 3 stages.
+* Shift Gear raises the user's Attack and Speed by 2 stages.
+* Steel Beam's recoil is lowered to 25% Max HP.
+
+===Field-dependent moves & Abilities===
+
+* Mimicry changes the bearer's type to Steel.
+* Camouflage changes the user's type to Steel.
+* Nature Power becomes Gear Grind.
+* Secret Power may lower Attack.
+* Shelter halves damage from Steel-type moves.
+* Terrain Pulse's type becomes Steel.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.'''
+
+* This field will transform into [[Short-Circuit Field]] if the moves Aura Wheel, Bulldoze, Discharge, Earthquake, Explosion, Fissure, Ion Deluge, Magnitude, Overdrive, Self-Destruct, [[Super U.M.D. Move]] (Physical attack), or the the Z-Moves Gigavolt Havoc, Light That Burns the Sky or Tectonic Rage are used.
+** ''"The field shorted out!"''
+** ''"The field was broken!"''
+** ''"All the light was consumed!"''
+*** Aura Wheel, Discharge, Gigavolt Havoc, Ion Deluge, Overdrive & Super U.M.D. Move also change Short-Circuit Field back to Factory Field, allowing to alternate between both fields.
+
+==Items==
+
+* [[Synthetic Seed]] raises Special Attack by 1 stage and applies Laser Focus to the user for 2 turns.
+
+==Notes==
+
+* Prior to V14, Discharge & Overdrive changed the field once for every Pokémon hit.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

@@ -1,4 +1,4 @@
-# Crimson Forest Field
+# Crimson Forest
 
 Original ID: `CRIMSONFOREST`; datapack ID: `rejuvenation:crimson_forest`.
 
@@ -6,7 +6,7 @@ Original ID: `CRIMSONFOREST`; datapack ID: `rejuvenation:crimson_forest`.
 
 ## Initialization
 
-Entry text: "The red flora preying..."
+Entry text: "The red flora is preying..."
 
 Nature Power: `powerwhip`. Secret Power animation/reference move: `flamethrower`.
 

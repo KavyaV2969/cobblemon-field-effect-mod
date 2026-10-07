@@ -6,7 +6,9 @@ They are ordinary fields of the same engine: closed declarative rules (`rules`, 
 
 ## Source of the definitions
 
-`research/custom-fields/<field>.json` holds each field's canonical input: identity, entry text, the base field it inherits from (selected rules are copied with exact expected counts, so a change in the base fails generation), its own rules, seed, mechanics, artwork and notes. `research/custom_fields.py` builds the field definitions that `generate.py` writes to `datapack/.../fields/` and the biome rows; `research/field_notes.py` writes the player notes. Nothing is hand-edited in the generated JSON.
+`research/custom-fields/<field>.json` holds each field's canonical input: identity, entry text, the base field it inherits from (selected rules are copied with exact expected counts, so a change in the base fails generation, and guards on the parent's own ID are retargeted), its own rules, seed, mechanics, artwork and notes. [CUSTOM_FIELD_AUTHORING.md](CUSTOM_FIELD_AUTHORING.md) explains how to write one. `research/custom_fields.py` builds the field definitions that `generate.py` writes to `datapack/.../fields/` and the biome rows; `research/field_notes.py` writes the player notes. Nothing is hand-edited in the generated JSON.
+
+Where the mappings live: the four field definitions are in the base pack; the biome row for `minecraft:pale_garden` is in the COBBLEVERSE extension because that biome is provided by VanillaBackport, not by vanilla 1.21.1 (the other three biomes and the vanilla Ancient City are in the base; Repurposed Structures' Ancient City variants are in the extension).
 
 Biomes: `minecraft:deep_dark`, `minecraft:pale_garden`, `minecraft:warped_forest`, `minecraft:crimson_forest` select the matching field in every dimension. Structures: Ancient Cities (and Repurposed Structures' variants) select Deep Dark and are checked before every other structure row. Availability is reported honestly: `minecraft:pale_garden` exists only through the VanillaBackport mod installed in this profile; the three others are vanilla 1.21.1.
 
@@ -58,3 +60,14 @@ All custom-field state (counters, allowances, retaliation turn, distraction coun
 ## Tests
 
 `custom-field-regression.cjs`, `custom-fusion-regression.cjs` and `custom-strategy-regression.cjs` (node, actual simulator moves, doubles, rollback and cache fixtures, a 400-seed scan of Crimson's crash attribution with zero violations), `graal-regression.js` (the four fields attach, run mechanics and clean up in Cobblemon's shaded Graal), and the Java/validator checks of every data key. See [TESTING.md](TESTING.md).
+
+## Audit findings (0.1)
+
+The specification documents are kept, with their SHA-256 hashes, in [spec/custom-fields](spec/custom-fields) and every statement is traced to a test in [reports/custom-field-validation.md](reports/custom-field-validation.md). The audit found the data and engine behaviour consistent with the specifications and the resolutions above; it recorded these points for the maintainers rather than changing behaviour:
+
+- **Leech Seed in Warped Forest** doubles the simulator's native eighth (the Wasteland source rule), so the drain is twice the *floored* eighth. Against a literal quarter of maximum HP that is at most 1 HP less when the maximum HP leaves a remainder of 4 to 7 when divided by 8. Left as is (documented resolution, covered by `playtest Warped Forest` tests); an exact quarter would need a new engine operator.
+- **Piglin Bloodlust and binding damage.** A move's own binding damage (for example a Fire Spin residual) is move-caused in the simulator: native Moxie reacts to such a knockout, and Bloodlust follows the same attribution. Poison, burn, weather, recoil and ally knockouts do not count.
+- **Crimson Forest's entry text** is ambiguous in the specification: the Entry line reads "The red flora preying..." and the flavor pool "The red flora is preying...". The project owner chose the grammatical form for 0.1, so the field announces "The red flora is preying..." (the 0.2.0 build announced the Entry line as written). A maintainer who prefers the other form changes `entryMessage` in `research/custom-fields/crimson_forest.json`.
+- **Mirror Beam** (retained from Bewitched Woods for Pale Garden) does not exist in the installed Showdown, so its 1.4x row is verified as data only and reported as unavailable content, never as a pass.
+- **Pastel Veil** in Pale Garden follows the Bewitched implementation: a Fairy-typed bearer is neutral to Poison and Steel.
+- **Creaking Distraction** counts a damaging move that connects (a hit on a Substitute connects); misses, Protect, immunity, absorption, flinch, sleep and charging turns do not tick it; any successful status move resets the side.

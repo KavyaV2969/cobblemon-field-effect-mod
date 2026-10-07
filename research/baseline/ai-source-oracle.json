@@ -1,0 +1,7 @@
+{
+ "disruptionCases": 10000,
+ "affinityCases": 6000,
+ "nonNeutralDisruption": 2764,
+ "nonZeroAffinity": 725,
+ "differences": 0
+}

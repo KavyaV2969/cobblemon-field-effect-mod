@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:inverse",
+  "title": "Inverse Field",
+  "summary": "“!trats elttaB”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Inverse Field is one of the fields present in Rejuvenation. It is categorized as an Magical field and can be found in the Grand Dream Stadium, most notably during the battle against Adam in the Tournament Stadium."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "The type chart is inverted, meaning weaknesses become resistances, and resistances and type immunities become weaknesses."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Mimicry changes the user's type to Normal."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Normal.",
+        "Nature Power becomes Trick Room.",
+        "Secret Power may inflict Confusion.",
+        "Shelter halves damage from Normal-type moves.",
+        "Terrain Pulse's type becomes Normal."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Magical Seed changes the user's type to Normal and changes their ability to Normalize."
+      ]
+    },
+    {
+      "heading": "Other Notes",
+      "lines": [
+        "As of v13.5.6, despite what the field effect manual says, Topsy-Turvy can no longer generate nor remove this field."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Inverse Field”, revision 44206: https://rejuvenation.wiki.gg/wiki/Inverse_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{{Quote | ''The field is haunted!''}}
+[[File:BattlebgHaunted2.png|thumb]]
+
+Haunted Field is a field effect exclusive to Rejuvenation. It is categorized as a Magical field and can be found in [[Goldenleaf Theater]] in [[Goldenleaf Town]].
+
+==Transitions From Other Fields==
+
+* [[Blessed Field]] will transform into this field if one of the moves Curse, Ominous Wind, Phantom Force, Shadow Force, Spectral Scream, or Trick-or-Treat is used.
+** ''Evil spirits gathered!''
+
+==General Effects==
+
+* Ghost-type attacks increase in base power by 1.5x and deal neutral damage to Normal-types.
+** ''The evil aura powered up the attack!''
+* Sleeping non Ghost-type Pokémon take 1/16 max HP damage at the end of each turn.
+** ''[Pokémon]'s dream is corrupted by the evil spirits!''
+
+==Abilities Affected==
+
+* Cursed Body always activates upon fainting.
+* Mimicry changes the user's type to Ghost.
+* Perish Body additionally traps the opponent when activated.
+* Power Spot the power of partner's moves by 1.5x.
+* Rattled additionally boosts the bearer's Speed by 1 stage on switch-in.
+* [[Resuscitation]] resets lowered stat stage changes on activation.
+* Shadow Tag additionally Frisks the opponent.
+* Wandering Spirit lowers the bearer's Speed by 1 stage each turn.
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Fire Spin, Flame Burst, Flame Charge, Inferno → 1.5x boost, Ghost sub-typing.
+** ''Will-o'-wisps joined the attack...''
+* Astonish, Bone Club, Bone Rush, Bonemerang → 1.5x boost
+** ''Boo!''
+** ''Spooky scary skeletons!''
+* Shadow Bone → 1.2x boost
+** ''Spooky scary skeletons!''
+
+===Other moves===
+
+* Bitter Malice additionally reduces the target's Special Attack by 1 stage.
+* Curse, when used by a Ghost type, uses only 25% of the user's HP.
+* Destiny Bond no longer fails when used consecutively.
+* Fire Spin deals 1/6 max HP damage each turn.
+* Fire Spin and Mean Look target both opponents in doubles.
+* Hypnosis and Will-o-Wisp's accuracy is increased to 90%.
+* Infernal Parade doubles in power regardless of status.
+* Lick now has a 100% chance to Paralyze.
+* Magic Powder additionally inflicts Sleep.
+* Night Shade now deals damage equal to 1.5x the user's level.
+* Nightmare deals 33% max HP damage each turn.
+* Ominous Wind now has a 20% chance to boost all stats.
+* Phantom Force and Shadow Force only take 1 turn to use.
+* Scary Face lowers the target's Speed by 4 stages.
+* Spirit Break now deals super effective damage to Ghost-types.
+* Spite now depletes 6 PP.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Ghost.
+* Nature Power becomes Phantom Force.
+* Secret Power may inflict Curse.
+* Shelter halves damage from Ghost-type moves.
+* Terrain Pulse's type becomes Ghost.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into [[Blessed Field]] if any of the moves Judgement, Origin Pulse, Purify, or Sacred Fire are used.
+** ''The evil spirits have been exorcised!''
+* This field will be terminated if either of the moves Dazzling Gleam or Flash are used.
+** ''The evil spirits have been forced back!''
+** As of v13.5.6, this field interaction only works if [[Forest Field]] is below the field.
+
+==Items==
+
+* [[Magical Seed]] boosts Defense and Special Defense by 1 stage but Burns the user.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

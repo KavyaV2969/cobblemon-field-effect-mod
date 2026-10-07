@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:holy",
+  "title": "Blessed Field",
+  "summary": "“The field is blessed!”",
+  "sections": [
+    {
+      "heading": "Description",
+      "lines": [
+        "Blessed Field is one of the fields present in Rejuvenation. It is classified as a Magical field and can be found in the Hidden Library, Chrysalis Manor when fighting Marianette, in Sheridan Village (Past) where Vivian is fought, and against Cassandra in the Den of Souls."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Haunted Field will transform into this field if one of the moves Judgment, Origin Pulse, Purify, or Sacred Fire is used.",
+        "“The evil spirits have been exorcised!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Special Normal-type moves increase in base power by 1.5x.",
+        "“The holy energy resonated with the attack!”",
+        "Special Fairy-type moves increase in base power by 1.5x.",
+        "“The holy energy resonated with the attack!”",
+        "Psychic-type moves increase in base power by 1.2x.",
+        "“The legendary energy resonated with the attack!”",
+        "Dragon-type moves increase in base power by 1.2x.",
+        "“The legendary energy resonated with the attack!”",
+        "Ghost-type moves decrease in base power by 0.5x.",
+        "“The attack was cleansed...”",
+        "Special Dark-type moves decrease in base power by 0.5x.",
+        "“The attack was cleansed...”",
+        "Normal-type moves now hit Ghost and Dark-types super-effectively.",
+        "Pokémon avoid damaging moves used by allies."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Cursed Body and Perish Body are disabled.",
+        "Justified now boosts Attack by 2 stages on activation.",
+        "Mimicry changes the user's type to Normal.",
+        "Power Spot boosts the power of partner's moves by 1.5x.",
+        "RKS System's type becomes Dark at all times.",
+        "“A false god holds no power here...”"
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Extreme Speed → 1.5x boost.",
+        "“Godspeed!”",
+        "Judgment, Sacred Fire → 1.5x boost.",
+        "“Legendary power accelerated the attack!”",
+        "Mystical Fire, Magical Leaf, Ancient Power, Sacred Sword, Return → 1.5x boost.",
+        "“The holy energy resonated with the attack!”",
+        "Aeroblast, Behemoth Bash, Behemoth Blade, Crush Grip, Diamond Storm, Dragon Ascent, Doom Desire, Dynamax Cannon, Eternabeam, Fleur Cannon, Genesis Supernova, Hyperspace Hole, Land's Wrath, Luster Purge, Menacing Moonraze Maelstrom, Mist Ball, Moongeist Beam, Multipulse, Origin Pulse, Precipice Blades, Prismatic Laser, Psycho Boost, Psystrike, Relic Song, Roar of Time, Searing Sunraze Smash, Secret Sword, Spacial Rend, Sunsteel Strike → 1.3x boost.",
+        "“Legendary power accelerated the attack!”",
+        "Other moves:",
+        "Cosmic Power boosts the user's Defense and Special Defense by 2 stages.",
+        "Curse's effect gets lifted after each turn.",
+        "Life Dew restores 50% of the target's max HP.",
+        "Miracle Eye additionally boosts the user's Special Attack by 2 stages.",
+        "Nature's Madness deals 66% HP damage.",
+        "Spirit Break now deals super effective damage to Ghost-types.",
+        "Wish restores 75% of the user's max HP.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Normal.",
+        "Nature Power becomes Judgment.",
+        "Secret Power may lower Special Attack.",
+        "Shelter halves damage from Normal-type moves.",
+        "Terrain Pulse's type becomes Normal."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.",
+        "This field will transform into Haunted Field if one of the moves Curse, Ominous Wind, Phantom Force, Shadow Force, Spectral Scream, or Trick-or-Treat is used.",
+        "“Evil spirits gathered!”",
+        "The move Light That Burns The Sky will terminate the field.",
+        "“The holy light was consumed!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Magical Seed boosts Special Attack by 1 stage and applies Magic Coat to the user."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Blessed Field”, revision 33634: https://rejuvenation.wiki.gg/wiki/Blessed_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

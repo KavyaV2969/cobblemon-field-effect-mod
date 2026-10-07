@@ -92,17 +92,18 @@ for row in exceptions:
     seen.add((row[0],row[1]));coverage.append('| '+' | '.join(map(cell,row))+' |')
 write(DOC/'REJUVENATION_FIELDS.md','\n'.join(overview));write(DOC/'FIELD_COVERAGE.md','\n'.join(coverage))
 write(ROOT/'research/field-coverage-ledger.json',json.dumps(ledger,indent=2,ensure_ascii=False))
+import sys;sys.path.insert(0,str(ROOT/'research'));import provider_map
 rows=read('biome-mapping.json');mapping=['# Biome mapping','','The archive/loose-data scan discovered **165 candidate biome IDs**, all explicitly mapped: 66 `minecraft`, 95 `terralith`, 2 `lumymon`, 1 `cobblemonraiddens`, 1 `legendarymonuments`. No discovered candidate relies on fallback.',
     '', '`minecraft` includes 64 vanilla biomes plus VanillaBackport’s `minecraft:pale_garden` and `minecraft:sulfur_caves`. Its `ModBiomes` bytecode registers exactly those two additions; Iris/particle/map biome classes inspect biomes rather than supplying new ones.',
     '', '**Live registry:** an isolated Minecraft/Fabric startup using this profile’s installed mods, configuration, required packs and world level metadata exported **70 registered biome IDs**. All 70 have explicit mappings and zero use fallback. `research/runtime-biomes.json` records the actual IDs. This check generated fresh chunks and did not modify the original world.',
-    '', '**Enabled-world distinction:** `saves/New World/level.dat` lists Terralith-DP.zip as disabled. Its additional 95 IDs are intentionally covered for optional activation. Therefore 165 is the candidate catalogue, not the active registry count.',
+    '', '**Enabled-world distinction:** in the inspected profile Terralith was an optional data pack that its world had disabled. Its additional 95 IDs are intentionally covered for optional activation. Therefore 165 is the candidate catalogue, not the active registry count.',
     '', 'At server start, the mod writes `rejuvenation/research/runtime-biomes.json` with actual registered IDs and explicit/fallback coverage. Dynamically registered future biomes are resolved through tags, dimensions, depth and the default.',
     '', 'Precedence for natural battles (see [FIELD_SELECTION.md](FIELD_SELECTION.md)): an explicit or RCT-configured trainer field, then a submerged battle (Underwater), then a configured generated structure, then the biome rows below, then the default. Wild battle anchor: first non-player entity-backed actor (the wild Pokémon), then a player fallback. Biome rows use the anchor position, not a player’s arbitrary home biome. Selected surface mappings use Cave when at least 12 blocks below the solid-surface height and sky is hidden.',
     '', 'Playtest changes (2026-10-05): every ordinary plains biome maps to Grassy Terrain (`minecraft:sunflower_plains` no longer falls to Flower Garden through the flower pattern) and mushroom biomes map to Fairy Tale Field.',
-    '', '| Biome ID | Source mod/pack | Selected field | Reason | Mechanism / availability |','|---|---|---|---|---|']
+    '', '| Biome ID | Provider | Pack | Selected field | Reason | Mechanism / availability |','|---|---|---|---|---|---|']
 for row in rows:
     src=row['source'];label='Terralith (optional datapack)' if row['biome'].startswith('terralith:') else 'VanillaBackport' if row['biome'] in ['minecraft:pale_garden','minecraft:sulfur_caves'] else 'Minecraft' if row['biome'].startswith('minecraft:') else row['biome'].split(':')[0]
-    mapping.append('| '+' | '.join(cell(v) for v in [row['biome'],label,row['field'],row['reason'],'explicit; optional disabled pack' if label.startswith('Terralith') else 'explicit; non-Terralith candidate'])+' |')
+    mapping.append('| '+' | '.join(cell(v) for v in [row['biome'],label,provider_map.mapping_segment(row)[0],row['field'],row['reason'],'explicit; optional disabled pack' if label.startswith('Terralith') else 'explicit; non-Terralith candidate'])+' |')
 mapping+=['','The exact source archive paths for each row are in `research/biome-mapping.json` and `research/biome-inventory.json`.','', '## Future compatibility rules','','| Predicate | Field | Reason |','|---|---|---|']
 for row in catalog['mappings']:
     if 'biome' not in row:mapping.append('| '+cell(compact({k:v for k,v in row.items() if k not in ['field','reason']}))+' | '+cell(row['field'])+' | '+cell(row['reason'])+' |')
@@ -110,22 +111,17 @@ mapping+=['','## Generated structures','','Only structures listed here override 
     '| Structure or tag | Field | Reason |','|---|---|---|']
 for row in catalog.get('structures',[]):
     mapping.append('| '+cell(('#'+row['tag']) if 'tag' in row else row['structure'])+' | '+cell(row['field'])+' | '+cell(row.get('reason',''))+' |')
+mapping+=['','## Packs and merge order','','The mapping rows are split by the mod that provides the biome, structure or tag (`research/provider_map.py`), not by namespace: `minecraft:pale_garden` and `minecraft:sulfur_caves` come from VanillaBackport, so they are in the COBBLEVERSE extension although the IDs say `minecraft`. Documents merge by `(order, resource ID)`; a row only competes with rows that can match the same position, so exact-biome rows precede tag and dimension rows and structure classes keep their specificity order. `research/compare_split.py` resolves over a million environment snapshots and every structure overlap with the former single file and with the merged packs and requires identical answers.','','| Document | Pack | Order | Rows |','|---|---|---|---|']
+import json as _json
+for _pack in ('base','cobbleverse'):
+    for _kind in ('mappings','structures'):
+        for _path in sorted((ROOT/'datapack'/_pack/'data/rejuvenation/rejuvenation'/_kind).glob('*.json')):
+            _doc=_json.loads(_path.read_text(encoding='utf-8'));mapping.append(f'| `{_kind}/{_path.name}` | {_pack} | {_doc.get("order",0)} | {len(_doc["rules"])} |')
 write(DOC/'BIOME_MAPPING.md','\n'.join(mapping))
-mods=read('mod-inventory.json');top={m['id']:m for m in mods if m['archive'].startswith('mods\\') and '!' not in m['archive']}
-inventory=['# Inspected profile','','Minecraft 1.21.1; Fabric Loader 0.18.4; Fabric API 0.116.14+1.21.1; Cobblemon 1.7.3+1.21.1; Java 21. No existing Java/Kotlin project or Git checkout was present in the profile.',
-    '', 'Standalone Java 21 project, Gradle 8.13, exact installed intermediary Minecraft ABI. Cobblemon’s named classes remain unchanged. No Yarn/official source remapping is performed by this project; all Minecraft symbols are compiled against the installed intermediary client jar.',
-    '', 'Trainer framework: RCT API 0.15.2-beta and RCT Mod 0.18.1-beta. Run & Bun extension: rbrctai metadata 0.15.0-beta (filename says 0.16.0-beta). Existing RCT global packs, trainer teams, League content, Run & Bun configs and code remain untouched.',
-    '', 'The scan inventoried 142 top-level mod jars, 548 metadata records across jars/nested jars/cache copies, 651 biome-tag IDs and 5 custom dimension definitions. Counts include optional and duplicate-source candidates; detailed inventories retain provenance.',
-    '', '| Installed mod ID | Version from metadata | Archive |','|---|---|---|']
-for m in sorted(top.values(),key=lambda m:m['id']):inventory.append('| '+' | '.join(cell(m[k]) for k in ['id','version','archive'])+' |')
-inventory+=['','## Packs','','| Pack/archive | Format | Entries |','|---|---:|---:|']
-for p in read('pack-inventory.json'):inventory.append('| '+' | '.join(cell(v) for v in [p['path'],p['metadata'].get('pack',{}).get('pack_format','?'),p['entries']])+' |')
-inventory+=['','Resource-pack sources include `config/cobbleverse`, resourcepacks archives and mod resources. Global Packs requires `datapacks/` and makes `datapacks/extra` optional. This task did not change those settings or existing pack enablement.',
-    '', 'Other battle extensions detected include Cobblemon Battle Extras, battle positions, raid dens, Mega Showdown, ZA Mega, Fight or Flight and custom held-item/move resources. Engine reference validation includes 60 addon registry resources in addition to the shipped simulator dex.']
-write(DOC/'MODPACK_INVENTORY.md','\n'.join(inventory))
+# The profile's mod inventory is a private working file (research/pack-inventory.json); it is not part of the public documentation.
 # Kanto league field assignments (research/trainer_fields.py writes the scores and the datapack map).
 scores=read('trainer-field-scores.json');teams=read('kanto-league-teams.json')
-assigned=json.loads((ROOT/'datapack/data/rejuvenation/rejuvenation/trainers/kanto.json').read_text(encoding='utf-8'))['trainers']
+assigned=json.loads((ROOT/'datapack/cobbleverse/data/rejuvenation/rejuvenation/trainers/kanto.json').read_text(encoding='utf-8'))['trainers']
 names=collections.Counter(f['name'] for f in fields.values())
 def label(fid):return fields[fid]['name']+(f" {fields[fid]['originalId'][-1]}" if names[fields[fid]['name']]>1 else '')
 league=['# Kanto league fields','',
@@ -146,7 +142,7 @@ league+=['','## Who benefits','','Per-member win share with no field and on the 
 for tid,row in scores['trainers'].items():
     best,base=row['scores'][assigned[tid]['field']]['members'],row['baseline']['members']
     league.append(f"- **{row['name']}** ({label(assigned[tid]['field'])}): "+', '.join(f"{m} {base[m]:.0%}→{best[m]:.0%}" for m in best))
-league+=['','Source snapshot: `'+teams['source']['datapack']+'` SHA-256 `'+teams['source']['sha256']+'`. Re-run `python rejuvenation/research/trainer_fields.py` after the RCT datapack or the field rules change.',
+league+=['','Source snapshot: `'+teams['source']['datapack']+'` SHA-256 `'+teams['source']['sha256']+'`. Re-run `python research/trainer_fields.py` after the RCT datapack or the field rules change.',
     '', 'Run & Bun AI combines its native scoring with the shared field-aware evaluator, strategic turn lookahead, team field utility and legal gimmick comparisons through optional adapters (see [INTEGRATIONS.md](INTEGRATIONS.md)). All 762 AI source leads have reviewed dispositions with zero ordinary applicable strategy pending. Trainer teams and progression files remain unchanged.']
 write(DOC/'KANTO_LEAGUE_FIELDS.md','\n'.join(league))
 print('Generated catalogues for',len(fields),'fields and',len(rows),'biomes;',sum(v['implementationComplete'] for k,v in ledger.items() if not v['custom']),'of',sum(1 for v in ledger.values() if not v['custom']),'original fields source-audit closed;',sum(1 for v in ledger.values() if v['custom']),'custom')

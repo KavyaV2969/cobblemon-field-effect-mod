@@ -1,106 +1,167 @@
-"""Package only authored field content, with reproducible archives and receipts."""
+"""Package and verify the four runtime artifacts of a release, with reproducible archives and a hash manifest.
+
+    python research/package.py          (after `gradlew build` produced dist/rejuvenation-fields[-compat]-<version>.jar)
+
+Artifacts (version from gradle.properties):
+  dist/rejuvenation-fields-<v>.jar               core mod        (built by Gradle :core:jar)
+  dist/rejuvenation-fields-compat-<v>.jar        compat mod      (built by Gradle :compat:jar)
+  dist/rejuvenation-fields-base-<v>.zip          portable field data pack   (datapack/base)
+  dist/rejuvenation-fields-cobbleverse-<v>.zip   COBBLEVERSE extension pack (datapack/cobbleverse)
+  dist/manifest.json                             SHA-256 hashes, versions, dependencies and the receipts this build is certified by
+
+Every check below runs against the packaged files, not the development classes. The archives are written from an explicit allowlist (the two
+pack source directories), with fixed timestamps and sorted entries, so building twice yields identical bytes.
+"""
 from pathlib import Path
-import hashlib,json,zipfile
-ROOT=Path(__file__).resolve().parents[1];DIST=ROOT/'dist';DIST.mkdir(exist_ok=True)
-def read(p):return json.loads(p.read_text(encoding='utf-8'))
-def digest(p):return hashlib.sha256(p.read_bytes()).hexdigest()
-jar=DIST/'rejuvenation-fields-0.2.0.jar'
-with zipfile.ZipFile(jar) as z:
-    required=['fabric.mod.json','rejuvenation.mixins.json','rejuvenation-engine.js','dev/rejuvenation/RejuvenationFields.class','dev/rejuvenation/mixin/ShowdownMixin.class']
-    assert all(n in z.namelist() for n in required),'Missing runtime component'
-    assert not any(n.endswith('.jar') or n.startswith('com/cobblemon/') for n in z.namelist()),'Dependencies must not be redistributed'
-    assert all(n.startswith('dev/rejuvenation/') for n in z.namelist() if n.endswith('.class')),'External classes must not be bundled'
-    assert z.read('rejuvenation-engine.js')==(ROOT/'mod/src/main/resources/rejuvenation-engine.js').read_bytes(),'Jar has stale engine'
-    # Client UI resources: exactly the 57 original and 4 custom field backdrops plus their attribution and provenance manifest.
-    backdrops=[n for n in z.namelist() if n.startswith('assets/rejuvenation/textures/gui/field/') and n.endswith('.png')]
-    assert len(backdrops)==61,'Missing field backdrops'
-    assert 'assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt' in z.namelist() and 'assets/rejuvenation/field_backdrops.json' in z.namelist()
-    assert 'rejuvenation.compat.mixins.json' in z.namelist() and 'dev/rejuvenation/client/RejuvenationFieldsClient.class' in z.namelist()
-    assert all(f'dev/rejuvenation/client/{c}.class' in z.namelist() for c in ('FieldNotesOverlay','FieldNotesRenderer','FieldNotesModel')),'Field notes overlay missing'
-    assert 'dev/rejuvenation/FieldNotes.class' in z.namelist()
-    # Dedicated-server safety: only client classes may refer to client-only Minecraft, Cobblemon or Fabric classes.
-    import re
-    client_only=[rb'net/minecraft/class_310(?![0-9])',rb'net/minecraft/class_332(?![0-9])',rb'com/cobblemon/mod/common/client/',rb'net/fabricmc/fabric/api/client/',rb'dev/rejuvenation/client/']
-    for n in z.namelist():
-        if not n.endswith('.class') or n.startswith('dev/rejuvenation/client/') or n.startswith('dev/rejuvenation/compat/mixin/BattleExtras'):continue
-        data=z.read(n)
-        leaked=[c.decode() for c in client_only if re.search(c,data)]
-        assert not leaked,f'{n} references client-only classes {leaked}'
-    meta=json.loads(z.read('fabric.mod.json'))
-    assert meta['entrypoints']['client']==['dev.rejuvenation.client.RejuvenationFieldsClient']
-    compat=json.loads(z.read('rejuvenation.compat.mixins.json'))
-    assert all(m.startswith('BattleExtras') for m in compat['client']) and all(m.startswith('RunBun') for m in compat['mixins'])
-pack=DIST/'rejuvenation-fields-datapack-0.2.0.zip'
-with zipfile.ZipFile(pack,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=9) as z:
-    for p in sorted((ROOT/'datapack').rglob('*')):
-        if not p.is_file():continue
-        name=p.relative_to(ROOT/'datapack').as_posix();info=zipfile.ZipInfo(name,(2026,10,4,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644<<16
-        z.writestr(info,p.read_bytes())
-with zipfile.ZipFile(pack) as z:
-    assert 'pack.mcmeta' in z.namelist()
-    definitions=[n for n in z.namelist() if '/fields/' in n and n.endswith('.json')];assert len(definitions)==61
-    notes=[n for n in z.namelist() if '/rejuvenation/notes/' in n and n.endswith('.json')];assert len(notes)==61,'Field notes missing'
-    for n in definitions:assert read(ROOT/'datapack'/n)==json.loads(z.read(n))
-    # The datapack is server data only: no client artwork.
-    assert not any(n.endswith('.png') or n.startswith('assets/') for n in z.namelist()),'Graphics must not be in the datapack'
-    assert any('/structures/' in n for n in z.namelist()),'Structure mappings missing'
-validation=read(ROOT/'research/test-results/datapack-validation.json');tests=read(ROOT/'research/test-results/simulator.json');comparison=read(ROOT/'research/source-comparison.json');review=read(ROOT/'research/test-results/semantic-review-validation.json')
-assert not validation['errors'] and not tests['failed'] and not comparison['differences']
-manifest={'version':'0.2.0','releaseStatus':'source-audit-complete-preview','minecraft':'1.21.1','loader':'Fabric 0.18.4','cobblemon':'1.7.3+1.21.1',
-    'artifacts':[{'path':p.name,'bytes':p.stat().st_size,'sha256':digest(p)} for p in [jar,pack]],
-    'fieldsDiscovered':57,'definitionsLoaded':61,'originalFields':57,'customFields':4,'totalFields':61,'fieldNotes':61,'sourceAuditClosedFields':len(review['completeFields']),'partiallyImplemented':57-len(review['completeFields']),
-    'fullyBehaviorallyVerified':0,'behaviorVerificationScope':'Simulator regression suite plus selected live Minecraft battles; no exhaustive live or two-client multiplayer certification',
-    'compiledDefinitionPropertiesCompared':comparison['comparisons'],'compiledDefinitionDifferences':len(comparison['differences']),
-    'simulatorTestsPassed':tests['passed'],'candidateBiomes':validation['biomes'],'explicitlyMappedCandidates':validation['explicitBiomes'],'candidateFallbacks':0,
-    'unavailableReferences':validation['unavailableCounts'],
-    'clientAssets':{'fieldBackdrops':61,'customBackdropsFrom':'user-supplied reference images (see assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt)','source':'Pokémon Rejuvenation V14 Graphics/Battlebacks (see assets/rejuvenation/field_backdrops.json)','clientOnly':True},
-    'integrations':{'rbrctai':'adapter mixins (optional, applied only when installed)','cobblemon-battle-extras':'client adapter mixins (optional, applied only when installed)'},
-    'remainingWork':'../docs/REMAINING_WORK.md','protectedFiles':'../research/protected-integrity.json'}
-oracle=ROOT/'research/test-results/runtime-oracle.json'
-if oracle.exists():
-    result=read(oracle)
-    assert not result['differences'],'Source method oracle differences remain'
-    manifest['sourceMethodOracle']={'defenseCases':result['defenseCases'],'multiplierCases':result['multiplierCases'],
-        'differences':len(result['differences']),'methods':result['sourceMethods'],
-        'receipt':'../research/test-results/runtime-oracle.json','scope':'Two methods only; not full field certification'}
-live=ROOT/'research/test-results/live-startup.json'
-if live.exists():
-    result=read(live)
-    manifest['liveVerification']={'historical':True,'artifactMatches':result.get('jarSha256')==digest(jar),
-        'success':result.get('success',False),'battles':result.get('battleChecks',{}).get('battles',0),
-        'registeredBiomes':result.get('liveBiomes'),'receipt':'../research/test-results/live-startup.json'}
-# Per-mode receipts (live_check.py --battle/--status/--abilities/--extended).
-modes={}
-for receipt in sorted((ROOT/'research/test-results').glob('live-mode-*.json')):
-    mode=receipt.stem[len('live-mode-'):]
-    if mode not in ("battle","status","abilities","extended","integration"):continue
-    result=read(receipt);checks=result.get('battleChecks',{})
-    modes[mode]={'artifactMatches':result.get('jarSha256')==digest(jar),'success':result.get('success',False),
-        'battles':checks.get('battles',0),'checks':len(checks.get('checks',[])),'receipt':'../research/test-results/'+receipt.name}
-if modes:manifest['liveModes']=modes
-runtime=ROOT/'research/runtime-biomes.json'
-if runtime.exists():
-    registry=read(runtime);manifest['liveBiomeRegistry']={'count':len(registry['biomes']),
-        'receipt':'../research/runtime-biomes.json'}
-graal=ROOT/'research/test-results/graal-performance.json'
-if graal.exists():manifest['performance']=read(graal)
-build=ROOT/'research/test-results/build.log'
-if build.exists():manifest['buildLog']={'successful':'BUILD SUCCESSFUL' in build.read_text(encoding='utf-8',errors='replace'),'sha256':digest(build),'path':'../research/test-results/build.log'}
-# Completion requires the closed field register, zero open AI leads, receipts of the shipped engine and a successful build.
-engine_sha=digest(ROOT/'mod/src/main/resources/rejuvenation-engine.js')
-ai=read(ROOT/'research/ai-coverage.json')
-receipts={name:ROOT/'research/test-results'/file for name,file in [('simulator','simulator.json'),('java','java-verification.json'),('graal','graal-performance.json'),
-    ('benchmark','strategy-benchmark.json'),('integrationReport','integration-completion.json')]}
-fresh={name:path.exists() and read(path).get('engineSha256')==engine_sha for name,path in receipts.items()}
-build_ok=manifest.get('buildLog',{}).get('successful',False)
-ai_open=ai['dispositions'].get('ai_review_pending',0)+ai['dispositions'].get('ai_strategy_gap',0)
-manifest['integrationEvidence']={'engineSha256':engine_sha,'aiLeads':ai['leads'],'aiDispositions':ai['dispositions'],'aiOpenLeads':ai_open,
-    'receiptsMatchEngine':fresh,'buildSuccessful':build_ok,'report':'../docs/INTEGRATIONS.md','receipt':'../research/test-results/integration-completion.json',
-    'scope':'Bounded field-aware strategy over Run & Bun scoring and exact field previews; not a claim of source-equivalent AI play'}
-if receipts['benchmark'].exists():
-    bench=read(receipts['benchmark'])
-    manifest['integrationEvidence']['decisionLatency']={'warmMedianMillis':{('doubles' if r.get('doubles') else str(r['teamSize']))+(f"-turn{r['turn']}" if r.get('turn') else ''):r['warmMedianMillis'] for r in bench['strategy']},
-        'processorAffinity':bench.get('processorAffinity'),'publicationWarmupMillis':bench.get('publicationWarmupMillis')}
-manifest['implementationCompletionStandardMet']=(not review['ordinaryPending'] and len(review['completeFields'])==57 and ai_open==0 and all(fresh.values()) and build_ok)
-(DIST/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n',encoding='utf-8')
-print('Packaged',jar.name,'and',pack.name,'with SHA-256 receipt;',len(review['completeFields']),'of 57 fields source-audit closed')
+import hashlib, json, re, sys, zipfile
+
+ROOT = Path(__file__).resolve().parents[1]
+DIST = ROOT / 'dist'; DIST.mkdir(exist_ok=True)
+VERSION = next(l.split('=', 1)[1].strip() for l in (ROOT / 'gradle.properties').read_text(encoding='utf-8').splitlines() if l.startswith('version='))
+CORE, COMPAT = DIST / f'rejuvenation-fields-{VERSION}.jar', DIST / f'rejuvenation-fields-compat-{VERSION}.jar'
+BASE_ZIP, EXT_ZIP = DIST / f'rejuvenation-fields-base-{VERSION}.zip', DIST / f'rejuvenation-fields-cobbleverse-{VERSION}.zip'
+STAMP = (2026, 10, 7, 0, 0, 0)
+failures = []
+
+
+def check(ok, message):
+    if not ok: failures.append(message)
+
+
+def digest(p): return hashlib.sha256(Path(p).read_bytes()).hexdigest()
+
+
+def read(p): return json.loads(Path(p).read_text(encoding='utf-8'))
+
+
+def write_zip(target, source):
+    """Deterministic archive of every file under `source`, with `pack.mcmeta` and `data/` at the archive root."""
+    if target.exists(): target.unlink()
+    with zipfile.ZipFile(target, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
+        for p in sorted(source.rglob('*')):
+            if not p.is_file(): continue
+            info = zipfile.ZipInfo(p.relative_to(source).as_posix(), STAMP)
+            info.compress_type = zipfile.ZIP_DEFLATED; info.external_attr = 0o644 << 16
+            z.writestr(info, p.read_bytes())
+
+
+CLIENT_ONLY = [rb'net/minecraft/class_310(?![0-9])', rb'net/minecraft/class_332(?![0-9])', rb'com/cobblemon/mod/common/client/', rb'net/fabricmc/fabric/api/client/', rb'dev/rejuvenation/client/', rb'dev/rejuvenation/compat/client/']
+THIRD_PARTY = [rb'com/gitlab/surilexa/rbrctai', rb'com/gitlab/srcmc/rctapi', rb'name/modid/']
+
+
+def jar_checks(path, core):
+    with zipfile.ZipFile(path) as z:
+        names = z.namelist()
+        check(len(names) == len(set(names)), f'{path.name}: duplicate entries')
+        check(not any(n.endswith('.jar') for n in names), f'{path.name}: a dependency jar is bundled')
+        classes = [n for n in names if n.endswith('.class')]
+        check(all(n.startswith('dev/rejuvenation/') for n in classes), f'{path.name}: classes outside dev/rejuvenation')
+        check(not any(n.startswith(('com/cobblemon/', 'net/minecraft/', 'org/spongepowered/', 'net/fabricmc/')) for n in names), f'{path.name}: third-party classes bundled')
+        check(not any(re.search(r'(\.log|\.json\.bak|\.nbt|world|saves|backup|credential|secret|token)', n, re.I) and not n.startswith('assets/rejuvenation/textures') for n in names if not n.endswith('.class') and 'lang/' not in n), f'{path.name}: unexpected resource names')
+        meta = json.loads(z.read('fabric.mod.json'))
+        check(meta['version'] == VERSION, f'{path.name}: fabric.mod.json version {meta["version"]} != {VERSION}')
+        for n in classes:
+            data = z.read(n)
+            in_client_package = n.startswith(('dev/rejuvenation/client/', 'dev/rejuvenation/compat/client/', 'dev/rejuvenation/compat/mixin/BattleExtras'))
+            if not in_client_package:
+                leaked = [c.decode() for c in CLIENT_ONLY if re.search(c, data)]
+                check(not leaked, f'{path.name}: {n} references client-only classes {leaked} (dedicated-server safety)')
+        if core:
+            check(meta['id'] == 'rejuvenation_fields' and meta['entrypoints']['client'] == ['dev.rejuvenation.client.RejuvenationFieldsClient'], 'core metadata')
+            check(not any(n.startswith('dev/rejuvenation/compat/') for n in classes), 'core jar contains compat classes')
+            for n in classes:
+                data = z.read(n)
+                check(not any(re.search(c, data) for c in THIRD_PARTY), f'core class {n} references a third-party integration class')
+            for need in ['rejuvenation-engine.js', 'rejuvenation-types.json', 'rejuvenation.mixins.json', 'dev/rejuvenation/RejuvenationFields.class', 'dev/rejuvenation/mixin/ShowdownMixin.class',
+                         'assets/rejuvenation/textures/gui/field/ATTRIBUTION.txt', 'assets/rejuvenation/field_backdrops.json', 'assets/rejuvenation/item_icons.json', 'assets/rejuvenation/textures/item/ATTRIBUTION.txt',
+                         'assets/rejuvenation/lang/en_us.json', 'dev/rejuvenation/FieldNotes.class', 'dev/rejuvenation/client/FieldNotesOverlay.class']:
+                check(need in names, f'core jar is missing {need}')
+            check(z.read('rejuvenation-engine.js') == (ROOT / 'core/src/main/resources/rejuvenation-engine.js').read_bytes(), 'core jar has a stale engine')
+            check(len([n for n in names if n.startswith('assets/rejuvenation/textures/gui/field/') and n.endswith('.png')]) == 61, 'core jar must hold 61 field backdrops')
+            for item in ['magical_seed', 'telluric_seed', 'synthetic_seed', 'elemental_seed', 'amplifield_rock']:
+                check(f'assets/rejuvenation/textures/item/{item}.png' in names and f'data/rejuvenation/recipe/{item}.json' in names and f'assets/rejuvenation/models/item/{item}.json' in names, f'core jar item resources for {item}')
+            check(f'assets/rejuvenation/textures/item/amulet_coin.png' not in names, 'Amulet Coin keeps its vanilla visual')
+            check({'terrain_seed_centers', 'field_rock_centers'} <= {Path(n).stem for n in names if n.startswith('data/rejuvenation/tags/item/')}, 'core jar item tags')
+            mixins = json.loads(z.read('rejuvenation.mixins.json'))
+            check('TrainerDecisionMixin' not in mixins['mixins'] and mixins['package'] == 'dev.rejuvenation.mixin', 'core mixin config')
+        else:
+            check(meta['id'] == 'rejuvenation_fields_compat' and meta['depends']['rejuvenation_fields'] == f'>={VERSION} <0.2', 'compat metadata / core dependency range')
+            check(all(n.startswith('dev/rejuvenation/compat/') for n in classes), 'compat jar classes outside the compat package')
+            check('rejuvenation-engine.js' not in names and not any(n.startswith(('assets/', 'data/')) for n in names), 'compat jar must not carry the engine, assets or data')
+            mixins = json.loads(z.read('rejuvenation-compat.mixins.json'))
+            check(mixins['plugin'] == 'dev.rejuvenation.compat.CompatMixinPlugin' and all(m.startswith('BattleExtras') for m in mixins['client']) and not any(m.startswith('BattleExtras') for m in mixins['mixins']), 'compat mixin sections')
+            check(set(meta['suggests']) == {'rbrctai', 'rctapi', 'cobblemon-battle-extras'}, 'compat suggests exactly the three integrations')
+    return meta
+
+
+def pack_checks(path, source, expect):
+    with zipfile.ZipFile(path) as z:
+        names = z.namelist()
+        check('pack.mcmeta' in names and any(n.startswith('data/') for n in names), f'{path.name}: pack.mcmeta and data/ must be at the archive root')
+        check(not any(n.startswith(('assets/', f'{path.stem}/', 'datapack/')) or n.endswith('.png') for n in names), f'{path.name}: graphics or a nested project directory in a data pack')
+        check(len(names) == len(set(names)), f'{path.name}: duplicate entries')
+        mc = json.loads(z.read('pack.mcmeta'))
+        check(mc['pack']['pack_format'] == 48, f'{path.name}: pack_format must be 48 for Minecraft 1.21.1')
+        check(VERSION in mc['pack']['description'], f'{path.name}: description names the version')
+        for n in names:
+            if n == 'pack.mcmeta': continue
+            check(read_zip(z, n) == (source / n).read_bytes(), f'{path.name}: {n} differs from its source')
+        for pattern, count in expect.items():
+            got = len([n for n in names if re.fullmatch(pattern, n)])
+            check(got == count, f'{path.name}: expected {count} files matching {pattern}, found {got}')
+    return names
+
+
+def read_zip(z, n): return z.read(n)
+
+
+def main():
+    for p in (CORE, COMPAT):
+        if not p.is_file(): sys.exit(f'Missing {p.name}: run Gradle :core:jar :compat:jar first')
+    core_meta = jar_checks(CORE, True); compat_meta = jar_checks(COMPAT, False)
+    write_zip(BASE_ZIP, ROOT / 'datapack/base'); write_zip(EXT_ZIP, ROOT / 'datapack/cobbleverse')
+    base_names = pack_checks(BASE_ZIP, ROOT / 'datapack/base', {r'data/rejuvenation/rejuvenation/fields/[a-z0-9_]+\.json': 61, r'data/rejuvenation/rejuvenation/notes/[a-z0-9_]+\.json': 61,
+                             r'data/rejuvenation/rejuvenation/items/.*\.json': 1, r'data/rejuvenation/rejuvenation/abilities/.*\.json': 1})
+    ext_names = pack_checks(EXT_ZIP, ROOT / 'datapack/cobbleverse', {r'data/rejuvenation/rejuvenation/trainers/.*\.json': 1, r'data/rctmod/trainers/kanto_ltsurge\.json': 1, r'data/cobbleverse/structure/ltsurge\.nbt': 1,
+                             r'data/rejuvenation/rejuvenation/mappings/.*\.json': 2, r'data/rejuvenation/rejuvenation/structures/.*\.json': 4})
+    check(not any('/fields/' in n for n in ext_names), 'the extension must not redefine fields (shared definitions live in the base only)')
+    check(not (set(base_names) & set(ext_names) - {'pack.mcmeta'}), 'the two packs share a resource path (duplicate definition)')
+    # Reproducibility: rebuilding yields the same bytes.
+    before = {p: digest(p) for p in (BASE_ZIP, EXT_ZIP)}
+    write_zip(BASE_ZIP, ROOT / 'datapack/base'); write_zip(EXT_ZIP, ROOT / 'datapack/cobbleverse')
+    check(all(digest(p) == before[p] for p in before), 'data pack archives are not reproducible')
+    # The byte-exact gym assets: the Surge team and structure bytes of the baseline are unchanged.
+    gym = ROOT / 'datapack/cobbleverse'
+    baseline = ROOT / 'research/baseline/gym-sha256.json'
+    if baseline.exists():
+        for rel, h in read(baseline).items(): check(digest(gym / rel) == h, f'gym asset {rel} changed from the 0.2.0 baseline')
+
+    receipts_dir = ROOT / 'research/test-results'
+    def receipt(name): p = receipts_dir / name; return read(p) if p.exists() else None
+    simulator, java, graal, recipes, matrix, pack_eq, unit, kit = (receipt(n) for n in ['simulator.json', 'java-verification.json', 'graal-performance.json', 'recipe-verification.json', 'installation-matrix.json', 'pack-equivalence.json', 'custom-fields-unit.json', 'authoring-kit.json'])
+    engine_sha = digest(ROOT / 'core/src/main/resources/rejuvenation-engine.js')
+    evidence = {
+        'simulator': bool(simulator) and simulator['engineSha256'] == engine_sha and not simulator['failed'] and simulator['passed'] + len(simulator.get('skippedTests', [])) >= 656,
+        'java': bool(java) and java['engineSha256'] == engine_sha, 'graal': bool(graal) and graal['engineSha256'] == engine_sha and graal['runtimeAssertions'] == 110,
+        'recipes': bool(recipes) and recipes['positiveCombinations'] == 20, 'installationMatrix': bool(matrix) and matrix['version'] == VERSION,
+        'packEquivalence': bool(pack_eq) and not pack_eq['differences'], 'customFieldUnit': bool(unit) and not unit['failed'], 'authoringKit': bool(kit) and not kit['failed']}
+    manifest = {'version': VERSION, 'releaseStatus': 'first-public-release-candidate', 'minecraft': '1.21.1', 'loader': 'Fabric Loader >=0.17.2 (built against 0.18.4)', 'fabricApi': '>=0.116.6 (built against 0.116.14+1.21.1)',
+        'cobblemon': '1.7.3+1.21.1', 'java': '>=21',
+        'artifacts': [{'path': p.name, 'bytes': p.stat().st_size, 'sha256': digest(p)} for p in (CORE, COMPAT, BASE_ZIP, EXT_ZIP)],
+        'mods': {'rejuvenation_fields': {'version': core_meta['version'], 'role': 'core'}, 'rejuvenation_fields_compat': {'version': compat_meta['version'], 'requires': compat_meta['depends']['rejuvenation_fields']}},
+        'fields': {'original': 57, 'custom': 4, 'total': 61}, 'engineSha256': engine_sha,
+        'verification': {name: ok for name, ok in evidence.items()}, 'verificationSkipped': (simulator or {}).get('skippedTests', []), 'verified': all(evidence.values()) and not failures,
+        'optionalIntegrations': {'rbrctai': 'Run & Bun AI scoring (compat)', 'rctapi': 'RCT trainer gimmick declarations (compat)', 'cobblemon-battle-extras': 'exact move previews and tooltips (compat, client)'}}
+    out = DIST / 'manifest.json'
+    if out.exists(): out.unlink()
+    out.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
+    for a in manifest['artifacts']: print(f"{a['sha256']}  {a['path']}")
+    if failures:
+        print('\nPACKAGE CHECKS FAILED:'); print('\n'.join(' - ' + f for f in failures)); sys.exit(1)
+    missing = [k for k, v in evidence.items() if not v]
+    print(f'Packaged {VERSION}; verification evidence: ' + ('complete' if not missing else 'MISSING/STALE: ' + ', '.join(missing)))
+    if missing: sys.exit(2)
+
+
+if __name__ == '__main__':
+    main()

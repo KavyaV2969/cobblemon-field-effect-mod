@@ -5,7 +5,11 @@ algebra. No Ruby/JS from a datapack is evaluated. Unknown fragments stop generat
 """
 from pathlib import Path
 import json, re, zipfile
-ROOT=Path(__file__).resolve().parents[2]; OUT=ROOT/'rejuvenation'
+ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT
+import sys; sys.path.insert(0,str(Path(__file__).resolve().parent))
+import provider_map
+PACKS={provider_map.BASE:OUT/'datapack/base',provider_map.EXT:OUT/'datapack/cobbleverse'}
+DATA={name:root/'data/rejuvenation/rejuvenation' for name,root in PACKS.items()}
 SPEC=json.loads((OUT/'research/field-specification.json').read_text(encoding='utf-8'))
 def write(p,x):
     p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
@@ -289,10 +293,10 @@ for sym,f in fields.items():
 write(OUT/'research/unused-source-definition-rows.json',orphans)
 items={norm(s):{'name':s.replace('_',' ').title(),'isNonstandard':'Custom','fling':{'basePower':10}} for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock']}
 items['everstone']={'name':'Everstone','isNonstandard':'Custom','fling':{'basePower':10},'minecraftItem':'cobblemon:everstone'}
-write(OUT/'datapack/data/rejuvenation/rejuvenation/items/seeds.json',{'schemaVersion':1,'items':items})
+write(DATA[provider_map.BASE]/'items/seeds.json',{'schemaVersion':1,'items':items})
 from registered_abilities import definitions as ability_definitions
-write(OUT/'datapack/data/rejuvenation/rejuvenation/abilities/source.json',{'schemaVersion':1,'abilities':ability_definitions()})
-assets=OUT/'mod/src/main/resources/assets/rejuvenation'
+write(DATA[provider_map.BASE]/'abilities/source.json',{'schemaVersion':1,'abilities':ability_definitions()})
+assets=OUT/'core/src/main/resources/assets/rejuvenation'
 translations={'item.rejuvenation.'+s:s.replace('_',' ').title() for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock']}
 translations.update({'status.rejuvenation.petrified.apply':'%s was petrified!',
     'status.rejuvenation.petrified.remove':'%s was released from the stone.',
@@ -301,16 +305,18 @@ translations.update({'status.rejuvenation.petrified.apply':'%s was petrified!',
 for aid,row in ability_definitions().items():
     for key in dict.fromkeys([aid,norm(row['name'])]):translations.update({'cobblemon.ability.'+key:row['name'],'cobblemon.ability.'+key+'.desc':row['description']})
 translations.update({'cobblemon.type.shadow':'Shadow','cobblemon.battle.weather.shadowsky.start':'A shadowy aura filled the sky!','cobblemon.battle.weather.shadowsky.end':'The shadowy aura faded away!','cobblemon.battle.weather.shadowsky.upkeep':'A shadowy aura fills the sky.'})
-write(OUT/'mod/src/main/resources/rejuvenation-types.json',fields['INDOOR']['typeDefinitions'])
+write(OUT/'core/src/main/resources/rejuvenation-types.json',fields['INDOOR']['typeDefinitions'])
 write(assets/'lang/en_us.json',translations)
 for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock']:
-    write(assets/f'models/item/{s}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'minecraft:item/gold_nugget' if s=='amulet_coin' else 'minecraft:item/cobblestone' if s=='amplifield_rock' else 'minecraft:item/wheat_seeds'}})
-for sym,field in [*fields.items(),*custom.items()]: write(OUT/f'datapack/data/rejuvenation/rejuvenation/fields/{field["id"].split(":")[1]}.json',field)
+    # Amulet Coin keeps its vanilla visual; the four seeds and Amplifield Rock use the converted Rejuvenation icons (research/convert_item_icons.py).
+    write(assets/f'models/item/{s}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'minecraft:item/gold_nugget' if s=='amulet_coin' else 'rejuvenation:item/'+s}})
+for sym,field in [*fields.items(),*custom.items()]: write(DATA[provider_map.BASE]/f'fields/{field["id"].split(":")[1]}.json',field)
 # Player-facing Field Notes for all 61 fields (data/<ns>/rejuvenation/notes); the custom fields' notes come from their canonical inputs.
 import field_notes
 notes_written,notes_skipped=field_notes.build({**{f['id']:f for f in fields.values()},**{f['id']:f for f in custom.values()}},custom_fields.load_inputs())
 print('Wrote',len(notes_written),'field notes;',notes_skipped,'rule shapes left out of the prose rather than approximated')
-write(OUT/'datapack/pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation v14 field definitions for Cobblemon 1.7.3'}})
+write(PACKS[provider_map.BASE]/'pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation Fields base (all 61 field definitions, notes, items, vanilla/Cobblemon mappings) for Cobblemon 1.7.3. Version 0.1.'}})
+write(PACKS[provider_map.EXT]/'pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation Fields COBBLEVERSE extension (modded biome/structure mappings, trainer fields, Lt. Surge gym). Requires Rejuvenation Fields base. Version 0.1.'}})
 write(OUT/'research/field-id-map.json',{sym:fid(sym) for sym in fields})
 # Mapping based on actual biome IDs; all choices explicit and reproducible.
 biomes=json.loads((OUT/'research/biome-inventory.json').read_text(encoding='utf-8'))
@@ -401,7 +407,18 @@ for tag,sym in [('minecraft:is_forest','FOREST'),('minecraft:is_jungle','FOREST'
     rules.append({'tag':tag,'field':fid(sym),'reason':'Future biome tag compatibility'})
 rules.extend([{'dimension':d,'field':fid(f),'reason':'Dimension fallback'} for d,f in [('minecraft:the_nether','VOLCANIC'),('minecraft:the_end','NEWWORLD'),('lumymon:nightmare','HAUNTED'),('lumymon:origin','SKY'),('cobblemonraiddens:raid_dimension','CAVE'),('legendarymonuments:distortion_world','DIMENSIONAL')]])
 rules.append({'maxY':0,'skyVisible':False,'field':fid('DEEPEARTH'),'reason':'Unknown deep underground biome'})
-write(OUT/'datapack/data/rejuvenation/rejuvenation/mappings/modpack.json',{'schemaVersion':1,'rules':rules})
+for pack_data in DATA.values():
+    for kind in ('mappings','structures'):
+        for stale in (pack_data/kind).glob('*.json'): stale.unlink()
+def write_documents(kind,groups):
+    """One document per (pack, segment); documents merge by (order, resource ID) so the combined rows resolve like the former single file."""
+    for (pack,name),(order,rows) in sorted(groups.items(),key=lambda kv:(kv[1][0],kv[0])):
+        write(DATA[pack]/f'{kind}/{pack}_{name}.json',{'schemaVersion':1,'order':order,'rules':rows})
+mapping_groups={}
+for row in rules:
+    pack,segment=provider_map.mapping_segment(row)
+    mapping_groups.setdefault((pack,segment),(provider_map.MAPPING_ORDER[(pack,segment)],[]))[1].append(row)
+write_documents('mappings',mapping_groups)
 write(OUT/'research/biome-mapping.json',rows)
 # Generated structures override biome rules only when configured; any other structure falls through to the biome.
 # Tags cover the vanilla variants and the equivalent Repurposed Structures ones (which join #minecraft:village).
@@ -427,5 +444,9 @@ structures+=[{'structure':'minecraft:bastion_remnant','field':fid('COLOSSEUM'),'
 structures+=custom_structures
 # Overlapping structures resolve by class, most specific first, then by listed order: Ancient City, Colosseum arenas, mansions, villages.
 structures.sort(key=lambda row:{fid('DEEPDARK'):0,fid('COLOSSEUM'):1,fid('BACKALLEY'):2,fid('CITY'):3}.get(row['field'],9))
-write(OUT/'datapack/data/rejuvenation/rejuvenation/structures/vanilla.json',{'schemaVersion':1,'rules':structures})
+structure_groups={}
+for row in structures:
+    pack,field_class=provider_map.structure_pack(row)
+    structure_groups.setdefault((pack,field_class),(provider_map.structure_order(pack,field_class),[]))[1].append(row)
+write_documents('structures',structure_groups)
 print('Generated',len(fields),'field definitions;',len(rows),'explicit biome mappings;',sum(len(f['rules']) for f in fields.values()),'additional rules')

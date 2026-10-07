@@ -1,8 +1,25 @@
-"""Closed schema/ref validation and compiled Ruby data round-trip comparison."""
+"""Closed schema/ref validation and compiled Ruby data round-trip comparison.
+
+    python research/validate.py [--packs base,cobbleverse] [--catalog-out FILE] [--receipt FILE]
+
+--packs selects the authored packs to validate together (default: both, the complete installation). `--packs base` validates the portable
+base alone and additionally requires that it names no third-party biome, structure or tag. Mapping and structure documents merge by
+(order, resource ID) exactly as the mod's loader does (research/catalog_io.py).
+"""
 from pathlib import Path
-import json,math,re,subprocess,sys
+import argparse,json,math,re,subprocess,sys
 ROOT=Path(__file__).resolve().parents[1]
-DATA=ROOT/'datapack/data/rejuvenation/rejuvenation'
+sys.path.insert(0,str(ROOT/'research'))
+import catalog_io,provider_map
+_args=argparse.ArgumentParser();_args.add_argument('--packs',default='base,cobbleverse');_args.add_argument('--catalog-out');_args.add_argument('--receipt')
+ARGS=_args.parse_args();PACKS=ARGS.packs.split(',')
+BASE_ONLY=PACKS==['base']
+def pack_files(kind):
+    """(pack, path) of every document in <kind>, base first."""
+    out=[]
+    for pack in PACKS:
+        out+=[(pack,p) for p in sorted((ROOT/'datapack'/pack/'data/rejuvenation/rejuvenation'/kind).glob('*.json'))]
+    return out
 def strict_pairs(pairs):
     obj={}
     for k,v in pairs:
@@ -20,12 +37,12 @@ fields={};errors=[];refs={k:{} for k in ['moves','abilities','items']}
 def ensure(ok,where,text):
     if not ok:errors.append(where+': '+text)
 def reference(kind,value,where):refs[kind].setdefault(value,[]).append(where)
-for p in sorted((DATA/'fields').glob('*.json')):
+for _,p in pack_files('fields'):
     f=read(p);ensure(f.get('id')=='rejuvenation:'+p.stem,str(p),'path/ID mismatch');ensure(f['id'] not in fields,str(p),'duplicate ID');fields[f['id']]=f
 items={}
-for p in (DATA/'items').glob('*.json'):items.update(read(p)['items'])
+for _,p in pack_files('items'):items.update(read(p)['items'])
 abilities={}
-for p in (DATA/'abilities').glob('*.json'):
+for _,p in pack_files('abilities'):
     document=read(p);ensure(document.get('schemaVersion')==1,str(p),'invalid ability schema')
     for aid,row in document['abilities'].items():
         ensure(aid not in abilities,str(p),'duplicate ability ID');abilities[aid]=row
@@ -448,27 +465,33 @@ for name,f in fields.items():
         ensure(key in ['healingwish','lunardance'] and set(row)=={'boosts','message','source'} and isinstance(row['message'],str) and row['message'] and isinstance(row['source'],str) and isinstance(row['boosts'],dict) and row['boosts'] and all(k in ['atk','def','spa','spd','spe'] and integer(n,1,6) for k,n in row['boosts'].items()),name,'invalid entry wish')
     if 'silentVolatileEnds' in f:ensure(isinstance(f['silentVolatileEnds'],list) and f['silentVolatileEnds'] and all(k in ['slowstart'] for k in f['silentVolatileEnds']),name,'invalid silent volatile end')
     if 'seed' in f:reference('items',f['seed']['item'],name+'/seed')
-mapping=read(DATA/'mappings/modpack.json')['rules'];known=read(ROOT/'research/biome-inventory.json')
+mapping_docs=[(pack,p,read(p)) for pack,p in pack_files('mappings')]
+for pack,p,doc in mapping_docs:ensure(doc.get('schemaVersion')==1,'mappings/'+p.name,'unsupported schema')
+mapping=catalog_io.merge_rules([(f'rejuvenation:rejuvenation/mappings/{p.name}',doc) for pack,p,doc in mapping_docs]);known=read(ROOT/'research/biome-inventory.json')
 for r in mapping:
     ensure(r['field'] in fields,'mapping','unknown field');ensure(set(r)<=set('biome tag dimension submerged maxY skyVisible minDepth field reason substrate'.split()),'mapping','unknown predicate')
     if 'substrate' in r:ensure(isinstance(r['substrate'],str) and r['substrate'] in fields and r['substrate']!='rejuvenation:indoor' and r['substrate']!=r['field'],'mapping','invalid substrate layer '+str(r['substrate']))
-explicit={r['biome'] for r in mapping if 'biome' in r};ensure(set(known)<=explicit,'mapping','unmapped detected biomes')
-structures=[]
-for p in sorted((DATA/'structures').glob('*.json')):
-    doc=read(p);ensure(doc.get('schemaVersion')==1,'structures/'+p.name,'unsupported schema')
+explicit={r['biome'] for r in mapping if 'biome' in r}
+if not BASE_ONLY:ensure(set(known)<=explicit,'mapping','unmapped detected biomes')
+for pack,p,doc in mapping_docs:
+    for r in doc['rules']:ensure(provider_map.mapping_segment(r)[0]==pack,'mappings/'+p.name,'row belongs to the other pack by provider: '+json.dumps(r)[:120])
+structure_docs=[]
+for pack,p in pack_files('structures'):
+    doc=read(p);ensure(doc.get('schemaVersion')==1,'structures/'+p.name,'unsupported schema');structure_docs.append((f'rejuvenation:rejuvenation/structures/{p.name}',doc))
     for r in doc['rules']:
+        ensure(provider_map.structure_pack(r)[0]==pack,'structures/'+p.name,'row belongs to the other pack by provider: '+json.dumps(r)[:120])
         where='structures/'+p.name
         ensure(isinstance(r,dict) and set(r)<={'structure','tag','field','reason','containment'} and r.get('field') in fields,where,'invalid structure mapping')
         if isinstance(r,dict) and 'containment' in r:
             c=r['containment'];ensure(isinstance(c,dict) and (c=={'mode':'pieces'} or (set(c)=={'mode','horizontal','above','below'} and c['mode']=='footprint' and integer(c['horizontal'],0,32) and integer(c['above'],0,64) and integer(c['below'],0,32))),where,'invalid structure containment')
         ensure(('structure' in r)!=('tag' in r),where,'a structure mapping names exactly one structure or tag')
         ensure(re.fullmatch(r'[a-z0-9_.-]+:[a-z0-9_./-]+',r.get('structure',r.get('tag','')) or '') is not None,where,'invalid structure identifier')
-        structures.append(r)
+structures=catalog_io.merge_rules(structure_docs)
 ensure(any(r.get('submerged') is True for r in mapping),'mapping','missing underwater stage')
 unavailable={kind:{v:locations for v,locations in values.items() if v not in registry[kind] and not (kind=='items' and v in items)} for kind,values in refs.items()}
 write(ROOT/'research/reference-validation.json',{'unavailable':unavailable,'counts':{kind:len(values) for kind,values in refs.items()},'reason':'Rejuvenation-specific or misspelled IDs absent from installed Showdown base. These rules cannot trigger until a compatible definition is registered.'})
 trainers={}
-for p in sorted((DATA/'trainers').glob('*.json')):
+for _,p in pack_files('trainers'):
     for tid,row in read(p)['trainers'].items():
         where='trainers/'+p.name+'/'+tid
         ensure(tid not in trainers,where,'duplicate trainer field')
@@ -480,7 +503,8 @@ for p in sorted((DATA/'trainers').glob('*.json')):
 # Field Notes: one plain-text document per field, mirroring the server's checks (closed keys, bounded, no markup) and keeping
 # developer vocabulary (JSON, rule/op names, namespaced IDs, source file names) out of player-facing text.
 note_keys={'schemaVersion','field','title','summary','sections','overlay','counters','substrateText'}
-dev_words=['{','}','"','json','schemaVersion','.rb','todo','undefined','null','rejuvenation:','ruby','battle.rb','§']
+# The wiki-derived notes use ordinary English (straight quotes, words such as "nullifies"), so only markup and source-file vocabulary is rejected.
+dev_words=['{','}','schemaVersion','.rb','undefined','rejuvenation:','battle.rb','§','</','<br','[[',']]','{{','}}','http://localhost']
 def plain_note(v,limit):return isinstance(v,str) and 0<len(v)<=limit and not any(ord(c)<32 or ord(c)==127 or c=='§' for c in v)
 def note_strings(doc):
     yield doc['title'];yield doc['summary']
@@ -493,7 +517,7 @@ def note_strings(doc):
         for th in c.get('thresholds',[]):yield th['text']
     if 'substrateText' in doc:yield doc['substrateText']
 notes={}
-for p in sorted((DATA/'notes').glob('*.json')):
+for _,p in pack_files('notes'):
     doc=read(p);where='notes/'+p.name
     ensure(isinstance(doc,dict) and set(doc)<=note_keys and {'schemaVersion','field','title','summary','sections'}<=set(doc) and doc['schemaVersion']==1,where,'unknown or missing keys')
     if errors and errors[-1].startswith(where):continue
@@ -515,8 +539,8 @@ for p in sorted((DATA/'notes').glob('*.json')):
     notes[doc['field']]=doc
 ensure(set(notes)==set(fields),'notes','notes cover exactly the catalog fields (missing: '+', '.join(sorted(set(fields)-set(notes)))[:200]+')')
 catalog={'fields':fields,'mappings':mapping,'structures':structures,'items':items,'abilities':abilities,'trainers':trainers,'default':'rejuvenation:indoor'}
-write(ROOT/'research/catalog.json',catalog)
-write(ROOT/'research/test-results/datapack-validation.json',{'errors':errors,'fields':len(fields),'originalFields':sum(1 for f in fields.values() if not f.get('custom')),'customFields':sum(1 for f in fields.values() if f.get('custom')),'biomes':len(known),'explicitBiomes':len(explicit),'counts':count,'unavailableCounts':{k:len(v) for k,v in unavailable.items()}})
+write(Path(ARGS.catalog_out) if ARGS.catalog_out else ROOT/'research/catalog.json',catalog)
+write(Path(ARGS.receipt) if ARGS.receipt else ROOT/'research/test-results/datapack-validation.json',{'packs':PACKS,'errors':errors,'fields':len(fields),'originalFields':sum(1 for f in fields.values() if not f.get('custom')),'customFields':sum(1 for f in fields.values() if f.get('custom')),'biomes':len(known),'explicitBiomes':len(explicit),'counts':count,'unavailableCounts':{k:len(v) for k,v in unavailable.items()}})
 if errors:
     print('\n'.join(errors));sys.exit(1)
 print(f"Validated {len(fields)} fields, {count['rules']} rules, {count['moves']} move entries, {count['transitions']} transitions and {len(known)} explicit biomes")

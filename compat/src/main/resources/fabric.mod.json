@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "rejuvenation_fields_compat",
+  "version": "${version}",
+  "name": "Rejuvenation Fields Compat",
+  "description": "Optional integrations for Rejuvenation Fields: Run & Bun and RCT trainer AI field scoring, the global NPC gimmick policy, and Cobblemon Battle Extras exact move previews.",
+  "license": "All Rights Reserved (license not yet chosen)",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.rejuvenation.compat.client.RejuvenationCompatClient"
+    ]
+  },
+  "mixins": [
+    "rejuvenation-compat.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.17.2",
+    "fabric-api": ">=0.116.6",
+    "minecraft": "1.21.1",
+    "java": ">=21",
+    "cobblemon": "1.7.3+1.21.1",
+    "rejuvenation_fields": ">=${version} <0.2"
+  },
+  "suggests": {
+    "rbrctai": "*",
+    "rctapi": "*",
+    "cobblemon-battle-extras": "*"
+  },
+  "custom": {
+    "rejuvenation": {
+      "role": "compat"
+    }
+  }
+}

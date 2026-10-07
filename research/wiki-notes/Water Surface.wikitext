@@ -1,0 +1,128 @@
+{{Quote | ''The water's surface is calm.''}}
+[[File:BattlebgWater.png|thumb]]
+
+Water Surface is one of the [[Field Effects]] present in Rejuvenation. It is classified as an Elemental field and can be found in any area while using Surf, with notable battles including the battle against [[Valarie]] on Terajuma.
+
+==Transitions From Other Fields==
+
+*  [[Icy Field]] will transform into this field if Water Surface is the Sub-layer and the moves Bulldoze, Burning Jaleousy, Dive, Earthquake, Eruption, Fire Pledge, Fissure, Flame Burst, Heat Wave, Incinerate, Lava Plume, [[Magma Drift]], Magnitude, Mind Blown, Raging Fury, Searing Shot, or the Z-Moves Inferno Overdrive or Tectonic Rage are used.
+** ''"The quake broke up the ice and revealed the water beneath!"''
+** ''"The ice melted away!"''
+** ''"[Pokémon] made a hole in the ice!"''
+** ''"The ice was broken from underneath!"''
+*  [[Icy Field]] will also transform into this field if the [[Cave Field]] isn't the Sub-layer and the moves Hydro Steam, Matcha Gotcha or Scald are used 2 times, or if the move Steam Eruption is used 1 time.
+** ''"Parts of the ice melted!"''
+** ''"The hot water melted the ice!"''
+** ''"The hot tea melted the ice!"''
+*** If the Sub-layer is [[Cave Field]], Icy Field will transform into it instead.
+*** Specifically, using Hydro Steam, Scald or Matcha Gotcha increments the counter by +1, and using Steam Eruption increments it by +2. The field changes when the counter reaches 2.
+* [[Underwater]] will transform into this field if the moves Bounce, Dive, Fly, Shore Up, Sky Drop, or Triple Dive are used.
+** ''"The battle resurfaced!"''
+* [[Murkwater Surface]] will transform into this field if the move Tidy Up is used 2 times, or the moves Purify or Whirlpool are used 1 time.
+** ''"The attack cleared the waters!"''
+** ''"The maelstrom flushed out the poison!"''
+** ''"Some sludge was tidied up!"''
+
+==General Effects==
+
+* Water-type moves → 1.5x boost.
+** ''"The water strengthened the attack!"''
+* Electric-type moves → 1.5x boost against grounded Pokémon.
+** ''"The water conducted the attack!"''
+* Fire-type moves → 0.5x decrease against grounded Pokémon.
+**''"The water deluged the attack..."''
+* Ground-type moves always fail.
+** ''"...But there was no solid ground to attack from!"''
+*** Dig fails on the turn where the Pokémon would go underground.
+*** Shore Up is the only exception due to it changing to a Water-type move on this field.
+* Grounded non-Water-type Pokémon have their Speed decreased to 0.75x.
+** Pokémon with the abilities Surge Surfer or Swift Swim are immune to this effect.
+
+==Abilities Affected==
+
+===Activated Abilities (when grounded)===
+* Hydration
+* Schooling
+** Applies even when the user is level 19 or less.
+* Surge Surger
+* Swift Swim
+* Torrent
+
+===Buffed Abilities===
+
+* Dry Skin & Water Absorb restore 1/16 of the bearer's Max HP at the end of each turn if it's grounded.
+** ''"[Pokémon] absorbed some of the water!"''
+* [[Foam Spray]] reduces Defense by 2 stages on activation.
+* Propeller Tail boosts the damage of the bearer's priority moves by 1.5x.
+** This does not apply to moves that gain priority (Example: Grassy Glide, Gale Wings).
+* Steam Engine raises the bearer's Speed by 1 stage at the end of each turn.
+* Water Compaction activates at the end of each turn if the user is grounded.
+* Water Veil cures all status conditions.
+
+===Other Ability Changes===
+
+* Gulp Missile will always pick up Arrokuda.
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which receive an attack buff====
+
+* Dive → 1.2x boost, only lasts 1 turn.
+** ''"The attack rode the current!"''
+* Whirlpool → 1.2x boost, 1/6 Max HP as damage at the end of each turn.
+** ''"The attack rode the current!"''
+* Hydro Vortex, Muddy Water, Octazooka, Origin Pulse, Surf, Sludge Wave, Triple Dive → 1.2x boost.
+** ''"The attack rode the current!"''
+** ''"Poison spread through the water!"''
+
+===Other moves===
+
+====Buffed Moves====
+
+* Aqua Ring restores 1/8 max HP each turn.
+* Life Dew additionally applies Aqua Ring to the user.
+* Shore Up becomes a Water-type move and activates Water Compaction.
+* Splash lowers the Accuracy of all adjacent Pokémon by 1 stage.
+* Take Heart raises the user's Special Attack and Special Defense by 2 stages.
+* Wave Crash's recoil is halved to 25%.
+
+====Nerfed Moves====
+
+* Spikes and Toxic Spikes disappear and cannot be placed.
+** ''"...The spikes sank into the water and vanished!"''
+*** Spikes and Toxic Spikes only disappear when a Pokémon would switch in on that side.
+*** Example: If Spikes are set on [[Icy Field]], then the field is changed to Water Surface, then back to Icy Field before any switches happen on that side of the field, Spikes will remain.
+* Tar Shot gets removed at the end of the turn.
+** ''"The tar washed off [Pokémon] in the water!"''
+
+===Field-dependent moves & Abilities===
+
+* Mimicry changes the bearer's type to Water.
+* Camouflage changes the user's type to Water.
+* Nature Power becomes Whirlpool.
+* Secret Power may lower Speed.
+* Shelter halves damage from Water-type moves.
+* Terrain Pulse's type becomes Water.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.'''
+
+* This field will transform into [[Underwater]] if the moves Anchor Shot, Dive, Grav Apple, or Gravity, or Triple Dive is used.
+** ''"The battle was pulled underwater!"''
+** ''"The battle sank into the depths!"''
+* This field will transform into [[Murkwater Surface]] if the move Sludge Wave is used 2 times, or the Z-Move Acid Downpour is used 1 time.
+** ''"The water was polluted!"''
+* This field will transform into [[Icy Field]] if the moves Blizzard, Glaciate, or the Z-Move Subzero Slammer are used.
+** ''"The water froze over!"''
+
+==Items==
+
+* [[Elemental Seed]] boosts Special Defense and applies Aqua Ring to the user.
+** ''"[Pokémon] surrounded itself with a veil of water!"''
+* The Dive Ball's catch rate buff is enabled.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

@@ -1,0 +1,113 @@
+{{Quote | ''The field is covered in ice.''}}
+[[File:BattlebgIcy.png|thumb]]
+
+Icy Field is one of the [[Field Effects]] present in Rejuvenation. It is categorized as an Elemental field and can be found in the [[Evergreen Cave]] and [[Seabound Cave]].
+
+==Transitions From Other Fields==
+
+* [[Cave]] will transform into this field if the moves Blizzard or Subzero Slammer are used.
+** ''"The cavern froze over!"''
+* [[Frozen Dimensional Field]] will transform into this field if the move Purify is used.
+** ''"The dimension was purified!"''
+* [[Murkwater Surface]] and [[Water Surface]] will transform into this field if any of the moves Blizzard, Glaciate, or the Z-Move Subzero Slammer are used.
+** ''"The water froze over!"''
+
+==General Effects==
+
+* Ice-type moves → 1.5x boost.
+** ''"The cold strengthened the attack!"''
+* Fire-type moves → 0.5x decrease.
+** ''"The cold softened the attack..."''
+* Rock-type moves → Ice sub-typing.
+* Snow & Hail lasts for 8 turns.
+* Hail raises the Defense of all Ice-type Pokémon by 50%.
+* Burn damage is halved to 1/32 Max HP.
+
+==Abilities Affected==
+
+===Activated Abilities===
+
+* Slush Rush
+* Snow Cloak
+
+===Buffed Abilities===
+
+* Ice Body restores 1/16 of the bearer's Max HP at the end of each turn.
+* Ice Scales nullifies the user's Ice weaknesses.
+** This results in [[Frosmoth]] having 3 weaknesses (Fire, Flying, Rock) and 4 resistances (Fighting, Grass, Ground, Ice).
+* Refrigerate increases base power by 1.5x for affected moves instead of 1.2x.
+
+===Other Ability Changes===
+
+* Liquid Voice instead turns the bearer's sound-based moves into Ice-type moves.
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which receive an attack buff====
+
+* Bitter Malice → 1.5x boost, 10% freeze chance.
+** ''"The cold strengthened the attack!"''
+* Chilling Water → 1.5x boost.
+** ''"The cold strengthened the attack!"''
+
+====Moves which receive an attack nerf====
+
+* Hydro Steam, Scald, Steam Eruption → 0.5x decrease.
+** ''"The cold softened the attack..."''
+
+===Other moves===
+
+====Buffed Moves====
+
+* All contact moves that have a naturally increased priority raise the user's Speed by 1 stage. This effect is shared with Defense Curl, Feint, Ice Ball, Ice Spinner, Lunge, Rollout, Spin Out & Steamroller.
+** ''"[Pokémon] gained momentum on the ice!"''
+*** This does not apply to moves that gain priority (Example: Grassy Glide, Gale Wings).
+*** If the Pokémon loses Speed due to Contrary, the message displayed will instead be ''"[Pokémon] lost momentum on the ice!"''
+
+* Aurora Veil can be activated regardless of weather.
+* Matcha Gotcha's restores 65% of the damage dealt.
+** ''"Warm tea tastes best in the cold!"''
+
+====Other Move Changes====
+
+* Bulldoze, Earthquake, Fissure, Magnitude, and Tectonic Rage layer Spikes on both sides unless the Sub-layer is [[Murkwater Surface Field]] or [[Water Surface Field]].
+** ''"The quake broke up the ice into spiky pieces!"''
+** ''"[Pokémon] was hurt by the icy spikes!"''
+*** If the Sub-layer is either field, the field changes to those instead - see the "Transitions to Other Fields" section for more detail. 
+
+===Field-dependent moves & Abilities===
+
+* Mimicry changes the bearer's type to Ice.
+* Camouflage changes the user's type to Ice.
+* Nature Power becomes Ice Beam.
+* Secret Power may inflict Freeze.
+* Shelter halves damage from Ice-type moves.
+* Terrain Pulse's type becomes Ice.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.'''
+
+* This field will transform into [[Cave]] if the moves Burning Jaleousy, Eruption, Fire Pledge, Flame Burst, Heat Wave, Incinerate, Lava Plume, [[Magma Drift]], Mind Blown, Raging Fury, Searing Shot, or the Z-Move Inferno Overdrive are used.
+** ''"The ice melted away!"''
+*** If the Sub-layer is either [[Murkwater Surface]] or [[Water Surface]], the field will transform into those instead.
+* This field will transform into [[Water Surface]] if the moves Hydro Steam, Matcha Gotcha or Scald are used 2 times, or if the move Steam Eruption is used 1 time.
+** ''"Parts of the ice melted!"''
+** ''"The hot water melted the ice!"''
+** ''"The hot tea melted the ice!"''
+*** If the Sub-layer is [[Cave]], the field will transform into it instead.
+*** Specifically, using Hydro Steam, Scald or Matcha Gotcha increments the counter by +1, and using Steam Eruption increments it by +2. The field changes when the counter reaches 2.
+* This field will also transform into [[Murkwater Surface]] or [[Water Surface]] if either is a Sub-layer and the moves Bulldoze, Dive, Earthquake, Fissure, Magnitude, or the Z-Move Tectonic Rage are used.
+** ''"The quake broke up the ice and revealed the water beneath!"''
+** ''"[Pokémon] made a hole in the ice!"''
+** ''"The ice was broken from underneath!"''
+
+==Items==
+
+* [[Elemental Seed]] boosts Speed by 2 stages and causes Spikes damage to the user.
+** This damage scales with the current amount of layers, with minimal damage equal to that of 1 layer. It is therefore possible to lose 50% Max HP from Spikes alone on switch-in with this interaction.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

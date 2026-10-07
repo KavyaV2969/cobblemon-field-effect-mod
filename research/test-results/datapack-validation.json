@@ -1,4 +1,8 @@
 {
+  "packs": [
+    "base",
+    "cobbleverse"
+  ],
   "errors": [],
   "fields": 61,
   "originalFields": 57,

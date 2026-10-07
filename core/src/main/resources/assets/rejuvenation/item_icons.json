@@ -1,0 +1,88 @@
+{
+  "description": "Held-item icons converted losslessly from Pokémon Rejuvenation 14.",
+  "credit": "Item icons from Pokémon Rejuvenation V14 (Graphics/Icons/Item), a fan game by Janichroma (lead developer) and the Rejuvenation team; art credited in the game's ReadMe_Credits.txt to Zumi (Honnojis), Janichroma, Crimson, CeriseBlossome, Winter, Azeria, Dallas, Soulja, IronicOmens and MoonPaw. Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc.",
+  "basis": "Redistribution basis: the project owner states this is a non-commercial fan mod for the game and that its use of these game icons is allowed as such. No written permission from the Rejuvenation team is on file; see THIRD_PARTY.md. Remove the five files if that basis is withdrawn.",
+  "method": "Decoded the BMP pixel data exactly (channel masks honoured, bottom-up rows flipped) and re-encoded them as 8-bit RGBA PNG; no resampling, recolouring or redrawing. Reproduce with research/convert_item_icons.py.",
+  "items": {
+    "rejuvenation:magical_seed": {
+      "texture": "rejuvenation:item/magical_seed",
+      "sourceFile": "Graphics/Icons/Item/magicalseed.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "6eae77203b97bd833ca7757dd12eee09d92f9187236cebdac1ee9e8f203a1916",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "5f6aad89e7991f182d08b655ce4bd31495e68b555b4e97caa8d8ce488c04ebc2",
+      "sha256": "a32eff0aaf686698b219800caa60bfcbb31bac3c7a54ddb2dd071c1680f6f8ca",
+      "bytes": 495,
+      "transparentPixels": 1232,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:telluric_seed": {
+      "texture": "rejuvenation:item/telluric_seed",
+      "sourceFile": "Graphics/Icons/Item/telluricseed.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "39d22172cba779afb21b8772da32fb564e087bac53a9599a6416a7b02bf33305",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "2746b81177536272352395078f770790d2056c22c09e6d948639bc38b80dcce5",
+      "sha256": "6790233c58ab3db0cc8fad73f78fb4162c90161233cf0d06cdff663950afbbe5",
+      "bytes": 492,
+      "transparentPixels": 1232,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:synthetic_seed": {
+      "texture": "rejuvenation:item/synthetic_seed",
+      "sourceFile": "Graphics/Icons/Item/syntheticseed.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "78b5e8e13c220830d34129efb824856840fea9dae855a362806733a9b96beec9",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "f839a61206ce18f0fd85d93460805e1423b3734507564fb11a3ebfbebc36d1a3",
+      "sha256": "44c8a3528aec6142a47a963e9d96a9d9a06cdd9795501d0eeaf75c532b753aa2",
+      "bytes": 496,
+      "transparentPixels": 1232,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:elemental_seed": {
+      "texture": "rejuvenation:item/elemental_seed",
+      "sourceFile": "Graphics/Icons/Item/elementalseed.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "edd8f360b2b7ff6127132deda1dc5af8f5cb0817b80817b2285c09e14bba5e31",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "fd5f0bed9e35167a5f10782da141a9f5254fa834db6ef18a6f2172daf5956305",
+      "sha256": "03236b23074e86fb34c38abf0b0c02a67730af0d9476ec12c22d5623c432d9e3",
+      "bytes": 483,
+      "transparentPixels": 1232,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:amplifield_rock": {
+      "texture": "rejuvenation:item/amplifield_rock",
+      "sourceFile": "Graphics/Icons/Item/amplifieldrock.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "cfebe028bd4c609c28d095afcf8299d59cc55a02f27d80c3264aeb0930cdad69",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "638b6a4369f2641b9d973d53f936844fdf38835e206e9cca0a29cf725fae0df9",
+      "sha256": "6cee7a0e01b66ff00988abe3979d4d5e902e369c9ff39c9a802fee601eb2b801",
+      "bytes": 430,
+      "transparentPixels": 1136,
+      "partiallyTransparentPixels": 0
+    }
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:infernal",
+  "title": "Infernal Field",
+  "summary": "“The souls of the damned burn on.”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Soul Sand Valley."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Infernal Field is a field effect exclusive to Rejuvenation. It is categorized as an Elemental field."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "Dimensional Field will transform into this field if the move Precipice Blades is used.",
+        "“The field went up in flames!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Dark-type moves increase in base power by 1.5x.",
+        "“The infernal flames strengthened the attack!”",
+        "Fire-type moves increase in base power by 1.5x and deal super-effective damage to Ghost-types.",
+        "“The infernal flames strengthened the attack!”",
+        "Fairy-type moves decrease in base power by 0.5x (except Spirit Break).",
+        "“The hellfire burnt out the attack!”",
+        "Water-type moves decrease in base power by 0.5x.",
+        "“The hellfire burnt out the attack!”",
+        "Ground, Rock, and Steel-type moves gain a Fire sub-typing.",
+        "Rain and Hail are terminated.",
+        "“The rain evaporated away.”",
+        "“The hail melted away.”",
+        "Field damage:",
+        "Grounded non-Fire type Pokémon take type-scaling Fire damage at the end of each turn, with normal damage equal to 1/8 max HP.",
+        "“The Pokemon were burned by the field!”",
+        "Pokémon take no field damage if they are under the effect of Aqua Ring, or have one of the abilities Flame Body, Flare Boost, Flash Fire, Heatproof, Magma Armor, Water Bubble or Water Veil.",
+        "Pokémon take x2 field damage if they are under the effect of Tar Shot, or have one of the abilities Fluffy, Grass Pelt, Ice Body or Leaf Guard.",
+        "As of v13.5.6, the field effect manual does not mention anything about the field damage."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Bad Dreams deals double damage and additionally traps Sleeping Pokémon.",
+        "“[Pokémon]'s terrible dreams prevent it from being switched out!”",
+        "Blaze, Flare Boost, and Flash Fire are always activated.",
+        "Desolate Land, Flame Body, and Magma Armor additionally boost the bearer's Defense and Special Defense by 1 stage on switch-in.",
+        "Ice Face melts on entry.",
+        "Magma Armor additionally makes the bearer immune to Fire-type moves.",
+        "Mimicry changes the bearer's type to Fire.",
+        "Pastel Veil is disabled.",
+        "Perish Body additionally traps the attacker when activated and has a perish countdown of 1 turn.",
+        "Steam Engine additionally boosts the bearer's Speed by 1 stage at the end of each turn."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Punishment, Smog, Dream Eater → 2x boost.",
+        "“Hellish Suffering!”",
+        "Blast Burn, Infernal Parade, Inferno, Inferno Overdrive, Earth Power, Precipice Blades, Raging Fury → 1.5x boost.",
+        "“Infernal flames strengthened the attack!”",
+        "Other moves:",
+        "Aura Sphere, Frustration, and Spirit Break gain a Dark sub-typing.",
+        "Burn Up's effect resets at the end of the turn.",
+        "Dark Void, Inferno, and Will-O-Wisp never miss.",
+        "Hex deals double damage regardless of status.",
+        "Infernal Parade now always inflicts Burn.",
+        "Nightmare can be used regardless of status.",
+        "Nasty Plot boosts the user's Special Attack by 3 stages.",
+        "Stealth Rock deals Fire-type scaling damage instead.",
+        "“[Pokémon] was hurt by the molten stealth rocks!”",
+        "Torment additionally causes the target to take 1/8 max HP damage at the end of each turn.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Fire.",
+        "Nature Power becomes Punishment.",
+        "Secret Power may inflict Burn.",
+        "Shelter halves damage from Fire-type moves.",
+        "Terrain Pulse's type becomes Fire."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.",
+        "This field will transform into Dimensional Field if the move Glaciate is used.",
+        "“The hellish landscape was doused of its fire!”",
+        "As of v13.5.6, the field effect manual incorrectly states that Infernal Field will transform into Frozen Dimensional Field.",
+        "This field will transform into Volcanic Top Field if one of the moves Judgment, Origin Pulse, or Purify is used.",
+        "“The hellish landscape was purified!”",
+        "As of v13.5.6, the field effect manual incorrectly states that Infernal Field will transform into Volcanic Field."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Elemental Seed boosts Attack and Special Attack by 1 stage and traps the user."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Infernal Field”, revision 35531: https://rejuvenation.wiki.gg/wiki/Infernal_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

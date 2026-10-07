@@ -1,0 +1,79 @@
+{{Quote | ''All eyes are on the combatants!''}}
+[[File:Colosseumfield.png|thumb]]
+
+Colosseum Field is a field effect exclusive to Rejuvenation. It is categorized as a Synthetic field and can be found in the [[The Underground]] Colosseum.
+
+==General Effects==
+
+* Switching Pokémon is done in attacking order instead of the Start of the turn. As such, faster attackers will attack before the switch is carried out. Shift-Mode is disabled.
+* Any effect that forces its opposing target to switch will fail. Other effects of the same move still apply.
+* Knocking out a Pokémon boosts one of the user's stats based on the highest stat of the KO'd opponent.
+
+==Abilities Affected==
+
+* Battle Armor and Shell Armor additionally boost the bearer's Defense by 1 stage on switch-in.
+** ''[Pokémon]'s shining armor boosted its Defense!''
+* Competitive additionally boosts the bearer's Special Defense by 2 stages on activation.
+* Dauntless Shield additionally boost the bearer's Defense and Special Defense by 1 stage on switch-in.
+** ''[Pokémon]'s shining armor boosted its Defense! [Pokémon]'s magical power boosted its Special Defense!''
+* Defiant additionally boosts the bearer's Defense by 2 stages on activation.
+* Emergency Exit boosts the bearer's Speed by 2 stages on activation instead of switching the bearer out.
+* Intrepid Sword, Justified and No Guard additionally boost the bearer's Attack and Special Attack by 1 stage on switch-in.
+** ''[Pokémon]'s ferocious heart boosted its Attack! [Pokémon]'s ferocious heart boosted its Special Attack!''
+* Magic Guard and Mirror Armor additionally boost the bearer's Special Defense by 1 stage on switch-in.
+** ''[Pokémon]'s magical power boosted its Special Defense!''
+* Mimicry changes the user's type to Steel.
+* Quick Draw causes the bearer's attack to be a critical hit when activated.
+* Rattled and Wimp Out cause attacks against the bearer to always be critical hits.
+* Skill Link additionally boosts multi-hit moves by 1.2x.
+* Stalwart additionally gives the bearer the effect of Sturdy.
+** ''[Pokémon] hung on with Stalwart in the Colosseum!''
+* Wonder Guard additionally protects the bearer against indirect damage.
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Beat Up, Fell Stinger, Pay Day, Pursuit, Reversal → 2x boost.
+** ''The fighters rallied together!''
+** ''The coup de grâce!''
+** ''The audience hurled coins down!''
+** ''There is no escape!''
+** ''For Honor!''
+* Bone Rush, Bone Club, Bonemerang, Brutal Swing, Bullet Punch, Clanging Scales, Electroweb, First Impression, Leaf Blade, Meteor Assault, Meteor Mash, Night Slash, Payback, Punishment, Psycho Cut, Sacred Sword, Secret Sword, Smack Down, Smart Strike, Steamroller, Submission, Vine Whip → 1.5x boost.
+** ''For Glory!''
+** ''For Honor!''
+* Anchor Shot, Crabhammer, Dragon Hammer, Drill Peck, Drill Run, Fire Lash, Ice Hammer, Icicle Spear, Power Whip, Shadow Bone, Spirit Shackle, Storm Throw, Sucker Punch, Throat Chop, Wood Hammer → 1.2x boost.
+** ''For Glory!''
+** ''For Honor!''
+
+===Other moves===
+
+* Baton Pass, Encore, and Whirlwind fail on use.
+** ''There can be no retreat!''
+** ''The audience demands fighting not repetition!''
+** ''[Pokémon] stands their ground in the arena!!''
+* First Impression additionally goes through Protection moves.
+* Flatter boosts target's Special Attack by 2 stages.
+* Howl boosts the user's Attack by 2 stages.
+* King's Shield reduces the attacker's Attack and Special Attack by 2 stages on contact.
+* No Retreat's stat boosts are doubled.
+* Roar boosts the user's Attack by 2 stages instead of its usual effect.
+* Spiky Shield deals double damage on contact.
+* Swagger boosts the target's Attack by 3 stages.
+* Swords Dance boosts the user's Attack by 3 stages.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Steel.
+* Nature Power becomes Beat Up.
+* Secret Power may lower Attack.
+* Shelter halves damage from Steel-type moves
+* Terrain Pulse's type becomes Steel.
+
+==Items==
+
+* [[Synthetic Seed]] boosts Attack by 2 stages, but applies Taunt to the user.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

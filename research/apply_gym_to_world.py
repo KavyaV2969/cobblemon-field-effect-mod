@@ -17,7 +17,7 @@ from find_structures import starts
 
 ROOT = Path(__file__).resolve().parents[1]
 ORIGINAL = f"{ROOT.parent / 'datapacks/COBBLEVERSE-DP-v31.zip'}::data/cobbleverse/structure/ltsurge.nbt"
-RESKIN = ROOT / 'gym-overrides/data/cobbleverse/structure/ltsurge.nbt'
+RESKIN = ROOT / 'datapack/cobbleverse/data/cobbleverse/structure/ltsurge.nbt'
 ROT_DIRS = {'NONE': {}, 'CLOCKWISE_90': {'north': 'east', 'east': 'south', 'south': 'west', 'west': 'north'},
             'CLOCKWISE_180': {'north': 'south', 'south': 'north', 'east': 'west', 'west': 'east'},
             'COUNTERCLOCKWISE_90': {'north': 'west', 'west': 'south', 'south': 'east', 'east': 'north'}}

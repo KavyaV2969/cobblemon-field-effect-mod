@@ -1,4 +1,4 @@
-# Warped Forest Field
+# Warped Forest
 
 Original ID: `WARPEDFOREST`; datapack ID: `rejuvenation:warped_forest`.
 

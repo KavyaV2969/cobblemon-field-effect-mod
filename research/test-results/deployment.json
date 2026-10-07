@@ -1,31 +1,54 @@
 {
-  "timestamp": "2026-10-06T01:53:18.558093+00:00",
+  "timestamp": "2026-10-07T13:36:43.161713+00:00",
+  "version": "0.1",
   "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad",
-  "deployed": [
+  "applied": true,
+  "installed": [
     {
-      "artifact": "rejuvenation-fields-0.2.0.jar",
-      "installedPath": "mods/rejuvenation-fields-0.2.0.jar",
-      "bytes": 2549366,
-      "sha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7",
-      "previousSha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7",
-      "replaced": false
+      "artifact": "rejuvenation-fields-0.1.jar",
+      "installedPath": "mods/rejuvenation-fields-0.1.jar",
+      "bytes": 2520580,
+      "sha256": "e24db94f54f995588c4d16994c34f1c07077b1652996cf1b4af6f4d696749161"
     },
     {
-      "artifact": "rejuvenation-fields-datapack-0.2.0.zip",
-      "installedPath": "datapacks/rejuvenation-fields-datapack-0.2.0.zip",
-      "bytes": 588760,
-      "sha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d",
-      "previousSha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d",
-      "replaced": false
+      "artifact": "rejuvenation-fields-compat-0.1.jar",
+      "installedPath": "mods/rejuvenation-fields-compat-0.1.jar",
+      "bytes": 60518,
+      "sha256": "94257abf09b3d61a28e79043259ef486f958039b4705c24a27c610352554edd6"
     },
     {
-      "artifact": "rejuvenation-gym-overrides-0.2.0.zip",
-      "installedPath": "datapacks/rejuvenation-gym-overrides-0.2.0.zip",
-      "bytes": 10742,
-      "sha256": "2f07447ae1435eba2b1a869f5b2937e1072c1d319aabd59c69c4b7d7a13de682",
-      "previousSha256": null,
-      "replaced": true
+      "artifact": "rejuvenation-fields-base-0.1.zip",
+      "installedPath": "datapacks/rejuvenation-fields-base-0.1.zip",
+      "bytes": 649899,
+      "sha256": "03581e6d6ec19e9c1dbacf672c459d0295be3b42c76338cbaccbb336037e1946"
+    },
+    {
+      "artifact": "rejuvenation-fields-cobbleverse-0.1.zip",
+      "installedPath": "datapacks/rejuvenation-fields-cobbleverse-0.1.zip",
+      "bytes": 16761,
+      "sha256": "51246fb39826096f7cd2edaf38b9bfa0ff59f62778173d4b0b94a70bdf0c6c5c"
     }
   ],
-  "note": "Only authored artifacts were written; research/audit_protected.py records the surrounding profile."
+  "replaced": [
+    {
+      "originalPath": "mods/rejuvenation-fields-0.2.0.jar",
+      "backupName": "00-rejuvenation-fields-0.2.0.jar",
+      "sha256": "e58e457f0290fc0bc5e9b33231621b751c85a7ce4f9aac47d1bdc3470e8020d6",
+      "bytes": 2560458
+    },
+    {
+      "originalPath": "datapacks/rejuvenation-fields-datapack-0.2.0.zip",
+      "backupName": "01-rejuvenation-fields-datapack-0.2.0.zip",
+      "sha256": "324c5d63866c4469d5ac03a76366dd7f8652a41999d44cdba3a8a057da0cef2d",
+      "bytes": 588760
+    },
+    {
+      "originalPath": "datapacks/rejuvenation-gym-overrides-0.2.0.zip",
+      "backupName": "02-rejuvenation-gym-overrides-0.2.0.zip",
+      "sha256": "e9c677f4fe90e90dfc7fcc2d58da5c065c1d26564da2987224698b54115164c4",
+      "bytes": 11703
+    }
+  ],
+  "note": "Only the listed artifacts were written; worlds, other mods and packs are untouched. Restart the game to load new jars.",
+  "backup": "research/backups/replaced-by-0.1-20261007-213643"
 }

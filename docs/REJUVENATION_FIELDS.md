@@ -23,10 +23,10 @@ Each linked specification lists the imported move/type content and the additiona
 | CORROSIVE | Corrosive Field | rejuvenation:corrosive | [Details](fields/corrosive.md) |
 | CORROSIVEMIST | Corrosive Mist Field | rejuvenation:corrosive_mist | [Details](fields/corrosive_mist.md) |
 | CORRUPTED | Corrupted Cave | rejuvenation:corrupted | [Details](fields/corrupted.md) |
-| CRIMSONFOREST | Crimson Forest Field | rejuvenation:crimson_forest | [Details](fields/crimson_forest.md) |
+| CRIMSONFOREST | Crimson Forest | rejuvenation:crimson_forest | [Details](fields/crimson_forest.md) |
 | CRYSTALCAVERN | Crystal Cavern | rejuvenation:crystal_cavern | [Details](fields/crystal_cavern.md) |
 | DARKCRYSTALCAVERN | Dark Crystal Cavern | rejuvenation:dark_crystal_cavern | [Details](fields/dark_crystal_cavern.md) |
-| DEEPDARK | Deep Dark Field | rejuvenation:deep_dark | [Details](fields/deep_dark.md) |
+| DEEPDARK | Deep Dark | rejuvenation:deep_dark | [Details](fields/deep_dark.md) |
 | DEEPEARTH | Deep Earth | rejuvenation:deep_earth | [Details](fields/deep_earth.md) |
 | DESERT | Desert Field | rejuvenation:desert | [Details](fields/desert.md) |
 | DEUXFINALIS | Deux Finalis | rejuvenation:deux_finalis | [Details](fields/deux_finalis.md) |
@@ -54,7 +54,7 @@ Each linked specification lists the imported move/type content and the additiona
 | MOUNTAIN | Mountain | rejuvenation:mountain | [Details](fields/mountain.md) |
 | MURKWATERSURFACE | Murkwater Surface | rejuvenation:murkwater_surface | [Details](fields/murkwater_surface.md) |
 | NEWWORLD | New World | rejuvenation:new_world | [Details](fields/new_world.md) |
-| PALEGARDEN | Pale Garden Field | rejuvenation:pale_garden | [Details](fields/pale_garden.md) |
+| PALEGARDEN | Pale Garden | rejuvenation:pale_garden | [Details](fields/pale_garden.md) |
 | PSYTERRAIN | Psychic Terrain | rejuvenation:psychic_terrain | [Details](fields/psychic_terrain.md) |
 | RAINBOW | Rainbow Field | rejuvenation:rainbow | [Details](fields/rainbow.md) |
 | ROCKY | Rocky Field | rejuvenation:rocky | [Details](fields/rocky.md) |
@@ -66,6 +66,6 @@ Each linked specification lists the imported move/type content and the additiona
 | UNDERWATER | Underwater | rejuvenation:underwater | [Details](fields/underwater.md) |
 | VOLCANIC | Volcanic Field | rejuvenation:volcanic | [Details](fields/volcanic.md) |
 | VOLCANICTOP | Volcanic Top | rejuvenation:volcanic_top | [Details](fields/volcanic_top.md) |
-| WARPEDFOREST | Warped Forest Field | rejuvenation:warped_forest | [Details](fields/warped_forest.md) |
+| WARPEDFOREST | Warped Forest | rejuvenation:warped_forest | [Details](fields/warped_forest.md) |
 | WASTELAND | Wasteland | rejuvenation:wasteland | [Details](fields/wasteland.md) |
 | WATERSURFACE | Water Surface | rejuvenation:water_surface | [Details](fields/water_surface.md) |

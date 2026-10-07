@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "order": 400,
+  "rules": [
+    {
+      "dimension": "lumymon:nightmare",
+      "field": "rejuvenation:haunted",
+      "reason": "Dimension fallback"
+    },
+    {
+      "dimension": "lumymon:origin",
+      "field": "rejuvenation:sky",
+      "reason": "Dimension fallback"
+    },
+    {
+      "dimension": "cobblemonraiddens:raid_dimension",
+      "field": "rejuvenation:cave",
+      "reason": "Dimension fallback"
+    },
+    {
+      "dimension": "legendarymonuments:distortion_world",
+      "field": "rejuvenation:dimensional",
+      "reason": "Dimension fallback"
+    }
+  ]
+}

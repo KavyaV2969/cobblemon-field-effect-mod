@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    " A ",
+    "ASA",
+    " A "
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:amethyst_shard"
+    },
+    "S": {
+      "tag": "rejuvenation:terrain_seed_centers"
+    }
+  },
+  "result": {
+    "id": "rejuvenation:magical_seed",
+    "count": 1
+  }
+}

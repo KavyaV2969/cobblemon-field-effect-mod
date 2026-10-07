@@ -1,0 +1,97 @@
+{{Quote | ''The water is tainted...''}}
+[[File:BattlebgMurkwaterSurface.png|thumb]]
+
+Murkwater Surface is a field effect present in Rejuvenation. It is classified as an Elemental field. A notable user of the field is [[Erick]], during his gym battle.
+
+==Transitions From Other Fields==
+
+* [[Icy Field]] will transform into this field if Murkwater Surface is below the field, and any of the following moves are used:
+** Bulldoze, Dive, Earthquake, Eruption, Fire Pledge, Fissure, Flame Burst, Heat Wave, Incinerate, Inferno Overdrive, Lava Plume, [[Magma Drift]], Magnitude, Mind Blown, Raging Fury, Searing Shot, Scald (x2), Steam Eruption, Tectonic Rage
+** ''The ice melted away!''
+** ''The hot water melted the ice!''
+** ''The quake broke up the ice and revealed the water beneath!''
+** ''The ice was broken from underneath!''
+* [[Water Surface]] and [[Underwater]] will transform into this field if Sludge Wave is used 2 times or Acid Downpour is used 1 time. If [[Underwater]] is transformed, all non-Poison and non-Steel-type Pokémon on the field will faint. 
+** ''The grime sank beneath the battlers! The water was polluted!''
+
+==General Effects==
+
+* Water-type attacks increase in base power by 1.5x and gain a Poison sub-typing.
+** ''The toxic water strengthened the attack!''
+* Poison-type attacks increase in base power by 1.5x.
+** ''The toxic water strengthened the attack!''
+* Electric-type attacks increase in base power by 1.3x.
+** ''The toxic water conducted the attack!''
+* Ground-type attacks fail on use.
+** ''...But there was no solid ground to attack from!''
+* Grounded Pokémon have their Speed decreased to 0.75x, unless they are Water-type or have one of the abilities Surge Surfer or Swift Swim.
+
+===Field damage===
+
+* Grounded non-Poison or Steel-type Pokémon take type-scaling Poison damage at the end of each turn, with normal damage equal to 1/8 max HP. 
+** ''[Pokémon] was hurt by the toxic water!''
+** Pokémon take no field damage if they have one of the abilities Immunity, Magic Guard, Pastel Veil, Poison Heal, Surge Surfer, Toxic Boost or Wonder Guard.
+** Pokémon take x2 field damage if have one of the abilities Dry Skin, Flame Body, Magma Armor or Water Absorb
+** Pokémon take x4 field damage when using Dive.
+*** ''[Pokémon] suffocated underneath the toxic water!''
+
+==Abilities affected==
+
+* Dry Skin and Water Absorb additionally restore 1/8 of the bearer's max HP each turn if it is grounded and Poison-type.
+** ''[Pokémon] was healed by the poisoned water!''
+* Gooey now lowers Speed by 2 stages on activation.
+* Liquid Ooze now deals double damage on activation.
+* Merciless, Schooling, Surge Surfer, Swift Swim, and Toxic Boost are always activated.
+* Mimicry changes the user's type to Poison.
+* Poison Heal additionally restores 1/8 of the bearer's max HP each turn if it is grounded.
+** ''[Pokémon] was healed by the poisoned water!''
+* Stench's activation rate is doubled to 20%.
+* Water Compaction is activated at the end of each turn.
+
+==Moves affected==
+
+===Moves which receive a buff===
+
+* Mud Barrage, Mud Bomb, Mud Shot, Mud Slap, Thousand Waves → 1.5x boost, deal Water-type damage, Poison sub-typing.
+** ''The toxic water strengthened the attack!''
+* Apple Acid, Smack Down → 1.5x boost, Poison sub-typing.
+** ''The toxic water strengthened the attack!''
+* Acid, Acid Spray, Brine →  1.5x boost.
+** ''The toxic water strengthened the attack!''
+** ''Stinging!''
+
+===Other moves===
+
+* Acid Armor boosts the user's Defense by 3 stages.
+* Barb Barrage and Venoshock double in power regardless of status.
+* Life Dew and Tar Shot additionally Poison their targets.
+* Shore Up additionally activates Water Compaction.
+* Sludge Wave gains a Water sub-typing.
+* Spikes and Toxic Spikes fail on use.
+** ''...The spikes sank into the water and vanished!''
+* Venom Drench can be activated regardless of status.
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to Poison.
+* Nature Power becomes Sludge Wave.
+* Secret Power may inflict Poison.
+* Shelter halves damage from Poison-type moves.
+* Terrain Pulse's type becomes Poison.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into [[Water Surface]] if either of the moves Purify or Whirlpool is used.
+** ''The attack cleared the waters!''
+** ''The maelstrom flushed out the poison!''
+* This field will transform into [[Icy Field]] if one of the moves Blizzard, Glaciate, or Subzero Slammer is used.
+** ''The toxic water froze over!''
+
+==Items==
+
+* [[Elemental Seed]] raises Speed by 1 stage and applies Aqua Ring, but poisons the user.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

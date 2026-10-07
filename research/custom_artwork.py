@@ -12,7 +12,7 @@ import hashlib, json, os, shutil, sys
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parents[1]
-ASSETS = ROOT / 'mod/src/main/resources/assets/rejuvenation'
+ASSETS = ROOT / 'core/src/main/resources/assets/rejuvenation'
 TEXTURES = ASSETS / 'textures/gui/field'
 MANIFEST = ASSETS / 'field_backdrops.json'
 KEEP = ROOT / 'research/custom-artwork'

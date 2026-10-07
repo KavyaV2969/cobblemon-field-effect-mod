@@ -2,7 +2,7 @@
 
 **Implementation status: all 57 original Rejuvenation field definitions are implemented and their source audit is closed. The 4 custom fields have no Ruby source; their specification and tests are in [CUSTOM_FIELDS.md](CUSTOM_FIELDS.md).** Every ordinary field-dependent branch in the local Rejuvenation 14.0.14 battle scripts has an evidence-backed disposition. All 762 AI leads are individually reviewed; ordinary applicable strategy has zero pending leads. The adapter combines Run & Bun scoring with simulator consequence lookahead, source field weights and reserve-team planning; see [INTEGRATIONS.md](INTEGRATIONS.md).
 
-**Verification boundary:** behavior is verified by 631 simulator regression checks, the Graal/Java suites, a bounded Ruby method oracle and selected live Minecraft battles. No field is certified through exhaustive live play or two-client multiplayer; see [TESTING.md](TESTING.md) and [REMAINING_WORK.md](REMAINING_WORK.md).
+**Verification boundary:** behavior is verified by 656 simulator regression checks, the Graal/Java suites, a bounded Ruby method oracle and selected live Minecraft battles. No field is certified through exhaustive live play or two-client multiplayer; see [TESTING.md](TESTING.md) and [REMAINING_WORK.md](REMAINING_WORK.md).
 
 ## Evidence
 
@@ -31,10 +31,10 @@
 | Corrosive Field | CORROSIVE | 18 | 48 | 16 | 14 | 0 | 0 | 2 | 0 | 20 | Implemented; source audit closed |
 | Corrosive Mist Field | CORROSIVEMIST | 33 | 54 | 27 | 24 | 0 | 0 | 3 | 0 | 18 | Implemented; source audit closed |
 | Corrupted Cave | CORRUPTED | 17 | 45 | 17 | 15 | 0 | 0 | 2 | 0 | 16 | Implemented; source audit closed |
-| Crimson Forest Field | CRIMSONFOREST | 16 | 59 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
+| Crimson Forest | CRIMSONFOREST | 16 | 59 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
 | Crystal Cavern | CRYSTALCAVERN | 34 | 43 | 14 | 12 | 0 | 0 | 2 | 0 | 8 | Implemented; source audit closed |
 | Dark Crystal Cavern | DARKCRYSTALCAVERN | 35 | 47 | 9 | 9 | 0 | 0 | 0 | 0 | 8 | Implemented; source audit closed |
-| Deep Dark Field | DEEPDARK | 0 | 38 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
+| Deep Dark | DEEPDARK | 0 | 38 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
 | Deep Earth | DEEPEARTH | 30 | 71 | 47 | 45 | 0 | 0 | 2 | 0 | 25 | Implemented; source audit closed |
 | Desert Field | DESERT | 22 | 47 | 26 | 21 | 4 | 0 | 1 | 0 | 21 | Implemented; source audit closed |
 | Deux Finalis | DEUXFINALIS | 34 | 77 | 57 | 56 | 1 | 0 | 0 | 0 | 30 | Implemented; source audit closed |
@@ -62,7 +62,7 @@
 | Mountain | MOUNTAIN | 23 | 45 | 13 | 11 | 1 | 0 | 1 | 0 | 10 | Implemented; source audit closed |
 | Murkwater Surface | MURKWATERSURFACE | 19 | 53 | 29 | 28 | 0 | 0 | 1 | 0 | 19 | Implemented; source audit closed |
 | New World | NEWWORLD | 112 | 63 | 50 | 47 | 0 | 2 | 1 | 0 | 35 | Implemented; source audit closed |
-| Pale Garden Field | PALEGARDEN | 22 | 48 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
+| Pale Garden | PALEGARDEN | 22 | 48 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
 | Psychic Terrain | PSYTERRAIN | 10 | 59 | 42 | 39 | 0 | 1 | 2 | 0 | 27 | Implemented; source audit closed |
 | Rainbow Field | RAINBOW | 34 | 52 | 32 | 31 | 0 | 1 | 0 | 0 | 25 | Implemented; source audit closed |
 | Rocky Field | ROCKY | 7 | 42 | 13 | 9 | 2 | 1 | 1 | 0 | 12 | Implemented; source audit closed |
@@ -74,7 +74,7 @@
 | Underwater | UNDERWATER | 15 | 60 | 35 | 32 | 1 | 2 | 0 | 0 | 28 | Implemented; source audit closed |
 | Volcanic Field | VOLCANIC | 26 | 58 | 22 | 19 | 0 | 2 | 1 | 0 | 17 | Implemented; source audit closed |
 | Volcanic Top | VOLCANICTOP | 45 | 65 | 24 | 22 | 0 | 2 | 0 | 0 | 29 | Implemented; source audit closed |
-| Warped Forest Field | WARPEDFOREST | 15 | 50 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
+| Warped Forest | WARPEDFOREST | 15 | 50 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | Custom field; no Ruby source |
 | Wasteland | WASTELAND | 15 | 52 | 29 | 27 | 1 | 0 | 1 | 0 | 16 | Implemented; source audit closed |
 | Water Surface | WATERSURFACE | 18 | 56 | 30 | 30 | 0 | 0 | 0 | 0 | 28 | Implemented; source audit closed |
 

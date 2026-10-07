@@ -1,0 +1,72 @@
+{{Quote | ''The cave is littered with crystals.''}}
+[[File:BattlebgCrystalCavern.png|thumb]]
+
+Crystal Cavern is one of the field effects present in Rejuvenation. It is classified as a Magical Field and can be found in [[Amethyst Cave]].
+
+==Transitions From Other Fields==
+
+* [[Cave]] will transform into this field if either Diamond Storm or Power Gem is used.
+** ''The cave was littered with crystals!''
+* [[Dark Crystal Cavern]] will transform into this field if harsh sunlight is active at the end of the turn, and will transform back when it isn't.
+** ''The sun lit up the crystal cavern!''
+
+==General Effects==
+
+* Certain moves and abilities involve using a crystal type that cycles between Fire, Water, Grass, and Psychic, in that order.
+** Every instance of damage calculation from moves using a crystal type advances the crystal type. All moves use the same crystal type counter.
+* Rock-type moves increase in base power by 1.5x and gain a crystal type sub-typing.
+** ''The crystals charged the attack!''
+* Dragon-type moves increase in base power by 1.5x.
+** ''The crystal energy strengthened the attack!''
+
+==Abilities Affected==
+
+* Mimicry changes the user's type to a crystal type.
+* Prism Armor additionally boosts Defense and Special Defense by 33%.
+
+==Moves Affected==
+
+===Moves which receive an attack buff===
+
+* Judgment, Multi-Attack, Prismatic Laser, Rock Climb, Strength → 1.5x boost, crystal type sub-typing.
+** ''The crystals' light strengthened the attack!''
+** ''The crystals strengthened the attack!''
+* Ancient Power, Diamond Storm, Luster Purge, Power Gem, Rock Smash, Rock Tomb → 1.5x boost.
+** ''The crystals' light strengthened the attack!''
+** ''The crystals strengthened the attack!''
+* Aurora Beam, Dazzling Gleam, Doom Desire, Flash Cannon, Menacing Moonraze Maelstrom, Mirror Beam, Mirror Shot, Moongeist Beam, Photon Geyser, Signal Beam, Techno Blast → 1.3x boost.
+** ''The crystals' light strengthened the attack!''
+
+===Other moves===
+
+* Aurora Veil can be activated regardless of weather. 
+* Rock Polish additionally boosts the user's Attack and Special Attack by 1 stage.
+* Stealth Rock instead deals crystal type-scaling damage.
+** ''[Pokémon] was hurt by the crystalized stealth rocks!''
+
+===Field-dependent moves===
+
+* Camouflage changes the user's type to a crystal type.
+* Nature Power becomes Power Gem.
+* Secret Power may inflict a random status between Burn, Freeze, Sleep, or Confusion.
+* Shelter halves damage from Dragon-type moves.
+* Terrain Pulse's type becomes a crystal type.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost if it changes the field, unless noted otherwise.'''
+
+* This field will transform into this [[Dark Crystal Cavern]] if any of the moves Dark Pulse, Dark Void, Light That Burns the Sky, or Night Daze is used.
+** ''The crystal's light was warped by the darkness!''
+** ''The crystals' light was consumed!''
+* This field will transform into [[Cave]] if any of the moves Bulldoze, Earthquake, Fissure, or Magnitude are used 2 times, or Tectonic Rage is used 1 time.
+** ''The crystals are starting to crack...''
+** ''The crystals were broken up!''
+** As of v13.5.6, the field effect manual does not mention Fissure as a move that changes the field to [[Cave]].
+
+==Items==
+
+* [[Magical Seed]] boosts Special Attack and applies Magic Coat to the user.
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

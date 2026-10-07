@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "rejuvenation:deep_dark",
   "originalId": "DEEPDARK",
-  "name": "Deep Dark Field",
+  "name": "Deep Dark",
   "entryMessage": "The Deep Dark is listening...",
   "specification": "Deep_Dark_Field.md",
   "base": "INDOOR",
@@ -103,31 +103,46 @@
   "biomes": ["minecraft:deep_dark"],
   "structures": [{"structure": "minecraft:ancient_city", "reason": "Ancient City"}, {"tag": "repurposed_structures:collections/ancient_cities", "reason": "Ancient City variant"}],
   "notes": {
-    "summary": "The sculk of the Deep Dark listens to the battle. Loud or violent moves wake it; calm moves quiet it. At full alarm it strikes everyone on the field.",
+    "summary": "“The Deep Dark is listening...”",
     "sections": [
-      {"heading": "Type power", "lines": [
-        "Dark and Ghost moves are 1.5× stronger.",
-        "Rock and Ground moves are 1.3× stronger.",
-        "Fairy moves are halved (0.5×).",
-        "Mimicry, Camouflage and Terrain Pulse use the Dark type. Nature Power becomes Dark Pulse.",
-        "Secret Power can lower the target's Accuracy."]},
+      {"heading": "Description", "lines": [
+        "Deep Dark is a custom field effect that does not appear in Pokémon Rejuvenation. It is based on the Deep Dark biome and the Ancient Cities of Minecraft, and is found in the Deep Dark biome and inside Ancient Cities.",
+        "The field keeps one Sculk Warning counter, from 0 to 4, shared by the whole battlefield. Loud or violent moves raise it, calm moves lower it, and at Warning 4 the sculk strikes every Pokémon on the field."]},
+      {"heading": "General Effects", "lines": [
+        "Dark-type and Ghost-type moves increase in base power by 1.5x.",
+        "Rock-type and Ground-type moves increase in base power by 1.3x.",
+        "Fairy-type moves decrease in base power to 0.5x."]},
       {"heading": "Sculk Warning", "lines": [
-        "One shared Warning from 0 to 4 for the whole battlefield.",
-        "Each side can change the Warning once per turn; raising and calming it share that one change. A change that would do nothing (for example calming at 0) is not used up.",
-        "A move adds Warning by the first group that applies: calming moves lower it by 1; moves with their own entry (such as Earthquake, Boomburst, Uproar and Explosion), sound moves and the Earthquake-style moves (Earth Power, Bulldoze, Rock Slide, Stone Edge and others) add 2; otherwise power decides: 90 to 149 adds 1, 150 or more adds 2.",
-        "The power counted is the move's own power before type, STAB, item and ability boosts. Spread and multi-hit moves count once, by their strongest hit.",
-        "The move only has to be carried out: a miss, Protect, immunity or absorbing ability still wakes the sculk. A move stopped before it starts (sleep, paralysis, flinch) or a charging turn does not.",
-        "Switching and fainting never reset the Warning."]},
-      {"heading": "Warning stages", "lines": [
+        "The Warning is a single value from 0 to 4 for both sides. Switching and fainting never reset it.",
+        "Each side can change the Warning once per turn. Raising and calming it share that one change. A change that would do nothing, such as calming at Warning 0, is not used up.",
+        "A move changes the Warning by the first group below that applies:",
+        "Calming moves lower the Warning by 1.",
+        "Moves with their own entry (Earthquake, Boomburst, Uproar, Explosion and similar), sound-based moves, and the Earthquake-style moves (Earth Power, Bulldoze, Rock Slide, Stone Edge and others) raise the Warning by 2.",
+        "Any other damaging move is decided by its base power: 90 to 149 raises the Warning by 1, and 150 or more raises it by 2.",
+        "The base power counted is the move's own, before type, same-type, item and ability boosts. Spread and multi-hit moves count once, by their strongest hit.",
+        "The move only has to be carried out: a miss, Protect, an immunity or an absorbing ability still wakes the sculk. A move that is stopped before it starts (sleep, paralysis, flinching) or a charging turn does not."]},
+      {"heading": "Warning Stages", "lines": [
         "Warning 1 and 2 only announce that the sculk is stirring.",
-        "Warning 3: Darkness. Every accuracy check is multiplied by 0.9 (not a stat drop). Keen Eye, Compound Eyes and Illuminate ignore it. Rattled raises Speed by 1 when the Warning rises to 3.",
-        "Warning 4: the Deep Dark strikes back. Every active Pokémon that is not immune loses 20% of its maximum HP, even through Protect or a Substitute. It happens once per turn, after the move that caused it, and the Warning then drops to 1, ending the Darkness.",
-        "Immune to the strike: Soundproof, Punk Rock, Solid Rock and Ghost types. Immunity does not stop their own moves from raising the Warning."]},
-      {"heading": "Calming", "lines": [
-        "Calm Mind, Meditate, Flash, Rest, Aromatherapy and Lunar Blessing lower the Warning by 1.",
-        "If calming brings the Warning below 3, the Darkness lifts."]},
-      {"heading": "Magical Seed", "lines": [
-        "The holder's ability becomes Soundproof for the rest of its time on the field, then the seed tries to raise the Warning by 1 (it counts as the holder's side change for the turn)."]}
+        "Warning 3 (Darkness): every accuracy check is multiplied by 0.9. This is not a stat drop. The Darkness lifts as soon as the Warning falls below 3.",
+        "Warning 4 (the Deep Dark strikes back): every active Pokémon that is not immune loses 20% of its maximum HP, even through Protect or a Substitute. This happens once per turn, after the move that caused it, and the Warning then drops to 1, ending the Darkness.",
+        "Immune to the strike: Pokémon with Soundproof, Punk Rock or Solid Rock, and Ghost-type Pokémon. Being immune does not stop their own moves from raising the Warning."]},
+      {"heading": "Abilities Affected", "lines": [
+        "Keen Eye, Compound Eyes and Illuminate ignore the accuracy penalty of Warning 3.",
+        "Mimicry changes the bearer's type to Dark.",
+        "Rattled raises Speed by 1 stage when the Warning rises to 3.",
+        "Soundproof, Punk Rock and Solid Rock protect against the strike at Warning 4."]},
+      {"heading": "Moves Affected", "lines": [
+        "Moves which lower the Warning by 1:",
+        "Calm Mind, Meditate, Flash, Rest, Aromatherapy, Lunar Blessing.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Dark.",
+        "Nature Power becomes Dark Pulse.",
+        "Secret Power may lower the target's accuracy by 1 stage.",
+        "Terrain Pulse's type becomes Dark."]},
+      {"heading": "Items", "lines": [
+        "Magical Seed changes the holder's ability to Soundproof for the rest of its time on the field, then tries to raise the Warning by 1. This counts as the holder's side change for the turn."]},
+      {"heading": "Source", "lines": [
+        "Custom field written for this mod, in the layout of the field entries of the Pokémon Rejuvenation Wiki (https://rejuvenation.wiki.gg/wiki/Field_Effects), whose text is licensed under Creative Commons Attribution-ShareAlike 4.0."]}
     ],
     "counters": [
       {"id": "warning", "label": "Sculk Warning", "scope": "shared", "maximum": 4, "thresholds": [{"at": 3, "text": "Darkness: accuracy ×0.9"}, {"at": 4, "text": "The Deep Dark strikes back"}]}

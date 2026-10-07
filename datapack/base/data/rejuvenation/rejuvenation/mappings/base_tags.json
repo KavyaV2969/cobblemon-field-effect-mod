@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 1,
+  "order": 300,
+  "rules": [
+    {
+      "tag": "minecraft:is_forest",
+      "field": "rejuvenation:forest",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "minecraft:is_jungle",
+      "field": "rejuvenation:forest",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "minecraft:is_taiga",
+      "field": "rejuvenation:forest",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "minecraft:is_ocean",
+      "field": "rejuvenation:water_surface",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "minecraft:is_river",
+      "field": "rejuvenation:water_surface",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "minecraft:is_mountain",
+      "field": "rejuvenation:mountain",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "minecraft:is_beach",
+      "field": "rejuvenation:beach",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "minecraft:is_badlands",
+      "field": "rejuvenation:desert",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "c:is_snowy",
+      "field": "rejuvenation:icy",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "c:is_swamp",
+      "field": "rejuvenation:swamp",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "tag": "c:is_cave",
+      "field": "rejuvenation:cave",
+      "reason": "Future biome tag compatibility"
+    },
+    {
+      "dimension": "minecraft:the_nether",
+      "field": "rejuvenation:volcanic",
+      "reason": "Dimension fallback"
+    },
+    {
+      "dimension": "minecraft:the_end",
+      "field": "rejuvenation:new_world",
+      "reason": "Dimension fallback"
+    }
+  ]
+}

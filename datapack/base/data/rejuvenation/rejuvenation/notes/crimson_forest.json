@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:crimson_forest",
+  "title": "Crimson Forest",
+  "summary": "“The red flora is preying...”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Crimson Forest."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Crimson Forest is a custom field effect that does not appear in Pokémon Rejuvenation. It is based on the Nether biome of the same name and is found in the Crimson Forest biome.",
+        "The field strengthens Fire, Grass and Poison moves, punishes the Pokémon that attacks first with a move of positive priority, and rewards Pokémon that knock out an opponent (Piglin Bloodlust)."
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Fire-type, Grass-type and Poison-type moves increase in base power by 1.3x.",
+        "Special Bug-type moves increase in base power by 1.2x.",
+        "Water-type moves decrease in base power to 0.8x.",
+        "Ice-type moves decrease in base power to 0.5x.",
+        "Special Flying-type moves also count as Poison-type when type effectiveness is calculated.",
+        "Extra types change damage only; they never add same-type attack bonus."
+      ]
+    },
+    {
+      "heading": "Abilities Affected",
+      "lines": [
+        "Effect Spore's activation rate is doubled to 60%.",
+        "Flash Fire users that are grounded power up at the end of each turn.",
+        "Good as Gold raises Speed and Special Attack by 1 stage when the bearer enters.",
+        "Grass Pelt, Leaf Guard, Overgrow and Swarm are active.",
+        "Magma Armor raises Defense by 1 stage when the bearer enters.",
+        "Merciless, Poison Heal and Toxic Boost are active as in Corrosive Mist Field.",
+        "Mimicry changes the bearer's type to Fire.",
+        "Steam Engine can raise Speed at the end of each turn.",
+        "Well-Baked Body users that are grounded raise Defense by 1 stage at the end of each turn."
+      ]
+    },
+    {
+      "heading": "Moves Affected",
+      "lines": [
+        "Moves which receive an attack buff:",
+        "Power Whip, Vine Whip also count as Fire-type and increase in base power by 1.5x on top of the Grass-type bonus (1.95x in total).",
+        "Acid Spray, Clear Smog, Smog → 1.5x boost on top of the Poison-type bonus (1.95x in total).",
+        "Pay Day → 1.5x boost.",
+        "Make It Rain → 1.3x boost.",
+        "Other moves:",
+        "Barb Barrage and Venoshock always deal their doubled damage.",
+        "Fire Spin deals 1/6 of the target's max HP each turn.",
+        "Slash, Air Slash, Fury Cutter, Air Cutter, Psycho Cut, Breaking Swipe and Cut gain the Grass type, as in Forest Field.",
+        "Toxic and Will-O-Wisp have 100% accuracy.",
+        "Field-dependent moves:",
+        "Camouflage changes the user's type to Fire.",
+        "Nature Power becomes Power Whip.",
+        "Secret Power may inflict Burn.",
+        "Shelter halves damage from Fire-type moves.",
+        "Terrain Pulse's type becomes Fire."
+      ]
+    },
+    {
+      "heading": "Piglin Bloodlust",
+      "lines": [
+        "When a Pokémon directly knocks out an opposing Pokémon with a move, its Attack rises by 1 stage. This stacks with Moxie.",
+        "A move that knocks out two opposing Pokémon at once raises Attack by 2 stages.",
+        "Knockouts caused by poison, burn, weather, recoil, field damage or by the user's own ally do not count."
+      ]
+    },
+    {
+      "heading": "Crimson Vines",
+      "lines": [
+        "Damaging moves with positive priority have their final accuracy multiplied by 0.8. Moves that never miss are not affected.",
+        "If such a move misses because of this penalty, the user crashes as with High Jump Kick and loses half of its max HP. Ordinary misses, Protect and immunities never cause a crash."
+      ]
+    },
+    {
+      "heading": "Weather and Status",
+      "lines": [
+        "Hail and Snow cannot last here and disappear as soon as they appear.",
+        "Pokémon cannot be frozen."
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Elemental Seed raises Attack, Special Attack and Speed by 1 stage each and Taunts the user."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Custom field written for this mod, in the layout of the field entries of the Pokémon Rejuvenation Wiki (https://rejuvenation.wiki.gg/wiki/Field_Effects), whose text is licensed under Creative Commons Attribution-ShareAlike 4.0."
+      ]
+    }
+  ],
+  "counters": []
+}

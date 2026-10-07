@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "order": 150,
+  "rules": [
+    {
+      "tag": "repurposed_structures:collections/ancient_cities",
+      "reason": "Ancient City variant",
+      "field": "rejuvenation:deep_dark"
+    }
+  ]
+}

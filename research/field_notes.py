@@ -1,16 +1,19 @@
 """Player-facing Field Notes for every field, written as datapack data (data/<ns>/rejuvenation/notes/<field>.json).
 
-The 57 original fields' notes are derived from their generated definitions: type and move power, extra typing, field changes with their
-counters, standard field moves (Nature Power, Secret Power, Mimicry), the seed, per-turn effects and the ability/item interactions this
-module can state exactly. Anything it cannot state exactly is left out of the prose rather than approximated, and the notes say so.
-The four custom fields carry hand-written notes in research/custom-fields/*.json. Output is plain text: no JSON, rule operators,
+The 57 original fields' notes are the entries of the Pokémon Rejuvenation Wiki (https://rejuvenation.wiki.gg/wiki/Field_Effects and the per-field
+pages it lists), converted to plain lines by research/wiki_notes.py from the stored snapshots in research/wiki-notes/, plus a generated "Where it appears"
+section and a Source section with the license (Creative Commons Attribution-ShareAlike 4.0). The Writer below still derives the overlay lines.
+The four custom fields carry hand-written notes in the same style in research/custom-fields/*.json. Output is plain text: no JSON, rule operators,
 Ruby, source line numbers or developer text. Server operators can replace any file with a datapack file at the same path.
 """
 from pathlib import Path
-import json, math, re, subprocess
+import json, math, re, subprocess, sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import wiki_notes
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / 'datapack/data/rejuvenation/rejuvenation'
+DATA = ROOT / 'datapack/base/data/rejuvenation/rejuvenation'
 NOTES = DATA / 'notes'
 MAX_SECTIONS, MAX_LINES, MAX_LINE = 14, 40, 220
 
@@ -355,33 +358,30 @@ def section(heading, lines):
     return {'heading': heading, 'lines': lines[:MAX_LINES]} if lines else None
 
 
+def source_section(field_id):
+    """The attribution every wiki-derived note carries (the wiki text is licensed Creative Commons Attribution-ShareAlike 4.0)."""
+    row = wiki_notes.source_row(field_id)
+    page = wiki_notes.PAGES[field_id].replace('_', ' ')
+    stage = ' (the text of this stage)' if field_id in wiki_notes.STAGE else ''
+    return {'heading': 'Source', 'lines': [
+        f'Adapted from the Pokémon Rejuvenation Wiki page “{page}”{stage}, revision {row["revid"]}: {row["url"]}',
+        f'Text licensed under {wiki_notes.LICENSE} (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged.']}
+
+
 def build_original(f, writer, biomes, structures):
-    sections = []
-    types = writer.type_rows(f)
-    rows, extra = writer.move_rows(f)
-    sections.append(section('Type power', types + extra))
-    sections.append(section('Move effects', rows))
-    sections.append(section('Standard moves and typing', writer.entry_hooks(f)))
-    sections.append(section('Changes and restoration', writer.transitions(f)))
-    abilities, each_turn = writer.abilities(f)
-    sections.append(section('Abilities', abilities))
-    sections.append(section('Each turn', each_turn + writer.each_turn(f)))
-    sections.append(section('Weather and status', writer.weather_status(f)))
-    sections.append(section('Progression', writer.progression(f)))
-    sections.append(section('Seed', writer.seed(f)))
+    """A note for one of the 57 original fields: the wiki's entry for the field, a generated "Where it appears" section and the source line."""
+    fid = f['id'].split(':')[1]
+    wiki = wiki_notes.load(fid)
     overlay = writer.overlay(f)
     where = biomes.get(f['id'], [])
-    summary = ' '.join(f['entryMessage'].split()) if f['entryMessage'] else 'No special field effects.'
-    if f['id'] == 'rejuvenation:indoor': summary = 'No field: ordinary battle rules apply.'
-    doc = {'schemaVersion': 1, 'field': f['id'], 'title': f['name'], 'summary': '“' + summary + '”' if f['id'] != 'rejuvenation:indoor' else summary,
-           'sections': [s for s in sections if s]}
-    if where: doc['sections'].insert(0, {'heading': 'Where it appears', 'lines': [where]})
+    flavor = wiki['flavor'] or ('“' + ' '.join(f['entryMessage'].split()) + '”' if f['entryMessage'] else 'No field: ordinary battle rules apply.')
+    sections = [dict(s) for s in wiki['sections']]
+    if where: sections.insert(0, {'heading': 'Where it appears', 'lines': [where]})
+    sections.append(source_section(fid))
+    doc = {'schemaVersion': 1, 'field': f['id'], 'title': f['name'], 'summary': flavor, 'sections': sections}
     if overlay: doc['overlay'] = overlay[:MAX_LINES]
     if f['id'] in ('rejuvenation:icy', 'rejuvenation:snowy_mountain'):
         doc['substrateText'] = 'When the ' + ('ice' if f['id'].endswith('icy') else 'snow') + ' is melted or broken, the ground beneath it ({substrate}) is restored instead of the usual replacement.'
-    if f['id'] == 'rejuvenation:indoor' and not doc['sections']: doc['sections'] = [{'heading': 'Rules', 'lines': ['Moves, abilities and items work as in an ordinary battle.']}]
-    doc['sections'].append({'heading': 'More', 'lines': ['Rarer interactions of specific moves, abilities and items follow the Rejuvenation field rules and are not all listed here.']})
-    doc['sections'] = doc['sections'][:MAX_SECTIONS]
     return doc
 
 
@@ -391,7 +391,6 @@ STRUCTURE_NAMES = {'rejuvenation:city': 'generated villages (vanilla and modded 
 
 def biome_lines(fields):
     rows = json.loads((ROOT / 'research/biome-mapping.json').read_text(encoding='utf-8'))
-    structures = json.loads((DATA / 'structures/vanilla.json').read_text(encoding='utf-8'))['rules']
     out, over = {}, {}
     for row in rows:
         if row['biome'].startswith('terralith:'): continue
@@ -399,7 +398,7 @@ def biome_lines(fields):
         out.setdefault(row['field'], []).append(name)
         if row.get('substrate'): over.setdefault(row['field'], {})[name] = field_label(fields, row['substrate'])
     pretty = {}
-    for fid in sorted({*out, *(r['field'] for r in structures)}):
+    for fid in sorted({*out, *STRUCTURE_NAMES}):
         parts = []
         names = sorted(set(out.get(fid, [])))
         if names:
@@ -421,6 +420,62 @@ def split_line(text, limit=800):
     return out + [text]
 
 
+def finalize_lines(doc):
+    """Every line is whitespace-normalised and split to the per-line bound that FieldNotes enforces."""
+    for s in doc['sections']:
+        s['lines'] = [part for l in s['lines'] for part in split_line(re.sub(r'\s+', ' ', l).strip())]
+    return doc
+
+
+def custom_document(f, spec, where=None):
+    """Field Notes for a custom field: its authored summary/sections/counters, preceded by a generated "Where it appears" line.
+
+    Shared by the production build and the authoring example builder so both produce the same shape.
+    """
+    n = spec['notes']
+    doc = {'schemaVersion': 1, 'field': f['id'], 'title': f['name'], 'summary': n['summary'], 'sections': [dict(s) for s in n['sections']], 'counters': n.get('counters', [])}
+    if where: doc['sections'] = [{'heading': 'Where it appears', 'lines': [where]}] + doc['sections']
+    return finalize_lines(doc)
+
+
+MARKDOWN = ROOT / 'field-notes/FIELD_NOTES.md'
+MARKDOWN_HEADER = f'''# Field Notes
+
+The text of the Field Notes of all 61 fields, exactly as the mod shows it in the Field Notes overlay (the files under `datapack/base/data/rejuvenation/rejuvenation/notes/`).
+This file is generated by `python research/generate.py` (`research/field_notes.py`); edit the sources, not this file.
+
+## Source and license
+
+* The notes of the 57 original fields are the entries of the Pokémon Rejuvenation Wiki (https://rejuvenation.wiki.gg/wiki/Field_Effects and the field pages it lists), taken from the revisions recorded in `research/wiki-notes/sources.json`. Wiki markup, links and images were removed; the wording is otherwise unchanged. The "Where it appears" sections are this mod's.
+* The notes of Deep Dark, Crimson Forest, Warped Forest and Pale Garden are written for this mod in the same style (`research/custom-fields/*.json`).
+* The wiki text is licensed under {wiki_notes.LICENSE} (https://creativecommons.org/licenses/by-sa/4.0/). This file and the note files adapt it and are shared under the same license. The Pokémon Rejuvenation Wiki and Pokémon Rejuvenation are not affiliated with this project.
+'''
+
+
+def write_markdown(written, fields):
+    """One markdown file with every note's text, in the order of the notes' own sections."""
+    out = [MARKDOWN_HEADER]
+    stage = lambda d: (fields[d['field']].get('progression') or {}).get('stage')
+    label = lambda d: d['title'] + (f' (Stage {stage(d)})' if stage(d) else '')  # the staged fields share one title in the overlay
+    ordered = sorted(written.values(), key=lambda d: (d['field'] != 'rejuvenation:indoor', d['title'].lower(), stage(d) or 0))
+    out += ['## Contents', '']
+    out.extend(f'* {label(d)}' for d in ordered)
+    for d in ordered:
+        out += ['', f'## {label(d)}', '', f'> {d["summary"]}']
+        for sec in d['sections']:
+            out += ['', f'### {sec["heading"]}', ''] + [f'* {line}' for line in sec['lines']]
+        if d.get('overlay'):
+            out += ['', '### When it is an overlay terrain', ''] + [f'* {line}' for line in d['overlay']]
+        if d.get('counters'):
+            out += ['', '### Counters shown in the overlay', '']
+            for c in d['counters']:
+                out.append(f'* {c["label"]} (0 to {c["maximum"]}, {"shared by both sides" if c["scope"] == "shared" else "one for each side"})')
+                out += [f'  * At {t["at"]}: {t["text"]}' for t in c.get('thresholds', [])]
+        if d.get('substrateText'): out += ['', '### Restored ground', '', f'* {d["substrateText"]}']
+    MARKDOWN.parent.mkdir(parents=True, exist_ok=True)
+    MARKDOWN.write_text('\n'.join(out) + '\n', encoding='utf-8', newline='\n')
+
+
 def build(fields, custom_specs):
     subprocess.run(['node', str(ROOT / 'research/inspect_registry.cjs')], check=True, stdout=subprocess.DEVNULL)
     abilities = json.loads((DATA / 'abilities/source.json').read_text(encoding='utf-8'))['abilities']
@@ -436,14 +491,9 @@ def build(fields, custom_specs):
     written = {}
     for f in by_id.values():
         spec = next((s for s in custom_specs if s['id'] == f['id']), None)
-        if spec:
-            n = spec['notes']
-            doc = {'schemaVersion': 1, 'field': f['id'], 'title': f['name'], 'summary': n['summary'], 'sections': n['sections'], 'counters': n.get('counters', [])}
-            if where.get(f['id']): doc['sections'] = [{'heading': 'Where it appears', 'lines': [where[f['id']]]}] + doc['sections']
-        else: doc = build_original(f, writer, where, [])
-        for s in doc['sections']:
-            s['lines'] = [part for l in s['lines'] for part in split_line(re.sub(r'\s+', ' ', l).strip())]
+        doc = custom_document(f, spec, where.get(f['id'])) if spec else finalize_lines(build_original(f, writer, where, []))
         text = json.dumps(doc, indent=2, ensure_ascii=False) + '\n'
         (NOTES / (f['id'].split(':')[1] + '.json')).write_text(text, encoding='utf-8')
         written[f['id']] = doc
+    write_markdown(written, by_id)
     return written, writer.skipped

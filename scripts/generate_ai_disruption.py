@@ -11,7 +11,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'Rejuvenation 14 copy/Scripts/Battle_AI.rb'
-ENGINE = ROOT / 'mod/src/main/resources/rejuvenation-engine.js'
+ENGINE = ROOT / 'core/src/main/resources/rejuvenation-engine.js'
 FIELDS = set(json.loads((ROOT / 'research/field-id-map.json').read_text(encoding='utf-8')))
 
 def ident(symbol):

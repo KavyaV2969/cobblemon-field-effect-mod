@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "field": "rejuvenation:volcanic",
+  "title": "Volcanic Field",
+  "summary": "“The field is molten!”",
+  "sections": [
+    {
+      "heading": "Where it appears",
+      "lines": [
+        "Natural battles in Basalt Deltas and Nether Wastes."
+      ]
+    },
+    {
+      "heading": "Description",
+      "lines": [
+        "Volcanic Field is one of the Field Effects present in Rejuvenation. It is classified as an Elemental field and can be found in Carotos Mountain and Valor Mountain (Anger Emotion)."
+      ]
+    },
+    {
+      "heading": "Transitions From Other Fields",
+      "lines": [
+        "This field can be generated while another field is active. The original field's effects are supressed while Volcanic Field is active. Once Volcanic Field expires, the original field returns.",
+        "Volcanic Field cannot be generated while Frozen Dimensional Field or Underwater Field is active.",
+        "This field is generated if the moves Grass Pledge and Fire Pledge are used one after the other in a battle (any number of turns apart, as long as the active field is not changed in those turns). The field lasts for 4 turns normally and 7 turns if the user of the second move holds an Amplifield Rock. If either move is used again while the field is active, the duration of the field will be refreshed.",
+        "“The pledges combined and set the field ablaze!”",
+        "“The pledges combined and fanned the flames!”",
+        "Cave Field will transform into this field if the moves Eruption, Fever Pitch, Fusion Flare, Heat Wave, Lava Plume, Magma Drift or Overheat are used 2 times.",
+        "“The flame ignited the cave!”",
+        "Specifically, these moves all increment the counter by +1. The field changes to Volcanic Field when the counter reaches 2.",
+        "Corrupted Cave will transform into this field if the moves Blast Burn, Eruption, Heat Wave, Lava Plume, or the Z-Move Inferno Overdrive are used, damaging all active Pokémon by 50% of their max HP.",
+        "“The cave's corruption combusted!”"
+      ]
+    },
+    {
+      "heading": "General Effects",
+      "lines": [
+        "Fire-type moves from grounded Pokémon increase in base power by 1.5x.",
+        "“The blaze amplified the attack!”",
+        "Grass-type moves against grounded Pokémon decrease in base power by 0.5x.",
+        "“The blaze softened the attack...”",
+        "Ice-type moves decrease in base power by 0.5x.",
+        "“The blaze softened the attack...”",
+        "No Pokémon can be frozen.",
+        "Snow is terminated.",
+        "“The snow melted away.”",
+        "Field Damage:",
+        "Grounded non-Fire type Pokémon take type-scaling Fire damage at the end of each turn, with normal damage equal to 1/8 max HP.",
+        "“The Pokemon were burned by the field!”",
+        "Pokémon take no field damage if they are under the effect of Aqua Ring, or have one of the abilities Flame Body, Flare Boost, Flash Fire, Heatproof, Magma Armor, Water Bubble, Water Veil or Well-Baked Body.",
+        "Pokémon take 2x field damage if they are under the effect of Tar Shot, or have one of the abilities Fluffy, Grass Pelt, Ice Body or Leaf Guard."
+      ]
+    },
+    {
+      "heading": "Abilities affected",
+      "lines": [
+        "Activated Abilities:",
+        "Blaze",
+        "Flare Boost",
+        "Buffed Abilities:",
+        "Coal Furnace activates and raises the user's Speed by 1 stage at the end of the turn.",
+        "Fire Mane increases the power of affected moves by 2x instead of 1.5x.",
+        "Flash Fire and Well-Baked Body are activated at the end of the turn if the user is grounded.",
+        "Magma Armor boosts the user's Defense by 1 stage on switch-in.",
+        "Steam Engine boosts the user's Speed by 1 stage at the end the turn.",
+        "Nerfed Abilities:",
+        "Ice Face melts upon being switched in."
+      ]
+    },
+    {
+      "heading": "Moves affected",
+      "lines": [
+        "Damage modifiers: Moves which receive an attack buff:",
+        "Clear Smog, Smog → 2x boost, Fire sub-typing.",
+        "“The flames spread from the attack!”",
+        "Rock Slide, Smack Down, Thousand Arrows → 1.5x boost, Fire sub-typing.",
+        "“[Target] was knocked into the flames!”",
+        "Infernal Parade → 1.5x boost.",
+        "“The flames spread from the attack!”",
+        "Other moves: Moves which are buffed:",
+        "Burn Up's effect resets at the end of the turn.",
+        "Burning Bulwark protects the user from status moves.",
+        "Fire Spin deals 1/6th max HP damage at the end of each turn instead of 1/8th.",
+        "Raging Fury does not Confuse the user.",
+        "Smokescreen lowers the target's Accuracy by 2 stages.",
+        "Will-o-Wisp's accuracy is increased to 100%.",
+        "Field-dependent moves & Abilities:",
+        "Mimicry changes the user's type to Fire.",
+        "Camouflage changes the user's type to Fire.",
+        "Nature Power becomes Flamethrower.",
+        "Secret Power can inflict Burn.",
+        "Shelter halves damage from Fire-type moves.",
+        "Terrain Pulse becomes Fire-type."
+      ]
+    },
+    {
+      "heading": "Transitions to Other Fields",
+      "lines": [
+        "Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.",
+        "If the Volcanic Field was created on top of another field, any field it transitions to inherits its timer.",
+        "This field will transform into Cave if the moves Defog, Gust, Hurricane, Muddy Water, Razor Wind, Sand Tomb, Sludge Wave, Sparkling Aria, Surf, Tailwind, Twister, Water Pledge, Water Sport, Water Spout, Whirlwind, or the Z-Moves Hydro Vortex, Oceanic Operetta or Supersonic Skystrike are used.",
+        "“The wind snuffed out the flame!”",
+        "“The water snuffed out the flame!”",
+        "“The sand snuffed out the flame!”",
+        "“The grime snuffed out the flame!”",
+        "This field will also transform into Cave if the Rain, Heavy Rain or Sandstorm weathers are active at the end of the turn.",
+        "“The rain snuffed out the flame!”",
+        "“The sand snuffed out the flame!”"
+      ]
+    },
+    {
+      "heading": "Items",
+      "lines": [
+        "Elemental Seed boosts the user's Attack, Special Attack, and Speed by 1 stage but applies Fire Spin to the user for 4 turns."
+      ]
+    },
+    {
+      "heading": "Source",
+      "lines": [
+        "Adapted from the Pokémon Rejuvenation Wiki page “Volcanic Field”, revision 46978: https://rejuvenation.wiki.gg/wiki/Volcanic_Field",
+        "Text licensed under Creative Commons Attribution-ShareAlike 4.0 (https://creativecommons.org/licenses/by-sa/4.0/). Wiki markup, links and images were removed; the wording is otherwise unchanged."
+      ]
+    }
+  ]
+}

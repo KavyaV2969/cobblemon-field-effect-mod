@@ -1,0 +1,162 @@
+{{Quote | ''The mountain could erupt any time!''}}
+[[File:Battlebgvoltop.png|thumb]]
+
+Volcanic Top Field is one of the [[Field Effects]] present in Rejuvenation. It is classified as a Telluric field and can be found on the [[Valor Summit]].
+
+==Transitions From Other Fields==
+
+* [[Infernal Field]] will transform into this field if the moves Judgment, Origin Pulse or Purify are used.
+** ''"The hellish landscape was purified!"''
+* [[Mountain]] will transform into this field if the moves Eruption, Lava Plume, [[Magma Drift]], or the Z-Move Inferno Overdrive are used.
+** ''"The mountain erupted!"''
+* [[Snowy Mountain]] will transform into this field if the moves Eruption or Magma Drift are used.
+** ''"The mountain erupted!"''
+
+==General Effects==
+
+* Fire-type moves → 1.5x boost.
+** ''"The attack was super-heated!"''
+* Flying-type moves → 1.5x boost.
+** ''"The mountain strengthened the attack!!"''
+* Rock-type moves → 1.5x boost, Fire sub-typing.
+* Water-type moves → 0.9x decrease.
+** ''"The extreme heat softened the attack..."''
+*** Hydro Steam, Scald & Steam Eruption are exempt from this effect.
+* Ice-type moves → 0.5x decrease.
+** ''"The extreme heat softened the attack..."''
+* Hail & Snow are terminated.
+** ''"The hail melted away."''
+** ''"The snow melted away."''
+* While Strong Winds are active:
+** Special Flying-type moves → 1.5x boost (stacks with general buff to Flying-type moves for a 2.25x multiplier).
+** Wind-based moves → 1.5x boost (does not stack with the aforementionned boost to special Flying-type moves in Strong Winds).
+*** 
+
+===Eruptions===
+
+Various moves and abilities will cause the volcano to erupt at the end of the turn, with the following effects:
+* All non Fire-type Pokémon take Fire-type scaling damage, with normal damage equal to 1/8 max HP.
+** ''"[Pokémon] is hurt by the eruption!"''
+* Sleeping Pokémon are woken up, unless they have the ability Soundproof.
+** ''"[Pokémon] woke up due to the eruption!"''
+* All Entry Hazards & Leech Seed are removed.
+** ''"The eruption removed all hazards from the field!"''
+** ''"[Pokémon]'s Leech Seed burned away in the eruption!"''
+
+===Causes of eruptions===
+
+* Bulldoze, Earth Power, Earthquake, Eruption, [[Fever Pitch]], Lava Plume, [[Magma Drift]], Magnitude & Precipice Blades cause the volcano to erupt.
+** ''"The volcano is going to erupt!"''
+* The ability Desolate Land causes the volcano to erupt at the end of every turn as long as it's active.
+
+===Eruption-related Abilities===
+
+* Battle Armor, Blaze, Flame Body, Flare Boost, Flash Fire, Magic Guard, Magma Armor, Prism Armor, Shell Armor, Solid Rock, Sturdy, Water Bubble & Wonder Guard protect their bearer from eruption damage.
+** ''"[Pokémon] is immune to the eruption!"''
+*** As of v14.0.22, despite what is stated in the in-game Field Notes, Steam Engine does not protect the user from eruption damage.
+* Thick Fat halves eruption damage the bearer takes.
+** This does not stack with Thick Fat's reduction of Fire-type damage; Eruption's normal damage on a Pokémon with Thick Fat is 1/16, not 1/32.
+* Blaze & Flash Fire are activated after an eruption.
+** As of v14.0.22, despite what is stated in the in-game Field Notes, Steam Engine is not activated after an eruption.
+* Flare Boost raises the bearer's Special Attack by 1 stage after an eruption.
+* Magma Armor raises the bearer's Defense and Special Defense by 1 stage after an eruption.
+
+===Eruption-related Moves===
+
+* Aqua Ring, [[Arenite Wall]] & Wide Guard protect affected Pokémon from eruption damage.
+** ''"[Pokémon] is immune to the eruption!"''
+*** As of v14.0.22, Arenite Wall isn't listed in the in-game Field Notes.
+* Pokémon affected by Tar Shot take 2x eruption damage.
+
+==Abilities Affected==
+
+===Activated Abilities===
+
+* Gale Wings (if Strong Winds are active)
+
+===Buffed Abilities===
+
+* [[Coal Furnace]] activates and raises the user's Speed by 1 stage at the end of the turn.
+** As of v14.0.22, this interaction isn't listed in the in-game Field Notes.
+* Fire Mane increases the power of affected moves by 2x instead of 1.5x.
+* Ice Face melts on entry.
+** As of v14.0.22, the in-game Field Notes incorrectly state it melts at the end of the turn.
+* Long Reach boosts damage dealt by the user by 1.5x.
+** As of v14.0.22, this interaction isn't listed in the in-game Field Notes.
+* Magma Armor protects the bearer from Fire-type moves.
+* Rocky Payload increases damage of the user's Rock-type moves by 2x instead of 1.5x.
+** As of v14.0.22, this interaction isn't listed in the in-game Field Notes.
+* Steam Engine raises the bearer's Speed by 1 stage at the end of each turn. 
+* Wind Power & Wind Rider activate at the end of each turn if Strong Winds are active.
+
+==Moves Affected==
+
+===Damage Modifiers===
+
+====Moves which receive an attack buff====
+
+* Clear Smog, Gust, Icy Wind, Ominous Wind, Precipice Blades, Razor Wind, Silver Wind, Smog, Twister → 1.5x boost, Fire sub-typing.
+** ''"The field super-heated the attack!"''
+* Thunder → 1.5x boost, never misses.
+** ''"The field powers up the attack!"''
+* Hydro Steam, Infernal Parade, Scald, Steam Eruption → 1.5x boost.
+** ''"The field super-heated the attack!"''
+** ''"The field powers up the flaming attacks!"''
+* Eruption, Heat Wave, Lava Plume, [[Magma Drift]], Magma Storm → 1.2x boost
+** ''"The field powers up the flaming attacks!"''
+
+====Moves which receive an attack nerf====
+
+* Hydro Pump, Hydro Vortex, Muddy Water, Oceanic Operetta, Sparkling Aria, Surf, Water Pledge, Water Spout → 0.5x decrease.
+** ''"Steam shot up from the field!"''
+*** These moves and Water Sport generate steam, lowering all active Pokémon's Accuracy by 1 stage.
+
+===Other moves===
+
+====Buffed Moves====
+
+* Burn Up's effect resets at the end of the turn.
+* Poison Gas badly poisons the targets.
+* Raging Fury ends after 1 turn and does not confuse the user.
+* Smokescreen lowers the target's Accuracy by 2 stages.
+* Tailwind lasts 6 turns and creates Strong Winds for its duration.
+
+====Other Move Changes====
+
+* Dig, Dive, Egg Bomb, Explosion, Magnet Bomb, Seismic Toss and Self-Destruct gain a Fire sub-typing.
+* Outrage, Petal Dance & Thrash end after 1 turn.
+* Stealth Rock deals Fire-type scaling damage instead.
+** ''"Molten stones dug into [Pokémon]!"''
+
+===Field-dependent moves & Abilities===
+
+* Mimicry changes the bearer's type to Fire.
+* Camouflage changes the user's type to Fire.
+* Nature Power becomes Eruption.
+* Secret Power may inflict Burn.
+* Shelter halves damage from Fire-type moves.
+* Terrain Pulse's type becomes Fire.
+
+==Transitions to Other Fields==
+
+'''Any move in this section inherently gains a 1.3x damage boost on top of any other previously listed modifiers.'''
+
+* This field will transform into [[Sky Field]] if the moves Bounce or Fly are used.
+** ''"The battle was taken to the skies!"''
+* This field will transform into [[Mountain Field]] if the moves Blizzard, Glaciate, or the Z-Move Subzero Slammer are used.
+** ''"The field cooled off!"''
+
+==Items==
+
+* [[Telluric Seed]] raises the user's Defense by 1 stage and applies Shell Trap to them.
+** ''"[Pokémon] primed a trap!"''
+
+==Notes==
+* Prior to V14, several effects were different on this field:
+** Fire-type moves increased in base power by 1.2x.
+** Flying-type moves increased in base power by 1.3x.
+** Steam-creating moves (Hydro Pump, Hydro Vortex, ...) saw a 0.625x decrease in power instead of the current 0.5x.
+* Prior to V14, the field quote was ''"The mountain top is super-heated!"''
+
+{{Field Effects Nav}}
+[[Category:Field Effects]]

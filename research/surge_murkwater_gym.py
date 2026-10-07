@@ -10,7 +10,7 @@ entity are kept exactly; only materials change and a murky moat is added around 
   * murk: dark prismarine instead of the black concrete band, green-tinted windows, mangrove instead of acacia.
 Surge's yellow concrete roof and electric fittings stay.
 
-python surge_murkwater_gym.py [--preview DIR]  -> writes gym-overrides/data/cobbleverse/structure/ltsurge.nbt
+python surge_murkwater_gym.py [--preview DIR]  -> writes datapack/cobbleverse/data/cobbleverse/structure/ltsurge.nbt
 """
 from pathlib import Path
 import argparse, collections
@@ -19,7 +19,7 @@ from structure_nbt import read_source, read_template, write_template, block_name
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT.parent / 'datapacks/COBBLEVERSE-DP-v31.zip'
 MEMBER = 'data/cobbleverse/structure/ltsurge.nbt'
-OUT = ROOT / 'gym-overrides/data/cobbleverse/structure/ltsurge.nbt'
+OUT = ROOT / 'datapack/cobbleverse/data/cobbleverse/structure/ltsurge.nbt'
 
 def noise(x, y, z, salt=0):
     """Deterministic per-block value in [0, 1) so the pattern is reproducible."""
@@ -107,19 +107,6 @@ def build():
     assert check[2] == size and check[3] == blocks and set(check[4]) == set(block_nbt)
     return data, size, original, blocks, moat
 
-def package():
-    """Deterministic override datapack zip in dist/, next to the field mod artifacts."""
-    import zipfile
-    pack = ROOT / 'dist/rejuvenation-gym-overrides-0.2.0.zip'
-    if pack.exists(): pack.unlink()
-    with zipfile.ZipFile(pack, 'w', compression=zipfile.ZIP_DEFLATED, compresslevel=9) as z:
-        for p in sorted((ROOT / 'gym-overrides').rglob('*')):
-            if p.is_file():
-                info = zipfile.ZipInfo(p.relative_to(ROOT / 'gym-overrides').as_posix(), (2026, 10, 6, 0, 0, 0))
-                info.compress_type = zipfile.ZIP_DEFLATED; info.external_attr = 0o644 << 16; z.writestr(info, p.read_bytes())
-    return pack
-
-
 if __name__ == '__main__':
     a = argparse.ArgumentParser(); a.add_argument('--preview'); o = a.parse_args()
     data, size, original, blocks, moat = build()
@@ -127,7 +114,6 @@ if __name__ == '__main__':
     changed = collections.Counter((block_name(original.get(p, 'minecraft:air')), block_name(s)) for p, s in blocks.items() if original.get(p) != s)
     print(f'Wrote {OUT.relative_to(ROOT)}: {len(moat)} moat cells; {sum(changed.values())} blocks changed')
     for (a_, b_), n in changed.most_common(): print(f'  {n:4} {a_} -> {b_}')
-    print("Packaged", package().name)
     if o.preview:
         from structure_preview import render
         out = Path(o.preview)

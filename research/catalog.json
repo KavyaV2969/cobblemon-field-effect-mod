@@ -47909,8 +47909,8 @@
       "schemaVersion": 1,
       "id": "rejuvenation:crimson_forest",
       "originalId": "CRIMSONFOREST",
-      "name": "Crimson Forest Field",
-      "entryMessage": "The red flora preying...",
+      "name": "Crimson Forest",
+      "entryMessage": "The red flora is preying...",
       "naturePower": "powerwhip",
       "secretPower": "flamethrower",
       "mimicry": "Fire",
@@ -56973,7 +56973,7 @@
       "schemaVersion": 1,
       "id": "rejuvenation:deep_dark",
       "originalId": "DEEPDARK",
-      "name": "Deep Dark Field",
+      "name": "Deep Dark",
       "entryMessage": "The Deep Dark is listening...",
       "naturePower": "darkpulse",
       "secretPower": "darkpulse",
@@ -145948,7 +145948,7 @@
       "schemaVersion": 1,
       "id": "rejuvenation:pale_garden",
       "originalId": "PALEGARDEN",
-      "name": "Pale Garden Field",
+      "name": "Pale Garden",
       "entryMessage": "The marionettes in the woods are hunting...",
       "naturePower": "dazzlinggleam",
       "secretPower": "needlearm",
@@ -184019,7 +184019,7 @@
       "schemaVersion": 1,
       "id": "rejuvenation:warped_forest",
       "originalId": "WARPEDFOREST",
-      "name": "Warped Forest Field",
+      "name": "Warped Forest",
       "entryMessage": "The forest twitches grotesquely...",
       "naturePower": "woodhammer",
       "secretPower": "woodhammer",
@@ -193980,26 +193980,6 @@
       "reason": "Battle submerged in water"
     },
     {
-      "biome": "cobblemonraiddens:raid_den",
-      "field": "rejuvenation:cave",
-      "reason": "Underground raid den"
-    },
-    {
-      "biome": "legendarymonuments:distortion_world_biome",
-      "field": "rejuvenation:dimensional",
-      "reason": "Distorted extradimensional environment"
-    },
-    {
-      "biome": "lumymon:nightmare_void",
-      "field": "rejuvenation:haunted",
-      "reason": "Nightmare dimension"
-    },
-    {
-      "biome": "lumymon:origin_sky",
-      "field": "rejuvenation:sky",
-      "reason": "Open sky dimension"
-    },
-    {
       "biome": "minecraft:badlands",
       "dimension": "minecraft:overworld",
       "minDepth": 12,
@@ -194352,11 +194332,6 @@
       "reason": "Dense woodland"
     },
     {
-      "biome": "minecraft:pale_garden",
-      "field": "rejuvenation:pale_garden",
-      "reason": "Pale Garden biome"
-    },
-    {
       "biome": "minecraft:plains",
       "dimension": "minecraft:overworld",
       "minDepth": 12,
@@ -194510,11 +194485,6 @@
       "reason": "Coastal sand/rock"
     },
     {
-      "biome": "minecraft:sulfur_caves",
-      "field": "rejuvenation:corrosive_mist",
-      "reason": "Sulfurous cave gases"
-    },
-    {
       "biome": "minecraft:sunflower_plains",
       "dimension": "minecraft:overworld",
       "minDepth": 12,
@@ -194629,6 +194599,36 @@
       "biome": "minecraft:wooded_badlands",
       "field": "rejuvenation:forest",
       "reason": "Dense woodland"
+    },
+    {
+      "biome": "cobblemonraiddens:raid_den",
+      "field": "rejuvenation:cave",
+      "reason": "Underground raid den"
+    },
+    {
+      "biome": "legendarymonuments:distortion_world_biome",
+      "field": "rejuvenation:dimensional",
+      "reason": "Distorted extradimensional environment"
+    },
+    {
+      "biome": "lumymon:nightmare_void",
+      "field": "rejuvenation:haunted",
+      "reason": "Nightmare dimension"
+    },
+    {
+      "biome": "lumymon:origin_sky",
+      "field": "rejuvenation:sky",
+      "reason": "Open sky dimension"
+    },
+    {
+      "biome": "minecraft:pale_garden",
+      "field": "rejuvenation:pale_garden",
+      "reason": "Pale Garden biome"
+    },
+    {
+      "biome": "minecraft:sulfur_caves",
+      "field": "rejuvenation:corrosive_mist",
+      "reason": "Sulfurous cave gases"
     },
     {
       "biome": "terralith:alpha_islands",
@@ -195764,14 +195764,14 @@
       "reason": "Bastion Remnant"
     },
     {
-      "tag": "repurposed_structures:collections/bastions",
-      "field": "rejuvenation:colosseum",
-      "reason": "Bastion variant"
-    },
-    {
       "structure": "minecraft:fortress",
       "field": "rejuvenation:colosseum",
       "reason": "Nether Fortress"
+    },
+    {
+      "tag": "repurposed_structures:collections/bastions",
+      "field": "rejuvenation:colosseum",
+      "reason": "Bastion variant"
     },
     {
       "tag": "repurposed_structures:collections/fortresses",

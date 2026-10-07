@@ -150,7 +150,7 @@ Its "Immune / Not very / Super effective" label and its decision to request a da
 - `calculateAdjustedAccuracy` and `renderTooltipAtPosition`, which Battle Extras adds to Cobblemon's move tile;
 - its `TypeChart` effectiveness methods.
 
-All 35 injector/shadow ABI checks pass. This certifies bytecode compatibility, not a full rendered-client run.
+All 40 injector/shadow ABI checks pass. This certifies bytecode compatibility, not a full rendered-client run.
 
 ## Environment layers, custom fields and Field Notes in the strategy
 
@@ -178,14 +178,14 @@ Full two-client disconnect/rejoin and rendered HUD checks remain separate QA. Th
 
 ## Current verification
 
-- **Simulator:** **631/631** passing, including **51 named AI/strategy tests** plus the source prediction and oracle matrices.
+- **Simulator:** **656/656** passing, including **51 named AI/strategy tests** plus the source prediction and oracle matrices.
 - **Java:**
   - **2080** client/preview/panel checks;
   - **26,949** environment checks;
   - **12** request-legality, **6** decision-identity and **12** optional-mod checks;
   - **16** checks of the installed packet codecs, run offline on the Minecraft 1.21.1 profile's own libraries;
-  - **35** mixin ABI checks.
-- **Graal:** all **61** fields, **55** runtime assertions and **42** adapter checks on real evaluations; declared abilities restore and the three-dex guard passes.
+  - **40** mixin ABI checks.
+- **Graal:** all **61** fields, **110** runtime assertions and **42** adapter checks on real evaluations; declared abilities restore and the three-dex guard passes.
 - **Definitions and Ruby oracle:**
   - definitions: **4,494** properties, zero differences;
   - Ruby mechanic oracle: **171,396** defense and **120** difficulty contexts, zero differences.
@@ -201,17 +201,17 @@ Mechanics corrected in this continuation:
 The receipt measures complete synchronous decisions in Cobblemon's shaded, interpreter-only Graal runtime: three single-battle states and a production-shaped worst-case doubles lead, with 5 warm repetitions.
 
 - **Cold column:** first decision after the publication warm-up, as in production.
-- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1326 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
-- **Pinning:** The receipt was taken without processor pinning; on hybrid CPUs Windows may schedule it on efficiency cores, which roughly triples every figure.
+- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1482 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
+- **Pinning:** The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
 
 | Decision | Candidates / screened | Rollouts | Cold ms | Warm median ms | Warm max ms |
 |---|---:|---:|---:|---:|---:|
-| 1 fresh | 8 / 2 | 8 | 636 | 747 | 915 |
-| 6 fresh | 13 / 5 | 10 | 900 | 887 | 995 |
-| 6 turn 1 | 13 / 5 | 10 | 974 | 862 | 983 |
-| 6 turn 2 | 13 / 5 | 10 | 775 | 1022 | 1140 |
-| 6 turn 3 | 13 / 5 | 10 | 1064 | 912 | 955 |
-| 6v6 doubles fresh | 24 / 16 | 17 | 3451 | 3211 | 3579 |
+| 1 fresh | 8 / 2 | 8 | 635 | 389 | 440 |
+| 6 fresh | 13 / 5 | 10 | 619 | 546 | 686 |
+| 6 turn 1 | 13 / 5 | 10 | 591 | 495 | 826 |
+| 6 turn 2 | 13 / 5 | 10 | 665 | 602 | 651 |
+| 6 turn 3 | 13 / 5 | 10 | 546 | 608 | 617 |
+| 6v6 doubles fresh | 24 / 16 | 17 | 2085 | 2110 | 2216 |
 
 The singles optimizations are exact: candidate scores are bit-identical to the engine before them on 315 candidate rows across five fields, including history-reading moves. They include:
 

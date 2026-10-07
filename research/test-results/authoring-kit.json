@@ -1,0 +1,22 @@
+{
+ "passed": 14,
+ "failed": [],
+ "tests": [
+  "the example is accepted next to the shipped 61 fields and is data only",
+  "type, move and Power Whip multipliers behave as authored",
+  "the added secondary type changes effectiveness only (no replaced type, no extra same-type bonus)",
+  "standard hooks: Mimicry is Rock and Nature Power is Power Whip",
+  "grounded Grass Pokemon recover 1/16 each turn; other types do not",
+  "seed boost applies once and is consumed; another family seed is kept",
+  "counter and transition configured through data primitives",
+  "selected parent rules are copied with exact counts, unchanged and in parent order",
+  "copying the template and changing the documented fields produces a valid loadable field",
+  "a clean example pack passes the standalone pack verifier",
+  "the engine rejects an unknown operator in an authored field",
+  "the engine rejects an unknown event in an authored field",
+  "the engine rejects an unknown condition in an authored field",
+  "the engine rejects a transition to a missing field in an authored field"
+ ],
+ "shippedFields": 61,
+ "exampleBuiltFrom": "research/custom-fields/_examples/mossy_ruins.json"
+}

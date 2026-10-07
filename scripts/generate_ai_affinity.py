@@ -5,7 +5,7 @@ import json
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'Rejuvenation 14 copy/Scripts/Battle_AI.rb'
-ENGINE = ROOT / 'mod/src/main/resources/rejuvenation-engine.js'
+ENGINE = ROOT / 'core/src/main/resources/rejuvenation-engine.js'
 
 def condition(text):
     text = text.replace('Rejuv', 'true')

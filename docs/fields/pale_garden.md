@@ -1,4 +1,4 @@
-# Pale Garden Field
+# Pale Garden
 
 Original ID: `PALEGARDEN`; datapack ID: `rejuvenation:pale_garden`.
 

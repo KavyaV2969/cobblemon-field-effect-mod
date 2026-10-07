@@ -2,6 +2,14 @@
 
 A Cobblemon mod that brings the **Field Effect system from Pokémon Rejuvenation** into Minecraft.
 
+<img width="1920" height="1080" alt="06-mountains-wind-boost" src="https://github.com/user-attachments/assets/8f464a3e-1093-4c20-ad74-5fe33bcea811" />
+<img width="1920" height="1080" alt="05-lt-surge-murkwater" src="https://github.com/user-attachments/assets/78fce346-c501-4595-adf6-7976adb33a27" />
+<img width="1920" height="1080" alt="04-warped-forest-leaf-blade" src="https://github.com/user-attachments/assets/5f939aa4-099c-4725-807c-b8a1ebc25500" />
+<img width="1920" height="1080" alt="03-deep-dark-sculk-retaliation" src="https://github.com/user-attachments/assets/9248799f-0c7c-4c63-a38b-55dfaf702633" />
+<img width="1920" height="1080" alt="02-end-shiny-rayquaza" src="https://github.com/user-attachments/assets/4d296b88-6f67-411e-9f66-ca38634edd0c" />
+<img width="1920" height="1080" alt="01-underwater-water-pulse" src="https://github.com/user-attachments/assets/18bd3eb9-26a8-417c-addc-c301b5918285" />
+
+
 Where a battle takes place now matters. Forests, caves, oceans, villages, Ancient Cities, Nether biomes, and other environments can assign different battle fields, modifying moves, abilities, types, weather, terrain, status effects, and other battle mechanics.
 
 The mod currently implements **all 57 fields from Pokémon Rejuvenation 14.0.14**, alongside **4 custom Minecraft-inspired fields**, for a total of **61 fields**.

@@ -1,6 +1,6 @@
 {
   "remotePcEnabled": true,
-  "enablePokeSnackBlacklist": true,
+  "enablePokeSnackBlacklist": false,
   "blacklistedPokeSnackSpawns": [
     "custom",
     "paradox"

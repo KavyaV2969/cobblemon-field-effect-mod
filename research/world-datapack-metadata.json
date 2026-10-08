@@ -39,12 +39,14 @@
         "porting_lib_item_abilities",
         "rctmod",
         "rechiseled",
+        "rejuvenation_fields",
         "repurposed_structures",
         "server_translations_api",
         "simpletms",
         "sophisticatedbackpacks",
         "sophisticatedcore",
         "sophisticatedstorage",
+        "spawn_notification",
         "supermartijn642corelib",
         "tim_core",
         "tmcraft",
@@ -61,7 +63,9 @@
         "COBBLEVERSE-Loot-DP-v11.zip",
         "COBBLEVERSE-DP-v31.zip",
         "COBBLEVERSE - No Hunger.zip",
-        "COBBLEVERSE - No Ender Dragon.zip"
+        "COBBLEVERSE - No Ender Dragon.zip",
+        "rejuvenation-fields-cobbleverse-0.1.zip",
+        "rejuvenation-fields-base-0.1.zip"
       ],
       "Disabled": [
         "trade_rebalance",

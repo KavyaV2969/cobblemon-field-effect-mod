@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-10-06T08:51:49.679502+00:00",
+  "trainer": "kanto_ltsurge",
+  "allowed": {
+    "mega": "eelektross",
+    "tera": {
+      "species": "magnezone",
+      "type": "flying"
+    },
+    "dynamax": false,
+    "gmax": false
+  },
+  "checks": {
+    "realCobblemonRequestRegression": 56,
+    "mixinAbiAgainstInstalledMods": 39,
+    "optionalMixinTargetsAbsent": 0,
+    "unrelatedJarEntryBytesPreserved": true,
+    "gymStructureAndTeamBuildsPreserved": true,
+    "installedHashesMatch": true
+  },
+  "buildMethod": "Java 21 javac against installed Cobblemon, Run & Bun and exact cached dependencies; replace only compiled permission policy and decision mixin entries in the existing authored artifact. Gradle daemon unavailable under sandbox.",
+  "liveBattleTested": false,
+  "artifacts": [
+    {
+      "installed": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\mods\\rejuvenation-fields-0.2.0.jar",
+      "sha256": "789147cef154fb1b0ee4332aa93e2f27ce921f85d34aac37ab09ab026df61bd3",
+      "previousSha256": "828d3df44eb2e3ad1ccce64797874a9929b5ce142dc6a1b8887f56e56ed20ce7",
+      "bytes": 2550237
+    },
+    {
+      "installed": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\datapacks\\rejuvenation-gym-overrides-0.2.0.zip",
+      "sha256": "e9c677f4fe90e90dfc7fcc2d58da5c065c1d26564da2987224698b54115164c4",
+      "previousSha256": "12cf18c2812d94032fd33e0be2ace490aec76c7a10f326eaf2283f076fe71485",
+      "bytes": 11703
+    }
+  ],
+  "backup": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\research\\backups\\surge-gimmicks-20261006-164941"
+}

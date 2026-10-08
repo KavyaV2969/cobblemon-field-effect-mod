@@ -1,0 +1,249 @@
+{
+  "name": {
+    "literal": "Giovanni"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "chienpao",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "species": "marshadow",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "jolly",
+      "ability": "technician",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "spectralthief",
+        "closecombat",
+        "shadowsneak",
+        "bulkup"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "rhyperior",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "adamant",
+      "ability": "solidrock",
+      "heldItem": [
+        "cobblemon:assault_vest"
+      ],
+      "moveset": [
+        "earthquake",
+        "stoneedge",
+        "megahorn",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "kommoo",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "timid",
+      "ability": "soundproof",
+      "heldItem": [
+        "mega_showdown:kommonium_z"
+      ],
+      "moveset": [
+        "clangingscales",
+        "aurasphere",
+        "flamethrower",
+        "flashcannon"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "chienpao",
+      "gender": "GENDERLESS",
+      "level": 81,
+      "nature": "jolly",
+      "ability": "swordofruin",
+      "heldItem": [
+        "cobblemon:focus_sash"
+      ],
+      "moveset": [
+        "swordsdance",
+        "crunch",
+        "iciclecrash",
+        "sacredsword"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": "dark",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "hydreigon",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "timid",
+      "ability": "levitate",
+      "heldItem": [
+        "rejuvenation:magical_seed"
+      ],
+      "moveset": [
+        "darkpulse",
+        "dracometeor",
+        "flamethrower",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "tyranitar",
+      "gender": "MALE",
+      "level": 81,
+      "nature": "jolly",
+      "ability": "sandstream",
+      "heldItem": [
+        "mega_showdown:tyranitarite"
+      ],
+      "moveset": [
+        "dragondance",
+        "crunch",
+        "stoneedge",
+        "icepunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_DOUBLES"
+}

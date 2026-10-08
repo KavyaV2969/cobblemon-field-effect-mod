@@ -1,0 +1,27 @@
+{
+  "trainer": "kanto_ltsurge",
+  "field": "rejuvenation:murkwater_surface",
+  "team": [
+    "raichu",
+    "magnezone",
+    "ironhands",
+    "archaludon",
+    "rotom",
+    "eelektross"
+  ],
+  "eelektrossMoveChoice": "drainpunch",
+  "levels": {
+    "raichu": 36,
+    "magnezone": 36,
+    "ironhands": 36,
+    "archaludon": 36,
+    "rotom": 35,
+    "eelektross": 36
+  },
+  "magnezoneTera": "flying",
+  "source": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\gym-overrides\\data\\rctmod\\trainers\\kanto_ltsurge.json",
+  "installed": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\datapacks\\rejuvenation-gym-overrides-0.2.0.zip",
+  "sha256": "12cf18c2812d94032fd33e0be2ace490aec76c7a10f326eaf2283f076fe71485",
+  "backup": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\research\\backups\\surge-team-20261006-105848",
+  "validation": "Six species and held item assets present; exact EVs, four moves each, Flying Tera via RCT gimmicks; installed field mapping confirmed; original gym structure bytes preserved; packaged and installed hashes match. Battle not launched. All 24 move slots and all six abilities resolve in the installed Showdown Dex. Global Packs requires datapacks/; RCT gathers trainer definitions by resource ID with later packs replacing earlier entries."
+}

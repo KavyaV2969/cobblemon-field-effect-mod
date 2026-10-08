@@ -1,0 +1,252 @@
+{
+  "name": {
+    "literal": "Lorelei"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "arctovish",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "species": "arctovish",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "slushrush",
+      "heldItem": [
+        "cobblemon:choice_band"
+      ],
+      "moveset": [
+        "fishiousrend",
+        "iciclecrash",
+        "crunch",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": "water",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "kyurem",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "naive",
+      "ability": "pressure",
+      "heldItem": [
+        "cobblemon:loaded_dice"
+      ],
+      "moveset": [
+        "iciclespear",
+        "scaleshot",
+        "earthpower",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 4,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "ironbundle",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "quarkdrive",
+      "heldItem": [
+        "cobblemon:light_clay"
+      ],
+      "moveset": [
+        "auroraveil",
+        "freezedry",
+        "hydropump",
+        "flipturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "greninja",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "protean",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "hydropump",
+        "darkpulse",
+        "icebeam",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "asoneglastrier",
+      "heldItem": [
+        "rejuvenation:elemental_seed"
+      ],
+      "moveset": [
+        "glaciallance",
+        "highhorsepower",
+        "closecombat",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "aspects": [
+        "ice-rider"
+      ],
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "baxcalibur",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "thermalexchange",
+      "heldItem": [
+        "zamega:baxcalibrite"
+      ],
+      "moveset": [
+        "dragondance",
+        "iciclecrash",
+        "glaiverush",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

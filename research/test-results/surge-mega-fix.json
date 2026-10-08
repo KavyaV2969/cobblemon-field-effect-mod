@@ -1,0 +1,37 @@
+{
+  "timestamp": "2026-10-06T09:42:59.196566+00:00",
+  "trainer": "kanto_ltsurge",
+  "behavior": "Eelektross must select a legal Mega move on its first available move decision. Ordinary moves and voluntary switches cannot defer it. Missing field/evaluator/error paths retain a validated Mega fallback. Simulator availability and forced switches remain authoritative.",
+  "scope": "Only non-player NPC-origin kanto_ltsurge Eelektross; other trainers and player-owned Pokemon unchanged. Existing Dynamax ban and Magnezone-only Flying Tera preserved.",
+  "validation": {
+    "javaPolicyChecks": 85,
+    "installedSimulatorChecks": 18,
+    "mixinAbiChecks": 39,
+    "total": 142,
+    "unrelatedJarEntriesPreserved": true,
+    "compiledDeployedBytesMatch": true,
+    "installedDistHashMatch": true,
+    "liveMinecraftBattleTested": false
+  },
+  "simulatorRegression": {
+    "ordinaryDrainPunchScore": 71.43528222671435,
+    "megaDrainPunchScore": 60.15337428082722,
+    "mandatoryChoice": "drainpunch mega",
+    "actualMegaForm": "Eelektross-Mega",
+    "ability": "hadronengine",
+    "megaAndTeraBothOrders": true,
+    "repeatMegaRejected": true,
+    "evaluationResourceStateRestored": true
+  },
+  "changedClasses": [
+    "dev/rejuvenation/compat/RunBunGimmickPolicy.class",
+    "dev/rejuvenation/compat/RunBunStrategy.class",
+    "dev/rejuvenation/compat/RunBunStrategy$Candidate.class",
+    "dev/rejuvenation/compat/mixin/RunBunDecisionMixin.class"
+  ],
+  "installed": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\mods\\rejuvenation-fields-0.2.0.jar",
+  "sha256": "ddecf29f93eb9a75933cbaea90fb49af7312bac39e8609659cad066e7be70189",
+  "previousSha256": "789147cef154fb1b0ee4332aa93e2f27ce921f85d34aac37ab09ab026df61bd3",
+  "backup": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\research\\backups\\surge-mega-20261006-173705",
+  "build": "Java 21 javac against installed exact dependencies; only compiled modified class entries replaced in authored mod artifact."
+}

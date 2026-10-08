@@ -1,0 +1,252 @@
+{
+  "name": {
+    "literal": "Agatha"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "ceruledge",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "species": "dragapult",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "cursedbody",
+      "heldItem": [
+        "cobblemon:choice_band"
+      ],
+      "moveset": [
+        "phantomforce",
+        "dragondarts",
+        "uturn",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "fluttermane",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "protosynthesis",
+      "heldItem": [
+        "mega_showdown:booster_energy"
+      ],
+      "moveset": [
+        "shadowball",
+        "moonblast",
+        "mysticalfire",
+        "psyshock"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "ceruledge",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "weakarmor",
+      "heldItem": [
+        "cobblemon:focus_sash"
+      ],
+      "moveset": [
+        "swordsdance",
+        "bitterblade",
+        "poltergeist",
+        "shadowsneak"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": "fire",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "calyrex",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "asonespectrier",
+      "heldItem": [
+        "rejuvenation:magical_seed"
+      ],
+      "moveset": [
+        "nastyplot",
+        "astralbarrage",
+        "psyshock",
+        "drainingkiss"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "aspects": [
+        "shadow-rider"
+      ],
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "heldItem": [
+        "mega_showdown:gengarite"
+      ],
+      "moveset": [
+        "hypnosis",
+        "hex",
+        "focusblast",
+        "destinybond"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "basculegion",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "heldItem": [
+        "cobblemon:choice_scarf"
+      ],
+      "moveset": [
+        "lastrespects",
+        "wavecrash",
+        "aquajet",
+        "psychicfangs"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

@@ -1,0 +1,249 @@
+{
+  "name": {
+    "literal": "Koga"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "sneasler",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "species": "glimmora",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "toxicdebris",
+      "heldItem": [
+        "cobblemon:focus_sash"
+      ],
+      "moveset": [
+        "spikes",
+        "stealthrock",
+        "sludgebomb",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "pecharunt",
+      "gender": "GENDERLESS",
+      "level": 68,
+      "nature": "bold",
+      "ability": "poisonpuppeteer",
+      "heldItem": [
+        "cobblemon:leftovers"
+      ],
+      "moveset": [
+        "partingshot",
+        "recover",
+        "malignantchain",
+        "shadowball"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 228,
+        "spa": 0,
+        "spd": 0,
+        "spe": 28
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "sneasler",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "adamant",
+      "ability": "unburden",
+      "heldItem": [
+        "rejuvenation:telluric_seed"
+      ],
+      "moveset": [
+        "direclaw",
+        "closecombat",
+        "acrobatics",
+        "swordsdance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": "dark",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "naganadel",
+      "gender": "GENDERLESS",
+      "level": 68,
+      "nature": "timid",
+      "ability": "beastboost",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "nastyplot",
+        "dracometeor",
+        "sludgebomb",
+        "fireblast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "cinderace",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "jolly",
+      "ability": "libero",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "gunkshot",
+        "pyroball",
+        "uturn",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "gengar",
+      "gender": "MALE",
+      "level": 68,
+      "nature": "timid",
+      "ability": "cursedbody",
+      "heldItem": [
+        "mega_showdown:gengarite"
+      ],
+      "moveset": [
+        "venoshock",
+        "shadowball",
+        "focusblast",
+        "energyball"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

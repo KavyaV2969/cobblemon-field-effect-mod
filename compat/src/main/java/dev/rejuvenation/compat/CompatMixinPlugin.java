@@ -20,6 +20,7 @@ public final class CompatMixinPlugin implements IMixinConfigPlugin {
     /** Exact optional-mod gate, exercisable without bootstrapping Fabric or Minecraft. */
     public static boolean enabled(String mixinClassName, java.util.function.Predicate<String> installed) {
         String simple = mixinClassName.substring(mixinClassName.lastIndexOf('.') + 1);
+        if (simple.startsWith("BlueNpc")) return installed.test("rctapi");
         if (simple.startsWith("RunBun")) return installed.test("rbrctai");
         if (simple.startsWith("BattleExtras")) return installed.test("cobblemon-battle-extras");
         return true;

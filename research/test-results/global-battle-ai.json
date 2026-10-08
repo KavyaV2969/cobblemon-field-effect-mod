@@ -1,0 +1,42 @@
+{
+  "time": "2026-10-06T18:03:45.820045",
+  "scope": "Shared AIBattleActor boundary, all NPC trainer AI implementations; field consequence scoring for RCT/default and Run & Bun",
+  "policy": "rejuvenation/docs/BATTLE_AI_POLICY.md",
+  "artifact": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\mods\\rejuvenation-fields-0.2.0.jar",
+  "sha256": "e58e457f0290fc0bc5e9b33231621b751c85a7ce4f9aac47d1bdc3470e8020d6",
+  "previousSha256": "ddecf29f93eb9a75933cbaea90fb49af7312bac39e8609659cad066e7be70189",
+  "backup": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\research\\backups\\global-ai-20261006-174816",
+  "updatedEntries": [
+    "dev/rejuvenation/compat/RunBunGimmickPolicy.class",
+    "dev/rejuvenation/compat/RunBunStrategy.class",
+    "dev/rejuvenation/compat/RunBunStrategy$Candidate.class",
+    "dev/rejuvenation/compat/mixin/RunBunDecisionMixin.class",
+    "dev/rejuvenation/compat/TrainerBattlePolicy.class",
+    "dev/rejuvenation/compat/TrainerBattlePolicy$Availability.class",
+    "dev/rejuvenation/compat/TrainerGimmickSelector.class",
+    "dev/rejuvenation/compat/RctGimmickDeclarations.class",
+    "dev/rejuvenation/mixin/TrainerDecisionMixin.class",
+    "rejuvenation.mixins.json"
+  ],
+  "externalModJarsUnchanged": 142,
+  "effectiveTrainerDefinitions": 288,
+  "aiTypes": {
+    "rct": 114,
+    "rb": 162,
+    "default": 12
+  },
+  "checks": {
+    "compiledJavaSources": 51,
+    "gimmickPermissions": 121,
+    "mixinABI": 40,
+    "installedEelektrossSimulator": 18,
+    "graalAdapterChecks": 42,
+    "graalRuntimeAssertions": 55,
+    "simulatorCasesPassed": 630,
+    "rubySourceOracle": "Unable to launch installed C:/Ruby40-x64/bin/ruby.exe; exit 3221225506 / spawnSync EOF",
+    "datapackValidation": true,
+    "javaVerification": true
+  },
+  "liveMinecraftBattleVerified": false,
+  "requiresClientRestart": true
+}

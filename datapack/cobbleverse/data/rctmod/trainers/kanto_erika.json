@@ -1,0 +1,252 @@
+{
+  "name": {
+    "literal": "Erika"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "ogerpon",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 3
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 3
+    }
+  ],
+  "team": [
+    {
+      "species": "tinglu",
+      "gender": "GENDERLESS",
+      "level": 44,
+      "nature": "careful",
+      "ability": "vesselofruin",
+      "heldItem": [
+        "rejuvenation:magical_seed"
+      ],
+      "moveset": [
+        "stealthrock",
+        "earthquake",
+        "ruination",
+        "whirlwind"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 4,
+        "spa": 0,
+        "spd": 252,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "serperior",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "timid",
+      "ability": "contrary",
+      "heldItem": [
+        "cobblemon:leftovers"
+      ],
+      "moveset": [
+        "leafstorm",
+        "substitute",
+        "leechseed",
+        "terablast"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 4,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "kartana",
+      "gender": "GENDERLESS",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "beastboost",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "leafblade",
+        "smartstrike",
+        "knockoff",
+        "sacredsword"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "meowscarada",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "adamant",
+      "ability": "protean",
+      "heldItem": [
+        "cobblemon:choice_scarf"
+      ],
+      "moveset": [
+        "knockoff",
+        "uturn",
+        "lowkick",
+        "flowertrick"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 4,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "ogerpon",
+      "gender": "FEMALE",
+      "level": 44,
+      "nature": "jolly",
+      "ability": "moldbreaker",
+      "heldItem": [
+        "mega_showdown:hearthflame_mask"
+      ],
+      "moveset": [
+        "swordsdance",
+        "ivycudgel",
+        "powerwhip",
+        "uturn"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "aspects": [
+        "hearthflame-mask"
+      ],
+      "gimmicks": {
+        "tera": "fire",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "venusaur",
+      "gender": "MALE",
+      "level": 44,
+      "nature": "bold",
+      "ability": "chlorophyll",
+      "heldItem": [
+        "mega_showdown:venusaurite"
+      ],
+      "moveset": [
+        "gigadrain",
+        "sludgebomb",
+        "leechseed",
+        "earthpower"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 248,
+        "atk": 0,
+        "def": 100,
+        "spa": 0,
+        "spd": 140,
+        "spe": 20
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

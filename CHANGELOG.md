@@ -2,6 +2,8 @@
 
 ## 0.1 — first public release
 
+* **License:** the original code and data are released under the Unlicense ([LICENSE](LICENSE)); third-party material keeps its own terms ([LICENSE-STATUS.md](LICENSE-STATUS.md)).
+
 The private development builds were numbered 0.2.0; the public numbering starts again at 0.1. Changing the displayed version renames nothing that is stored: mod ID `rejuvenation_fields`, namespace `rejuvenation`, and every field, item, status, packet and payload ID are unchanged ([migration](docs/MIGRATION.md)).
 
 * **`config-overrides/`** holds the RCT server configuration (level cap and offset) and the LumyMon configuration (Poké Snack blacklist switched off) for fresh modpacks.

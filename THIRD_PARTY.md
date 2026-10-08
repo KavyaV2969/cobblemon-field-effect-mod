@@ -1,5 +1,7 @@
 # Third-party material, attribution and redistribution status
 
+The owner's original code and data are released under the Unlicense ([LICENSE](LICENSE), scope in [LICENSE-STATUS.md](LICENSE-STATUS.md)). **Everything listed below keeps its own owner and terms; the Unlicense does not apply to it.** The Lt. Surge trainer file and gym structure in the COBBLEVERSE extension pack are derived from the COBBLEVERSE packs (Lumyverse, all rights reserved) and are not covered either.
+
 This is an unofficial, non-commercial fan project. *Pokémon* and related names are © Nintendo, Creatures Inc. and GAME FREAK inc. The project is not affiliated with or endorsed by them, by the authors of Pokémon Rejuvenation, or by any mod named below.
 
 ## Pokémon Rejuvenation (reused artwork and game data)

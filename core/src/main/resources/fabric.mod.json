@@ -23,7 +23,7 @@
     "java": ">=21",
     "cobblemon": "1.7.3+1.21.1"
   },
-  "license": "All Rights Reserved (license not yet chosen)",
+  "license": "Unlicense",
   "custom": {
     "rejuvenation": {
       "role": "core"

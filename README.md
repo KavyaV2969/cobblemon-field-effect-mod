@@ -329,4 +329,10 @@ On Windows use `./build.ps1` instead of the first line. More in [BUILDING.md](do
 
 If you find a bug, an incorrect field interaction or something that differs from Pokémon Rejuvenation, please [open an issue](https://github.com/KavyaV2969/cobblemon-field-effect-mod/issues). Suggestions for mappings, custom fields, compatibility and balance are welcome too.
 
-<sub>Field Notes for the original 57 fields are adapted from the Pokémon Rejuvenation Wiki under CC BY-SA 4.0. See [THIRD_PARTY.md](THIRD_PARTY.md) and [LICENSE-STATUS.md](LICENSE-STATUS.md).</sub>
+---
+
+## License
+
+The code and data I wrote are released under [the Unlicense](LICENSE): do whatever you want with them, no credit needed.
+
+That does **not** cover anything that isn't mine, which stays with its original owners: Pokémon Rejuvenation's artwork and game data, the Pokémon Rejuvenation Wiki text behind the Field Notes (CC BY-SA 4.0), COBBLEVERSE's own files, and Pokémon itself. See [LICENSE-STATUS.md](LICENSE-STATUS.md) and [THIRD_PARTY.md](THIRD_PARTY.md) for the exact split.

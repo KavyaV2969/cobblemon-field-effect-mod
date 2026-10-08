@@ -162,7 +162,7 @@ Two behaviours of the base pack cannot be changed by a mod or data pack, so they
 | Change | File | Setting |
 |---|---|---|
 | **Starting level cap.** Pokémon at or above the cap gain no experience. | `config/rctmod-server.toml`, `[Players]` | `initialLevelCap = 16` (the cap before the first gym), `relativeLevelCap = 0` (your cap is the level of your next required trainer's strongest Pokémon), `initialSeries = "kanto"`, `allowOverLeveling = false` |
-| **Legendary Pokémon can be attracted by Poké Snacks.** | `config/lumymon.json` | `blacklistedPokeSnackSpawns = ["custom", "paradox"]`. Only those two groups are blocked, so legendary, mythical and ultra beast Pokémon are no longer excluded from Poké Snack spawns. Add `"legendary"` back to the list to block them again. |
+| **Legendary Pokémon can be attracted by Poké Snacks.** | `config/lumymon.json` | `enablePokeSnackBlacklist = false`. LumyMon's Poké Snack blacklist is switched off, so it no longer blocks legendary, mythical, ultra beast, paradox or custom Pokémon from Poké Snack spawns. Set it back to `true` to restore the blocking. |
 
 The rest of `rctmod-server.toml` is the pack's trainer-spawn tuning; keep it as it is. If you want to keep your own copy, copy only the `[Players]` section. Details: [config-overrides](config-overrides/README.md).
 

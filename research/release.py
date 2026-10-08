@@ -77,7 +77,7 @@ See `CHANGELOG.md`: two mods and two packs, the five held items with the origina
 * No live-game or multiplayer verification of 0.1; earlier live checks were on 0.2.0.
 * The COBBLEVERSE extension must load after the original COBBLEVERSE packs to override the Lt. Surge files; this is expected from Global Packs' file-name ordering but was not observed in a running game (`/datapack list` shows it).
 * **Artwork:** the 57 field backdrops and 5 item icons come from Pokémon Rejuvenation and are used on the owner's fan-project basis; no written permission from its authors is on file (see `THIRD_PARTY.md`).
-* **License:** none chosen yet (`LICENSE-STATUS.md`); all rights reserved until then.
+* **License:** the original code and data are released under the Unlicense (`LICENSE`); third-party material (Rejuvenation artwork and data, the wiki-derived Field Notes, COBBLEVERSE-derived files) keeps its own terms (`LICENSE-STATUS.md`, `THIRD_PARTY.md`).
 * Warped Forest's Leech Seed can drain 1 HP less than a literal quarter; Crimson Forest's entry text is "The red flora is preying..." (owner's choice between two specification forms; see `docs/CUSTOM_FIELDS.md`).
 * The Field Notes of the 57 original fields are text from the Pokémon Rejuvenation Wiki (Creative Commons Attribution-ShareAlike 4.0; attribution in every note and in `THIRD_PARTY.md`), so those notes and `field-notes/FIELD_NOTES.md` are shared under the same license; the rest of the project's license is still unchosen.
 '''
@@ -110,13 +110,13 @@ bundle = OUT / f'rejuvenation-fields-{V}-bundle.zip'
 if bundle.exists(): bundle.unlink()
 with zipfile.ZipFile(bundle, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
     members = [(OUT / n, n) for n in names] + [(OUT / 'INSTALL.md', 'INSTALL.md'), (OUT / 'RELEASE_NOTES.md', 'RELEASE_NOTES.md'), (ROOT / 'README.md', 'README.md'), (ROOT / 'CHANGELOG.md', 'CHANGELOG.md'),
-                                                (ROOT / 'THIRD_PARTY.md', 'THIRD_PARTY.md'), (ROOT / 'LICENSE-STATUS.md', 'LICENSE-STATUS.md'), (ROOT / 'docs/MIGRATION.md', 'MIGRATION.md')]
+                                                (ROOT / 'THIRD_PARTY.md', 'THIRD_PARTY.md'), (ROOT / 'LICENSE-STATUS.md', 'LICENSE-STATUS.md'), (ROOT / 'LICENSE', 'LICENSE'), (ROOT / 'docs/MIGRATION.md', 'MIGRATION.md')]
     for src, arc in members:
         info = zipfile.ZipInfo(f'rejuvenation-fields-{V}/{arc}', (2026, 10, 7, 0, 0, 0)); info.compress_type = zipfile.ZIP_DEFLATED; info.external_attr = 0o644 << 16
         z.writestr(info, Path(src).read_bytes())
 manifest = {**dist, 'release': {'tag': f'v{V}', 'folder': f'release/{V}', 'bundle': bundle.name, 'sourceZip': source_zip.name,
             'files': {p.name: {'bytes': p.stat().st_size, 'sha256': sha(p)} for p in sorted(OUT.iterdir()) if p.is_file() and p.name not in ('SHA256SUMS', 'release-manifest.json')},
-            'unresolved': ['license not chosen (LICENSE-STATUS.md)', 'Pokémon Rejuvenation artwork redistribution rests on the owner statement; no written permission (THIRD_PARTY.md)',
+            'unresolved': ['Pokémon Rejuvenation artwork redistribution rests on the owner statement; no written permission (THIRD_PARTY.md)',
                            'extension load order versus the COBBLEVERSE packs not observed live', 'no live-game or multiplayer verification of 0.1']}}
 (OUT / 'release-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
 sums = '\n'.join(f'{sha(p)}  {p.name}' for p in sorted(OUT.iterdir()) if p.is_file() and p.name != 'SHA256SUMS') + '\n'

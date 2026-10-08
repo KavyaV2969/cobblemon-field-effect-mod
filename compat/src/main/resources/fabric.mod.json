@@ -4,7 +4,7 @@
   "version": "${version}",
   "name": "Rejuvenation Fields Compat",
   "description": "Optional integrations for Rejuvenation Fields: Run & Bun and RCT trainer AI field scoring, the global NPC gimmick policy, and Cobblemon Battle Extras exact move previews.",
-  "license": "All Rights Reserved (license not yet chosen)",
+  "license": "Unlicense",
   "environment": "*",
   "entrypoints": {
     "client": [

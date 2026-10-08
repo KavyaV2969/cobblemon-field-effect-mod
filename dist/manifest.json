@@ -9,13 +9,13 @@
   "artifacts": [
     {
       "path": "rejuvenation-fields-0.1.jar",
-      "bytes": 2520678,
-      "sha256": "810d9b32c0a332f4bc945ca6db3ebe3d980e160e171f9e78045259fd576de505"
+      "bytes": 2520654,
+      "sha256": "5aa64d50f9b3177cfa8db703cc633bf88c5f5cf44e42be9793c5dcfffee33225"
     },
     {
       "path": "rejuvenation-fields-compat-0.1.jar",
-      "bytes": 63588,
-      "sha256": "4107b679c6bb9acff341926c378902ff9adfe2e0dcc89b7521aa0fd406080748"
+      "bytes": 63565,
+      "sha256": "307a74b8282c593e66e1824dd9107551dcfc2d1728629e283bdc78f2ce49e799"
     },
     {
       "path": "rejuvenation-fields-base-0.1.zip",
@@ -24,8 +24,8 @@
     },
     {
       "path": "rejuvenation-fields-cobbleverse-0.1.zip",
-      "bytes": 34606,
-      "sha256": "137c52116ce07d8fb3e6ecd0ee9ead1beda6d213a10478e10a68a8d15ba7e636"
+      "bytes": 34682,
+      "sha256": "07137ab544ddee134c1aed9dd03a25f7b49c5e8279a4f398b4e0e9d1a27f8f42"
     }
   ],
   "mods": {

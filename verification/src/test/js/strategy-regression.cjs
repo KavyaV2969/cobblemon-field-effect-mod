@@ -72,6 +72,16 @@ module.exports=({test,battle,pokemon,E,fid,assert,Battle})=>{
    assert.equal(g.actions.getActiveMaxMove(g.dex.getActiveMove('thunderbolt'),p).id,'gmaxvoltcrash');
    const result=plan(g,[{move:'thunderbolt',target:B,gimmick:'dynamax'}]);assert(!result.candidates[0].error,JSON.stringify(result));assert.equal(state(g),beforeG);g.destroy();
  });
+ test('a field-changing move is scored against foes that faint during the rollout (Dive on Water Surface)',()=>{
+   // The disruption view must be the decision-time matchup, not one built after the rollout has already fainted the foe.
+   for(const foe of [{species:'Blissey',ability:'Natural Cure',moves:['softboiled','toxic']},{species:'Hippowdon',ability:'Sand Stream',moves:['earthquake','slackoff']},
+     {species:'Magikarp',ability:'Swift Swim',level:5,moves:['splash']},{species:'Garchomp',ability:'Rough Skin',moves:['earthquake']}]){
+     const b=battle('water_surface',{species:'Gyarados',ability:'Intimidate',level:28,moves:['dive','waterfall','crunch','dragondance']},foe);const before=state(b);
+     const rows=plan(b,['dive','waterfall','crunch','dragondance'].map(move=>({move,target:B}))).candidates;
+     assert(rows.every(r=>!r.error),foe.species+' '+JSON.stringify(rows.filter(r=>r.error)));
+     assert(Number.isFinite(rows[0].score),foe.species+' Dive has a numeric score');assert.equal(state(b),before,'scoring must not mutate the battle');b.destroy();
+   }
+ });
  test('status and hazard benefits are priced beyond immediate damage',()=>{
    const b=battle('indoor',{moves:['toxic','psychic']},{species:'Snorlax',ability:'Thick Fat',moves:['splash']});
    const r=plan(b,[{move:'toxic',target:B},{move:'psychic',target:B}]);assert(r.candidates.every(x=>!x.error));

@@ -3492,6 +3492,9 @@
       // computed for the decision-time matchup. The view is taken once per opponent before any rollout.
       const disruptionViews=new Map();
       const disruptionFor=foe=>{if(!disruptionViews.has(foe))disruptionViews.set(foe,disruptionView(b,user,foe));return disruptionViews.get(foe);};
+      // Take the decision-time view of every current opponent now. A rollout can faint the foe, and a view built after
+      // that has no opponent, which made every field-changing candidate (e.g. Dive) fail with a null dereference.
+      for(const foe of opponents)disruptionFor(foe);
       const originalOf=id=>(state(b).catalog || catalog).fields[id]?.originalId || 'INDOOR';
       const tacticalBefore=matchup(user,opponents[0]),lastingBefore=lastingValue();
       phases.setup+=Date.now()-setupStart;

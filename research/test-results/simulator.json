@@ -1,9 +1,9 @@
 {
-  "passed": 656,
+  "passed": 657,
   "failed": false,
   "passedTests": [
     "all 57 original and 4 custom definitions parse and are attachable",
-    "every Kanto league trainer starts on a shipped non-Indoor field chosen by the engine scores",
+    "every Kanto league trainer starts on its authored shipped non-Indoor field",
     "unknown conditions and invalid transitions reject catalog",
     "field initialization and original message",
     "every discovered biome resolves intentionally",
@@ -614,6 +614,7 @@
     "Dynamax conversions create terrain and expose duration in strategic lookahead",
     "converted move priorities match the actual installed action queue",
     "guaranteed critical policies and Gigantamax moves survive the shared range pipeline",
+    "a field-changing move is scored against foes that faint during the rollout (Dive on Water Surface)",
     "status and hazard benefits are priced beyond immediate damage",
     "lookahead screening keeps ordinary, Z, Dynamax and native candidates and reports screened variants explicitly",
     "pivot moves bring in the preferred reserve through the simulator switch and entry pipeline",
@@ -663,5 +664,5 @@
   "skippedTests": [],
   "simulator": "showdown",
   "fieldDefinitions": 61,
-  "engineSha256": "3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad"
+  "engineSha256": "43a5c587cc8fff46af58475cb727342328ef32e8a0653296c9a4026770d32d6f"
 }

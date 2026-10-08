@@ -196908,54 +196908,34 @@
   },
   "trainers": {
     "kanto_blaine": {
-      "field": "rejuvenation:corrupted",
-      "winShare": 0.8889,
-      "indoorWinShare": 0.7963
+      "field": "rejuvenation:crimson_forest"
     },
     "kanto_brock": {
-      "field": "rejuvenation:crystal_cavern",
-      "winShare": 0.4352,
-      "indoorWinShare": 0.2407
+      "field": "rejuvenation:crystal_cavern"
     },
     "kanto_champion_blue": {
-      "field": "rejuvenation:starlight",
-      "winShare": 0.9815,
-      "indoorWinShare": 0.963
+      "field": "rejuvenation:new_world"
     },
     "kanto_erika": {
-      "field": "rejuvenation:big_top",
-      "winShare": 0.7407,
-      "indoorWinShare": 0.6852
+      "field": "rejuvenation:warped_forest"
     },
     "kanto_giovanni": {
-      "field": "rejuvenation:glitch",
-      "winShare": 0.8333,
-      "indoorWinShare": 0.7315
+      "field": "rejuvenation:deep_dark"
     },
     "kanto_koga": {
-      "field": "rejuvenation:dimensional",
-      "winShare": 0.7269,
-      "indoorWinShare": 0.6019
+      "field": "rejuvenation:wasteland"
     },
     "kanto_league_agatha": {
-      "field": "rejuvenation:volcanic",
-      "winShare": 0.9259,
-      "indoorWinShare": 0.75
+      "field": "rejuvenation:haunted"
     },
     "kanto_league_bruno": {
-      "field": "rejuvenation:starlight",
-      "winShare": 0.8241,
-      "indoorWinShare": 0.7315
+      "field": "rejuvenation:colosseum"
     },
     "kanto_league_lance": {
-      "field": "rejuvenation:dragons_den",
-      "winShare": 0.9352,
-      "indoorWinShare": 0.8519
+      "field": "rejuvenation:dragons_den"
     },
     "kanto_league_lorelei": {
-      "field": "rejuvenation:underwater",
-      "winShare": 0.8981,
-      "indoorWinShare": 0.7222
+      "field": "rejuvenation:frozen_dimension"
     },
     "kanto_ltsurge": {
       "field": "rejuvenation:murkwater_surface",
@@ -196963,14 +196943,10 @@
       "indoorWinShare": 0.5093
     },
     "kanto_misty": {
-      "field": "rejuvenation:underwater",
-      "winShare": 0.7407,
-      "indoorWinShare": 0.463
+      "field": "rejuvenation:water_surface"
     },
     "kanto_sabrina": {
-      "field": "rejuvenation:water_surface",
-      "winShare": 0.8889,
-      "indoorWinShare": 0.8519
+      "field": "rejuvenation:psychic_terrain"
     }
   },
   "default": "rejuvenation:indoor"

@@ -1,33 +1,33 @@
 {
   "version": "0.1",
-  "checks": 1036,
-  "mixinGateEvaluations": 88,
+  "checks": 1069,
+  "mixinGateEvaluations": 104,
   "combinations": [
     {
       "thirdPartyMods": [],
       "coreClassesLinked": 88,
-      "compatClassesChecked": 29
+      "compatClassesChecked": 32
     },
     {
       "thirdPartyMods": [
         "rbrctai-fabric"
       ],
       "coreClassesLinked": 88,
-      "compatClassesChecked": 29
+      "compatClassesChecked": 32
     },
     {
       "thirdPartyMods": [
         "rctapi-fabric"
       ],
       "coreClassesLinked": 88,
-      "compatClassesChecked": 29
+      "compatClassesChecked": 32
     },
     {
       "thirdPartyMods": [
         "cobblemon-battle-extras-fabric"
       ],
       "coreClassesLinked": 88,
-      "compatClassesChecked": 29
+      "compatClassesChecked": 32
     },
     {
       "thirdPartyMods": [
@@ -36,7 +36,7 @@
         "rctapi-fabric"
       ],
       "coreClassesLinked": 88,
-      "compatClassesChecked": 29
+      "compatClassesChecked": 32
     }
   ],
   "scope": "Offline linkage of the built jars against classpaths of each mod combination plus static separation checks; the real game\u0027s Fabric discovery and Mixin application are not executed."

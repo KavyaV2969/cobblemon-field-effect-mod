@@ -14,9 +14,9 @@ from pathlib import Path
 import argparse, fnmatch, hashlib, json, os, re, shutil, subprocess, sys, zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-ALLOW_FILES = ['README.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'THIRD_PARTY.md', 'LICENSE-STATUS.md', 'build.gradle', 'settings.gradle', 'gradle.properties',
+ALLOW_FILES = ['README.md', 'README_KANTO_LEAGUE.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'THIRD_PARTY.md', 'LICENSE-STATUS.md', 'build.gradle', 'settings.gradle', 'gradle.properties',
                'gradlew', 'gradlew.bat', 'build.ps1', '.gitignore']
-ALLOW_TREES = ['gradle', 'core/src', 'compat/src', 'verification/src', 'datapack', 'docs', 'field-notes', 'scripts', 'research/custom-fields', 'research/wiki-notes', 'research/custom-artwork', 'research/schema', 'research/baseline']
+ALLOW_TREES = ['gradle', 'config-overrides', 'core/src', 'compat/src', 'verification/src', 'datapack', 'docs', 'field-notes', 'scripts', 'research/custom-fields', 'research/wiki-notes', 'research/custom-artwork', 'research/schema', 'research/baseline']
 #: research/ top-level tools and canonical inputs (generated or private files are left out on purpose).
 RESEARCH_TOOLS = ['*.py', '*.cjs', '*.rb']
 RESEARCH_TOOLS_EXCLUDE = ['debug-eval*.cjs', 'apply_gym_to_world.py', 'live_check.py', 'export_public.py']

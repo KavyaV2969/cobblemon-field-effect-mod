@@ -29,11 +29,13 @@ function battle(field='forest',a={},t={}){
 function pokemon(b){return [b.sides[0].active[0],b.sides[1].active[0]];}
 function move(b,id){return b.dex.getActiveMove(id);}
 test('all 57 original and 4 custom definitions parse and are attachable',()=>{assert.equal(Object.keys(fields).length,61);assert.equal(Object.values(fields).filter(f=>!f.custom).length,57);assert.equal(Object.values(fields).filter(f=>f.custom).length,4);for(const f of Object.values(fields)){const b=new Battle({formatid:'gen9customgame'});E.attach(b,f.id);assert.equal(E.current(b).id,f.id);b.destroy();}});
-test('every Kanto league trainer starts on a shipped non-Indoor field chosen by the engine scores',()=>{
- const scores=JSON.parse(fs.readFileSync(path.join(root,'research/trainer-field-scores.json'))).trainers;
+test('every Kanto league trainer starts on its authored shipped non-Indoor field',()=>{
+ // The 2026-10-08 rosters assign fields by hand (README_KANTO_LEAGUE.md); research/trainer-field-scores.json describes the earlier teams.
+ const authored={kanto_brock:'crystal_cavern',kanto_misty:'water_surface',kanto_ltsurge:'murkwater_surface',kanto_erika:'warped_forest',kanto_sabrina:'psychic_terrain',
+  kanto_koga:'wasteland',kanto_blaine:'crimson_forest',kanto_giovanni:'deep_dark',kanto_league_lorelei:'frozen_dimension',kanto_league_bruno:'colosseum',
+  kanto_league_agatha:'haunted',kanto_league_lance:'dragons_den',kanto_champion_blue:'new_world'};
  assert.equal(Object.keys(trainers).length,13);
- for(const [id,row]of Object.entries(trainers)){assert(fields[row.field] && row.field!=='rejuvenation:indoor',id);assert.equal(row.field,scores[id].best,id);
-  for(const [field,s]of Object.entries(scores[id].scores))if(field!=='rejuvenation:indoor')assert(s.winShare<row.winShare || (s.winShare===row.winShare && s.margin<=scores[id].scores[row.field].margin),id+' '+field);}
+ for(const [id,row]of Object.entries(trainers)){assert(fields[row.field] && row.field!=='rejuvenation:indoor',id);assert.equal(row.field,fid(authored[id]),id);}
  for(const bad of [{kanto_brock:{field:'rejuvenation:indoor'}},{kanto_brock:{field:'rejuvenation:nowhere'}},{'Kanto Brock':{field:'rejuvenation:cave'}},{kanto_brock:{field:'rejuvenation:cave',winShare:2}},{kanto_brock:{field:'rejuvenation:cave',team:[]}}])
   assert.throws(()=>E.load(JSON.stringify({...catalog,trainers:bad})),JSON.stringify(bad));
  E.load(JSON.stringify(catalog));});

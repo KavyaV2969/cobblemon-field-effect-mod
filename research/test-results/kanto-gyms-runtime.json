@@ -1,0 +1,366 @@
+{
+  "addonSha256": "0d134591a9db9834f5f2bffdce4bd4cd0976a1b7879aa7f52ce064c38199cfaa",
+  "addons": {
+    "eelektross": {
+      "stone": "eelektrossite",
+      "itemJS": "{\r\n  name: \"eelektrossite\",\r\n  spritenum: 679,\r\n  megaStone: \"Eelektross-Mega\",\r\n  megaEvolves: [\"Eelektross\"],\r\n  itemUser: [\"Eelektross\"],\r\n  onTakeItem(item, source) {\r\n    if (item.megaEvolves.includes(source.baseSpecies.baseSpecies)) return false;\r\n    return true;\r\n  },\r\n  num: -999,\r\n  gen: 5,\r\n  isNonstandard: \"Past\",\r\n}",
+      "addition": {
+        "target": "cobblemon:eelektross",
+        "features": [
+          "mega_evolution"
+        ],
+        "forms": [
+          {
+            "name": "Mega",
+            "pokedex": [
+              "cobblemon.species.eelektross-mega.desc"
+            ],
+            "abilities": [
+              "hadronengine",
+              "h:hadronengine"
+            ],
+            "labels": [
+              "gen5",
+              "mega"
+            ],
+            "aspects": [
+              "mega"
+            ],
+            "battleOnly": true,
+            "dynamaxBlocked": true,
+            "baseStats": {
+              "hp": 85,
+              "attack": 145,
+              "defence": 80,
+              "special_attack": 135,
+              "special_defence": 90,
+              "speed": 80
+            },
+            "baseScale": 1.15,
+            "height": 30,
+            "weight": 1800
+          }
+        ]
+      }
+    },
+    "baxcalibur": {
+      "stone": "baxcalibrite",
+      "itemJS": "{\r\n  name: \"baxcalibrite\",\r\n  spritenum: 686,\r\n  megaStone: \"Baxcalibur-Mega\",\r\n  megaEvolves: [\"Baxcalibur\"],\r\n  itemUser: [\"Baxcalibur\"],\r\n  onTakeItem(item, source) {\r\n    if (item.megaEvolves.includes(source.baseSpecies.baseSpecies)) return false;\r\n    return true;\r\n  },\r\n  num: -999,\r\n  gen: 5,\r\n  isNonstandard: \"Past\",\r\n}",
+      "addition": {
+        "target": "cobblemon:baxcalibur",
+        "features": [
+          "mega_evolution"
+        ],
+        "forms": [
+          {
+            "name": "Mega",
+            "pokedex": [
+              "cobblemon.species.baxcalibur-mega.desc"
+            ],
+            "abilities": [
+              "thermalexchange",
+              "h:thermalexchange"
+            ],
+            "labels": [
+              "gen9",
+              "mega"
+            ],
+            "aspects": [
+              "mega"
+            ],
+            "battleOnly": true,
+            "dynamaxBlocked": true,
+            "baseStats": {
+              "hp": 115,
+              "attack": 175,
+              "defence": 117,
+              "special_attack": 105,
+              "special_defence": 101,
+              "speed": 87
+            },
+            "baseScale": 1.1,
+            "hitbox": {
+              "width": 1.5,
+              "height": 4,
+              "fixed": false
+            },
+            "height": 21,
+            "weight": 3150
+          }
+        ]
+      }
+    },
+    "dragonite": {
+      "stone": "dragoninite",
+      "itemJS": "{\r\n  name: \"dragoninite\",\r\n  spritenum: 666,\r\n  megaStone: \"Dragonite-Mega\",\r\n  megaEvolves: [\"Dragonite\"],\r\n  itemUser: [\"Dragonite\"],\r\n  onTakeItem(item, source) {\r\n    if (item.megaEvolves.includes(source.baseSpecies.baseSpecies)) return false;\r\n    return true;\r\n  },\r\n  num: -999,\r\n  gen: 5,\r\n  isNonstandard: \"Past\"\r\n}",
+      "addition": {
+        "target": "cobblemon:dragonite",
+        "features": [
+          "mega_evolution"
+        ],
+        "forms": [
+          {
+            "name": "Mega",
+            "pokedex": [
+              "cobblemon.species.dragonite-mega.desc"
+            ],
+            "labels": [
+              "gen1",
+              "mega"
+            ],
+            "aspects": [
+              "mega"
+            ],
+            "abilities": [
+              "multiscale",
+              "h:multiscale"
+            ],
+            "baseStats": {
+              "hp": 91,
+              "attack": 124,
+              "defence": 115,
+              "special_attack": 145,
+              "special_defence": 125,
+              "speed": 100
+            },
+            "battleOnly": true,
+            "dynamaxBlocked": true,
+            "baseScale": 0.9,
+            "hitbox": {
+              "width": 2,
+              "height": 3.5,
+              "fixed": false
+            },
+            "height": 22,
+            "weight": 2900
+          }
+        ]
+      }
+    }
+  },
+  "originalControls": {
+    "brock": {
+      "battleRules": {
+        "maxItemUses": 2
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 2
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "misty": {
+      "battleRules": {
+        "maxItemUses": 2
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 2
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "ltsurge": {
+      "battleRules": {
+        "maxItemUses": 2
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 2
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "erika": {
+      "battleRules": {
+        "maxItemUses": 3
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 3
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "sabrina": {
+      "battleRules": {
+        "maxItemUses": 3
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 3
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "koga": {
+      "battleRules": {
+        "maxItemUses": 3
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 3
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "blaine": {
+      "battleRules": {
+        "maxItemUses": 4
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 4
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "giovanni": {
+      "battleRules": {
+        "maxItemUses": 4
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 4
+        }
+      ],
+      "battleFormat": "GEN_9_DOUBLES"
+    },
+    "league_lorelei": {
+      "battleRules": {
+        "maxItemUses": 4
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 4
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "league_bruno": {
+      "battleRules": {
+        "maxItemUses": 4
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 4
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "league_agatha": {
+      "battleRules": {
+        "maxItemUses": 4
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 4
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "league_lance": {
+      "battleRules": {
+        "maxItemUses": 4
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 4
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    },
+    "champion_blue": {
+      "battleRules": {
+        "maxItemUses": 6
+      },
+      "bag": [
+        {
+          "item": "cobblemon:full_restore",
+          "quantity": 6
+        }
+      ],
+      "battleFormat": "GEN_9_SINGLES"
+    }
+  },
+  "originalTrainerPackSha256": "b61d830c049f68eff42782fb78fbb1250b9bbb39bfcdca06bc5cc11b5704ae79",
+  "savedWorldPackOrder": [
+    "vanilla",
+    "fabric",
+    "accessories",
+    "balm",
+    "beautify",
+    "carved_wood",
+    "cobblecuisine",
+    "cobbledollars",
+    "cobblefurnies",
+    "cobblemon",
+    "cobblemon-additions",
+    "cobblemon_smartphone",
+    "cobblemonbattlepositions",
+    "cobblemonraiddens",
+    "cobblenav",
+    "cobbleversebadges",
+    "cobbreeding",
+    "comforts",
+    "cozyhome",
+    "fabric-convention-tags-v2",
+    "fightorflight",
+    "handcrafted",
+    "legendarymonuments",
+    "lenientdeath",
+    "libjf-data-v0",
+    "lumymon",
+    "mega_showdown",
+    "moarconcrete",
+    "mr_ore_veinminer",
+    "mr_tree_veinminer",
+    "neruina",
+    "obc",
+    "particular",
+    "pokeblocks",
+    "porting_lib_item_abilities",
+    "rctmod",
+    "rechiseled",
+    "rejuvenation_fields",
+    "repurposed_structures",
+    "server_translations_api",
+    "simpletms",
+    "sophisticatedbackpacks",
+    "sophisticatedcore",
+    "sophisticatedstorage",
+    "spawn_notification",
+    "supermartijn642corelib",
+    "tim_core",
+    "tmcraft",
+    "toms_storage",
+    "trinkets",
+    "vanillabackport",
+    "waystones",
+    "zamega",
+    "lumymon:compat",
+    "carved_wood:carvedwood_vanillabackport_compat",
+    "cobblemon:repurposedstructurescobblemon",
+    "PokeCenterPCs-DP.zip",
+    "COBBLEVERSE-RCT-DP-v20.zip",
+    "COBBLEVERSE-Loot-DP-v11.zip",
+    "COBBLEVERSE-DP-v31.zip",
+    "COBBLEVERSE - No Hunger.zip",
+    "COBBLEVERSE - No Ender Dragon.zip",
+    "rejuvenation-fields-cobbleverse-0.1.zip",
+    "rejuvenation-fields-base-0.1.zip"
+  ]
+}

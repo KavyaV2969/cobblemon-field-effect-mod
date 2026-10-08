@@ -150,7 +150,8 @@ public final class InstallationMatrixVerification {
             var installed = new java.util.HashSet<String>();
             if ((mask & 1) != 0) installed.add("rbrctai"); if ((mask & 2) != 0) installed.add("rctapi"); if ((mask & 4) != 0) installed.add("cobblemon-battle-extras");
             for (String mixin : names) {
-                boolean expected = mixin.startsWith("RunBun") ? installed.contains("rbrctai") : !mixin.startsWith("BattleExtras") || installed.contains("cobblemon-battle-extras");
+                boolean expected = mixin.startsWith("BlueNpc") ? installed.contains("rctapi")
+                    : mixin.startsWith("RunBun") ? installed.contains("rbrctai") : !mixin.startsWith("BattleExtras") || installed.contains("cobblemon-battle-extras");
                 check(dev.rejuvenation.compat.CompatMixinPlugin.enabled("dev.rejuvenation.compat.mixin." + mixin, installed::contains) == expected, "gate of " + mixin + " for " + installed);
                 gates++;
             }

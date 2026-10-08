@@ -1,0 +1,249 @@
+{
+  "name": {
+    "literal": "Misty"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "floatzel",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "vaporeon",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "heldItem": [
+        "rejuvenation:elemental_seed"
+      ],
+      "moveset": [
+        "wish",
+        "toxic",
+        "scald",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 252,
+        "spa": 0,
+        "spd": 4,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "togekiss",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "timid",
+      "ability": "serenegrace",
+      "heldItem": [
+        "cobblemon:wacan_berry"
+      ],
+      "moveset": [
+        "airslash",
+        "aurasphere",
+        "roost",
+        "dazzlinggleam"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 4,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "quagsire",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "bold",
+      "ability": "waterabsorb",
+      "heldItem": [
+        "cobblemon:rindo_berry"
+      ],
+      "moveset": [
+        "muddywater",
+        "recover",
+        "icebeam",
+        "haze"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 128,
+        "spa": 0,
+        "spd": 128,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "floatzel",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "adamant",
+      "ability": "swiftswim",
+      "heldItem": [
+        "cobblemon:mystic_water"
+      ],
+      "moveset": [
+        "liquidation",
+        "flipturn",
+        "icepunch",
+        "brickbreak"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 4,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": "water",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "lanturn",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "modest",
+      "ability": "voltabsorb",
+      "heldItem": [
+        "cobblemon:sitrus_berry"
+      ],
+      "moveset": [
+        "discharge",
+        "voltswitch",
+        "icebeam",
+        "scald"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 4,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "gyarados",
+      "gender": "MALE",
+      "level": 28,
+      "nature": "jolly",
+      "ability": "intimidate",
+      "heldItem": [
+        "mega_showdown:gyaradosite"
+      ],
+      "moveset": [
+        "dive",
+        "waterfall",
+        "crunch",
+        "dragondance"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 4,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

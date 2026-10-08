@@ -1,0 +1,29 @@
+{
+  "checksPassed": 29,
+  "failed": false,
+  "normalEvsCapped": true,
+  "blueEvsRetained": 1512,
+  "exactInstalledHookAbiVerified": true,
+  "liveMinecraftBattleTested": false,
+  "installed": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\mods\\rejuvenation-fields-compat-0.1.jar",
+  "sha256": "d7cc86573c94f89b05566bbdd1f5d39151bbf102dc1e05b32c61cd81dca492c7",
+  "previousSha256": "94257abf09b3d61a28e79043259ef486f958039b4705c24a27c610352554edd6",
+  "changedEntries": [
+    "dev/rejuvenation/compat/BlueNpcEvPolicy.class",
+    "dev/rejuvenation/compat/CompatMixinPlugin.class",
+    "dev/rejuvenation/compat/mixin/BlueNpcStatsAccessor.class",
+    "dev/rejuvenation/compat/mixin/BlueNpcTeamMixin.class",
+    "rejuvenation-compat.mixins.json"
+  ],
+  "unrelatedEntriesPreserved": true,
+  "compiledBytesMatchInstalled": true,
+  "backup": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\research\\backups\\kanto-gyms-20261008-155052",
+  "scope": "NPC kanto_champion_blue teams only; normal EV cap unchanged",
+  "classHashes": {
+    "dev/rejuvenation/compat/BlueNpcEvPolicy.class": "85739d6c677e1208e84853bd8cda8c984a09418cf2bb75db505ec3740b63bfea",
+    "dev/rejuvenation/compat/CompatMixinPlugin.class": "5ae4e42078d840a80fedff2b0b50fdf372c51fdf24223cf7e196dd1f944c8de8",
+    "dev/rejuvenation/compat/mixin/BlueNpcStatsAccessor.class": "430dfb5c62ba9297c489b83654adda75db3972f9a7c6474aa0f73d08cc52d16d",
+    "dev/rejuvenation/compat/mixin/BlueNpcTeamMixin.class": "84a2516c7378208327760469dec0e4dc4a11414d92e11e78abb0ca4114d55406",
+    "rejuvenation-compat.mixins.json": "e6da37f4bfbedb18e77a5770042bc84608d0a610704fdfa9c5ae34ef05c399dc"
+  }
+}

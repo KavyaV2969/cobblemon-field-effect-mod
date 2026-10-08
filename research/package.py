@@ -122,7 +122,7 @@ def main():
     write_zip(BASE_ZIP, ROOT / 'datapack/base'); write_zip(EXT_ZIP, ROOT / 'datapack/cobbleverse')
     base_names = pack_checks(BASE_ZIP, ROOT / 'datapack/base', {r'data/rejuvenation/rejuvenation/fields/[a-z0-9_]+\.json': 61, r'data/rejuvenation/rejuvenation/notes/[a-z0-9_]+\.json': 61,
                              r'data/rejuvenation/rejuvenation/items/.*\.json': 1, r'data/rejuvenation/rejuvenation/abilities/.*\.json': 1})
-    ext_names = pack_checks(EXT_ZIP, ROOT / 'datapack/cobbleverse', {r'data/rejuvenation/rejuvenation/trainers/.*\.json': 1, r'data/rctmod/trainers/kanto_ltsurge\.json': 1, r'data/cobbleverse/structure/ltsurge\.nbt': 1,
+    ext_names = pack_checks(EXT_ZIP, ROOT / 'datapack/cobbleverse', {r'data/rejuvenation/rejuvenation/trainers/.*\.json': 1, r'data/rctmod/trainers/kanto_(brock|misty|ltsurge|erika|sabrina|koga|blaine|giovanni|league_lorelei|league_bruno|league_agatha|league_lance|champion_blue)\.json': 13, r'data/cobbleverse/structure/ltsurge\.nbt': 1,
                              r'data/rejuvenation/rejuvenation/mappings/.*\.json': 2, r'data/rejuvenation/rejuvenation/structures/.*\.json': 4})
     check(not any('/fields/' in n for n in ext_names), 'the extension must not redefine fields (shared definitions live in the base only)')
     check(not (set(base_names) & set(ext_names) - {'pack.mcmeta'}), 'the two packs share a resource path (duplicate definition)')

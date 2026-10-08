@@ -1,0 +1,433 @@
+Compiled from "TrainerNPC.java"
+public class com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC implements com.gitlab.srcmc.rctapi.api.trainer.Trainer {
+  public static final java.lang.String DUMMY_TAG;
+
+  private com.gitlab.srcmc.rctapi.api.util.Text name;
+
+  private com.gitlab.srcmc.rctapi.api.util.Text entityName;
+
+  private com.cobblemon.mod.common.pokemon.Pokemon[] team;
+
+  private com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC$GimmicksMap gimmicks;
+
+  private com.gitlab.srcmc.rctapi.api.trainer.TrainerBag bag;
+
+  private net.minecraft.class_2960 battleTheme;
+
+  private com.cobblemon.mod.common.api.battles.model.ai.BattleAI battleAI;
+
+  private net.minecraft.class_1309 entity;
+
+  private java.util.HashMap<java.util.UUID, com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC$BattleInstance> battleInstances;
+
+  private static net.minecraft.class_1309 dummyEntity;
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC(com.cobblemon.mod.common.pokemon.Pokemon[], com.gitlab.srcmc.rctapi.api.trainer.TrainerBag, com.cobblemon.mod.common.api.battles.model.ai.BattleAI, net.minecraft.class_1309);
+    Code:
+       0: aload_0
+       1: invokestatic  #45                 // Method com/gitlab/srcmc/rctapi/api/util/Text.empty:()Lcom/gitlab/srcmc/rctapi/api/util/Text;
+       4: aload_1
+       5: aload_2
+       6: aload_3
+       7: aload         4
+       9: invokespecial #48                 // Method "<init>":(Lcom/gitlab/srcmc/rctapi/api/util/Text;[Lcom/cobblemon/mod/common/pokemon/Pokemon;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;Lnet/minecraft/class_1309;)V
+      12: return
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC(java.lang.String, com.cobblemon.mod.common.pokemon.Pokemon[], com.gitlab.srcmc.rctapi.api.trainer.TrainerBag, com.cobblemon.mod.common.api.battles.model.ai.BattleAI, net.minecraft.class_1309);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #55                 // Method com/gitlab/srcmc/rctapi/api/util/Text.literal:(Ljava/lang/String;)Lcom/gitlab/srcmc/rctapi/api/util/Text;
+       5: aload_2
+       6: aload_3
+       7: aload         4
+       9: aload         5
+      11: invokespecial #48                 // Method "<init>":(Lcom/gitlab/srcmc/rctapi/api/util/Text;[Lcom/cobblemon/mod/common/pokemon/Pokemon;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;Lnet/minecraft/class_1309;)V
+      14: return
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC(java.lang.String, com.cobblemon.mod.common.pokemon.Pokemon[], com.gitlab.srcmc.rctapi.api.trainer.TrainerBag, net.minecraft.class_2960, com.cobblemon.mod.common.api.battles.model.ai.BattleAI, net.minecraft.class_1309);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: invokestatic  #55                 // Method com/gitlab/srcmc/rctapi/api/util/Text.literal:(Ljava/lang/String;)Lcom/gitlab/srcmc/rctapi/api/util/Text;
+       5: aload_2
+       6: new           #11                 // class com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap
+       9: dup
+      10: invokespecial #59                 // Method com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap."<init>":()V
+      13: aload_3
+      14: aload         4
+      16: aload         5
+      18: aload         6
+      20: invokespecial #62                 // Method "<init>":(Lcom/gitlab/srcmc/rctapi/api/util/Text;[Lcom/cobblemon/mod/common/pokemon/Pokemon;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;Lnet/minecraft/class_2960;Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;Lnet/minecraft/class_1309;)V
+      23: return
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC(com.gitlab.srcmc.rctapi.api.util.Text, com.cobblemon.mod.common.pokemon.Pokemon[], com.gitlab.srcmc.rctapi.api.trainer.TrainerBag, com.cobblemon.mod.common.api.battles.model.ai.BattleAI, net.minecraft.class_1309);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: new           #11                 // class com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap
+       6: dup
+       7: invokespecial #59                 // Method com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap."<init>":()V
+      10: aload_3
+      11: aload         4
+      13: aload         5
+      15: invokespecial #65                 // Method "<init>":(Lcom/gitlab/srcmc/rctapi/api/util/Text;[Lcom/cobblemon/mod/common/pokemon/Pokemon;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;Lnet/minecraft/class_1309;)V
+      18: return
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC(com.gitlab.srcmc.rctapi.api.util.Text, com.cobblemon.mod.common.pokemon.Pokemon[], com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC$GimmicksMap, com.gitlab.srcmc.rctapi.api.trainer.TrainerBag, com.cobblemon.mod.common.api.battles.model.ai.BattleAI, net.minecraft.class_1309);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: aload_2
+       3: aload_3
+       4: aload         4
+       6: getstatic     #71                 // Field com/cobblemon/mod/common/CobblemonSounds.PVN_BATTLE:Lnet/minecraft/class_3414;
+       9: invokevirtual #77                 // Method net/minecraft/class_3414.method_14833:()Lnet/minecraft/class_2960;
+      12: aload         5
+      14: aload         6
+      16: invokespecial #62                 // Method "<init>":(Lcom/gitlab/srcmc/rctapi/api/util/Text;[Lcom/cobblemon/mod/common/pokemon/Pokemon;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;Lnet/minecraft/class_2960;Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;Lnet/minecraft/class_1309;)V
+      19: return
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC(com.gitlab.srcmc.rctapi.api.util.Text, com.cobblemon.mod.common.pokemon.Pokemon[], com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC$GimmicksMap, com.gitlab.srcmc.rctapi.api.trainer.TrainerBag, net.minecraft.class_2960, com.cobblemon.mod.common.api.battles.model.ai.BattleAI, net.minecraft.class_1309);
+    Code:
+       0: aload_0
+       1: invokespecial #78                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #80                 // class java/util/HashMap
+       8: dup
+       9: invokespecial #81                 // Method java/util/HashMap."<init>":()V
+      12: putfield      #83                 // Field battleInstances:Ljava/util/HashMap;
+      15: aload_0
+      16: aload_1
+      17: putfield      #85                 // Field name:Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      20: aload_0
+      21: aload_2
+      22: putfield      #87                 // Field team:[Lcom/cobblemon/mod/common/pokemon/Pokemon;
+      25: aload_0
+      26: aload_3
+      27: putfield      #89                 // Field gimmicks:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;
+      30: aload_0
+      31: aload         4
+      33: putfield      #91                 // Field bag:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;
+      36: aload_0
+      37: aload         5
+      39: putfield      #93                 // Field battleTheme:Lnet/minecraft/class_2960;
+      42: aload_0
+      43: aload         6
+      45: putfield      #95                 // Field battleAI:Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;
+      48: aload_0
+      49: aload         7
+      51: invokevirtual #99                 // Method setEntity:(Lnet/minecraft/class_1309;)V
+      54: return
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC(com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC);
+    Code:
+       0: aload_0
+       1: invokespecial #78                 // Method java/lang/Object."<init>":()V
+       4: aload_0
+       5: new           #80                 // class java/util/HashMap
+       8: dup
+       9: invokespecial #81                 // Method java/util/HashMap."<init>":()V
+      12: putfield      #83                 // Field battleInstances:Ljava/util/HashMap;
+      15: aload_0
+      16: aload_1
+      17: getfield      #85                 // Field name:Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      20: putfield      #85                 // Field name:Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      23: aload_0
+      24: aload_1
+      25: getfield      #87                 // Field team:[Lcom/cobblemon/mod/common/pokemon/Pokemon;
+      28: invokestatic  #105                // Method copyTeam:([Lcom/cobblemon/mod/common/pokemon/Pokemon;)[Lcom/cobblemon/mod/common/pokemon/Pokemon;
+      31: putfield      #87                 // Field team:[Lcom/cobblemon/mod/common/pokemon/Pokemon;
+      34: aload_0
+      35: aload_1
+      36: getfield      #91                 // Field bag:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;
+      39: putfield      #91                 // Field bag:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;
+      42: aload_0
+      43: aload_1
+      44: getfield      #93                 // Field battleTheme:Lnet/minecraft/class_2960;
+      47: putfield      #93                 // Field battleTheme:Lnet/minecraft/class_2960;
+      50: aload_0
+      51: aload_1
+      52: getfield      #95                 // Field battleAI:Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;
+      55: putfield      #95                 // Field battleAI:Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;
+      58: aload_0
+      59: new           #11                 // class com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap
+      62: dup
+      63: aload_1
+      64: getfield      #89                 // Field gimmicks:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;
+      67: invokespecial #108                // Method com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap."<init>":(Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;)V
+      70: putfield      #89                 // Field gimmicks:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;
+      73: aload_0
+      74: aload_1
+      75: getfield      #110                // Field entity:Lnet/minecraft/class_1309;
+      78: invokevirtual #99                 // Method setEntity:(Lnet/minecraft/class_1309;)V
+      81: return
+
+  public void setEntity(net.minecraft.class_1309);
+    Code:
+       0: aload_0
+       1: aload_1
+       2: putfield      #110                // Field entity:Lnet/minecraft/class_1309;
+       5: aload_0
+       6: aload_1
+       7: invokevirtual #116                // Method net/minecraft/class_1309.method_5476:()Lnet/minecraft/class_2561;
+      10: invokeinterface #122,  1          // InterfaceMethod net/minecraft/class_2561.getString:()Ljava/lang/String;
+      15: invokestatic  #55                 // Method com/gitlab/srcmc/rctapi/api/util/Text.literal:(Ljava/lang/String;)Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      18: putfield      #124                // Field entityName:Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      21: return
+
+  public com.cobblemon.mod.common.api.battles.model.ai.BattleAI getBattleAI();
+    Code:
+       0: aload_0
+       1: getfield      #95                 // Field battleAI:Lcom/cobblemon/mod/common/api/battles/model/ai/BattleAI;
+       4: areturn
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerBag getBag();
+    Code:
+       0: aload_0
+       1: getfield      #91                 // Field bag:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerBag;
+       4: areturn
+
+  public net.minecraft.class_2960 getBattleTheme();
+    Code:
+       0: aload_0
+       1: getfield      #93                 // Field battleTheme:Lnet/minecraft/class_2960;
+       4: areturn
+
+  public com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC$GimmicksMap getGimmicks();
+    Code:
+       0: aload_0
+       1: getfield      #89                 // Field gimmicks:Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$GimmicksMap;
+       4: areturn
+
+  public com.gitlab.srcmc.rctapi.api.util.Text getName();
+    Code:
+       0: aload_0
+       1: getfield      #85                 // Field name:Lcom/gitlab/srcmc/rctapi/api/util/Text;
+       4: iconst_0
+       5: anewarray     #4                  // class java/lang/Object
+       8: invokevirtual #136                // Method com/gitlab/srcmc/rctapi/api/util/Text.getComponent:([Ljava/lang/Object;)Lnet/minecraft/class_5250;
+      11: invokevirtual #139                // Method net/minecraft/class_5250.getString:()Ljava/lang/String;
+      14: invokevirtual #145                // Method java/lang/String.isEmpty:()Z
+      17: ifeq          37
+      20: aload_0
+      21: invokevirtual #149                // Method getEntity:()Lnet/minecraft/class_1309;
+      24: invokevirtual #116                // Method net/minecraft/class_1309.method_5476:()Lnet/minecraft/class_2561;
+      27: ifnull        37
+      30: aload_0
+      31: getfield      #124                // Field entityName:Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      34: goto          41
+      37: aload_0
+      38: getfield      #85                 // Field name:Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      41: areturn
+
+  public com.cobblemon.mod.common.pokemon.Pokemon[] getTeam();
+    Code:
+       0: aload_0
+       1: getfield      #87                 // Field team:[Lcom/cobblemon/mod/common/pokemon/Pokemon;
+       4: areturn
+
+  public net.minecraft.class_1309 getEntity();
+    Code:
+       0: aload_0
+       1: getfield      #110                // Field entity:Lnet/minecraft/class_1309;
+       4: areturn
+
+  public net.minecraft.class_1309 getEntity(com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: aload_1
+       1: ifnull        28
+       4: aload_0
+       5: getfield      #83                 // Field battleInstances:Ljava/util/HashMap;
+       8: aload_1
+       9: invokevirtual #160                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getBattleId:()Ljava/util/UUID;
+      12: invokevirtual #164                // Method java/util/HashMap.get:(Ljava/lang/Object;)Ljava/lang/Object;
+      15: checkcast     #9                  // class com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$BattleInstance
+      18: astore_2
+      19: aload_2
+      20: ifnull        28
+      23: aload_2
+      24: invokevirtual #166                // Method com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$BattleInstance.entity:()Lnet/minecraft/class_1309;
+      27: areturn
+      28: aload_0
+      29: invokevirtual #149                // Method getEntity:()Lnet/minecraft/class_1309;
+      32: areturn
+
+  public java.util.List<com.gitlab.srcmc.rctapi.api.trainer.TrainerNPC$BattleInstance> getBattleInstances();
+    Code:
+       0: aload_0
+       1: getfield      #83                 // Field battleInstances:Ljava/util/HashMap;
+       4: invokevirtual #176                // Method java/util/HashMap.values:()Ljava/util/Collection;
+       7: invokestatic  #182                // InterfaceMethod java/util/List.copyOf:(Ljava/util/Collection;)Ljava/util/List;
+      10: areturn
+
+  void initTeam(java.lang.String);
+    Code:
+       0: aload_0
+       1: getfield      #87                 // Field team:[Lcom/cobblemon/mod/common/pokemon/Pokemon;
+       4: astore_2
+       5: aload_2
+       6: arraylength
+       7: istore_3
+       8: iconst_0
+       9: istore        4
+      11: iload         4
+      13: iload_3
+      14: if_icmpge     79
+      17: aload_2
+      18: iload         4
+      20: aaload
+      21: astore        5
+      23: aload         5
+      25: aload_1
+      26: invokevirtual #191                // Method com/cobblemon/mod/common/pokemon/Pokemon.setOriginalTrainer:(Ljava/lang/String;)V
+      29: aload         5
+      31: aload_0
+      32: invokevirtual #193                // Method getName:()Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      35: iconst_0
+      36: anewarray     #4                  // class java/lang/Object
+      39: invokevirtual #136                // Method com/gitlab/srcmc/rctapi/api/util/Text.getComponent:([Ljava/lang/Object;)Lnet/minecraft/class_5250;
+      42: invokevirtual #139                // Method net/minecraft/class_5250.getString:()Ljava/lang/String;
+      45: invokevirtual #196                // Method com/cobblemon/mod/common/pokemon/Pokemon.setOriginalTrainerName:(Ljava/lang/String;)V
+      48: aload         5
+      50: getstatic     #202                // Field com/cobblemon/mod/common/pokemon/OriginalTrainerType.NPC:Lcom/cobblemon/mod/common/pokemon/OriginalTrainerType;
+      53: invokevirtual #206                // Method com/cobblemon/mod/common/pokemon/Pokemon.setOriginalTrainerType$common:(Lcom/cobblemon/mod/common/pokemon/OriginalTrainerType;)V
+      56: aload         5
+      58: invokevirtual #209                // Method com/cobblemon/mod/common/pokemon/Pokemon.getCustomProperties:()Ljava/util/List;
+      61: getstatic     #215                // Field com/cobblemon/mod/common/pokemon/properties/UncatchableProperty.INSTANCE:Lcom/cobblemon/mod/common/pokemon/properties/UncatchableProperty;
+      64: invokevirtual #219                // Method com/cobblemon/mod/common/pokemon/properties/UncatchableProperty.uncatchable:()Lcom/cobblemon/mod/common/pokemon/properties/FlagProperty;
+      67: invokeinterface #223,  2          // InterfaceMethod java/util/List.add:(Ljava/lang/Object;)Z
+      72: pop
+      73: iinc          4, 1
+      76: goto          11
+      79: return
+
+  void onBattleStarted(com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: aload_0
+       1: getfield      #83                 // Field battleInstances:Ljava/util/HashMap;
+       4: aload_1
+       5: invokevirtual #160                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getBattleId:()Ljava/util/UUID;
+       8: new           #9                  // class com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$BattleInstance
+      11: dup
+      12: aload_0
+      13: aload_1
+      14: invokespecial #230                // Method com/gitlab/srcmc/rctapi/api/trainer/TrainerNPC$BattleInstance."<init>":(Lcom/gitlab/srcmc/rctapi/api/trainer/TrainerNPC;Lcom/cobblemon/mod/common/api/battles/model/PokemonBattle;)V
+      17: invokevirtual #234                // Method java/util/HashMap.put:(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+      20: ifnull        54
+      23: getstatic     #240                // Field com/gitlab/srcmc/rctapi/ModCommon.LOG:Lorg/slf4j/Logger;
+      26: ldc           #242                // String The same trainer \'%s\' may not occur multiple times in one battle (%s).
+      28: iconst_2
+      29: anewarray     #4                  // class java/lang/Object
+      32: dup
+      33: iconst_0
+      34: aload_0
+      35: invokevirtual #193                // Method getName:()Lcom/gitlab/srcmc/rctapi/api/util/Text;
+      38: aastore
+      39: dup
+      40: iconst_1
+      41: aload_1
+      42: invokevirtual #160                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getBattleId:()Ljava/util/UUID;
+      45: aastore
+      46: invokestatic  #246                // Method java/lang/String.format:(Ljava/lang/String;[Ljava/lang/Object;)Ljava/lang/String;
+      49: invokeinterface #251,  2          // InterfaceMethod org/slf4j/Logger.warn:(Ljava/lang/String;)V
+      54: return
+
+  void onBattleEnded(com.cobblemon.mod.common.api.battles.model.PokemonBattle);
+    Code:
+       0: aload_0
+       1: getfield      #83                 // Field battleInstances:Ljava/util/HashMap;
+       4: aload_1
+       5: invokevirtual #160                // Method com/cobblemon/mod/common/api/battles/model/PokemonBattle.getBattleId:()Ljava/util/UUID;
+       8: invokevirtual #255                // Method java/util/HashMap.remove:(Ljava/lang/Object;)Ljava/lang/Object;
+      11: pop
+      12: return
+
+  private static com.cobblemon.mod.common.pokemon.Pokemon[] copyTeam(com.cobblemon.mod.common.pokemon.Pokemon[]);
+    Code:
+       0: aload_0
+       1: arraylength
+       2: anewarray     #188                // class com/cobblemon/mod/common/pokemon/Pokemon
+       5: astore_1
+       6: iconst_0
+       7: istore_2
+       8: iload_2
+       9: aload_0
+      10: arraylength
+      11: if_icmpge     40
+      14: aload_1
+      15: iload_2
+      16: new           #188                // class com/cobblemon/mod/common/pokemon/Pokemon
+      19: dup
+      20: invokespecial #256                // Method com/cobblemon/mod/common/pokemon/Pokemon."<init>":()V
+      23: aastore
+      24: aload_1
+      25: iload_2
+      26: aaload
+      27: aload_0
+      28: iload_2
+      29: aaload
+      30: invokevirtual #260                // Method com/cobblemon/mod/common/pokemon/Pokemon.copyFrom:(Lcom/cobblemon/mod/common/pokemon/Pokemon;)Lcom/cobblemon/mod/common/pokemon/Pokemon;
+      33: pop
+      34: iinc          2, 1
+      37: goto          8
+      40: aload_1
+      41: areturn
+
+  public static net.minecraft.class_1309 getDummyEntity(net.minecraft.server.MinecraftServer);
+    Code:
+       0: getstatic     #268                // Field dummyEntity:Lnet/minecraft/class_1309;
+       3: ifnull        25
+       6: getstatic     #268                // Field dummyEntity:Lnet/minecraft/class_1309;
+       9: invokevirtual #272                // Method net/minecraft/class_1309.method_5682:()Lnet/minecraft/server/MinecraftServer;
+      12: aload_0
+      13: if_acmpne     25
+      16: getstatic     #268                // Field dummyEntity:Lnet/minecraft/class_1309;
+      19: invokevirtual #275                // Method net/minecraft/class_1309.method_5805:()Z
+      22: ifne          110
+      25: getstatic     #268                // Field dummyEntity:Lnet/minecraft/class_1309;
+      28: ifnull        37
+      31: getstatic     #268                // Field dummyEntity:Lnet/minecraft/class_1309;
+      34: invokevirtual #278                // Method net/minecraft/class_1309.method_31472:()V
+      37: getstatic     #284                // Field net/minecraft/class_1299.field_6077:Lnet/minecraft/class_1299;
+      40: aload_0
+      41: invokevirtual #290                // Method net/minecraft/server/MinecraftServer.method_30002:()Lnet/minecraft/class_3218;
+      44: invokevirtual #294                // Method net/minecraft/class_1299.method_5883:(Lnet/minecraft/class_1937;)Lnet/minecraft/class_1297;
+      47: checkcast     #296                // class net/minecraft/class_1646
+      50: astore_1
+      51: getstatic     #284                // Field net/minecraft/class_1299.field_6077:Lnet/minecraft/class_1299;
+      54: aload_0
+      55: invokevirtual #290                // Method net/minecraft/server/MinecraftServer.method_30002:()Lnet/minecraft/class_3218;
+      58: invokevirtual #294                // Method net/minecraft/class_1299.method_5883:(Lnet/minecraft/class_1937;)Lnet/minecraft/class_1297;
+      61: checkcast     #296                // class net/minecraft/class_1646
+      64: astore_1
+      65: aload_1
+      66: ldc           #17                 // String rctapi:dummy
+      68: invokevirtual #300                // Method net/minecraft/class_1646.method_5780:(Ljava/lang/String;)Z
+      71: pop
+      72: aload_1
+      73: iconst_1
+      74: invokevirtual #304                // Method net/minecraft/class_1646.method_5875:(Z)V
+      77: aload_1
+      78: iconst_1
+      79: invokevirtual #307                // Method net/minecraft/class_1646.method_5684:(Z)V
+      82: aload_1
+      83: iconst_1
+      84: invokevirtual #310                // Method net/minecraft/class_1646.method_5648:(Z)V
+      87: aload_1
+      88: iconst_1
+      89: invokevirtual #313                // Method net/minecraft/class_1646.method_5977:(Z)V
+      92: aload_1
+      93: iconst_1
+      94: putfield      #317                // Field net/minecraft/class_1646.field_5960:Z
+      97: aload_1
+      98: dconst_0
+      99: ldc2_w        #318                // double 1.073741823E9d
+     102: dconst_0
+     103: invokevirtual #323                // Method net/minecraft/class_1646.method_5814:(DDD)V
+     106: aload_1
+     107: putstatic     #268                // Field dummyEntity:Lnet/minecraft/class_1309;
+     110: getstatic     #268                // Field dummyEntity:Lnet/minecraft/class_1309;
+     113: areturn
+}

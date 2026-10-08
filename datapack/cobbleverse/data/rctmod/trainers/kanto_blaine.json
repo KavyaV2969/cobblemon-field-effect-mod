@@ -1,0 +1,249 @@
+{
+  "name": {
+    "literal": "Blaine"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "chiyu",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "species": "gougingfire",
+      "gender": "GENDERLESS",
+      "level": 76,
+      "nature": "adamant",
+      "ability": "protosynthesis",
+      "heldItem": [
+        "cobblemon:loaded_dice"
+      ],
+      "moveset": [
+        "dragondance",
+        "heatcrash",
+        "scaleshot",
+        "earthquake"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 4,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "heatran",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "calm",
+      "ability": "flashfire",
+      "heldItem": [
+        "cobblemon:leftovers"
+      ],
+      "moveset": [
+        "magmastorm",
+        "earthpower",
+        "toxic",
+        "protect"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 0,
+        "def": 0,
+        "spa": 4,
+        "spd": 252,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "blaziken",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "adamant",
+      "ability": "speedboost",
+      "heldItem": [
+        "cobblemon:focus_sash"
+      ],
+      "moveset": [
+        "swordsdance",
+        "flareblitz",
+        "closecombat",
+        "thunderpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "gholdengo",
+      "gender": "GENDERLESS",
+      "level": 76,
+      "nature": "timid",
+      "ability": "goodasgold",
+      "heldItem": [
+        "cobblemon:white_herb"
+      ],
+      "moveset": [
+        "makeitrain",
+        "shadowball",
+        "focusblast",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "chiyu",
+      "gender": "GENDERLESS",
+      "level": 76,
+      "nature": "modest",
+      "ability": "beadsofruin",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "flamethrower",
+        "darkpulse",
+        "terablast",
+        "psychic"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 252,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": "grass",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "charizard",
+      "gender": "MALE",
+      "level": 76,
+      "nature": "timid",
+      "ability": "blaze",
+      "heldItem": [
+        "mega_showdown:charizardite_y"
+      ],
+      "moveset": [
+        "weatherball",
+        "solarbeam",
+        "focusblast",
+        "roost"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

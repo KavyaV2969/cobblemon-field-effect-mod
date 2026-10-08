@@ -1,0 +1,252 @@
+{
+  "name": {
+    "literal": "Blue"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "ursaluna",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 6
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 6
+    }
+  ],
+  "team": [
+    {
+      "species": "hawlucha",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "unburden",
+      "heldItem": [
+        "rejuvenation:magical_seed"
+      ],
+      "moveset": [
+        "acrobatics",
+        "closecombat",
+        "stoneedge",
+        "encore"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 252,
+        "spa": 252,
+        "spd": 252,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "ironvaliant",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "quarkdrive",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "moonblast",
+        "closecombat",
+        "vacuumwave",
+        "knockoff"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 252,
+        "spa": 252,
+        "spd": 252,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "kingambit",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "adamant",
+      "ability": "supremeoverlord",
+      "heldItem": [
+        "mega_showdown:darkinium_z"
+      ],
+      "moveset": [
+        "kowtowcleave",
+        "ironhead",
+        "lowkick",
+        "suckerpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 252,
+        "spa": 252,
+        "spd": 252,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "ursaluna",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "modest",
+      "ability": "mindseye",
+      "heldItem": [
+        "cobblemon:leftovers"
+      ],
+      "moveset": [
+        "bloodmoon",
+        "earthpower",
+        "vacuumwave",
+        "moonlight"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 252,
+        "spa": 252,
+        "spd": 252,
+        "spe": 252
+      },
+      "aspects": [
+        "bloodmoon"
+      ],
+      "gimmicks": {
+        "tera": "normal",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "metagross",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "clearbody",
+      "heldItem": [
+        "mega_showdown:metagrossite"
+      ],
+      "moveset": [
+        "meteormash",
+        "zenheadbutt",
+        "bulletpunch",
+        "stompingtantrum"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 252,
+        "spa": 252,
+        "spd": 252,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "arceus",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "multitype",
+      "heldItem": [
+        "cobblemon:life_orb"
+      ],
+      "moveset": [
+        "judgment",
+        "spacialrend",
+        "earthpower",
+        "recover"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 252,
+        "atk": 252,
+        "def": 252,
+        "spa": 252,
+        "spd": 252,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

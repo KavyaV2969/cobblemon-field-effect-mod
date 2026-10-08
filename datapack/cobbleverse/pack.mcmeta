@@ -1,6 +1,6 @@
 {
   "pack": {
     "pack_format": 48,
-    "description": "Rejuvenation Fields COBBLEVERSE extension (modded biome/structure mappings, trainer fields, Lt. Surge gym). Requires Rejuvenation Fields base. Version 0.1."
+    "description": "Rejuvenation Fields COBBLEVERSE extension (modded mappings, all 13 Kanto league teams and fields, Lt. Surge gym). Requires Rejuvenation Fields base and compat. Version 0.1."
   }
 }

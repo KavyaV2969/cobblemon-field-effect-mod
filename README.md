@@ -321,7 +321,7 @@ On Windows use `./build.ps1` instead of the first line. More in [BUILDING.md](do
 - Custom Rejuvenation moves, crests and other Rejuvenation-only mechanics that do not exist in Cobblemon are not implemented.
 - Some presentation-only effects cannot be reproduced exactly.
 - COBBLEVERSE data pack load order is relied on rather than exhaustively verified.
-- Gym structures were not redesigned around their fields.
+- Gym structures were not redesigned around their fields, apart from minor changes to Surge's Gym.
 
 ---
 

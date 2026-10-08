@@ -5,7 +5,7 @@ Files here are copied into a modpack's `config/` folder to change two base-COBBL
 | File | Copy to | What it sets |
 |---|---|---|
 | `rctmod-server.toml` | `config/rctmod-server.toml` | The Radical Cobblemon Trainers (RCT API) server settings, including the level cap |
-| `lumymon.json` | `config/lumymon.json` | LumyMon's Poké Snack spawn blacklist |
+| `lumymon.json` | `config/lumymon.json` | LumyMon's Poké Snack spawn blacklist (switched off) |
 
 ## Level cap settings (`[Players]` section)
 
@@ -19,8 +19,8 @@ Restart the server after changing the file.
 
 ## Poké Snack settings (`lumymon.json`)
 
-LumyMon ships Poké Snack blacklist groups (`custom`, `legendary`, `mythical`, `paradox` and `ultrabeast`; they are data files inside the jar). `enablePokeSnackBlacklist = true` turns the blacklist on and `blacklistedPokeSnackSpawns` names the groups that Poké Snacks may **not** attract.
+LumyMon ships Poké Snack blacklist groups (`custom`, `legendary`, `mythical`, `paradox` and `ultrabeast`; they are data files inside the jar). `enablePokeSnackBlacklist` turns the blacklist on or off, and `blacklistedPokeSnackSpawns` names the groups that Poké Snacks may **not** attract while it is on.
 
-This file lists only `custom` and `paradox`, so **legendary, mythical and ultra beast Pokémon are not blacklisted** and can be attracted by Poké Snacks. Add `"legendary"` (and so on) back to the list to block them again. The other values in the file are LumyMon's own settings, copied unchanged.
+This file sets `enablePokeSnackBlacklist = false`, so **the blacklist is off and legendary, mythical, ultra beast, paradox and custom Pokémon are no longer blocked from Poké Snack spawns**. Set it back to `true` to block the groups listed in `blacklistedPokeSnackSpawns` (`custom` and `paradox`; add `"legendary"` and so on to block those too). The other values in the file are LumyMon's own settings, copied unchanged.
 
 Restart the game after changing the file.

@@ -4,7 +4,7 @@
 
 The private development builds were numbered 0.2.0; the public numbering starts again at 0.1. Changing the displayed version renames nothing that is stored: mod ID `rejuvenation_fields`, namespace `rejuvenation`, and every field, item, status, packet and payload ID are unchanged ([migration](docs/MIGRATION.md)).
 
-* **`config-overrides/`** holds the RCT server configuration (level cap and offset) and the LumyMon configuration (Poké Snack blacklist) for fresh modpacks.
+* **`config-overrides/`** holds the RCT server configuration (level cap and offset) and the LumyMon configuration (Poké Snack blacklist switched off) for fresh modpacks.
 * **Kanto fight simulation** (`research/simulate_kanto_fights.cjs`, [report](docs/KANTO_FIGHT_SIMULATION.md)): all 13 Kanto league fights played to the end offline. It found one engine error, now fixed: field-changing moves such as Misty's Dive could not be scored against foes that faint during the rollout (the decision-time disruption view is now taken before the rollouts; regression test in `strategy-regression.cjs`, repro `research/repro_dive_scoring_error.cjs`). The engine hash changes, so the core jar must be rebuilt.
 * The README is rewritten as a step-by-step install guide with the full mod and data pack list.
 

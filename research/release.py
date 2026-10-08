@@ -69,7 +69,7 @@ See `CHANGELOG.md`: two mods and two packs, the five held items with the origina
 
 ## Verification (all offline; nothing was run in a live rendered game or in multiplayer)
 
-* Simulator suite 656 checks, Graal 110 runtime assertions plus 42 adapter checks, Java verification (environment 26,949 + structure 120 + notes + client + packets + mixin ABI), item recipes through Minecraft's real recipe API (20 craft combinations, 170 rejected cases), installation-matrix linkage over five classpath combinations, base+extension versus the former single pack over 1.36 million environment snapshots (and byte-identical to the installed 0.2.0 pack's 124 data files), jar differential against 0.2.0, latency within noise of the baseline, and a clean-source rebuild from the source zip that reproduced all four artifact hashes (without the original game scripts; the one Ruby-oracle check that needs them is reported as skipped there).
+* Simulator suite 657 checks, Graal 110 runtime assertions plus 42 adapter checks, Java verification (environment 26,949 + structure 120 + notes + client + packets + mixin ABI), item recipes through Minecraft's real recipe API (20 craft combinations, 170 rejected cases), installation-matrix linkage over five classpath combinations, base+extension versus the former single pack over 1.36 million environment snapshots (and byte-identical to the installed 0.2.0 pack's 124 data files), all 13 Kanto league fights played to the end offline with the trainer decision rule (173 fights, no crash, illegal choice or gimmick-policy violation; `docs/KANTO_FIGHT_SIMULATION.md`), and Gradle `build check`. The jar differential against 0.2.0, the latency comparison and the clean-source rebuild were made for the earlier build and were not repeated for this one.
 * Custom-field traceability: 66 specification statements, 64 pass, 1 unavailable content (Mirror Beam does not exist in the installed Showdown), 1 covered by the Graal task.
 
 ## Known limitations and open items
@@ -99,7 +99,7 @@ Optional add-on for Rejuvenation Fields: Run & Bun and RCT trainers score moves 
 The 61 field definitions, Field Notes, simulator items and abilities, and every biome/structure mapping supported by vanilla Minecraft 1.21.1, Cobblemon and Fabric API. Required by the core mod.
 
 ## `{ext_zip}` (data pack page summary)
-Mappings for COBBLEVERSE's other mods (Terralith, LumyMon, Legendary Monuments, Raid Dens, Cobblemon Additions, Repurposed Structures, VanillaBackport's Pale Garden), the Kanto league trainer fields and the Lt. Surge gym override. Requires the base pack; load it after the original COBBLEVERSE packs.
+Mappings for COBBLEVERSE's other mods (Terralith, LumyMon, Legendary Monuments, Raid Dens, Cobblemon Additions, Repurposed Structures, VanillaBackport's Pale Garden), the rebuilt teams and fields of all 13 Kanto league fights (rosters in `README_KANTO_LEAGUE.md`) and the Lt. Surge gym override. Requires the base pack; load it after the original COBBLEVERSE packs.
 
 ## Source package
 `rejuvenation-fields-source-{V}.zip`: sanitized source with build instructions (`docs/BUILDING.md`), the authoring kit (`docs/CUSTOM_FIELD_AUTHORING.md`), the validation reports and the file inventory.

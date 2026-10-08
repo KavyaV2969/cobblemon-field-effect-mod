@@ -9,8 +9,8 @@ Files here are copied into a modpack's `config/` folder to change two base-COBBL
 
 ## Level cap settings (`[Players]` section)
 
-* `initialLevelCap = 16` is the cap a player starts with. Pokémon at or above the cap gain no experience. RCT never lets it go below the level cap of the first trainer of the series.
-* `relativeLevelCap = 0` is the **level cap offset**. A player's cap is the level of the strongest Pokémon of their next required trainer in the series, plus this value (it can be negative). For example, with a Pikachu at level 50 on the next trainer's team and an offset of `0`, the cap is 50.
+* `initialLevelCap = 16` (COBBLEVERSE ships 20) is the cap a player starts with. Pokémon at or above the cap gain no experience. RCT never lets it go below the level cap of the first trainer of the series.
+* `relativeLevelCap = 0` (COBBLEVERSE ships 5) is the **level cap offset**. A player's cap is the level of the strongest Pokémon of their next required trainer in the series, plus this value (it can be negative). For example, with a Pikachu at level 50 on the next trainer's team and an offset of `0`, the cap is 50.
 * `initialSeries = "kanto"` is the series new players start in, and `allowOverLeveling = false` keeps the cap enforced.
 
 The rest of the file is the pack's RCT tuning (trainer spawning and forced battles); keep it as is, or copy only the `[Players]` section into an existing `rctmod-server.toml`. The trainer series themselves come from the COBBLEVERSE RCT data pack, not from this repository.
@@ -19,8 +19,8 @@ Restart the server after changing the file.
 
 ## Poké Snack settings (`lumymon.json`)
 
-LumyMon ships Poké Snack blacklist groups (`custom`, `legendary`, `mythical`, `paradox` and `ultrabeast`; they are data files inside the jar). `enablePokeSnackBlacklist` turns the blacklist on or off, and `blacklistedPokeSnackSpawns` names the groups that Poké Snacks may **not** attract while it is on.
+LumyMon ships Poké Snack blacklist groups (`custom`, `legendary`, `mythical`, `paradox` and `ultrabeast`; they are data files inside the jar). `enablePokeSnackBlacklist` turns the blacklist on or off, and `blacklistedPokeSnackSpawns` names the groups that Poké Snacks may **not** attract while it is on. COBBLEVERSE 1.7.42 ships it **on**, with only `custom` and `paradox` listed.
 
-This file sets `enablePokeSnackBlacklist = false`, so **the blacklist is off and legendary, mythical, ultra beast, paradox and custom Pokémon are no longer blocked from Poké Snack spawns**. Set it back to `true` to block the groups listed in `blacklistedPokeSnackSpawns` (`custom` and `paradox`; add `"legendary"` and so on to block those too). The other values in the file are LumyMon's own settings, copied unchanged.
+This file sets `enablePokeSnackBlacklist = false`, so **the blacklist is off and the `custom` and `paradox` groups are no longer blocked from Poké Snack spawns**. Legendary, mythical and ultra beast Pokémon were not on the stock list, so this setting does not change them. Set it back to `true` to restore the stock blocking (add `"legendary"` and so on to the list to block those too). The only other difference from the pack's file is `initialScreenVersion` (0 in the pack, 3 here), which only marks LumyMon's first-run screen as seen.
 
 Restart the game after changing the file.

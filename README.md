@@ -161,10 +161,10 @@ Two behaviours of the base pack cannot be changed by a mod or data pack, so they
 
 | Change | File | Setting |
 |---|---|---|
-| **Starting level cap.** Pokémon at or above the cap gain no experience. | `config/rctmod-server.toml`, `[Players]` | `initialLevelCap = 16` (the cap before the first gym), `relativeLevelCap = 0` (your cap is the level of your next required trainer's strongest Pokémon), `initialSeries = "kanto"`, `allowOverLeveling = false` |
-| **Legendary Pokémon can be attracted by Poké Snacks.** | `config/lumymon.json` | `enablePokeSnackBlacklist = false`. LumyMon's Poké Snack blacklist is switched off, so it no longer blocks legendary, mythical, ultra beast, paradox or custom Pokémon from Poké Snack spawns. Set it back to `true` to restore the blocking. |
+| **Starting level cap.** Pokémon at or above the cap gain no experience. | `config/rctmod-server.toml`, `[Players]` | `initialLevelCap = 16` (stock: 20), `relativeLevelCap = 0` (stock: 5; your cap is the level of your next required trainer's strongest Pokémon plus this value), `initialSeries = "kanto"`, `allowOverLeveling = false` |
+| **Poké Snacks are no longer restricted by LumyMon's blacklist.** | `config/lumymon.json` | `enablePokeSnackBlacklist = false` (stock: `true`). Stock COBBLEVERSE blocks the `custom` and `paradox` groups from Poké Snack spawns; with the blacklist off, nothing is blocked. Legendary, mythical and ultra beast Pokémon were not on that list. Set it back to `true` to restore the blocking. |
 
-The rest of `rctmod-server.toml` is the pack's trainer-spawn tuning; keep it as it is. If you want to keep your own copy, copy only the `[Players]` section. Details: [config-overrides](config-overrides/README.md).
+Both files are identical to COBBLEVERSE 1.7.42's own copies apart from the lines above (checked against the pack file), so replacing them only changes those settings. If you have edited either file yourself, copy just those lines instead. Details: [config-overrides](config-overrides/README.md).
 
 ### Requirements
 

@@ -1,10 +1,11 @@
 # Configuration overrides
 
-Files here are copied into a modpack's `config/` folder to set up the **level cap system** for a fresh COBBLEVERSE-style modpack. They are not part of the mod jars or data packs.
+Files here are copied into a modpack's `config/` folder to change two base-COBBLEVERSE behaviours that no mod or data pack can change: the **level cap system** and which Pokémon **Poké Snacks** can attract. They are not part of the mod jars or data packs.
 
 | File | Copy to | What it sets |
 |---|---|---|
 | `rctmod-server.toml` | `config/rctmod-server.toml` | The Radical Cobblemon Trainers (RCT API) server settings, including the level cap |
+| `lumymon.json` | `config/lumymon.json` | LumyMon's Poké Snack spawn blacklist |
 
 ## Level cap settings (`[Players]` section)
 
@@ -15,3 +16,11 @@ Files here are copied into a modpack's `config/` folder to set up the **level ca
 The rest of the file is the pack's RCT tuning (trainer spawning and forced battles); keep it as is, or copy only the `[Players]` section into an existing `rctmod-server.toml`. The trainer series themselves come from the COBBLEVERSE RCT data pack, not from this repository.
 
 Restart the server after changing the file.
+
+## Poké Snack settings (`lumymon.json`)
+
+LumyMon ships Poké Snack blacklist groups (`custom`, `legendary`, `mythical`, `paradox` and `ultrabeast`; they are data files inside the jar). `enablePokeSnackBlacklist = true` turns the blacklist on and `blacklistedPokeSnackSpawns` names the groups that Poké Snacks may **not** attract.
+
+This file lists only `custom` and `paradox`, so **legendary, mythical and ultra beast Pokémon are not blacklisted** and can be attracted by Poké Snacks. Add `"legendary"` (and so on) back to the list to block them again. The other values in the file are LumyMon's own settings, copied unchanged.
+
+Restart the game after changing the file.

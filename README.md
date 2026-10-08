@@ -16,7 +16,7 @@
 
 ---
 
-Where a battle takes place now matters. Forests, caves, oceans, villages, Ancient Cities, Nether biomes and other environments assign different **battle fields**, which modify moves, abilities, types, weather, terrain, status effects and other battle mechanics.
+A mod porting the field system from rejuvenation into cobblemon. Forests, caves, oceans, villages, Ancient Cities, Nether biomes and other environments assign different **battle fields**, which modify moves, abilities, types, weather, terrain, status effects and other battle mechanics.
 
 The mod implements **all 57 fields from Pokémon Rejuvenation 14.0.14** plus **4 custom Minecraft-inspired fields**, **61 fields** in total. It also ships a much harder **Kanto Gym, Elite Four and Champion challenge** built on those fields, and a trainer AI that actually understands them.
 

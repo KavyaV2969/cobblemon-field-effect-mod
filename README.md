@@ -111,7 +111,7 @@ COBBLEVERSE uses the *Global Packs* mod, which loads every zip in `datapacks` fo
 ### Step 5. Start the game and check
 
 1. Launch COBBLEVERSE and open or create a world.
-2. Enter a Pokémon battle. A small **field panel** appears above the battle log. Click it to read the **Field Notes**.
+2. Enter a Pokémon battle. A small **field panel** appears above the battle log (you may have to resize your battle log for it to appear). Click it to read the **Field Notes**.
 3. To double-check, press `T` and type `/datapack list enabled` (this needs cheats on in a single-player world). You should see both `rejuvenation-fields` zips in the list. The game log (`logs/latest.log`) contains `Loaded 61 fields`.
 
 > **Already-spawned gym trainers** keep the team they were created with. If a Kanto trainer still has an old team, let a fresh one spawn or use a new world.

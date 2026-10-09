@@ -25,6 +25,7 @@ core/            Fabric mod rejuvenation_fields (engine, loader, UI, items, reci
 compat/          Fabric mod rejuvenation_fields_compat (Run & Bun / RCT / Battle Extras integrations)
 verification/    tests of both mods together: Java verifiers, the Node simulator suites, the live-game fixture (never distributed)
 datapack/base/ and datapack/cobbleverse/   generated pack sources (see below)
+datapack/kanto-classic/ and kanto-hardcore/ the two Kanto roster packs (hand-authored; Classic is derived from Hardcore by research/classic_league.py)
 research/        generators, validators, canonical inputs (custom-fields/), audits, receipts
 docs/            maintained documentation; docs/spec/ holds the custom-field specifications with hashes
 ```
@@ -34,7 +35,7 @@ docs/            maintained documentation; docs/spec/ holds the custom-field spe
 ```bash
 python research/prepare_build.py --profile <profile>     # once: copy compile-time jars to build/deps
 ./gradlew check                                           # compile both mods and run every test gate
-python research/package.py                                # dist/: two jars, two packs, manifest.json (verified: true when all gates are current)
+python research/package.py                                # dist/: two jars, four packs (base, COBBLEVERSE extension, Kanto Classic, Kanto Hardcore), manifest.json (verified: true when all gates are current)
 ```
 
 or the whole pipeline (regenerate content, validate, compare, test, benchmark, document, package): `./build.ps1 -Profile <profile>` (`-AffinityMask 0xFFF` pins to performance cores for latency receipts).

@@ -1,0 +1,18 @@
+{
+ "note": "SHA-256 (line endings normalised to LF) of the 13 Kanto trainer files as committed at 4cf48369, the roster override before the Classic/Hardcore split. Hardcore must stay identical to these.",
+ "files": {
+  "kanto_blaine.json": "be08c10b2b2d8867529c2aa6961de804e4b1c17a24284744497ddce37aae4ebb",
+  "kanto_brock.json": "169c0744ad9f14b0b36b93cdc68b9e1dad38b768d5b70a16abc1b72f42b0d095",
+  "kanto_champion_blue.json": "734993d1f58aa8c2cbc493b9c0613ec7f1c631b889832894ee9c17db6b621e5e",
+  "kanto_erika.json": "191e64e51994c7f84b1ff73d8e6ef35af503df1f077856e57207ce8f3640078f",
+  "kanto_giovanni.json": "cffaf9e254377b67638628f34906bdfcb4104d2fcd395d4a1a43fc9e3d3ca34c",
+  "kanto_koga.json": "fabdfd144332d3db0370ab2d3d2d64dea798b0dc3a2325c3a916e79784e7c6d2",
+  "kanto_league_agatha.json": "32e59fa7a1168fb5c49b0d313671e54e0d90dcea7852262d030d8625d264db91",
+  "kanto_league_bruno.json": "79081df3a427b37f35c5d783c5cf91ff3ec2d50793bd9255c305b1fd3acdb510",
+  "kanto_league_lance.json": "b95c308d243d332ed648bc60eed788a6a4ef6bb1e3b486f30d88f98f08703cbb",
+  "kanto_league_lorelei.json": "bccbe5ce027cbc97ad60f1f22f1d341733f23ca315e78fe8f298001e7bccdc83",
+  "kanto_ltsurge.json": "d57f6ea3993eaef4bfe175cd78cd45744f1c2d6ef6fe4c55b57c82a58086108d",
+  "kanto_misty.json": "988ba391999a6247cd16b923fd0611f2e64b0054163ad972b8ae22503d5a1c35",
+  "kanto_sabrina.json": "f769cf14edc6cc4768c0d1693b11db783cae2327c8721d1b6de2d23b7f896c6a"
+ }
+}

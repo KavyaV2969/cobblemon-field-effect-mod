@@ -1,6 +1,11 @@
 # Trainer integration
 
-The original COBBLEVERSE trainer datapack is preserved. All 13 custom Kanto league teams are authored in `datapack/cobbleverse/data/rctmod/trainers/` and shipped in the existing COBBLEVERSE extension pack, alongside the existing Lt. Surge gym structure override. Load the extension after the original COBBLEVERSE packs. [README_KANTO_LEAGUE.md](../README_KANTO_LEAGUE.md) contains the caps, fields and complete teams. The compat mod preserves Blue NPC teams' requested 252 EVs in every stat; ordinary Pokemon retain normal EV limits.
+The original COBBLEVERSE trainer datapack is preserved. The 13 custom Kanto league teams exist in two variants, each a separate roster pack that overrides the same 13 files of `COBBLEVERSE-RCT-DP`:
+
+* `datapack/kanto-classic/data/rctmod/trainers/` -> `rejuvenation-fields-cobbleverse-classic-<v>.zip`, the recommended balanced rebuild ([README_KANTO_CLASSIC.md](../README_KANTO_CLASSIC.md));
+* `datapack/kanto-hardcore/data/rctmod/trainers/` -> `rejuvenation-fields-cobbleverse-hardcore-<v>.zip`, the original roster override, unchanged ([README_KANTO_HARDCORE.md](../README_KANTO_HARDCORE.md)).
+
+Install only one. The COBBLEVERSE extension pack (`datapack/cobbleverse`) holds what both share: the Kanto trainer-to-field bindings and the Lt. Surge gym structure override. Load the extension and the roster pack after the original COBBLEVERSE packs. Classic is derived from Hardcore by `research/classic_league.py`, which applies only the listed balance changes; `research/verify_kanto_gyms.cjs --variant classic` fails if Classic differs from Hardcore anywhere else. [README_KANTO_LEAGUE.md](../README_KANTO_LEAGUE.md) compares the two. The compat mod preserves Hardcore Blue's 252 EVs in every stat for the NPC tagged `kanto_champion_blue`; Classic's Blue has ordinary spreads and needs no exception, and ordinary Pokemon retain normal EV limits in both.
 
 ## Kanto league fields (implemented)
 

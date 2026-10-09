@@ -144,5 +144,7 @@ for tid,row in scores['trainers'].items():
     league.append(f"- **{row['name']}** ({label(assigned[tid]['field'])}): "+', '.join(f"{m} {base[m]:.0%}→{best[m]:.0%}" for m in best))
 league+=['','Source snapshot: `'+teams['source']['datapack']+'` SHA-256 `'+teams['source']['sha256']+'`. Re-run `python research/trainer_fields.py` after the RCT datapack or the field rules change.',
     '', 'Run & Bun AI combines its native scoring with the shared field-aware evaluator, strategic turn lookahead, team field utility and legal gimmick comparisons through optional adapters (see [INTEGRATIONS.md](INTEGRATIONS.md)). All 762 AI source leads have reviewed dispositions with zero ordinary applicable strategy pending. Trainer teams and progression files remain unchanged.']
-write(DOC/'KANTO_LEAGUE_FIELDS.md','\n'.join(league))
+# docs/KANTO_LEAGUE_FIELDS.md is written by research/verify_kanto_gyms.cjs (one table shared by the Classic and Hardcore rosters); the win-share
+# text assembled above describes the earlier teams and is no longer published.
+_ = league
 print('Generated catalogues for',len(fields),'fields and',len(rows),'biomes;',sum(v['implementationComplete'] for k,v in ledger.items() if not v['custom']),'of',sum(1 for v in ledger.values() if not v['custom']),'original fields source-audit closed;',sum(1 for v in ledger.values() if v['custom']),'custom')

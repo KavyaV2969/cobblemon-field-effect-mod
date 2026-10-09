@@ -1,0 +1,250 @@
+{
+  "name": {
+    "literal": "Brock"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "sableye",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 2
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 2
+    }
+  ],
+  "team": [
+    {
+      "species": "geodude",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "adamant",
+      "ability": "sturdy",
+      "heldItem": [],
+      "moveset": [
+        "stealthrock",
+        "rocktomb",
+        "spark",
+        "selfdestruct"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 128,
+        "atk": 124,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "aspects": [
+        "alolan"
+      ],
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "archen",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "jolly",
+      "ability": "defeatist",
+      "heldItem": [
+        "cobblemon:berry_juice"
+      ],
+      "moveset": [
+        "rocktomb",
+        "wingattack",
+        "uturn",
+        "quickattack"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 128,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 124
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "lileep",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "bold",
+      "ability": "stormdrain",
+      "heldItem": [
+        "cobblemon:big_root"
+      ],
+      "moveset": [
+        "ancientpower",
+        "megadrain",
+        "recover",
+        "stockpile"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 128,
+        "atk": 0,
+        "def": 124,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "sableye",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "impish",
+      "ability": "prankster",
+      "heldItem": [
+        "cobblemon:roseli_berry"
+      ],
+      "moveset": [
+        "willowisp",
+        "shadowsneak",
+        "recover",
+        "partingshot"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 128,
+        "atk": 0,
+        "def": 124,
+        "spa": 0,
+        "spd": 0,
+        "spe": 0
+      },
+      "gimmicks": {
+        "tera": "steel",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "lunatone",
+      "gender": "GENDERLESS",
+      "level": 16,
+      "nature": "modest",
+      "ability": "levitate",
+      "heldItem": [
+        "cobblemon:passho_berry"
+      ],
+      "moveset": [
+        "ancientpower",
+        "psybeam",
+        "icywind",
+        "hiddenpowerground"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 0,
+        "spa": 128,
+        "spd": 0,
+        "spe": 124
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "tirtouga",
+      "gender": "MALE",
+      "level": 16,
+      "nature": "adamant",
+      "ability": "solidrock",
+      "heldItem": [
+        "cobblemon:white_herb"
+      ],
+      "moveset": [
+        "shellsmash",
+        "smackdown",
+        "liquidation",
+        "aquajet"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 128,
+        "def": 0,
+        "spa": 0,
+        "spd": 0,
+        "spe": 124
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

@@ -18,7 +18,7 @@
 
 A mod porting the field system from rejuvenation into cobblemon. Forests, caves, oceans, villages, Ancient Cities, Nether biomes and other environments assign different **battle fields**, which modify moves, abilities, types, weather, terrain, status effects and other battle mechanics.
 
-The mod implements **all 57 fields from Pokémon Rejuvenation 14.0.14** plus **4 custom Minecraft-inspired fields**, **61 fields** in total. It also ships a much harder **Kanto Gym, Elite Four and Champion challenge** built on those fields, and a trainer AI that actually understands them.
+The mod implements **all 57 fields from Pokémon Rejuvenation 14.0.14** plus **4 custom Minecraft-inspired fields**, **61 fields** in total. It also ships a much harder **Kanto Gym, Elite Four and Champion challenge** built on those fields, in two difficulty variants (**Classic**, recommended, and **Hardcore**), and a trainer AI that actually understands them.
 
 This is the first public release. It is mostly complete and functional, but treat it as a **public playtest**: there may still be bugs.
 
@@ -43,7 +43,7 @@ This is the first public release. It is mostly complete and functional, but trea
 
 You do **not** need to know anything technical. This takes about ten minutes and uses only the [Modrinth App](https://modrinth.com/app) (a free launcher) and your file explorer.
 
-> **What you will end up with:** COBBLEVERSE 1.7.42, plus three extra mods, two data packs and two small settings files. The full list with links is in [Everything you need](#everything-you-need).
+> **What you will end up with:** COBBLEVERSE 1.7.42, plus three extra mods, three data packs (one of them your choice of Kanto difficulty, Classic or Hardcore) and two small settings files. The full list with links is in [Everything you need](#everything-you-need).
 
 ### Step 1. Install COBBLEVERSE 1.7.42
 
@@ -56,14 +56,23 @@ In the Modrinth App, open your COBBLEVERSE instance and click the **folder icon*
 
 ### Step 3. Download the files
 
-Everything of mine is on the **[Releases page](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/latest)**. Download these four files:
+Everything of mine is on the **[Releases page](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/latest)**. Download these four files, then choose your Kanto difficulty below:
 
 | File | What it is |
 |---|---|
 | `rejuvenation-fields-0.1.jar` | The mod itself |
 | `rejuvenation-fields-compat-0.1.jar` | Makes the trainer AI understand fields |
 | `rejuvenation-fields-base-0.1.zip` | The 61 fields (a data pack) |
-| `rejuvenation-fields-cobbleverse-0.1.zip` | COBBLEVERSE mappings and the Kanto challenge (a data pack) |
+| `rejuvenation-fields-cobbleverse-0.1.zip` | COBBLEVERSE mappings, the field of each Kanto fight and the Lt. Surge gym (a data pack) |
+
+**Then choose ONE Kanto difficulty.** These two files are alternatives: they replace the same trainer teams, so download **only one** of them.
+
+| Difficulty | File | What it is |
+|---|---|---|
+| **Classic** (recommended) | [`rejuvenation-fields-cobbleverse-classic-0.1.zip`](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/download/v0.1/rejuvenation-fields-cobbleverse-classic-0.1.zip) | The balanced Kanto challenge: still hard, but with less setup stacking, fewer Uber picks and no inflated stats. |
+| **Hardcore** | [`rejuvenation-fields-cobbleverse-hardcore-0.1.zip`](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/download/v0.1/rejuvenation-fields-cobbleverse-hardcore-0.1.zip) | The original rosters, unchanged: the maximum-difficulty version. |
+
+Not sure? Take **Classic**. You can switch later by deleting one and adding the other ([details](#the-updated-kanto-challenge)).
 
 Also download the trainer AI mod, which is **not** part of COBBLEVERSE:
 
@@ -84,6 +93,7 @@ Do **not** unzip anything. Drag the files as they are.
 | `rbrctai-fabric-1.21.1-0.16.0-beta.jar` | `mods` |
 | `rejuvenation-fields-base-0.1.zip` | `datapacks` |
 | `rejuvenation-fields-cobbleverse-0.1.zip` | `datapacks` |
+| `rejuvenation-fields-cobbleverse-classic-0.1.zip` **or** `rejuvenation-fields-cobbleverse-hardcore-0.1.zip` (only one) | `datapacks` |
 | `rctmod-server.toml` | `config` (say **Replace** when asked) |
 | `lumymon.json` | `config` (say **Replace** when asked) |
 
@@ -100,7 +110,8 @@ COBBLEVERSE instance folder
 │   ├── COBBLEVERSE-DP-v31.zip            (came with COBBLEVERSE)
 │   ├── COBBLEVERSE-RCT-DP-v20.zip        (came with COBBLEVERSE)
 │   ├── rejuvenation-fields-base-0.1.zip
-│   └── rejuvenation-fields-cobbleverse-0.1.zip
+│   ├── rejuvenation-fields-cobbleverse-0.1.zip
+│   └── rejuvenation-fields-cobbleverse-classic-0.1.zip      (or the Hardcore one, never both)
 └── config
     ├── rctmod-server.toml
     └── lumymon.json
@@ -112,7 +123,7 @@ COBBLEVERSE uses the *Global Packs* mod, which loads every zip in `datapacks` fo
 
 1. Launch COBBLEVERSE and open or create a world.
 2. Enter a Pokémon battle. A small **field panel** appears above the battle log (you may have to resize your battle log for it to appear). Click it to read the **Field Notes**.
-3. To double-check, press `T` and type `/datapack list enabled` (this needs cheats on in a single-player world). You should see both `rejuvenation-fields` zips in the list. The game log (`logs/latest.log`) contains `Loaded 61 fields`.
+3. To double-check, press `T` and type `/datapack list enabled` (this needs cheats on in a single-player world). You should see the three `rejuvenation-fields` zips in the list (base, cobbleverse and exactly one of classic / hardcore). If both classic and hardcore appear, delete one. The game log (`logs/latest.log`) contains `Loaded 61 fields`.
 
 > **Already-spawned gym trainers** keep the team they were created with. If a Kanto trainer still has an old team, let a fresh one spawn or use a new world.
 
@@ -120,7 +131,9 @@ COBBLEVERSE uses the *Global Packs* mod, which loads every zip in `datapacks` fo
 
 - **The game crashes on start.** Check that all three jars are in `mods` and that you used the Fabric 1.21.1 build of Run & Bun AI.
 - **No field panel.** The mod jar is missing, or the base data pack is not in `datapacks` (and not unzipped).
-- **Trainers feel unchanged.** The `cobbleverse` data pack and the compat jar must both be present.
+- **Trainers feel unchanged.** The `cobbleverse` data pack, one Kanto roster pack (Classic or Hardcore) and the compat jar must all be present. The `cobbleverse` pack alone has the fields but no teams.
+- **Not sure which Kanto version you have.** Look in `datapacks` for `rejuvenation-fields-cobbleverse-classic-0.1.zip` or `...-hardcore-0.1.zip`. There must be exactly one.
+- **Installed the first upload of 0.1 earlier?** Its `rejuvenation-fields-cobbleverse-0.1.zip` had the Hardcore teams inside. Replace it with the current file and add a roster zip (Hardcore gives you the same teams as before).
 - **Updating COBBLEVERSE later** can replace the two settings files. Copy them in again afterwards.
 - **Running a server?** Do the same on the server: the same folders, then restart. Every player also needs the three mods.
 - **Used the old private 0.2.0 build?** Delete its jar, its field data pack and its `rejuvenation-gym-overrides` pack first ([migration notes](docs/MIGRATION.md)).
@@ -152,7 +165,9 @@ COBBLEVERSE uses the *Global Packs* mod, which loads every zip in `datapacks` fo
 | Data pack | You add it? | What it does | Link |
 |---|---|---|---|
 | `rejuvenation-fields-base-0.1.zip` | **Yes** → `datapacks` | The 61 fields, Field Notes, items, and every biome and structure mapping that plain Minecraft and Cobblemon support. **Required.** | [Releases](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/latest) |
-| `rejuvenation-fields-cobbleverse-0.1.zip` | **Yes** → `datapacks` | Mappings for COBBLEVERSE's other mods, the 13 rebuilt Kanto league teams and their fields, and the Lt. Surge gym. Needs the base pack. | [Releases](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/latest) |
+| `rejuvenation-fields-cobbleverse-0.1.zip` | **Yes** → `datapacks` | Mappings for COBBLEVERSE's other mods, the fields of the 13 Kanto league fights, and the Lt. Surge gym. Needs the base pack. | [Releases](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/latest) |
+| `rejuvenation-fields-cobbleverse-classic-0.1.zip` | **One of these two** → `datapacks` | The 13 rebuilt Kanto league teams, **Classic**: the recommended, balanced version. Needs the cobbleverse pack. | [Download](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/download/v0.1/rejuvenation-fields-cobbleverse-classic-0.1.zip) |
+| `rejuvenation-fields-cobbleverse-hardcore-0.1.zip` | **One of these two** → `datapacks` | The 13 Kanto league teams, **Hardcore**: the original rosters, unchanged. Needs the cobbleverse pack. **Never install it together with Classic.** | [Download](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/download/v0.1/rejuvenation-fields-cobbleverse-hardcore-0.1.zip) |
 | `COBBLEVERSE-DP-v31.zip`, `COBBLEVERSE-RCT-DP-v20.zip` and the other COBBLEVERSE packs | Included | COBBLEVERSE's own content and trainer series | [Modrinth](https://modrinth.com/modpack/cobbleverse) |
 
 ### Settings changed from stock COBBLEVERSE
@@ -248,9 +263,19 @@ Full specifications: [Custom Fields](docs/CUSTOM_FIELDS.md).
 
 ## The updated Kanto challenge
 
-I started this project because I found the existing COBBLEVERSE gym challenge too easy. The COBBLEVERSE data pack replaces the teams of **all 13 Kanto league fights** with stronger sets and gives each its own field.
+I started this project because I found the existing COBBLEVERSE gym challenge too easy. A Kanto roster data pack replaces the teams of **all 13 Kanto league fights** with stronger sets and gives each its own field. It comes in **two difficulty variants. Pick one.**
 
-**👉 [Complete rosters, level caps and fields for every trainer](README_KANTO_LEAGUE.md)**
+| | **Classic** (recommended, default) | **Hardcore** |
+|---|---|---|
+| Download | [`rejuvenation-fields-cobbleverse-classic-0.1.zip`](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/download/v0.1/rejuvenation-fields-cobbleverse-classic-0.1.zip) | [`rejuvenation-fields-cobbleverse-hardcore-0.1.zip`](https://github.com/KavyaV2969/cobblemon-field-effect-mod/releases/download/v0.1/rejuvenation-fields-cobbleverse-hardcore-0.1.zip) |
+| What it is | Still a difficult, Rejuvenation-style challenge. It keeps the same fields, AI and major boss gimmicks, while reducing excessive setup stacking, Uber density and raw statistical advantages. | Preserves the original roster configuration, for players who want the maximum-difficulty version with the original highly optimised teams. |
+| Complete rosters | [Classic rosters](README_KANTO_CLASSIC.md) | [Hardcore rosters](README_KANTO_HARDCORE.md) |
+
+> **Install only one of them.** Both replace the same 13 trainer files, so they cannot be combined; with both in `datapacks` the later file name (Hardcore) silently wins and you will not know which one you are fighting. To switch, delete one zip and add the other. Both also need the shared `rejuvenation-fields-cobbleverse-0.1.zip` (fields, mappings, Surge's gym).
+
+What Classic changes, briefly: Lt. Surge's Iron Hands, Erika's Kartana (now Ferrothorn), Sabrina's Mega Alakazam, Koga's team (Mega Dragalge replaces Mega Gengar), Blaine's Chi-Yu (now Typhlosion-Hisui), Giovanni's Chien-Pao (now Toxtricity), the set-up moves of Lorelei's, Bruno's and Lance's Pokémon, Agatha's Basculegion, and Blue's inflated EVs. Brock and Misty are the same. The full list is in [the comparison](README_KANTO_LEAGUE.md).
+
+**👉 [Complete rosters, level caps and fields for every trainer: Classic](README_KANTO_CLASSIC.md) · [Hardcore](README_KANTO_HARDCORE.md) · [side by side](README_KANTO_LEAGUE.md)**
 
 | Stage | Trainer | Field | Level cap |
 |---|---|---|---:|
@@ -269,11 +294,12 @@ I started this project because I found the existing COBBLEVERSE gym challenge to
 | Champion | Blue | New World | 85 |
 
 - Every Gym Leader except Brock has **one Mega Evolution** and every trainer has **one Tera Pokémon**.
-- All 78 Pokémon have 31 IVs and sets with exact EVs, natures, items and moves. Blue's team uses 252 EVs in every stat; the compat mod allows that for him only.
+- All 78 Pokémon in either variant have 31 IVs and sets with exact EVs, natures, items and moves. Hardcore's Blue uses 252 EVs in every stat (the compat mod allows that for him only); Classic's Blue has normal spreads.
 - Trainers use **Run & Bun AI**, keep their original Full Restore bags and item limits, and all fights are singles except Giovanni's doubles.
+- The fields, level caps and AI are the same in both variants.
 - Gym buildings were not rebuilt to look like their fields, so some immersion is lost.
 
-The rosters have been played offline end to end: all 13 fights, 173 full battles, with no crashes, illegal choices or Mega/Tera policy violations. It also caught a trainer-AI bug (field-changing moves like Misty's Dive could not be scored against some foes), which is fixed. See [Kanto fight simulation](docs/KANTO_FIGHT_SIMULATION.md). They have **not** been tested in live Minecraft battles yet.
+Each variant has been played offline end to end, separately: all 13 fights, 173 full battles for Classic and 173 for Hardcore, with no crashes, illegal choices or Mega/Tera policy violations. Testing also caught a trainer-AI bug (field-changing moves like Misty's Dive could not be scored against some foes), which is fixed. See [Kanto fight simulation](docs/KANTO_FIGHT_SIMULATION.md). They have **not** been tested in live Minecraft battles yet.
 
 I probably will not make updated teams for the other four regions, but the trainer files are plain JSON and easy to edit ([Trainer Integration](docs/TRAINER_INTEGRATION.md)).
 
@@ -322,6 +348,7 @@ On Windows use `./build.ps1` instead of the first line. More in [BUILDING.md](do
 - Some presentation-only effects cannot be reproduced exactly.
 - COBBLEVERSE data pack load order is relied on rather than exhaustively verified.
 - Gym structures were not redesigned around their fields, apart from minor changes to Surge's Gym.
+- Nothing stops you from installing both Kanto roster packs. Do not: install either Classic or Hardcore, never both.
 
 ---
 

@@ -62,6 +62,7 @@ backup = REPO / 'research/backups' / f'replaced-by-{manifest["version"]}-{stamp}
 old = [p for pattern, folder in (('rejuvenation-fields-*.jar', 'mods'), ('rejuvenation-fields-datapack-*.zip', 'datapacks'), ('rejuvenation-gym-overrides-*.zip', 'datapacks'),
        ('rejuvenation-fields-base-*.zip', 'datapacks'), ('rejuvenation-fields-cobbleverse-*.zip', 'datapacks'), ('rejuvenation-fields-compat-*.jar', 'mods'))
        for p in sorted((PROFILE / folder).glob(pattern))]
+old = list(dict.fromkeys(old))   # the jar patterns overlap (rejuvenation-fields-*.jar also matches the compat jar); move each file once
 other_league = 'hardcore' if args.league == 'classic' else 'classic'
 to_install = [a for a in manifest['artifacts'] if f'-cobbleverse-{other_league}-' not in a['path']]
 new_names = {a['path'] for a in to_install}

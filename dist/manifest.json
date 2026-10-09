@@ -24,10 +24,28 @@
     },
     {
       "path": "rejuvenation-fields-cobbleverse-0.1.zip",
-      "bytes": 34682,
-      "sha256": "07137ab544ddee134c1aed9dd03a25f7b49c5e8279a4f398b4e0e9d1a27f8f42"
+      "bytes": 15801,
+      "sha256": "32fe1d5538f5a0ecba993901e29a3f60172ba1cc8f79e26bcab00ddcbce98c1c"
+    },
+    {
+      "path": "rejuvenation-fields-cobbleverse-classic-0.1.zip",
+      "bytes": 24500,
+      "sha256": "9f5f123df9a53d353a6f9bc2da4ef49f97fea84ef3c64d271f0ebdef308ac73f"
+    },
+    {
+      "path": "rejuvenation-fields-cobbleverse-hardcore-0.1.zip",
+      "bytes": 23044,
+      "sha256": "d7f5ccad0715c225c8dcf93aef2bb3ccb07bd3485573f542ab552cdc87c9ab4f"
     }
   ],
+  "leagueVariants": {
+    "recommended": "classic",
+    "mutuallyExclusive": true,
+    "classic": "rejuvenation-fields-cobbleverse-classic-0.1.zip",
+    "hardcore": "rejuvenation-fields-cobbleverse-hardcore-0.1.zip",
+    "shared": "rejuvenation-fields-cobbleverse-0.1.zip",
+    "isolationReceipt": "research/test-results/league-package-isolation.json"
+  },
   "mods": {
     "rejuvenation_fields": {
       "version": "0.1",
@@ -52,7 +70,11 @@
     "installationMatrix": true,
     "packEquivalence": true,
     "customFieldUnit": true,
-    "authoringKit": true
+    "authoringKit": true,
+    "kantoClassicValidation": true,
+    "kantoClassicFights": true,
+    "kantoHardcoreValidation": true,
+    "kantoHardcoreFights": true
   },
   "verificationSkipped": [],
   "verified": true,

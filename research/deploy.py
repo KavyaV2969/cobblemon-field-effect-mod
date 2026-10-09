@@ -1,11 +1,14 @@
-"""Install (or roll back) the four runtime artifacts in a game profile, with backups and a hash-verified receipt.
+"""Install (or roll back) the runtime artifacts in a game profile, with backups and a hash-verified receipt.
 
-    python research/deploy.py [--profile DIR] [--apply]      dry run unless --apply
+    python research/deploy.py [--profile DIR] [--league classic|hardcore] [--apply]      dry run unless --apply
     python research/deploy.py [--profile DIR] --rollback <backup-dir> [--apply]
 
 Only the artifacts named here are touched; worlds, other mods, other data packs and every configuration file are left alone.
 Install:   dist/rejuvenation-fields-<v>.jar and dist/rejuvenation-fields-compat-<v>.jar  -> <profile>/mods/
            dist/rejuvenation-fields-base-<v>.zip and dist/rejuvenation-fields-cobbleverse-<v>.zip -> <profile>/datapacks/
+           ONE Kanto roster pack, dist/rejuvenation-fields-cobbleverse-classic-<v>.zip (default) or ...-hardcore-<v>.zip (--league) -> <profile>/datapacks/.
+           The two roster packs are mutually exclusive: the one that is not chosen is never installed, and a copy of either left from an earlier
+           deployment is moved to the backup folder, so a profile never holds both.
 Replaced:  any earlier rejuvenation-fields-*.jar and rejuvenation-fields-datapack-*.zip / rejuvenation-gym-overrides-*.zip (the monolith and its
            superseded override pack) are MOVED to <backup-dir> (never deleted), so no old copy can load beside the new ones.
 Refuses to run while a Minecraft/Fabric JVM is running or when dist/manifest.json does not certify the artifacts. A running game must be
@@ -17,6 +20,7 @@ import argparse, datetime, hashlib, json, os, shutil, subprocess, sys
 REPO = Path(__file__).resolve().parents[1]
 ap = argparse.ArgumentParser()
 ap.add_argument('--profile'); ap.add_argument('--apply', action='store_true'); ap.add_argument('--rollback')
+ap.add_argument('--league', choices=('classic', 'hardcore'), default='classic', help='which Kanto roster pack to install (default: classic, the recommended one)')
 args = ap.parse_args()
 PROFILE = Path(args.profile or os.environ.get('REJUVENATION_PROFILE') or REPO.parent).resolve()
 sha = lambda p: hashlib.sha256(Path(p).read_bytes()).hexdigest()
@@ -58,7 +62,9 @@ backup = REPO / 'research/backups' / f'replaced-by-{manifest["version"]}-{stamp}
 old = [p for pattern, folder in (('rejuvenation-fields-*.jar', 'mods'), ('rejuvenation-fields-datapack-*.zip', 'datapacks'), ('rejuvenation-gym-overrides-*.zip', 'datapacks'),
        ('rejuvenation-fields-base-*.zip', 'datapacks'), ('rejuvenation-fields-cobbleverse-*.zip', 'datapacks'), ('rejuvenation-fields-compat-*.jar', 'mods'))
        for p in sorted((PROFILE / folder).glob(pattern))]
-new_names = {a['path'] for a in manifest['artifacts']}
+other_league = 'hardcore' if args.league == 'classic' else 'classic'
+to_install = [a for a in manifest['artifacts'] if f'-cobbleverse-{other_league}-' not in a['path']]
+new_names = {a['path'] for a in to_install}
 replaced, installed = [], []
 if args.apply: backup.mkdir(parents=True, exist_ok=True)
 for p in old:
@@ -67,7 +73,7 @@ for p in old:
     print(('move ' if args.apply else 'would move ') + rel(p) + ' -> backup')
     replaced.append({'originalPath': rel(p), 'backupName': name, 'sha256': sha(p), 'bytes': p.stat().st_size})
     if args.apply: shutil.copyfile(p, backup / name); assert sha(backup / name) == replaced[-1]['sha256']; p.unlink()
-for a in manifest['artifacts']:
+for a in to_install:
     folder = 'mods' if a['path'].endswith('.jar') else 'datapacks'
     target = PROFILE / folder / a['path']
     print(('install ' if args.apply else 'would install ') + rel(target))

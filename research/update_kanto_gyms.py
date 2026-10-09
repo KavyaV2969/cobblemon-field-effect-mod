@@ -1,7 +1,9 @@
-"""Author the requested Kanto gym override; validate before installation.
+"""Author the original (now Hardcore) Kanto gym override; historical, with --runtime still in use.
 
-Run with --author to write source/README and back up existing artifacts, then
-run verify_kanto_gyms.cjs, then --ship to package validated source and install it.
+The 13 trainer files now live in datapack/kanto-hardcore (and the derived Classic ones in datapack/kanto-classic, see classic_league.py);
+--author and --ship predate that split and the research/package.py + research/deploy.py pipeline, and are kept only as the record of how the
+Hardcore sets were authored. --runtime is current: it extracts the add-on Mega data and the original trainer controls that
+verify_kanto_gyms.cjs and simulate_kanto_fights.cjs need.
 """
 from pathlib import Path
 import argparse, copy, datetime, hashlib, json, re, shutil, zipfile
@@ -303,7 +305,7 @@ def runtime():
     addon_path = PROFILE / 'mods/zamega-fabric-1.7.3.jar'
     with zipfile.ZipFile(addon_path) as z:
         addons = {}
-        for mon, generation, stone in [('eelektross', 5, 'eelektrossite'), ('baxcalibur', 9, 'baxcalibrite'), ('dragonite', 1, 'dragoninite')]:
+        for mon, generation, stone in [('eelektross', 5, 'eelektrossite'), ('baxcalibur', 9, 'baxcalibrite'), ('dragonite', 1, 'dragoninite'), ('dragalge', 6, 'dragalgite')]:
             addons[mon] = {'stone': stone, 'itemJS': z.read(f'data/zamega/mega_showdown/showdown/held_items/{stone}.js').decode('utf-8'),
                            'addition': json.loads(z.read(f'data/cobblemon/species_additions/generation{generation}/{mon}_mega.json'))}
     with zipfile.ZipFile(BASE) as z:

@@ -1,0 +1,252 @@
+{
+  "name": {
+    "literal": "Bruno"
+  },
+  "ai": {
+    "type": "rb",
+    "data": {
+      "canTera": true,
+      "teraTarget": "terrakion",
+      "canDynamax": false,
+      "dynamaxTarget": "",
+      "canGmax": false
+    }
+  },
+  "battleRules": {
+    "maxItemUses": 4
+  },
+  "bag": [
+    {
+      "item": "cobblemon:full_restore",
+      "quantity": 4
+    }
+  ],
+  "team": [
+    {
+      "species": "gallade",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "justified",
+      "heldItem": [
+        "rejuvenation:synthetic_seed"
+      ],
+      "moveset": [
+        "sacredsword",
+        "psychocut",
+        "nightslash",
+        "leafblade"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "keldeo",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "timid",
+      "ability": "justified",
+      "heldItem": [
+        "cobblemon:choice_specs"
+      ],
+      "moveset": [
+        "secretsword",
+        "hydropump",
+        "icywind",
+        "airslash"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 0,
+        "def": 4,
+        "spa": 252,
+        "spd": 0,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "cloyster",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "skilllink",
+      "heldItem": [
+        "cobblemon:white_herb"
+      ],
+      "moveset": [
+        "shellsmash",
+        "iciclespear",
+        "rockblast",
+        "liquidation"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "terrakion",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "justified",
+      "heldItem": [
+        "cobblemon:focus_sash"
+      ],
+      "moveset": [
+        "poisonjab",
+        "reversal",
+        "sacredsword",
+        "stoneedge"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": "fighting",
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "zamazenta",
+      "gender": "GENDERLESS",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "dauntlessshield",
+      "heldItem": [
+        "mega_showdown:rusted_shield"
+      ],
+      "moveset": [
+        "bodypress",
+        "behemothbash",
+        "crunch",
+        "roar"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 4,
+        "spa": 0,
+        "spd": 0,
+        "spe": 252
+      },
+      "aspects": [
+        "crowned"
+      ],
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    },
+    {
+      "species": "lucario",
+      "gender": "MALE",
+      "level": 85,
+      "nature": "jolly",
+      "ability": "justified",
+      "heldItem": [
+        "mega_showdown:lucarionite"
+      ],
+      "moveset": [
+        "crunch",
+        "meteormash",
+        "closecombat",
+        "bulletpunch"
+      ],
+      "ivs": {
+        "hp": 31,
+        "atk": 31,
+        "def": 31,
+        "spa": 31,
+        "spd": 31,
+        "spe": 31
+      },
+      "evs": {
+        "hp": 0,
+        "atk": 252,
+        "def": 0,
+        "spa": 0,
+        "spd": 4,
+        "spe": 252
+      },
+      "gimmicks": {
+        "tera": null,
+        "dynamax": false,
+        "gmax": false
+      }
+    }
+  ],
+  "battleFormat": "GEN_9_SINGLES"
+}

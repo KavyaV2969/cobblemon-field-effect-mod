@@ -1,14 +1,18 @@
 // Offline full-fight test of the 13 Kanto league fights: complete battles on the assigned field, with the trainer side
 // driven by the field engine's consequence scoring using the same decision rule as compat/RunBunStrategy.java
 // (score = consequence - resourceCost, Mega mandatory, Tera/Dynamax only for declared members).
-// Opponent teams are generic "player" teams at the trainer's level cap. Usage: node research/simulate_kanto_fights.cjs [--seeds N] [--only id,id]
+// Opponent teams are generic "player" teams at the trainer's level cap.
+// Usage: node research/simulate_kanto_fights.cjs --variant classic|hardcore [--seeds N] [--only id,id] [--parallel]
+// The variant picks the roster pack (datapack/kanto-classic or datapack/kanto-hardcore); the fields come from the shared extension (datapack/cobbleverse).
 const fs = require('node:fs'), path = require('node:path'), vm = require('node:vm');
 const root = path.resolve(__dirname, '..'), profile = path.resolve(root, '..');
-const source = path.join(root, 'datapack/cobbleverse');
 const simRequire = require('node:module').createRequire(path.join(profile, 'showdown/index.js'));
 const { Battle } = simRequire('./sim/battle'), { Dex } = simRequire('./sim/dex');
 const argv = process.argv.slice(2), arg = (name, fallback) => { const i = argv.indexOf('--' + name); return i >= 0 ? argv[i + 1] : fallback; };
 const SEEDS = Number(arg('seeds', 3)), ONLY = arg('only', '') ? arg('only').split(',') : null, MAX_TURNS = 250;
+const variant = arg('variant', '');
+if (!['classic', 'hardcore'].includes(variant)) { console.error('Usage: node research/simulate_kanto_fights.cjs --variant classic|hardcore [--seeds N] [--only id,id] [--parallel]'); process.exit(2); }
+const source = path.join(root, 'datapack', 'kanto-' + variant);
 
 // Z-A Mega data normally injected by Fabric at startup (same preamble as verify_kanto_gyms.cjs).
 const runtime = JSON.parse(fs.readFileSync(path.join(root, 'research/test-results/kanto-gyms-runtime.json'), 'utf8'));
@@ -37,20 +41,21 @@ const caps = { brock: 16, misty: 28, ltsurge: 36, erika: 44, sabrina: 59, koga: 
 const fields = { brock: 'crystal_cavern', misty: 'water_surface', ltsurge: 'murkwater_surface', erika: 'warped_forest',
   sabrina: 'psychic_terrain', koga: 'wasteland', blaine: 'crimson_forest', giovanni: 'deep_dark',
   league_lorelei: 'frozen_dimension', league_bruno: 'colosseum', league_agatha: 'haunted', league_lance: 'dragons_den', champion_blue: 'new_world' };
+// Cobblemon item IDs whose Showdown ID differs (Cobblemon's Charcoal Stick is Showdown's Charcoal).
+const ITEM_ALIASES = { charcoalstick: 'charcoal' };
+const showdownItem = id => { const bare = id.split(':')[1].toLowerCase().replace(/[^a-z0-9]/g, ''); return ITEM_ALIASES[bare] || bare; };
 const toID = text => String(text).toLowerCase().replace(/[^a-z0-9]/g, '');
 const uuid = (group, n) => `00000000-0000-0000-${String(group).padStart(4, '0')}-${String(n).padStart(12, '0')}`;
 function formName(mon) {
-  if ((mon.aspects || []).includes('alolan')) return mon.species + 'alola';
-  if ((mon.aspects || []).includes('hearthflame-mask')) return mon.species + 'hearthflame';
-  if ((mon.aspects || []).includes('wash-appliance')) return mon.species + 'wash';
-  for (const [aspect, suffix] of [['ice-rider', 'ice'], ['shadow-rider', 'shadow'], ['crowned', 'crowned'], ['dusk-fusion', 'duskmane'], ['bloodmoon', 'bloodmoon']])
+  for (const [aspect, suffix] of [['alolan', 'alola'], ['hisuian', 'hisui'], ['hearthflame-mask', 'hearthflame'], ['wash-appliance', 'wash'], ['low_key-form', 'lowkey'],
+    ['ice-rider', 'ice'], ['shadow-rider', 'shadow'], ['crowned', 'crowned'], ['dusk-fusion', 'duskmane'], ['bloodmoon', 'bloodmoon']])
     if ((mon.aspects || []).includes(aspect)) return mon.species + suffix;
   return mon.species;
 }
 const info = m => ({ pp: Dex.moves.get(m).pp, maxPp: Dex.moves.get(m).pp });
 function trainerSet(mon, i) {
   return { species: Dex.species.get(formName(mon)).name, ability: Dex.abilities.get(mon.ability).name,
-    item: mon.heldItem.length ? Dex.items.get(toID(mon.heldItem[0].split(':')[1])).name : '', nature: Dex.natures.get(mon.nature).name,
+    item: mon.heldItem.length ? Dex.items.get(showdownItem(mon.heldItem[0])).name : '', nature: Dex.natures.get(mon.nature).name,
     moves: mon.moveset.slice(), movesInfo: mon.moveset.map(info), level: mon.level, ivs: { ...mon.ivs }, evs: { ...mon.evs },
     teraType: mon.gimmicks?.tera || undefined, gender: mon.gender === 'FEMALE' ? 'F' : mon.gender === 'MALE' ? 'M' : '', uuid: uuid(1, i + 1) };
 }
@@ -182,7 +187,9 @@ function fight(gym, trainer, field, kind, seed, lead = -1) {
   const declared = new Set(trainer.team.filter(m => m.gimmicks?.tera).map(m => m.species));
   const speciesOf = Object.fromEntries(team.map(m => [m.uuid, toID(m.species)]));
   const stats = { strategyExceptions: [], rowErrors: [], decisionMs: [], noScorable: 0, switchScoreErrors: 0, illegalChoices: [] };
-  const rulesTrainer = { gimmickMembers: declared }, rulesPlayer = { gimmickMembers: new Set() };
+  // A member's declaration authorizes its Tera whatever form it is in (Ogerpon-Hearthflame, Typhlosion-Hisui, Toxtricity-Low-Key, Ursaluna-Bloodmoon).
+  const declaredIds = new Set(trainer.team.filter(m => m.gimmicks?.tera).flatMap(m => [toID(m.species), toID(Dex.species.get(formName(m)).id)]));
+  const rulesTrainer = { gimmickMembers: declaredIds }, rulesPlayer = { gimmickMembers: new Set() };
   let reason = '';
   try {
     if (b.requestState === 'teampreview') {
@@ -231,7 +238,7 @@ function runGym(gym) {
   const scenarios = [];
   for (const kind of Object.keys(CHALLENGERS)) for (let s = 1; s <= SEEDS; s++) scenarios.push({ kind, seed: s, lead: -1 });
   trainer.team.forEach((m, i) => {
-    const it = m.heldItem.length ? Dex.items.get(toID(m.heldItem[0].split(':')[1])) : null;
+    const it = m.heldItem.length ? Dex.items.get(showdownItem(m.heldItem[0])) : null;
     const holds = m.gimmicks?.tera || it?.megaStone || it?.zMove || it?.id === 'ultranecroziumz';
     if (holds) for (const kind of ['stall', 'balanced']) scenarios.push({ kind, seed: 1, lead: i, label: formName(m) });
   });
@@ -254,7 +261,7 @@ function runGym(gym) {
     if (r.tera.length && declaredMon && r.tera.some(sp => !toID(sp).startsWith(toID(declaredMon)) && !toID(declaredMon).startsWith(toID(sp))))
       gymProblems.push(`${tag}: Tera used by ${r.tera} instead of declared ${declaredMon}`);
     if (lead >= 0) {
-      const m = trainer.team[lead], it = m.heldItem.length ? Dex.items.get(toID(m.heldItem[0].split(':')[1])) : null;
+      const m = trainer.team[lead], it = m.heldItem.length ? Dex.items.get(showdownItem(m.heldItem[0])) : null;
       if (it?.megaStone && r.mega !== 1) gymProblems.push(`${tag}: Mega holder led but Mega count was ${r.mega} (policy requires activation on first legal move)`);
       r.leadGimmickUsed = !!(it?.megaStone ? r.mega : it?.id === 'ultranecroziumz' ? r.ultra : it?.zMove ? r.zmoves : r.tera.length);
     }
@@ -282,18 +289,21 @@ if (argv.includes('--parallel')) {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'kanto-fights-'));
   const run = gym => new Promise(resolve => {
     const out = path.join(tmp, gym + '.json');
-    const child = spawn(process.execPath, [__filename, '--seeds', String(SEEDS), '--only', gym, '--child-out', out], { stdio: ['ignore', 'inherit', 'inherit'] });
+    const child = spawn(process.execPath, [__filename, '--variant', variant, '--seeds', String(SEEDS), '--only', gym, '--child-out', out], { stdio: ['ignore', 'inherit', 'inherit'] });
     child.on('exit', () => resolve(out));
   });
   Promise.all(list.map(run)).then(files => {
     const parts = files.filter(f => fs.existsSync(f)).map(f => JSON.parse(fs.readFileSync(f, 'utf8')));
     const missing = list.filter(g => !parts.some(p => p.summary.gym === g));
-    const all = { date: new Date().toISOString().slice(0, 10), seedsPerChallenger: SEEDS, challengers: Object.keys(CHALLENGERS), maxTurns: MAX_TURNS,
+    const all = { date: new Date().toISOString().slice(0, 10), variant, pack: `rejuvenation-fields-cobbleverse-${variant}`, seedsPerChallenger: SEEDS, challengers: Object.keys(CHALLENGERS), maxTurns: MAX_TURNS,
       problems: [...parts.flatMap(p => p.problems), ...missing.map(g => `${g}: child process produced no result`)],
       summary: list.map(g => parts.find(p => p.summary.gym === g)?.summary).filter(Boolean),
       fights: parts.flatMap(p => p.fights), seconds: Math.round((Date.now() - started) / 1000), liveMinecraftBattleTested: false };
     all.fightCount = all.fights.length;
-    const target = path.join(root, 'research/test-results/kanto-fights-simulation.json');
+    // Tie the receipt to the exact trainer files that were played (research/package.py compares these with the packaged roster).
+    all.rosterSha256 = Object.fromEntries(fs.readdirSync(path.join(source, 'data/rctmod/trainers')).sort().map(f =>
+      [f, require('node:crypto').createHash('sha256').update(fs.readFileSync(path.join(source, 'data/rctmod/trainers', f))).digest('hex')]));
+    const target = path.join(root, `research/test-results/kanto-fights-simulation-${variant}.json`);
     try { fs.rmSync(target, { force: true }); } catch (_) {}
     fs.writeFileSync(target, JSON.stringify(all, null, 2) + '\n');
     console.log(`\n${all.fightCount} fights in ${all.seconds}s; ${all.problems.length} problems`);

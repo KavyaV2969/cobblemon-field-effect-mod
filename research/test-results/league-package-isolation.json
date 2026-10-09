@@ -1,0 +1,48 @@
+{
+  "differingTrainers": [
+    "blaine",
+    "champion_blue",
+    "erika",
+    "giovanni",
+    "koga",
+    "league_agatha",
+    "league_bruno",
+    "league_lance",
+    "league_lorelei",
+    "ltsurge",
+    "sabrina"
+  ],
+  "identicalTrainers": [
+    "brock",
+    "misty"
+  ],
+  "scenarios": {
+    "base+extension+classic": {
+      "trainerFiles": 13,
+      "wonBy": [
+        "classic"
+      ],
+      "nonTrainerFilesFromRosterPacks": []
+    },
+    "base+extension+hardcore": {
+      "trainerFiles": 13,
+      "wonBy": [
+        "hardcore"
+      ],
+      "nonTrainerFilesFromRosterPacks": []
+    },
+    "base+extension+classic+hardcore (not supported)": {
+      "trainerFiles": 13,
+      "wonBy": [
+        "hardcore"
+      ],
+      "nonTrainerFilesFromRosterPacks": []
+    },
+    "base+extension (no roster)": {
+      "trainerFiles": 0,
+      "wonBy": [],
+      "nonTrainerFilesFromRosterPacks": []
+    }
+  },
+  "bothInstalled": "every trainer file resolves silently to hardcore (the later file name); nothing detects it, so the pack descriptions and the READMEs tell users to install only one"
+}

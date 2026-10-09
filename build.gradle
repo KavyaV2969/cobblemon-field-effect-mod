@@ -92,7 +92,7 @@ project(':verification') {
     javaTest('strategyBenchmark', 'dev.rejuvenation.StrategyBenchmark', [repo.absolutePath, project.findProperty('benchmarkEngine') ?: '', project.findProperty('benchmarkRepetitions') ?: '5'])
     javaTest('javaVerification', 'dev.rejuvenation.JavaVerification', [new File(results, '../catalog.json').canonicalPath])
     tasks.named('javaVerification') { dependsOn validateDatapack, buildExamplePack }
-    javaTest('gimmickPolicyTest', 'dev.rejuvenation.RunBunGimmickVerification', [rootProject.file('datapack/cobbleverse/data/rctmod/trainers/kanto_ltsurge.json').absolutePath])
+    javaTest('gimmickPolicyTest', 'dev.rejuvenation.RunBunGimmickVerification', [rootProject.file('datapack/kanto-hardcore/data/rctmod/trainers/kanto_ltsurge.json').absolutePath])
     javaTest('installationMatrix', 'dev.rejuvenation.InstallationMatrixVerification', [new File(results, 'installation-matrix.json').absolutePath])
     tasks.named('installationMatrix') { dependsOn ':core:jar', ':compat:jar' }
     javaTest('recipeTest', 'dev.rejuvenation.RecipeVerification', [new File(results, 'recipe-verification.json').absolutePath])

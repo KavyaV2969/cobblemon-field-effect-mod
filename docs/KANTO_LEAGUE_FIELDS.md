@@ -1,6 +1,6 @@
 # Kanto league fields
 
-Complete gym, Elite Four and Champion sets: [README_KANTO_LEAGUE.md](../README_KANTO_LEAGUE.md).
+Two roster variants share these fields, level caps and formats: [Classic](../README_KANTO_CLASSIC.md) (recommended) and [Hardcore](../README_KANTO_HARDCORE.md). Overview: [README_KANTO_LEAGUE.md](../README_KANTO_LEAGUE.md).
 
 All trainer fields follow the user-authored rosters dated 2026-10-08. Earlier win-share scores in research/trainer-field-scores.json describe the prior teams and are historical; they are not performance claims for these replacements.
 
@@ -20,4 +20,4 @@ All trainer fields follow the user-authored rosters dated 2026-10-08. Earlier wi
 | Lance | 85 | GEN_9_SINGLES | Dragon's Den |
 | Blue | 85 | GEN_9_SINGLES | New World |
 
-Bindings live in `datapack/cobbleverse/data/rejuvenation/rejuvenation/trainers/kanto.json`. TrainerFieldBridge selects these on battle pre-start at TRAINER priority; an EXPLICIT selection still takes precedence.
+Bindings live in `datapack/cobbleverse/data/rejuvenation/rejuvenation/trainers/kanto.json`, in the shared extension pack, so they apply to whichever roster variant is installed. TrainerFieldBridge selects them on battle pre-start at TRAINER priority; an EXPLICIT selection still takes precedence.

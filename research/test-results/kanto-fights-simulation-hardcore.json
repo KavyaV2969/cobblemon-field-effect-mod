@@ -1,5 +1,7 @@
 {
-  "date": "2026-10-08",
+  "date": "2026-10-09",
+  "variant": "hardcore",
+  "pack": "rejuvenation-fields-cobbleverse-hardcore",
   "seedsPerChallenger": 3,
   "challengers": [
     "balanced",
@@ -25,8 +27,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 120,
-      "maxDecisionMs": 340,
+      "medianDecisionMs": 149,
+      "maxDecisionMs": 512,
       "movesNeverChosen": [
         "geodudealola:selfdestruct",
         "archen:quickattack",
@@ -62,8 +64,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 80,
-      "maxDecisionMs": 262,
+      "medianDecisionMs": 104,
+      "maxDecisionMs": 447,
       "movesNeverChosen": [
         "gyarados:dragondance"
       ],
@@ -108,8 +110,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 110,
-      "maxDecisionMs": 314,
+      "medianDecisionMs": 140,
+      "maxDecisionMs": 466,
       "movesNeverChosen": [
         "ironhands:swordsdance",
         "eelektross:coil"
@@ -146,16 +148,15 @@
       "finished": 13,
       "trainerWins": 13,
       "medianTurns": 27,
-      "megaFights": 2,
+      "megaFights": 3,
       "teraFights": 0,
       "teraSpecies": [],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 97,
-      "maxDecisionMs": 327,
+      "medianDecisionMs": 126,
+      "maxDecisionMs": 442,
       "movesNeverChosen": [
         "meowscarada:lowkick",
-        "meowscarada:flowertrick",
         "ogerponhearthflame:swordsdance"
       ],
       "leadScenarios": [
@@ -197,8 +198,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 81,
-      "maxDecisionMs": 242,
+      "medianDecisionMs": 108,
+      "maxDecisionMs": 426,
       "movesNeverChosen": [
         "delphox:hypnosis",
         "metagross:earthquake",
@@ -246,8 +247,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 71,
-      "maxDecisionMs": 263,
+      "medianDecisionMs": 88,
+      "maxDecisionMs": 427,
       "movesNeverChosen": [
         "sneasler:swordsdance",
         "naganadel:nastyplot",
@@ -293,8 +294,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 73,
-      "maxDecisionMs": 289,
+      "medianDecisionMs": 95,
+      "maxDecisionMs": 421,
       "movesNeverChosen": [
         "gougingfire:dragondance",
         "chiyu:darkpulse",
@@ -339,8 +340,8 @@
       ],
       "ultraFights": 0,
       "zFights": 6,
-      "medianDecisionMs": 165,
-      "maxDecisionMs": 461,
+      "medianDecisionMs": 206,
+      "maxDecisionMs": 736,
       "movesNeverChosen": [
         "kommoo:flashcannon",
         "chienpao:iciclecrash",
@@ -395,8 +396,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 89,
-      "maxDecisionMs": 304,
+      "medianDecisionMs": 112,
+      "maxDecisionMs": 522,
       "movesNeverChosen": [
         "arctovish:psychicfangs",
         "kyurem:roost",
@@ -448,8 +449,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 79,
-      "maxDecisionMs": 210,
+      "medianDecisionMs": 110,
+      "maxDecisionMs": 403,
       "movesNeverChosen": [
         "gallade:leafblade",
         "keldeo:hydropump",
@@ -500,8 +501,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 66,
-      "maxDecisionMs": 234,
+      "medianDecisionMs": 90,
+      "maxDecisionMs": 407,
       "movesNeverChosen": [
         "dragapult:uturn",
         "dragapult:suckerpunch",
@@ -554,8 +555,8 @@
       "teraSpecies": [],
       "ultraFights": 4,
       "zFights": 4,
-      "medianDecisionMs": 102,
-      "maxDecisionMs": 284,
+      "medianDecisionMs": 133,
+      "maxDecisionMs": 422,
       "movesNeverChosen": [
         "haxorus:dragondance",
         "haxorus:poisonjab",
@@ -612,8 +613,8 @@
       "teraSpecies": [],
       "ultraFights": 0,
       "zFights": 2,
-      "medianDecisionMs": 85,
-      "maxDecisionMs": 342,
+      "medianDecisionMs": 116,
+      "maxDecisionMs": 457,
       "movesNeverChosen": [
         "hawlucha:stoneedge",
         "hawlucha:encore",
@@ -1648,13 +1649,13 @@
       "seed": 3,
       "ended": true,
       "winner": "Erika",
-      "turns": 30,
+      "turns": 35,
       "reason": "",
       "startField": "rejuvenation:warped_forest",
       "endField": "rejuvenation:warped_forest",
-      "trainerFainted": 1,
+      "trainerFainted": 2,
       "challengerFainted": 6,
-      "mega": 0,
+      "mega": 1,
       "tera": [],
       "ultra": 0,
       "zmoves": 0,
@@ -1663,7 +1664,7 @@
       "diveSeen": false,
       "logErrors": 0,
       "lead": null,
-      "decisions": 60
+      "decisions": 70
     },
     {
       "gym": "erika",
@@ -4730,7 +4731,22 @@
       "decisions": 24
     }
   ],
-  "seconds": 104,
+  "seconds": 130,
   "liveMinecraftBattleTested": false,
-  "fightCount": 173
+  "fightCount": 173,
+  "rosterSha256": {
+    "kanto_blaine.json": "ab7cb44f1f7037360e640673bb4092948f5e6dab188b5b6e02337f563e595476",
+    "kanto_brock.json": "26a0d3502e963114d6209de0df3d66fe277b2e862b2ad3858b3ddd45d9dfc204",
+    "kanto_champion_blue.json": "62519e8fc803248bd28d27935c6385e07d2255d2fb8120de75729303e8346165",
+    "kanto_erika.json": "e7a1fab85041ff13d793d9e6426c077e34d6b408ec2895cd88d1a31169cf1dfd",
+    "kanto_giovanni.json": "936382aa81525034cfa37563675cd6e55b2ad0e875aa2dfaec3421d1ccdd71f7",
+    "kanto_koga.json": "ac5b0b24f4d65f6b86001942a51099bf84ec4eb07be87407957c8fb4afb8a99c",
+    "kanto_league_agatha.json": "42292da071230778b3d25e5a3a0143cf1a7e031a255dcca6701b8bd8212f0d97",
+    "kanto_league_bruno.json": "61524d047edc596bb6465f89a7222712e8f88787238b9432d5156916fa3c08b7",
+    "kanto_league_lance.json": "ce0923908dbdd5f8a093163cafc08ef59f7212a92697cdcacbb1c589f24809fb",
+    "kanto_league_lorelei.json": "34c9d7f6731e65f10c1c8c093e58fd430e9426f16f895e351fdbcf69ff6a7cce",
+    "kanto_ltsurge.json": "0576a111db643b1bfa86801d15c951deb9ae9f01bc95479489626aa02a48aece",
+    "kanto_misty.json": "52d70368dc3668ce409112068b3fe9ab5ca464d32a4a12af0a0f7939673f6754",
+    "kanto_sabrina.json": "32f4f86e22e06a96442e3edbb9c22e0a8aa6f83cd5cddeb01aeafb24f57f75c6"
+  }
 }

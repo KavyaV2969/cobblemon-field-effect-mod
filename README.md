@@ -24,16 +24,16 @@ This is the first public release. It is mostly complete and functional, but trea
 
 <table>
   <tr>
-    <td width="50%"><img src="https://github.com/user-attachments/assets/18bd3eb9-26a8-417c-addc-c301b5918285" alt="Underwater" /><br /><sub><b>Underwater.</b> Water Pulse gets "Jet-streamed!" in a naturally submerged battle.</sub></td>
-    <td width="50%"><img src="https://github.com/user-attachments/assets/4d296b88-6f67-411e-9f66-ca38634edd0c" alt="The End" /><br /><sub><b>The End.</b> New World, with a shiny Rayquaza's Air Lock message.</sub></td>
+    <td width="50%"><img src="docs/images/showcase-01-underwater-water-pulse.png" alt="Underwater" /><br /><sub><b>Underwater.</b> Water Pulse gets "Jet-streamed!" in a naturally submerged battle.</sub></td>
+    <td width="50%"><img src="docs/images/showcase-02-end-shiny-rayquaza.png" alt="The End" /><br /><sub><b>The End.</b> New World, with a shiny Rayquaza's Air Lock message.</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src="https://github.com/user-attachments/assets/9248799f-0c7c-4c63-a38b-55dfaf702633" alt="Deep Dark" /><br /><sub><b>Deep Dark.</b> Two Boombursts and the sculk retaliates.</sub></td>
-    <td width="50%"><img src="https://github.com/user-attachments/assets/5f939aa4-099c-4725-807c-b8a1ebc25500" alt="Warped Forest" /><br /><sub><b>Warped Forest.</b> Leaf Blade gains the field's altered typing.</sub></td>
+    <td width="50%"><img src="docs/images/showcase-03-deep-dark-sculk-retaliation.png" alt="Deep Dark" /><br /><sub><b>Deep Dark.</b> Two Boombursts and the sculk retaliates.</sub></td>
+    <td width="50%"><img src="docs/images/showcase-04-warped-forest-leaf-blade.png" alt="Warped Forest" /><br /><sub><b>Warped Forest.</b> Leaf Blade gains the field's altered typing.</sub></td>
   </tr>
   <tr>
-    <td width="50%"><img src="https://github.com/user-attachments/assets/78fce346-c501-4595-adf6-7976adb33a27" alt="Lt. Surge" /><br /><sub><b>Lt. Surge.</b> Murkwater Surface boosts Water Pulse, then poisons the swimmer.</sub></td>
-    <td width="50%"><img src="https://github.com/user-attachments/assets/8f464a3e-1093-4c20-ad74-5fe33bcea811" alt="Mountain" /><br /><sub><b>Mountain.</b> Tailwind's Strong Winds boost Icy Wind.</sub></td>
+    <td width="50%"><img src="docs/images/showcase-05-lt-surge-murkwater.png" alt="Lt. Surge" /><br /><sub><b>Lt. Surge.</b> Murkwater Surface boosts Water Pulse, then poisons the swimmer.</sub></td>
+    <td width="50%"><img src="docs/images/showcase-06-mountains-wind-boost.png" alt="Mountain" /><br /><sub><b>Mountain.</b> Tailwind's Strong Winds boost Icy Wind.</sub></td>
   </tr>
 </table>
 

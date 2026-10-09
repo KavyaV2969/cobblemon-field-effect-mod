@@ -13,6 +13,7 @@ const argv = process.argv.slice(2), arg = (name, fallback) => { const i = argv.i
 const variant = arg('variant', '');
 if (!['classic', 'hardcore'].includes(variant)) { console.error('Usage: node research/verify_kanto_gyms.cjs --variant classic|hardcore'); process.exit(2); }
 const other = variant === 'classic' ? 'hardcore' : 'classic';
+const EOL = process.platform === 'win32' ? '\r\n' : '\n';
 const shared = path.join(root, 'datapack/cobbleverse');
 const rosterDir = v => path.join(root, 'datapack', 'kanto-' + v);
 const trainerFile = (v, gym) => path.join(rosterDir(v), 'data/rctmod/trainers', `kanto_${gym}.json`);
@@ -382,16 +383,18 @@ function rosterText(v) {
 
 if (!failures.length) {
   const text = rosterText(variant);
-  fs.writeFileSync(path.join(rosterDir(variant), 'README.md'), text);
-  fs.writeFileSync(path.join(root, `README_KANTO_${variant.toUpperCase()}.md`), text);
-  fs.writeFileSync(path.join(root, 'docs/KANTO_LEAGUE_FIELDS.md'), [
+  // Written with the working tree's line endings (CRLF on Windows checkouts); the receipt hashes Markdown with LF so it holds on every platform.
+  const out = t => t.replace(/\r?\n/g, EOL);
+  fs.writeFileSync(path.join(rosterDir(variant), 'README.md'), out(text));
+  fs.writeFileSync(path.join(root, `README_KANTO_${variant.toUpperCase()}.md`), out(text));
+  fs.writeFileSync(path.join(root, 'docs/KANTO_LEAGUE_FIELDS.md'), out([
     '# Kanto league fields', '', 'Two roster variants share these fields, level caps and formats: [Classic](../README_KANTO_CLASSIC.md) (recommended) and [Hardcore](../README_KANTO_HARDCORE.md). Overview: [README_KANTO_LEAGUE.md](../README_KANTO_LEAGUE.md).', '',
     'All trainer fields follow the user-authored rosters dated 2026-10-08. Earlier win-share scores in research/trainer-field-scores.json describe the prior teams and are historical; they are not performance claims for these replacements.', '',
     '| Trainer | Cap | Format | Starting field |', '|---|---:|---|---|',
     ...Object.entries(gyms).map(([gym, t]) => `| ${t.name.literal} | ${caps[gym]} | ${t.battleFormat} | ${fieldName(gym)} |`),
     '',
     'Bindings live in `datapack/cobbleverse/data/rejuvenation/rejuvenation/trainers/kanto.json`, in the shared extension pack, so they apply to whichever roster variant is installed. TrainerFieldBridge selects them on battle pre-start at TRAINER priority; an EXPLICIT selection still takes precedence.', ''
-  ].join('\n'));
+  ].join('\n')));
 }
 const hashDir = dir => {
   const out = {};
@@ -399,7 +402,7 @@ const hashDir = dir => {
     for (const entry of fs.readdirSync(d, { withFileTypes: true })) {
       const file = path.join(d, entry.name);
       if (entry.isDirectory()) walk(file);
-      else out[path.relative(dir, file).replaceAll('\\', '/')] = crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
+      else out[path.relative(dir, file).replaceAll('\\', '/')] = crypto.createHash('sha256').update(file.endsWith('.md') ? Buffer.from(fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n')) : fs.readFileSync(file)).digest('hex');
     }
   })(dir);
   return out;
@@ -410,7 +413,7 @@ const receipt = { date: '2026-10-09', variant, pack: packName(variant), checksPa
   addonSha256: runtime.addonSha256, originalTrainerPackSha256: runtime.originalTrainerPackSha256, savedWorldPackOrder: runtime.savedWorldPackOrder,
   simulator: 'Installed profile/showdown', fieldEngineSha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(root, 'core/src/main/resources/rejuvenation-engine.js'))).digest('hex'),
   liveMinecraftBattleTested: false };
-fs.writeFileSync(path.join(root, `research/test-results/kanto-gyms-simulator-${variant}.json`), JSON.stringify(receipt, null, 2) + '\n');
+fs.writeFileSync(path.join(root, `research/test-results/kanto-gyms-simulator-${variant}.json`), JSON.stringify(receipt, null, 2).replace(/\n/g, EOL) + EOL);
 console.log(`${label(variant)}: ${checks.length} checks passed; ${failures.length} failures`);
 for (const failure of failures) console.error(failure);
 process.exit(failures.length ? 1 : 0);

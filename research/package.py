@@ -209,7 +209,7 @@ def main():
     for variant in ('classic', 'hardcore'):
         gyms, fights = receipt(f'kanto-gyms-simulator-{variant}.json'), receipt(f'kanto-fights-simulation-{variant}.json')
         roster = ROOT / 'datapack' / f'kanto-{variant}'
-        current = {p.relative_to(roster).as_posix(): digest(p) for p in sorted(roster.rglob('*')) if p.is_file()}
+        current = {p.relative_to(roster).as_posix(): (hashlib.sha256(p.read_bytes().replace(b'\r\n', b'\n')).hexdigest() if p.suffix == '.md' else digest(p)) for p in sorted(roster.rglob('*')) if p.is_file()}
         trainers = {k: v for k, v in current.items() if k.startswith('data/rctmod/trainers/')}
         kanto[variant] = {'validation': bool(gyms) and gyms['variant'] == variant and not gyms['failures'] and gyms['sourceHashes'] == current,
                           'fights': bool(fights) and fights.get('variant') == variant and not fights['problems'] and fights['fightCount'] >= 170 and fights.get('rosterSha256') == {Path(k).name: v for k, v in trainers.items()}}

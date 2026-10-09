@@ -29,13 +29,13 @@
     },
     {
       "path": "rejuvenation-fields-cobbleverse-classic-0.1.zip",
-      "bytes": 24368,
-      "sha256": "3df9cb754164efbbb62c680fd918ec02b39678643a5c8b55ba2dc28f9ca2c40d"
+      "bytes": 24500,
+      "sha256": "9f5f123df9a53d353a6f9bc2da4ef49f97fea84ef3c64d271f0ebdef308ac73f"
     },
     {
       "path": "rejuvenation-fields-cobbleverse-hardcore-0.1.zip",
-      "bytes": 22914,
-      "sha256": "25013d1594e6e4ff9da166a9345f6c74b6c1b8e607cd29aa3515c70a672df171"
+      "bytes": 23044,
+      "sha256": "d7f5ccad0715c225c8dcf93aef2bb3ccb07bd3485573f542ab552cdc87c9ab4f"
     }
   ],
   "leagueVariants": {

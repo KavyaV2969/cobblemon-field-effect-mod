@@ -1,5 +1,5 @@
 {
-  "version": "0.1",
+  "version": "0.1.1",
   "releaseStatus": "first-public-release-candidate",
   "minecraft": "1.21.1",
   "loader": "Fabric Loader >=0.17.2 (built against 0.18.4)",
@@ -8,52 +8,52 @@
   "java": ">=21",
   "artifacts": [
     {
-      "path": "rejuvenation-fields-0.1.jar",
-      "bytes": 2520654,
-      "sha256": "5aa64d50f9b3177cfa8db703cc633bf88c5f5cf44e42be9793c5dcfffee33225"
+      "path": "rejuvenation-fields-0.1.1.jar",
+      "bytes": 2520762,
+      "sha256": "141a23373edefec23152fb258b25f49794062540d6f4f0c885f742e6feecfdf7"
     },
     {
-      "path": "rejuvenation-fields-compat-0.1.jar",
-      "bytes": 63565,
-      "sha256": "307a74b8282c593e66e1824dd9107551dcfc2d1728629e283bdc78f2ce49e799"
+      "path": "rejuvenation-fields-compat-0.1.1.jar",
+      "bytes": 63567,
+      "sha256": "a1559db65d4561c195b3eb7e197bd19c2362c7a993636a9276164ba154e599a0"
     },
     {
-      "path": "rejuvenation-fields-base-0.1.zip",
-      "bytes": 649899,
-      "sha256": "03581e6d6ec19e9c1dbacf672c459d0295be3b42c76338cbaccbb336037e1946"
+      "path": "rejuvenation-fields-base-0.1.1.zip",
+      "bytes": 649900,
+      "sha256": "2cf19996bc12740de08a4377f85f48fe80df490752b4bc71ad2a828961db46ce"
     },
     {
-      "path": "rejuvenation-fields-cobbleverse-0.1.zip",
-      "bytes": 15801,
-      "sha256": "32fe1d5538f5a0ecba993901e29a3f60172ba1cc8f79e26bcab00ddcbce98c1c"
+      "path": "rejuvenation-fields-cobbleverse-0.1.1.zip",
+      "bytes": 15803,
+      "sha256": "e0ec29640565d46fb3dbaf0a732d887c12fedc0e4da6cf2bcae4582eb6b995e5"
     },
     {
-      "path": "rejuvenation-fields-cobbleverse-classic-0.1.zip",
-      "bytes": 24500,
-      "sha256": "9f5f123df9a53d353a6f9bc2da4ef49f97fea84ef3c64d271f0ebdef308ac73f"
+      "path": "rejuvenation-fields-cobbleverse-classic-0.1.1.zip",
+      "bytes": 24506,
+      "sha256": "06ae127a15c2fc6776975fbee63be7f0c4c92e7ee27712c3bf65feaab94c9827"
     },
     {
-      "path": "rejuvenation-fields-cobbleverse-hardcore-0.1.zip",
-      "bytes": 23044,
-      "sha256": "d7f5ccad0715c225c8dcf93aef2bb3ccb07bd3485573f542ab552cdc87c9ab4f"
+      "path": "rejuvenation-fields-cobbleverse-hardcore-0.1.1.zip",
+      "bytes": 23049,
+      "sha256": "94a7ed0e31c7e707db5ff288f3e89573d7033a3f57b71d53ed82e1e7999170bb"
     }
   ],
   "leagueVariants": {
     "recommended": "classic",
     "mutuallyExclusive": true,
-    "classic": "rejuvenation-fields-cobbleverse-classic-0.1.zip",
-    "hardcore": "rejuvenation-fields-cobbleverse-hardcore-0.1.zip",
-    "shared": "rejuvenation-fields-cobbleverse-0.1.zip",
+    "classic": "rejuvenation-fields-cobbleverse-classic-0.1.1.zip",
+    "hardcore": "rejuvenation-fields-cobbleverse-hardcore-0.1.1.zip",
+    "shared": "rejuvenation-fields-cobbleverse-0.1.1.zip",
     "isolationReceipt": "research/test-results/league-package-isolation.json"
   },
   "mods": {
     "rejuvenation_fields": {
-      "version": "0.1",
+      "version": "0.1.1",
       "role": "core"
     },
     "rejuvenation_fields_compat": {
-      "version": "0.1",
-      "requires": ">=0.1 <0.2"
+      "version": "0.1.1",
+      "requires": ">=0.1.1 <0.2"
     }
   },
   "fields": {
@@ -61,7 +61,7 @@
     "custom": 4,
     "total": 61
   },
-  "engineSha256": "43a5c587cc8fff46af58475cb727342328ef32e8a0653296c9a4026770d32d6f",
+  "engineSha256": "0c0207c7f9088087fefd8128184570841f900c1cd29f5b37ded90a57597f7384",
   "verification": {
     "simulator": true,
     "java": true,

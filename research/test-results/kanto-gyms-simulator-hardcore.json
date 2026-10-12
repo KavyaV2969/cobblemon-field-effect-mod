@@ -1,7 +1,7 @@
 {
   "date": "2026-10-09",
   "variant": "hardcore",
-  "pack": "rejuvenation-fields-cobbleverse-hardcore-0.1.zip",
+  "pack": "rejuvenation-fields-cobbleverse-hardcore-0.1.1.zip",
   "checksPassed": 1208,
   "failures": [],
   "checks": [
@@ -1236,8 +1236,8 @@
     "data/rctmod/trainers/kanto_ltsurge.json": "0576a111db643b1bfa86801d15c951deb9ae9f01bc95479489626aa02a48aece",
     "data/rctmod/trainers/kanto_misty.json": "52d70368dc3668ce409112068b3fe9ab5ca464d32a4a12af0a0f7939673f6754",
     "data/rctmod/trainers/kanto_sabrina.json": "32f4f86e22e06a96442e3edbb9c22e0a8aa6f83cd5cddeb01aeafb24f57f75c6",
-    "pack.mcmeta": "ccdc405d178f830e44b9fbfdc78b9df141ff6055f147cfea6b31a9415d4223d9",
-    "README.md": "c34cd58d4c97cc3a5cca4d4eeb7631e6d3c8b370222e5a1a4bccb9ab9b89b9cb"
+    "pack.mcmeta": "54974057cba6394fcc732ed528369d1705235da5c0b1599856621c04c25417d2",
+    "README.md": "2f6f4a2ed8a7745886725097896ac7a1b81b500d16d3a2d8220e777be2af9510"
   },
   "sharedSourceHashes": {
     "data/cobbleverse/structure/ltsurge.nbt": "308cb6b9196a76193b37ca2836487d3fc838c74d911062d3d932d9e9f7afb4bd",
@@ -1248,7 +1248,7 @@
     "data/rejuvenation/rejuvenation/structures/cobbleverse_colosseum.json": "0db572e3b8274bdec2ae07ed22bf2990ed8c6046080edc9d2cc9a82ad3adc000",
     "data/rejuvenation/rejuvenation/structures/cobbleverse_deep_dark.json": "665f8f1ff4d0973311bf2aeba2853b43a126a968048b5bddbd23afa462e7da7a",
     "data/rejuvenation/rejuvenation/trainers/kanto.json": "57aa1568150b23456f742cfd8be13aaa2706edbec4a7c56b7bd5ab02a687c5e8",
-    "pack.mcmeta": "1a1447b5081f410879cae8393c6b48e912ae5cc3cb175a9ddb28a2765ad64945"
+    "pack.mcmeta": "c756570dda62ece7d29cfd65e402c14b17a12e2855f622098588f18399e051a0"
   },
   "addonSha256": "0d134591a9db9834f5f2bffdce4bd4cd0976a1b7879aa7f52ce064c38199cfaa",
   "originalTrainerPackSha256": "b61d830c049f68eff42782fb78fbb1250b9bbb39bfcdca06bc5cc11b5704ae79",
@@ -1319,6 +1319,6 @@
     "rejuvenation-fields-base-0.1.zip"
   ],
   "simulator": "Installed profile/showdown",
-  "fieldEngineSha256": "43a5c587cc8fff46af58475cb727342328ef32e8a0653296c9a4026770d32d6f",
+  "fieldEngineSha256": "0c0207c7f9088087fefd8128184570841f900c1cd29f5b37ded90a57597f7384",
   "liveMinecraftBattleTested": false
 }

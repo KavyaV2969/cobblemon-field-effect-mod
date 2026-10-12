@@ -1,4 +1,4 @@
-# Installing, combining and migrating (0.1)
+# Installing, combining and migrating (0.1.1)
 
 Rejuvenation Fields 0.1 is the first public release. It replaces the private development builds numbered 0.2.0 (one jar, one field pack and one gym override pack). The displayed version was reset to 0.1 for the public release; nothing that a save or a world stores changed: mod ID `rejuvenation_fields`, resource namespace `rejuvenation`, all field, item, status, packet and payload IDs, and the saved item stacks are the same.
 
@@ -6,11 +6,11 @@ Rejuvenation Fields 0.1 is the first public release. It replaces the private dev
 
 | File | Where | Required? |
 |---|---|---|
-| `rejuvenation-fields-0.1.jar` | `mods/` on the server and every client | **Yes.** The whole field system. Works alone. |
-| `rejuvenation-fields-base-0.1.zip` | the world's `datapacks/` (or the Global Packs *required* data-pack folder) | **Yes.** All 61 field definitions and every mapping that vanilla Minecraft 1.21.1, Cobblemon and Fabric API support. The jar will not start fields without it (`rejuvenation:indoor` is required). |
-| `rejuvenation-fields-compat-0.1.jar` | `mods/` (server and clients) | Optional. Adds the third-party integrations below. Requires the core jar of the same 0.1 series. |
-| `rejuvenation-fields-cobbleverse-0.1.zip` | the same data-pack folder as the base | Optional. Modded mappings, the field of each Kanto league fight, and the Lt. Surge gym. Requires the base pack. Holds no Kanto teams. |
-| **one** of `rejuvenation-fields-cobbleverse-classic-0.1.zip` (recommended) or `rejuvenation-fields-cobbleverse-hardcore-0.1.zip` | the same data-pack folder | Optional. The 13 rebuilt Kanto league teams. Requires the extension pack. **Install only one**: both replace the same 13 trainer files. Hardcore's Blue also needs the compat jar for his 252-EV spreads; Classic does not. |
+| `rejuvenation-fields-0.1.1.jar` | `mods/` on the server and every client | **Yes.** The whole field system. Works alone. |
+| `rejuvenation-fields-base-0.1.1.zip` | the world's `datapacks/` (or the Global Packs *required* data-pack folder) | **Yes.** All 61 field definitions and every mapping that vanilla Minecraft 1.21.1, Cobblemon and Fabric API support. The jar will not start fields without it (`rejuvenation:indoor` is required). |
+| `rejuvenation-fields-compat-0.1.1.jar` | `mods/` (server and clients) | Optional. Adds the third-party integrations below. Requires the core jar of the same 0.1 series. |
+| `rejuvenation-fields-cobbleverse-0.1.1.zip` | the same data-pack folder as the base | Optional. Modded mappings, the field of each Kanto league fight, and the Lt. Surge gym. Requires the base pack. Holds no Kanto teams. |
+| **one** of `rejuvenation-fields-cobbleverse-classic-0.1.1.zip` (recommended) or `rejuvenation-fields-cobbleverse-hardcore-0.1.1.zip` | the same data-pack folder | Optional. The 13 rebuilt Kanto league teams. Requires the extension pack. **Install only one**: both replace the same 13 trainer files. Hardcore's Blue also needs the compat jar for his 252-EV spreads; Classic does not. |
 
 Requirements: Minecraft 1.21.1, Fabric Loader 0.17.2 or newer (built against 0.18.4), Fabric API 0.116.6 or newer (built against 0.116.14+1.21.1), Cobblemon 1.7.3+1.21.1, Java 21. Nothing from Pokémon Rejuvenation is needed at runtime.
 
@@ -28,7 +28,7 @@ Core + base alone; core + base + compat (with any subset of Run & Bun, RCT API, 
 
 ## Pack order and Global Packs
 
-The two packs never define the same file and their mapping documents merge deterministically by an `order` number and resource ID, so **their relative order does not matter**. What matters is the extension against the original COBBLEVERSE packs: the extension carries the existing `data/cobbleverse/structure/ltsurge.nbt`, and the roster pack carries the 13 Kanto league trainer replacements under `data/rctmod/trainers/kanto_*.json`. These must override the originals in `COBBLEVERSE-RCT-DP` and `COBBLEVERSE-DP`; the pack listed later wins. The profile's Global Packs configuration requires `datapacks/`. The saved `New World` enabled-pack list was read on 2026-10-08 and places `rejuvenation-fields-cobbleverse-0.1.zip` after both original COBBLEVERSE packs. Live battle behavior for the new rosters has not yet been verified. Restart after replacing the archive, and use `/datapack list enabled` to inspect the active stack. If you manage pack order yourself, place the extension above the original packs. Enable both Rejuvenation packs with the original COBBLEVERSE data; the extension requires the base. [README_KANTO_LEAGUE.md](../README_KANTO_LEAGUE.md) lists the current caps, fields and complete gym, Elite Four and Champion teams. The updated compat jar must accompany this pack to preserve the requested 252 EVs in every stat for Blue NPC teams.
+The two packs never define the same file and their mapping documents merge deterministically by an `order` number and resource ID, so **their relative order does not matter**. What matters is the extension against the original COBBLEVERSE packs: the extension carries the existing `data/cobbleverse/structure/ltsurge.nbt`, and the roster pack carries the 13 Kanto league trainer replacements under `data/rctmod/trainers/kanto_*.json`. These must override the originals in `COBBLEVERSE-RCT-DP` and `COBBLEVERSE-DP`; the pack listed later wins. The profile's Global Packs configuration requires `datapacks/`. The saved `New World` enabled-pack list was read on 2026-10-08 and places `rejuvenation-fields-cobbleverse-0.1.1.zip` after both original COBBLEVERSE packs. Live battle behavior for the new rosters has not yet been verified. Restart after replacing the archive, and use `/datapack list enabled` to inspect the active stack. If you manage pack order yourself, place the extension above the original packs. Enable both Rejuvenation packs with the original COBBLEVERSE data; the extension requires the base. [README_KANTO_LEAGUE.md](../README_KANTO_LEAGUE.md) lists the current caps, fields and complete gym, Elite Four and Champion teams. The updated compat jar must accompany this pack to preserve the requested 252 EVs in every stat for Blue NPC teams.
 
 The extension is in the world's *Datapacks* list as a normal pack; removing it removes only its mappings, bindings and gym override (battles outside those places are unchanged).
 
@@ -36,10 +36,12 @@ The extension is in the world's *Datapacks* list as a normal pack; removing it r
 
 The Kanto challenge has two roster packs that share fields, level caps, trainer AI and gimmicks:
 
-* **Classic** (`rejuvenation-fields-cobbleverse-classic-0.1.zip`, recommended): a balanced rebuild. Complete rosters: [README_KANTO_CLASSIC.md](../README_KANTO_CLASSIC.md).
-* **Hardcore** (`rejuvenation-fields-cobbleverse-hardcore-0.1.zip`): the original roster override, unchanged. Complete rosters: [README_KANTO_HARDCORE.md](../README_KANTO_HARDCORE.md).
+* **Classic** (`rejuvenation-fields-cobbleverse-classic-0.1.1.zip`, recommended): a balanced rebuild. Complete rosters: [README_KANTO_CLASSIC.md](../README_KANTO_CLASSIC.md).
+* **Hardcore** (`rejuvenation-fields-cobbleverse-hardcore-0.1.1.zip`): the original roster override, unchanged. Complete rosters: [README_KANTO_HARDCORE.md](../README_KANTO_HARDCORE.md).
 
 They define exactly the same 13 files (`data/rctmod/trainers/kanto_*.json`), so they are alternatives. With both in `datapacks`, the later file name silently wins (Hardcore), which is why the pack descriptions and the README say to install one. To switch, delete one zip, add the other and restart the world (trainers that already spawned keep their old team).
+
+**Updating from 0.1 to 0.1.1:** remove every 0.1 jar from `mods/` and every 0.1 data pack from the data-pack folder, then install the 0.1.1 files with the same Kanto roster variant. Two versions side by side do not work: Fabric refuses two copies of a mod, and two copies of a pack define each field twice, which rejects the field data. `research/deploy.py --apply` moves the old files into a backup folder for you. Nothing stored changes: worlds, settings and every ID are the same. 0.1.1 fixes the field-change damage bonus ([CHANGELOG](../CHANGELOG.md#011)).
 
 **If you installed the first upload of 0.1:** its `rejuvenation-fields-cobbleverse-0.1.zip` contained the Hardcore rosters. The new file of the same name contains no rosters. Replace it, then add a roster pack; without one the Kanto trainers use COBBLEVERSE's own teams. Choosing Hardcore gives exactly the previous teams.
 

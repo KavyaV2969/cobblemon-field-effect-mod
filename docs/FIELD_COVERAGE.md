@@ -2,7 +2,7 @@
 
 **Implementation status: all 57 original Rejuvenation field definitions are implemented and their source audit is closed. The 4 custom fields have no Ruby source; their specification and tests are in [CUSTOM_FIELDS.md](CUSTOM_FIELDS.md).** Every ordinary field-dependent branch in the local Rejuvenation 14.0.14 battle scripts has an evidence-backed disposition. All 762 AI leads are individually reviewed; ordinary applicable strategy has zero pending leads. The adapter combines Run & Bun scoring with simulator consequence lookahead, source field weights and reserve-team planning; see [INTEGRATIONS.md](INTEGRATIONS.md).
 
-**Verification boundary:** behavior is verified by 656 simulator regression checks, the Graal/Java suites, a bounded Ruby method oracle and selected live Minecraft battles. No field is certified through exhaustive live play or two-client multiplayer; see [TESTING.md](TESTING.md) and [REMAINING_WORK.md](REMAINING_WORK.md).
+**Verification boundary:** behavior is verified by 658 simulator regression checks, the Graal/Java suites, a bounded Ruby method oracle and selected live Minecraft battles. No field is certified through exhaustive live play or two-client multiplayer; see [TESTING.md](TESTING.md) and [REMAINING_WORK.md](REMAINING_WORK.md).
 
 ## Evidence
 

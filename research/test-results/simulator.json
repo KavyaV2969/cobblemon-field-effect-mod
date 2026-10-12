@@ -1,5 +1,5 @@
 {
-  "passed": 657,
+  "passed": 658,
   "failed": false,
   "passedTests": [
     "all 57 original and 4 custom definitions parse and are attachable",
@@ -606,6 +606,7 @@
     "field-modified results where native mechanics differ: chart, rejection, category, accuracy, priority, speed and status",
     "evaluation queries are cheap enough to repeat and are independent of query order",
     "field-change damage boost assumes the measured move connects, not the previous action result",
+    "field-change boost is a final damage multiplier scaled by the difficulty mode, as pbCalcTotalDamage applies it",
     "preview bounds cover every native hit-count outcome and stochastic power or damage is not displayed as a sample",
     "strategy evaluates transformations, progression and overlays without changing current or future battles",
     "setup and recovery have measured future and residual consequences",
@@ -664,5 +665,5 @@
   "skippedTests": [],
   "simulator": "showdown",
   "fieldDefinitions": 61,
-  "engineSha256": "43a5c587cc8fff46af58475cb727342328ef32e8a0653296c9a4026770d32d6f"
+  "engineSha256": "0c0207c7f9088087fefd8128184570841f900c1cd29f5b37ded90a57597f7384"
 }

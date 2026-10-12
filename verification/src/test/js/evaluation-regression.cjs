@@ -124,6 +124,30 @@ module.exports=({test,battle,pokemon,E,fid,assert,Battle})=>{
   assert(boosted[0]>boosted[1],'the change boost (x1.3) applies only when the ice actually breaks: '+boosted);
  });
 
+ test('field-change boost is a final damage multiplier scaled by the difficulty mode, as pbCalcTotalDamage applies it',()=>{
+  // Battle_Move.rb:1841-1844 appends calculateFieldMultiplier(1.3) to finalmult; pbCalcTotalDamage (Battle_Move.rb:2488-2506)
+  // applies finalmult after the random roll, STAB, type and burn, with chainMods/pokeRound (2518-2531). Applying it to base
+  // power instead rounds too early: there, Glaciate into Garchomp (x4) rolled 148-176 instead of 146-177. These moves have no
+  // other field factor, so the transcription below is the whole expected calculation. Casual scales 1.3 to 1.15, Frenzy to 1.6.
+  const chainMods=(d,mods)=>{let f=4096;for(const m of mods)f=Math.round(f*4096*m/4096);return d*f/4096;};
+  const pokeRound=x=>{const r=Math.round(x);return r-x===0.5?r-1:r;};
+  const total=(base,random,type,final)=>{let d=Math.floor(base*random/100);d=Math.floor(d*type);return Math.max(1,pokeRound(chainMods(d,[final])));};
+  const set=(species,moves,uuid)=>({species,level:50,ability:'No Ability',nature:'Serious',moves,uuid,movesInfo:moves.map(()=>({pp:20,maxPp:20})),
+   evs:{hp:0,atk:0,def:0,spa:0,spd:0,spe:0},ivs:{hp:31,atk:31,def:31,spa:31,spd:31,spe:31}});
+  for(const [field,moveId,defender,destination]of [['mountain','blizzard','Snorlax','snowy_mountain'],['mountain','glaciate','Garchomp','snowy_mountain'],
+   ['corrupted','heatwave','Snorlax','volcanic'],['crystal_cavern','darkpulse','Gengar','dark_crystal_cavern']])
+   for(const [options,factor]of [[{},1.3],[{difficultyMode:1},1.15],[{fieldFrenzy:true},1.6]]){
+    const b=new Battle({formatid:'gen9customgame',seed:[1,2,3,4]});E.attach(b,fid(field),options);
+    b.setPlayer('p1',{name:'A',team:[set('Mew',[moveId],A)]});b.setPlayer('p2',{name:'B',team:[set(defender,['splash'],B)]});b.choose('p1','team 1');b.choose('p2','team 1');
+    const [user,target]=[b.sides[0].active[0],b.sides[1].active[0]],move=b.dex.moves.get(moveId),special=move.category==='Special';
+    const base=Math.floor(Math.floor(Math.floor(2*50/5+2)*move.basePower*user.getStat(special?'spa':'atk')/target.getStat(special?'spd':'def'))/50)+2;
+    const type=2**b.dex.getEffectiveness(move.type,target),r=one(b,moveId).withField,where=field+' '+moveId+' '+JSON.stringify(options);
+    assert.equal(r.changesFieldTo,fid(destination),where);
+    assert.deepEqual([r.minDamage,r.maxDamage],[total(base,85,type,factor),total(base,100,type,factor)],where);
+    b.destroy();
+   }
+ });
+
  test('preview bounds cover every native hit-count outcome and stochastic power or damage is not displayed as a sample',()=>{
   // Shell Armor removes chance critical hits, which previews exclude by design; the hit-count bounds come from the
   // simulator's own draws (2-5 distribution, multi-accuracy misses, Skill Link, Loaded Dice).

@@ -4,12 +4,12 @@ The rebuilt Kanto league (eight Gym Leaders, the Elite Four and the Champion, 13
 
 | | **Classic** (recommended) | **Hardcore** |
 |---|---|---|
-| Roster pack | `rejuvenation-fields-cobbleverse-classic-0.1.zip` | `rejuvenation-fields-cobbleverse-hardcore-0.1.zip` |
+| Roster pack | `rejuvenation-fields-cobbleverse-classic-0.1.1.zip` | `rejuvenation-fields-cobbleverse-hardcore-0.1.1.zip` |
 | Complete rosters | [README_KANTO_CLASSIC.md](README_KANTO_CLASSIC.md) | [README_KANTO_HARDCORE.md](README_KANTO_HARDCORE.md) |
 | Intent | Still a hard, Rejuvenation-style challenge, but with less setup stacking, fewer Uber picks and no inflated statistics. | The original roster override: the maximum-difficulty version with its highly optimised teams. |
 | Blue's EVs | Normal legal spreads (508 each) | 252 in every stat (the compat mod allows this for him only) |
 
-**Install only one roster pack.** Both replace the same 13 trainer files, so they cannot be combined. Put the base pack, the COBBLEVERSE extension pack (`rejuvenation-fields-cobbleverse-0.1.zip`, which holds the fields, mappings and Lt. Surge gym shared by both) and exactly one of the two roster zips in `datapacks`. To switch, delete one, add the other and restart the world.
+**Install only one roster pack.** Both replace the same 13 trainer files, so they cannot be combined. Put the base pack, the COBBLEVERSE extension pack (`rejuvenation-fields-cobbleverse-0.1.1.zip`, which holds the fields, mappings and Lt. Surge gym shared by both) and exactly one of the two roster zips in `datapacks`. To switch, delete one, add the other and restart the world.
 
 ## Where Classic differs from Hardcore
 

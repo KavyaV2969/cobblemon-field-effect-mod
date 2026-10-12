@@ -1,6 +1,6 @@
 # Kanto League: Classic roster (recommended)
 
-Install `rejuvenation-fields-cobbleverse-classic-0.1.zip` **instead of** the Hardcore pack. It replaces the teams of all 13 Kanto league fights. It does not contain the field assignments, mappings or the Lt. Surge gym, which come from `rejuvenation-fields-cobbleverse-0.1.zip`; install that as well. Updated 2026-10-09.
+Install `rejuvenation-fields-cobbleverse-classic-0.1.1.zip` **instead of** the Hardcore pack. It replaces the teams of all 13 Kanto league fights. It does not contain the field assignments, mappings or the Lt. Surge gym, which come from `rejuvenation-fields-cobbleverse-0.1.1.zip`; install that as well. Updated 2026-10-09.
 
 Classic is the recommended difficulty. It is still a hard, Rejuvenation-style challenge, with the same fields, level caps, trainer AI and Mega / Tera / Z-Move / Ultra Burst gimmicks as Hardcore, but it trims setup stacking, Uber density and raw statistical advantages. The original, maximum-difficulty rosters are the [Hardcore](README_KANTO_HARDCORE.md) pack.
 
@@ -1265,7 +1265,7 @@ EVs: 4 Def / 252 SpA / 252 Spe
 
 ## Installation and verification
 
-Use the Modrinth App's instance folder (see the main [README](README.md)). Put `rejuvenation-fields-base-0.1.zip`, `rejuvenation-fields-cobbleverse-0.1.zip` and **one** of `rejuvenation-fields-cobbleverse-classic-0.1.zip` / `rejuvenation-fields-cobbleverse-hardcore-0.1.zip` in `datapacks`. To switch variant, delete the one you have and add the other, then restart the world. The league roster zip must sort after `COBBLEVERSE-RCT-DP-v20.zip` so its trainer files override the originals; Global Packs' alphabetical order does that. An already spawned trainer may keep its old team; use a newly spawned gym NPC or a new world.
+Use the Modrinth App's instance folder (see the main [README](README.md)). Put `rejuvenation-fields-base-0.1.1.zip`, `rejuvenation-fields-cobbleverse-0.1.1.zip` and **one** of `rejuvenation-fields-cobbleverse-classic-0.1.1.zip` / `rejuvenation-fields-cobbleverse-hardcore-0.1.1.zip` in `datapacks`. To switch variant, delete the one you have and add the other, then restart the world. The league roster zip must sort after `COBBLEVERSE-RCT-DP-v20.zip` so its trainer files override the originals; Global Packs' alphabetical order does that. An already spawned trainer may keep its old team; use a newly spawned gym NPC or a new world.
 
 Validated offline against the installed Showdown simulator and the field engine: every species and form, item, move, ability, nature, level, IV and EV spread, complete teams and field starts; the declared Tera choices; Mega Evolution; Z-Moves and Ultra Burst; Misty's Dive transition; Koga's team order; Mega Dragalge; and that Classic differs from Hardcore only by the changes listed above. 1209 checks passed. These rosters have not been tested in live Minecraft battles.
 

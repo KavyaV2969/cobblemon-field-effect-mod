@@ -60,15 +60,15 @@ Publication now happens while the world loads (once) and after `/reload`. The su
 
 ## Current strategic decision benchmark
 
-The `strategyBenchmark` receipt measures complete strategy decisions, including opponent utility forecasts and a production-shaped worst-case doubles lead. Historical startup measurements above are separate workloads. Cold: first decision after the publication warm-up, as in production; publication warm-up 1482 ms. The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
+The `strategyBenchmark` receipt measures complete strategy decisions, including opponent utility forecasts and a production-shaped worst-case doubles lead. Historical startup measurements above are separate workloads. Cold: first decision after the publication warm-up, as in production; publication warm-up 1298 ms. The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
 
 | Decision | Candidates / screened | Rollouts | Cold ms | Warm median ms | Warm max ms |
 |---|---:|---:|---:|---:|---:|
-| 1 fresh | 8 / 2 | 8 | 635 | 389 | 440 |
-| 6 fresh | 13 / 5 | 10 | 619 | 546 | 686 |
-| 6 turn 1 | 13 / 5 | 10 | 591 | 495 | 826 |
-| 6 turn 2 | 13 / 5 | 10 | 665 | 602 | 651 |
-| 6 turn 3 | 13 / 5 | 10 | 546 | 608 | 617 |
-| 6v6 doubles fresh | 24 / 16 | 17 | 2085 | 2110 | 2216 |
+| 1 fresh | 8 / 2 | 8 | 648 | 525 | 555 |
+| 6 fresh | 13 / 5 | 10 | 763 | 706 | 913 |
+| 6 turn 1 | 13 / 5 | 10 | 718 | 703 | 718 |
+| 6 turn 2 | 13 / 5 | 10 | 1089 | 722 | 1012 |
+| 6 turn 3 | 13 / 5 | 10 | 754 | 748 | 884 |
+| 6v6 doubles fresh | 24 / 16 | 17 | 3276 | 2579 | 3093 |
 
-5 warm repetitions; real Cobblemon shaded Graal, interpreter only. Receipt: `research/test-results/strategy-benchmark.json`. Engine SHA-256: `3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad`.
+5 warm repetitions; real Cobblemon shaded Graal, interpreter only. Receipt: `research/test-results/strategy-benchmark.json`. Engine SHA-256: `0c0207c7f9088087fefd8128184570841f900c1cd29f5b37ded90a57597f7384`.

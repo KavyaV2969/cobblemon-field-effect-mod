@@ -119,32 +119,5 @@ for _pack in ('base','cobbleverse'):
             _doc=_json.loads(_path.read_text(encoding='utf-8'));mapping.append(f'| `{_kind}/{_path.name}` | {_pack} | {_doc.get("order",0)} | {len(_doc["rules"])} |')
 write(DOC/'BIOME_MAPPING.md','\n'.join(mapping))
 # The profile's mod inventory is a private working file (research/pack-inventory.json); it is not part of the public documentation.
-# Kanto league field assignments (research/trainer_fields.py writes the scores and the datapack map).
-scores=read('trainer-field-scores.json');teams=read('kanto-league-teams.json')
-assigned=json.loads((ROOT/'datapack/cobbleverse/data/rejuvenation/rejuvenation/trainers/kanto.json').read_text(encoding='utf-8'))['trainers']
-names=collections.Counter(f['name'] for f in fields.values())
-def label(fid):return fields[fid]['name']+(f" {fields[fid]['originalId'][-1]}" if names[fields[fid]['name']]>1 else '')
-league=['# Kanto league fields','',
-    'Every Kanto series trainer of the installed RCT datapack starts its battles on the field below. Trainer teams, AI and series files are read, never edited. '
-    'The mod recognises the trainer from the original-trainer tag RCT stamps on its team (`<registry>#<trainer id>`) and selects the field at TRAINER priority before the battle starts; an EXPLICIT selection still overrides it.',
-    '', '## How the field was chosen','',
-    'Each of the 56 non-Indoor fields was scored with the real engine (`research/trainer_fields.cjs`, about 80,000 simulated battles). For every team member, exactly as RCT defines it (species, level, nature, IVs, ability, item, moves), and each of 18 single-type reference opponents with Mew base stats at the same level, a fresh battle was started on the field and measured:',
-    '', '- the best expected damage per turn the member deals and takes, after every field rule, ability, item, weather and entry effect;',
-    '- end-of-round residual damage or healing for both sides;','- action speed after entry effects.',
-    '', 'The member wins the pairing if it needs fewer turns to knock out (ties go to the faster side). A field\'s score is the share of the 6x18 pairings the team wins; the mean log damage ratio breaks ties. The assigned field has the highest score.',
-    '', 'Assumptions: '+'; '.join(scores['assumptions'])+'.',
-    '', '## Assignments','', '| Trainer | RCT ID | Format | Field | Win share | With no field | Runners-up |','|---|---|---|---|---:|---:|---|']
-for tid,row in scores['trainers'].items():
-    runners=', '.join(f"{label(r['field'])} ({r['winShare']:.0%})" for r in row['ranking'][1:3])
-    league.append('| '+' | '.join(map(cell,[row['name'],tid,teams['trainers'][tid]['battleFormat'],f"[{label(assigned[tid]['field'])}](fields/{assigned[tid]['field'].split(':')[1]}.md)",
-        f"{assigned[tid]['winShare']:.0%}",f"{assigned[tid]['indoorWinShare']:.0%}",runners]))+' |')
-league+=['','## Who benefits','','Per-member win share with no field and on the assigned field.','']
-for tid,row in scores['trainers'].items():
-    best,base=row['scores'][assigned[tid]['field']]['members'],row['baseline']['members']
-    league.append(f"- **{row['name']}** ({label(assigned[tid]['field'])}): "+', '.join(f"{m} {base[m]:.0%}→{best[m]:.0%}" for m in best))
-league+=['','Source snapshot: `'+teams['source']['datapack']+'` SHA-256 `'+teams['source']['sha256']+'`. Re-run `python research/trainer_fields.py` after the RCT datapack or the field rules change.',
-    '', 'Run & Bun AI combines its native scoring with the shared field-aware evaluator, strategic turn lookahead, team field utility and legal gimmick comparisons through optional adapters (see [INTEGRATIONS.md](INTEGRATIONS.md)). All 762 AI source leads have reviewed dispositions with zero ordinary applicable strategy pending. Trainer teams and progression files remain unchanged.']
-# docs/KANTO_LEAGUE_FIELDS.md is written by research/verify_kanto_gyms.cjs (one table shared by the Classic and Hardcore rosters); the win-share
-# text assembled above describes the earlier teams and is no longer published.
-_ = league
+# docs/KANTO_LEAGUE_FIELDS.md is written by research/verify_kanto_gyms.cjs (one table shared by the Classic and Hardcore rosters).
 print('Generated catalogues for',len(fields),'fields and',len(rows),'biomes;',sum(v['implementationComplete'] for k,v in ledger.items() if not v['custom']),'of',sum(1 for v in ledger.values() if not v['custom']),'original fields source-audit closed;',sum(1 for v in ledger.values() if v['custom']),'custom')

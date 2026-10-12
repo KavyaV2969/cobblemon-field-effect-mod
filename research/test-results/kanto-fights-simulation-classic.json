@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-12",
   "variant": "classic",
   "pack": "rejuvenation-fields-cobbleverse-classic",
   "seedsPerChallenger": 3,
@@ -27,8 +27,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 151,
-      "maxDecisionMs": 604,
+      "medianDecisionMs": 152,
+      "maxDecisionMs": 403,
       "movesNeverChosen": [
         "geodudealola:selfdestruct",
         "archen:quickattack",
@@ -64,8 +64,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 105,
-      "maxDecisionMs": 549,
+      "medianDecisionMs": 99,
+      "maxDecisionMs": 325,
       "movesNeverChosen": [
         "gyarados:dragondance"
       ],
@@ -110,8 +110,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 143,
-      "maxDecisionMs": 515,
+      "medianDecisionMs": 137,
+      "maxDecisionMs": 407,
       "movesNeverChosen": [
         "ironhands:swordsdance",
         "eelektross:coil"
@@ -153,8 +153,8 @@
       "teraSpecies": [],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 123,
-      "maxDecisionMs": 576,
+      "medianDecisionMs": 120,
+      "maxDecisionMs": 397,
       "movesNeverChosen": [
         "meowscarada:lowkick",
         "ogerponhearthflame:swordsdance"
@@ -198,8 +198,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 112,
-      "maxDecisionMs": 465,
+      "medianDecisionMs": 101,
+      "maxDecisionMs": 262,
       "movesNeverChosen": [
         "delphox:hypnosis",
         "metagross:meteormash",
@@ -247,8 +247,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 72,
-      "maxDecisionMs": 586,
+      "medianDecisionMs": 71,
+      "maxDecisionMs": 328,
       "movesNeverChosen": [],
       "leadScenarios": [
         {
@@ -289,8 +289,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 96,
-      "maxDecisionMs": 463,
+      "medianDecisionMs": 94,
+      "maxDecisionMs": 313,
       "movesNeverChosen": [
         "gougingfire:dragondance",
         "blaziken:swordsdance",
@@ -336,8 +336,8 @@
       ],
       "ultraFights": 0,
       "zFights": 2,
-      "medianDecisionMs": 200,
-      "maxDecisionMs": 1055,
+      "medianDecisionMs": 194,
+      "maxDecisionMs": 723,
       "movesNeverChosen": [],
       "leadScenarios": [
         {
@@ -388,8 +388,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 149,
-      "maxDecisionMs": 466,
+      "medianDecisionMs": 134,
+      "maxDecisionMs": 401,
       "movesNeverChosen": [
         "kyurem:earthpower",
         "kyurem:roost",
@@ -445,8 +445,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 113,
-      "maxDecisionMs": 443,
+      "medianDecisionMs": 105,
+      "maxDecisionMs": 373,
       "movesNeverChosen": [
         "gallade:leafblade",
         "keldeo:hydropump",
@@ -494,8 +494,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 91,
-      "maxDecisionMs": 563,
+      "medianDecisionMs": 83,
+      "maxDecisionMs": 287,
       "movesNeverChosen": [
         "dragapult:uturn",
         "dragapult:suckerpunch",
@@ -548,8 +548,8 @@
       "teraSpecies": [],
       "ultraFights": 3,
       "zFights": 3,
-      "medianDecisionMs": 135,
-      "maxDecisionMs": 534,
+      "medianDecisionMs": 130,
+      "maxDecisionMs": 411,
       "movesNeverChosen": [
         "haxorus:poisonjab",
         "latios:aurasphere",
@@ -604,8 +604,8 @@
       ],
       "ultraFights": 0,
       "zFights": 1,
-      "medianDecisionMs": 115,
-      "maxDecisionMs": 486,
+      "medianDecisionMs": 107,
+      "maxDecisionMs": 352,
       "movesNeverChosen": [
         "hawlucha:stoneedge",
         "hawlucha:encore",
@@ -4739,7 +4739,7 @@
       "decisions": 24
     }
   ],
-  "seconds": 129,
+  "seconds": 124,
   "liveMinecraftBattleTested": false,
   "fightCount": 173,
   "rosterSha256": {

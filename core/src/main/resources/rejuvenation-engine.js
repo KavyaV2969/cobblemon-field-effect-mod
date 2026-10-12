@@ -607,7 +607,6 @@
     mult*=hard>1 && soft>1?Math.max(hard,soft,scaledMultiplier(b,f.multiplierPolicy?.combinedMinimum || 1.5)):hard*soft;
     mult*=overlayMoveBoost;
     mult=rules(b,'basePower',context(b,user,target,move,mult));
-    if(willChange(b,move,user,target))mult*=1.3;
     if(b.activeMove===move) {
       const text=f.moves[move.id]?.message;
       if(moveBoost!==1 && text && (!move.rejuvenationMessage || text.includes('{1}'))){
@@ -1014,7 +1013,9 @@
     onModifyPriority(value,user,target,move){return rules(this,'priority',context(this,user,target,move,value));},
     onModifyCritRatio(value,user,target,move){return rules(this,'criticalRatio',context(this,user,target,move,value));},
     onModifyWeightPriority:-100,onModifyWeight(value,p){return rules(this,'weight',context(this,p,p,null,value));},
-    onModifyDamage(value,user,target,move){if(move.rejuvenationPartialProtection && target.getMoveHitData(move).rejuvenationProtected){onceMessage(this,move.rejuvenationPartialProtection.message,target);this.chainModify(move.rejuvenationPartialProtection.fraction);}const x=context(this,user,target,move,value);const out=rules(this,'damage',x);return out===value?undefined:this.chainModify(out/value);},
+    // Battle_Move.rb:1841-1844: a move about to change the field gets calculateFieldMultiplier(1.3) in finalmult, the
+    // chain applied after the random roll, STAB, type and burn; in base power it would be rounded too early.
+    onModifyDamage(value,user,target,move){if(state(this) && willChange(this,move,user,target))this.chainModify(scaledMultiplier(this,1.3));if(move.rejuvenationPartialProtection && target.getMoveHitData(move).rejuvenationProtected){onceMessage(this,move.rejuvenationPartialProtection.message,target);this.chainModify(move.rejuvenationPartialProtection.fraction);}const x=context(this,user,target,move,value);const out=rules(this,'damage',x);return out===value?undefined:this.chainModify(out/value);},
     onDamagePriority:-29,onDamage(value,target,user,move){return rules(this,'receivedDamage',context(this,user,target,move,value));},
     onModifyAtk(value,user,target,move){const out=rules(this,'attack',context(this,user,target,move,value));if(out!==value)return this.chainModify(out/value);},
     onModifySpA(value,user,target,move){const out=rules(this,'specialAttack',context(this,user,target,move,value));if(out!==value)return this.chainModify(out/value);},

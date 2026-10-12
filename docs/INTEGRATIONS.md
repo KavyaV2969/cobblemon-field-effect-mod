@@ -150,7 +150,7 @@ Its "Immune / Not very / Super effective" label and its decision to request a da
 - `calculateAdjustedAccuracy` and `renderTooltipAtPosition`, which Battle Extras adds to Cobblemon's move tile;
 - its `TypeChart` effectiveness methods.
 
-All 40 injector/shadow ABI checks pass. This certifies bytecode compatibility, not a full rendered-client run.
+All 43 injector/shadow ABI checks pass. This certifies bytecode compatibility, not a full rendered-client run.
 
 ## Environment layers, custom fields and Field Notes in the strategy
 
@@ -178,13 +178,13 @@ Full two-client disconnect/rejoin and rendered HUD checks remain separate QA. Th
 
 ## Current verification
 
-- **Simulator:** **656/656** passing, including **51 named AI/strategy tests** plus the source prediction and oracle matrices.
+- **Simulator:** **658/658** passing, including **52 named AI/strategy tests** plus the source prediction and oracle matrices.
 - **Java:**
   - **2080** client/preview/panel checks;
   - **26,949** environment checks;
   - **12** request-legality, **6** decision-identity and **12** optional-mod checks;
   - **16** checks of the installed packet codecs, run offline on the Minecraft 1.21.1 profile's own libraries;
-  - **40** mixin ABI checks.
+  - **43** mixin ABI checks.
 - **Graal:** all **61** fields, **110** runtime assertions and **42** adapter checks on real evaluations; declared abilities restore and the three-dex guard passes.
 - **Definitions and Ruby oracle:**
   - definitions: **4,494** properties, zero differences;
@@ -194,6 +194,7 @@ Full two-client disconnect/rejoin and rendered HUD checks remain separate QA. Th
 Mechanics corrected in this continuation:
 
 - The field-change ×1.3 damage boost (`Battle_Field.rb:568`) is evaluated for the measured hit itself. Previously Icy Dive read the previous action's connect/miss flags.
+- The field-change ×1.3 damage boost is a final damage modifier scaled by the difficulty mode (`Battle_Move.rb:1841-1844`, `pbCalcTotalDamage`). It was applied to base power, which rounded too early and ignored Casual and Field Frenzy.
 - Preview hit-count bounds now come from the simulator's real Gen 5+ draw.
 
 ## Decision performance
@@ -201,17 +202,17 @@ Mechanics corrected in this continuation:
 The receipt measures complete synchronous decisions in Cobblemon's shaded, interpreter-only Graal runtime: three single-battle states and a production-shaped worst-case doubles lead, with 5 warm repetitions.
 
 - **Cold column:** first decision after the publication warm-up, as in production.
-- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1482 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
+- **Publication warm-up:** catalog publication now runs a throwaway decision and preview (1298 ms in this receipt), so the first AI decision of a server no longer pays roughly 3 s of interpreter warm-up.
 - **Pinning:** The receipt was taken with processor affinity `0xFFF` (performance cores of this hybrid CPU) at high priority.
 
 | Decision | Candidates / screened | Rollouts | Cold ms | Warm median ms | Warm max ms |
 |---|---:|---:|---:|---:|---:|
-| 1 fresh | 8 / 2 | 8 | 635 | 389 | 440 |
-| 6 fresh | 13 / 5 | 10 | 619 | 546 | 686 |
-| 6 turn 1 | 13 / 5 | 10 | 591 | 495 | 826 |
-| 6 turn 2 | 13 / 5 | 10 | 665 | 602 | 651 |
-| 6 turn 3 | 13 / 5 | 10 | 546 | 608 | 617 |
-| 6v6 doubles fresh | 24 / 16 | 17 | 2085 | 2110 | 2216 |
+| 1 fresh | 8 / 2 | 8 | 648 | 525 | 555 |
+| 6 fresh | 13 / 5 | 10 | 763 | 706 | 913 |
+| 6 turn 1 | 13 / 5 | 10 | 718 | 703 | 718 |
+| 6 turn 2 | 13 / 5 | 10 | 1089 | 722 | 1012 |
+| 6 turn 3 | 13 / 5 | 10 | 754 | 748 | 884 |
+| 6v6 doubles fresh | 24 / 16 | 17 | 3276 | 2579 | 3093 |
 
 The singles optimizations are exact: candidate scores are bit-identical to the engine before them on 315 candidate rows across five fields, including history-reading moves. They include:
 
@@ -230,4 +231,4 @@ Receipts:
 - `research/ai-coverage.json` and `ai-review-decisions.json`;
 - in `test-results/`: `simulator.json`, `ai-prediction-audit.json`, `ai-source-oracle.json`, `java-verification.json`, `mixin-abi.json`, `graal-performance.json`, `strategy-benchmark.json`, `build.log`.
 
-The simulator, Java, Graal and benchmark receipts all fingerprint this engine: `3baedc5f731a23f2d49f0c5f9e52e1cbc111de9646218c9fc376b72ff1dda9ad`.
+The simulator, Java, Graal and benchmark receipts all fingerprint this engine: `0c0207c7f9088087fefd8128184570841f900c1cd29f5b37ded90a57597f7384`.

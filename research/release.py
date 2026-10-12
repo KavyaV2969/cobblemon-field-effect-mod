@@ -7,7 +7,7 @@ roster packs Classic and Hardcore), the source zip (from export_public.py), a co
 release-manifest.json, RELEASE_NOTES.md, INSTALL.md and HOSTING_DESCRIPTIONS.md. No account, repository or hosting-project URL is invented.
 """
 from pathlib import Path
-import hashlib, json, shutil, sys, zipfile
+import hashlib, json, re, shutil, sys, zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
 dist = json.loads((ROOT / 'dist/manifest.json').read_text(encoding='utf-8'))
@@ -137,6 +137,30 @@ See `CHANGELOG.md`: two mods and four packs, the five held items with the origin
 * Warped Forest's Leech Seed can drain 1 HP less than a literal quarter; Crimson Forest's entry text is "The red flora is preying..." (owner's choice between two specification forms; see `docs/CUSTOM_FIELDS.md`).
 * The Field Notes of the 57 original fields are text from the Pokémon Rejuvenation Wiki (Creative Commons Attribution-ShareAlike 4.0; attribution in every note and in `THIRD_PARTY.md`), so those notes and `field-notes/FIELD_NOTES.md` are shared under the same license.
 '''
+if V != '0.1':
+    # Later releases describe only their own changes: the version's CHANGELOG.md section, the upgrade step and the files.
+    # The 0.1 text above stays the reference for the first release.
+    changelog = (ROOT / 'CHANGELOG.md').read_text(encoding='utf-8').replace('\r\n', '\n')
+    section = re.search(r'^## ' + re.escape(V) + r'\n(.*?)(?=^## )', changelog, re.S | re.M)
+    if not section: sys.exit(f'CHANGELOG.md has no "## {V}" section')
+    notes = f'''# Rejuvenation Fields {V}
+
+{section.group(1).strip()}
+
+## Updating
+
+Replace every jar and data pack of the previous version with its {V} file (`{core_jar}`, `{compat_jar}`, `{base_zip}`, `{ext_zip}` and the same Kanto roster variant as before). Never keep two versions side by side: Fabric refuses two copies of a mod, and two copies of a data pack define each field twice, which rejects the field data. Worlds, settings and IDs are unchanged. `INSTALL.md` and `README.md` have the full install guide.
+
+## Downloads
+
+| Artifact | Size (bytes) | SHA-256 |
+|---|---:|---|
+{downloads}
+| `rejuvenation-fields-source-{V}.zip` (sanitized source) | {source_zip.stat().st_size} | `{sha(source_zip)}` |
+| `rejuvenation-fields-{V}-bundle-classic.zip` (convenience: core, compat, base, COBBLEVERSE extension and **Classic**) | see `SHA256SUMS` | |
+
+Verified offline against engine `{dist['engineSha256'][:12]}…`: simulator, Graal, Java, recipe and installation-matrix suites, the Ruby source oracles and the offline fights of both Kanto variants (0 problems). Not yet played in a live game or multiplayer.
+'''
 (OUT / 'RELEASE_NOTES.md').write_text(notes, encoding='utf-8')
 hosting = f'''# Hosting descriptions ({V})
 
@@ -179,7 +203,7 @@ with zipfile.ZipFile(bundle, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
 manifest = {**dist, 'release': {'tag': f'v{V}', 'folder': f'release/{V}', 'bundle': bundle.name, 'bundleContains': bundle_names, 'sourceZip': source_zip.name,
             'files': {p.name: {'bytes': p.stat().st_size, 'sha256': sha(p)} for p in sorted(OUT.iterdir()) if p.is_file() and p.name not in ('SHA256SUMS', 'release-manifest.json')},
             'unresolved': ['Pokémon Rejuvenation artwork redistribution rests on the owner statement; no written permission (THIRD_PARTY.md)',
-                           'extension and roster pack load order versus the COBBLEVERSE packs not observed live', 'no live-game or multiplayer verification of 0.1',
+                           'extension and roster pack load order versus the COBBLEVERSE packs not observed live', f'no live-game or multiplayer verification of {V}',
                            'installing both Kanto roster packs is not detected by the mod; the documentation says to install one']}}
 (OUT / 'release-manifest.json').write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
 sums = '\n'.join(f'{sha(p)}  {p.name}' for p in sorted(OUT.iterdir()) if p.is_file() and p.name != 'SHA256SUMS') + '\n'

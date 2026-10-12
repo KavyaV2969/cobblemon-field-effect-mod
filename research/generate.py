@@ -11,6 +11,8 @@ import provider_map
 PACKS={provider_map.BASE:OUT/'datapack/base',provider_map.EXT:OUT/'datapack/cobbleverse'}
 DATA={name:root/'data/rejuvenation/rejuvenation' for name,root in PACKS.items()}
 SPEC=json.loads((OUT/'research/field-specification.json').read_text(encoding='utf-8'))
+# The release number written into the pack descriptions (package.py checks that each pack names it).
+VERSION=next(l.split('=',1)[1].strip() for l in (OUT/'gradle.properties').read_text(encoding='utf-8').splitlines() if l.startswith('version='))
 def write(p,x):
     p.parent.mkdir(parents=True,exist_ok=True); p.write_text(json.dumps(x,indent=2,ensure_ascii=False)+'\n',encoding='utf-8')
 NAMES={'ELECTERRAIN':'electric_terrain','GRASSY':'grassy_terrain','MISTY':'misty_terrain','PSYTERRAIN':'psychic_terrain',
@@ -315,8 +317,8 @@ for sym,field in [*fields.items(),*custom.items()]: write(DATA[provider_map.BASE
 import field_notes
 notes_written,notes_skipped=field_notes.build({**{f['id']:f for f in fields.values()},**{f['id']:f for f in custom.values()}},custom_fields.load_inputs())
 print('Wrote',len(notes_written),'field notes;',notes_skipped,'rule shapes left out of the prose rather than approximated')
-write(PACKS[provider_map.BASE]/'pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation Fields base (all 61 field definitions, notes, items, vanilla/Cobblemon mappings) for Cobblemon 1.7.3. Version 0.1.'}})
-write(PACKS[provider_map.EXT]/'pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation Fields COBBLEVERSE extension (modded biome/structure mappings, trainer fields, Lt. Surge gym). Requires Rejuvenation Fields base. Version 0.1.'}})
+write(PACKS[provider_map.BASE]/'pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation Fields base (all 61 field definitions, notes, items, vanilla/Cobblemon mappings) for Cobblemon 1.7.3. Version '+VERSION+'.'}})
+write(PACKS[provider_map.EXT]/'pack.mcmeta',{'pack':{'pack_format':48,'description':'Rejuvenation Fields COBBLEVERSE extension (modded biome/structure mappings, trainer fields, Lt. Surge gym). Requires Rejuvenation Fields base. Version '+VERSION+'.'}})
 write(OUT/'research/field-id-map.json',{sym:fid(sym) for sym in fields})
 # Mapping based on actual biome IDs; all choices explicit and reproducible.
 biomes=json.loads((OUT/'research/biome-inventory.json').read_text(encoding='utf-8'))

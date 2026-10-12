@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1
+
+A bug-fix release. Replace every 0.1 jar and data pack with its 0.1.1 counterpart; worlds, settings and IDs are unchanged.
+
+### Fixed
+
+* **Field-change damage bonus.** A move that changes the field now gets Rejuvenation's 1.3× bonus at the end of the damage calculation, as the original game applies it (`Battle_Move.rb:1841`), instead of on its base power. Before, about a quarter of the damage rolls of these moves were 1–10 HP off, usually 1. The bonus now also follows the Casual and Field Frenzy modes. Move previews and the trainer AI use the corrected damage automatically. Details in `docs/SOURCES.md`; regression test in `evaluation-regression.cjs`.
+* **Tooling.** `research/write_docs.py` runs to the end again (a leftover Kanto block that crashed it is removed), and the pack descriptions and the source export take the version from `gradle.properties`; the export also leaves out files git does not track.
+
 ## 0.1 — first public release
 
 * **License:** the original code and data are released under the Unlicense ([LICENSE](LICENSE)); third-party material keeps its own terms ([LICENSE-STATUS.md](LICENSE-STATUS.md)).

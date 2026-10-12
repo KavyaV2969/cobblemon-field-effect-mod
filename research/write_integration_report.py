@@ -235,6 +235,7 @@ Full two-client disconnect/rejoin and rendered HUD checks remain separate QA. Th
 Mechanics corrected in this continuation:
 
 - The field-change ×1.3 damage boost (`Battle_Field.rb:568`) is evaluated for the measured hit itself. Previously Icy Dive read the previous action's connect/miss flags.
+- The field-change ×1.3 damage boost is a final damage modifier scaled by the difficulty mode (`Battle_Move.rb:1841-1844`, `pbCalcTotalDamage`). It was applied to base power, which rounded too early and ignored Casual and Field Frenzy.
 - Preview hit-count bounds now come from the simulator's real Gen 5+ draw.
 
 ## Decision performance

@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-09",
+  "date": "2026-10-12",
   "variant": "hardcore",
   "pack": "rejuvenation-fields-cobbleverse-hardcore",
   "seedsPerChallenger": 3,
@@ -27,8 +27,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 149,
-      "maxDecisionMs": 512,
+      "medianDecisionMs": 147,
+      "maxDecisionMs": 504,
       "movesNeverChosen": [
         "geodudealola:selfdestruct",
         "archen:quickattack",
@@ -64,8 +64,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 104,
-      "maxDecisionMs": 447,
+      "medianDecisionMs": 97,
+      "maxDecisionMs": 389,
       "movesNeverChosen": [
         "gyarados:dragondance"
       ],
@@ -110,8 +110,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 140,
-      "maxDecisionMs": 466,
+      "medianDecisionMs": 138,
+      "maxDecisionMs": 415,
       "movesNeverChosen": [
         "ironhands:swordsdance",
         "eelektross:coil"
@@ -153,8 +153,8 @@
       "teraSpecies": [],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 126,
-      "maxDecisionMs": 442,
+      "medianDecisionMs": 119,
+      "maxDecisionMs": 412,
       "movesNeverChosen": [
         "meowscarada:lowkick",
         "ogerponhearthflame:swordsdance"
@@ -198,8 +198,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 108,
-      "maxDecisionMs": 426,
+      "medianDecisionMs": 104,
+      "maxDecisionMs": 349,
       "movesNeverChosen": [
         "delphox:hypnosis",
         "metagross:earthquake",
@@ -247,8 +247,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 88,
-      "maxDecisionMs": 427,
+      "medianDecisionMs": 86,
+      "maxDecisionMs": 370,
       "movesNeverChosen": [
         "sneasler:swordsdance",
         "naganadel:nastyplot",
@@ -294,8 +294,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 95,
-      "maxDecisionMs": 421,
+      "medianDecisionMs": 90,
+      "maxDecisionMs": 372,
       "movesNeverChosen": [
         "gougingfire:dragondance",
         "chiyu:darkpulse",
@@ -340,8 +340,8 @@
       ],
       "ultraFights": 0,
       "zFights": 6,
-      "medianDecisionMs": 206,
-      "maxDecisionMs": 736,
+      "medianDecisionMs": 201,
+      "maxDecisionMs": 593,
       "movesNeverChosen": [
         "kommoo:flashcannon",
         "chienpao:iciclecrash",
@@ -396,8 +396,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 112,
-      "maxDecisionMs": 522,
+      "medianDecisionMs": 108,
+      "maxDecisionMs": 392,
       "movesNeverChosen": [
         "arctovish:psychicfangs",
         "kyurem:roost",
@@ -449,8 +449,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 110,
-      "maxDecisionMs": 403,
+      "medianDecisionMs": 105,
+      "maxDecisionMs": 285,
       "movesNeverChosen": [
         "gallade:leafblade",
         "keldeo:hydropump",
@@ -501,8 +501,8 @@
       ],
       "ultraFights": 0,
       "zFights": 0,
-      "medianDecisionMs": 90,
-      "maxDecisionMs": 407,
+      "medianDecisionMs": 86,
+      "maxDecisionMs": 417,
       "movesNeverChosen": [
         "dragapult:uturn",
         "dragapult:suckerpunch",
@@ -555,8 +555,8 @@
       "teraSpecies": [],
       "ultraFights": 4,
       "zFights": 4,
-      "medianDecisionMs": 133,
-      "maxDecisionMs": 422,
+      "medianDecisionMs": 126,
+      "maxDecisionMs": 490,
       "movesNeverChosen": [
         "haxorus:dragondance",
         "haxorus:poisonjab",
@@ -613,8 +613,8 @@
       "teraSpecies": [],
       "ultraFights": 0,
       "zFights": 2,
-      "medianDecisionMs": 116,
-      "maxDecisionMs": 457,
+      "medianDecisionMs": 109,
+      "maxDecisionMs": 402,
       "movesNeverChosen": [
         "hawlucha:stoneedge",
         "hawlucha:encore",
@@ -4731,7 +4731,7 @@
       "decisions": 24
     }
   ],
-  "seconds": 130,
+  "seconds": 127,
   "liveMinecraftBattleTested": false,
   "fightCount": 173,
   "rosterSha256": {

@@ -14,6 +14,7 @@ from pathlib import Path
 import argparse, fnmatch, hashlib, json, os, re, shutil, subprocess, sys, zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
+VERSION = next(l.split('=', 1)[1].strip() for l in (ROOT / 'gradle.properties').read_text(encoding='utf-8').splitlines() if l.startswith('version='))
 ALLOW_FILES = ['README.md', 'README_KANTO_LEAGUE.md', 'README_KANTO_CLASSIC.md', 'README_KANTO_HARDCORE.md', 'CHANGELOG.md', 'CONTRIBUTING.md', 'THIRD_PARTY.md', 'LICENSE', 'LICENSE-STATUS.md', 'build.gradle', 'settings.gradle', 'gradle.properties',
                'gradlew', 'gradlew.bat', 'build.ps1', '.gitignore']
 ALLOW_TREES = ['gradle', 'config-overrides', 'core/src', 'compat/src', 'verification/src', 'datapack', 'docs', 'field-notes', 'scripts', 'research/custom-fields', 'research/wiki-notes', 'research/custom-artwork', 'research/schema', 'research/baseline']
@@ -71,8 +72,12 @@ def collect():
     files += [f'research/{n}' for n in RESEARCH_DATA if (ROOT / 'research' / n).is_file()]
     files += [f'research/test-results/{n}' for n in RECEIPTS if (ROOT / 'research/test-results' / n).is_file()]
     files += [f'verification/src/{n}' for n in () ]
+    # A file git does not track (and does not ignore) has never been reviewed for publication: an allowlisted folder must not carry it out.
+    stray = subprocess.run(['git', '-C', str(ROOT), 'ls-files', '--others', '--exclude-standard', '-z'], capture_output=True, text=True, check=True).stdout
+    stray = set(filter(None, stray.split('\0')))
     seen, out = set(), []
     for f in files:
+        if f in stray: print('Skipped untracked file:', f); continue
         if f not in seen and not excluded(f): seen.add(f); out.append(f)
     return out
 
@@ -138,7 +143,7 @@ def main():
     # A brand-new repository with one commit; no remote.
     env = {**os.environ, 'GIT_AUTHOR_NAME': args.author.split('<')[0].strip(), 'GIT_AUTHOR_EMAIL': args.author.split('<')[1].strip('> '), 'GIT_COMMITTER_NAME': args.author.split('<')[0].strip(), 'GIT_COMMITTER_EMAIL': args.author.split('<')[1].strip('> ')}
     run = lambda *a: subprocess.run(['git', *a], cwd=out, env=env, check=True, capture_output=True, text=True)
-    run('init', '-q', '-b', 'main'); run('config', 'core.autocrlf', 'false'); run('add', '-A'); run('commit', '-q', '-m', 'Rejuvenation Fields 0.1 (sanitized source export)')
+    run('init', '-q', '-b', 'main'); run('config', 'core.autocrlf', 'false'); run('add', '-A'); run('commit', '-q', '-m', f'Rejuvenation Fields {VERSION} (sanitized source export)')
     history = run('log', '--format=%an <%ae>|%cn <%ce>|%s').stdout + run('ls-files').stdout
     for pattern, _ in SANITIZE:
         if pattern.search(history): sys.exit('private string in the new repository history: ' + pattern.pattern)
@@ -149,7 +154,7 @@ def main():
         with zipfile.ZipFile(target, 'w', zipfile.ZIP_DEFLATED, compresslevel=9) as z:
             for p in sorted(out.rglob('*')):
                 if p.is_file() and '.git' not in p.relative_to(out).parts:
-                    info = zipfile.ZipInfo(('rejuvenation-fields-source-0.1/' + p.relative_to(out).as_posix()), (2026, 10, 7, 0, 0, 0)); info.compress_type = zipfile.ZIP_DEFLATED
+                    info = zipfile.ZipInfo((f'rejuvenation-fields-source-{VERSION}/' + p.relative_to(out).as_posix()), (2026, 10, 7, 0, 0, 0)); info.compress_type = zipfile.ZIP_DEFLATED
                     info.external_attr = (0o755 if p.name in ('gradlew',) else 0o644) << 16; z.writestr(info, p.read_bytes())
     print(f'Staged {len(rows)} files in {out}; {len(sanitized)} sanitized; history clean; zip: {args.zip or "-"}')
 

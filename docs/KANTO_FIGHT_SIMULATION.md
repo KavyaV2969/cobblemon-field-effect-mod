@@ -16,43 +16,43 @@ A fight fails if it crashes, does not finish within 250 turns, starts on the wro
 
 ## Results (2026-10-09)
 
-Both variants were run against the current engine (`43a5c587cc8f…`): **Classic** 173 fights in 129 s and **Hardcore** 173 fights in 130 s, each with 0 problems: every fight finished, no crash, no illegal trainer choice, no policy violation. Every Mega holder that led evolved exactly once, Tera was only ever used by the declared member, and Dynamax never occurred. The roster-file checks passed too: Classic 1209 checks, Hardcore 1208 checks (`kanto-gyms-simulator-<variant>.json`).
+Both variants were run against the current engine (`0c0207c7f908…`): **Classic** 173 fights in 124 s and **Hardcore** 173 fights in 127 s, each with 0 problems: every fight finished, no crash, no illegal trainer choice, no policy violation. Every Mega holder that led evolved exactly once, Tera was only ever used by the declared member, and Dynamax never occurred. The roster-file checks passed too: Classic 1209 checks, Hardcore 1208 checks (`kanto-gyms-simulator-<variant>.json`).
 
 ### Classic
 
 | Trainer | Format | Fights | Finished | Trainer won | Median turns | Fights with Mega | Fights with Tera (who) | Fights with Z/Ultra | Decision ms (median / max) |
 |---|---|---:|---:|---:|---:|---:|---|---:|---:|
-| Brock | singles | 11 | 11 | 0 | 22 | 0 | 1 (sableye) | 0 | 151 / 604 |
-| Misty | singles | 13 | 13 | 13 | 20 | 8 | 1 (floatzel) | 0 | 105 / 549 |
-| Lt. Surge | singles | 13 | 13 | 12 | 20 | 5 | 2 (magnezone) | 0 | 143 / 515 |
-| Erika | singles | 13 | 13 | 13 | 29 | 4 | 0 | 0 | 123 / 576 |
-| Sabrina | singles | 13 | 13 | 13 | 17 | 2 | 1 (espathra) | 0 | 112 / 465 |
-| Koga | singles | 13 | 13 | 13 | 42 | 11 | 5 (sneasler) | 0 | 72 / 586 |
-| Blaine | singles | 13 | 13 | 12 | 16 | 7 | 2 (typhlosionhisui) | 0 | 96 / 463 |
-| Giovanni | doubles | 15 | 15 | 13 | 8 | 10 | 3 (toxtricitylowkey) | 2 | 200 / 1055 |
-| Lorelei | singles | 13 | 13 | 13 | 13 | 4 | 8 (arctovish) | 0 | 149 / 466 |
-| Bruno | singles | 13 | 13 | 13 | 10 | 2 | 2 (terrakion) | 0 | 113 / 443 |
-| Agatha | singles | 13 | 13 | 13 | 12 | 2 | 1 (ceruledge) | 0 | 91 / 563 |
-| Lance | singles | 15 | 15 | 15 | 17 | 7 | 0 | 6 | 135 / 534 |
-| Blue | singles | 15 | 15 | 15 | 12 | 5 | 1 (ursalunabloodmoon) | 1 | 115 / 486 |
+| Brock | singles | 11 | 11 | 0 | 22 | 0 | 1 (sableye) | 0 | 152 / 403 |
+| Misty | singles | 13 | 13 | 13 | 20 | 8 | 1 (floatzel) | 0 | 99 / 325 |
+| Lt. Surge | singles | 13 | 13 | 12 | 20 | 5 | 2 (magnezone) | 0 | 137 / 407 |
+| Erika | singles | 13 | 13 | 13 | 29 | 4 | 0 | 0 | 120 / 397 |
+| Sabrina | singles | 13 | 13 | 13 | 17 | 2 | 1 (espathra) | 0 | 101 / 262 |
+| Koga | singles | 13 | 13 | 13 | 42 | 11 | 5 (sneasler) | 0 | 71 / 328 |
+| Blaine | singles | 13 | 13 | 12 | 16 | 7 | 2 (typhlosionhisui) | 0 | 94 / 313 |
+| Giovanni | doubles | 15 | 15 | 13 | 8 | 10 | 3 (toxtricitylowkey) | 2 | 194 / 723 |
+| Lorelei | singles | 13 | 13 | 13 | 13 | 4 | 8 (arctovish) | 0 | 134 / 401 |
+| Bruno | singles | 13 | 13 | 13 | 10 | 2 | 2 (terrakion) | 0 | 105 / 373 |
+| Agatha | singles | 13 | 13 | 13 | 12 | 2 | 1 (ceruledge) | 0 | 83 / 287 |
+| Lance | singles | 15 | 15 | 15 | 17 | 7 | 0 | 6 | 130 / 411 |
+| Blue | singles | 15 | 15 | 15 | 12 | 5 | 1 (ursalunabloodmoon) | 1 | 107 / 352 |
 
 ### Hardcore
 
 | Trainer | Format | Fights | Finished | Trainer won | Median turns | Fights with Mega | Fights with Tera (who) | Fights with Z/Ultra | Decision ms (median / max) |
 |---|---|---:|---:|---:|---:|---:|---|---:|---:|
-| Brock | singles | 11 | 11 | 0 | 22 | 0 | 1 (sableye) | 0 | 149 / 512 |
-| Misty | singles | 13 | 13 | 13 | 20 | 8 | 1 (floatzel) | 0 | 104 / 447 |
-| Lt. Surge | singles | 13 | 13 | 13 | 20 | 3 | 2 (magnezone) | 0 | 140 / 466 |
-| Erika | singles | 13 | 13 | 13 | 27 | 3 | 0 | 0 | 126 / 442 |
-| Sabrina | singles | 13 | 13 | 13 | 17 | 2 | 1 (espathra) | 0 | 108 / 426 |
-| Koga | singles | 13 | 13 | 13 | 36 | 6 | 5 (sneasler) | 0 | 88 / 427 |
-| Blaine | singles | 13 | 13 | 12 | 16 | 9 | 1 (chiyu) | 0 | 95 / 421 |
-| Giovanni | doubles | 15 | 15 | 13 | 8 | 7 | 2 (chienpao) | 6 | 206 / 736 |
-| Lorelei | singles | 13 | 13 | 13 | 14 | 2 | 2 (arctovish) | 0 | 112 / 522 |
-| Bruno | singles | 13 | 13 | 13 | 10 | 2 | 2 (terrakion) | 0 | 110 / 403 |
-| Agatha | singles | 13 | 13 | 13 | 12 | 2 | 1 (ceruledge) | 0 | 90 / 407 |
-| Lance | singles | 15 | 15 | 15 | 17 | 7 | 0 | 8 | 133 / 422 |
-| Blue | singles | 15 | 15 | 15 | 14 | 6 | 0 | 2 | 116 / 457 |
+| Brock | singles | 11 | 11 | 0 | 22 | 0 | 1 (sableye) | 0 | 147 / 504 |
+| Misty | singles | 13 | 13 | 13 | 20 | 8 | 1 (floatzel) | 0 | 97 / 389 |
+| Lt. Surge | singles | 13 | 13 | 13 | 20 | 3 | 2 (magnezone) | 0 | 138 / 415 |
+| Erika | singles | 13 | 13 | 13 | 27 | 3 | 0 | 0 | 119 / 412 |
+| Sabrina | singles | 13 | 13 | 13 | 17 | 2 | 1 (espathra) | 0 | 104 / 349 |
+| Koga | singles | 13 | 13 | 13 | 36 | 6 | 5 (sneasler) | 0 | 86 / 370 |
+| Blaine | singles | 13 | 13 | 12 | 16 | 9 | 1 (chiyu) | 0 | 90 / 372 |
+| Giovanni | doubles | 15 | 15 | 13 | 8 | 7 | 2 (chienpao) | 6 | 201 / 593 |
+| Lorelei | singles | 13 | 13 | 13 | 14 | 2 | 2 (arctovish) | 0 | 108 / 392 |
+| Bruno | singles | 13 | 13 | 13 | 10 | 2 | 2 (terrakion) | 0 | 105 / 285 |
+| Agatha | singles | 13 | 13 | 13 | 12 | 2 | 1 (ceruledge) | 0 | 86 / 417 |
+| Lance | singles | 15 | 15 | 15 | 17 | 7 | 0 | 8 | 126 / 490 |
+| Blue | singles | 15 | 15 | 15 | 14 | 6 | 0 | 2 | 109 / 402 |
 
 Decision times were measured in Node on a laptop, not in the game's Graal runtime, and are not a performance claim.
 

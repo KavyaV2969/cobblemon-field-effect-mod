@@ -1,8 +1,8 @@
 {
-  "description": "Held-item icons converted losslessly from Pokémon Rejuvenation 14.",
+  "description": "Item icons converted losslessly from Pokémon Rejuvenation 14, plus one recoloured derivative.",
   "credit": "Item icons from Pokémon Rejuvenation V14 (Graphics/Icons/Item), a fan game by Janichroma (lead developer) and the Rejuvenation team; art credited in the game's ReadMe_Credits.txt to Zumi (Honnojis), Janichroma, Crimson, CeriseBlossome, Winter, Azeria, Dallas, Soulja, IronicOmens and MoonPaw. Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc.",
-  "basis": "Redistribution basis: the project owner states this is a non-commercial fan mod for the game and that its use of these game icons is allowed as such. No written permission from the Rejuvenation team is on file; see THIRD_PARTY.md. Remove the five files if that basis is withdrawn.",
-  "method": "Decoded the BMP pixel data exactly (channel masks honoured, bottom-up rows flipped) and re-encoded them as 8-bit RGBA PNG; no resampling, recolouring or redrawing. Reproduce with research/convert_item_icons.py.",
+  "basis": "Redistribution basis: the project owner states this is a non-commercial fan mod for the game and that its use of these game icons is allowed as such. No written permission from the Rejuvenation team is on file; see THIRD_PARTY.md. Remove the 13 files if that basis is withdrawn.",
+  "method": "Decoded the BMP pixel data exactly (channel masks honoured, bottom-up rows flipped), or the pixels of the two sources that are real PNG files (hpcard, speedcard), and re-encoded them as 8-bit RGBA PNG; no resampling, recolouring or redrawing. Exception: the Master Reverse Candy has no icon in the game and is the Reverse Candy icon recoloured darker and redder (see its \"recolour\" entry). Reproduce with research/convert_item_icons.py.",
   "items": {
     "rejuvenation:magical_seed": {
       "texture": "rejuvenation:item/magical_seed",
@@ -82,6 +82,139 @@
       "sha256": "6cee7a0e01b66ff00988abe3979d4d5e902e369c9ff39c9a802fee601eb2b801",
       "bytes": 430,
       "transparentPixels": 1136,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:reverse_candy": {
+      "texture": "rejuvenation:item/reverse_candy",
+      "sourceFile": "Graphics/Icons/Item/reversecandy.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "22c30cec4305224524a381ff237016c43ed390f7ff669708fab7a3abef68cf7a",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "1f499d5623c3341a30076aea55ba2be0ebfcde7035e878199d90a5f11026c4f0",
+      "sha256": "56b62906b62253374d2412fc6f1d5da8f9e17076fd4b3ad7b96863cc43e174e4",
+      "bytes": 545,
+      "transparentPixels": 1468,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:hp_ev_card": {
+      "texture": "rejuvenation:item/hp_ev_card",
+      "sourceFile": "Graphics/Icons/Item/hpcard.png",
+      "sourceFormat": "PNG (8-bit RGBA, non-interlaced)",
+      "sourceSha256": "2611a096a288990674fe5d946647b546d4a884cb5e5e5f377ae6ab0090e216f5",
+      "sourceBytes": 369,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "6d5aee5040b9853d2cb90b9aae5a8f0815defc66a6cc702ab814c18ef1b92ebd",
+      "sha256": "f973400dae28e63466cf462f04ee471f04e73c3668d44ab5cc51248b4acab808",
+      "bytes": 263,
+      "transparentPixels": 1676,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:attack_ev_card": {
+      "texture": "rejuvenation:item/attack_ev_card",
+      "sourceFile": "Graphics/Icons/Item/atkcard.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "f0dbc113dc75cf1a7f47b3cca83a2368b2465e45ba21ea2b0a513fabde5c8ee4",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "b6988a38ce769a5fc2b54e535f697dc7c6f43f7645964f1200c0ea3328aade88",
+      "sha256": "8738580285c969361a5bec7154596b0d20228004250348f802cd0fab6162c45a",
+      "bytes": 279,
+      "transparentPixels": 1676,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:defence_ev_card": {
+      "texture": "rejuvenation:item/defence_ev_card",
+      "sourceFile": "Graphics/Icons/Item/defcard.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "b9f1620b17c743be759466c4a4d2036611d15f89845925f219bbd7f349f1acca",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "c345447ed27e3995fbe2aea68444e2a76807db5767bdc51811ee87f4cf2f6c5c",
+      "sha256": "e4cad20f6f3d0c89904ce2f3c7ce684820c39fa8a5d4f8fefd045e18fed1300d",
+      "bytes": 294,
+      "transparentPixels": 1676,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:special_attack_ev_card": {
+      "texture": "rejuvenation:item/special_attack_ev_card",
+      "sourceFile": "Graphics/Icons/Item/spatkcard.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "3580e680bb56296f05a99497a8c6840069f9bfc25f5c83adb2dea8e9356e8aef",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "3ac4bb293a92e1860555d36876f2a61170ccbc270ba882dd92547977fecff144",
+      "sha256": "3ee36b4916c186d5d3fd5dc1bc3047a00c2425d4e3b7049f86be51c4b11cc723",
+      "bytes": 280,
+      "transparentPixels": 1676,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:special_defence_ev_card": {
+      "texture": "rejuvenation:item/special_defence_ev_card",
+      "sourceFile": "Graphics/Icons/Item/spdefcard.png",
+      "sourceFormat": "BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension",
+      "sourceSha256": "b16b7d3ed56e6239e456c07b3d168fb7edc3fea92cdd2eaf394ea81c94fd1200",
+      "sourceBytes": 9338,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "43a0875bb55e0726fa4282508b5343147c38dcf1b35eb8932ff801e959ac1371",
+      "sha256": "4d674d9fffc5d99020e2d7c1ba5828d9609a17554add69883669916329696738",
+      "bytes": 290,
+      "transparentPixels": 1676,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:speed_ev_card": {
+      "texture": "rejuvenation:item/speed_ev_card",
+      "sourceFile": "Graphics/Icons/Item/speedcard.png",
+      "sourceFormat": "PNG (8-bit RGBA, non-interlaced)",
+      "sourceSha256": "2f33fd1388684e3823480c1a112c39b35b243b5d9e7814ef41f0066918870d7d",
+      "sourceBytes": 361,
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "2ee32c4666487e56eb0fc34fcffb15f0447df05c212ffe1cbb3b56a8537d4387",
+      "sha256": "5007135e80770e062417540b6f59237c834b354a6f7ac444500be366a5a18926",
+      "bytes": 260,
+      "transparentPixels": 1676,
+      "partiallyTransparentPixels": 0
+    },
+    "rejuvenation:master_reverse_candy": {
+      "texture": "rejuvenation:item/master_reverse_candy",
+      "derivedFrom": "rejuvenation:reverse_candy",
+      "sourceFile": "Graphics/Icons/Item/reversecandy.png",
+      "recolour": {
+        "hue": 358,
+        "saturationScale": 1.8,
+        "saturationAdd": 0.25,
+        "valueScale": 0.7
+      },
+      "recolourMethod": "research/convert_item_icons.py recolour(): opaque pixels with HSV saturation >= 0.05 take the hue, min(1, s * saturationScale + saturationAdd) and v * valueScale; grey outline and transparency unchanged",
+      "size": [
+        48,
+        48
+      ],
+      "rgbaSha256": "2615397bbb587ee04a5de5b1a552d1b4e7d9d8205016081e98ea56242bd7ffd1",
+      "sha256": "2810505b57ae0a3b187458950e07c48c2d3bbd1ee26355990aa6b2a7cec3d364",
+      "bytes": 486,
+      "transparentPixels": 1468,
       "partiallyTransparentPixels": 0
     }
   }

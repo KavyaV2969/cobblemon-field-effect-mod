@@ -1,32 +1,32 @@
 {
   "version": "0.1.1",
-  "checks": 1069,
+  "checks": 1114,
   "mixinGateEvaluations": 104,
   "combinations": [
     {
       "thirdPartyMods": [],
-      "coreClassesLinked": 88,
+      "coreClassesLinked": 93,
       "compatClassesChecked": 32
     },
     {
       "thirdPartyMods": [
         "rbrctai-fabric"
       ],
-      "coreClassesLinked": 88,
+      "coreClassesLinked": 93,
       "compatClassesChecked": 32
     },
     {
       "thirdPartyMods": [
         "rctapi-fabric"
       ],
-      "coreClassesLinked": 88,
+      "coreClassesLinked": 93,
       "compatClassesChecked": 32
     },
     {
       "thirdPartyMods": [
         "cobblemon-battle-extras-fabric"
       ],
-      "coreClassesLinked": 88,
+      "coreClassesLinked": 93,
       "compatClassesChecked": 32
     },
     {
@@ -35,7 +35,7 @@
         "rbrctai-fabric",
         "rctapi-fabric"
       ],
-      "coreClassesLinked": 88,
+      "coreClassesLinked": 93,
       "compatClassesChecked": 32
     }
   ],

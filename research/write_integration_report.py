@@ -310,6 +310,8 @@ def _receipt(name):
 _rows = []
 _r = _receipt('recipe-verification.json')
 if _r: _rows.append(f"| Item recipes and textures | {_r['recipes']} recipes through Minecraft's real recipe codec and matcher: {_r['positiveCombinations']} craft combinations, {_r['negativeCases']} rejected cases, PNG pixel equality with the converted source icons |")
+_r = _receipt('ev-card-verification.json')
+if _r: _rows.append(f"| EV Training Cards and Exp. Share | {_r['checks']} checks: the 32-EV award formula ({_r['awardRows']} rows) against Cobblemon's real EVs clamp, all six cards, natural-yield replacement, the event guard against multipliers, and a {len(_r['replay'])}-Pokémon replay of the EV part of PokemonBattle.end() (offline; live battles: `live_check.py --evcards`) |")
 _r = _receipt('installation-matrix.json')
 if _r: _rows.append(f"| Installation combinations | {_r['checks']} checks over {len(_r['combinations'])} classpath combinations of the two jars and {_r['mixinGateEvaluations']} mixin gate evaluations (offline linkage, not a live game) |")
 _r = _receipt('pack-equivalence.json')

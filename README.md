@@ -220,7 +220,7 @@ See [Field Panel](docs/FIELD_PANEL.md), [Field Notes](docs/FIELD_NOTES.md) and t
 
 ### New items
 
-The four Rejuvenation Seeds and the **Amplifield Rock** are added with their original icons. I could not program proper crop growth for the seeds, so they are crafted instead. Surround any vanilla Cobblemon terrain seed with:
+The four Rejuvenation Seeds, the **Amplifield Rock**, the **Reverse Candy** and the six **EV Training Cards** are added with their original icons. I could not program proper crop growth for the seeds, so they are crafted instead. Surround any vanilla Cobblemon terrain seed with:
 
 | Material | Result |
 |---|---|
@@ -230,6 +230,28 @@ The four Rejuvenation Seeds and the **Amplifield Rock** are added with their ori
 | 4 Amethyst Shards | Magical Seed |
 
 Surround any weather-extending rock (Damp Rock, Heat Rock, Icy Rock or Smooth Rock) with **4 Everstones** to make the **Amplifield Rock**.
+
+The **Reverse Candy** lowers a Pokémon's level by 1 and the **Master Reverse Candy** sets it to level 1. They work like Cobblemon's Rare Candy in reverse: use one out of battle and pick a party Pokémon, or use it while looking at your own sent-out Pokémon. Pokémon already at level 1 cannot be selected. The Pokémon keeps its moves and evolution, its experience drops to the start of the new level, and its HP keeps the same percentage. As in Rejuvenation, each candy also lowers friendship by 5 (below 100), 4 (below 200) or 3.
+
+| Recipe | Result |
+|---|---|
+| Rare Candy + Fermented Spider Eye (shapeless, any slots) | 1 Reverse Candy |
+| Lava Bucket in the centre, 4 Nether Stars on the sides, 4 Reverse Candies in the corners | 1 Master Reverse Candy (the empty bucket is returned) |
+
+The **EV Training Cards** (HP, Attack, Defence, Sp. Attack, Sp. Defence and Speed) make EV training quick, like Rejuvenation's EV cards. When a Pokémon holding a card knocks out an opponent, it gets **32 EVs in the card's stat instead of** the opponent's normal EV yield. For example, an Attack card holder that defeats a Pokémon worth 2 Defence EVs gets 32 Attack EVs and no Defence EVs. The usual limits apply: 252 per stat and 510 in total, so a stat at 250 gains only 2. The normal battle rules still decide who gets EVs: the Pokémon must have been in battle against the opponent and still be standing when the battle ends. EVs arrive even when the level cap blocks experience. Cards are never used up, and unlike Power Items they do not halve Speed. The holder's owner gets a short chat line for each reward.
+
+A Pokémon holding an **Exp. Share** gets **no EVs from battles** (its normal yield or anyone's card reward), whether or not it took part, but it still gets experience as before. Vitamins, feathers, berries and other items that give EVs directly still work on every Pokémon.
+
+Each card is a Netherite upgrade of the matching Cobblemon Power Item at a Smithing Table: Netherite Upgrade Smithing Template + Power Item + Netherite Ingot.
+
+| Power Item | Card |
+|---|---|
+| Power Weight | HP EV Card |
+| Power Bracer | Attack EV Card |
+| Power Belt | Defence EV Card |
+| Power Lens | Sp. Attack EV Card |
+| Power Band | Sp. Defence EV Card |
+| Power Anklet | Speed EV Card |
 
 ### Custom Minecraft fields
 

@@ -9,8 +9,8 @@
   "artifacts": [
     {
       "path": "rejuvenation-fields-0.1.1.jar",
-      "bytes": 2520762,
-      "sha256": "141a23373edefec23152fb258b25f49794062540d6f4f0c885f742e6feecfdf7"
+      "bytes": 2540948,
+      "sha256": "63e65c222937d58fd250967fd4d7dd261e98e39960c532c73caf4477f20a75b7"
     },
     {
       "path": "rejuvenation-fields-compat-0.1.1.jar",

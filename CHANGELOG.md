@@ -2,7 +2,17 @@
 
 ## 0.1.1
 
-A bug-fix release. Replace every 0.1 jar and data pack with its 0.1.1 counterpart; worlds, settings and IDs are unchanged.
+Fixes the field-change damage bonus and adds the Reverse Candies, the EV Training Cards and the Exp. Share EV rule. Replace every 0.1 jar and data pack with its 0.1.1 counterpart; worlds, settings and all existing IDs are unchanged.
+
+### Added
+
+* **Reverse Candy and Master Reverse Candy** (`rejuvenation:reverse_candy`, `rejuvenation:master_reverse_candy`). The Reverse Candy lowers a Pokémon's level by 1, as in Rejuvenation; the Master Reverse Candy sets it to level 1. Both work like Cobblemon's Rare Candy in reverse (party selection or your own sent-out Pokémon, out of battle only, one candy used) through Cobblemon's own level setter. Each candy also lowers friendship by Rejuvenation's Bad Candy amount: 5 below 100, 4 below 200, otherwise 3. Pokémon at level 1 cannot be selected and are refused when targeted directly. Recipes: Rare Candy + Fermented Spider Eye (shapeless) gives 1 Reverse Candy; 4 Reverse Candies, 4 Nether Stars and a Lava Bucket give 1 Master Reverse Candy. The Reverse Candy uses the game's icon, converted losslessly. The Master Reverse Candy icon is that icon recoloured darker and redder by `research/convert_item_icons.py`, with the parameters recorded in `item_icons.json`. `RecipeVerification` covers every packaged recipe.
+* **EV Training Cards** (`rejuvenation:hp_ev_card`, `attack_ev_card`, `defence_ev_card`, `special_attack_ev_card`, `special_defence_ev_card`, `speed_ev_card`). A holder that knocks out an opponent gets exactly 32 EVs in the card's stat instead of the opponent's EV yield, within 252 per stat and 510 in total, under Cobblemon's usual eligibility (took part, still standing at the end, or held an Exp. Share). EVs arrive even when experience is capped. Cards are never used up and have no battle effect (no Power Item Speed halving). Each is a Netherite smithing upgrade of the matching Power Item (template + Power Item + Netherite Ingot). Icons are the game's HP/Attack/Defense/Sp. Atk/Sp. Def/Speed Card icons, converted losslessly. The reward is decided in a wrapper around Cobblemon's EV yield calculator, the one call per knockout and recipient; a lowest-priority EV event guard stops listeners from raising it (details in `core/.../EvCards.java`). Tests: `EvCardVerification` (offline, with Cobblemon's real EV clamp) and `live_check.py --evcards` (real battles).
+* **Exp. Share holders get no battle EVs.** A Pokémon holding an Exp. Share gets no EVs from battle rewards, whether or not it took part; its experience is unchanged. EVs from vitamins, feathers, berries and commands are not affected.
+
+### Changed
+
+* `research/live_check.py` installs the current core and compat jars and packs from `dist/` instead of the former 0.2.0 single jar, and has an `--evcards` mode.
 
 ### Fixed
 

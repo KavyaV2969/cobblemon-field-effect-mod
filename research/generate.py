@@ -299,7 +299,13 @@ write(DATA[provider_map.BASE]/'items/seeds.json',{'schemaVersion':1,'items':item
 from registered_abilities import definitions as ability_definitions
 write(DATA[provider_map.BASE]/'abilities/source.json',{'schemaVersion':1,'abilities':ability_definitions()})
 assets=OUT/'core/src/main/resources/assets/rejuvenation'
-translations={'item.rejuvenation.'+s:s.replace('_',' ').title() for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock']}
+translations={'item.rejuvenation.'+s:s.replace('_',' ').title() for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock','reverse_candy','master_reverse_candy']}
+# EV Training Cards (core EvCards): names, the per-stat tooltip line, the shared tooltip line and the owner's reward message.
+EV_CARDS=[('hp','HP'),('attack','Attack'),('defence','Defence'),('special_attack','Sp. Attack'),('special_defence','Sp. Defence'),('speed','Speed')]
+translations.update({f'item.rejuvenation.{c}_ev_card':f'{n} EV Card' for c,n in EV_CARDS})
+translations.update({f'item.rejuvenation.{c}_ev_card.tooltip':f'Held: 32 {n} EVs per knockout' for c,n in EV_CARDS})
+translations.update({'item.rejuvenation.ev_card.tooltip':"Replaces the defeated Pokémon's EV yield. Never used up.",
+    'message.rejuvenation.ev_card.gained':'%s gained %s %s EVs (%s/252).','message.rejuvenation.ev_card.maxed':'%s gained %s %s EVs and is now maxed (%s/252).'})
 translations.update({'status.rejuvenation.petrified.apply':'%s was petrified!',
     'status.rejuvenation.petrified.remove':'%s was released from the stone.',
     'status.rejuvenation.petrified':'Petrified'})
@@ -309,8 +315,8 @@ for aid,row in ability_definitions().items():
 translations.update({'cobblemon.type.shadow':'Shadow','cobblemon.battle.weather.shadowsky.start':'A shadowy aura filled the sky!','cobblemon.battle.weather.shadowsky.end':'The shadowy aura faded away!','cobblemon.battle.weather.shadowsky.upkeep':'A shadowy aura fills the sky.'})
 write(OUT/'core/src/main/resources/rejuvenation-types.json',fields['INDOOR']['typeDefinitions'])
 write(assets/'lang/en_us.json',translations)
-for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock']:
-    # Amulet Coin keeps its vanilla visual; the four seeds and Amplifield Rock use the converted Rejuvenation icons (research/convert_item_icons.py).
+for s in ['elemental_seed','magical_seed','telluric_seed','synthetic_seed','amulet_coin','amplifield_rock','reverse_candy','master_reverse_candy',*[c+'_ev_card' for c,_ in EV_CARDS]]:
+    # Amulet Coin keeps its vanilla visual; the other items use the converted Rejuvenation icons (research/convert_item_icons.py).
     write(assets/f'models/item/{s}.json',{'parent':'minecraft:item/generated','textures':{'layer0':'minecraft:item/gold_nugget' if s=='amulet_coin' else 'rejuvenation:item/'+s}})
 for sym,field in [*fields.items(),*custom.items()]: write(DATA[provider_map.BASE]/f'fields/{field["id"].split(":")[1]}.json',field)
 # Player-facing Field Notes for all 61 fields (data/<ns>/rejuvenation/notes); the custom fields' notes come from their canonical inputs.

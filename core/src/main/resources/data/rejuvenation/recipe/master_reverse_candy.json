@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CNC",
+    "NLN",
+    "CNC"
+  ],
+  "key": {
+    "C": {
+      "item": "rejuvenation:reverse_candy"
+    },
+    "N": {
+      "item": "minecraft:nether_star"
+    },
+    "L": {
+      "item": "minecraft:lava_bucket"
+    }
+  },
+  "result": {
+    "id": "rejuvenation:master_reverse_candy",
+    "count": 1
+  }
+}

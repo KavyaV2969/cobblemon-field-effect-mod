@@ -47,6 +47,14 @@ public final class RejuvenationFields implements ModInitializer {
             net.minecraft.class_2378.method_10230(net.minecraft.class_7923.field_41178,
                 class_2960.method_60655("rejuvenation", seed), new net.minecraft.class_1792(settings));
         }
+        // Rare Candy's rarity (RARE) for the Reverse Candy; the Master Reverse Candy goes straight to level 1.
+        net.minecraft.class_2378.method_10230(net.minecraft.class_7923.field_41178, class_2960.method_60655("rejuvenation", "reverse_candy"),
+            new ReverseCandyItem(net.minecraft.class_1814.field_8903, level -> level - 1));
+        net.minecraft.class_2378.method_10230(net.minecraft.class_7923.field_41178, class_2960.method_60655("rejuvenation", "master_reverse_candy"),
+            new ReverseCandyItem(net.minecraft.class_1814.field_8904, level -> 1));
+        for (var card : EvCards.Card.values())
+            net.minecraft.class_2378.method_10230(net.minecraft.class_7923.field_41178, class_2960.method_60655("rejuvenation", card.id), new EvCardItem(card));
+        EvCards.register();
         ShowdownInterpreter.registerUpdateInstructionParser("rejuvenationmessage", (battle, set, message, remaining) ->
             b -> b.dispatchGo(() -> {
                 b.broadcastChatMessage(class_2561.method_43470(message.argumentAt(0)));
@@ -63,6 +71,8 @@ public final class RejuvenationFields implements ModInitializer {
             com.cobblemon.mod.common.api.Priority.NORMAL,
             (java.util.function.Consumer<com.cobblemon.mod.common.api.events.battles.BattleStartedEvent.Pre>) event -> {
                 if (!event.isCanceled()) TrainerFieldBridge.select(event.getBattle());
+                // Re-wrap the EV yield calculator if another mod replaced it after start-up; EVs are awarded when this battle ends.
+                EvCards.install();
             });
         com.cobblemon.mod.common.api.events.CobblemonEvents.BATTLE_STARTED_PRE.subscribe(
             com.cobblemon.mod.common.api.Priority.LOWEST,

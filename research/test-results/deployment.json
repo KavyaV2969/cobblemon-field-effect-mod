@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-12T09:54:31.012310+00:00",
+  "timestamp": "2026-10-13T19:23:38.390281+00:00",
   "version": "0.1.1",
   "engineSha256": "0c0207c7f9088087fefd8128184570841f900c1cd29f5b37ded90a57597f7384",
   "applied": true,
@@ -7,8 +7,8 @@
     {
       "artifact": "rejuvenation-fields-0.1.1.jar",
       "installedPath": "mods/rejuvenation-fields-0.1.1.jar",
-      "bytes": 2520762,
-      "sha256": "141a23373edefec23152fb258b25f49794062540d6f4f0c885f742e6feecfdf7"
+      "bytes": 2540948,
+      "sha256": "63e65c222937d58fd250967fd4d7dd261e98e39960c532c73caf4477f20a75b7"
     },
     {
       "artifact": "rejuvenation-fields-compat-0.1.1.jar",
@@ -37,36 +37,12 @@
   ],
   "replaced": [
     {
-      "originalPath": "mods/rejuvenation-fields-0.1.jar",
-      "backupName": "00-rejuvenation-fields-0.1.jar",
-      "sha256": "5aa64d50f9b3177cfa8db703cc633bf88c5f5cf44e42be9793c5dcfffee33225",
-      "bytes": 2520654
-    },
-    {
-      "originalPath": "mods/rejuvenation-fields-compat-0.1.jar",
-      "backupName": "01-rejuvenation-fields-compat-0.1.jar",
-      "sha256": "307a74b8282c593e66e1824dd9107551dcfc2d1728629e283bdc78f2ce49e799",
-      "bytes": 63565
-    },
-    {
-      "originalPath": "datapacks/rejuvenation-fields-base-0.1.zip",
-      "backupName": "02-rejuvenation-fields-base-0.1.zip",
-      "sha256": "03581e6d6ec19e9c1dbacf672c459d0295be3b42c76338cbaccbb336037e1946",
-      "bytes": 649899
-    },
-    {
-      "originalPath": "datapacks/rejuvenation-fields-cobbleverse-0.1.zip",
-      "backupName": "03-rejuvenation-fields-cobbleverse-0.1.zip",
-      "sha256": "32fe1d5538f5a0ecba993901e29a3f60172ba1cc8f79e26bcab00ddcbce98c1c",
-      "bytes": 15801
-    },
-    {
-      "originalPath": "datapacks/rejuvenation-fields-cobbleverse-classic-0.1.zip",
-      "backupName": "04-rejuvenation-fields-cobbleverse-classic-0.1.zip",
-      "sha256": "9f5f123df9a53d353a6f9bc2da4ef49f97fea84ef3c64d271f0ebdef308ac73f",
-      "bytes": 24500
+      "originalPath": "mods/rejuvenation-fields-0.1.1.jar",
+      "backupName": "00-rejuvenation-fields-0.1.1.jar",
+      "sha256": "9cc57fd101b298273011b3be26547cd8b220418492d66620222a633ee51b5174",
+      "bytes": 2526333
     }
   ],
   "note": "Only the listed artifacts were written; worlds, other mods and packs are untouched. Restart the game to load new jars.",
-  "backup": "research/backups/replaced-by-0.1.1-20261012-175430"
+  "backup": "research/backups/replaced-by-0.1.1-20261014-032338"
 }

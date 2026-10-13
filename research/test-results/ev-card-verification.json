@@ -1,0 +1,43 @@
+{
+  "checks": 127,
+  "awardRows": 13,
+  "replay": [
+    {
+      "battler": "Attack card, faced both",
+      "gain": "{ATTACK\u003d64}"
+    },
+    {
+      "battler": "Speed card at 250 Speed, faced A",
+      "gain": "{SPEED\u003d2}"
+    },
+    {
+      "battler": "HP card at 508 total, faced A",
+      "gain": "{HP\u003d2}"
+    },
+    {
+      "battler": "Defence card at 252 Defence, faced A",
+      "gain": "{}"
+    },
+    {
+      "battler": "Exp. Share, faced both",
+      "gain": "{}"
+    },
+    {
+      "battler": "Exp. Share, on the bench",
+      "gain": "{}"
+    },
+    {
+      "battler": "no item, faced both",
+      "gain": "{DEFENCE\u003d2, SPECIAL_DEFENCE\u003d1, SPEED\u003d3}"
+    },
+    {
+      "battler": "Sp. Atk card, on the bench, no Exp. Share",
+      "gain": "{}"
+    },
+    {
+      "battler": "Sp. Def card, faced both, fainted",
+      "gain": "{}"
+    }
+  ],
+  "scope": "Decision functions of the live hooks with Cobblemon\u0027s real EVs clamp, and a replay of the EV part of PokemonBattle.end() decoded from the installed Cobblemon 1.7.3 jar. Not a live battle; see live_check.py --evcards."
+}

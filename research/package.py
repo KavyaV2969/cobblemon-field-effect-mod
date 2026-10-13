@@ -85,8 +85,12 @@ def jar_checks(path, core):
                 check(need in names, f'core jar is missing {need}')
             check(z.read('rejuvenation-engine.js') == (ROOT / 'core/src/main/resources/rejuvenation-engine.js').read_bytes(), 'core jar has a stale engine')
             check(len([n for n in names if n.startswith('assets/rejuvenation/textures/gui/field/') and n.endswith('.png')]) == 61, 'core jar must hold 61 field backdrops')
-            for item in ['magical_seed', 'telluric_seed', 'synthetic_seed', 'elemental_seed', 'amplifield_rock']:
+            ev_cards = ['hp_ev_card', 'attack_ev_card', 'defence_ev_card', 'special_attack_ev_card', 'special_defence_ev_card', 'speed_ev_card']
+            for item in ['magical_seed', 'telluric_seed', 'synthetic_seed', 'elemental_seed', 'amplifield_rock', 'reverse_candy', 'master_reverse_candy', *ev_cards]:
                 check(f'assets/rejuvenation/textures/item/{item}.png' in names and f'data/rejuvenation/recipe/{item}.json' in names and f'assets/rejuvenation/models/item/{item}.json' in names, f'core jar item resources for {item}')
+            check('dev/rejuvenation/ReverseCandyItem.class' in names and 'dev/rejuvenation/EvCards.class' in names and 'dev/rejuvenation/EvCardItem.class' in names, 'core jar Reverse Candy and EV Card classes')
+            check('data/rejuvenation/recipe/reverse_candy_from_rare_candy.json' not in names, 'the former Rare Candy + 8 Dirt recipe must not be packaged')
+            check(len([n for n in names if n.startswith('data/rejuvenation/recipe/') and n.endswith('.json')]) == 13, 'core jar must hold exactly 13 recipes')
             check(f'assets/rejuvenation/textures/item/amulet_coin.png' not in names, 'Amulet Coin keeps its vanilla visual')
             check({'terrain_seed_centers', 'field_rock_centers'} <= {Path(n).stem for n in names if n.startswith('data/rejuvenation/tags/item/')}, 'core jar item tags')
             mixins = json.loads(z.read('rejuvenation.mixins.json'))
@@ -218,7 +222,7 @@ def main():
     evidence = {
         'simulator': bool(simulator) and simulator['engineSha256'] == engine_sha and not simulator['failed'] and simulator['passed'] + len(simulator.get('skippedTests', [])) >= 656,
         'java': bool(java) and java['engineSha256'] == engine_sha, 'graal': bool(graal) and graal['engineSha256'] == engine_sha and graal['runtimeAssertions'] == 110,
-        'recipes': bool(recipes) and recipes['positiveCombinations'] == 20, 'installationMatrix': bool(matrix) and matrix['version'] == VERSION,
+        'recipes': bool(recipes) and recipes['positiveCombinations'] == 34, 'installationMatrix': bool(matrix) and matrix['version'] == VERSION,
         'packEquivalence': bool(pack_eq) and not pack_eq['differences'], 'customFieldUnit': bool(unit) and not unit['failed'], 'authoringKit': bool(kit) and not kit['failed'],
         'kantoClassicValidation': kanto['classic']['validation'], 'kantoClassicFights': kanto['classic']['fights'],
         'kantoHardcoreValidation': kanto['hardcore']['validation'], 'kantoHardcoreFights': kanto['hardcore']['fights']}

@@ -40,6 +40,10 @@ public final class LiveBattleFixture implements ModInitializer {
   if(abilityMode)phase=7;
   if(extendedMode)phase=10;
   report.addProperty("isolatedGameDir",location.toString());report.add("checks",checks);
+  if(Boolean.getBoolean("rejuvenation.verifyEvCards")){
+   // EV Training Card and Exp. Share battle-EV checks replace the phase sequence below.
+   finished=true;var evCards=new EvCardLiveChecks();ServerTickEvents.END_SERVER_TICK.register(evCards::tick);return;
+  }
   if(Boolean.getBoolean("rejuvenation.verifyIntegration")){
    // 0.2.0 integration checks replace the phase sequence below.
    finished=true;var integration=new IntegrationChecks();ServerTickEvents.END_SERVER_TICK.register(integration::tick);return;

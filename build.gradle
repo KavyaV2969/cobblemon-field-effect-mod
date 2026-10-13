@@ -96,6 +96,7 @@ project(':verification') {
     javaTest('installationMatrix', 'dev.rejuvenation.InstallationMatrixVerification', [new File(results, 'installation-matrix.json').absolutePath])
     tasks.named('installationMatrix') { dependsOn ':core:jar', ':compat:jar' }
     javaTest('recipeTest', 'dev.rejuvenation.RecipeVerification', [new File(results, 'recipe-verification.json').absolutePath])
+    javaTest('evCardTest', 'dev.rejuvenation.EvCardVerification', [new File(results, 'ev-card-verification.json').absolutePath])
     // Developer source certification requires the original Rejuvenation scripts (REJUVENATION_REFERENCE / REJUVENATION_SCRIPTS) and Ruby.
     tasks.register('sourceOracleTest', Exec) {
         workingDir repo
@@ -107,5 +108,5 @@ project(':verification') {
         archiveBaseName = 'rejuvenation-verification-fixture'
         destinationDirectory = rootProject.file('integration')
     }
-    tasks.named('check') { dependsOn 'simulatorTest', 'validateDatapack', 'customFieldUnitTest', 'reviewEvidence', 'authoringKitTest', 'graalTest', 'javaVerification', 'gimmickPolicyTest', 'recipeTest', 'installationMatrix' }
+    tasks.named('check') { dependsOn 'simulatorTest', 'validateDatapack', 'customFieldUnitTest', 'reviewEvidence', 'authoringKitTest', 'graalTest', 'javaVerification', 'gimmickPolicyTest', 'recipeTest', 'evCardTest', 'installationMatrix' }
 }

@@ -1,0 +1,228 @@
+{
+  "mode": "evcards",
+  "version": "1.21.1-0.18.4",
+  "gameDir": "C:\\Users\\Lenovo\\AppData\\Roaming\\ModrinthApp\\profiles\\COBBLEVERSE - Pokemon Adventure [Cobblemon]\\rejuvenation\\integration\\game",
+  "originalWorldCopied": false,
+  "freshChunks": true,
+  "success": true,
+  "jarSha256": "63e65c222937d58fd250967fd4d7dd261e98e39960c532c73caf4477f20a75b7",
+  "processId": 28696,
+  "liveBiomes": 70,
+  "catalogRevision": 1,
+  "battleChecks": {
+    "checks": [
+      "E1 wild knockout, mixed bench: Attack Card lead gains {ATTACK=32}, got {ATTACK=32}",
+      "E1 wild knockout, mixed bench: Attack Card lead still holds its card afterwards, got 1 rejuvenation:attack_ev_card",
+      "E1 wild knockout, mixed bench: Exp. Share bench gains {}, got {}",
+      "E1 wild knockout, mixed bench: the Exp. Share bench still gains experience (15)",
+      "E1 wild knockout, mixed bench: Speed Card bench (no Exp. Share) gains {}, got {}",
+      "E1 wild knockout, mixed bench: the card bench without Exp. Share gains no experience",
+      "E1 wild knockout, mixed bench: no-item bench gains {}, got {}",
+      "E1 wild knockout, mixed bench: passed",
+      "E2 clamp at 250 Attack with a doubling multiplier: Attack Card at 250 Attack gains {ATTACK=2}, got {ATTACK=2}",
+      "E2 clamp at 250 Attack with a doubling multiplier: Attack Card at 250 Attack still holds its card afterwards, got 1 rejuvenation:attack_ev_card",
+      "E2 clamp at 250 Attack with a doubling multiplier: the multiplier saw exactly one battle EV event (the card reward), saw 1",
+      "E2 clamp at 250 Attack with a doubling multiplier: passed",
+      "E3 508 total EVs above the level cap: HP Card at 508 total, level 50 gains {HP=2}, got {HP=2}",
+      "E3 508 total EVs above the level cap: HP Card at 508 total, level 50 still holds its card afterwards, got 1 rejuvenation:hp_ev_card",
+      "E3 508 total EVs above the level cap: experience was suppressed (level cap) and the card reward still arrived",
+      "E3 508 total EVs above the level cap: passed",
+      "E4 ordinary Pok\u00e9mon and a Power Bracer are unchanged: no item gains {SPEED=1}, got {SPEED=1}",
+      "E4 ordinary Pok\u00e9mon and a Power Bracer are unchanged: passed",
+      "E4b Power Bracer keeps Cobblemon's behaviour: Power Bracer gains {ATTACK=8, SPEED=1}, got {ATTACK=8, SPEED=1}",
+      "E4b Power Bracer keeps Cobblemon's behaviour: the Power Bracer still adds its Attack EVs",
+      "E4b Power Bracer keeps Cobblemon's behaviour: passed",
+      "E5 full stat takes nothing, not even the natural yield: Attack Card at 252 Attack gains {}, got {}",
+      "E5 full stat takes nothing, not even the natural yield: Attack Card at 252 Attack still holds its card afterwards, got 1 rejuvenation:attack_ev_card",
+      "E5 full stat takes nothing, not even the natural yield: passed",
+      "E6 switching: two card holders take part: Defence Card lead, switched out gains {DEFENCE=32}, got {DEFENCE=32}",
+      "E6 switching: two card holders take part: Attack Card, switched in, knocks out gains {ATTACK=32}, got {ATTACK=32}",
+      "E6 switching: two card holders take part: no-item bench, never sent out gains {}, got {}",
+      "E6 switching: two card holders take part: Defence Card lead, switched out still holds its card afterwards, got 1 rejuvenation:defence_ev_card",
+      "E6 switching: two card holders take part: Attack Card, switched in, knocks out still holds its card afterwards, got 1 rejuvenation:attack_ev_card",
+      "E6 switching: two card holders take part: passed",
+      "E7 a participant that faints gets nothing: the lead really fainted",
+      "E7 a participant that faints gets nothing: Speed Card lead, knocked out gains {}, got {}",
+      "E7 a participant that faints gets nothing: Attack Card, sent in, knocks out gains {ATTACK=32}, got {ATTACK=32}",
+      "E7 a participant that faints gets nothing: Attack Card, sent in, knocks out still holds its card afterwards, got 1 rejuvenation:attack_ev_card",
+      "E7 a participant that faints gets nothing: passed",
+      "E8 RCT trainer battle, several knockouts: several trainer Pok\u00e9mon were knocked out (6)",
+      "E8 RCT trainer battle, several knockouts: Attack Card lead gains {ATTACK=192}, got {ATTACK=192}",
+      "E8 RCT trainer battle, several knockouts: Attack Card lead still holds its card afterwards, got 1 rejuvenation:attack_ev_card",
+      "E8 RCT trainer battle, several knockouts: Exp. Share bench gains {}, got {}",
+      "E8 RCT trainer battle, several knockouts: the Exp. Share bench still gains experience (2708)",
+      "E8 RCT trainer battle, several knockouts: passed"
+    ],
+    "notes": [],
+    "battles": [
+      {
+        "scenario": "E1 wild knockout, mixed bench",
+        "turns": 1,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "Attack Card lead",
+            "evGain": "{ATTACK=32}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:attack_ev_card"
+          },
+          {
+            "member": "Exp. Share bench",
+            "evGain": "{}",
+            "expGain": 15,
+            "heldAfter": "cobblemon:exp_share"
+          },
+          {
+            "member": "Speed Card bench (no Exp. Share)",
+            "evGain": "{}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:speed_ev_card"
+          },
+          {
+            "member": "no-item bench",
+            "evGain": "{}",
+            "expGain": 0,
+            "heldAfter": "minecraft:air"
+          }
+        ]
+      },
+      {
+        "scenario": "E2 clamp at 250 Attack with a doubling multiplier",
+        "turns": 1,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "Attack Card at 250 Attack",
+            "evGain": "{ATTACK=2}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:attack_ev_card"
+          }
+        ]
+      },
+      {
+        "scenario": "E3 508 total EVs above the level cap",
+        "turns": 1,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "HP Card at 508 total, level 50",
+            "evGain": "{HP=2}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:hp_ev_card"
+          }
+        ]
+      },
+      {
+        "scenario": "E4 ordinary Pok\u00e9mon and a Power Bracer are unchanged",
+        "turns": 1,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "no item",
+            "evGain": "{SPEED=1}",
+            "expGain": 0,
+            "heldAfter": "minecraft:air"
+          }
+        ]
+      },
+      {
+        "scenario": "E4b Power Bracer keeps Cobblemon's behaviour",
+        "turns": 1,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "Power Bracer",
+            "evGain": "{ATTACK=8, SPEED=1}",
+            "expGain": 0,
+            "heldAfter": "cobblemon:power_bracer"
+          }
+        ]
+      },
+      {
+        "scenario": "E5 full stat takes nothing, not even the natural yield",
+        "turns": 1,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "Attack Card at 252 Attack",
+            "evGain": "{}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:attack_ev_card"
+          }
+        ]
+      },
+      {
+        "scenario": "E6 switching: two card holders take part",
+        "turns": 2,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "Defence Card lead, switched out",
+            "evGain": "{DEFENCE=32}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:defence_ev_card"
+          },
+          {
+            "member": "Attack Card, switched in, knocks out",
+            "evGain": "{ATTACK=32}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:attack_ev_card"
+          },
+          {
+            "member": "no-item bench, never sent out",
+            "evGain": "{}",
+            "expGain": 0,
+            "heldAfter": "minecraft:air"
+          }
+        ]
+      },
+      {
+        "scenario": "E7 a participant that faints gets nothing",
+        "turns": 2,
+        "opponentsFainted": 1,
+        "members": [
+          {
+            "member": "Speed Card lead, knocked out",
+            "evGain": "{}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:speed_ev_card"
+          },
+          {
+            "member": "Attack Card, sent in, knocks out",
+            "evGain": "{ATTACK=32}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:attack_ev_card"
+          }
+        ]
+      },
+      {
+        "scenario": "E8 RCT trainer battle, several knockouts",
+        "turns": 7,
+        "opponentsFainted": 6,
+        "members": [
+          {
+            "member": "Attack Card lead",
+            "evGain": "{ATTACK=192}",
+            "expGain": 0,
+            "heldAfter": "rejuvenation:attack_ev_card"
+          },
+          {
+            "member": "Exp. Share bench",
+            "evGain": "{}",
+            "expGain": 2708,
+            "heldAfter": "cobblemon:exp_share"
+          }
+        ]
+      }
+    ],
+    "mode": "evcards",
+    "success": true,
+    "scenariosPassed": 9,
+    "scenarios": 9
+  },
+  "exitCode": 1,
+  "elapsedSeconds": 337.1,
+  "terminationReason": "Owned test process terminated after verification/timeout; exit code is not a crash assertion",
+  "fieldIntegrationErrors": [],
+  "log": "research/test-results/live-mode-evcards.log"
+}

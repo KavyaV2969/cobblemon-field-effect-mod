@@ -1,22 +1,42 @@
-"""Losslessly convert the five Rejuvenation item icons to Minecraft PNG textures.
+"""Losslessly convert the Rejuvenation item icons to Minecraft PNG textures, plus the recoloured Master Reverse Candy.
 
 The inspected source files are named *.png but are BMP files (48x48, 32 bpp, bottom-up, BI_BITFIELDS with channel masks). They are
 decoded exactly (no resampling, no recolouring, orientation corrected only by the BMP row order) and written as real PNG files
-(8-bit RGBA, filter 0, zlib level 9, IHDR/IDAT/IEND only, so the output is deterministic).
+(8-bit RGBA, filter 0, zlib level 9, IHDR/IDAT/IEND only, so the output is deterministic). The Master Reverse Candy has no source
+icon; it is the Reverse Candy with a fixed HSV recolour (DERIVED), recorded as such in the manifest.
 
 Inputs: the Rejuvenation reference game directory, from --reference, REJUVENATION_REFERENCE, or a sibling "Rejuvenation 14 copy".
 Outputs: assets/rejuvenation/textures/item/<id>.png, assets/rejuvenation/item_icons.json (provenance), textures/item/ATTRIBUTION.txt
 and, with --sheet, a source-beside-texture contact sheet for visual review.
 """
 from pathlib import Path
-import argparse, hashlib, json, os, struct, sys, zlib
+import argparse, colorsys, hashlib, json, os, struct, sys, zlib
 
 ROOT = Path(__file__).resolve().parents[1]
 ASSETS = ROOT / 'core/src/main/resources/assets/rejuvenation'
 ICONS = {  # registry path -> source file under Graphics/Icons/Item
     'magical_seed': 'magicalseed.png', 'telluric_seed': 'telluricseed.png', 'synthetic_seed': 'syntheticseed.png',
-    'elemental_seed': 'elementalseed.png', 'amplifield_rock': 'amplifieldrock.png'}
+    'elemental_seed': 'elementalseed.png', 'amplifield_rock': 'amplifieldrock.png', 'reverse_candy': 'reversecandy.png',
+    # EV Training Cards; hpcard.png and speedcard.png are real 8-bit RGBA PNG files, the other four BMP like the rest.
+    'hp_ev_card': 'hpcard.png', 'attack_ev_card': 'atkcard.png', 'defence_ev_card': 'defcard.png', 'special_attack_ev_card': 'spatkcard.png',
+    'special_defence_ev_card': 'spdefcard.png', 'speed_ev_card': 'speedcard.png'}
+#: Derived icons: registry path -> (base icon, recolour). Darker and redder than the Reverse Candy; the grey outline is kept.
+DERIVED = {'master_reverse_candy': ('reverse_candy', {'hue': 358, 'saturationScale': 1.8, 'saturationAdd': 0.25, 'valueScale': 0.70})}
 PNG_SIGNATURE = b'\x89PNG\r\n\x1a\n'
+
+
+def recolour(rows, hue, saturationScale, saturationAdd, valueScale):
+    """Every opaque coloured pixel (HSV saturation >= 0.05) takes the given hue, scaled saturation and scaled value; grey and transparent pixels are unchanged."""
+    out = []
+    for row in rows:
+        line = []
+        for r, g, b, a in row:
+            _, s, v = colorsys.rgb_to_hsv(r / 255, g / 255, b / 255)
+            if a and s >= 0.05:
+                r, g, b = (round(c * 255) for c in colorsys.hsv_to_rgb(hue / 360, min(1.0, s * saturationScale + saturationAdd), v * valueScale))
+            line.append((r, g, b, a))
+        out.append(line)
+    return out
 
 
 def decode_bmp(data):
@@ -67,7 +87,7 @@ def encode_png(width, height, rows):
 
 
 def decode_png(data):
-    """Minimal PNG reader for 8-bit RGBA non-interlaced images (all five outputs); verifies CRCs and applies every row filter."""
+    """Minimal PNG reader for 8-bit RGBA non-interlaced images (all outputs); verifies CRCs and applies every row filter."""
     if data[:8] != PNG_SIGNATURE: raise ValueError('bad PNG signature')
     pos, idat, width = 8, b'', None
     while pos < len(data):
@@ -122,40 +142,55 @@ def main():
     args = parser.parse_args()
     game = find_reference(args.reference)
     out_dir = ASSETS / 'textures/item'; out_dir.mkdir(parents=True, exist_ok=True)
-    manifest, pairs = {}, []
-    for item, source_name in ICONS.items():
-        source = game / 'Graphics/Icons/Item' / source_name
-        data = source.read_bytes()
-        w, h, rows = decode_bmp(data)
-        assert (w, h) == (48, 48), (source_name, w, h)
-        assert (w, h, rows) == decode_bmp_bytes(data), f'{source_name}: decoders disagree'
+    manifest, decoded = {}, {}
+    def write_texture(item, w, h, rows, entry):
         png = encode_png(w, h, rows)
         assert decode_png(png) == (w, h, rows), f'{item}: PNG round trip differs'
         target = out_dir / f'{item}.png'
         if target.exists(): target.unlink()
         target.write_bytes(png)
-        manifest[f'rejuvenation:{item}'] = {'texture': f'rejuvenation:item/{item}', 'sourceFile': f'Graphics/Icons/Item/{source_name}',
-            'sourceFormat': 'BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension', 'sourceSha256': hashlib.sha256(data).hexdigest(),
-            'sourceBytes': len(data), 'size': [w, h], 'rgbaSha256': hashlib.sha256(b''.join(bytes(px) for row in rows for px in row)).hexdigest(),
+        manifest[f'rejuvenation:{item}'] = {'texture': f'rejuvenation:item/{item}', **entry, 'size': [w, h],
+            'rgbaSha256': hashlib.sha256(b''.join(bytes(px) for row in rows for px in row)).hexdigest(),
             'sha256': hashlib.sha256(png).hexdigest(), 'bytes': len(png),
             'transparentPixels': sum(1 for r in rows for p in r if p[3] == 0), 'partiallyTransparentPixels': sum(1 for r in rows for p in r if 0 < p[3] < 255)}
-        pairs.append((rows, rows))
+    for item, source_name in ICONS.items():
+        source = game / 'Graphics/Icons/Item' / source_name
+        data = source.read_bytes()
+        if data[:8] == PNG_SIGNATURE:
+            w, h, rows = decode_png(data)
+            source_format = 'PNG (8-bit RGBA, non-interlaced)'
+        else:
+            w, h, rows = decode_bmp(data)
+            assert (w, h, rows) == decode_bmp_bytes(data), f'{source_name}: decoders disagree'
+            source_format = 'BMP (BI_BITFIELDS, 32-bit BGRA, bottom-up) despite the .png extension'
+        assert (w, h) == (48, 48), (source_name, w, h)
+        decoded[item] = rows
+        write_texture(item, w, h, rows, {'sourceFile': f'Graphics/Icons/Item/{source_name}',
+            'sourceFormat': source_format, 'sourceSha256': hashlib.sha256(data).hexdigest(), 'sourceBytes': len(data)})
+    for item, (base, params) in DERIVED.items():
+        rows = recolour(decoded[base], **params)
+        assert [[p[3] for p in r] for r in rows] == [[p[3] for p in r] for r in decoded[base]], f'{item}: recolour changed the alpha mask'
+        write_texture(item, 48, 48, rows, {'derivedFrom': f'rejuvenation:{base}', 'sourceFile': manifest[f'rejuvenation:{base}']['sourceFile'],
+            'recolour': params, 'recolourMethod': 'research/convert_item_icons.py recolour(): opaque pixels with HSV saturation >= 0.05 take the hue, '
+            'min(1, s * saturationScale + saturationAdd) and v * valueScale; grey outline and transparency unchanged'})
     credit = ('Item icons from Pokémon Rejuvenation V14 (Graphics/Icons/Item), a fan game by Janichroma (lead developer) and the Rejuvenation team; '
               "art credited in the game's ReadMe_Credits.txt to Zumi (Honnojis), Janichroma, Crimson, CeriseBlossome, Winter, Azeria, Dallas, "
               'Soulja, IronicOmens and MoonPaw. Pokémon is © Nintendo, Creatures Inc. and GAME FREAK inc.')
     basis = ('Redistribution basis: the project owner states this is a non-commercial fan mod for the game and that its use of these game icons '
-             'is allowed as such. No written permission from the Rejuvenation team is on file; see THIRD_PARTY.md. Remove the five '
+             f'is allowed as such. No written permission from the Rejuvenation team is on file; see THIRD_PARTY.md. Remove the {len(ICONS) + len(DERIVED)} '
              'files if that basis is withdrawn.')
-    method = ('Decoded the BMP pixel data exactly (channel masks honoured, bottom-up rows flipped) and re-encoded them as 8-bit RGBA PNG; no '
-              'resampling, recolouring or redrawing. Reproduce with research/convert_item_icons.py.')
-    (ASSETS / 'item_icons.json').write_text(json.dumps({'description': 'Held-item icons converted losslessly from Pokémon Rejuvenation 14.', 'credit': credit,
+    method = ('Decoded the BMP pixel data exactly (channel masks honoured, bottom-up rows flipped), or the pixels of the two sources that are '
+              'real PNG files (hpcard, speedcard), and re-encoded them as 8-bit RGBA PNG; no resampling, recolouring or redrawing. Exception: the Master Reverse Candy has no icon in the game and is the Reverse Candy '
+              'icon recoloured darker and redder (see its "recolour" entry). Reproduce with research/convert_item_icons.py.')
+    (ASSETS / 'item_icons.json').write_text(json.dumps({'description': 'Item icons converted losslessly from Pokémon Rejuvenation 14, plus one recoloured derivative.', 'credit': credit,
         'basis': basis, 'method': method, 'items': manifest}, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
     (out_dir / 'ATTRIBUTION.txt').write_text(credit + '\n\n' + basis + '\n\n' + method + '\n\nSee ../../item_icons.json for each source file, SHA-256 and output hash.\n', encoding='utf-8')
     if args.sheet:
         sheet = Path(args.sheet); sheet.parent.mkdir(parents=True, exist_ok=True)
-        decoded = [(decode_bmp((game / 'Graphics/Icons/Item' / s).read_bytes())[2], decode_png((out_dir / f'{i}.png').read_bytes())[2]) for i, s in ICONS.items()]
-        sheet.write_bytes(contact_sheet(decoded))
-    print(f'Converted {len(ICONS)} icons from {game}')
+        pairs = [(decoded[i], decode_png((out_dir / f'{i}.png').read_bytes())[2]) for i in ICONS]
+        pairs += [(decoded[base], decode_png((out_dir / f'{i}.png').read_bytes())[2]) for i, (base, _) in DERIVED.items()]
+        sheet.write_bytes(contact_sheet(pairs))
+    print(f'Converted {len(ICONS)} icons and derived {len(DERIVED)} from {game}')
 
 
 if __name__ == '__main__':
